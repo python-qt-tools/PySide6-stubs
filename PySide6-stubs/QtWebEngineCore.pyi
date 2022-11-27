@@ -1,0 +1,1237 @@
+#############################################################################
+##
+## Copyright (C) 2021 The Qt Company Ltd.
+## Contact: https://www.qt.io/licensing/
+##
+## This file is part of Qt for Python.
+##
+## $QT_BEGIN_LICENSE:LGPL$
+## Commercial License Usage
+## Licensees holding valid commercial Qt licenses may use this file in
+## accordance with the commercial license agreement provided with the
+## Software or, alternatively, in accordance with the terms contained in
+## a written agreement between you and The Qt Company. For licensing terms
+## and conditions see https://www.qt.io/terms-conditions. For further
+## information use the contact form at https://www.qt.io/contact-us.
+##
+## GNU Lesser General Public License Usage
+## Alternatively, this file may be used under the terms of the GNU Lesser
+## General Public License version 3 as published by the Free Software
+## Foundation and appearing in the file LICENSE.LGPL3 included in the
+## packaging of this file. Please review the following information to
+## ensure the GNU Lesser General Public License version 3 requirements
+## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
+##
+## GNU General Public License Usage
+## Alternatively, this file may be used under the terms of the GNU
+## General Public License version 2.0 or (at your option) the GNU General
+## Public license version 3 or any later version approved by the KDE Free
+## Qt Foundation. The licenses are as published by the Free Software
+## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
+## included in the packaging of this file. Please review the following
+## information to ensure the GNU General Public License requirements will
+## be met: https://www.gnu.org/licenses/gpl-2.0.html and
+## https://www.gnu.org/licenses/gpl-3.0.html.
+##
+## $QT_END_LICENSE$
+##
+#############################################################################
+from __future__ import annotations
+
+"""
+This file contains the exact signatures for all functions in module
+PySide6.QtWebEngineCore, except for defaults which are replaced by "...".
+"""
+
+# Module `PySide6.QtWebEngineCore`
+
+import PySide6.QtWebEngineCore
+import PySide6.QtCore
+import PySide6.QtGui
+import PySide6.QtNetwork
+import PySide6.QtWebChannel
+
+from enum import Enum
+from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
+from shiboken6 import Shiboken
+
+
+class QIntList(object): ...
+
+
+class QWebEngineCertificateError(Shiboken.Object):
+
+    SslObsoleteVersion       : QWebEngineCertificateError.Type = ... # -0xda
+    CertificateKnownInterceptionBlocked: QWebEngineCertificateError.Type = ... # -0xd9
+    CertificateSymantecLegacy: QWebEngineCertificateError.Type = ... # -0xd7
+    CertificateTransparencyRequired: QWebEngineCertificateError.Type = ... # -0xd6
+    CertificateValidityTooLong: QWebEngineCertificateError.Type = ... # -0xd5
+    CertificateNameConstraintViolation: QWebEngineCertificateError.Type = ... # -0xd4
+    CertificateWeakKey       : QWebEngineCertificateError.Type = ... # -0xd3
+    CertificateNonUniqueName : QWebEngineCertificateError.Type = ... # -0xd2
+    CertificateWeakSignatureAlgorithm: QWebEngineCertificateError.Type = ... # -0xd0
+    CertificateInvalid       : QWebEngineCertificateError.Type = ... # -0xcf
+    CertificateRevoked       : QWebEngineCertificateError.Type = ... # -0xce
+    CertificateUnableToCheckRevocation: QWebEngineCertificateError.Type = ... # -0xcd
+    CertificateNoRevocationMechanism: QWebEngineCertificateError.Type = ... # -0xcc
+    CertificateContainsErrors: QWebEngineCertificateError.Type = ... # -0xcb
+    CertificateAuthorityInvalid: QWebEngineCertificateError.Type = ... # -0xca
+    CertificateDateInvalid   : QWebEngineCertificateError.Type = ... # -0xc9
+    CertificateCommonNameInvalid: QWebEngineCertificateError.Type = ... # -0xc8
+    SslPinnedKeyNotInCertificateChain: QWebEngineCertificateError.Type = ... # -0x96
+
+    class Type(Enum):
+
+        SslObsoleteVersion       : QWebEngineCertificateError.Type = ... # -0xda
+        CertificateKnownInterceptionBlocked: QWebEngineCertificateError.Type = ... # -0xd9
+        CertificateSymantecLegacy: QWebEngineCertificateError.Type = ... # -0xd7
+        CertificateTransparencyRequired: QWebEngineCertificateError.Type = ... # -0xd6
+        CertificateValidityTooLong: QWebEngineCertificateError.Type = ... # -0xd5
+        CertificateNameConstraintViolation: QWebEngineCertificateError.Type = ... # -0xd4
+        CertificateWeakKey       : QWebEngineCertificateError.Type = ... # -0xd3
+        CertificateNonUniqueName : QWebEngineCertificateError.Type = ... # -0xd2
+        CertificateWeakSignatureAlgorithm: QWebEngineCertificateError.Type = ... # -0xd0
+        CertificateInvalid       : QWebEngineCertificateError.Type = ... # -0xcf
+        CertificateRevoked       : QWebEngineCertificateError.Type = ... # -0xce
+        CertificateUnableToCheckRevocation: QWebEngineCertificateError.Type = ... # -0xcd
+        CertificateNoRevocationMechanism: QWebEngineCertificateError.Type = ... # -0xcc
+        CertificateContainsErrors: QWebEngineCertificateError.Type = ... # -0xcb
+        CertificateAuthorityInvalid: QWebEngineCertificateError.Type = ... # -0xca
+        CertificateDateInvalid   : QWebEngineCertificateError.Type = ... # -0xc9
+        CertificateCommonNameInvalid: QWebEngineCertificateError.Type = ... # -0xc8
+        SslPinnedKeyNotInCertificateChain: QWebEngineCertificateError.Type = ... # -0x96
+
+
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineCertificateError) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def acceptCertificate(self) -> None: ...
+    def certificateChain(self) -> List[PySide6.QtNetwork.QSslCertificate]: ...
+    def defer(self) -> None: ...
+    def description(self) -> str: ...
+    def isOverridable(self) -> bool: ...
+    def rejectCertificate(self) -> None: ...
+    def type(self) -> PySide6.QtWebEngineCore.QWebEngineCertificateError.Type: ...
+    def url(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
+
+    CanUndo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x1
+    CanRedo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x2
+    CanCut                   : QWebEngineContextMenuRequest.EditFlag = ... # 0x4
+    CanCopy                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x8
+    CanPaste                 : QWebEngineContextMenuRequest.EditFlag = ... # 0x10
+    CanDelete                : QWebEngineContextMenuRequest.EditFlag = ... # 0x20
+    CanSelectAll             : QWebEngineContextMenuRequest.EditFlag = ... # 0x40
+    CanTranslate             : QWebEngineContextMenuRequest.EditFlag = ... # 0x80
+    CanEditRichly            : QWebEngineContextMenuRequest.EditFlag = ... # 0x100
+    MediaInError             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x1
+    MediaPaused              : QWebEngineContextMenuRequest.MediaFlag = ... # 0x2
+    MediaMuted               : QWebEngineContextMenuRequest.MediaFlag = ... # 0x4
+    MediaLoop                : QWebEngineContextMenuRequest.MediaFlag = ... # 0x8
+    MediaCanSave             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x10
+    MediaHasAudio            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x20
+    MediaCanToggleControls   : QWebEngineContextMenuRequest.MediaFlag = ... # 0x40
+    MediaControls            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x80
+    MediaCanPrint            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x100
+    MediaCanRotate           : QWebEngineContextMenuRequest.MediaFlag = ... # 0x200
+    MediaTypeNone            : QWebEngineContextMenuRequest.MediaType = ... # 0x0
+    MediaTypeImage           : QWebEngineContextMenuRequest.MediaType = ... # 0x1
+    MediaTypeVideo           : QWebEngineContextMenuRequest.MediaType = ... # 0x2
+    MediaTypeAudio           : QWebEngineContextMenuRequest.MediaType = ... # 0x3
+    MediaTypeCanvas          : QWebEngineContextMenuRequest.MediaType = ... # 0x4
+    MediaTypeFile            : QWebEngineContextMenuRequest.MediaType = ... # 0x5
+    MediaTypePlugin          : QWebEngineContextMenuRequest.MediaType = ... # 0x6
+
+    class EditFlag(Enum):
+
+        CanUndo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x1
+        CanRedo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x2
+        CanCut                   : QWebEngineContextMenuRequest.EditFlag = ... # 0x4
+        CanCopy                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x8
+        CanPaste                 : QWebEngineContextMenuRequest.EditFlag = ... # 0x10
+        CanDelete                : QWebEngineContextMenuRequest.EditFlag = ... # 0x20
+        CanSelectAll             : QWebEngineContextMenuRequest.EditFlag = ... # 0x40
+        CanTranslate             : QWebEngineContextMenuRequest.EditFlag = ... # 0x80
+        CanEditRichly            : QWebEngineContextMenuRequest.EditFlag = ... # 0x100
+
+    class EditFlags(object): ...
+
+    class MediaFlag(Enum):
+
+        MediaInError             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x1
+        MediaPaused              : QWebEngineContextMenuRequest.MediaFlag = ... # 0x2
+        MediaMuted               : QWebEngineContextMenuRequest.MediaFlag = ... # 0x4
+        MediaLoop                : QWebEngineContextMenuRequest.MediaFlag = ... # 0x8
+        MediaCanSave             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x10
+        MediaHasAudio            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x20
+        MediaCanToggleControls   : QWebEngineContextMenuRequest.MediaFlag = ... # 0x40
+        MediaControls            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x80
+        MediaCanPrint            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x100
+        MediaCanRotate           : QWebEngineContextMenuRequest.MediaFlag = ... # 0x200
+
+    class MediaFlags(object): ...
+
+    class MediaType(Enum):
+
+        MediaTypeNone            : QWebEngineContextMenuRequest.MediaType = ... # 0x0
+        MediaTypeImage           : QWebEngineContextMenuRequest.MediaType = ... # 0x1
+        MediaTypeVideo           : QWebEngineContextMenuRequest.MediaType = ... # 0x2
+        MediaTypeAudio           : QWebEngineContextMenuRequest.MediaType = ... # 0x3
+        MediaTypeCanvas          : QWebEngineContextMenuRequest.MediaType = ... # 0x4
+        MediaTypeFile            : QWebEngineContextMenuRequest.MediaType = ... # 0x5
+        MediaTypePlugin          : QWebEngineContextMenuRequest.MediaType = ... # 0x6
+
+
+    def editFlags(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.EditFlags: ...
+    def isAccepted(self) -> bool: ...
+    def isContentEditable(self) -> bool: ...
+    def linkText(self) -> str: ...
+    def linkUrl(self) -> PySide6.QtCore.QUrl: ...
+    def mediaFlags(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.MediaFlags: ...
+    def mediaType(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.MediaType: ...
+    def mediaUrl(self) -> PySide6.QtCore.QUrl: ...
+    def misspelledWord(self) -> str: ...
+    def position(self) -> PySide6.QtCore.QPoint: ...
+    def selectedText(self) -> str: ...
+    def setAccepted(self, accepted: bool) -> None: ...
+    def spellCheckerSuggestions(self) -> List[str]: ...
+
+
+class QWebEngineCookieStore(PySide6.QtCore.QObject):
+    def deleteAllCookies(self) -> None: ...
+    def deleteCookie(self, cookie: PySide6.QtNetwork.QNetworkCookie, origin: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
+    def deleteSessionCookies(self) -> None: ...
+    def loadAllCookies(self) -> None: ...
+    def setCookie(self, cookie: PySide6.QtNetwork.QNetworkCookie, origin: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
+
+
+class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
+
+    NoReason                 : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x0
+    FileFailed               : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1
+    FileAccessDenied         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x2
+    FileNoSpace              : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x3
+    FileNameTooLong          : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x5
+    FileTooLarge             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x6
+    FileVirusInfected        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x7
+    FileTransientError       : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xa
+    FileBlocked              : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xb
+    FileSecurityCheckFailed  : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xc
+    FileTooShort             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xd
+    FileHashMismatch         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xe
+    NetworkFailed            : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x14
+    NetworkTimeout           : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x15
+    NetworkDisconnected      : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x16
+    NetworkServerDown        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x17
+    NetworkInvalidRequest    : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x18
+    ServerFailed             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1e
+    ServerBadContent         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x21
+    ServerUnauthorized       : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x22
+    ServerCertProblem        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x23
+    ServerForbidden          : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x24
+    ServerUnreachable        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x25
+    UserCanceled             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x28
+    DownloadRequested        : QWebEngineDownloadRequest.DownloadState = ... # 0x0
+    DownloadInProgress       : QWebEngineDownloadRequest.DownloadState = ... # 0x1
+    DownloadCompleted        : QWebEngineDownloadRequest.DownloadState = ... # 0x2
+    DownloadCancelled        : QWebEngineDownloadRequest.DownloadState = ... # 0x3
+    DownloadInterrupted      : QWebEngineDownloadRequest.DownloadState = ... # 0x4
+    UnknownSaveFormat        : QWebEngineDownloadRequest.SavePageFormat = ... # -0x1
+    SingleHtmlSaveFormat     : QWebEngineDownloadRequest.SavePageFormat = ... # 0x0
+    CompleteHtmlSaveFormat   : QWebEngineDownloadRequest.SavePageFormat = ... # 0x1
+    MimeHtmlSaveFormat       : QWebEngineDownloadRequest.SavePageFormat = ... # 0x2
+
+    class DownloadInterruptReason(Enum):
+
+        NoReason                 : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x0
+        FileFailed               : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1
+        FileAccessDenied         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x2
+        FileNoSpace              : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x3
+        FileNameTooLong          : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x5
+        FileTooLarge             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x6
+        FileVirusInfected        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x7
+        FileTransientError       : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xa
+        FileBlocked              : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xb
+        FileSecurityCheckFailed  : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xc
+        FileTooShort             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xd
+        FileHashMismatch         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xe
+        NetworkFailed            : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x14
+        NetworkTimeout           : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x15
+        NetworkDisconnected      : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x16
+        NetworkServerDown        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x17
+        NetworkInvalidRequest    : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x18
+        ServerFailed             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1e
+        ServerBadContent         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x21
+        ServerUnauthorized       : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x22
+        ServerCertProblem        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x23
+        ServerForbidden          : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x24
+        ServerUnreachable        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x25
+        UserCanceled             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x28
+
+    class DownloadState(Enum):
+
+        DownloadRequested        : QWebEngineDownloadRequest.DownloadState = ... # 0x0
+        DownloadInProgress       : QWebEngineDownloadRequest.DownloadState = ... # 0x1
+        DownloadCompleted        : QWebEngineDownloadRequest.DownloadState = ... # 0x2
+        DownloadCancelled        : QWebEngineDownloadRequest.DownloadState = ... # 0x3
+        DownloadInterrupted      : QWebEngineDownloadRequest.DownloadState = ... # 0x4
+
+    class SavePageFormat(Enum):
+
+        UnknownSaveFormat        : QWebEngineDownloadRequest.SavePageFormat = ... # -0x1
+        SingleHtmlSaveFormat     : QWebEngineDownloadRequest.SavePageFormat = ... # 0x0
+        CompleteHtmlSaveFormat   : QWebEngineDownloadRequest.SavePageFormat = ... # 0x1
+        MimeHtmlSaveFormat       : QWebEngineDownloadRequest.SavePageFormat = ... # 0x2
+
+
+    def accept(self) -> None: ...
+    def cancel(self) -> None: ...
+    def downloadDirectory(self) -> str: ...
+    def downloadFileName(self) -> str: ...
+    def id(self) -> int: ...
+    def interruptReason(self) -> PySide6.QtWebEngineCore.QWebEngineDownloadRequest.DownloadInterruptReason: ...
+    def interruptReasonString(self) -> str: ...
+    def isFinished(self) -> bool: ...
+    def isPaused(self) -> bool: ...
+    def isSavePageDownload(self) -> bool: ...
+    def mimeType(self) -> str: ...
+    def page(self) -> PySide6.QtWebEngineCore.QWebEnginePage: ...
+    def pause(self) -> None: ...
+    def receivedBytes(self) -> int: ...
+    def resume(self) -> None: ...
+    def savePageFormat(self) -> PySide6.QtWebEngineCore.QWebEngineDownloadRequest.SavePageFormat: ...
+    def setDownloadDirectory(self, directory: str) -> None: ...
+    def setDownloadFileName(self, fileName: str) -> None: ...
+    def setSavePageFormat(self, format: PySide6.QtWebEngineCore.QWebEngineDownloadRequest.SavePageFormat) -> None: ...
+    def state(self) -> PySide6.QtWebEngineCore.QWebEngineDownloadRequest.DownloadState: ...
+    def suggestedFileName(self) -> str: ...
+    def totalBytes(self) -> int: ...
+    def url(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineFindTextResult(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineFindTextResult) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def activeMatch(self) -> int: ...
+    def numberOfMatches(self) -> int: ...
+
+
+class QWebEngineFullScreenRequest(Shiboken.Object):
+
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineFullScreenRequest) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def accept(self) -> None: ...
+    def origin(self) -> PySide6.QtCore.QUrl: ...
+    def reject(self) -> None: ...
+    def toggleOn(self) -> bool: ...
+
+
+class QWebEngineHistory(PySide6.QtCore.QObject):
+    def __lshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
+    def __rshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
+    def back(self) -> None: ...
+    def backItem(self) -> PySide6.QtWebEngineCore.QWebEngineHistoryItem: ...
+    def backItems(self, maxItems: int) -> List[PySide6.QtWebEngineCore.QWebEngineHistoryItem]: ...
+    def backItemsModel(self) -> PySide6.QtWebEngineCore.QWebEngineHistoryModel: ...
+    def canGoBack(self) -> bool: ...
+    def canGoForward(self) -> bool: ...
+    def clear(self) -> None: ...
+    def count(self) -> int: ...
+    def currentItem(self) -> PySide6.QtWebEngineCore.QWebEngineHistoryItem: ...
+    def currentItemIndex(self) -> int: ...
+    def forward(self) -> None: ...
+    def forwardItem(self) -> PySide6.QtWebEngineCore.QWebEngineHistoryItem: ...
+    def forwardItems(self, maxItems: int) -> List[PySide6.QtWebEngineCore.QWebEngineHistoryItem]: ...
+    def forwardItemsModel(self) -> PySide6.QtWebEngineCore.QWebEngineHistoryModel: ...
+    def goToItem(self, item: PySide6.QtWebEngineCore.QWebEngineHistoryItem) -> None: ...
+    def itemAt(self, i: int) -> PySide6.QtWebEngineCore.QWebEngineHistoryItem: ...
+    def items(self) -> List[PySide6.QtWebEngineCore.QWebEngineHistoryItem]: ...
+    def itemsModel(self) -> PySide6.QtWebEngineCore.QWebEngineHistoryModel: ...
+
+
+class QWebEngineHistoryItem(Shiboken.Object):
+
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineHistoryItem) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def iconUrl(self) -> PySide6.QtCore.QUrl: ...
+    def isValid(self) -> bool: ...
+    def lastVisited(self) -> PySide6.QtCore.QDateTime: ...
+    def originalUrl(self) -> PySide6.QtCore.QUrl: ...
+    def title(self) -> str: ...
+    def url(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineHistoryModel(PySide6.QtCore.QAbstractListModel):
+
+    UrlRole                  : QWebEngineHistoryModel.Roles = ... # 0x100
+    TitleRole                : QWebEngineHistoryModel.Roles = ... # 0x101
+    OffsetRole               : QWebEngineHistoryModel.Roles = ... # 0x102
+    IconUrlRole              : QWebEngineHistoryModel.Roles = ... # 0x103
+
+    class Roles(Enum):
+
+        UrlRole                  : QWebEngineHistoryModel.Roles = ... # 0x100
+        TitleRole                : QWebEngineHistoryModel.Roles = ... # 0x101
+        OffsetRole               : QWebEngineHistoryModel.Roles = ... # 0x102
+        IconUrlRole              : QWebEngineHistoryModel.Roles = ... # 0x103
+
+
+    def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
+    def reset(self) -> None: ...
+    def roleNames(self) -> Dict[int, PySide6.QtCore.QByteArray]: ...
+    def rowCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
+
+
+class QWebEngineHttpRequest(Shiboken.Object):
+
+    Get                      : QWebEngineHttpRequest.Method = ... # 0x0
+    Post                     : QWebEngineHttpRequest.Method = ... # 0x1
+
+    class Method(Enum):
+
+        Get                      : QWebEngineHttpRequest.Method = ... # 0x0
+        Post                     : QWebEngineHttpRequest.Method = ... # 0x1
+
+
+    @overload
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineHttpRequest) -> None: ...
+    @overload
+    def __init__(self, url: Union[PySide6.QtCore.QUrl, str] = ..., method: PySide6.QtWebEngineCore.QWebEngineHttpRequest.Method = ...) -> None: ...
+
+    def hasHeader(self, headerName: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
+    def header(self, headerName: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtCore.QByteArray: ...
+    def headers(self) -> List[PySide6.QtCore.QByteArray]: ...
+    def method(self) -> PySide6.QtWebEngineCore.QWebEngineHttpRequest.Method: ...
+    def postData(self) -> PySide6.QtCore.QByteArray: ...
+    @staticmethod
+    def postRequest(url: Union[PySide6.QtCore.QUrl, str], postData: Dict[str, str]) -> PySide6.QtWebEngineCore.QWebEngineHttpRequest: ...
+    def setHeader(self, headerName: Union[PySide6.QtCore.QByteArray, bytes], value: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setMethod(self, method: PySide6.QtWebEngineCore.QWebEngineHttpRequest.Method) -> None: ...
+    def setPostData(self, postData: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setUrl(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def swap(self, other: PySide6.QtWebEngineCore.QWebEngineHttpRequest) -> None: ...
+    def unsetHeader(self, headerName: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def url(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineLoadingInfo(Shiboken.Object):
+
+    NoErrorDomain            : QWebEngineLoadingInfo.ErrorDomain = ... # 0x0
+    InternalErrorDomain      : QWebEngineLoadingInfo.ErrorDomain = ... # 0x1
+    ConnectionErrorDomain    : QWebEngineLoadingInfo.ErrorDomain = ... # 0x2
+    CertificateErrorDomain   : QWebEngineLoadingInfo.ErrorDomain = ... # 0x3
+    HttpErrorDomain          : QWebEngineLoadingInfo.ErrorDomain = ... # 0x4
+    FtpErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x5
+    DnsErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x6
+    LoadStartedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x0
+    LoadStoppedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x1
+    LoadSucceededStatus      : QWebEngineLoadingInfo.LoadStatus = ... # 0x2
+    LoadFailedStatus         : QWebEngineLoadingInfo.LoadStatus = ... # 0x3
+
+    class ErrorDomain(Enum):
+
+        NoErrorDomain            : QWebEngineLoadingInfo.ErrorDomain = ... # 0x0
+        InternalErrorDomain      : QWebEngineLoadingInfo.ErrorDomain = ... # 0x1
+        ConnectionErrorDomain    : QWebEngineLoadingInfo.ErrorDomain = ... # 0x2
+        CertificateErrorDomain   : QWebEngineLoadingInfo.ErrorDomain = ... # 0x3
+        HttpErrorDomain          : QWebEngineLoadingInfo.ErrorDomain = ... # 0x4
+        FtpErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x5
+        DnsErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x6
+
+    class LoadStatus(Enum):
+
+        LoadStartedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x0
+        LoadStoppedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x1
+        LoadSucceededStatus      : QWebEngineLoadingInfo.LoadStatus = ... # 0x2
+        LoadFailedStatus         : QWebEngineLoadingInfo.LoadStatus = ... # 0x3
+
+
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineLoadingInfo) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def errorCode(self) -> int: ...
+    def errorDomain(self) -> PySide6.QtWebEngineCore.QWebEngineLoadingInfo.ErrorDomain: ...
+    def errorString(self) -> str: ...
+    def isErrorPage(self) -> bool: ...
+    def status(self) -> PySide6.QtWebEngineCore.QWebEngineLoadingInfo.LoadStatus: ...
+    def url(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineNewWindowRequest(PySide6.QtCore.QObject):
+
+    InNewWindow              : QWebEngineNewWindowRequest.DestinationType = ... # 0x0
+    InNewTab                 : QWebEngineNewWindowRequest.DestinationType = ... # 0x1
+    InNewDialog              : QWebEngineNewWindowRequest.DestinationType = ... # 0x2
+    InNewBackgroundTab       : QWebEngineNewWindowRequest.DestinationType = ... # 0x3
+
+    class DestinationType(Enum):
+
+        InNewWindow              : QWebEngineNewWindowRequest.DestinationType = ... # 0x0
+        InNewTab                 : QWebEngineNewWindowRequest.DestinationType = ... # 0x1
+        InNewDialog              : QWebEngineNewWindowRequest.DestinationType = ... # 0x2
+        InNewBackgroundTab       : QWebEngineNewWindowRequest.DestinationType = ... # 0x3
+
+
+    def destination(self) -> PySide6.QtWebEngineCore.QWebEngineNewWindowRequest.DestinationType: ...
+    def isUserInitiated(self) -> bool: ...
+    def openIn(self, arg__1: PySide6.QtWebEngineCore.QWebEnginePage) -> None: ...
+    def requestedGeometry(self) -> PySide6.QtCore.QRect: ...
+    def requestedUrl(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineNotification(PySide6.QtCore.QObject):
+    def click(self) -> None: ...
+    def close(self) -> None: ...
+    def direction(self) -> PySide6.QtCore.Qt.LayoutDirection: ...
+    def icon(self) -> PySide6.QtGui.QImage: ...
+    def language(self) -> str: ...
+    def matches(self, other: PySide6.QtWebEngineCore.QWebEngineNotification) -> bool: ...
+    def message(self) -> str: ...
+    def origin(self) -> PySide6.QtCore.QUrl: ...
+    def show(self) -> None: ...
+    def tag(self) -> str: ...
+    def title(self) -> str: ...
+
+
+class QWebEnginePage(PySide6.QtCore.QObject):
+
+    Notifications            : QWebEnginePage.Feature = ... # 0x0
+    Geolocation              : QWebEnginePage.Feature = ... # 0x1
+    MediaAudioCapture        : QWebEnginePage.Feature = ... # 0x2
+    MediaVideoCapture        : QWebEnginePage.Feature = ... # 0x3
+    MediaAudioVideoCapture   : QWebEnginePage.Feature = ... # 0x4
+    MouseLock                : QWebEnginePage.Feature = ... # 0x5
+    DesktopVideoCapture      : QWebEnginePage.Feature = ... # 0x6
+    DesktopAudioVideoCapture : QWebEnginePage.Feature = ... # 0x7
+    FileSelectOpen           : QWebEnginePage.FileSelectionMode = ... # 0x0
+    FileSelectOpenMultiple   : QWebEnginePage.FileSelectionMode = ... # 0x1
+    FileSelectUploadFolder   : QWebEnginePage.FileSelectionMode = ... # 0x2
+    FileSelectSave           : QWebEnginePage.FileSelectionMode = ... # 0x3
+    FindBackward             : QWebEnginePage.FindFlag = ... # 0x1
+    FindCaseSensitively      : QWebEnginePage.FindFlag = ... # 0x2
+    InfoMessageLevel         : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x0
+    WarningMessageLevel      : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x1
+    ErrorMessageLevel        : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x2
+    NavigationTypeLinkClicked: QWebEnginePage.NavigationType = ... # 0x0
+    NavigationTypeTyped      : QWebEnginePage.NavigationType = ... # 0x1
+    NavigationTypeFormSubmitted: QWebEnginePage.NavigationType = ... # 0x2
+    NavigationTypeBackForward: QWebEnginePage.NavigationType = ... # 0x3
+    NavigationTypeReload     : QWebEnginePage.NavigationType = ... # 0x4
+    NavigationTypeOther      : QWebEnginePage.NavigationType = ... # 0x5
+    NavigationTypeRedirect   : QWebEnginePage.NavigationType = ... # 0x6
+    PermissionUnknown        : QWebEnginePage.PermissionPolicy = ... # 0x0
+    PermissionGrantedByUser  : QWebEnginePage.PermissionPolicy = ... # 0x1
+    PermissionDeniedByUser   : QWebEnginePage.PermissionPolicy = ... # 0x2
+    NormalTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x0
+    AbnormalTerminationStatus: QWebEnginePage.RenderProcessTerminationStatus = ... # 0x1
+    CrashedTerminationStatus : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x2
+    KilledTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x3
+    NoWebAction              : QWebEnginePage.WebAction = ... # -0x1
+    Back                     : QWebEnginePage.WebAction = ... # 0x0
+    Forward                  : QWebEnginePage.WebAction = ... # 0x1
+    Stop                     : QWebEnginePage.WebAction = ... # 0x2
+    Reload                   : QWebEnginePage.WebAction = ... # 0x3
+    Cut                      : QWebEnginePage.WebAction = ... # 0x4
+    Copy                     : QWebEnginePage.WebAction = ... # 0x5
+    Paste                    : QWebEnginePage.WebAction = ... # 0x6
+    Undo                     : QWebEnginePage.WebAction = ... # 0x7
+    Redo                     : QWebEnginePage.WebAction = ... # 0x8
+    SelectAll                : QWebEnginePage.WebAction = ... # 0x9
+    ReloadAndBypassCache     : QWebEnginePage.WebAction = ... # 0xa
+    PasteAndMatchStyle       : QWebEnginePage.WebAction = ... # 0xb
+    OpenLinkInThisWindow     : QWebEnginePage.WebAction = ... # 0xc
+    OpenLinkInNewWindow      : QWebEnginePage.WebAction = ... # 0xd
+    OpenLinkInNewTab         : QWebEnginePage.WebAction = ... # 0xe
+    CopyLinkToClipboard      : QWebEnginePage.WebAction = ... # 0xf
+    DownloadLinkToDisk       : QWebEnginePage.WebAction = ... # 0x10
+    CopyImageToClipboard     : QWebEnginePage.WebAction = ... # 0x11
+    CopyImageUrlToClipboard  : QWebEnginePage.WebAction = ... # 0x12
+    DownloadImageToDisk      : QWebEnginePage.WebAction = ... # 0x13
+    CopyMediaUrlToClipboard  : QWebEnginePage.WebAction = ... # 0x14
+    ToggleMediaControls      : QWebEnginePage.WebAction = ... # 0x15
+    ToggleMediaLoop          : QWebEnginePage.WebAction = ... # 0x16
+    ToggleMediaPlayPause     : QWebEnginePage.WebAction = ... # 0x17
+    ToggleMediaMute          : QWebEnginePage.WebAction = ... # 0x18
+    DownloadMediaToDisk      : QWebEnginePage.WebAction = ... # 0x19
+    InspectElement           : QWebEnginePage.WebAction = ... # 0x1a
+    ExitFullScreen           : QWebEnginePage.WebAction = ... # 0x1b
+    RequestClose             : QWebEnginePage.WebAction = ... # 0x1c
+    Unselect                 : QWebEnginePage.WebAction = ... # 0x1d
+    SavePage                 : QWebEnginePage.WebAction = ... # 0x1e
+    OpenLinkInNewBackgroundTab: QWebEnginePage.WebAction = ... # 0x1f
+    ViewSource               : QWebEnginePage.WebAction = ... # 0x20
+    ToggleBold               : QWebEnginePage.WebAction = ... # 0x21
+    ToggleItalic             : QWebEnginePage.WebAction = ... # 0x22
+    ToggleUnderline          : QWebEnginePage.WebAction = ... # 0x23
+    ToggleStrikethrough      : QWebEnginePage.WebAction = ... # 0x24
+    AlignLeft                : QWebEnginePage.WebAction = ... # 0x25
+    AlignCenter              : QWebEnginePage.WebAction = ... # 0x26
+    AlignRight               : QWebEnginePage.WebAction = ... # 0x27
+    AlignJustified           : QWebEnginePage.WebAction = ... # 0x28
+    Indent                   : QWebEnginePage.WebAction = ... # 0x29
+    Outdent                  : QWebEnginePage.WebAction = ... # 0x2a
+    InsertOrderedList        : QWebEnginePage.WebAction = ... # 0x2b
+    InsertUnorderedList      : QWebEnginePage.WebAction = ... # 0x2c
+    WebActionCount           : QWebEnginePage.WebAction = ... # 0x2d
+    WebBrowserWindow         : QWebEnginePage.WebWindowType = ... # 0x0
+    WebBrowserTab            : QWebEnginePage.WebWindowType = ... # 0x1
+    WebDialog                : QWebEnginePage.WebWindowType = ... # 0x2
+    WebBrowserBackgroundTab  : QWebEnginePage.WebWindowType = ... # 0x3
+
+    class Feature(Enum):
+
+        Notifications            : QWebEnginePage.Feature = ... # 0x0
+        Geolocation              : QWebEnginePage.Feature = ... # 0x1
+        MediaAudioCapture        : QWebEnginePage.Feature = ... # 0x2
+        MediaVideoCapture        : QWebEnginePage.Feature = ... # 0x3
+        MediaAudioVideoCapture   : QWebEnginePage.Feature = ... # 0x4
+        MouseLock                : QWebEnginePage.Feature = ... # 0x5
+        DesktopVideoCapture      : QWebEnginePage.Feature = ... # 0x6
+        DesktopAudioVideoCapture : QWebEnginePage.Feature = ... # 0x7
+
+    class FileSelectionMode(Enum):
+
+        FileSelectOpen           : QWebEnginePage.FileSelectionMode = ... # 0x0
+        FileSelectOpenMultiple   : QWebEnginePage.FileSelectionMode = ... # 0x1
+        FileSelectUploadFolder   : QWebEnginePage.FileSelectionMode = ... # 0x2
+        FileSelectSave           : QWebEnginePage.FileSelectionMode = ... # 0x3
+
+    class FindFlag(Enum):
+
+        FindBackward             : QWebEnginePage.FindFlag = ... # 0x1
+        FindCaseSensitively      : QWebEnginePage.FindFlag = ... # 0x2
+
+    class FindFlags(object): ...
+
+    class JavaScriptConsoleMessageLevel(Enum):
+
+        InfoMessageLevel         : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x0
+        WarningMessageLevel      : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x1
+        ErrorMessageLevel        : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x2
+
+    class LifecycleState(Enum):
+
+        Active                   : QWebEnginePage.LifecycleState = ... # 0x0
+        Frozen                   : QWebEnginePage.LifecycleState = ... # 0x1
+        Discarded                : QWebEnginePage.LifecycleState = ... # 0x2
+
+    class NavigationType(Enum):
+
+        NavigationTypeLinkClicked: QWebEnginePage.NavigationType = ... # 0x0
+        NavigationTypeTyped      : QWebEnginePage.NavigationType = ... # 0x1
+        NavigationTypeFormSubmitted: QWebEnginePage.NavigationType = ... # 0x2
+        NavigationTypeBackForward: QWebEnginePage.NavigationType = ... # 0x3
+        NavigationTypeReload     : QWebEnginePage.NavigationType = ... # 0x4
+        NavigationTypeOther      : QWebEnginePage.NavigationType = ... # 0x5
+        NavigationTypeRedirect   : QWebEnginePage.NavigationType = ... # 0x6
+
+    class PermissionPolicy(Enum):
+
+        PermissionUnknown        : QWebEnginePage.PermissionPolicy = ... # 0x0
+        PermissionGrantedByUser  : QWebEnginePage.PermissionPolicy = ... # 0x1
+        PermissionDeniedByUser   : QWebEnginePage.PermissionPolicy = ... # 0x2
+
+    class RenderProcessTerminationStatus(Enum):
+
+        NormalTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x0
+        AbnormalTerminationStatus: QWebEnginePage.RenderProcessTerminationStatus = ... # 0x1
+        CrashedTerminationStatus : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x2
+        KilledTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x3
+
+    class WebAction(Enum):
+
+        NoWebAction              : QWebEnginePage.WebAction = ... # -0x1
+        Back                     : QWebEnginePage.WebAction = ... # 0x0
+        Forward                  : QWebEnginePage.WebAction = ... # 0x1
+        Stop                     : QWebEnginePage.WebAction = ... # 0x2
+        Reload                   : QWebEnginePage.WebAction = ... # 0x3
+        Cut                      : QWebEnginePage.WebAction = ... # 0x4
+        Copy                     : QWebEnginePage.WebAction = ... # 0x5
+        Paste                    : QWebEnginePage.WebAction = ... # 0x6
+        Undo                     : QWebEnginePage.WebAction = ... # 0x7
+        Redo                     : QWebEnginePage.WebAction = ... # 0x8
+        SelectAll                : QWebEnginePage.WebAction = ... # 0x9
+        ReloadAndBypassCache     : QWebEnginePage.WebAction = ... # 0xa
+        PasteAndMatchStyle       : QWebEnginePage.WebAction = ... # 0xb
+        OpenLinkInThisWindow     : QWebEnginePage.WebAction = ... # 0xc
+        OpenLinkInNewWindow      : QWebEnginePage.WebAction = ... # 0xd
+        OpenLinkInNewTab         : QWebEnginePage.WebAction = ... # 0xe
+        CopyLinkToClipboard      : QWebEnginePage.WebAction = ... # 0xf
+        DownloadLinkToDisk       : QWebEnginePage.WebAction = ... # 0x10
+        CopyImageToClipboard     : QWebEnginePage.WebAction = ... # 0x11
+        CopyImageUrlToClipboard  : QWebEnginePage.WebAction = ... # 0x12
+        DownloadImageToDisk      : QWebEnginePage.WebAction = ... # 0x13
+        CopyMediaUrlToClipboard  : QWebEnginePage.WebAction = ... # 0x14
+        ToggleMediaControls      : QWebEnginePage.WebAction = ... # 0x15
+        ToggleMediaLoop          : QWebEnginePage.WebAction = ... # 0x16
+        ToggleMediaPlayPause     : QWebEnginePage.WebAction = ... # 0x17
+        ToggleMediaMute          : QWebEnginePage.WebAction = ... # 0x18
+        DownloadMediaToDisk      : QWebEnginePage.WebAction = ... # 0x19
+        InspectElement           : QWebEnginePage.WebAction = ... # 0x1a
+        ExitFullScreen           : QWebEnginePage.WebAction = ... # 0x1b
+        RequestClose             : QWebEnginePage.WebAction = ... # 0x1c
+        Unselect                 : QWebEnginePage.WebAction = ... # 0x1d
+        SavePage                 : QWebEnginePage.WebAction = ... # 0x1e
+        OpenLinkInNewBackgroundTab: QWebEnginePage.WebAction = ... # 0x1f
+        ViewSource               : QWebEnginePage.WebAction = ... # 0x20
+        ToggleBold               : QWebEnginePage.WebAction = ... # 0x21
+        ToggleItalic             : QWebEnginePage.WebAction = ... # 0x22
+        ToggleUnderline          : QWebEnginePage.WebAction = ... # 0x23
+        ToggleStrikethrough      : QWebEnginePage.WebAction = ... # 0x24
+        AlignLeft                : QWebEnginePage.WebAction = ... # 0x25
+        AlignCenter              : QWebEnginePage.WebAction = ... # 0x26
+        AlignRight               : QWebEnginePage.WebAction = ... # 0x27
+        AlignJustified           : QWebEnginePage.WebAction = ... # 0x28
+        Indent                   : QWebEnginePage.WebAction = ... # 0x29
+        Outdent                  : QWebEnginePage.WebAction = ... # 0x2a
+        InsertOrderedList        : QWebEnginePage.WebAction = ... # 0x2b
+        InsertUnorderedList      : QWebEnginePage.WebAction = ... # 0x2c
+        WebActionCount           : QWebEnginePage.WebAction = ... # 0x2d
+
+    class WebWindowType(Enum):
+
+        WebBrowserWindow         : QWebEnginePage.WebWindowType = ... # 0x0
+        WebBrowserTab            : QWebEnginePage.WebWindowType = ... # 0x1
+        WebDialog                : QWebEnginePage.WebWindowType = ... # 0x2
+        WebBrowserBackgroundTab  : QWebEnginePage.WebWindowType = ... # 0x3
+
+
+    @overload
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+    @overload
+    def __init__(self, profile: PySide6.QtWebEngineCore.QWebEngineProfile, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def acceptAsNewWindow(self, request: PySide6.QtWebEngineCore.QWebEngineNewWindowRequest) -> None: ...
+    def acceptNavigationRequest(self, url: Union[PySide6.QtCore.QUrl, str], type: PySide6.QtWebEngineCore.QWebEnginePage.NavigationType, isMainFrame: bool) -> bool: ...
+    def action(self, action: PySide6.QtWebEngineCore.QWebEnginePage.WebAction) -> PySide6.QtGui.QAction: ...
+    def backgroundColor(self) -> PySide6.QtGui.QColor: ...
+    def chooseFiles(self, mode: PySide6.QtWebEngineCore.QWebEnginePage.FileSelectionMode, oldFiles: Sequence[str], acceptedMimeTypes: Sequence[str]) -> List[str]: ...
+    def contentsSize(self) -> PySide6.QtCore.QSizeF: ...
+    def createWindow(self, type: PySide6.QtWebEngineCore.QWebEnginePage.WebWindowType) -> PySide6.QtWebEngineCore.QWebEnginePage: ...
+    def devToolsPage(self) -> PySide6.QtWebEngineCore.QWebEnginePage: ...
+    def download(self, url: Union[PySide6.QtCore.QUrl, str], filename: str = ...) -> None: ...
+    def event(self, arg__1: PySide6.QtCore.QEvent) -> bool: ...
+    @overload
+    def findText(self, arg__1: str, arg__2: PySide6.QtWebEngineCore.QWebEnginePage.FindFlags, arg__3: object) -> None: ...
+    @overload
+    def findText(self, subString: str, options: PySide6.QtWebEngineCore.QWebEnginePage.FindFlags = ...) -> None: ...
+    def hasSelection(self) -> bool: ...
+    def history(self) -> PySide6.QtWebEngineCore.QWebEngineHistory: ...
+    def icon(self) -> PySide6.QtGui.QIcon: ...
+    def iconUrl(self) -> PySide6.QtCore.QUrl: ...
+    def inspectedPage(self) -> PySide6.QtWebEngineCore.QWebEnginePage: ...
+    def isAudioMuted(self) -> bool: ...
+    def isLoading(self) -> bool: ...
+    def isVisible(self) -> bool: ...
+    def javaScriptAlert(self, securityOrigin: Union[PySide6.QtCore.QUrl, str], msg: str) -> None: ...
+    def javaScriptConfirm(self, securityOrigin: Union[PySide6.QtCore.QUrl, str], msg: str) -> bool: ...
+    def javaScriptConsoleMessage(self, level: PySide6.QtWebEngineCore.QWebEnginePage.JavaScriptConsoleMessageLevel, message: str, lineNumber: int, sourceID: str) -> None: ...
+    def javaScriptPrompt(self, securityOrigin: Union[PySide6.QtCore.QUrl, str], msg: str, defaultValue: str) -> Tuple[bool, str]: ...
+    def lifecycleState(self) -> PySide6.QtWebEngineCore.QWebEnginePage.LifecycleState: ...
+    @overload
+    def load(self, request: PySide6.QtWebEngineCore.QWebEngineHttpRequest) -> None: ...
+    @overload
+    def load(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def printToPdf(self, filePath: str, layout: PySide6.QtGui.QPageLayout = ..., ranges: PySide6.QtGui.QPageRanges = ...) -> None: ...
+    def profile(self) -> PySide6.QtWebEngineCore.QWebEngineProfile: ...
+    def recentlyAudible(self) -> bool: ...
+    def recommendedState(self) -> PySide6.QtWebEngineCore.QWebEnginePage.LifecycleState: ...
+    def renderProcessPid(self) -> int: ...
+    def replaceMisspelledWord(self, replacement: str) -> None: ...
+    def requestedUrl(self) -> PySide6.QtCore.QUrl: ...
+    @overload
+    def runJavaScript(self, arg__1: str, arg__2: int, arg__3: object) -> None: ...
+    @overload
+    def runJavaScript(self, scriptSource: str, worldId: int = ...) -> None: ...
+    def save(self, filePath: str, format: PySide6.QtWebEngineCore.QWebEngineDownloadRequest.SavePageFormat = ...) -> None: ...
+    def scripts(self) -> PySide6.QtWebEngineCore.QWebEngineScriptCollection: ...
+    def scrollPosition(self) -> PySide6.QtCore.QPointF: ...
+    def selectedText(self) -> str: ...
+    def setAudioMuted(self, muted: bool) -> None: ...
+    def setBackgroundColor(self, color: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int]) -> None: ...
+    def setContent(self, data: Union[PySide6.QtCore.QByteArray, bytes], mimeType: str = ..., baseUrl: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
+    def setDevToolsPage(self, page: PySide6.QtWebEngineCore.QWebEnginePage) -> None: ...
+    def setFeaturePermission(self, securityOrigin: Union[PySide6.QtCore.QUrl, str], feature: PySide6.QtWebEngineCore.QWebEnginePage.Feature, policy: PySide6.QtWebEngineCore.QWebEnginePage.PermissionPolicy) -> None: ...
+    def setHtml(self, html: str, baseUrl: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
+    def setInspectedPage(self, page: PySide6.QtWebEngineCore.QWebEnginePage) -> None: ...
+    def setLifecycleState(self, state: PySide6.QtWebEngineCore.QWebEnginePage.LifecycleState) -> None: ...
+    def setUrl(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def setUrlRequestInterceptor(self, interceptor: PySide6.QtWebEngineCore.QWebEngineUrlRequestInterceptor) -> None: ...
+    def setVisible(self, visible: bool) -> None: ...
+    def setWebChannel(self, arg__1: PySide6.QtWebChannel.QWebChannel, worldId: int = ...) -> None: ...
+    def setZoomFactor(self, factor: float) -> None: ...
+    def settings(self) -> PySide6.QtWebEngineCore.QWebEngineSettings: ...
+    def title(self) -> str: ...
+    def toHtml(self, arg__1: object) -> None: ...
+    def toPlainText(self, arg__1: object) -> None: ...
+    def triggerAction(self, action: PySide6.QtWebEngineCore.QWebEnginePage.WebAction, checked: bool = ...) -> None: ...
+    def url(self) -> PySide6.QtCore.QUrl: ...
+    def webChannel(self) -> PySide6.QtWebChannel.QWebChannel: ...
+    def zoomFactor(self) -> float: ...
+
+
+class QWebEngineProfile(PySide6.QtCore.QObject):
+
+    MemoryHttpCache          : QWebEngineProfile.HttpCacheType = ... # 0x0
+    DiskHttpCache            : QWebEngineProfile.HttpCacheType = ... # 0x1
+    NoCache                  : QWebEngineProfile.HttpCacheType = ... # 0x2
+    NoPersistentCookies      : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x0
+    AllowPersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x1
+    ForcePersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x2
+
+    class HttpCacheType(Enum):
+
+        MemoryHttpCache          : QWebEngineProfile.HttpCacheType = ... # 0x0
+        DiskHttpCache            : QWebEngineProfile.HttpCacheType = ... # 0x1
+        NoCache                  : QWebEngineProfile.HttpCacheType = ... # 0x2
+
+    class PersistentCookiesPolicy(Enum):
+
+        NoPersistentCookies      : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x0
+        AllowPersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x1
+        ForcePersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x2
+
+
+    @overload
+    def __init__(self, name: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+    @overload
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def cachePath(self) -> str: ...
+    def clearAllVisitedLinks(self) -> None: ...
+    def clearHttpCache(self) -> None: ...
+    def clearVisitedLinks(self, urls: Sequence[PySide6.QtCore.QUrl]) -> None: ...
+    def cookieStore(self) -> PySide6.QtWebEngineCore.QWebEngineCookieStore: ...
+    @staticmethod
+    def defaultProfile() -> PySide6.QtWebEngineCore.QWebEngineProfile: ...
+    def downloadPath(self) -> str: ...
+    def httpAcceptLanguage(self) -> str: ...
+    def httpCacheMaximumSize(self) -> int: ...
+    def httpCacheType(self) -> PySide6.QtWebEngineCore.QWebEngineProfile.HttpCacheType: ...
+    def httpUserAgent(self) -> str: ...
+    def installUrlSchemeHandler(self, scheme: Union[PySide6.QtCore.QByteArray, bytes], arg__2: PySide6.QtWebEngineCore.QWebEngineUrlSchemeHandler) -> None: ...
+    def isOffTheRecord(self) -> bool: ...
+    def isSpellCheckEnabled(self) -> bool: ...
+    def persistentCookiesPolicy(self) -> PySide6.QtWebEngineCore.QWebEngineProfile.PersistentCookiesPolicy: ...
+    def persistentStoragePath(self) -> str: ...
+    def removeAllUrlSchemeHandlers(self) -> None: ...
+    def removeUrlScheme(self, scheme: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def removeUrlSchemeHandler(self, arg__1: PySide6.QtWebEngineCore.QWebEngineUrlSchemeHandler) -> None: ...
+    def scripts(self) -> PySide6.QtWebEngineCore.QWebEngineScriptCollection: ...
+    def setCachePath(self, path: str) -> None: ...
+    def setDownloadPath(self, path: str) -> None: ...
+    def setHttpAcceptLanguage(self, httpAcceptLanguage: str) -> None: ...
+    def setHttpCacheMaximumSize(self, maxSize: int) -> None: ...
+    def setHttpCacheType(self, arg__1: PySide6.QtWebEngineCore.QWebEngineProfile.HttpCacheType) -> None: ...
+    def setHttpUserAgent(self, userAgent: str) -> None: ...
+    def setPersistentCookiesPolicy(self, arg__1: PySide6.QtWebEngineCore.QWebEngineProfile.PersistentCookiesPolicy) -> None: ...
+    def setPersistentStoragePath(self, path: str) -> None: ...
+    def setSpellCheckEnabled(self, enabled: bool) -> None: ...
+    def setSpellCheckLanguages(self, languages: Sequence[str]) -> None: ...
+    def setUrlRequestInterceptor(self, interceptor: PySide6.QtWebEngineCore.QWebEngineUrlRequestInterceptor) -> None: ...
+    def settings(self) -> PySide6.QtWebEngineCore.QWebEngineSettings: ...
+    def spellCheckLanguages(self) -> List[str]: ...
+    def storageName(self) -> str: ...
+    def urlSchemeHandler(self, arg__1: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtWebEngineCore.QWebEngineUrlSchemeHandler: ...
+    def visitedLinksContainsUrl(self, url: Union[PySide6.QtCore.QUrl, str]) -> bool: ...
+
+
+class QWebEngineQuotaRequest(Shiboken.Object):
+
+    def __init__(self) -> None: ...
+
+    def accept(self) -> None: ...
+    def origin(self) -> PySide6.QtCore.QUrl: ...
+    def reject(self) -> None: ...
+    def requestedSize(self) -> int: ...
+
+
+class QWebEngineRegisterProtocolHandlerRequest(Shiboken.Object):
+
+    def __init__(self) -> None: ...
+
+    def accept(self) -> None: ...
+    def origin(self) -> PySide6.QtCore.QUrl: ...
+    def reject(self) -> None: ...
+    def scheme(self) -> str: ...
+
+
+class QWebEngineScript(Shiboken.Object):
+
+    Deferred                 : QWebEngineScript.InjectionPoint = ... # 0x0
+    DocumentReady            : QWebEngineScript.InjectionPoint = ... # 0x1
+    DocumentCreation         : QWebEngineScript.InjectionPoint = ... # 0x2
+    MainWorld                : QWebEngineScript.ScriptWorldId = ... # 0x0
+    ApplicationWorld         : QWebEngineScript.ScriptWorldId = ... # 0x1
+    UserWorld                : QWebEngineScript.ScriptWorldId = ... # 0x2
+
+    class InjectionPoint(Enum):
+
+        Deferred                 : QWebEngineScript.InjectionPoint = ... # 0x0
+        DocumentReady            : QWebEngineScript.InjectionPoint = ... # 0x1
+        DocumentCreation         : QWebEngineScript.InjectionPoint = ... # 0x2
+
+    class ScriptWorldId(Enum):
+
+        MainWorld                : QWebEngineScript.ScriptWorldId = ... # 0x0
+        ApplicationWorld         : QWebEngineScript.ScriptWorldId = ... # 0x1
+        UserWorld                : QWebEngineScript.ScriptWorldId = ... # 0x2
+
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineScript) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def injectionPoint(self) -> PySide6.QtWebEngineCore.QWebEngineScript.InjectionPoint: ...
+    def name(self) -> str: ...
+    def runsOnSubFrames(self) -> bool: ...
+    def setInjectionPoint(self, arg__1: PySide6.QtWebEngineCore.QWebEngineScript.InjectionPoint) -> None: ...
+    def setName(self, arg__1: str) -> None: ...
+    def setRunsOnSubFrames(self, on: bool) -> None: ...
+    def setSourceCode(self, arg__1: str) -> None: ...
+    def setSourceUrl(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def setWorldId(self, arg__1: int) -> None: ...
+    def sourceCode(self) -> str: ...
+    def sourceUrl(self) -> PySide6.QtCore.QUrl: ...
+    def swap(self, other: PySide6.QtWebEngineCore.QWebEngineScript) -> None: ...
+    def worldId(self) -> int: ...
+
+
+class QWebEngineScriptCollection(Shiboken.Object):
+    def clear(self) -> None: ...
+    def contains(self, value: PySide6.QtWebEngineCore.QWebEngineScript) -> bool: ...
+    def count(self) -> int: ...
+    def find(self, name: str) -> List[PySide6.QtWebEngineCore.QWebEngineScript]: ...
+    @overload
+    def insert(self, arg__1: PySide6.QtWebEngineCore.QWebEngineScript) -> None: ...
+    @overload
+    def insert(self, list: Sequence[PySide6.QtWebEngineCore.QWebEngineScript]) -> None: ...
+    def isEmpty(self) -> bool: ...
+    def remove(self, arg__1: PySide6.QtWebEngineCore.QWebEngineScript) -> bool: ...
+    def toList(self) -> List[PySide6.QtWebEngineCore.QWebEngineScript]: ...
+
+
+class QWebEngineSettings(Shiboken.Object):
+
+    StandardFont             : QWebEngineSettings.FontFamily = ... # 0x0
+    FixedFont                : QWebEngineSettings.FontFamily = ... # 0x1
+    SerifFont                : QWebEngineSettings.FontFamily = ... # 0x2
+    SansSerifFont            : QWebEngineSettings.FontFamily = ... # 0x3
+    CursiveFont              : QWebEngineSettings.FontFamily = ... # 0x4
+    FantasyFont              : QWebEngineSettings.FontFamily = ... # 0x5
+    PictographFont           : QWebEngineSettings.FontFamily = ... # 0x6
+    MinimumFontSize          : QWebEngineSettings.FontSize = ... # 0x0
+    MinimumLogicalFontSize   : QWebEngineSettings.FontSize = ... # 0x1
+    DefaultFontSize          : QWebEngineSettings.FontSize = ... # 0x2
+    DefaultFixedFontSize     : QWebEngineSettings.FontSize = ... # 0x3
+    InheritedUnknownUrlSchemePolicy: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x0
+    DisallowUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x1
+    AllowUnknownUrlSchemesFromUserInteraction: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x2
+    AllowAllUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x3
+    AutoLoadImages           : QWebEngineSettings.WebAttribute = ... # 0x0
+    JavascriptEnabled        : QWebEngineSettings.WebAttribute = ... # 0x1
+    JavascriptCanOpenWindows : QWebEngineSettings.WebAttribute = ... # 0x2
+    JavascriptCanAccessClipboard: QWebEngineSettings.WebAttribute = ... # 0x3
+    LinksIncludedInFocusChain: QWebEngineSettings.WebAttribute = ... # 0x4
+    LocalStorageEnabled      : QWebEngineSettings.WebAttribute = ... # 0x5
+    LocalContentCanAccessRemoteUrls: QWebEngineSettings.WebAttribute = ... # 0x6
+    XSSAuditingEnabled       : QWebEngineSettings.WebAttribute = ... # 0x7
+    SpatialNavigationEnabled : QWebEngineSettings.WebAttribute = ... # 0x8
+    LocalContentCanAccessFileUrls: QWebEngineSettings.WebAttribute = ... # 0x9
+    HyperlinkAuditingEnabled : QWebEngineSettings.WebAttribute = ... # 0xa
+    ScrollAnimatorEnabled    : QWebEngineSettings.WebAttribute = ... # 0xb
+    ErrorPageEnabled         : QWebEngineSettings.WebAttribute = ... # 0xc
+    PluginsEnabled           : QWebEngineSettings.WebAttribute = ... # 0xd
+    FullScreenSupportEnabled : QWebEngineSettings.WebAttribute = ... # 0xe
+    ScreenCaptureEnabled     : QWebEngineSettings.WebAttribute = ... # 0xf
+    WebGLEnabled             : QWebEngineSettings.WebAttribute = ... # 0x10
+    Accelerated2dCanvasEnabled: QWebEngineSettings.WebAttribute = ... # 0x11
+    AutoLoadIconsForPage     : QWebEngineSettings.WebAttribute = ... # 0x12
+    TouchIconsEnabled        : QWebEngineSettings.WebAttribute = ... # 0x13
+    FocusOnNavigationEnabled : QWebEngineSettings.WebAttribute = ... # 0x14
+    PrintElementBackgrounds  : QWebEngineSettings.WebAttribute = ... # 0x15
+    AllowRunningInsecureContent: QWebEngineSettings.WebAttribute = ... # 0x16
+    AllowGeolocationOnInsecureOrigins: QWebEngineSettings.WebAttribute = ... # 0x17
+    AllowWindowActivationFromJavaScript: QWebEngineSettings.WebAttribute = ... # 0x18
+    ShowScrollBars           : QWebEngineSettings.WebAttribute = ... # 0x19
+    PlaybackRequiresUserGesture: QWebEngineSettings.WebAttribute = ... # 0x1a
+    WebRTCPublicInterfacesOnly: QWebEngineSettings.WebAttribute = ... # 0x1b
+    JavascriptCanPaste       : QWebEngineSettings.WebAttribute = ... # 0x1c
+    DnsPrefetchEnabled       : QWebEngineSettings.WebAttribute = ... # 0x1d
+    PdfViewerEnabled         : QWebEngineSettings.WebAttribute = ... # 0x1e
+
+    class FontFamily(Enum):
+
+        StandardFont             : QWebEngineSettings.FontFamily = ... # 0x0
+        FixedFont                : QWebEngineSettings.FontFamily = ... # 0x1
+        SerifFont                : QWebEngineSettings.FontFamily = ... # 0x2
+        SansSerifFont            : QWebEngineSettings.FontFamily = ... # 0x3
+        CursiveFont              : QWebEngineSettings.FontFamily = ... # 0x4
+        FantasyFont              : QWebEngineSettings.FontFamily = ... # 0x5
+        PictographFont           : QWebEngineSettings.FontFamily = ... # 0x6
+
+    class FontSize(Enum):
+
+        MinimumFontSize          : QWebEngineSettings.FontSize = ... # 0x0
+        MinimumLogicalFontSize   : QWebEngineSettings.FontSize = ... # 0x1
+        DefaultFontSize          : QWebEngineSettings.FontSize = ... # 0x2
+        DefaultFixedFontSize     : QWebEngineSettings.FontSize = ... # 0x3
+
+    class UnknownUrlSchemePolicy(Enum):
+
+        InheritedUnknownUrlSchemePolicy: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x0
+        DisallowUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x1
+        AllowUnknownUrlSchemesFromUserInteraction: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x2
+        AllowAllUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x3
+
+    class WebAttribute(Enum):
+
+        AutoLoadImages           : QWebEngineSettings.WebAttribute = ... # 0x0
+        JavascriptEnabled        : QWebEngineSettings.WebAttribute = ... # 0x1
+        JavascriptCanOpenWindows : QWebEngineSettings.WebAttribute = ... # 0x2
+        JavascriptCanAccessClipboard: QWebEngineSettings.WebAttribute = ... # 0x3
+        LinksIncludedInFocusChain: QWebEngineSettings.WebAttribute = ... # 0x4
+        LocalStorageEnabled      : QWebEngineSettings.WebAttribute = ... # 0x5
+        LocalContentCanAccessRemoteUrls: QWebEngineSettings.WebAttribute = ... # 0x6
+        XSSAuditingEnabled       : QWebEngineSettings.WebAttribute = ... # 0x7
+        SpatialNavigationEnabled : QWebEngineSettings.WebAttribute = ... # 0x8
+        LocalContentCanAccessFileUrls: QWebEngineSettings.WebAttribute = ... # 0x9
+        HyperlinkAuditingEnabled : QWebEngineSettings.WebAttribute = ... # 0xa
+        ScrollAnimatorEnabled    : QWebEngineSettings.WebAttribute = ... # 0xb
+        ErrorPageEnabled         : QWebEngineSettings.WebAttribute = ... # 0xc
+        PluginsEnabled           : QWebEngineSettings.WebAttribute = ... # 0xd
+        FullScreenSupportEnabled : QWebEngineSettings.WebAttribute = ... # 0xe
+        ScreenCaptureEnabled     : QWebEngineSettings.WebAttribute = ... # 0xf
+        WebGLEnabled             : QWebEngineSettings.WebAttribute = ... # 0x10
+        Accelerated2dCanvasEnabled: QWebEngineSettings.WebAttribute = ... # 0x11
+        AutoLoadIconsForPage     : QWebEngineSettings.WebAttribute = ... # 0x12
+        TouchIconsEnabled        : QWebEngineSettings.WebAttribute = ... # 0x13
+        FocusOnNavigationEnabled : QWebEngineSettings.WebAttribute = ... # 0x14
+        PrintElementBackgrounds  : QWebEngineSettings.WebAttribute = ... # 0x15
+        AllowRunningInsecureContent: QWebEngineSettings.WebAttribute = ... # 0x16
+        AllowGeolocationOnInsecureOrigins: QWebEngineSettings.WebAttribute = ... # 0x17
+        AllowWindowActivationFromJavaScript: QWebEngineSettings.WebAttribute = ... # 0x18
+        ShowScrollBars           : QWebEngineSettings.WebAttribute = ... # 0x19
+        PlaybackRequiresUserGesture: QWebEngineSettings.WebAttribute = ... # 0x1a
+        WebRTCPublicInterfacesOnly: QWebEngineSettings.WebAttribute = ... # 0x1b
+        JavascriptCanPaste       : QWebEngineSettings.WebAttribute = ... # 0x1c
+        DnsPrefetchEnabled       : QWebEngineSettings.WebAttribute = ... # 0x1d
+        PdfViewerEnabled         : QWebEngineSettings.WebAttribute = ... # 0x1e
+
+
+    def defaultTextEncoding(self) -> str: ...
+    def fontFamily(self, which: PySide6.QtWebEngineCore.QWebEngineSettings.FontFamily) -> str: ...
+    def fontSize(self, type: PySide6.QtWebEngineCore.QWebEngineSettings.FontSize) -> int: ...
+    def resetAttribute(self, attr: PySide6.QtWebEngineCore.QWebEngineSettings.WebAttribute) -> None: ...
+    def resetFontFamily(self, which: PySide6.QtWebEngineCore.QWebEngineSettings.FontFamily) -> None: ...
+    def resetFontSize(self, type: PySide6.QtWebEngineCore.QWebEngineSettings.FontSize) -> None: ...
+    def resetUnknownUrlSchemePolicy(self) -> None: ...
+    def setAttribute(self, attr: PySide6.QtWebEngineCore.QWebEngineSettings.WebAttribute, on: bool) -> None: ...
+    def setDefaultTextEncoding(self, encoding: str) -> None: ...
+    def setFontFamily(self, which: PySide6.QtWebEngineCore.QWebEngineSettings.FontFamily, family: str) -> None: ...
+    def setFontSize(self, type: PySide6.QtWebEngineCore.QWebEngineSettings.FontSize, size: int) -> None: ...
+    def setUnknownUrlSchemePolicy(self, policy: PySide6.QtWebEngineCore.QWebEngineSettings.UnknownUrlSchemePolicy) -> None: ...
+    def testAttribute(self, attr: PySide6.QtWebEngineCore.QWebEngineSettings.WebAttribute) -> bool: ...
+    def unknownUrlSchemePolicy(self) -> PySide6.QtWebEngineCore.QWebEngineSettings.UnknownUrlSchemePolicy: ...
+
+
+class QWebEngineUrlRequestInfo(Shiboken.Object):
+
+    NavigationTypeLink       : QWebEngineUrlRequestInfo.NavigationType = ... # 0x0
+    NavigationTypeTyped      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x1
+    NavigationTypeFormSubmitted: QWebEngineUrlRequestInfo.NavigationType = ... # 0x2
+    NavigationTypeBackForward: QWebEngineUrlRequestInfo.NavigationType = ... # 0x3
+    NavigationTypeReload     : QWebEngineUrlRequestInfo.NavigationType = ... # 0x4
+    NavigationTypeOther      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x5
+    NavigationTypeRedirect   : QWebEngineUrlRequestInfo.NavigationType = ... # 0x6
+    ResourceTypeMainFrame    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x0
+    ResourceTypeSubFrame     : QWebEngineUrlRequestInfo.ResourceType = ... # 0x1
+    ResourceTypeStylesheet   : QWebEngineUrlRequestInfo.ResourceType = ... # 0x2
+    ResourceTypeScript       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x3
+    ResourceTypeImage        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x4
+    ResourceTypeFontResource : QWebEngineUrlRequestInfo.ResourceType = ... # 0x5
+    ResourceTypeSubResource  : QWebEngineUrlRequestInfo.ResourceType = ... # 0x6
+    ResourceTypeObject       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x7
+    ResourceTypeMedia        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x8
+    ResourceTypeWorker       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x9
+    ResourceTypeSharedWorker : QWebEngineUrlRequestInfo.ResourceType = ... # 0xa
+    ResourceTypePrefetch     : QWebEngineUrlRequestInfo.ResourceType = ... # 0xb
+    ResourceTypeFavicon      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xc
+    ResourceTypeXhr          : QWebEngineUrlRequestInfo.ResourceType = ... # 0xd
+    ResourceTypePing         : QWebEngineUrlRequestInfo.ResourceType = ... # 0xe
+    ResourceTypeServiceWorker: QWebEngineUrlRequestInfo.ResourceType = ... # 0xf
+    ResourceTypeCspReport    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x10
+    ResourceTypePluginResource: QWebEngineUrlRequestInfo.ResourceType = ... # 0x11
+    ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x13
+    ResourceTypeLast         : QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
+    ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
+    ResourceTypeUnknown      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xff
+
+    class NavigationType(Enum):
+
+        NavigationTypeLink       : QWebEngineUrlRequestInfo.NavigationType = ... # 0x0
+        NavigationTypeTyped      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x1
+        NavigationTypeFormSubmitted: QWebEngineUrlRequestInfo.NavigationType = ... # 0x2
+        NavigationTypeBackForward: QWebEngineUrlRequestInfo.NavigationType = ... # 0x3
+        NavigationTypeReload     : QWebEngineUrlRequestInfo.NavigationType = ... # 0x4
+        NavigationTypeOther      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x5
+        NavigationTypeRedirect   : QWebEngineUrlRequestInfo.NavigationType = ... # 0x6
+
+    class ResourceType(Enum):
+
+        ResourceTypeMainFrame    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x0
+        ResourceTypeSubFrame     : QWebEngineUrlRequestInfo.ResourceType = ... # 0x1
+        ResourceTypeStylesheet   : QWebEngineUrlRequestInfo.ResourceType = ... # 0x2
+        ResourceTypeScript       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x3
+        ResourceTypeImage        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x4
+        ResourceTypeFontResource : QWebEngineUrlRequestInfo.ResourceType = ... # 0x5
+        ResourceTypeSubResource  : QWebEngineUrlRequestInfo.ResourceType = ... # 0x6
+        ResourceTypeObject       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x7
+        ResourceTypeMedia        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x8
+        ResourceTypeWorker       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x9
+        ResourceTypeSharedWorker : QWebEngineUrlRequestInfo.ResourceType = ... # 0xa
+        ResourceTypePrefetch     : QWebEngineUrlRequestInfo.ResourceType = ... # 0xb
+        ResourceTypeFavicon      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xc
+        ResourceTypeXhr          : QWebEngineUrlRequestInfo.ResourceType = ... # 0xd
+        ResourceTypePing         : QWebEngineUrlRequestInfo.ResourceType = ... # 0xe
+        ResourceTypeServiceWorker: QWebEngineUrlRequestInfo.ResourceType = ... # 0xf
+        ResourceTypeCspReport    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x10
+        ResourceTypePluginResource: QWebEngineUrlRequestInfo.ResourceType = ... # 0x11
+        ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x13
+        ResourceTypeLast         : QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
+        ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
+        ResourceTypeUnknown      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xff
+
+
+    def block(self, shouldBlock: bool) -> None: ...
+    def changed(self) -> bool: ...
+    def firstPartyUrl(self) -> PySide6.QtCore.QUrl: ...
+    def initiator(self) -> PySide6.QtCore.QUrl: ...
+    def navigationType(self) -> PySide6.QtWebEngineCore.QWebEngineUrlRequestInfo.NavigationType: ...
+    def redirect(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def requestMethod(self) -> PySide6.QtCore.QByteArray: ...
+    def requestUrl(self) -> PySide6.QtCore.QUrl: ...
+    def resourceType(self) -> PySide6.QtWebEngineCore.QWebEngineUrlRequestInfo.ResourceType: ...
+    def setHttpHeader(self, name: Union[PySide6.QtCore.QByteArray, bytes], value: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+
+
+class QWebEngineUrlRequestInterceptor(PySide6.QtCore.QObject):
+
+    def __init__(self, p: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def interceptRequest(self, info: PySide6.QtWebEngineCore.QWebEngineUrlRequestInfo) -> None: ...
+
+
+class QWebEngineUrlRequestJob(PySide6.QtCore.QObject):
+
+    NoError                  : QWebEngineUrlRequestJob.Error = ... # 0x0
+    UrlNotFound              : QWebEngineUrlRequestJob.Error = ... # 0x1
+    UrlInvalid               : QWebEngineUrlRequestJob.Error = ... # 0x2
+    RequestAborted           : QWebEngineUrlRequestJob.Error = ... # 0x3
+    RequestDenied            : QWebEngineUrlRequestJob.Error = ... # 0x4
+    RequestFailed            : QWebEngineUrlRequestJob.Error = ... # 0x5
+
+    class Error(Enum):
+
+        NoError                  : QWebEngineUrlRequestJob.Error = ... # 0x0
+        UrlNotFound              : QWebEngineUrlRequestJob.Error = ... # 0x1
+        UrlInvalid               : QWebEngineUrlRequestJob.Error = ... # 0x2
+        RequestAborted           : QWebEngineUrlRequestJob.Error = ... # 0x3
+        RequestDenied            : QWebEngineUrlRequestJob.Error = ... # 0x4
+        RequestFailed            : QWebEngineUrlRequestJob.Error = ... # 0x5
+
+
+    def fail(self, error: PySide6.QtWebEngineCore.QWebEngineUrlRequestJob.Error) -> None: ...
+    def initiator(self) -> PySide6.QtCore.QUrl: ...
+    def redirect(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def reply(self, contentType: Union[PySide6.QtCore.QByteArray, bytes], device: PySide6.QtCore.QIODevice) -> None: ...
+    def requestHeaders(self) -> Dict[PySide6.QtCore.QByteArray, PySide6.QtCore.QByteArray]: ...
+    def requestMethod(self) -> PySide6.QtCore.QByteArray: ...
+    def requestUrl(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineUrlScheme(Shiboken.Object):
+
+    SecureScheme             : QWebEngineUrlScheme.Flag = ... # 0x1
+    LocalScheme              : QWebEngineUrlScheme.Flag = ... # 0x2
+    LocalAccessAllowed       : QWebEngineUrlScheme.Flag = ... # 0x4
+    NoAccessAllowed          : QWebEngineUrlScheme.Flag = ... # 0x8
+    ServiceWorkersAllowed    : QWebEngineUrlScheme.Flag = ... # 0x10
+    ViewSourceAllowed        : QWebEngineUrlScheme.Flag = ... # 0x20
+    ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ... # 0x40
+    CorsEnabled              : QWebEngineUrlScheme.Flag = ... # 0x80
+    PortUnspecified          : QWebEngineUrlScheme.SpecialPort = ... # -0x1
+
+    class Flag(Enum):
+
+        SecureScheme             : QWebEngineUrlScheme.Flag = ... # 0x1
+        LocalScheme              : QWebEngineUrlScheme.Flag = ... # 0x2
+        LocalAccessAllowed       : QWebEngineUrlScheme.Flag = ... # 0x4
+        NoAccessAllowed          : QWebEngineUrlScheme.Flag = ... # 0x8
+        ServiceWorkersAllowed    : QWebEngineUrlScheme.Flag = ... # 0x10
+        ViewSourceAllowed        : QWebEngineUrlScheme.Flag = ... # 0x20
+        ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ... # 0x40
+        CorsEnabled              : QWebEngineUrlScheme.Flag = ... # 0x80
+
+    class Flags(object): ...
+
+    class SpecialPort(Enum):
+
+        PortUnspecified          : QWebEngineUrlScheme.SpecialPort = ... # -0x1
+
+    class Syntax(Enum):
+
+        HostPortAndUserInformation: QWebEngineUrlScheme.Syntax = ... # 0x0
+        HostAndPort              : QWebEngineUrlScheme.Syntax = ... # 0x1
+        Host                     : QWebEngineUrlScheme.Syntax = ... # 0x2
+        Path                     : QWebEngineUrlScheme.Syntax = ... # 0x3
+
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, name: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    @overload
+    def __init__(self, that: PySide6.QtWebEngineCore.QWebEngineUrlScheme) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def defaultPort(self) -> int: ...
+    def flags(self) -> PySide6.QtWebEngineCore.QWebEngineUrlScheme.Flags: ...
+    def name(self) -> PySide6.QtCore.QByteArray: ...
+    @staticmethod
+    def registerScheme(scheme: PySide6.QtWebEngineCore.QWebEngineUrlScheme) -> None: ...
+    @staticmethod
+    def schemeByName(name: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtWebEngineCore.QWebEngineUrlScheme: ...
+    def setDefaultPort(self, newValue: int) -> None: ...
+    def setFlags(self, newValue: PySide6.QtWebEngineCore.QWebEngineUrlScheme.Flags) -> None: ...
+    def setName(self, newValue: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setSyntax(self, newValue: PySide6.QtWebEngineCore.QWebEngineUrlScheme.Syntax) -> None: ...
+    def syntax(self) -> PySide6.QtWebEngineCore.QWebEngineUrlScheme.Syntax: ...
+
+
+class QWebEngineUrlSchemeHandler(PySide6.QtCore.QObject):
+
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def requestStarted(self, arg__1: PySide6.QtWebEngineCore.QWebEngineUrlRequestJob) -> None: ...
+
+
+# eof
