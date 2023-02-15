@@ -47,7 +47,6 @@ import PySide6.Qt3DCore
 import PySide6.QtCore
 import PySide6.QtGui
 
-from enum import Enum
 from typing import Optional, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -86,7 +85,7 @@ class Qt3DCore(Shiboken.Object):
         Manual                   : Qt3DCore.QAspectEngine.RunMode = ... # 0x0
         Automatic                : Qt3DCore.QAspectEngine.RunMode = ... # 0x1
 
-        class RunMode(Enum):
+        class RunMode(Shiboken.Enum):
 
             Manual                   : Qt3DCore.QAspectEngine.RunMode = ... # 0x0
             Automatic                : Qt3DCore.QAspectEngine.RunMode = ... # 0x1
@@ -134,13 +133,13 @@ class Qt3DCore(Shiboken.Object):
         Float                    : Qt3DCore.QAttribute.VertexBaseType = ... # 0x7
         Double                   : Qt3DCore.QAttribute.VertexBaseType = ... # 0x8
 
-        class AttributeType(Enum):
+        class AttributeType(Shiboken.Enum):
 
             VertexAttribute          : Qt3DCore.QAttribute.AttributeType = ... # 0x0
             IndexAttribute           : Qt3DCore.QAttribute.AttributeType = ... # 0x1
             DrawIndirectAttribute    : Qt3DCore.QAttribute.AttributeType = ... # 0x2
 
-        class VertexBaseType(Enum):
+        class VertexBaseType(Shiboken.Enum):
 
             Byte                     : Qt3DCore.QAttribute.VertexBaseType = ... # 0x0
             UnsignedByte             : Qt3DCore.QAttribute.VertexBaseType = ... # 0x1
@@ -202,7 +201,7 @@ class Qt3DCore(Shiboken.Object):
         ReadOnly                 : Qt3DCore.QBackendNode.Mode = ... # 0x0
         ReadWrite                : Qt3DCore.QBackendNode.Mode = ... # 0x1
 
-        class Mode(Enum):
+        class Mode(Shiboken.Enum):
 
             ReadOnly                 : Qt3DCore.QBackendNode.Mode = ... # 0x0
             ReadWrite                : Qt3DCore.QBackendNode.Mode = ... # 0x1
@@ -254,13 +253,13 @@ class Qt3DCore(Shiboken.Object):
         DynamicRead              : Qt3DCore.QBuffer.UsageType = ... # 0x88e9
         DynamicCopy              : Qt3DCore.QBuffer.UsageType = ... # 0x88ea
 
-        class AccessType(Enum):
+        class AccessType(Shiboken.Enum):
 
             Write                    : Qt3DCore.QBuffer.AccessType = ... # 0x1
             Read                     : Qt3DCore.QBuffer.AccessType = ... # 0x2
             ReadWrite                : Qt3DCore.QBuffer.AccessType = ... # 0x3
 
-        class UsageType(Enum):
+        class UsageType(Shiboken.Enum):
 
             StreamDraw               : Qt3DCore.QBuffer.UsageType = ... # 0x88e0
             StreamRead               : Qt3DCore.QBuffer.UsageType = ... # 0x88e1
@@ -334,7 +333,7 @@ class Qt3DCore(Shiboken.Object):
         TriangleStripAdjacency   : Qt3DCore.QGeometryView.PrimitiveType = ... # 0xd
         Patches                  : Qt3DCore.QGeometryView.PrimitiveType = ... # 0xe
 
-        class PrimitiveType(Enum):
+        class PrimitiveType(Shiboken.Enum):
 
             Points                   : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x0
             Lines                    : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x1
@@ -452,7 +451,7 @@ class Qt3DCore(Shiboken.Object):
         Ready                    : Qt3DCore.QSkeletonLoader.Status = ... # 0x1
         Error                    : Qt3DCore.QSkeletonLoader.Status = ... # 0x2
 
-        class Status(Enum):
+        class Status(Shiboken.Enum):
 
             NotReady                 : Qt3DCore.QSkeletonLoader.Status = ... # 0x0
             Ready                    : Qt3DCore.QSkeletonLoader.Status = ... # 0x1

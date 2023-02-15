@@ -47,7 +47,6 @@ import PySide6.QtDataVisualization
 import PySide6.QtCore
 import PySide6.QtGui
 
-from enum import Enum
 from typing import Any, Optional, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -114,7 +113,7 @@ class Q3DCamera(PySide6.QtDataVisualization.Q3DObject):
     CameraPresetBehindBelow  : Q3DCamera.CameraPreset = ... # 0x16
     CameraPresetDirectlyBelow: Q3DCamera.CameraPreset = ... # 0x17
 
-    class CameraPreset(Enum):
+    class CameraPreset(Shiboken.Enum):
 
         CameraPresetNone         : Q3DCamera.CameraPreset = ... # -0x1
         CameraPresetFrontLow     : Q3DCamera.CameraPreset = ... # 0x0
@@ -289,13 +288,13 @@ class Q3DTheme(PySide6.QtCore.QObject):
     ThemeIsabelle            : Q3DTheme.Theme = ... # 0x7
     ThemeUserDefined         : Q3DTheme.Theme = ... # 0x8
 
-    class ColorStyle(Enum):
+    class ColorStyle(Shiboken.Enum):
 
         ColorStyleUniform        : Q3DTheme.ColorStyle = ... # 0x0
         ColorStyleObjectGradient : Q3DTheme.ColorStyle = ... # 0x1
         ColorStyleRangeGradient  : Q3DTheme.ColorStyle = ... # 0x2
 
-    class Theme(Enum):
+    class Theme(Shiboken.Enum):
 
         ThemeQt                  : Q3DTheme.Theme = ... # 0x0
         ThemePrimaryColors       : Q3DTheme.Theme = ... # 0x1
@@ -369,14 +368,14 @@ class QAbstract3DAxis(PySide6.QtCore.QObject):
     AxisTypeCategory         : QAbstract3DAxis.AxisType = ... # 0x1
     AxisTypeValue            : QAbstract3DAxis.AxisType = ... # 0x2
 
-    class AxisOrientation(Enum):
+    class AxisOrientation(Shiboken.Enum):
 
         AxisOrientationNone      : QAbstract3DAxis.AxisOrientation = ... # 0x0
         AxisOrientationX         : QAbstract3DAxis.AxisOrientation = ... # 0x1
         AxisOrientationY         : QAbstract3DAxis.AxisOrientation = ... # 0x2
         AxisOrientationZ         : QAbstract3DAxis.AxisOrientation = ... # 0x4
 
-    class AxisType(Enum):
+    class AxisType(Shiboken.Enum):
 
         AxisTypeNone             : QAbstract3DAxis.AxisType = ... # 0x0
         AxisTypeCategory         : QAbstract3DAxis.AxisType = ... # 0x1
@@ -432,7 +431,7 @@ class QAbstract3DGraph(PySide6.QtGui.QWindow):
     ShadowQualitySoftMedium  : QAbstract3DGraph.ShadowQuality = ... # 0x5
     ShadowQualitySoftHigh    : QAbstract3DGraph.ShadowQuality = ... # 0x6
 
-    class ElementType(Enum):
+    class ElementType(Shiboken.Enum):
 
         ElementNone              : QAbstract3DGraph.ElementType = ... # 0x0
         ElementSeries            : QAbstract3DGraph.ElementType = ... # 0x1
@@ -441,14 +440,14 @@ class QAbstract3DGraph(PySide6.QtGui.QWindow):
         ElementAxisZLabel        : QAbstract3DGraph.ElementType = ... # 0x4
         ElementCustomItem        : QAbstract3DGraph.ElementType = ... # 0x5
 
-    class OptimizationHint(Enum):
+    class OptimizationHint(Shiboken.Enum):
 
         OptimizationDefault      : QAbstract3DGraph.OptimizationHint = ... # 0x0
         OptimizationStatic       : QAbstract3DGraph.OptimizationHint = ... # 0x1
 
     class OptimizationHints(object): ...
 
-    class SelectionFlag(Enum):
+    class SelectionFlag(Shiboken.Enum):
 
         SelectionNone            : QAbstract3DGraph.SelectionFlag = ... # 0x0
         SelectionItem            : QAbstract3DGraph.SelectionFlag = ... # 0x1
@@ -463,7 +462,7 @@ class QAbstract3DGraph(PySide6.QtGui.QWindow):
 
     class SelectionFlags(object): ...
 
-    class ShadowQuality(Enum):
+    class ShadowQuality(Shiboken.Enum):
 
         ShadowQualityNone        : QAbstract3DGraph.ShadowQuality = ... # 0x0
         ShadowQualityLow         : QAbstract3DGraph.ShadowQuality = ... # 0x1
@@ -546,7 +545,7 @@ class QAbstract3DInputHandler(PySide6.QtCore.QObject):
     InputViewOnPrimary       : QAbstract3DInputHandler.InputView = ... # 0x1
     InputViewOnSecondary     : QAbstract3DInputHandler.InputView = ... # 0x2
 
-    class InputView(Enum):
+    class InputView(Shiboken.Enum):
 
         InputViewNone            : QAbstract3DInputHandler.InputView = ... # 0x0
         InputViewOnPrimary       : QAbstract3DInputHandler.InputView = ... # 0x1
@@ -592,7 +591,7 @@ class QAbstract3DSeries(PySide6.QtCore.QObject):
     SeriesTypeScatter        : QAbstract3DSeries.SeriesType = ... # 0x2
     SeriesTypeSurface        : QAbstract3DSeries.SeriesType = ... # 0x4
 
-    class Mesh(Enum):
+    class Mesh(Shiboken.Enum):
 
         MeshUserDefined          : QAbstract3DSeries.Mesh = ... # 0x0
         MeshBar                  : QAbstract3DSeries.Mesh = ... # 0x1
@@ -607,7 +606,7 @@ class QAbstract3DSeries(PySide6.QtCore.QObject):
         MeshArrow                : QAbstract3DSeries.Mesh = ... # 0xa
         MeshPoint                : QAbstract3DSeries.Mesh = ... # 0xb
 
-    class SeriesType(Enum):
+    class SeriesType(Shiboken.Enum):
 
         SeriesTypeNone           : QAbstract3DSeries.SeriesType = ... # 0x0
         SeriesTypeBar            : QAbstract3DSeries.SeriesType = ... # 0x1
@@ -657,7 +656,7 @@ class QAbstractDataProxy(PySide6.QtCore.QObject):
     DataTypeScatter          : QAbstractDataProxy.DataType = ... # 0x2
     DataTypeSurface          : QAbstractDataProxy.DataType = ... # 0x4
 
-    class DataType(Enum):
+    class DataType(Shiboken.Enum):
 
         DataTypeNone             : QAbstractDataProxy.DataType = ... # 0x0
         DataTypeBar              : QAbstractDataProxy.DataType = ... # 0x1
@@ -914,7 +913,7 @@ class QItemModelBarDataProxy(PySide6.QtDataVisualization.QBarDataProxy):
     MMBAverage               : QItemModelBarDataProxy.MultiMatchBehavior = ... # 0x2
     MMBCumulative            : QItemModelBarDataProxy.MultiMatchBehavior = ... # 0x3
 
-    class MultiMatchBehavior(Enum):
+    class MultiMatchBehavior(Shiboken.Enum):
 
         MMBFirst                 : QItemModelBarDataProxy.MultiMatchBehavior = ... # 0x0
         MMBLast                  : QItemModelBarDataProxy.MultiMatchBehavior = ... # 0x1
@@ -1027,7 +1026,7 @@ class QItemModelSurfaceDataProxy(PySide6.QtDataVisualization.QSurfaceDataProxy):
     MMBAverage               : QItemModelSurfaceDataProxy.MultiMatchBehavior = ... # 0x2
     MMBCumulativeY           : QItemModelSurfaceDataProxy.MultiMatchBehavior = ... # 0x3
 
-    class MultiMatchBehavior(Enum):
+    class MultiMatchBehavior(Shiboken.Enum):
 
         MMBFirst                 : QItemModelSurfaceDataProxy.MultiMatchBehavior = ... # 0x0
         MMBLast                  : QItemModelSurfaceDataProxy.MultiMatchBehavior = ... # 0x1
@@ -1183,7 +1182,7 @@ class QSurface3DSeries(PySide6.QtDataVisualization.QAbstract3DSeries):
     DrawSurface              : QSurface3DSeries.DrawFlag = ... # 0x2
     DrawSurfaceAndWireframe  : QSurface3DSeries.DrawFlag = ... # 0x3
 
-    class DrawFlag(Enum):
+    class DrawFlag(Shiboken.Enum):
 
         DrawWireframe            : QSurface3DSeries.DrawFlag = ... # 0x1
         DrawSurface              : QSurface3DSeries.DrawFlag = ... # 0x2

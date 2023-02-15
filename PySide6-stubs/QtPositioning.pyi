@@ -46,7 +46,6 @@ PySide6.QtPositioning, except for defaults which are replaced by "...".
 import PySide6.QtPositioning
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -121,14 +120,14 @@ class QGeoAreaMonitorSource(PySide6.QtCore.QObject):
     UnknownSourceError       : QGeoAreaMonitorSource.Error = ... # 0x2
     NoError                  : QGeoAreaMonitorSource.Error = ... # 0x3
 
-    class AreaMonitorFeature(Enum):
+    class AreaMonitorFeature(Shiboken.Enum):
 
         AnyAreaMonitorFeature    : QGeoAreaMonitorSource.AreaMonitorFeature = ... # -0x1
         PersistentAreaMonitorFeature: QGeoAreaMonitorSource.AreaMonitorFeature = ... # 0x1
 
     class AreaMonitorFeatures(object): ...
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         AccessError              : QGeoAreaMonitorSource.Error = ... # 0x0
         InsufficientPositionInfo : QGeoAreaMonitorSource.Error = ... # 0x1
@@ -195,7 +194,7 @@ class QGeoCoordinate(Shiboken.Object):
     Coordinate2D             : QGeoCoordinate.CoordinateType = ... # 0x1
     Coordinate3D             : QGeoCoordinate.CoordinateType = ... # 0x2
 
-    class CoordinateFormat(Enum):
+    class CoordinateFormat(Shiboken.Enum):
 
         Degrees                  : QGeoCoordinate.CoordinateFormat = ... # 0x0
         DegreesWithHemisphere    : QGeoCoordinate.CoordinateFormat = ... # 0x1
@@ -204,7 +203,7 @@ class QGeoCoordinate(Shiboken.Object):
         DegreesMinutesSeconds    : QGeoCoordinate.CoordinateFormat = ... # 0x4
         DegreesMinutesSecondsWithHemisphere: QGeoCoordinate.CoordinateFormat = ... # 0x5
 
-    class CoordinateType(Enum):
+    class CoordinateType(Shiboken.Enum):
 
         InvalidCoordinate        : QGeoCoordinate.CoordinateType = ... # 0x0
         Coordinate2D             : QGeoCoordinate.CoordinateType = ... # 0x1
@@ -345,7 +344,7 @@ class QGeoPositionInfo(Shiboken.Object):
     VerticalAccuracy         : QGeoPositionInfo.Attribute = ... # 0x5
     DirectionAccuracy        : QGeoPositionInfo.Attribute = ... # 0x6
 
-    class Attribute(Enum):
+    class Attribute(Shiboken.Enum):
 
         Direction                : QGeoPositionInfo.Attribute = ... # 0x0
         GroundSpeed              : QGeoPositionInfo.Attribute = ... # 0x1
@@ -391,7 +390,7 @@ class QGeoPositionInfoSource(PySide6.QtCore.QObject):
     NoPositioningMethods     : QGeoPositionInfoSource.PositioningMethod = ... # 0x0
     SatellitePositioningMethods: QGeoPositionInfoSource.PositioningMethod = ... # 0xff
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         AccessError              : QGeoPositionInfoSource.Error = ... # 0x0
         ClosedError              : QGeoPositionInfoSource.Error = ... # 0x1
@@ -399,7 +398,7 @@ class QGeoPositionInfoSource(PySide6.QtCore.QObject):
         NoError                  : QGeoPositionInfoSource.Error = ... # 0x3
         UpdateTimeoutError       : QGeoPositionInfoSource.Error = ... # 0x4
 
-    class PositioningMethod(Enum):
+    class PositioningMethod(Shiboken.Enum):
 
         NonSatellitePositioningMethods: QGeoPositionInfoSource.PositioningMethod = ... # -0x100
         AllPositioningMethods    : QGeoPositionInfoSource.PositioningMethod = ... # -0x1
@@ -508,12 +507,12 @@ class QGeoSatelliteInfo(Shiboken.Object):
     Multiple                 : QGeoSatelliteInfo.SatelliteSystem = ... # 0xff
     CustomType               : QGeoSatelliteInfo.SatelliteSystem = ... # 0x100
 
-    class Attribute(Enum):
+    class Attribute(Shiboken.Enum):
 
         Elevation                : QGeoSatelliteInfo.Attribute = ... # 0x0
         Azimuth                  : QGeoSatelliteInfo.Attribute = ... # 0x1
 
-    class SatelliteSystem(Enum):
+    class SatelliteSystem(Shiboken.Enum):
 
         Undefined                : QGeoSatelliteInfo.SatelliteSystem = ... # 0x0
         GPS                      : QGeoSatelliteInfo.SatelliteSystem = ... # 0x1
@@ -555,7 +554,7 @@ class QGeoSatelliteInfoSource(PySide6.QtCore.QObject):
     NoError                  : QGeoSatelliteInfoSource.Error = ... # 0x2
     UpdateTimeoutError       : QGeoSatelliteInfoSource.Error = ... # 0x3
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         UnknownSourceError       : QGeoSatelliteInfoSource.Error = ... # -0x1
         AccessError              : QGeoSatelliteInfoSource.Error = ... # 0x0
@@ -600,7 +599,7 @@ class QGeoShape(Shiboken.Object):
     PathType                 : QGeoShape.ShapeType = ... # 0x3
     PolygonType              : QGeoShape.ShapeType = ... # 0x4
 
-    class ShapeType(Enum):
+    class ShapeType(Shiboken.Enum):
 
         UnknownType              : QGeoShape.ShapeType = ... # 0x0
         RectangleType            : QGeoShape.ShapeType = ... # 0x1
@@ -635,7 +634,7 @@ class QNmeaPositionInfoSource(PySide6.QtPositioning.QGeoPositionInfoSource):
     RealTimeMode             : QNmeaPositionInfoSource.UpdateMode = ... # 0x1
     SimulationMode           : QNmeaPositionInfoSource.UpdateMode = ... # 0x2
 
-    class UpdateMode(Enum):
+    class UpdateMode(Shiboken.Enum):
 
         RealTimeMode             : QNmeaPositionInfoSource.UpdateMode = ... # 0x1
         SimulationMode           : QNmeaPositionInfoSource.UpdateMode = ... # 0x2

@@ -50,8 +50,8 @@ import PySide6.QtWidgets
 import PySide6.QtQml
 import PySide6.QtQuick
 
-from enum import Enum
 from typing import Any, Optional, Union, List, overload
+from shiboken6 import Shiboken
 
 
 class QIntList(object): ...
@@ -66,12 +66,12 @@ class QQuickWidget(PySide6.QtWidgets.QWidget):
     Loading                  : QQuickWidget.Status = ... # 0x2
     Error                    : QQuickWidget.Status = ... # 0x3
 
-    class ResizeMode(Enum):
+    class ResizeMode(Shiboken.Enum):
 
         SizeViewToRootObject     : QQuickWidget.ResizeMode = ... # 0x0
         SizeRootObjectToView     : QQuickWidget.ResizeMode = ... # 0x1
 
-    class Status(Enum):
+    class Status(Shiboken.Enum):
 
         Null                     : QQuickWidget.Status = ... # 0x0
         Ready                    : QQuickWidget.Status = ... # 0x1

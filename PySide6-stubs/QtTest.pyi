@@ -48,14 +48,13 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
-from enum import Enum
 from typing import Any, Optional, Union, List, overload
 from shiboken6 import Shiboken
 
 
 class QAbstractItemModelTester(PySide6.QtCore.QObject):
 
-    class FailureReportingMode(Enum):
+    class FailureReportingMode(Shiboken.Enum):
 
         QtTest                   : QAbstractItemModelTester.FailureReportingMode = ... # 0x0
         Warning                  : QAbstractItemModelTester.FailureReportingMode = ... # 0x1
@@ -136,14 +135,14 @@ class QTest(Shiboken.Object):
     Abort                    : QTest.TestFailMode = ... # 0x1
     Continue                 : QTest.TestFailMode = ... # 0x2
 
-    class KeyAction(Enum):
+    class KeyAction(Shiboken.Enum):
 
         Press                    : QTest.KeyAction = ... # 0x0
         Release                  : QTest.KeyAction = ... # 0x1
         Click                    : QTest.KeyAction = ... # 0x2
         Shortcut                 : QTest.KeyAction = ... # 0x3
 
-    class MouseAction(Enum):
+    class MouseAction(Shiboken.Enum):
 
         MousePress               : QTest.MouseAction = ... # 0x0
         MouseRelease             : QTest.MouseAction = ... # 0x1
@@ -151,7 +150,7 @@ class QTest(Shiboken.Object):
         MouseDClick              : QTest.MouseAction = ... # 0x3
         MouseMove                : QTest.MouseAction = ... # 0x4
 
-    class QBenchmarkMetric(Enum):
+    class QBenchmarkMetric(Shiboken.Enum):
 
         FramesPerSecond          : QTest.QBenchmarkMetric = ... # 0x0
         BitsPerSecond            : QTest.QBenchmarkMetric = ... # 0x1
@@ -201,7 +200,7 @@ class QTest(Shiboken.Object):
         def release(self, touchId:int, pt:PySide6.QtCore.QPoint, window:Optional[PySide6.QtGui.QWindow]=...) -> PySide6.QtTest.QTest.QTouchEventSequence: ...
         def stationary(self, touchId:int) -> PySide6.QtTest.QTest.QTouchEventSequence: ...
 
-    class TestFailMode(Enum):
+    class TestFailMode(Shiboken.Enum):
 
         Abort                    : QTest.TestFailMode = ... # 0x1
         Continue                 : QTest.TestFailMode = ... # 0x2
@@ -357,6 +356,10 @@ class QTest(Shiboken.Object):
     def qRun() -> int: ...
     @staticmethod
     def qSkip(message:bytes, file:bytes, line:int) -> None: ...
+    @staticmethod
+    def qSleep(ms:int) -> None: ...
+    @staticmethod
+    def qWait(ms:int) -> None: ...
     @overload
     @staticmethod
     def qWaitForWindowActive(widget:PySide6.QtWidgets.QWidget, timeout:int=...) -> bool: ...

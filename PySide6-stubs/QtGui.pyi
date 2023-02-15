@@ -47,7 +47,6 @@ import PySide6.QtGui
 import PySide6.QtCore
 
 import os
-from enum import Enum
 from typing import Any, Callable, Optional, Tuple, Type, Union, Iterable, Sequence, Dict, List, Set, overload, Text
 from shiboken6 import Shiboken
 
@@ -63,7 +62,7 @@ class QAbstractFileIconProvider(Shiboken.Object):
     File                     : QAbstractFileIconProvider.IconType = ... # 0x6
     DontUseCustomDirectoryIcons: QAbstractFileIconProvider.Option = ... # 0x1
 
-    class IconType(Enum):
+    class IconType(Shiboken.Enum):
 
         Computer                 : QAbstractFileIconProvider.IconType = ... # 0x0
         Desktop                  : QAbstractFileIconProvider.IconType = ... # 0x1
@@ -73,7 +72,7 @@ class QAbstractFileIconProvider(Shiboken.Object):
         Folder                   : QAbstractFileIconProvider.IconType = ... # 0x5
         File                     : QAbstractFileIconProvider.IconType = ... # 0x6
 
-    class Option(Enum):
+    class Option(Shiboken.Enum):
 
         DontUseCustomDirectoryIcons: QAbstractFileIconProvider.Option = ... # 0x1
 
@@ -315,7 +314,7 @@ class QAccessible(Shiboken.Object):
     LineBoundary             : QAccessible.TextBoundaryType = ... # 0x4
     NoBoundary               : QAccessible.TextBoundaryType = ... # 0x5
 
-    class Event(Enum):
+    class Event(Shiboken.Enum):
 
         SoundPlayed              : QAccessible.Event = ... # 0x1
         Alert                    : QAccessible.Event = ... # 0x2
@@ -387,7 +386,7 @@ class QAccessible(Shiboken.Object):
         AcceleratorChanged       : QAccessible.Event = ... # 0x80c0
         InvalidEvent             : QAccessible.Event = ... # 0x80c1
 
-    class InterfaceType(Enum):
+    class InterfaceType(Shiboken.Enum):
 
         TextInterface            : QAccessible.InterfaceType = ... # 0x0
         EditableTextInterface    : QAccessible.InterfaceType = ... # 0x1
@@ -400,7 +399,7 @@ class QAccessible(Shiboken.Object):
 
     class Relation(object): ...
 
-    class RelationFlag(Enum):
+    class RelationFlag(Shiboken.Enum):
 
         AllRelations             : QAccessible.RelationFlag = ... # -0x1
         Label                    : QAccessible.RelationFlag = ... # 0x1
@@ -408,7 +407,7 @@ class QAccessible(Shiboken.Object):
         Controller               : QAccessible.RelationFlag = ... # 0x4
         Controlled               : QAccessible.RelationFlag = ... # 0x8
 
-    class Role(Enum):
+    class Role(Shiboken.Enum):
 
         NoRole                   : QAccessible.Role = ... # 0x0
         TitleBar                 : QAccessible.Role = ... # 0x1
@@ -498,7 +497,7 @@ class QAccessible(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class Text(Enum):
+    class Text(Shiboken.Enum):
 
         Name                     : QAccessible.Text = ... # 0x0
         Description              : QAccessible.Text = ... # 0x1
@@ -508,7 +507,7 @@ class QAccessible(Shiboken.Object):
         DebugDescription         : QAccessible.Text = ... # 0x5
         UserText                 : QAccessible.Text = ... # 0xffff
 
-    class TextBoundaryType(Enum):
+    class TextBoundaryType(Shiboken.Enum):
 
         CharBoundary             : QAccessible.TextBoundaryType = ... # 0x0
         WordBoundary             : QAccessible.TextBoundaryType = ... # 0x1
@@ -681,7 +680,7 @@ class QAccessibleTableModelChangeEvent(PySide6.QtGui.QAccessibleEvent):
     RowsRemoved              : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x4
     ColumnsRemoved           : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x5
 
-    class ModelChangeType(Enum):
+    class ModelChangeType(Shiboken.Enum):
 
         ModelReset               : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x0
         DataChanged              : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x1
@@ -824,12 +823,12 @@ class QAction(PySide6.QtCore.QObject):
     NormalPriority           : QAction.Priority = ... # 0x80
     HighPriority             : QAction.Priority = ... # 0x100
 
-    class ActionEvent(Enum):
+    class ActionEvent(Shiboken.Enum):
 
         Trigger                  : QAction.ActionEvent = ... # 0x0
         Hover                    : QAction.ActionEvent = ... # 0x1
 
-    class MenuRole(Enum):
+    class MenuRole(Shiboken.Enum):
 
         NoRole                   : QAction.MenuRole = ... # 0x0
         TextHeuristicRole        : QAction.MenuRole = ... # 0x1
@@ -839,7 +838,7 @@ class QAction(PySide6.QtCore.QObject):
         PreferencesRole          : QAction.MenuRole = ... # 0x5
         QuitRole                 : QAction.MenuRole = ... # 0x6
 
-    class Priority(Enum):
+    class Priority(Shiboken.Enum):
 
         LowPriority              : QAction.Priority = ... # 0x0
         NormalPriority           : QAction.Priority = ... # 0x80
@@ -930,7 +929,7 @@ class QActionEvent(PySide6.QtCore.QEvent):
 
 class QActionGroup(PySide6.QtCore.QObject):
 
-    class ExclusionPolicy(Enum):
+    class ExclusionPolicy(Shiboken.Enum):
 
         None_                    : QActionGroup.ExclusionPolicy = ... # 0x0
         Exclusive                : QActionGroup.ExclusionPolicy = ... # 0x1
@@ -1056,7 +1055,7 @@ class QClipboard(PySide6.QtCore.QObject):
     FindBuffer               : QClipboard.Mode = ... # 0x2
     LastMode                 : QClipboard.Mode = ... # 0x2
 
-    class Mode(Enum):
+    class Mode(Shiboken.Enum):
 
         Clipboard                : QClipboard.Mode = ... # 0x0
         Selection                : QClipboard.Mode = ... # 0x1
@@ -1102,12 +1101,12 @@ class QColor(Shiboken.Object):
     Hsl                      : QColor.Spec = ... # 0x4
     ExtendedRgb              : QColor.Spec = ... # 0x5
 
-    class NameFormat(Enum):
+    class NameFormat(Shiboken.Enum):
 
         HexRgb                   : QColor.NameFormat = ... # 0x0
         HexArgb                  : QColor.NameFormat = ... # 0x1
 
-    class Spec(Enum):
+    class Spec(Shiboken.Enum):
 
         Invalid                  : QColor.Spec = ... # 0x0
         Rgb                      : QColor.Spec = ... # 0x1
@@ -1270,7 +1269,7 @@ class QColorSpace(Shiboken.Object):
     DisplayP3                : QColorSpace.NamedColorSpace = ... # 0x4
     ProPhotoRgb              : QColorSpace.NamedColorSpace = ... # 0x5
 
-    class NamedColorSpace(Enum):
+    class NamedColorSpace(Shiboken.Enum):
 
         SRgb                     : QColorSpace.NamedColorSpace = ... # 0x1
         SRgbLinear               : QColorSpace.NamedColorSpace = ... # 0x2
@@ -1278,7 +1277,7 @@ class QColorSpace(Shiboken.Object):
         DisplayP3                : QColorSpace.NamedColorSpace = ... # 0x4
         ProPhotoRgb              : QColorSpace.NamedColorSpace = ... # 0x5
 
-    class Primaries(Enum):
+    class Primaries(Shiboken.Enum):
 
         Custom                   : QColorSpace.Primaries = ... # 0x0
         SRgb                     : QColorSpace.Primaries = ... # 0x1
@@ -1286,7 +1285,7 @@ class QColorSpace(Shiboken.Object):
         DciP3D65                 : QColorSpace.Primaries = ... # 0x3
         ProPhotoRgb              : QColorSpace.Primaries = ... # 0x4
 
-    class TransferFunction(Enum):
+    class TransferFunction(Shiboken.Enum):
 
         Custom                   : QColorSpace.TransferFunction = ... # 0x0
         Linear                   : QColorSpace.TransferFunction = ... # 0x1
@@ -1391,7 +1390,7 @@ class QContextMenuEvent(PySide6.QtGui.QInputEvent):
     Keyboard                 : QContextMenuEvent.Reason = ... # 0x1
     Other                    : QContextMenuEvent.Reason = ... # 0x2
 
-    class Reason(Enum):
+    class Reason(Shiboken.Enum):
 
         Mouse                    : QContextMenuEvent.Reason = ... # 0x0
         Keyboard                 : QContextMenuEvent.Reason = ... # 0x1
@@ -1482,7 +1481,7 @@ class QDoubleValidator(PySide6.QtGui.QValidator):
     StandardNotation         : QDoubleValidator.Notation = ... # 0x0
     ScientificNotation       : QDoubleValidator.Notation = ... # 0x1
 
-    class Notation(Enum):
+    class Notation(Shiboken.Enum):
 
         StandardNotation         : QDoubleValidator.Notation = ... # 0x0
         ScientificNotation       : QDoubleValidator.Notation = ... # 0x1
@@ -1629,7 +1628,7 @@ class QEventPoint(Shiboken.Object):
     Stationary               : QEventPoint.State = ... # 0x4
     Released                 : QEventPoint.State = ... # 0x8
 
-    class State(Enum):
+    class State(Shiboken.Enum):
 
         Unknown                  : QEventPoint.State = ... # 0x0
         Pressed                  : QEventPoint.State = ... # 0x1
@@ -1789,7 +1788,7 @@ class QFont(Shiboken.Object):
     ExtraBold                : QFont.Weight = ... # 0x320
     Black                    : QFont.Weight = ... # 0x384
 
-    class Capitalization(Enum):
+    class Capitalization(Shiboken.Enum):
 
         MixedCase                : QFont.Capitalization = ... # 0x0
         AllUppercase             : QFont.Capitalization = ... # 0x1
@@ -1797,19 +1796,19 @@ class QFont(Shiboken.Object):
         SmallCaps                : QFont.Capitalization = ... # 0x3
         Capitalize               : QFont.Capitalization = ... # 0x4
 
-    class HintingPreference(Enum):
+    class HintingPreference(Shiboken.Enum):
 
         PreferDefaultHinting     : QFont.HintingPreference = ... # 0x0
         PreferNoHinting          : QFont.HintingPreference = ... # 0x1
         PreferVerticalHinting    : QFont.HintingPreference = ... # 0x2
         PreferFullHinting        : QFont.HintingPreference = ... # 0x3
 
-    class SpacingType(Enum):
+    class SpacingType(Shiboken.Enum):
 
         PercentageSpacing        : QFont.SpacingType = ... # 0x0
         AbsoluteSpacing          : QFont.SpacingType = ... # 0x1
 
-    class Stretch(Enum):
+    class Stretch(Shiboken.Enum):
 
         AnyStretch               : QFont.Stretch = ... # 0x0
         UltraCondensed           : QFont.Stretch = ... # 0x32
@@ -1822,13 +1821,13 @@ class QFont(Shiboken.Object):
         ExtraExpanded            : QFont.Stretch = ... # 0x96
         UltraExpanded            : QFont.Stretch = ... # 0xc8
 
-    class Style(Enum):
+    class Style(Shiboken.Enum):
 
         StyleNormal              : QFont.Style = ... # 0x0
         StyleItalic              : QFont.Style = ... # 0x1
         StyleOblique             : QFont.Style = ... # 0x2
 
-    class StyleHint(Enum):
+    class StyleHint(Shiboken.Enum):
 
         Helvetica                : QFont.StyleHint = ... # 0x0
         SansSerif                : QFont.StyleHint = ... # 0x0
@@ -1844,7 +1843,7 @@ class QFont(Shiboken.Object):
         Monospace                : QFont.StyleHint = ... # 0x7
         Fantasy                  : QFont.StyleHint = ... # 0x8
 
-    class StyleStrategy(Enum):
+    class StyleStrategy(Shiboken.Enum):
 
         PreferDefault            : QFont.StyleStrategy = ... # 0x1
         PreferBitmap             : QFont.StyleStrategy = ... # 0x2
@@ -1859,7 +1858,7 @@ class QFont(Shiboken.Object):
         PreferNoShaping          : QFont.StyleStrategy = ... # 0x1000
         NoFontMerging            : QFont.StyleStrategy = ... # 0x8000
 
-    class Weight(Enum):
+    class Weight(Shiboken.Enum):
 
         Thin                     : QFont.Weight = ... # 0x64
         ExtraLight               : QFont.Weight = ... # 0xc8
@@ -2007,14 +2006,14 @@ class QFontDatabase(Shiboken.Object):
     Nko                      : QFontDatabase.WritingSystem = ... # 0x21
     WritingSystemsCount      : QFontDatabase.WritingSystem = ... # 0x22
 
-    class SystemFont(Enum):
+    class SystemFont(Shiboken.Enum):
 
         GeneralFont              : QFontDatabase.SystemFont = ... # 0x0
         FixedFont                : QFontDatabase.SystemFont = ... # 0x1
         TitleFont                : QFontDatabase.SystemFont = ... # 0x2
         SmallestReadableFont     : QFontDatabase.SystemFont = ... # 0x3
 
-    class WritingSystem(Enum):
+    class WritingSystem(Shiboken.Enum):
 
         Any                      : QFontDatabase.WritingSystem = ... # 0x0
         Latin                    : QFontDatabase.WritingSystem = ... # 0x1
@@ -2265,7 +2264,7 @@ class QGlyphRun(Shiboken.Object):
     RightToLeft              : QGlyphRun.GlyphRunFlag = ... # 0x8
     SplitLigature            : QGlyphRun.GlyphRunFlag = ... # 0x10
 
-    class GlyphRunFlag(Enum):
+    class GlyphRunFlag(Shiboken.Enum):
 
         Overline                 : QGlyphRun.GlyphRunFlag = ... # 0x1
         Underline                : QGlyphRun.GlyphRunFlag = ... # 0x2
@@ -2493,19 +2492,19 @@ class QGradient(Shiboken.Object):
     ConicalGradient          : QGradient.Type = ... # 0x2
     NoGradient               : QGradient.Type = ... # 0x3
 
-    class CoordinateMode(Enum):
+    class CoordinateMode(Shiboken.Enum):
 
         LogicalMode              : QGradient.CoordinateMode = ... # 0x0
         StretchToDeviceMode      : QGradient.CoordinateMode = ... # 0x1
         ObjectBoundingMode       : QGradient.CoordinateMode = ... # 0x2
         ObjectMode               : QGradient.CoordinateMode = ... # 0x3
 
-    class InterpolationMode(Enum):
+    class InterpolationMode(Shiboken.Enum):
 
         ColorInterpolation       : QGradient.InterpolationMode = ... # 0x0
         ComponentInterpolation   : QGradient.InterpolationMode = ... # 0x1
 
-    class Preset(Enum):
+    class Preset(Shiboken.Enum):
 
         WarmFlame                : QGradient.Preset = ... # 0x1
         NightFade                : QGradient.Preset = ... # 0x2
@@ -2677,13 +2676,13 @@ class QGradient(Shiboken.Object):
         PerfectBlue              : QGradient.Preset = ... # 0xb4
         NumPresets               : QGradient.Preset = ... # 0xb5
 
-    class Spread(Enum):
+    class Spread(Shiboken.Enum):
 
         PadSpread                : QGradient.Spread = ... # 0x0
         ReflectSpread            : QGradient.Spread = ... # 0x1
         RepeatSpread             : QGradient.Spread = ... # 0x2
 
-    class Type(Enum):
+    class Type(Shiboken.Enum):
 
         LinearGradient           : QGradient.Type = ... # 0x0
         RadialGradient           : QGradient.Type = ... # 0x1
@@ -2866,14 +2865,14 @@ class QIcon(Shiboken.Object):
     On                       : QIcon.State = ... # 0x0
     Off                      : QIcon.State = ... # 0x1
 
-    class Mode(Enum):
+    class Mode(Shiboken.Enum):
 
         Normal                   : QIcon.Mode = ... # 0x0
         Disabled                 : QIcon.Mode = ... # 0x1
         Active                   : QIcon.Mode = ... # 0x2
         Selected                 : QIcon.Mode = ... # 0x3
 
-    class State(Enum):
+    class State(Shiboken.Enum):
 
         On                       : QIcon.State = ... # 0x0
         Off                      : QIcon.State = ... # 0x1
@@ -2963,7 +2962,7 @@ class QIconEngine(Shiboken.Object):
     IsNullHook               : QIconEngine.IconEngineHook = ... # 0x3
     ScaledPixmapHook         : QIconEngine.IconEngineHook = ... # 0x4
 
-    class IconEngineHook(Enum):
+    class IconEngineHook(Shiboken.Enum):
 
         IsNullHook               : QIconEngine.IconEngineHook = ... # 0x3
         ScaledPixmapHook         : QIconEngine.IconEngineHook = ... # 0x4
@@ -3035,7 +3034,7 @@ class QImage(PySide6.QtGui.QPaintDevice):
     InvertRgb                : QImage.InvertMode = ... # 0x0
     InvertRgba               : QImage.InvertMode = ... # 0x1
 
-    class Format(Enum):
+    class Format(Shiboken.Enum):
 
         Format_Invalid           : QImage.Format = ... # 0x0
         Format_Mono              : QImage.Format = ... # 0x1
@@ -3075,7 +3074,7 @@ class QImage(PySide6.QtGui.QPaintDevice):
         Format_RGBA32FPx4_Premultiplied: QImage.Format = ... # 0x23
         NImageFormats            : QImage.Format = ... # 0x24
 
-    class InvertMode(Enum):
+    class InvertMode(Shiboken.Enum):
 
         InvertRgb                : QImage.InvertMode = ... # 0x0
         InvertRgba               : QImage.InvertMode = ... # 0x1
@@ -3150,6 +3149,10 @@ class QImage(PySide6.QtGui.QPaintDevice):
     def format(self) -> PySide6.QtGui.QImage.Format: ...
     @staticmethod
     def fromData(data:Union[PySide6.QtCore.QByteArray, bytes], format:Optional[bytes]=...) -> PySide6.QtGui.QImage: ...
+    @staticmethod
+    def fromHBITMAP(hbitmap:int) -> PySide6.QtGui.QImage: ...
+    @staticmethod
+    def fromHICON(icon:int) -> PySide6.QtGui.QImage: ...
     def hasAlphaChannel(self) -> bool: ...
     def height(self) -> int: ...
     def invertPixels(self, mode:PySide6.QtGui.QImage.InvertMode=...) -> None: ...
@@ -3221,6 +3224,8 @@ class QImage(PySide6.QtGui.QPaintDevice):
     def swap(self, other:Union[PySide6.QtGui.QImage, str]) -> None: ...
     def text(self, key:str=...) -> str: ...
     def textKeys(self) -> List[str]: ...
+    def toHBITMAP(self) -> int: ...
+    def toHICON(self, mask:Union[PySide6.QtGui.QImage, str]=...) -> int: ...
     @staticmethod
     def toImageFormat(format:PySide6.QtGui.QPixelFormat) -> PySide6.QtGui.QImage.Format: ...
     @staticmethod
@@ -3265,7 +3270,7 @@ class QImageIOHandler(Shiboken.Object):
     TransformationFlipAndRotate90: QImageIOHandler.Transformation = ... # 0x6
     TransformationRotate270  : QImageIOHandler.Transformation = ... # 0x7
 
-    class ImageOption(Enum):
+    class ImageOption(Shiboken.Enum):
 
         Size                     : QImageIOHandler.ImageOption = ... # 0x0
         ClipRect                 : QImageIOHandler.ImageOption = ... # 0x1
@@ -3287,7 +3292,7 @@ class QImageIOHandler(Shiboken.Object):
         ProgressiveScanWrite     : QImageIOHandler.ImageOption = ... # 0x11
         ImageTransformation      : QImageIOHandler.ImageOption = ... # 0x12
 
-    class Transformation(Enum):
+    class Transformation(Shiboken.Enum):
 
         TransformationNone       : QImageIOHandler.Transformation = ... # 0x0
         TransformationMirror     : QImageIOHandler.Transformation = ... # 0x1
@@ -3332,7 +3337,7 @@ class QImageReader(Shiboken.Object):
     UnsupportedFormatError   : QImageReader.ImageReaderError = ... # 0x3
     InvalidDataError         : QImageReader.ImageReaderError = ... # 0x4
 
-    class ImageReaderError(Enum):
+    class ImageReaderError(Shiboken.Enum):
 
         UnknownError             : QImageReader.ImageReaderError = ... # 0x0
         FileNotFoundError        : QImageReader.ImageReaderError = ... # 0x1
@@ -3416,7 +3421,7 @@ class QImageWriter(Shiboken.Object):
     UnsupportedFormatError   : QImageWriter.ImageWriterError = ... # 0x2
     InvalidImageError        : QImageWriter.ImageWriterError = ... # 0x3
 
-    class ImageWriterError(Enum):
+    class ImageWriterError(Shiboken.Enum):
 
         UnknownError             : QImageWriter.ImageWriterError = ... # 0x0
         DeviceError              : QImageWriter.ImageWriterError = ... # 0x1
@@ -3468,7 +3473,7 @@ class QInputDevice(PySide6.QtCore.QObject):
 
     class Capabilities(object): ...
 
-    class Capability(Enum):
+    class Capability(Shiboken.Enum):
 
         None_                    : QInputDevice.Capability = ... # 0x0
         Position                 : QInputDevice.Capability = ... # 0x1
@@ -3487,7 +3492,7 @@ class QInputDevice(PySide6.QtCore.QObject):
         ZPosition                : QInputDevice.Capability = ... # 0x4000
         All                      : QInputDevice.Capability = ... # 0x7fffffff
 
-    class DeviceType(Enum):
+    class DeviceType(Shiboken.Enum):
 
         Unknown                  : QInputDevice.DeviceType = ... # 0x0
         Mouse                    : QInputDevice.DeviceType = ... # 0x1
@@ -3543,7 +3548,7 @@ class QInputMethod(PySide6.QtCore.QObject):
     Click                    : QInputMethod.Action = ... # 0x0
     ContextMenu              : QInputMethod.Action = ... # 0x1
 
-    class Action(Enum):
+    class Action(Shiboken.Enum):
 
         Click                    : QInputMethod.Action = ... # 0x0
         ContextMenu              : QInputMethod.Action = ... # 0x1
@@ -3592,7 +3597,7 @@ class QInputMethodEvent(PySide6.QtCore.QEvent):
         @staticmethod
         def __copy__() -> None: ...
 
-    class AttributeType(Enum):
+    class AttributeType(Shiboken.Enum):
 
         TextFormat               : QInputMethodEvent.AttributeType = ... # 0x0
         Cursor                   : QInputMethodEvent.AttributeType = ... # 0x1
@@ -3752,18 +3757,18 @@ class QKeySequence(Shiboken.Object):
     Backspace                : QKeySequence.StandardKey = ... # 0x45
     Cancel                   : QKeySequence.StandardKey = ... # 0x46
 
-    class SequenceFormat(Enum):
+    class SequenceFormat(Shiboken.Enum):
 
         NativeText               : QKeySequence.SequenceFormat = ... # 0x0
         PortableText             : QKeySequence.SequenceFormat = ... # 0x1
 
-    class SequenceMatch(Enum):
+    class SequenceMatch(Shiboken.Enum):
 
         NoMatch                  : QKeySequence.SequenceMatch = ... # 0x0
         PartialMatch             : QKeySequence.SequenceMatch = ... # 0x1
         ExactMatch               : QKeySequence.SequenceMatch = ... # 0x2
 
-    class StandardKey(Enum):
+    class StandardKey(Shiboken.Enum):
 
         UnknownKey               : QKeySequence.StandardKey = ... # 0x0
         HelpContents             : QKeySequence.StandardKey = ... # 0x1
@@ -4101,7 +4106,7 @@ class QMatrix4x4(Shiboken.Object):
     Perspective              : QMatrix4x4.Flag = ... # 0x10
     General                  : QMatrix4x4.Flag = ... # 0x1f
 
-    class Flag(Enum):
+    class Flag(Shiboken.Enum):
 
         Identity                 : QMatrix4x4.Flag = ... # 0x0
         Translation              : QMatrix4x4.Flag = ... # 0x1
@@ -4266,12 +4271,12 @@ class QMovie(PySide6.QtCore.QObject):
     Paused                   : QMovie.MovieState = ... # 0x1
     Running                  : QMovie.MovieState = ... # 0x2
 
-    class CacheMode(Enum):
+    class CacheMode(Shiboken.Enum):
 
         CacheNone                : QMovie.CacheMode = ... # 0x0
         CacheAll                 : QMovie.CacheMode = ... # 0x1
 
-    class MovieState(Enum):
+    class MovieState(Shiboken.Enum):
 
         NotRunning               : QMovie.MovieState = ... # 0x0
         Paused                   : QMovie.MovieState = ... # 0x1
@@ -4363,7 +4368,7 @@ class QOpenGLContext(PySide6.QtCore.QObject):
     LibGL                    : QOpenGLContext.OpenGLModuleType = ... # 0x0
     LibGLES                  : QOpenGLContext.OpenGLModuleType = ... # 0x1
 
-    class OpenGLModuleType(Enum):
+    class OpenGLModuleType(Shiboken.Enum):
 
         LibGL                    : QOpenGLContext.OpenGLModuleType = ... # 0x0
         LibGLES                  : QOpenGLContext.OpenGLModuleType = ... # 0x1
@@ -4621,7 +4626,7 @@ class QOpenGLFunctions(Shiboken.Object):
     MultipleRenderTargets    : QOpenGLFunctions.OpenGLFeature = ... # 0x10000
     BlendEquationAdvanced    : QOpenGLFunctions.OpenGLFeature = ... # 0x20000
 
-    class OpenGLFeature(Enum):
+    class OpenGLFeature(Shiboken.Enum):
 
         Multitexture             : QOpenGLFunctions.OpenGLFeature = ... # 0x1
         Shaders                  : QOpenGLFunctions.OpenGLFeature = ... # 0x2
@@ -4811,17 +4816,17 @@ class QPageLayout(Shiboken.Object):
     Didot                    : QPageLayout.Unit = ... # 0x4
     Cicero                   : QPageLayout.Unit = ... # 0x5
 
-    class Mode(Enum):
+    class Mode(Shiboken.Enum):
 
         StandardMode             : QPageLayout.Mode = ... # 0x0
         FullPageMode             : QPageLayout.Mode = ... # 0x1
 
-    class Orientation(Enum):
+    class Orientation(Shiboken.Enum):
 
         Portrait                 : QPageLayout.Orientation = ... # 0x0
         Landscape                : QPageLayout.Orientation = ... # 0x1
 
-    class Unit(Enum):
+    class Unit(Shiboken.Enum):
 
         Millimeter               : QPageLayout.Unit = ... # 0x0
         Point                    : QPageLayout.Unit = ... # 0x1
@@ -5053,7 +5058,7 @@ class QPageSize(Shiboken.Object):
     Didot                    : QPageSize.Unit = ... # 0x4
     Cicero                   : QPageSize.Unit = ... # 0x5
 
-    class PageSizeId(Enum):
+    class PageSizeId(Shiboken.Enum):
 
         AnsiA                    : QPageSize.PageSizeId = ... # 0x0
         Letter                   : QPageSize.PageSizeId = ... # 0x0
@@ -5181,13 +5186,13 @@ class QPageSize(Shiboken.Object):
         EnvelopeYou4             : QPageSize.PageSizeId = ... # 0x76
         LastPageSize             : QPageSize.PageSizeId = ... # 0x76
 
-    class SizeMatchPolicy(Enum):
+    class SizeMatchPolicy(Shiboken.Enum):
 
         FuzzyMatch               : QPageSize.SizeMatchPolicy = ... # 0x0
         FuzzyOrientationMatch    : QPageSize.SizeMatchPolicy = ... # 0x1
         ExactMatch               : QPageSize.SizeMatchPolicy = ... # 0x2
 
-    class Unit(Enum):
+    class Unit(Shiboken.Enum):
 
         Millimeter               : QPageSize.Unit = ... # 0x0
         Point                    : QPageSize.Unit = ... # 0x1
@@ -5275,7 +5280,7 @@ class QPagedPaintDevice(PySide6.QtGui.QPaintDevice):
     PdfVersion_A1b           : QPagedPaintDevice.PdfVersion = ... # 0x1
     PdfVersion_1_6           : QPagedPaintDevice.PdfVersion = ... # 0x2
 
-    class PdfVersion(Enum):
+    class PdfVersion(Shiboken.Enum):
 
         PdfVersion_1_4           : QPagedPaintDevice.PdfVersion = ... # 0x0
         PdfVersion_A1b           : QPagedPaintDevice.PdfVersion = ... # 0x1
@@ -5307,7 +5312,7 @@ class QPaintDevice(Shiboken.Object):
     PdmDevicePixelRatio      : QPaintDevice.PaintDeviceMetric = ... # 0xb
     PdmDevicePixelRatioScaled: QPaintDevice.PaintDeviceMetric = ... # 0xc
 
-    class PaintDeviceMetric(Enum):
+    class PaintDeviceMetric(Shiboken.Enum):
 
         PdmWidth                 : QPaintDevice.PaintDeviceMetric = ... # 0x1
         PdmHeight                : QPaintDevice.PaintDeviceMetric = ... # 0x2
@@ -5422,7 +5427,7 @@ class QPaintEngine(Shiboken.Object):
     User                     : QPaintEngine.Type = ... # 0x32
     MaxUser                  : QPaintEngine.Type = ... # 0x64
 
-    class DirtyFlag(Enum):
+    class DirtyFlag(Shiboken.Enum):
 
         DirtyPen                 : QPaintEngine.DirtyFlag = ... # 0x1
         DirtyBrush               : QPaintEngine.DirtyFlag = ... # 0x2
@@ -5441,7 +5446,7 @@ class QPaintEngine(Shiboken.Object):
 
     class DirtyFlags(object): ...
 
-    class PaintEngineFeature(Enum):
+    class PaintEngineFeature(Shiboken.Enum):
 
         AllFeatures              : QPaintEngine.PaintEngineFeature = ... # -0x1
         PrimitiveTransform       : QPaintEngine.PaintEngineFeature = ... # 0x1
@@ -5466,14 +5471,14 @@ class QPaintEngine(Shiboken.Object):
 
     class PaintEngineFeatures(object): ...
 
-    class PolygonDrawMode(Enum):
+    class PolygonDrawMode(Shiboken.Enum):
 
         OddEvenMode              : QPaintEngine.PolygonDrawMode = ... # 0x0
         WindingMode              : QPaintEngine.PolygonDrawMode = ... # 0x1
         ConvexMode               : QPaintEngine.PolygonDrawMode = ... # 0x2
         PolylineMode             : QPaintEngine.PolygonDrawMode = ... # 0x3
 
-    class Type(Enum):
+    class Type(Shiboken.Enum):
 
         X11                      : QPaintEngine.Type = ... # 0x0
         Windows                  : QPaintEngine.Type = ... # 0x1
@@ -5631,7 +5636,7 @@ class QPainter(Shiboken.Object):
     VerticalSubpixelPositioning: QPainter.RenderHint = ... # 0x8
     LosslessImageRendering   : QPainter.RenderHint = ... # 0x40
 
-    class CompositionMode(Enum):
+    class CompositionMode(Shiboken.Enum):
 
         CompositionMode_SourceOver: QPainter.CompositionMode = ... # 0x0
         CompositionMode_DestinationOver: QPainter.CompositionMode = ... # 0x1
@@ -5684,13 +5689,13 @@ class QPainter(Shiboken.Object):
         @staticmethod
         def create(pos:Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], sourceRect:Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], scaleX:float=..., scaleY:float=..., rotation:float=..., opacity:float=...) -> PySide6.QtGui.QPainter.PixmapFragment: ...
 
-    class PixmapFragmentHint(Enum):
+    class PixmapFragmentHint(Shiboken.Enum):
 
         OpaqueHint               : QPainter.PixmapFragmentHint = ... # 0x1
 
     class PixmapFragmentHints(object): ...
 
-    class RenderHint(Enum):
+    class RenderHint(Shiboken.Enum):
 
         Antialiasing             : QPainter.RenderHint = ... # 0x1
         TextAntialiasing         : QPainter.RenderHint = ... # 0x2
@@ -6047,7 +6052,7 @@ class QPainterPath(Shiboken.Object):
         def isLineTo(self) -> bool: ...
         def isMoveTo(self) -> bool: ...
 
-    class ElementType(Enum):
+    class ElementType(Shiboken.Enum):
 
         MoveToElement            : QPainterPath.ElementType = ... # 0x0
         LineToElement            : QPainterPath.ElementType = ... # 0x1
@@ -6227,7 +6232,7 @@ class QPalette(Shiboken.Object):
     PlaceholderText          : QPalette.ColorRole = ... # 0x14
     NColorRoles              : QPalette.ColorRole = ... # 0x15
 
-    class ColorGroup(Enum):
+    class ColorGroup(Shiboken.Enum):
 
         Active                   : QPalette.ColorGroup = ... # 0x0
         Normal                   : QPalette.ColorGroup = ... # 0x0
@@ -6237,7 +6242,7 @@ class QPalette(Shiboken.Object):
         Current                  : QPalette.ColorGroup = ... # 0x4
         All                      : QPalette.ColorGroup = ... # 0x5
 
-    class ColorRole(Enum):
+    class ColorRole(Shiboken.Enum):
 
         WindowText               : QPalette.ColorRole = ... # 0x0
         Button                   : QPalette.ColorRole = ... # 0x1
@@ -6470,28 +6475,28 @@ class QPixelFormat(Shiboken.Object):
     Y8                       : QPixelFormat.YUVLayout = ... # 0xe
     Y16                      : QPixelFormat.YUVLayout = ... # 0xf
 
-    class AlphaPosition(Enum):
+    class AlphaPosition(Shiboken.Enum):
 
         AtBeginning              : QPixelFormat.AlphaPosition = ... # 0x0
         AtEnd                    : QPixelFormat.AlphaPosition = ... # 0x1
 
-    class AlphaPremultiplied(Enum):
+    class AlphaPremultiplied(Shiboken.Enum):
 
         NotPremultiplied         : QPixelFormat.AlphaPremultiplied = ... # 0x0
         Premultiplied            : QPixelFormat.AlphaPremultiplied = ... # 0x1
 
-    class AlphaUsage(Enum):
+    class AlphaUsage(Shiboken.Enum):
 
         UsesAlpha                : QPixelFormat.AlphaUsage = ... # 0x0
         IgnoresAlpha             : QPixelFormat.AlphaUsage = ... # 0x1
 
-    class ByteOrder(Enum):
+    class ByteOrder(Shiboken.Enum):
 
         LittleEndian             : QPixelFormat.ByteOrder = ... # 0x0
         BigEndian                : QPixelFormat.ByteOrder = ... # 0x1
         CurrentSystemEndian      : QPixelFormat.ByteOrder = ... # 0x2
 
-    class ColorModel(Enum):
+    class ColorModel(Shiboken.Enum):
 
         RGB                      : QPixelFormat.ColorModel = ... # 0x0
         BGR                      : QPixelFormat.ColorModel = ... # 0x1
@@ -6503,14 +6508,14 @@ class QPixelFormat(Shiboken.Object):
         YUV                      : QPixelFormat.ColorModel = ... # 0x7
         Alpha                    : QPixelFormat.ColorModel = ... # 0x8
 
-    class TypeInterpretation(Enum):
+    class TypeInterpretation(Shiboken.Enum):
 
         UnsignedInteger          : QPixelFormat.TypeInterpretation = ... # 0x0
         UnsignedShort            : QPixelFormat.TypeInterpretation = ... # 0x1
         UnsignedByte             : QPixelFormat.TypeInterpretation = ... # 0x2
         FloatingPoint            : QPixelFormat.TypeInterpretation = ... # 0x3
 
-    class YUVLayout(Enum):
+    class YUVLayout(Shiboken.Enum):
 
         YUV444                   : QPixelFormat.YUVLayout = ... # 0x0
         YUV422                   : QPixelFormat.YUVLayout = ... # 0x1
@@ -6698,7 +6703,7 @@ class QPlatformSurfaceEvent(PySide6.QtCore.QEvent):
     SurfaceCreated           : QPlatformSurfaceEvent.SurfaceEventType = ... # 0x0
     SurfaceAboutToBeDestroyed: QPlatformSurfaceEvent.SurfaceEventType = ... # 0x1
 
-    class SurfaceEventType(Enum):
+    class SurfaceEventType(Shiboken.Enum):
 
         SurfaceCreated           : QPlatformSurfaceEvent.SurfaceEventType = ... # 0x0
         SurfaceAboutToBeDestroyed: QPlatformSurfaceEvent.SurfaceEventType = ... # 0x1
@@ -6755,7 +6760,7 @@ class QPointingDevice(PySide6.QtGui.QInputDevice):
     UngrabExclusive          : QPointingDevice.GrabTransition = ... # 0x20
     CancelGrabExclusive      : QPointingDevice.GrabTransition = ... # 0x30
 
-    class GrabTransition(Enum):
+    class GrabTransition(Shiboken.Enum):
 
         GrabPassive              : QPointingDevice.GrabTransition = ... # 0x1
         UngrabPassive            : QPointingDevice.GrabTransition = ... # 0x2
@@ -6765,7 +6770,7 @@ class QPointingDevice(PySide6.QtGui.QInputDevice):
         UngrabExclusive          : QPointingDevice.GrabTransition = ... # 0x20
         CancelGrabExclusive      : QPointingDevice.GrabTransition = ... # 0x30
 
-    class PointerType(Enum):
+    class PointerType(Shiboken.Enum):
 
         Unknown                  : QPointingDevice.PointerType = ... # 0x0
         Generic                  : QPointingDevice.PointerType = ... # 0x1
@@ -7147,12 +7152,12 @@ class QRawFont(Shiboken.Object):
     KernedAdvances           : QRawFont.LayoutFlag = ... # 0x1
     UseDesignMetrics         : QRawFont.LayoutFlag = ... # 0x2
 
-    class AntialiasingType(Enum):
+    class AntialiasingType(Shiboken.Enum):
 
         PixelAntialiasing        : QRawFont.AntialiasingType = ... # 0x0
         SubPixelAntialiasing     : QRawFont.AntialiasingType = ... # 0x1
 
-    class LayoutFlag(Enum):
+    class LayoutFlag(Shiboken.Enum):
 
         SeparateAdvances         : QRawFont.LayoutFlag = ... # 0x0
         KernedAdvances           : QRawFont.LayoutFlag = ... # 0x1
@@ -7216,7 +7221,7 @@ class QRegion(Shiboken.Object):
     Rectangle                : QRegion.RegionType = ... # 0x0
     Ellipse                  : QRegion.RegionType = ... # 0x1
 
-    class RegionType(Enum):
+    class RegionType(Shiboken.Enum):
 
         Rectangle                : QRegion.RegionType = ... # 0x0
         Ellipse                  : QRegion.RegionType = ... # 0x1
@@ -7267,6 +7272,8 @@ class QRegion(Shiboken.Object):
     @overload
     def contains(self, r:PySide6.QtCore.QRect) -> bool: ...
     def end(self) -> PySide6.QtCore.QRect: ...
+    @staticmethod
+    def fromHRGN(hrgn:int) -> PySide6.QtGui.QRegion: ...
     @overload
     def intersected(self, r:PySide6.QtCore.QRect) -> PySide6.QtGui.QRegion: ...
     @overload
@@ -7281,6 +7288,7 @@ class QRegion(Shiboken.Object):
     def setRects(self, rect:PySide6.QtCore.QRect, num:int) -> None: ...
     def subtracted(self, r:Union[PySide6.QtGui.QRegion, PySide6.QtGui.QBitmap, PySide6.QtGui.QPolygon, PySide6.QtCore.QRect]) -> PySide6.QtGui.QRegion: ...
     def swap(self, other:Union[PySide6.QtGui.QRegion, PySide6.QtGui.QBitmap, PySide6.QtGui.QPolygon, PySide6.QtCore.QRect]) -> None: ...
+    def toHRGN(self) -> int: ...
     @overload
     def translate(self, dx:int, dy:int) -> None: ...
     @overload
@@ -7403,7 +7411,7 @@ class QScrollEvent(PySide6.QtCore.QEvent):
     ScrollUpdated            : QScrollEvent.ScrollState = ... # 0x1
     ScrollFinished           : QScrollEvent.ScrollState = ... # 0x2
 
-    class ScrollState(Enum):
+    class ScrollState(Shiboken.Enum):
 
         ScrollStarted            : QScrollEvent.ScrollState = ... # 0x0
         ScrollUpdated            : QScrollEvent.ScrollState = ... # 0x1
@@ -7445,7 +7453,7 @@ class QSessionManager(PySide6.QtCore.QObject):
     RestartImmediately       : QSessionManager.RestartHint = ... # 0x2
     RestartNever             : QSessionManager.RestartHint = ... # 0x3
 
-    class RestartHint(Enum):
+    class RestartHint(Shiboken.Enum):
 
         RestartIfRunning         : QSessionManager.RestartHint = ... # 0x0
         RestartAnyway            : QSessionManager.RestartHint = ... # 0x1
@@ -7553,7 +7561,7 @@ class QStandardItem(Shiboken.Object):
     Type                     : QStandardItem.ItemType = ... # 0x0
     UserType                 : QStandardItem.ItemType = ... # 0x3e8
 
-    class ItemType(Enum):
+    class ItemType(Shiboken.Enum):
 
         Type                     : QStandardItem.ItemType = ... # 0x0
         UserType                 : QStandardItem.ItemType = ... # 0x3e8
@@ -7748,7 +7756,7 @@ class QStaticText(Shiboken.Object):
     ModerateCaching          : QStaticText.PerformanceHint = ... # 0x0
     AggressiveCaching        : QStaticText.PerformanceHint = ... # 0x1
 
-    class PerformanceHint(Enum):
+    class PerformanceHint(Shiboken.Enum):
 
         ModerateCaching          : QStaticText.PerformanceHint = ... # 0x0
         AggressiveCaching        : QStaticText.PerformanceHint = ... # 0x1
@@ -7838,12 +7846,12 @@ class QSurface(Shiboken.Object):
     MetalSurface             : QSurface.SurfaceType = ... # 0x5
     Direct3DSurface          : QSurface.SurfaceType = ... # 0x6
 
-    class SurfaceClass(Enum):
+    class SurfaceClass(Shiboken.Enum):
 
         Window                   : QSurface.SurfaceClass = ... # 0x0
         Offscreen                : QSurface.SurfaceClass = ... # 0x1
 
-    class SurfaceType(Enum):
+    class SurfaceType(Shiboken.Enum):
 
         RasterSurface            : QSurface.SurfaceType = ... # 0x0
         OpenGLSurface            : QSurface.SurfaceType = ... # 0x1
@@ -7885,12 +7893,12 @@ class QSurfaceFormat(Shiboken.Object):
     DoubleBuffer             : QSurfaceFormat.SwapBehavior = ... # 0x2
     TripleBuffer             : QSurfaceFormat.SwapBehavior = ... # 0x3
 
-    class ColorSpace(Enum):
+    class ColorSpace(Shiboken.Enum):
 
         DefaultColorSpace        : QSurfaceFormat.ColorSpace = ... # 0x0
         sRGBColorSpace           : QSurfaceFormat.ColorSpace = ... # 0x1
 
-    class FormatOption(Enum):
+    class FormatOption(Shiboken.Enum):
 
         StereoBuffers            : QSurfaceFormat.FormatOption = ... # 0x1
         DebugContext             : QSurfaceFormat.FormatOption = ... # 0x2
@@ -7900,20 +7908,20 @@ class QSurfaceFormat(Shiboken.Object):
 
     class FormatOptions(object): ...
 
-    class OpenGLContextProfile(Enum):
+    class OpenGLContextProfile(Shiboken.Enum):
 
         NoProfile                : QSurfaceFormat.OpenGLContextProfile = ... # 0x0
         CoreProfile              : QSurfaceFormat.OpenGLContextProfile = ... # 0x1
         CompatibilityProfile     : QSurfaceFormat.OpenGLContextProfile = ... # 0x2
 
-    class RenderableType(Enum):
+    class RenderableType(Shiboken.Enum):
 
         DefaultRenderableType    : QSurfaceFormat.RenderableType = ... # 0x0
         OpenGL                   : QSurfaceFormat.RenderableType = ... # 0x1
         OpenGLES                 : QSurfaceFormat.RenderableType = ... # 0x2
         OpenVG                   : QSurfaceFormat.RenderableType = ... # 0x4
 
-    class SwapBehavior(Enum):
+    class SwapBehavior(Shiboken.Enum):
 
         DefaultSwapBehavior      : QSurfaceFormat.SwapBehavior = ... # 0x0
         SingleBuffer             : QSurfaceFormat.SwapBehavior = ... # 0x1
@@ -8097,7 +8105,7 @@ class QTextBlockFormat(PySide6.QtGui.QTextFormat):
     MinimumHeight            : QTextBlockFormat.LineHeightTypes = ... # 0x3
     LineDistanceHeight       : QTextBlockFormat.LineHeightTypes = ... # 0x4
 
-    class LineHeightTypes(Enum):
+    class LineHeightTypes(Shiboken.Enum):
 
         SingleHeight             : QTextBlockFormat.LineHeightTypes = ... # 0x0
         ProportionalHeight       : QTextBlockFormat.LineHeightTypes = ... # 0x1
@@ -8105,7 +8113,7 @@ class QTextBlockFormat(PySide6.QtGui.QTextFormat):
         MinimumHeight            : QTextBlockFormat.LineHeightTypes = ... # 0x3
         LineDistanceHeight       : QTextBlockFormat.LineHeightTypes = ... # 0x4
 
-    class MarkerType(Enum):
+    class MarkerType(Shiboken.Enum):
 
         NoMarker                 : QTextBlockFormat.MarkerType = ... # 0x0
         Unchecked                : QTextBlockFormat.MarkerType = ... # 0x1
@@ -8189,12 +8197,12 @@ class QTextCharFormat(PySide6.QtGui.QTextFormat):
     AlignBottom              : QTextCharFormat.VerticalAlignment = ... # 0x5
     AlignBaseline            : QTextCharFormat.VerticalAlignment = ... # 0x6
 
-    class FontPropertiesInheritanceBehavior(Enum):
+    class FontPropertiesInheritanceBehavior(Shiboken.Enum):
 
         FontPropertiesSpecifiedOnly: QTextCharFormat.FontPropertiesInheritanceBehavior = ... # 0x0
         FontPropertiesAll        : QTextCharFormat.FontPropertiesInheritanceBehavior = ... # 0x1
 
-    class UnderlineStyle(Enum):
+    class UnderlineStyle(Shiboken.Enum):
 
         NoUnderline              : QTextCharFormat.UnderlineStyle = ... # 0x0
         SingleUnderline          : QTextCharFormat.UnderlineStyle = ... # 0x1
@@ -8205,7 +8213,7 @@ class QTextCharFormat(PySide6.QtGui.QTextFormat):
         WaveUnderline            : QTextCharFormat.UnderlineStyle = ... # 0x6
         SpellCheckUnderline      : QTextCharFormat.UnderlineStyle = ... # 0x7
 
-    class VerticalAlignment(Enum):
+    class VerticalAlignment(Shiboken.Enum):
 
         AlignNormal              : QTextCharFormat.VerticalAlignment = ... # 0x0
         AlignSuperScript         : QTextCharFormat.VerticalAlignment = ... # 0x1
@@ -8328,12 +8336,12 @@ class QTextCursor(Shiboken.Object):
     BlockUnderCursor         : QTextCursor.SelectionType = ... # 0x2
     Document                 : QTextCursor.SelectionType = ... # 0x3
 
-    class MoveMode(Enum):
+    class MoveMode(Shiboken.Enum):
 
         MoveAnchor               : QTextCursor.MoveMode = ... # 0x0
         KeepAnchor               : QTextCursor.MoveMode = ... # 0x1
 
-    class MoveOperation(Enum):
+    class MoveOperation(Shiboken.Enum):
 
         NoMove                   : QTextCursor.MoveOperation = ... # 0x0
         Start                    : QTextCursor.MoveOperation = ... # 0x1
@@ -8361,7 +8369,7 @@ class QTextCursor(Shiboken.Object):
         NextRow                  : QTextCursor.MoveOperation = ... # 0x17
         PreviousRow              : QTextCursor.MoveOperation = ... # 0x18
 
-    class SelectionType(Enum):
+    class SelectionType(Shiboken.Enum):
 
         WordUnderCursor          : QTextCursor.SelectionType = ... # 0x0
         LineUnderCursor          : QTextCursor.SelectionType = ... # 0x1
@@ -8487,7 +8495,7 @@ class QTextDocument(PySide6.QtCore.QObject):
     RedoStack                : QTextDocument.Stacks = ... # 0x2
     UndoAndRedoStacks        : QTextDocument.Stacks = ... # 0x3
 
-    class FindFlag(Enum):
+    class FindFlag(Shiboken.Enum):
 
         FindBackward             : QTextDocument.FindFlag = ... # 0x1
         FindCaseSensitively      : QTextDocument.FindFlag = ... # 0x2
@@ -8495,7 +8503,7 @@ class QTextDocument(PySide6.QtCore.QObject):
 
     class FindFlags(object): ...
 
-    class MarkdownFeature(Enum):
+    class MarkdownFeature(Shiboken.Enum):
 
         MarkdownDialectCommonMark: QTextDocument.MarkdownFeature = ... # 0x0
         MarkdownNoHTML           : QTextDocument.MarkdownFeature = ... # 0x60
@@ -8503,13 +8511,13 @@ class QTextDocument(PySide6.QtCore.QObject):
 
     class MarkdownFeatures(object): ...
 
-    class MetaInformation(Enum):
+    class MetaInformation(Shiboken.Enum):
 
         DocumentTitle            : QTextDocument.MetaInformation = ... # 0x0
         DocumentUrl              : QTextDocument.MetaInformation = ... # 0x1
         CssMedia                 : QTextDocument.MetaInformation = ... # 0x2
 
-    class ResourceType(Enum):
+    class ResourceType(Shiboken.Enum):
 
         UnknownResource          : QTextDocument.ResourceType = ... # 0x0
         HtmlResource             : QTextDocument.ResourceType = ... # 0x1
@@ -8518,7 +8526,7 @@ class QTextDocument(PySide6.QtCore.QObject):
         MarkdownResource         : QTextDocument.ResourceType = ... # 0x4
         UserResource             : QTextDocument.ResourceType = ... # 0x64
 
-    class Stacks(Enum):
+    class Stacks(Shiboken.Enum):
 
         UndoStack                : QTextDocument.Stacks = ... # 0x1
         RedoStack                : QTextDocument.Stacks = ... # 0x2
@@ -8800,7 +8808,7 @@ class QTextFormat(Shiboken.Object):
     PageBreakPolicy          : QTextFormat.Property = ... # 0x7000
     UserProperty             : QTextFormat.Property = ... # 0x100000
 
-    class FormatType(Enum):
+    class FormatType(Shiboken.Enum):
 
         InvalidFormat            : QTextFormat.FormatType = ... # -0x1
         BlockFormat              : QTextFormat.FormatType = ... # 0x1
@@ -8809,7 +8817,7 @@ class QTextFormat(Shiboken.Object):
         FrameFormat              : QTextFormat.FormatType = ... # 0x5
         UserFormat               : QTextFormat.FormatType = ... # 0x64
 
-    class ObjectTypes(Enum):
+    class ObjectTypes(Shiboken.Enum):
 
         NoObject                 : QTextFormat.ObjectTypes = ... # 0x0
         ImageObject              : QTextFormat.ObjectTypes = ... # 0x1
@@ -8817,7 +8825,7 @@ class QTextFormat(Shiboken.Object):
         TableCellObject          : QTextFormat.ObjectTypes = ... # 0x3
         UserObject               : QTextFormat.ObjectTypes = ... # 0x1000
 
-    class PageBreakFlag(Enum):
+    class PageBreakFlag(Shiboken.Enum):
 
         PageBreak_Auto           : QTextFormat.PageBreakFlag = ... # 0x0
         PageBreak_AlwaysBefore   : QTextFormat.PageBreakFlag = ... # 0x1
@@ -8825,7 +8833,7 @@ class QTextFormat(Shiboken.Object):
 
     class PageBreakFlags(object): ...
 
-    class Property(Enum):
+    class Property(Shiboken.Enum):
 
         ObjectIndex              : QTextFormat.Property = ... # 0x0
         CssFloat                 : QTextFormat.Property = ... # 0x800
@@ -9072,7 +9080,7 @@ class QTextFrameFormat(PySide6.QtGui.QTextFormat):
     FloatLeft                : QTextFrameFormat.Position = ... # 0x1
     FloatRight               : QTextFrameFormat.Position = ... # 0x2
 
-    class BorderStyle(Enum):
+    class BorderStyle(Shiboken.Enum):
 
         BorderStyle_None         : QTextFrameFormat.BorderStyle = ... # 0x0
         BorderStyle_Dotted       : QTextFrameFormat.BorderStyle = ... # 0x1
@@ -9086,7 +9094,7 @@ class QTextFrameFormat(PySide6.QtGui.QTextFormat):
         BorderStyle_Inset        : QTextFrameFormat.BorderStyle = ... # 0x9
         BorderStyle_Outset       : QTextFrameFormat.BorderStyle = ... # 0xa
 
-    class Position(Enum):
+    class Position(Shiboken.Enum):
 
         InFlow                   : QTextFrameFormat.Position = ... # 0x0
         FloatLeft                : QTextFrameFormat.Position = ... # 0x1
@@ -9191,7 +9199,7 @@ class QTextItem(Shiboken.Object):
     Underline                : QTextItem.RenderFlag = ... # 0x20
     StrikeOut                : QTextItem.RenderFlag = ... # 0x40
 
-    class RenderFlag(Enum):
+    class RenderFlag(Shiboken.Enum):
 
         Dummy                    : QTextItem.RenderFlag = ... # -0x1
         RightToLeft              : QTextItem.RenderFlag = ... # 0x1
@@ -9217,7 +9225,7 @@ class QTextLayout(Shiboken.Object):
     SkipCharacters           : QTextLayout.CursorMode = ... # 0x0
     SkipWords                : QTextLayout.CursorMode = ... # 0x1
 
-    class CursorMode(Enum):
+    class CursorMode(Shiboken.Enum):
 
         SkipCharacters           : QTextLayout.CursorMode = ... # 0x0
         SkipWords                : QTextLayout.CursorMode = ... # 0x1
@@ -9291,7 +9299,7 @@ class QTextLength(Shiboken.Object):
     FixedLength              : QTextLength.Type = ... # 0x1
     PercentageLength         : QTextLength.Type = ... # 0x2
 
-    class Type(Enum):
+    class Type(Shiboken.Enum):
 
         VariableLength           : QTextLength.Type = ... # 0x0
         FixedLength              : QTextLength.Type = ... # 0x1
@@ -9319,12 +9327,12 @@ class QTextLine(Shiboken.Object):
     Leading                  : QTextLine.Edge = ... # 0x0
     Trailing                 : QTextLine.Edge = ... # 0x1
 
-    class CursorPosition(Enum):
+    class CursorPosition(Shiboken.Enum):
 
         CursorBetweenCharacters  : QTextLine.CursorPosition = ... # 0x0
         CursorOnCharacter        : QTextLine.CursorPosition = ... # 0x1
 
-    class Edge(Enum):
+    class Edge(Shiboken.Enum):
 
         Leading                  : QTextLine.Edge = ... # 0x0
         Trailing                 : QTextLine.Edge = ... # 0x1
@@ -9391,7 +9399,7 @@ class QTextListFormat(PySide6.QtGui.QTextFormat):
     ListDisc                 : QTextListFormat.Style = ... # -0x1
     ListStyleUndefined       : QTextListFormat.Style = ... # 0x0
 
-    class Style(Enum):
+    class Style(Shiboken.Enum):
 
         ListUpperRoman           : QTextListFormat.Style = ... # -0x8
         ListLowerRoman           : QTextListFormat.Style = ... # -0x7
@@ -9461,7 +9469,7 @@ class QTextOption(Shiboken.Object):
     WrapAnywhere             : QTextOption.WrapMode = ... # 0x3
     WrapAtWordBoundaryOrAnywhere: QTextOption.WrapMode = ... # 0x4
 
-    class Flag(Enum):
+    class Flag(Shiboken.Enum):
 
         IncludeTrailingSpaces    : QTextOption.Flag = ... # -0x80000000
         ShowTabsAndSpaces        : QTextOption.Flag = ... # 0x1
@@ -9484,14 +9492,14 @@ class QTextOption(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class TabType(Enum):
+    class TabType(Shiboken.Enum):
 
         LeftTab                  : QTextOption.TabType = ... # 0x0
         RightTab                 : QTextOption.TabType = ... # 0x1
         CenterTab                : QTextOption.TabType = ... # 0x2
         DelimiterTab             : QTextOption.TabType = ... # 0x3
 
-    class WrapMode(Enum):
+    class WrapMode(Shiboken.Enum):
 
         NoWrap                   : QTextOption.WrapMode = ... # 0x0
         WordWrap                 : QTextOption.WrapMode = ... # 0x1
@@ -9697,7 +9705,7 @@ class QTransform(Shiboken.Object):
     TxShear                  : QTransform.TransformationType = ... # 0x8
     TxProject                : QTransform.TransformationType = ... # 0x10
 
-    class TransformationType(Enum):
+    class TransformationType(Shiboken.Enum):
 
         TxNone                   : QTransform.TransformationType = ... # 0x0
         TxTranslate              : QTransform.TransformationType = ... # 0x1
@@ -9895,7 +9903,7 @@ class QValidator(PySide6.QtCore.QObject):
     Intermediate             : QValidator.State = ... # 0x1
     Acceptable               : QValidator.State = ... # 0x2
 
-    class State(Enum):
+    class State(Shiboken.Enum):
 
         Invalid                  : QValidator.State = ... # 0x0
         Intermediate             : QValidator.State = ... # 0x1
@@ -10156,12 +10164,12 @@ class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     Maximized                : QWindow.Visibility = ... # 0x4
     FullScreen               : QWindow.Visibility = ... # 0x5
 
-    class AncestorMode(Enum):
+    class AncestorMode(Shiboken.Enum):
 
         ExcludeTransients        : QWindow.AncestorMode = ... # 0x0
         IncludeTransients        : QWindow.AncestorMode = ... # 0x1
 
-    class Visibility(Enum):
+    class Visibility(Shiboken.Enum):
 
         Hidden                   : QWindow.Visibility = ... # 0x0
         AutomaticVisibility      : QWindow.Visibility = ... # 0x1

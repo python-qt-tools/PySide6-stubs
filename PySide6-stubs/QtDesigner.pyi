@@ -48,7 +48,6 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
-from enum import Enum
 from typing import Any, Optional, Tuple, Type, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -145,7 +144,7 @@ class QDesignerDnDItemInterface(Shiboken.Object):
     MoveDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x0
     CopyDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x1
 
-    class DropType(Enum):
+    class DropType(Shiboken.Enum):
 
         MoveDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x0
         CopyDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x1
@@ -209,12 +208,12 @@ class QDesignerFormWindowCursorInterface(Shiboken.Object):
     Up                       : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x7
     Down                     : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x8
 
-    class MoveMode(Enum):
+    class MoveMode(Shiboken.Enum):
 
         MoveAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x0
         KeepAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x1
 
-    class MoveOperation(Enum):
+    class MoveOperation(Shiboken.Enum):
 
         NoMove                   : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x0
         Start                    : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x1
@@ -257,14 +256,14 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
 
     class Feature(object): ...
 
-    class FeatureFlag(Enum):
+    class FeatureFlag(Shiboken.Enum):
 
         EditFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x1
         GridFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x2
         DefaultFeature           : QDesignerFormWindowInterface.FeatureFlag = ... # 0x3
         TabOrderFeature          : QDesignerFormWindowInterface.FeatureFlag = ... # 0x4
 
-    class ResourceFileSaveMode(Enum):
+    class ResourceFileSaveMode(Shiboken.Enum):
 
         SaveAllResourceFiles     : QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x0
         SaveOnlyUsedResourceFiles: QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x1
@@ -364,7 +363,7 @@ class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
     FormWindowSettingsDialogAction: QDesignerFormWindowManagerInterface.Action = ... # 0x258
     StyledPreviewActionGroup : QDesignerFormWindowManagerInterface.ActionGroup = ... # 0x64
 
-    class Action(Enum):
+    class Action(Shiboken.Enum):
 
         CutAction                : QDesignerFormWindowManagerInterface.Action = ... # 0x64
         CopyAction               : QDesignerFormWindowManagerInterface.Action = ... # 0x65
@@ -387,7 +386,7 @@ class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
         DefaultPreviewAction     : QDesignerFormWindowManagerInterface.Action = ... # 0x1f4
         FormWindowSettingsDialogAction: QDesignerFormWindowManagerInterface.Action = ... # 0x258
 
-    class ActionGroup(Enum):
+    class ActionGroup(Shiboken.Enum):
 
         StyledPreviewActionGroup : QDesignerFormWindowManagerInterface.ActionGroup = ... # 0x64
 
@@ -520,7 +519,7 @@ class QDesignerWidgetBoxInterface(PySide6.QtWidgets.QWidget):
         Default                  : QDesignerWidgetBoxInterface.Category.Type = ... # 0x0
         Scratchpad               : QDesignerWidgetBoxInterface.Category.Type = ... # 0x1
 
-        class Type(Enum):
+        class Type(Shiboken.Enum):
 
             Default                  : QDesignerWidgetBoxInterface.Category.Type = ... # 0x0
             Scratchpad               : QDesignerWidgetBoxInterface.Category.Type = ... # 0x1
@@ -548,7 +547,7 @@ class QDesignerWidgetBoxInterface(PySide6.QtWidgets.QWidget):
         Default                  : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x0
         Custom                   : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x1
 
-        class Type(Enum):
+        class Type(Shiboken.Enum):
 
             Default                  : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x0
             Custom                   : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x1

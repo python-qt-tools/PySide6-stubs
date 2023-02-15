@@ -48,7 +48,6 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
-from enum import Enum
 from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -270,7 +269,7 @@ class QHelpSearchQuery(Shiboken.Object):
     ALL                      : QHelpSearchQuery.FieldName = ... # 0x4
     ATLEAST                  : QHelpSearchQuery.FieldName = ... # 0x5
 
-    class FieldName(Enum):
+    class FieldName(Shiboken.Enum):
 
         DEFAULT                  : QHelpSearchQuery.FieldName = ... # 0x0
         FUZZY                    : QHelpSearchQuery.FieldName = ... # 0x1

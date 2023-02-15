@@ -46,7 +46,6 @@ PySide6.QtConcurrent, except for defaults which are replaced by "...".
 import PySide6.QtConcurrent
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Optional, overload
 from shiboken6 import Shiboken
 
@@ -141,7 +140,7 @@ class QtConcurrent(Shiboken.Object):
     ThrottleThread           : QtConcurrent.ThreadFunctionResult = ... # 0x0
     ThreadFinished           : QtConcurrent.ThreadFunctionResult = ... # 0x1
 
-    class ReduceOption(Enum):
+    class ReduceOption(Shiboken.Enum):
 
         UnorderedReduce          : QtConcurrent.ReduceOption = ... # 0x1
         OrderedReduce            : QtConcurrent.ReduceOption = ... # 0x2
@@ -149,7 +148,7 @@ class QtConcurrent(Shiboken.Object):
 
     class ReduceOptions(object): ...
 
-    class ThreadFunctionResult(Enum):
+    class ThreadFunctionResult(Shiboken.Enum):
 
         ThrottleThread           : QtConcurrent.ThreadFunctionResult = ... # 0x0
         ThreadFinished           : QtConcurrent.ThreadFunctionResult = ... # 0x1

@@ -49,7 +49,6 @@ import PySide6.QtGui
 import PySide6.Qt3DCore
 import PySide6.Qt3DRender
 
-from enum import Enum
 from typing import Any, Optional, Type, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -65,7 +64,7 @@ class Qt3DAnimation(Shiboken.Object):
         MorphingAnimation        : Qt3DAnimation.QAbstractAnimation.AnimationType = ... # 0x2
         VertexBlendAnimation     : Qt3DAnimation.QAbstractAnimation.AnimationType = ... # 0x3
 
-        class AnimationType(Enum):
+        class AnimationType(Shiboken.Enum):
 
             KeyframeAnimation        : Qt3DAnimation.QAbstractAnimation.AnimationType = ... # 0x1
             MorphingAnimation        : Qt3DAnimation.QAbstractAnimation.AnimationType = ... # 0x2
@@ -89,7 +88,7 @@ class Qt3DAnimation(Shiboken.Object):
 
         Infinite                 : Qt3DAnimation.QAbstractClipAnimator.Loops = ... # -0x1
 
-        class Loops(Enum):
+        class Loops(Shiboken.Enum):
 
             Infinite                 : Qt3DAnimation.QAbstractClipAnimator.Loops = ... # -0x1
 
@@ -135,7 +134,7 @@ class Qt3DAnimation(Shiboken.Object):
         OnOwningThread           : Qt3DAnimation.QAnimationCallback.Flag = ... # 0x0
         OnThreadPool             : Qt3DAnimation.QAnimationCallback.Flag = ... # 0x1
 
-        class Flag(Enum):
+        class Flag(Shiboken.Enum):
 
             OnOwningThread           : Qt3DAnimation.QAnimationCallback.Flag = ... # 0x0
             OnThreadPool             : Qt3DAnimation.QAnimationCallback.Flag = ... # 0x1
@@ -180,7 +179,7 @@ class Qt3DAnimation(Shiboken.Object):
         Ready                    : Qt3DAnimation.QAnimationClipLoader.Status = ... # 0x1
         Error                    : Qt3DAnimation.QAnimationClipLoader.Status = ... # 0x2
 
-        class Status(Enum):
+        class Status(Shiboken.Enum):
 
             NotReady                 : Qt3DAnimation.QAnimationClipLoader.Status = ... # 0x0
             Ready                    : Qt3DAnimation.QAnimationClipLoader.Status = ... # 0x1
@@ -337,7 +336,7 @@ class Qt3DAnimation(Shiboken.Object):
         LinearInterpolation      : Qt3DAnimation.QKeyFrame.InterpolationType = ... # 0x1
         BezierInterpolation      : Qt3DAnimation.QKeyFrame.InterpolationType = ... # 0x2
 
-        class InterpolationType(Enum):
+        class InterpolationType(Shiboken.Enum):
 
             ConstantInterpolation    : Qt3DAnimation.QKeyFrame.InterpolationType = ... # 0x0
             LinearInterpolation      : Qt3DAnimation.QKeyFrame.InterpolationType = ... # 0x1
@@ -366,7 +365,7 @@ class Qt3DAnimation(Shiboken.Object):
         Constant                 : Qt3DAnimation.QKeyframeAnimation.RepeatMode = ... # 0x1
         Repeat                   : Qt3DAnimation.QKeyframeAnimation.RepeatMode = ... # 0x2
 
-        class RepeatMode(Enum):
+        class RepeatMode(Shiboken.Enum):
 
             None_                    : Qt3DAnimation.QKeyframeAnimation.RepeatMode = ... # 0x0
             Constant                 : Qt3DAnimation.QKeyframeAnimation.RepeatMode = ... # 0x1
@@ -420,7 +419,7 @@ class Qt3DAnimation(Shiboken.Object):
         Normalized               : Qt3DAnimation.QMorphingAnimation.Method = ... # 0x0
         Relative                 : Qt3DAnimation.QMorphingAnimation.Method = ... # 0x1
 
-        class Method(Enum):
+        class Method(Shiboken.Enum):
 
             Normalized               : Qt3DAnimation.QMorphingAnimation.Method = ... # 0x0
             Relative                 : Qt3DAnimation.QMorphingAnimation.Method = ... # 0x1

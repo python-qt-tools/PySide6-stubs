@@ -47,19 +47,18 @@ import PySide6.QtNetworkAuth
 import PySide6.QtCore
 import PySide6.QtNetwork
 
-from enum import Enum
 from typing import Any, Optional, Tuple, Union, Dict, List, overload
 from shiboken6 import Shiboken
 
 
 class QAbstractOAuth(PySide6.QtCore.QObject):
 
-    class ContentType(Enum):
+    class ContentType(Shiboken.Enum):
 
         WwwFormUrlEncoded        : QAbstractOAuth.ContentType = ... # 0x0
         Json                     : QAbstractOAuth.ContentType = ... # 0x1
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QAbstractOAuth.Error = ... # 0x0
         NetworkError             : QAbstractOAuth.Error = ... # 0x1
@@ -68,14 +67,14 @@ class QAbstractOAuth(PySide6.QtCore.QObject):
         OAuthTokenSecretNotFoundError: QAbstractOAuth.Error = ... # 0x4
         OAuthCallbackNotVerified : QAbstractOAuth.Error = ... # 0x5
 
-    class Stage(Enum):
+    class Stage(Shiboken.Enum):
 
         RequestingTemporaryCredentials: QAbstractOAuth.Stage = ... # 0x0
         RequestingAuthorization  : QAbstractOAuth.Stage = ... # 0x1
         RequestingAccessToken    : QAbstractOAuth.Stage = ... # 0x2
         RefreshingAccessToken    : QAbstractOAuth.Stage = ... # 0x3
 
-    class Status(Enum):
+    class Status(Shiboken.Enum):
 
         NotAuthenticated         : QAbstractOAuth.Status = ... # 0x0
         TemporaryCredentialsReceived: QAbstractOAuth.Status = ... # 0x1
@@ -164,7 +163,7 @@ class QIntList(object): ...
 
 class QOAuth1(PySide6.QtNetworkAuth.QAbstractOAuth):
 
-    class SignatureMethod(Enum):
+    class SignatureMethod(Shiboken.Enum):
 
         Hmac_Sha1                : QOAuth1.SignatureMethod = ... # 0x0
         Rsa_Sha1                 : QOAuth1.SignatureMethod = ... # 0x1
@@ -220,7 +219,7 @@ class QOAuth1(PySide6.QtNetworkAuth.QAbstractOAuth):
 
 class QOAuth1Signature(Shiboken.Object):
 
-    class HttpRequestMethod(Enum):
+    class HttpRequestMethod(Shiboken.Enum):
 
         Unknown                  : QOAuth1Signature.HttpRequestMethod = ... # 0x0
         Head                     : QOAuth1Signature.HttpRequestMethod = ... # 0x1

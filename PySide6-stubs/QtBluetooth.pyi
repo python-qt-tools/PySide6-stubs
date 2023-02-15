@@ -46,14 +46,13 @@ PySide6.QtBluetooth, except for defaults which are replaced by "...".
 import PySide6.QtBluetooth
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
 
 class QBluetooth(Shiboken.Object):
 
-    class AttAccessConstraint(Enum):
+    class AttAccessConstraint(Shiboken.Enum):
 
         AttAuthorizationRequired : QBluetooth.AttAccessConstraint = ... # 0x1
         AttAuthenticationRequired: QBluetooth.AttAccessConstraint = ... # 0x2
@@ -61,7 +60,7 @@ class QBluetooth(Shiboken.Object):
 
     class AttAccessConstraints(object): ...
 
-    class Security(Enum):
+    class Security(Shiboken.Enum):
 
         NoSecurity               : QBluetooth.Security = ... # 0x0
         Authorization            : QBluetooth.Security = ... # 0x1
@@ -70,20 +69,6 @@ class QBluetooth(Shiboken.Object):
         Secure                   : QBluetooth.Security = ... # 0x8
 
     class SecurityFlags(object): ...
-
-
-    @overload
-    @staticmethod
-    def qt_getEnumMetaObject(arg__1:PySide6.QtBluetooth.QBluetooth.AttAccessConstraint) -> PySide6.QtCore.QMetaObject: ...
-    @overload
-    @staticmethod
-    def qt_getEnumMetaObject(arg__1:PySide6.QtBluetooth.QBluetooth.Security) -> PySide6.QtCore.QMetaObject: ...
-    @overload
-    @staticmethod
-    def qt_getEnumName(arg__1:PySide6.QtBluetooth.QBluetooth.AttAccessConstraint) -> bytes: ...
-    @overload
-    @staticmethod
-    def qt_getEnumName(arg__1:PySide6.QtBluetooth.QBluetooth.Security) -> bytes: ...
 
 
 class QBluetoothAddress(Shiboken.Object):
@@ -119,13 +104,13 @@ class QBluetoothDeviceDiscoveryAgent(PySide6.QtCore.QObject):
     LocationServiceTurnedOffError: QBluetoothDeviceDiscoveryAgent.Error = ... # 0x6
     UnknownError             : QBluetoothDeviceDiscoveryAgent.Error = ... # 0x64
 
-    class DiscoveryMethod(Enum):
+    class DiscoveryMethod(Shiboken.Enum):
 
         NoMethod                 : QBluetoothDeviceDiscoveryAgent.DiscoveryMethod = ... # 0x0
         ClassicMethod            : QBluetoothDeviceDiscoveryAgent.DiscoveryMethod = ... # 0x1
         LowEnergyMethod          : QBluetoothDeviceDiscoveryAgent.DiscoveryMethod = ... # 0x2
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QBluetoothDeviceDiscoveryAgent.Error = ... # 0x0
         InputOutputError         : QBluetoothDeviceDiscoveryAgent.Error = ... # 0x1
@@ -254,7 +239,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
     InformationService       : QBluetoothDeviceInfo.ServiceClass = ... # 0x80
     AllServices              : QBluetoothDeviceInfo.ServiceClass = ... # 0x7ff
 
-    class CoreConfiguration(Enum):
+    class CoreConfiguration(Shiboken.Enum):
 
         UnknownCoreConfiguration : QBluetoothDeviceInfo.CoreConfiguration = ... # 0x0
         LowEnergyCoreConfiguration: QBluetoothDeviceInfo.CoreConfiguration = ... # 0x1
@@ -263,7 +248,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
 
     class CoreConfigurations(object): ...
 
-    class Field(Enum):
+    class Field(Shiboken.Enum):
 
         None_                    : QBluetoothDeviceInfo.Field = ... # 0x0
         RSSI                     : QBluetoothDeviceInfo.Field = ... # 0x1
@@ -273,7 +258,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
 
     class Fields(object): ...
 
-    class MajorDeviceClass(Enum):
+    class MajorDeviceClass(Shiboken.Enum):
 
         MiscellaneousDevice      : QBluetoothDeviceInfo.MajorDeviceClass = ... # 0x0
         ComputerDevice           : QBluetoothDeviceInfo.MajorDeviceClass = ... # 0x1
@@ -287,7 +272,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         HealthDevice             : QBluetoothDeviceInfo.MajorDeviceClass = ... # 0x9
         UncategorizedDevice      : QBluetoothDeviceInfo.MajorDeviceClass = ... # 0x1f
 
-    class MinorAudioVideoClass(Enum):
+    class MinorAudioVideoClass(Shiboken.Enum):
 
         UncategorizedAudioVideoDevice: QBluetoothDeviceInfo.MinorAudioVideoClass = ... # 0x0
         WearableHeadsetDevice    : QBluetoothDeviceInfo.MinorAudioVideoClass = ... # 0x1
@@ -307,7 +292,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         VideoConferencing        : QBluetoothDeviceInfo.MinorAudioVideoClass = ... # 0x10
         GamingDevice             : QBluetoothDeviceInfo.MinorAudioVideoClass = ... # 0x12
 
-    class MinorComputerClass(Enum):
+    class MinorComputerClass(Shiboken.Enum):
 
         UncategorizedComputer    : QBluetoothDeviceInfo.MinorComputerClass = ... # 0x0
         DesktopComputer          : QBluetoothDeviceInfo.MinorComputerClass = ... # 0x1
@@ -317,7 +302,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         HandheldComputer         : QBluetoothDeviceInfo.MinorComputerClass = ... # 0x5
         WearableComputer         : QBluetoothDeviceInfo.MinorComputerClass = ... # 0x6
 
-    class MinorHealthClass(Enum):
+    class MinorHealthClass(Shiboken.Enum):
 
         UncategorizedHealthDevice: QBluetoothDeviceInfo.MinorHealthClass = ... # 0x0
         HealthBloodPressureMonitor: QBluetoothDeviceInfo.MinorHealthClass = ... # 0x1
@@ -328,7 +313,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         HealthDataDisplay        : QBluetoothDeviceInfo.MinorHealthClass = ... # 0x7
         HealthStepCounter        : QBluetoothDeviceInfo.MinorHealthClass = ... # 0x8
 
-    class MinorImagingClass(Enum):
+    class MinorImagingClass(Shiboken.Enum):
 
         UncategorizedImagingDevice: QBluetoothDeviceInfo.MinorImagingClass = ... # 0x0
         ImageDisplay             : QBluetoothDeviceInfo.MinorImagingClass = ... # 0x4
@@ -336,11 +321,11 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         ImageScanner             : QBluetoothDeviceInfo.MinorImagingClass = ... # 0x10
         ImagePrinter             : QBluetoothDeviceInfo.MinorImagingClass = ... # 0x20
 
-    class MinorMiscellaneousClass(Enum):
+    class MinorMiscellaneousClass(Shiboken.Enum):
 
         UncategorizedMiscellaneous: QBluetoothDeviceInfo.MinorMiscellaneousClass = ... # 0x0
 
-    class MinorNetworkClass(Enum):
+    class MinorNetworkClass(Shiboken.Enum):
 
         NetworkFullService       : QBluetoothDeviceInfo.MinorNetworkClass = ... # 0x0
         NetworkLoadFactorOne     : QBluetoothDeviceInfo.MinorNetworkClass = ... # 0x8
@@ -351,7 +336,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         NetworkLoadFactorSix     : QBluetoothDeviceInfo.MinorNetworkClass = ... # 0x30
         NetworkNoService         : QBluetoothDeviceInfo.MinorNetworkClass = ... # 0x38
 
-    class MinorPeripheralClass(Enum):
+    class MinorPeripheralClass(Shiboken.Enum):
 
         UncategorizedPeripheral  : QBluetoothDeviceInfo.MinorPeripheralClass = ... # 0x0
         JoystickPeripheral       : QBluetoothDeviceInfo.MinorPeripheralClass = ... # 0x1
@@ -364,7 +349,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         PointingDevicePeripheral : QBluetoothDeviceInfo.MinorPeripheralClass = ... # 0x20
         KeyboardWithPointingDevicePeripheral: QBluetoothDeviceInfo.MinorPeripheralClass = ... # 0x30
 
-    class MinorPhoneClass(Enum):
+    class MinorPhoneClass(Shiboken.Enum):
 
         UncategorizedPhone       : QBluetoothDeviceInfo.MinorPhoneClass = ... # 0x0
         CellularPhone            : QBluetoothDeviceInfo.MinorPhoneClass = ... # 0x1
@@ -373,7 +358,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         WiredModemOrVoiceGatewayPhone: QBluetoothDeviceInfo.MinorPhoneClass = ... # 0x4
         CommonIsdnAccessPhone    : QBluetoothDeviceInfo.MinorPhoneClass = ... # 0x5
 
-    class MinorToyClass(Enum):
+    class MinorToyClass(Shiboken.Enum):
 
         UncategorizedToy         : QBluetoothDeviceInfo.MinorToyClass = ... # 0x0
         ToyRobot                 : QBluetoothDeviceInfo.MinorToyClass = ... # 0x1
@@ -382,7 +367,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         ToyController            : QBluetoothDeviceInfo.MinorToyClass = ... # 0x4
         ToyGame                  : QBluetoothDeviceInfo.MinorToyClass = ... # 0x5
 
-    class MinorWearableClass(Enum):
+    class MinorWearableClass(Shiboken.Enum):
 
         UncategorizedWearableDevice: QBluetoothDeviceInfo.MinorWearableClass = ... # 0x0
         WearableWristWatch       : QBluetoothDeviceInfo.MinorWearableClass = ... # 0x1
@@ -391,7 +376,7 @@ class QBluetoothDeviceInfo(Shiboken.Object):
         WearableHelmet           : QBluetoothDeviceInfo.MinorWearableClass = ... # 0x4
         WearableGlasses          : QBluetoothDeviceInfo.MinorWearableClass = ... # 0x5
 
-    class ServiceClass(Enum):
+    class ServiceClass(Shiboken.Enum):
 
         NoService                : QBluetoothDeviceInfo.ServiceClass = ... # 0x0
         PositioningService       : QBluetoothDeviceInfo.ServiceClass = ... # 0x1
@@ -477,20 +462,20 @@ class QBluetoothLocalDevice(PySide6.QtCore.QObject):
     Paired                   : QBluetoothLocalDevice.Pairing = ... # 0x1
     AuthorizedPaired         : QBluetoothLocalDevice.Pairing = ... # 0x2
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QBluetoothLocalDevice.Error = ... # 0x0
         PairingError             : QBluetoothLocalDevice.Error = ... # 0x1
         UnknownError             : QBluetoothLocalDevice.Error = ... # 0x64
 
-    class HostMode(Enum):
+    class HostMode(Shiboken.Enum):
 
         HostPoweredOff           : QBluetoothLocalDevice.HostMode = ... # 0x0
         HostConnectable          : QBluetoothLocalDevice.HostMode = ... # 0x1
         HostDiscoverable         : QBluetoothLocalDevice.HostMode = ... # 0x2
         HostDiscoverableLimitedInquiry: QBluetoothLocalDevice.HostMode = ... # 0x3
 
-    class Pairing(Enum):
+    class Pairing(Shiboken.Enum):
 
         Unpaired                 : QBluetoothLocalDevice.Pairing = ... # 0x0
         Paired                   : QBluetoothLocalDevice.Pairing = ... # 0x1
@@ -524,7 +509,7 @@ class QBluetoothServer(PySide6.QtCore.QObject):
     ServiceAlreadyRegisteredError: QBluetoothServer.Error = ... # 0x4
     UnsupportedProtocolError : QBluetoothServer.Error = ... # 0x5
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QBluetoothServer.Error = ... # 0x0
         UnknownError             : QBluetoothServer.Error = ... # 0x1
@@ -564,12 +549,12 @@ class QBluetoothServiceDiscoveryAgent(PySide6.QtCore.QObject):
     InvalidBluetoothAdapterError: QBluetoothServiceDiscoveryAgent.Error = ... # 0x3
     UnknownError             : QBluetoothServiceDiscoveryAgent.Error = ... # 0x64
 
-    class DiscoveryMode(Enum):
+    class DiscoveryMode(Shiboken.Enum):
 
         MinimalDiscovery         : QBluetoothServiceDiscoveryAgent.DiscoveryMode = ... # 0x0
         FullDiscovery            : QBluetoothServiceDiscoveryAgent.DiscoveryMode = ... # 0x1
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QBluetoothServiceDiscoveryAgent.Error = ... # 0x0
         InputOutputError         : QBluetoothServiceDiscoveryAgent.Error = ... # 0x1
@@ -697,7 +682,7 @@ class QBluetoothServiceInfo(Shiboken.Object):
         def toVector(self) -> List[Any]: ...
         def value(self, i:int) -> Any: ...
 
-    class AttributeId(Enum):
+    class AttributeId(Shiboken.Enum):
 
         ServiceRecordHandle      : QBluetoothServiceInfo.AttributeId = ... # 0x0
         ServiceClassIds          : QBluetoothServiceInfo.AttributeId = ... # 0x1
@@ -718,7 +703,7 @@ class QBluetoothServiceInfo(Shiboken.Object):
         ServiceDescription       : QBluetoothServiceInfo.AttributeId = ... # 0x101
         ServiceProvider          : QBluetoothServiceInfo.AttributeId = ... # 0x102
 
-    class Protocol(Enum):
+    class Protocol(Shiboken.Enum):
 
         UnknownProtocol          : QBluetoothServiceInfo.Protocol = ... # 0x0
         L2capProtocol            : QBluetoothServiceInfo.Protocol = ... # 0x1
@@ -844,7 +829,7 @@ class QBluetoothServiceInfo(Shiboken.Object):
 
 class QBluetoothSocket(PySide6.QtCore.QIODevice):
 
-    class SocketError(Enum):
+    class SocketError(Shiboken.Enum):
 
         NoSocketError            : QBluetoothSocket.SocketError = ... # 0x0
         UnknownSocketError       : QBluetoothSocket.SocketError = ... # 0x1
@@ -855,7 +840,7 @@ class QBluetoothSocket(PySide6.QtCore.QIODevice):
         UnsupportedProtocolError : QBluetoothSocket.SocketError = ... # 0x6
         OperationError           : QBluetoothSocket.SocketError = ... # 0x7
 
-    class SocketState(Enum):
+    class SocketState(Shiboken.Enum):
 
         UnconnectedState         : QBluetoothSocket.SocketState = ... # 0x0
         ServiceLookupState       : QBluetoothSocket.SocketState = ... # 0x1
@@ -909,7 +894,7 @@ class QBluetoothSocket(PySide6.QtCore.QIODevice):
 
 class QBluetoothUuid(PySide6.QtCore.QUuid):
 
-    class CharacteristicType(Enum):
+    class CharacteristicType(Shiboken.Enum):
 
         DeviceName               : QBluetoothUuid.CharacteristicType = ... # 0x2a00
         Appearance               : QBluetoothUuid.CharacteristicType = ... # 0x2a01
@@ -1049,7 +1034,7 @@ class QBluetoothUuid(PySide6.QtCore.QUuid):
         Language                 : QBluetoothUuid.CharacteristicType = ... # 0x2aa2
         BarometricPressureTrend  : QBluetoothUuid.CharacteristicType = ... # 0x2aa3
 
-    class DescriptorType(Enum):
+    class DescriptorType(Shiboken.Enum):
 
         UnknownDescriptorType    : QBluetoothUuid.DescriptorType = ... # 0x0
         CharacteristicExtendedProperties: QBluetoothUuid.DescriptorType = ... # 0x2900
@@ -1065,7 +1050,7 @@ class QBluetoothUuid(PySide6.QtCore.QUuid):
         EnvironmentalSensingMeasurement: QBluetoothUuid.DescriptorType = ... # 0x290c
         EnvironmentalSensingTriggerSetting: QBluetoothUuid.DescriptorType = ... # 0x290d
 
-    class ProtocolUuid(Enum):
+    class ProtocolUuid(Shiboken.Enum):
 
         Sdp                      : QBluetoothUuid.ProtocolUuid = ... # 0x1
         Udp                      : QBluetoothUuid.ProtocolUuid = ... # 0x2
@@ -1093,7 +1078,7 @@ class QBluetoothUuid(PySide6.QtCore.QUuid):
         McapDataChannel          : QBluetoothUuid.ProtocolUuid = ... # 0x1f
         L2cap                    : QBluetoothUuid.ProtocolUuid = ... # 0x100
 
-    class ServiceClassUuid(Enum):
+    class ServiceClassUuid(Shiboken.Enum):
 
         ServiceDiscoveryServer   : QBluetoothUuid.ServiceClassUuid = ... # 0x1000
         BrowseGroupDescriptor    : QBluetoothUuid.ServiceClassUuid = ... # 0x1001
@@ -1235,7 +1220,7 @@ class QLowEnergyAdvertisingData(Shiboken.Object):
     DiscoverabilityLimited   : QLowEnergyAdvertisingData.Discoverability = ... # 0x1
     DiscoverabilityGeneral   : QLowEnergyAdvertisingData.Discoverability = ... # 0x2
 
-    class Discoverability(Enum):
+    class Discoverability(Shiboken.Enum):
 
         DiscoverabilityNone      : QLowEnergyAdvertisingData.Discoverability = ... # 0x0
         DiscoverabilityLimited   : QLowEnergyAdvertisingData.Discoverability = ... # 0x1
@@ -1289,14 +1274,14 @@ class QLowEnergyAdvertisingParameters(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class FilterPolicy(Enum):
+    class FilterPolicy(Shiboken.Enum):
 
         IgnoreWhiteList          : QLowEnergyAdvertisingParameters.FilterPolicy = ... # 0x0
         UseWhiteListForScanning  : QLowEnergyAdvertisingParameters.FilterPolicy = ... # 0x1
         UseWhiteListForConnecting: QLowEnergyAdvertisingParameters.FilterPolicy = ... # 0x2
         UseWhiteListForScanningAndConnecting: QLowEnergyAdvertisingParameters.FilterPolicy = ... # 0x3
 
-    class Mode(Enum):
+    class Mode(Shiboken.Enum):
 
         AdvInd                   : QLowEnergyAdvertisingParameters.Mode = ... # 0x0
         AdvScanInd               : QLowEnergyAdvertisingParameters.Mode = ... # 0x2
@@ -1333,7 +1318,7 @@ class QLowEnergyCharacteristic(Shiboken.Object):
     WriteSigned              : QLowEnergyCharacteristic.PropertyType = ... # 0x40
     ExtendedProperty         : QLowEnergyCharacteristic.PropertyType = ... # 0x80
 
-    class PropertyType(Enum):
+    class PropertyType(Shiboken.Enum):
 
         Unknown                  : QLowEnergyCharacteristic.PropertyType = ... # 0x0
         Broadcasting             : QLowEnergyCharacteristic.PropertyType = ... # 0x1
@@ -1436,7 +1421,7 @@ class QLowEnergyController(PySide6.QtCore.QObject):
     CentralRole              : QLowEnergyController.Role = ... # 0x0
     PeripheralRole           : QLowEnergyController.Role = ... # 0x1
 
-    class ControllerState(Enum):
+    class ControllerState(Shiboken.Enum):
 
         UnconnectedState         : QLowEnergyController.ControllerState = ... # 0x0
         ConnectingState          : QLowEnergyController.ControllerState = ... # 0x1
@@ -1446,7 +1431,7 @@ class QLowEnergyController(PySide6.QtCore.QObject):
         ClosingState             : QLowEnergyController.ControllerState = ... # 0x5
         AdvertisingState         : QLowEnergyController.ControllerState = ... # 0x6
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QLowEnergyController.Error = ... # 0x0
         UnknownError             : QLowEnergyController.Error = ... # 0x1
@@ -1458,12 +1443,12 @@ class QLowEnergyController(PySide6.QtCore.QObject):
         RemoteHostClosedError    : QLowEnergyController.Error = ... # 0x7
         AuthorizationError       : QLowEnergyController.Error = ... # 0x8
 
-    class RemoteAddressType(Enum):
+    class RemoteAddressType(Shiboken.Enum):
 
         PublicAddress            : QLowEnergyController.RemoteAddressType = ... # 0x0
         RandomAddress            : QLowEnergyController.RemoteAddressType = ... # 0x1
 
-    class Role(Enum):
+    class Role(Shiboken.Enum):
 
         CentralRole              : QLowEnergyController.Role = ... # 0x0
         PeripheralRole           : QLowEnergyController.Role = ... # 0x1
@@ -1569,12 +1554,12 @@ class QLowEnergyService(PySide6.QtCore.QObject):
     WriteWithoutResponse     : QLowEnergyService.WriteMode = ... # 0x1
     WriteSigned              : QLowEnergyService.WriteMode = ... # 0x2
 
-    class DiscoveryMode(Enum):
+    class DiscoveryMode(Shiboken.Enum):
 
         FullDiscovery            : QLowEnergyService.DiscoveryMode = ... # 0x0
         SkipValueDiscovery       : QLowEnergyService.DiscoveryMode = ... # 0x1
 
-    class ServiceError(Enum):
+    class ServiceError(Shiboken.Enum):
 
         NoError                  : QLowEnergyService.ServiceError = ... # 0x0
         OperationError           : QLowEnergyService.ServiceError = ... # 0x1
@@ -1584,7 +1569,7 @@ class QLowEnergyService(PySide6.QtCore.QObject):
         CharacteristicReadError  : QLowEnergyService.ServiceError = ... # 0x5
         DescriptorReadError      : QLowEnergyService.ServiceError = ... # 0x6
 
-    class ServiceState(Enum):
+    class ServiceState(Shiboken.Enum):
 
         InvalidService           : QLowEnergyService.ServiceState = ... # 0x0
         DiscoveryRequired        : QLowEnergyService.ServiceState = ... # 0x1
@@ -1595,14 +1580,14 @@ class QLowEnergyService(PySide6.QtCore.QObject):
         ServiceDiscovered        : QLowEnergyService.ServiceState = ... # 0x3
         LocalService             : QLowEnergyService.ServiceState = ... # 0x4
 
-    class ServiceType(Enum):
+    class ServiceType(Shiboken.Enum):
 
         PrimaryService           : QLowEnergyService.ServiceType = ... # 0x1
         IncludedService          : QLowEnergyService.ServiceType = ... # 0x2
 
     class ServiceTypes(object): ...
 
-    class WriteMode(Enum):
+    class WriteMode(Shiboken.Enum):
 
         WriteWithResponse        : QLowEnergyService.WriteMode = ... # 0x0
         WriteWithoutResponse     : QLowEnergyService.WriteMode = ... # 0x1
@@ -1633,7 +1618,7 @@ class QLowEnergyServiceData(Shiboken.Object):
     ServiceTypePrimary       : QLowEnergyServiceData.ServiceType = ... # 0x2800
     ServiceTypeSecondary     : QLowEnergyServiceData.ServiceType = ... # 0x2801
 
-    class ServiceType(Enum):
+    class ServiceType(Shiboken.Enum):
 
         ServiceTypePrimary       : QLowEnergyServiceData.ServiceType = ... # 0x2800
         ServiceTypeSecondary     : QLowEnergyServiceData.ServiceType = ... # 0x2801
