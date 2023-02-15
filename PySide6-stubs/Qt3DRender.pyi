@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -59,7 +23,7 @@ class QIntList(object): ...
 
 class Qt3DRender(Shiboken.Object):
 
-    class API(Shiboken.Enum):
+    class API(shibokensupport.enum_310.Enum):
 
         OpenGL                   : Qt3DRender.API = ... # 0x0
         Vulkan                   : Qt3DRender.API = ... # 0x1
@@ -67,6 +31,7 @@ class Qt3DRender(Shiboken.Object):
         Metal                    : Qt3DRender.API = ... # 0x3
         RHI                      : Qt3DRender.API = ... # 0x4
         Null                     : Qt3DRender.API = ... # 0x5
+
 
     class PropertyReaderInterface(Shiboken.Object):
 
@@ -76,11 +41,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QAbstractLight(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        PointLight               : Qt3DRender.QAbstractLight.Type = ... # 0x0
-        DirectionalLight         : Qt3DRender.QAbstractLight.Type = ... # 0x1
-        SpotLight                : Qt3DRender.QAbstractLight.Type = ... # 0x2
-
-        class Type(Shiboken.Enum):
+        class Type(shibokensupport.enum_310.Enum):
 
             PointLight               : Qt3DRender.QAbstractLight.Type = ... # 0x0
             DirectionalLight         : Qt3DRender.QAbstractLight.Type = ... # 0x1
@@ -95,21 +56,15 @@ class Qt3DRender(Shiboken.Object):
 
     class QAbstractRayCaster(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        AcceptAnyMatchingLayers  : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x0
-        AcceptAllMatchingLayers  : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x1
-        DiscardAnyMatchingLayers : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x2
-        DiscardAllMatchingLayers : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x3
-        Continuous               : Qt3DRender.QAbstractRayCaster.RunMode = ... # 0x0
-        SingleShot               : Qt3DRender.QAbstractRayCaster.RunMode = ... # 0x1
-
-        class FilterMode(Shiboken.Enum):
+        class FilterMode(shibokensupport.enum_310.Enum):
 
             AcceptAnyMatchingLayers  : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x0
             AcceptAllMatchingLayers  : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x1
             DiscardAnyMatchingLayers : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x2
             DiscardAllMatchingLayers : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x3
 
-        class RunMode(Shiboken.Enum):
+
+        class RunMode(shibokensupport.enum_310.Enum):
 
             Continuous               : Qt3DRender.QAbstractRayCaster.RunMode = ... # 0x0
             SingleShot               : Qt3DRender.QAbstractRayCaster.RunMode = ... # 0x1
@@ -128,148 +83,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QAbstractTexture(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        CompareNever             : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x200
-        CompareLess              : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x201
-        CompareEqual             : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x202
-        CompareLessEqual         : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x203
-        CompareGreater           : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x204
-        CommpareNotEqual         : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x205
-        CompareGreaterEqual      : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x206
-        CompareAlways            : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x207
-        CompareNone              : Qt3DRender.QAbstractTexture.ComparisonMode = ... # 0x0
-        CompareRefToTexture      : Qt3DRender.QAbstractTexture.ComparisonMode = ... # 0x884e
-        CubeMapPositiveX         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x8515
-        CubeMapNegativeX         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x8516
-        CubeMapPositiveY         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x8517
-        CubeMapNegativeY         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x8518
-        CubeMapPositiveZ         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x8519
-        CubeMapNegativeZ         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x851a
-        AllFaces                 : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x851b
-        Nearest                  : Qt3DRender.QAbstractTexture.Filter = ... # 0x2600
-        Linear                   : Qt3DRender.QAbstractTexture.Filter = ... # 0x2601
-        NearestMipMapNearest     : Qt3DRender.QAbstractTexture.Filter = ... # 0x2700
-        LinearMipMapNearest      : Qt3DRender.QAbstractTexture.Filter = ... # 0x2701
-        NearestMipMapLinear      : Qt3DRender.QAbstractTexture.Filter = ... # 0x2702
-        LinearMipMapLinear       : Qt3DRender.QAbstractTexture.Filter = ... # 0x2703
-        NoHandle                 : Qt3DRender.QAbstractTexture.HandleType = ... # 0x0
-        OpenGLTextureId          : Qt3DRender.QAbstractTexture.HandleType = ... # 0x1
-        None_                    : Qt3DRender.QAbstractTexture.Status = ... # 0x0
-        Loading                  : Qt3DRender.QAbstractTexture.Status = ... # 0x1
-        Ready                    : Qt3DRender.QAbstractTexture.Status = ... # 0x2
-        Error                    : Qt3DRender.QAbstractTexture.Status = ... # 0x3
-        TargetAutomatic          : Qt3DRender.QAbstractTexture.Target = ... # 0x0
-        Target1D                 : Qt3DRender.QAbstractTexture.Target = ... # 0xde0
-        Target2D                 : Qt3DRender.QAbstractTexture.Target = ... # 0xde1
-        Target3D                 : Qt3DRender.QAbstractTexture.Target = ... # 0x806f
-        TargetRectangle          : Qt3DRender.QAbstractTexture.Target = ... # 0x84f5
-        TargetCubeMap            : Qt3DRender.QAbstractTexture.Target = ... # 0x8513
-        Target1DArray            : Qt3DRender.QAbstractTexture.Target = ... # 0x8c18
-        Target2DArray            : Qt3DRender.QAbstractTexture.Target = ... # 0x8c1a
-        TargetBuffer             : Qt3DRender.QAbstractTexture.Target = ... # 0x8c2a
-        TargetCubeMapArray       : Qt3DRender.QAbstractTexture.Target = ... # 0x9009
-        Target2DMultisample      : Qt3DRender.QAbstractTexture.Target = ... # 0x9100
-        Target2DMultisampleArray : Qt3DRender.QAbstractTexture.Target = ... # 0x9102
-        NoFormat                 : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x0
-        Automatic                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x1
-        DepthFormat              : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x1902
-        AlphaFormat              : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x1906
-        RGBFormat                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x1907
-        RGBAFormat               : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x1908
-        LuminanceFormat          : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x1909
-        LuminanceAlphaFormat     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x190a
-        RG3B2                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x2a10
-        RGB8_UNorm               : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8051
-        RGB16_UNorm              : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8054
-        RGBA4                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8056
-        RGB5A1                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8057
-        RGBA8_UNorm              : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8058
-        RGB10A2                  : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8059
-        RGBA16_UNorm             : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x805b
-        D16                      : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x81a5
-        D24                      : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x81a6
-        D32                      : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x81a7
-        R8_UNorm                 : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8229
-        R16_UNorm                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x822a
-        RG8_UNorm                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x822b
-        RG16_UNorm               : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x822c
-        R16F                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x822d
-        R32F                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x822e
-        RG16F                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x822f
-        RG32F                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8230
-        R8I                      : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8231
-        R8U                      : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8232
-        R16I                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8233
-        R16U                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8234
-        R32I                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8235
-        R32U                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8236
-        RG8I                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8237
-        RG8U                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8238
-        RG16I                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8239
-        RG16U                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x823a
-        RG32I                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x823b
-        RG32U                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x823c
-        RGB_DXT1                 : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x83f0
-        RGBA_DXT1                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x83f1
-        RGBA_DXT3                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x83f2
-        RGBA_DXT5                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x83f3
-        RGBA32F                  : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8814
-        RGB32F                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8815
-        RGBA16F                  : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x881a
-        RGB16F                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x881b
-        D24S8                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x88f0
-        RG11B10F                 : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c3a
-        RGB9E5                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c3d
-        SRGB8                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c41
-        SRGB8_Alpha8             : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c43
-        SRGB_DXT1                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c4c
-        SRGB_Alpha_DXT1          : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c4d
-        SRGB_Alpha_DXT3          : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c4e
-        SRGB_Alpha_DXT5          : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8c4f
-        D32F                     : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8cac
-        D32FS8X24                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8cad
-        R5G6B5                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d62
-        RGB8_ETC1                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d64
-        RGBA32U                  : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d70
-        RGB32U                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d71
-        RGBA16U                  : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d76
-        RGB16U                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d77
-        RGBA8U                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d7c
-        RGB8U                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d7d
-        RGBA32I                  : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d82
-        RGB32I                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d83
-        RGBA16I                  : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d88
-        RGB16I                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d89
-        RGBA8I                   : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d8e
-        RGB8I                    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8d8f
-        R_ATI1N_UNorm            : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8dbb
-        R_ATI1N_SNorm            : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8dbc
-        RG_ATI2N_UNorm           : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8dbd
-        RG_ATI2N_SNorm           : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8dbe
-        RGB_BP_UNorm             : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8e8c
-        SRGB_BP_UNorm            : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8e8d
-        RGB_BP_SIGNED_FLOAT      : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8e8e
-        RGB_BP_UNSIGNED_FLOAT    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8e8f
-        R8_SNorm                 : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f94
-        RG8_SNorm                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f95
-        RGB8_SNorm               : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f96
-        RGBA8_SNorm              : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f97
-        R16_SNorm                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f98
-        RG16_SNorm               : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f99
-        RGB16_SNorm              : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f9a
-        RGBA16_SNorm             : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x8f9b
-        RGB10A2U                 : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x906f
-        R11_EAC_UNorm            : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9270
-        R11_EAC_SNorm            : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9271
-        RG11_EAC_UNorm           : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9272
-        RG11_EAC_SNorm           : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9273
-        RGB8_ETC2                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9274
-        SRGB8_ETC2               : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9275
-        RGB8_PunchThrough_Alpha1_ETC2: Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9276
-        SRGB8_PunchThrough_Alpha1_ETC2: Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9277
-        RGBA8_ETC2_EAC           : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9278
-        SRGB8_Alpha8_ETC2_EAC    : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x9279
-
-        class ComparisonFunction(Shiboken.Enum):
+        class ComparisonFunction(shibokensupport.enum_310.Enum):
 
             CompareNever             : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x200
             CompareLess              : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x201
@@ -280,12 +94,14 @@ class Qt3DRender(Shiboken.Object):
             CompareGreaterEqual      : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x206
             CompareAlways            : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x207
 
-        class ComparisonMode(Shiboken.Enum):
+
+        class ComparisonMode(shibokensupport.enum_310.Enum):
 
             CompareNone              : Qt3DRender.QAbstractTexture.ComparisonMode = ... # 0x0
             CompareRefToTexture      : Qt3DRender.QAbstractTexture.ComparisonMode = ... # 0x884e
 
-        class CubeMapFace(Shiboken.Enum):
+
+        class CubeMapFace(shibokensupport.enum_310.Enum):
 
             CubeMapPositiveX         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x8515
             CubeMapNegativeX         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x8516
@@ -295,7 +111,8 @@ class Qt3DRender(Shiboken.Object):
             CubeMapNegativeZ         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x851a
             AllFaces                 : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x851b
 
-        class Filter(Shiboken.Enum):
+
+        class Filter(shibokensupport.enum_310.Enum):
 
             Nearest                  : Qt3DRender.QAbstractTexture.Filter = ... # 0x2600
             Linear                   : Qt3DRender.QAbstractTexture.Filter = ... # 0x2601
@@ -304,19 +121,23 @@ class Qt3DRender(Shiboken.Object):
             NearestMipMapLinear      : Qt3DRender.QAbstractTexture.Filter = ... # 0x2702
             LinearMipMapLinear       : Qt3DRender.QAbstractTexture.Filter = ... # 0x2703
 
-        class HandleType(Shiboken.Enum):
+
+        class HandleType(shibokensupport.enum_310.Enum):
 
             NoHandle                 : Qt3DRender.QAbstractTexture.HandleType = ... # 0x0
             OpenGLTextureId          : Qt3DRender.QAbstractTexture.HandleType = ... # 0x1
+            RHITextureId             : Qt3DRender.QAbstractTexture.HandleType = ... # 0x2
 
-        class Status(Shiboken.Enum):
+
+        class Status(shibokensupport.enum_310.Enum):
 
             None_                    : Qt3DRender.QAbstractTexture.Status = ... # 0x0
             Loading                  : Qt3DRender.QAbstractTexture.Status = ... # 0x1
             Ready                    : Qt3DRender.QAbstractTexture.Status = ... # 0x2
             Error                    : Qt3DRender.QAbstractTexture.Status = ... # 0x3
 
-        class Target(Shiboken.Enum):
+
+        class Target(shibokensupport.enum_310.Enum):
 
             TargetAutomatic          : Qt3DRender.QAbstractTexture.Target = ... # 0x0
             Target1D                 : Qt3DRender.QAbstractTexture.Target = ... # 0xde0
@@ -331,7 +152,8 @@ class Qt3DRender(Shiboken.Object):
             Target2DMultisample      : Qt3DRender.QAbstractTexture.Target = ... # 0x9100
             Target2DMultisampleArray : Qt3DRender.QAbstractTexture.Target = ... # 0x9102
 
-        class TextureFormat(Shiboken.Enum):
+
+        class TextureFormat(shibokensupport.enum_310.Enum):
 
             NoFormat                 : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x0
             Automatic                : Qt3DRender.QAbstractTexture.TextureFormat = ... # 0x1
@@ -496,16 +318,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QAlphaTest(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        Never                    : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x200
-        Less                     : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x201
-        Equal                    : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x202
-        LessOrEqual              : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x203
-        Greater                  : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x204
-        NotEqual                 : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x205
-        GreaterOrEqual           : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x206
-        Always                   : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x207
-
-        class AlphaFunction(Shiboken.Enum):
+        class AlphaFunction(shibokensupport.enum_310.Enum):
 
             Never                    : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x200
             Less                     : Qt3DRender.QAlphaTest.AlphaFunction = ... # 0x201
@@ -526,13 +339,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QBlendEquation(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        Add                      : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x8006
-        Min                      : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x8007
-        Max                      : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x8008
-        Subtract                 : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x800a
-        ReverseSubtract          : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x800b
-
-        class BlendFunction(Shiboken.Enum):
+        class BlendFunction(shibokensupport.enum_310.Enum):
 
             Add                      : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x8006
             Min                      : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x8007
@@ -548,28 +355,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QBlendEquationArguments(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        Zero                     : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x0
-        One                      : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x1
-        SourceColor              : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x300
-        OneMinusSourceColor      : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x301
-        SourceAlpha              : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x302
-        OneMinusSourceAlpha      : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x303
-        Source1Alpha             : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x303
-        DestinationAlpha         : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x304
-        Source1Color             : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x304
-        OneMinusDestinationAlpha : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x305
-        DestinationColor         : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x306
-        OneMinusDestinationColor : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x307
-        SourceAlphaSaturate      : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x308
-        ConstantColor            : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x8001
-        OneMinusConstantColor    : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x8002
-        ConstantAlpha            : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x8003
-        OneMinusConstantAlpha    : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x8004
-        OneMinusSource1Alpha     : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x8005
-        OneMinusSource1Color     : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x8006
-        OneMinusSource1Color0    : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x8006
-
-        class Blending(Shiboken.Enum):
+        class Blending(shibokensupport.enum_310.Enum):
 
             Zero                     : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x0
             One                      : Qt3DRender.QBlendEquationArguments.Blending = ... # 0x1
@@ -610,10 +396,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QBlitFramebuffer(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        Nearest                  : Qt3DRender.QBlitFramebuffer.InterpolationMethod = ... # 0x0
-        Linear                   : Qt3DRender.QBlitFramebuffer.InterpolationMethod = ... # 0x1
-
-        class InterpolationMethod(Shiboken.Enum):
+        class InterpolationMethod(shibokensupport.enum_310.Enum):
 
             Nearest                  : Qt3DRender.QBlitFramebuffer.InterpolationMethod = ... # 0x0
             Linear                   : Qt3DRender.QBlitFramebuffer.InterpolationMethod = ... # 0x1
@@ -643,10 +426,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QCamera(PySide6.Qt3DCore.Qt3DCore.QEntity):
 
-        TranslateViewCenter      : Qt3DRender.QCamera.CameraTranslationOption = ... # 0x0
-        DontTranslateViewCenter  : Qt3DRender.QCamera.CameraTranslationOption = ... # 0x1
-
-        class CameraTranslationOption(Shiboken.Enum):
+        class CameraTranslationOption(shibokensupport.enum_310.Enum):
 
             TranslateViewCenter      : Qt3DRender.QCamera.CameraTranslationOption = ... # 0x0
             DontTranslateViewCenter  : Qt3DRender.QCamera.CameraTranslationOption = ... # 0x1
@@ -712,12 +492,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QCameraLens(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        OrthographicProjection   : Qt3DRender.QCameraLens.ProjectionType = ... # 0x0
-        PerspectiveProjection    : Qt3DRender.QCameraLens.ProjectionType = ... # 0x1
-        FrustumProjection        : Qt3DRender.QCameraLens.ProjectionType = ... # 0x2
-        CustomProjection         : Qt3DRender.QCameraLens.ProjectionType = ... # 0x3
-
-        class ProjectionType(Shiboken.Enum):
+        class ProjectionType(shibokensupport.enum_310.Enum):
 
             OrthographicProjection   : Qt3DRender.QCameraLens.ProjectionType = ... # 0x0
             PerspectiveProjection    : Qt3DRender.QCameraLens.ProjectionType = ... # 0x1
@@ -764,16 +539,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QClearBuffers(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        AllBuffers               : Qt3DRender.QClearBuffers.BufferType = ... # -0x1
-        None_                    : Qt3DRender.QClearBuffers.BufferType = ... # 0x0
-        ColorBuffer              : Qt3DRender.QClearBuffers.BufferType = ... # 0x1
-        DepthBuffer              : Qt3DRender.QClearBuffers.BufferType = ... # 0x2
-        ColorDepthBuffer         : Qt3DRender.QClearBuffers.BufferType = ... # 0x3
-        StencilBuffer            : Qt3DRender.QClearBuffers.BufferType = ... # 0x4
-        DepthStencilBuffer       : Qt3DRender.QClearBuffers.BufferType = ... # 0x6
-        ColorDepthStencilBuffer  : Qt3DRender.QClearBuffers.BufferType = ... # 0x7
-
-        class BufferType(Shiboken.Enum):
+        class BufferType(shibokensupport.enum_310.Flag):
 
             AllBuffers               : Qt3DRender.QClearBuffers.BufferType = ... # -0x1
             None_                    : Qt3DRender.QClearBuffers.BufferType = ... # 0x0
@@ -783,8 +549,6 @@ class Qt3DRender(Shiboken.Object):
             StencilBuffer            : Qt3DRender.QClearBuffers.BufferType = ... # 0x4
             DepthStencilBuffer       : Qt3DRender.QClearBuffers.BufferType = ... # 0x6
             ColorDepthStencilBuffer  : Qt3DRender.QClearBuffers.BufferType = ... # 0x7
-
-        class BufferTypeFlags(object): ...
 
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
@@ -826,10 +590,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QComputeCommand(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        Continuous               : Qt3DRender.QComputeCommand.RunType = ... # 0x0
-        Manual                   : Qt3DRender.QComputeCommand.RunType = ... # 0x1
-
-        class RunType(Shiboken.Enum):
+        class RunType(shibokensupport.enum_310.Enum):
 
             Continuous               : Qt3DRender.QComputeCommand.RunType = ... # 0x0
             Manual                   : Qt3DRender.QComputeCommand.RunType = ... # 0x1
@@ -852,12 +613,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QCullFace(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        NoCulling                : Qt3DRender.QCullFace.CullingMode = ... # 0x0
-        Front                    : Qt3DRender.QCullFace.CullingMode = ... # 0x404
-        Back                     : Qt3DRender.QCullFace.CullingMode = ... # 0x405
-        FrontAndBack             : Qt3DRender.QCullFace.CullingMode = ... # 0x408
-
-        class CullingMode(Shiboken.Enum):
+        class CullingMode(shibokensupport.enum_310.Enum):
 
             NoCulling                : Qt3DRender.QCullFace.CullingMode = ... # 0x0
             Front                    : Qt3DRender.QCullFace.CullingMode = ... # 0x404
@@ -881,16 +637,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QDepthTest(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        Never                    : Qt3DRender.QDepthTest.DepthFunction = ... # 0x200
-        Less                     : Qt3DRender.QDepthTest.DepthFunction = ... # 0x201
-        Equal                    : Qt3DRender.QDepthTest.DepthFunction = ... # 0x202
-        LessOrEqual              : Qt3DRender.QDepthTest.DepthFunction = ... # 0x203
-        Greater                  : Qt3DRender.QDepthTest.DepthFunction = ... # 0x204
-        NotEqual                 : Qt3DRender.QDepthTest.DepthFunction = ... # 0x205
-        GreaterOrEqual           : Qt3DRender.QDepthTest.DepthFunction = ... # 0x206
-        Always                   : Qt3DRender.QDepthTest.DepthFunction = ... # 0x207
-
-        class DepthFunction(Shiboken.Enum):
+        class DepthFunction(shibokensupport.enum_310.Enum):
 
             Never                    : Qt3DRender.QDepthTest.DepthFunction = ... # 0x200
             Less                     : Qt3DRender.QDepthTest.DepthFunction = ... # 0x201
@@ -967,10 +714,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QFrontFace(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        ClockWise                : Qt3DRender.QFrontFace.WindingDirection = ... # 0x900
-        CounterClockWise         : Qt3DRender.QFrontFace.WindingDirection = ... # 0x901
-
-        class WindingDirection(Shiboken.Enum):
+        class WindingDirection(shibokensupport.enum_310.Enum):
 
             ClockWise                : Qt3DRender.QFrontFace.WindingDirection = ... # 0x900
             CounterClockWise         : Qt3DRender.QFrontFace.WindingDirection = ... # 0x901
@@ -988,20 +732,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QGeometryRenderer(PySide6.Qt3DCore.Qt3DCore.QBoundingVolume):
 
-        Points                   : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x0
-        Lines                    : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x1
-        LineLoop                 : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x2
-        LineStrip                : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x3
-        Triangles                : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x4
-        TriangleStrip            : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x5
-        TriangleFan              : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x6
-        LinesAdjacency           : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0xa
-        LineStripAdjacency       : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0xb
-        TrianglesAdjacency       : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0xc
-        TriangleStripAdjacency   : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0xd
-        Patches                  : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0xe
-
-        class PrimitiveType(Shiboken.Enum):
+        class PrimitiveType(shibokensupport.enum_310.Enum):
 
             Points                   : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x0
             Lines                    : Qt3DRender.QGeometryRenderer.PrimitiveType = ... # 0x1
@@ -1046,16 +777,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QGraphicsApiFilter(PySide6.QtCore.QObject):
 
-        OpenGL                   : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x1
-        OpenGLES                 : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x2
-        Vulkan                   : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x3
-        DirectX                  : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x4
-        RHI                      : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x5
-        NoProfile                : Qt3DRender.QGraphicsApiFilter.OpenGLProfile = ... # 0x0
-        CoreProfile              : Qt3DRender.QGraphicsApiFilter.OpenGLProfile = ... # 0x1
-        CompatibilityProfile     : Qt3DRender.QGraphicsApiFilter.OpenGLProfile = ... # 0x2
-
-        class Api(Shiboken.Enum):
+        class Api(shibokensupport.enum_310.Enum):
 
             OpenGL                   : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x1
             OpenGLES                 : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x2
@@ -1063,7 +785,8 @@ class Qt3DRender(Shiboken.Object):
             DirectX                  : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x4
             RHI                      : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x5
 
-        class OpenGLProfile(Shiboken.Enum):
+
+        class OpenGLProfile(shibokensupport.enum_310.Enum):
 
             NoProfile                : Qt3DRender.QGraphicsApiFilter.OpenGLProfile = ... # 0x0
             CoreProfile              : Qt3DRender.QGraphicsApiFilter.OpenGLProfile = ... # 0x1
@@ -1094,12 +817,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QLayerFilter(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        AcceptAnyMatchingLayers  : Qt3DRender.QLayerFilter.FilterMode = ... # 0x0
-        AcceptAllMatchingLayers  : Qt3DRender.QLayerFilter.FilterMode = ... # 0x1
-        DiscardAnyMatchingLayers : Qt3DRender.QLayerFilter.FilterMode = ... # 0x2
-        DiscardAllMatchingLayers : Qt3DRender.QLayerFilter.FilterMode = ... # 0x3
-
-        class FilterMode(Shiboken.Enum):
+        class FilterMode(shibokensupport.enum_310.Enum):
 
             AcceptAnyMatchingLayers  : Qt3DRender.QLayerFilter.FilterMode = ... # 0x0
             AcceptAllMatchingLayers  : Qt3DRender.QLayerFilter.FilterMode = ... # 0x1
@@ -1117,10 +835,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QLevelOfDetail(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        DistanceToCameraThreshold: Qt3DRender.QLevelOfDetail.ThresholdType = ... # 0x0
-        ProjectedScreenPixelSizeThreshold: Qt3DRender.QLevelOfDetail.ThresholdType = ... # 0x1
-
-        class ThresholdType(Shiboken.Enum):
+        class ThresholdType(shibokensupport.enum_310.Enum):
 
             DistanceToCameraThreshold: Qt3DRender.QLevelOfDetail.ThresholdType = ... # 0x0
             ProjectedScreenPixelSizeThreshold: Qt3DRender.QLevelOfDetail.ThresholdType = ... # 0x1
@@ -1177,24 +892,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QMemoryBarrier(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        All                      : Qt3DRender.QMemoryBarrier.Operation = ... # -0x1
-        None_                    : Qt3DRender.QMemoryBarrier.Operation = ... # 0x0
-        VertexAttributeArray     : Qt3DRender.QMemoryBarrier.Operation = ... # 0x1
-        ElementArray             : Qt3DRender.QMemoryBarrier.Operation = ... # 0x2
-        Uniform                  : Qt3DRender.QMemoryBarrier.Operation = ... # 0x4
-        TextureFetch             : Qt3DRender.QMemoryBarrier.Operation = ... # 0x8
-        ShaderImageAccess        : Qt3DRender.QMemoryBarrier.Operation = ... # 0x10
-        Command                  : Qt3DRender.QMemoryBarrier.Operation = ... # 0x20
-        PixelBuffer              : Qt3DRender.QMemoryBarrier.Operation = ... # 0x40
-        TextureUpdate            : Qt3DRender.QMemoryBarrier.Operation = ... # 0x80
-        BufferUpdate             : Qt3DRender.QMemoryBarrier.Operation = ... # 0x100
-        FrameBuffer              : Qt3DRender.QMemoryBarrier.Operation = ... # 0x200
-        TransformFeedback        : Qt3DRender.QMemoryBarrier.Operation = ... # 0x400
-        AtomicCounter            : Qt3DRender.QMemoryBarrier.Operation = ... # 0x800
-        ShaderStorage            : Qt3DRender.QMemoryBarrier.Operation = ... # 0x1000
-        QueryBuffer              : Qt3DRender.QMemoryBarrier.Operation = ... # 0x2000
-
-        class Operation(Shiboken.Enum):
+        class Operation(shibokensupport.enum_310.Flag):
 
             All                      : Qt3DRender.QMemoryBarrier.Operation = ... # -0x1
             None_                    : Qt3DRender.QMemoryBarrier.Operation = ... # 0x0
@@ -1213,22 +911,15 @@ class Qt3DRender(Shiboken.Object):
             ShaderStorage            : Qt3DRender.QMemoryBarrier.Operation = ... # 0x1000
             QueryBuffer              : Qt3DRender.QMemoryBarrier.Operation = ... # 0x2000
 
-        class Operations(object): ...
-
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
-        def setWaitOperations(self, operations: PySide6.Qt3DRender.Qt3DRender.QMemoryBarrier.Operations) -> None: ...
-        def waitOperations(self) -> PySide6.Qt3DRender.Qt3DRender.QMemoryBarrier.Operations: ...
+        def setWaitOperations(self, operations: PySide6.Qt3DRender.Qt3DRender.QMemoryBarrier.Operation) -> None: ...
+        def waitOperations(self) -> PySide6.Qt3DRender.Qt3DRender.QMemoryBarrier.Operation: ...
 
     class QMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
-        None_                    : Qt3DRender.QMesh.Status = ... # 0x0
-        Loading                  : Qt3DRender.QMesh.Status = ... # 0x1
-        Ready                    : Qt3DRender.QMesh.Status = ... # 0x2
-        Error                    : Qt3DRender.QMesh.Status = ... # 0x3
-
-        class Status(Shiboken.Enum):
+        class Status(shibokensupport.enum_310.Enum):
 
             None_                    : Qt3DRender.QMesh.Status = ... # 0x0
             Loading                  : Qt3DRender.QMesh.Status = ... # 0x1
@@ -1306,19 +997,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QPickEvent(PySide6.QtCore.QObject):
 
-        NoButton                 : Qt3DRender.QPickEvent.Buttons = ... # 0x0
-        LeftButton               : Qt3DRender.QPickEvent.Buttons = ... # 0x1
-        RightButton              : Qt3DRender.QPickEvent.Buttons = ... # 0x2
-        MiddleButton             : Qt3DRender.QPickEvent.Buttons = ... # 0x4
-        BackButton               : Qt3DRender.QPickEvent.Buttons = ... # 0x8
-        NoModifier               : Qt3DRender.QPickEvent.Modifiers = ... # 0x0
-        ShiftModifier            : Qt3DRender.QPickEvent.Modifiers = ... # 0x2000000
-        ControlModifier          : Qt3DRender.QPickEvent.Modifiers = ... # 0x4000000
-        AltModifier              : Qt3DRender.QPickEvent.Modifiers = ... # 0x8000000
-        MetaModifier             : Qt3DRender.QPickEvent.Modifiers = ... # 0x10000000
-        KeypadModifier           : Qt3DRender.QPickEvent.Modifiers = ... # 0x20000000
-
-        class Buttons(Shiboken.Enum):
+        class Buttons(shibokensupport.enum_310.Enum):
 
             NoButton                 : Qt3DRender.QPickEvent.Buttons = ... # 0x0
             LeftButton               : Qt3DRender.QPickEvent.Buttons = ... # 0x1
@@ -1326,7 +1005,8 @@ class Qt3DRender(Shiboken.Object):
             MiddleButton             : Qt3DRender.QPickEvent.Buttons = ... # 0x4
             BackButton               : Qt3DRender.QPickEvent.Buttons = ... # 0x8
 
-        class Modifiers(Shiboken.Enum):
+
+        class Modifiers(shibokensupport.enum_310.Enum):
 
             NoModifier               : Qt3DRender.QPickEvent.Modifiers = ... # 0x0
             ShiftModifier            : Qt3DRender.QPickEvent.Modifiers = ... # 0x2000000
@@ -1397,25 +1077,14 @@ class Qt3DRender(Shiboken.Object):
 
     class QPickingSettings(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        FrontFace                : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x1
-        BackFace                 : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x2
-        FrontAndBackFace         : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x3
-        BoundingVolumePicking    : Qt3DRender.QPickingSettings.PickMethod = ... # 0x0
-        TrianglePicking          : Qt3DRender.QPickingSettings.PickMethod = ... # 0x1
-        LinePicking              : Qt3DRender.QPickingSettings.PickMethod = ... # 0x2
-        PointPicking             : Qt3DRender.QPickingSettings.PickMethod = ... # 0x4
-        PrimitivePicking         : Qt3DRender.QPickingSettings.PickMethod = ... # 0x7
-        NearestPick              : Qt3DRender.QPickingSettings.PickResultMode = ... # 0x0
-        AllPicks                 : Qt3DRender.QPickingSettings.PickResultMode = ... # 0x1
-        NearestPriorityPick      : Qt3DRender.QPickingSettings.PickResultMode = ... # 0x2
-
-        class FaceOrientationPickingMode(Shiboken.Enum):
+        class FaceOrientationPickingMode(shibokensupport.enum_310.Enum):
 
             FrontFace                : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x1
             BackFace                 : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x2
             FrontAndBackFace         : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x3
 
-        class PickMethod(Shiboken.Enum):
+
+        class PickMethod(shibokensupport.enum_310.Enum):
 
             BoundingVolumePicking    : Qt3DRender.QPickingSettings.PickMethod = ... # 0x0
             TrianglePicking          : Qt3DRender.QPickingSettings.PickMethod = ... # 0x1
@@ -1423,7 +1092,8 @@ class Qt3DRender(Shiboken.Object):
             PointPicking             : Qt3DRender.QPickingSettings.PickMethod = ... # 0x4
             PrimitivePicking         : Qt3DRender.QPickingSettings.PickMethod = ... # 0x7
 
-        class PickResultMode(Shiboken.Enum):
+
+        class PickResultMode(shibokensupport.enum_310.Enum):
 
             NearestPick              : Qt3DRender.QPickingSettings.PickResultMode = ... # 0x0
             AllPicks                 : Qt3DRender.QPickingSettings.PickResultMode = ... # 0x1
@@ -1454,10 +1124,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QPointSize(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        Fixed                    : Qt3DRender.QPointSize.SizeMode = ... # 0x0
-        Programmable             : Qt3DRender.QPointSize.SizeMode = ... # 0x1
-
-        class SizeMode(Shiboken.Enum):
+        class SizeMode(shibokensupport.enum_310.Enum):
 
             Fixed                    : Qt3DRender.QPointSize.SizeMode = ... # 0x0
             Programmable             : Qt3DRender.QPointSize.SizeMode = ... # 0x1
@@ -1490,20 +1157,14 @@ class Qt3DRender(Shiboken.Object):
 
     class QRasterMode(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
-        Front                    : Qt3DRender.QRasterMode.FaceMode = ... # 0x404
-        Back                     : Qt3DRender.QRasterMode.FaceMode = ... # 0x405
-        FrontAndBack             : Qt3DRender.QRasterMode.FaceMode = ... # 0x408
-        Points                   : Qt3DRender.QRasterMode.RasterMode = ... # 0x1b00
-        Lines                    : Qt3DRender.QRasterMode.RasterMode = ... # 0x1b01
-        Fill                     : Qt3DRender.QRasterMode.RasterMode = ... # 0x1b02
-
-        class FaceMode(Shiboken.Enum):
+        class FaceMode(shibokensupport.enum_310.Enum):
 
             Front                    : Qt3DRender.QRasterMode.FaceMode = ... # 0x404
             Back                     : Qt3DRender.QRasterMode.FaceMode = ... # 0x405
             FrontAndBack             : Qt3DRender.QRasterMode.FaceMode = ... # 0x408
 
-        class RasterMode(Shiboken.Enum):
+
+        class RasterMode(shibokensupport.enum_310.Enum):
 
             Points                   : Qt3DRender.QRasterMode.RasterMode = ... # 0x1b00
             Lines                    : Qt3DRender.QRasterMode.RasterMode = ... # 0x1b01
@@ -1535,12 +1196,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QRayCasterHit(Shiboken.Object):
 
-        TriangleHit              : Qt3DRender.QRayCasterHit.HitType = ... # 0x0
-        LineHit                  : Qt3DRender.QRayCasterHit.HitType = ... # 0x1
-        PointHit                 : Qt3DRender.QRayCasterHit.HitType = ... # 0x2
-        EntityHit                : Qt3DRender.QRayCasterHit.HitType = ... # 0x3
-
-        class HitType(Shiboken.Enum):
+        class HitType(shibokensupport.enum_310.Enum):
 
             TriangleHit              : Qt3DRender.QRayCasterHit.HitType = ... # 0x0
             LineHit                  : Qt3DRender.QRayCasterHit.HitType = ... # 0x1
@@ -1571,10 +1227,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QRenderAspect(PySide6.Qt3DCore.Qt3DCore.QAbstractAspect):
 
-        Automatic                : Qt3DRender.QRenderAspect.SubmissionType = ... # 0x0
-        Manual                   : Qt3DRender.QRenderAspect.SubmissionType = ... # 0x1
-
-        class SubmissionType(Shiboken.Enum):
+        class SubmissionType(shibokensupport.enum_310.Enum):
 
             Automatic                : Qt3DRender.QRenderAspect.SubmissionType = ... # 0x0
             Manual                   : Qt3DRender.QRenderAspect.SubmissionType = ... # 0x1
@@ -1589,16 +1242,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QRenderCapabilities(PySide6.QtCore.QObject):
 
-        OpenGL                   : Qt3DRender.QRenderCapabilities.API = ... # 0x1
-        OpenGLES                 : Qt3DRender.QRenderCapabilities.API = ... # 0x2
-        Vulkan                   : Qt3DRender.QRenderCapabilities.API = ... # 0x3
-        DirectX                  : Qt3DRender.QRenderCapabilities.API = ... # 0x4
-        RHI                      : Qt3DRender.QRenderCapabilities.API = ... # 0x5
-        NoProfile                : Qt3DRender.QRenderCapabilities.Profile = ... # 0x0
-        CoreProfile              : Qt3DRender.QRenderCapabilities.Profile = ... # 0x1
-        CompatibilityProfile     : Qt3DRender.QRenderCapabilities.Profile = ... # 0x2
-
-        class API(Shiboken.Enum):
+        class API(shibokensupport.enum_310.Enum):
 
             OpenGL                   : Qt3DRender.QRenderCapabilities.API = ... # 0x1
             OpenGLES                 : Qt3DRender.QRenderCapabilities.API = ... # 0x2
@@ -1606,7 +1250,8 @@ class Qt3DRender(Shiboken.Object):
             DirectX                  : Qt3DRender.QRenderCapabilities.API = ... # 0x4
             RHI                      : Qt3DRender.QRenderCapabilities.API = ... # 0x5
 
-        class Profile(Shiboken.Enum):
+
+        class Profile(shibokensupport.enum_310.Enum):
 
             NoProfile                : Qt3DRender.QRenderCapabilities.Profile = ... # 0x0
             CoreProfile              : Qt3DRender.QRenderCapabilities.Profile = ... # 0x1
@@ -1693,10 +1338,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QRenderSettings(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        OnDemand                 : Qt3DRender.QRenderSettings.RenderPolicy = ... # 0x0
-        Always                   : Qt3DRender.QRenderSettings.RenderPolicy = ... # 0x1
-
-        class RenderPolicy(Shiboken.Enum):
+        class RenderPolicy(shibokensupport.enum_310.Enum):
 
             OnDemand                 : Qt3DRender.QRenderSettings.RenderPolicy = ... # 0x0
             Always                   : Qt3DRender.QRenderSettings.RenderPolicy = ... # 0x1
@@ -1742,27 +1384,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QRenderTargetOutput(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        Color0                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x0
-        Color1                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x1
-        Color2                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x2
-        Color3                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x3
-        Color4                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x4
-        Color5                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x5
-        Color6                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x6
-        Color7                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x7
-        Color8                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x8
-        Color9                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x9
-        Color10                  : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0xa
-        Color11                  : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0xb
-        Color12                  : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0xc
-        Color13                  : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0xd
-        Color14                  : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0xe
-        Color15                  : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0xf
-        Depth                    : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x10
-        Stencil                  : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x11
-        DepthStencil             : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x12
-
-        class AttachmentPoint(Shiboken.Enum):
+        class AttachmentPoint(shibokensupport.enum_310.Enum):
 
             Color0                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x0
             Color1                   : Qt3DRender.QRenderTargetOutput.AttachmentPoint = ... # 0x1
@@ -1807,18 +1429,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QSceneLoader(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        UnknownComponent         : Qt3DRender.QSceneLoader.ComponentType = ... # 0x0
-        GeometryRendererComponent: Qt3DRender.QSceneLoader.ComponentType = ... # 0x1
-        TransformComponent       : Qt3DRender.QSceneLoader.ComponentType = ... # 0x2
-        MaterialComponent        : Qt3DRender.QSceneLoader.ComponentType = ... # 0x3
-        LightComponent           : Qt3DRender.QSceneLoader.ComponentType = ... # 0x4
-        CameraLensComponent      : Qt3DRender.QSceneLoader.ComponentType = ... # 0x5
-        None_                    : Qt3DRender.QSceneLoader.Status = ... # 0x0
-        Loading                  : Qt3DRender.QSceneLoader.Status = ... # 0x1
-        Ready                    : Qt3DRender.QSceneLoader.Status = ... # 0x2
-        Error                    : Qt3DRender.QSceneLoader.Status = ... # 0x3
-
-        class ComponentType(Shiboken.Enum):
+        class ComponentType(shibokensupport.enum_310.Enum):
 
             UnknownComponent         : Qt3DRender.QSceneLoader.ComponentType = ... # 0x0
             GeometryRendererComponent: Qt3DRender.QSceneLoader.ComponentType = ... # 0x1
@@ -1827,7 +1438,8 @@ class Qt3DRender(Shiboken.Object):
             LightComponent           : Qt3DRender.QSceneLoader.ComponentType = ... # 0x4
             CameraLensComponent      : Qt3DRender.QSceneLoader.ComponentType = ... # 0x5
 
-        class Status(Shiboken.Enum):
+
+        class Status(shibokensupport.enum_310.Enum):
 
             None_                    : Qt3DRender.QSceneLoader.Status = ... # 0x0
             Loading                  : Qt3DRender.QSceneLoader.Status = ... # 0x1
@@ -1876,10 +1488,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QSetFence(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        NoHandle                 : Qt3DRender.QSetFence.HandleType = ... # 0x0
-        OpenGLFenceId            : Qt3DRender.QSetFence.HandleType = ... # 0x1
-
-        class HandleType(Shiboken.Enum):
+        class HandleType(shibokensupport.enum_310.Enum):
 
             NoHandle                 : Qt3DRender.QSetFence.HandleType = ... # 0x0
             OpenGLFenceId            : Qt3DRender.QSetFence.HandleType = ... # 0x1
@@ -1898,58 +1507,14 @@ class Qt3DRender(Shiboken.Object):
 
     class QShaderImage(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        ReadOnly                 : Qt3DRender.QShaderImage.Access = ... # 0x0
-        WriteOnly                : Qt3DRender.QShaderImage.Access = ... # 0x1
-        ReadWrite                : Qt3DRender.QShaderImage.Access = ... # 0x2
-        NoFormat                 : Qt3DRender.QShaderImage.ImageFormat = ... # 0x0
-        Automatic                : Qt3DRender.QShaderImage.ImageFormat = ... # 0x1
-        RGBA8_UNorm              : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8058
-        RGB10A2                  : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8059
-        RGBA16_UNorm             : Qt3DRender.QShaderImage.ImageFormat = ... # 0x805b
-        R8_UNorm                 : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8229
-        R16_UNorm                : Qt3DRender.QShaderImage.ImageFormat = ... # 0x822a
-        RG8_UNorm                : Qt3DRender.QShaderImage.ImageFormat = ... # 0x822b
-        RG16_UNorm               : Qt3DRender.QShaderImage.ImageFormat = ... # 0x822c
-        R16F                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x822d
-        R32F                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x822e
-        RG16F                    : Qt3DRender.QShaderImage.ImageFormat = ... # 0x822f
-        RG32F                    : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8230
-        R8I                      : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8231
-        R8U                      : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8232
-        R16I                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8233
-        R16U                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8234
-        R32I                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8235
-        R32U                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8236
-        RG8I                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8237
-        RG8U                     : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8238
-        RG16I                    : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8239
-        RG16U                    : Qt3DRender.QShaderImage.ImageFormat = ... # 0x823a
-        RG32I                    : Qt3DRender.QShaderImage.ImageFormat = ... # 0x823b
-        RG32U                    : Qt3DRender.QShaderImage.ImageFormat = ... # 0x823c
-        RGBA32F                  : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8814
-        RGBA16F                  : Qt3DRender.QShaderImage.ImageFormat = ... # 0x881a
-        RG11B10F                 : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8c3a
-        RGBA32U                  : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8d70
-        RGBA16U                  : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8d76
-        RGBA8U                   : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8d7c
-        RGBA32I                  : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8d82
-        RGBA16I                  : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8d88
-        RGBA8I                   : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8d8e
-        R8_SNorm                 : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8f94
-        RG8_SNorm                : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8f95
-        RGBA8_SNorm              : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8f97
-        R16_SNorm                : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8f98
-        RG16_SNorm               : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8f99
-        RGBA16_SNorm             : Qt3DRender.QShaderImage.ImageFormat = ... # 0x8f9b
-        RGB10A2U                 : Qt3DRender.QShaderImage.ImageFormat = ... # 0x906f
-
-        class Access(Shiboken.Enum):
+        class Access(shibokensupport.enum_310.Enum):
 
             ReadOnly                 : Qt3DRender.QShaderImage.Access = ... # 0x0
             WriteOnly                : Qt3DRender.QShaderImage.Access = ... # 0x1
             ReadWrite                : Qt3DRender.QShaderImage.Access = ... # 0x2
 
-        class ImageFormat(Shiboken.Enum):
+
+        class ImageFormat(shibokensupport.enum_310.Enum):
 
             NoFormat                 : Qt3DRender.QShaderImage.ImageFormat = ... # 0x0
             Automatic                : Qt3DRender.QShaderImage.ImageFormat = ... # 0x1
@@ -2011,24 +1576,13 @@ class Qt3DRender(Shiboken.Object):
 
     class QShaderProgram(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        GLSL                     : Qt3DRender.QShaderProgram.Format = ... # 0x0
-        SPIRV                    : Qt3DRender.QShaderProgram.Format = ... # 0x1
-        Vertex                   : Qt3DRender.QShaderProgram.ShaderType = ... # 0x0
-        Fragment                 : Qt3DRender.QShaderProgram.ShaderType = ... # 0x1
-        TessellationControl      : Qt3DRender.QShaderProgram.ShaderType = ... # 0x2
-        TessellationEvaluation   : Qt3DRender.QShaderProgram.ShaderType = ... # 0x3
-        Geometry                 : Qt3DRender.QShaderProgram.ShaderType = ... # 0x4
-        Compute                  : Qt3DRender.QShaderProgram.ShaderType = ... # 0x5
-        NotReady                 : Qt3DRender.QShaderProgram.Status = ... # 0x0
-        Ready                    : Qt3DRender.QShaderProgram.Status = ... # 0x1
-        Error                    : Qt3DRender.QShaderProgram.Status = ... # 0x2
-
-        class Format(Shiboken.Enum):
+        class Format(shibokensupport.enum_310.Enum):
 
             GLSL                     : Qt3DRender.QShaderProgram.Format = ... # 0x0
             SPIRV                    : Qt3DRender.QShaderProgram.Format = ... # 0x1
 
-        class ShaderType(Shiboken.Enum):
+
+        class ShaderType(shibokensupport.enum_310.Enum):
 
             Vertex                   : Qt3DRender.QShaderProgram.ShaderType = ... # 0x0
             Fragment                 : Qt3DRender.QShaderProgram.ShaderType = ... # 0x1
@@ -2037,7 +1591,8 @@ class Qt3DRender(Shiboken.Object):
             Geometry                 : Qt3DRender.QShaderProgram.ShaderType = ... # 0x4
             Compute                  : Qt3DRender.QShaderProgram.ShaderType = ... # 0x5
 
-        class Status(Shiboken.Enum):
+
+        class Status(shibokensupport.enum_310.Enum):
 
             NotReady                 : Qt3DRender.QShaderProgram.Status = ... # 0x0
             Ready                    : Qt3DRender.QShaderProgram.Status = ... # 0x1
@@ -2103,14 +1658,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QSortPolicy(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        StateChangeCost          : Qt3DRender.QSortPolicy.SortType = ... # 0x1
-        BackToFront              : Qt3DRender.QSortPolicy.SortType = ... # 0x2
-        Material                 : Qt3DRender.QSortPolicy.SortType = ... # 0x4
-        FrontToBack              : Qt3DRender.QSortPolicy.SortType = ... # 0x8
-        Texture                  : Qt3DRender.QSortPolicy.SortType = ... # 0x10
-        Uniform                  : Qt3DRender.QSortPolicy.SortType = ... # 0x20
-
-        class SortType(Shiboken.Enum):
+        class SortType(shibokensupport.enum_310.Enum):
 
             StateChangeCost          : Qt3DRender.QSortPolicy.SortType = ... # 0x1
             BackToFront              : Qt3DRender.QSortPolicy.SortType = ... # 0x2
@@ -2162,25 +1710,14 @@ class Qt3DRender(Shiboken.Object):
 
     class QStencilOperationArguments(PySide6.QtCore.QObject):
 
-        Front                    : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x404
-        Back                     : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x405
-        FrontAndBack             : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x408
-        Zero                     : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x0
-        Invert                   : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x150a
-        Keep                     : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x1e00
-        Replace                  : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x1e01
-        Increment                : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x1e02
-        Decrement                : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x1e03
-        IncrementWrap            : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x8507
-        DecrementWrap            : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x8508
-
-        class FaceMode(Shiboken.Enum):
+        class FaceMode(shibokensupport.enum_310.Enum):
 
             Front                    : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x404
             Back                     : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x405
             FrontAndBack             : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x408
 
-        class Operation(Shiboken.Enum):
+
+        class Operation(shibokensupport.enum_310.Enum):
 
             Zero                     : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x0
             Invert                   : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x150a
@@ -2209,25 +1746,14 @@ class Qt3DRender(Shiboken.Object):
 
     class QStencilTestArguments(PySide6.QtCore.QObject):
 
-        Front                    : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x404
-        Back                     : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x405
-        FrontAndBack             : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x408
-        Never                    : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x200
-        Less                     : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x201
-        Equal                    : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x202
-        LessOrEqual              : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x203
-        Greater                  : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x204
-        NotEqual                 : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x205
-        GreaterOrEqual           : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x206
-        Always                   : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x207
-
-        class StencilFaceMode(Shiboken.Enum):
+        class StencilFaceMode(shibokensupport.enum_310.Enum):
 
             Front                    : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x404
             Back                     : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x405
             FrontAndBack             : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x408
 
-        class StencilFunction(Shiboken.Enum):
+
+        class StencilFunction(shibokensupport.enum_310.Enum):
 
             Never                    : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x200
             Less                     : Qt3DRender.QStencilTestArguments.StencilFunction = ... # 0x201
@@ -2249,10 +1775,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QSubtreeEnabler(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        Persistent               : Qt3DRender.QSubtreeEnabler.Enablement = ... # 0x0
-        SingleShot               : Qt3DRender.QSubtreeEnabler.Enablement = ... # 0x1
-
-        class Enablement(Shiboken.Enum):
+        class Enablement(shibokensupport.enum_310.Enum):
 
             Persistent               : Qt3DRender.QSubtreeEnabler.Enablement = ... # 0x0
             SingleShot               : Qt3DRender.QSubtreeEnabler.Enablement = ... # 0x1
@@ -2400,12 +1923,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QTextureImage(PySide6.Qt3DRender.Qt3DRender.QAbstractTextureImage):
 
-        None_                    : Qt3DRender.QTextureImage.Status = ... # 0x0
-        Loading                  : Qt3DRender.QTextureImage.Status = ... # 0x1
-        Ready                    : Qt3DRender.QTextureImage.Status = ... # 0x2
-        Error                    : Qt3DRender.QTextureImage.Status = ... # 0x3
-
-        class Status(Shiboken.Enum):
+        class Status(shibokensupport.enum_310.Enum):
 
             None_                    : Qt3DRender.QTextureImage.Status = ... # 0x0
             Loading                  : Qt3DRender.QTextureImage.Status = ... # 0x1
@@ -2464,12 +1982,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QTextureWrapMode(PySide6.QtCore.QObject):
 
-        Repeat                   : Qt3DRender.QTextureWrapMode.WrapMode = ... # 0x2901
-        ClampToBorder            : Qt3DRender.QTextureWrapMode.WrapMode = ... # 0x812d
-        ClampToEdge              : Qt3DRender.QTextureWrapMode.WrapMode = ... # 0x812f
-        MirroredRepeat           : Qt3DRender.QTextureWrapMode.WrapMode = ... # 0x8370
-
-        class WrapMode(Shiboken.Enum):
+        class WrapMode(shibokensupport.enum_310.Enum):
 
             Repeat                   : Qt3DRender.QTextureWrapMode.WrapMode = ... # 0x2901
             ClampToBorder            : Qt3DRender.QTextureWrapMode.WrapMode = ... # 0x812d
@@ -2500,10 +2013,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QWaitFence(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        NoHandle                 : Qt3DRender.QWaitFence.HandleType = ... # 0x0
-        OpenGLFenceId            : Qt3DRender.QWaitFence.HandleType = ... # 0x1
-
-        class HandleType(Shiboken.Enum):
+        class HandleType(shibokensupport.enum_310.Enum):
 
             NoHandle                 : Qt3DRender.QWaitFence.HandleType = ... # 0x0
             OpenGLFenceId            : Qt3DRender.QWaitFence.HandleType = ... # 0x1

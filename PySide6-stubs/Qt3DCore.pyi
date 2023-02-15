@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -84,10 +48,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QAspectEngine(PySide6.QtCore.QObject):
 
-        Manual                   : Qt3DCore.QAspectEngine.RunMode = ... # 0x0
-        Automatic                : Qt3DCore.QAspectEngine.RunMode = ... # 0x1
-
-        class RunMode(Shiboken.Enum):
+        class RunMode(shibokensupport.enum_310.Enum):
 
             Manual                   : Qt3DCore.QAspectEngine.RunMode = ... # 0x0
             Automatic                : Qt3DCore.QAspectEngine.RunMode = ... # 0x1
@@ -122,26 +83,14 @@ class Qt3DCore(Shiboken.Object):
 
     class QAttribute(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        VertexAttribute          : Qt3DCore.QAttribute.AttributeType = ... # 0x0
-        IndexAttribute           : Qt3DCore.QAttribute.AttributeType = ... # 0x1
-        DrawIndirectAttribute    : Qt3DCore.QAttribute.AttributeType = ... # 0x2
-        Byte                     : Qt3DCore.QAttribute.VertexBaseType = ... # 0x0
-        UnsignedByte             : Qt3DCore.QAttribute.VertexBaseType = ... # 0x1
-        Short                    : Qt3DCore.QAttribute.VertexBaseType = ... # 0x2
-        UnsignedShort            : Qt3DCore.QAttribute.VertexBaseType = ... # 0x3
-        Int                      : Qt3DCore.QAttribute.VertexBaseType = ... # 0x4
-        UnsignedInt              : Qt3DCore.QAttribute.VertexBaseType = ... # 0x5
-        HalfFloat                : Qt3DCore.QAttribute.VertexBaseType = ... # 0x6
-        Float                    : Qt3DCore.QAttribute.VertexBaseType = ... # 0x7
-        Double                   : Qt3DCore.QAttribute.VertexBaseType = ... # 0x8
-
-        class AttributeType(Shiboken.Enum):
+        class AttributeType(shibokensupport.enum_310.Enum):
 
             VertexAttribute          : Qt3DCore.QAttribute.AttributeType = ... # 0x0
             IndexAttribute           : Qt3DCore.QAttribute.AttributeType = ... # 0x1
             DrawIndirectAttribute    : Qt3DCore.QAttribute.AttributeType = ... # 0x2
 
-        class VertexBaseType(Shiboken.Enum):
+
+        class VertexBaseType(shibokensupport.enum_310.Enum):
 
             Byte                     : Qt3DCore.QAttribute.VertexBaseType = ... # 0x0
             UnsignedByte             : Qt3DCore.QAttribute.VertexBaseType = ... # 0x1
@@ -200,10 +149,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QBackendNode(Shiboken.Object):
 
-        ReadOnly                 : Qt3DCore.QBackendNode.Mode = ... # 0x0
-        ReadWrite                : Qt3DCore.QBackendNode.Mode = ... # 0x1
-
-        class Mode(Shiboken.Enum):
+        class Mode(shibokensupport.enum_310.Enum):
 
             ReadOnly                 : Qt3DCore.QBackendNode.Mode = ... # 0x0
             ReadWrite                : Qt3DCore.QBackendNode.Mode = ... # 0x1
@@ -242,26 +188,14 @@ class Qt3DCore(Shiboken.Object):
 
     class QBuffer(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        Write                    : Qt3DCore.QBuffer.AccessType = ... # 0x1
-        Read                     : Qt3DCore.QBuffer.AccessType = ... # 0x2
-        ReadWrite                : Qt3DCore.QBuffer.AccessType = ... # 0x3
-        StreamDraw               : Qt3DCore.QBuffer.UsageType = ... # 0x88e0
-        StreamRead               : Qt3DCore.QBuffer.UsageType = ... # 0x88e1
-        StreamCopy               : Qt3DCore.QBuffer.UsageType = ... # 0x88e2
-        StaticDraw               : Qt3DCore.QBuffer.UsageType = ... # 0x88e4
-        StaticRead               : Qt3DCore.QBuffer.UsageType = ... # 0x88e5
-        StaticCopy               : Qt3DCore.QBuffer.UsageType = ... # 0x88e6
-        DynamicDraw              : Qt3DCore.QBuffer.UsageType = ... # 0x88e8
-        DynamicRead              : Qt3DCore.QBuffer.UsageType = ... # 0x88e9
-        DynamicCopy              : Qt3DCore.QBuffer.UsageType = ... # 0x88ea
-
-        class AccessType(Shiboken.Enum):
+        class AccessType(shibokensupport.enum_310.Enum):
 
             Write                    : Qt3DCore.QBuffer.AccessType = ... # 0x1
             Read                     : Qt3DCore.QBuffer.AccessType = ... # 0x2
             ReadWrite                : Qt3DCore.QBuffer.AccessType = ... # 0x3
 
-        class UsageType(Shiboken.Enum):
+
+        class UsageType(shibokensupport.enum_310.Enum):
 
             StreamDraw               : Qt3DCore.QBuffer.UsageType = ... # 0x88e0
             StreamRead               : Qt3DCore.QBuffer.UsageType = ... # 0x88e1
@@ -322,20 +256,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QGeometryView(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        Points                   : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x0
-        Lines                    : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x1
-        LineLoop                 : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x2
-        LineStrip                : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x3
-        Triangles                : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x4
-        TriangleStrip            : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x5
-        TriangleFan              : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x6
-        LinesAdjacency           : Qt3DCore.QGeometryView.PrimitiveType = ... # 0xa
-        LineStripAdjacency       : Qt3DCore.QGeometryView.PrimitiveType = ... # 0xb
-        TrianglesAdjacency       : Qt3DCore.QGeometryView.PrimitiveType = ... # 0xc
-        TriangleStripAdjacency   : Qt3DCore.QGeometryView.PrimitiveType = ... # 0xd
-        Patches                  : Qt3DCore.QGeometryView.PrimitiveType = ... # 0xe
-
-        class PrimitiveType(Shiboken.Enum):
+        class PrimitiveType(shibokensupport.enum_310.Enum):
 
             Points                   : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x0
             Lines                    : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x1
@@ -449,11 +370,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QSkeletonLoader(PySide6.Qt3DCore.Qt3DCore.QAbstractSkeleton):
 
-        NotReady                 : Qt3DCore.QSkeletonLoader.Status = ... # 0x0
-        Ready                    : Qt3DCore.QSkeletonLoader.Status = ... # 0x1
-        Error                    : Qt3DCore.QSkeletonLoader.Status = ... # 0x2
-
-        class Status(Shiboken.Enum):
+        class Status(shibokensupport.enum_310.Enum):
 
             NotReady                 : Qt3DCore.QSkeletonLoader.Status = ... # 0x0
             Ready                    : Qt3DCore.QSkeletonLoader.Status = ... # 0x1

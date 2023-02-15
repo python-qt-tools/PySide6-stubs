@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -93,7 +57,7 @@ class QAbstractFormBuilder(Shiboken.Object):
 
 class QDesignerActionEditorInterface(PySide6.QtWidgets.QWidget):
 
-    def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def core(self) -> PySide6.QtDesigner.QDesignerFormEditorInterface: ...
     def manageAction(self, action: PySide6.QtGui.QAction) -> None: ...
@@ -143,10 +107,7 @@ class QDesignerCustomWidgetInterface(Shiboken.Object):
 
 class QDesignerDnDItemInterface(Shiboken.Object):
 
-    MoveDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x0
-    CopyDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x1
-
-    class DropType(Shiboken.Enum):
+    class DropType(shibokensupport.enum_310.Enum):
 
         MoveDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x0
         CopyDrop                 : QDesignerDnDItemInterface.DropType = ... # 0x1
@@ -198,24 +159,13 @@ class QDesignerFormEditorInterface(PySide6.QtCore.QObject):
 
 class QDesignerFormWindowCursorInterface(Shiboken.Object):
 
-    MoveAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x0
-    KeepAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x1
-    NoMove                   : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x0
-    Start                    : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x1
-    End                      : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x2
-    Next                     : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x3
-    Prev                     : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x4
-    Left                     : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x5
-    Right                    : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x6
-    Up                       : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x7
-    Down                     : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x8
-
-    class MoveMode(Shiboken.Enum):
+    class MoveMode(shibokensupport.enum_310.Enum):
 
         MoveAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x0
         KeepAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x1
 
-    class MoveOperation(Shiboken.Enum):
+
+    class MoveOperation(shibokensupport.enum_310.Enum):
 
         NoMove                   : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x0
         Start                    : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x1
@@ -248,31 +198,22 @@ class QDesignerFormWindowCursorInterface(Shiboken.Object):
 
 class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
 
-    EditFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x1
-    GridFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x2
-    DefaultFeature           : QDesignerFormWindowInterface.FeatureFlag = ... # 0x3
-    TabOrderFeature          : QDesignerFormWindowInterface.FeatureFlag = ... # 0x4
-    SaveAllResourceFiles     : QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x0
-    SaveOnlyUsedResourceFiles: QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x1
-    DontSaveResourceFiles    : QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x2
-
-    class Feature(object): ...
-
-    class FeatureFlag(Shiboken.Enum):
+    class FeatureFlag(shibokensupport.enum_310.Flag):
 
         EditFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x1
         GridFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x2
         DefaultFeature           : QDesignerFormWindowInterface.FeatureFlag = ... # 0x3
         TabOrderFeature          : QDesignerFormWindowInterface.FeatureFlag = ... # 0x4
 
-    class ResourceFileSaveMode(Shiboken.Enum):
+
+    class ResourceFileSaveMode(shibokensupport.enum_310.Enum):
 
         SaveAllResourceFiles     : QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x0
         SaveOnlyUsedResourceFiles: QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x1
         DontSaveResourceFiles    : QDesignerFormWindowInterface.ResourceFileSaveMode = ... # 0x2
 
 
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def absoluteDir(self) -> PySide6.QtCore.QDir: ...
     def activateResourceFilePaths(self, paths: Sequence[str]) -> Tuple[int, str]: ...
@@ -293,7 +234,7 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
     def endCommand(self) -> None: ...
     def ensureUniqueObjectName(self, object: PySide6.QtCore.QObject) -> None: ...
     def exportMacro(self) -> str: ...
-    def features(self) -> PySide6.QtDesigner.QDesignerFormWindowInterface.Feature: ...
+    def features(self) -> PySide6.QtDesigner.QDesignerFormWindowInterface.FeatureFlag: ...
     def fileName(self) -> str: ...
     @overload
     @staticmethod
@@ -303,7 +244,7 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
     def findFormWindow(w: PySide6.QtWidgets.QWidget) -> PySide6.QtDesigner.QDesignerFormWindowInterface: ...
     def formContainer(self) -> PySide6.QtWidgets.QWidget: ...
     def grid(self) -> PySide6.QtCore.QPoint: ...
-    def hasFeature(self, f: PySide6.QtDesigner.QDesignerFormWindowInterface.Feature) -> bool: ...
+    def hasFeature(self, f: PySide6.QtDesigner.QDesignerFormWindowInterface.FeatureFlag) -> bool: ...
     def includeHints(self) -> List[str]: ...
     def isDirty(self) -> bool: ...
     def isManaged(self, widget: PySide6.QtWidgets.QWidget) -> bool: ...
@@ -326,7 +267,7 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
     def setCurrentTool(self, index: int) -> None: ...
     def setDirty(self, dirty: bool) -> None: ...
     def setExportMacro(self, exportMacro: str) -> None: ...
-    def setFeatures(self, f: PySide6.QtDesigner.QDesignerFormWindowInterface.Feature) -> None: ...
+    def setFeatures(self, f: PySide6.QtDesigner.QDesignerFormWindowInterface.FeatureFlag) -> None: ...
     def setFileName(self, fileName: str) -> None: ...
     def setGrid(self, grid: PySide6.QtCore.QPoint) -> None: ...
     def setIncludeHints(self, includeHints: Sequence[str]) -> None: ...
@@ -343,29 +284,7 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
 
 class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
 
-    CutAction                : QDesignerFormWindowManagerInterface.Action = ... # 0x64
-    CopyAction               : QDesignerFormWindowManagerInterface.Action = ... # 0x65
-    PasteAction              : QDesignerFormWindowManagerInterface.Action = ... # 0x66
-    DeleteAction             : QDesignerFormWindowManagerInterface.Action = ... # 0x67
-    SelectAllAction          : QDesignerFormWindowManagerInterface.Action = ... # 0x68
-    LowerAction              : QDesignerFormWindowManagerInterface.Action = ... # 0xc8
-    RaiseAction              : QDesignerFormWindowManagerInterface.Action = ... # 0xc9
-    UndoAction               : QDesignerFormWindowManagerInterface.Action = ... # 0x12c
-    RedoAction               : QDesignerFormWindowManagerInterface.Action = ... # 0x12d
-    HorizontalLayoutAction   : QDesignerFormWindowManagerInterface.Action = ... # 0x190
-    VerticalLayoutAction     : QDesignerFormWindowManagerInterface.Action = ... # 0x191
-    SplitHorizontalAction    : QDesignerFormWindowManagerInterface.Action = ... # 0x192
-    SplitVerticalAction      : QDesignerFormWindowManagerInterface.Action = ... # 0x193
-    GridLayoutAction         : QDesignerFormWindowManagerInterface.Action = ... # 0x194
-    FormLayoutAction         : QDesignerFormWindowManagerInterface.Action = ... # 0x195
-    BreakLayoutAction        : QDesignerFormWindowManagerInterface.Action = ... # 0x196
-    AdjustSizeAction         : QDesignerFormWindowManagerInterface.Action = ... # 0x197
-    SimplifyLayoutAction     : QDesignerFormWindowManagerInterface.Action = ... # 0x198
-    DefaultPreviewAction     : QDesignerFormWindowManagerInterface.Action = ... # 0x1f4
-    FormWindowSettingsDialogAction: QDesignerFormWindowManagerInterface.Action = ... # 0x258
-    StyledPreviewActionGroup : QDesignerFormWindowManagerInterface.ActionGroup = ... # 0x64
-
-    class Action(Shiboken.Enum):
+    class Action(shibokensupport.enum_310.Enum):
 
         CutAction                : QDesignerFormWindowManagerInterface.Action = ... # 0x64
         CopyAction               : QDesignerFormWindowManagerInterface.Action = ... # 0x65
@@ -388,7 +307,8 @@ class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
         DefaultPreviewAction     : QDesignerFormWindowManagerInterface.Action = ... # 0x1f4
         FormWindowSettingsDialogAction: QDesignerFormWindowManagerInterface.Action = ... # 0x258
 
-    class ActionGroup(Shiboken.Enum):
+
+    class ActionGroup(shibokensupport.enum_310.Enum):
 
         StyledPreviewActionGroup : QDesignerFormWindowManagerInterface.ActionGroup = ... # 0x64
 
@@ -419,7 +339,7 @@ class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
     def addFormWindow(self, formWindow: PySide6.QtDesigner.QDesignerFormWindowInterface) -> None: ...
     def closeAllPreviews(self) -> None: ...
     def core(self) -> PySide6.QtDesigner.QDesignerFormEditorInterface: ...
-    def createFormWindow(self, parentWidget: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> PySide6.QtDesigner.QDesignerFormWindowInterface: ...
+    def createFormWindow(self, parentWidget: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> PySide6.QtDesigner.QDesignerFormWindowInterface: ...
     def createPreviewPixmap(self) -> PySide6.QtGui.QPixmap: ...
     def dragItems(self, item_list: Sequence[PySide6.QtDesigner.QDesignerDnDItemInterface]) -> None: ...
     def formWindow(self, index: int) -> PySide6.QtDesigner.QDesignerFormWindowInterface: ...
@@ -465,7 +385,7 @@ class QDesignerMemberSheetExtension(Shiboken.Object):
 
 class QDesignerObjectInspectorInterface(PySide6.QtWidgets.QWidget):
 
-    def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def core(self) -> PySide6.QtDesigner.QDesignerFormEditorInterface: ...
     def setFormWindow(self, formWindow: PySide6.QtDesigner.QDesignerFormWindowInterface) -> None: ...
@@ -473,7 +393,7 @@ class QDesignerObjectInspectorInterface(PySide6.QtWidgets.QWidget):
 
 class QDesignerPropertyEditorInterface(PySide6.QtWidgets.QWidget):
 
-    def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def core(self) -> PySide6.QtDesigner.QDesignerFormEditorInterface: ...
     def currentPropertyName(self) -> str: ...
@@ -518,10 +438,7 @@ class QDesignerWidgetBoxInterface(PySide6.QtWidgets.QWidget):
 
     class Category(Shiboken.Object):
 
-        Default                  : QDesignerWidgetBoxInterface.Category.Type = ... # 0x0
-        Scratchpad               : QDesignerWidgetBoxInterface.Category.Type = ... # 0x1
-
-        class Type(Shiboken.Enum):
+        class Type(shibokensupport.enum_310.Enum):
 
             Default                  : QDesignerWidgetBoxInterface.Category.Type = ... # 0x0
             Scratchpad               : QDesignerWidgetBoxInterface.Category.Type = ... # 0x1
@@ -546,10 +463,7 @@ class QDesignerWidgetBoxInterface(PySide6.QtWidgets.QWidget):
 
     class Widget(Shiboken.Object):
 
-        Default                  : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x0
-        Custom                   : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x1
-
-        class Type(Shiboken.Enum):
+        class Type(shibokensupport.enum_310.Enum):
 
             Default                  : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x0
             Custom                   : QDesignerWidgetBoxInterface.Widget.Type = ... # 0x1
@@ -573,7 +487,7 @@ class QDesignerWidgetBoxInterface(PySide6.QtWidgets.QWidget):
         def type(self) -> PySide6.QtDesigner.QDesignerWidgetBoxInterface.Widget.Type: ...
 
 
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def addCategory(self, cat: PySide6.QtDesigner.QDesignerWidgetBoxInterface.Category) -> None: ...
     def addWidget(self, cat_idx: int, wgt: PySide6.QtDesigner.QDesignerWidgetBoxInterface.Widget) -> None: ...

@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -68,84 +32,29 @@ class QAbstractNetworkCache(PySide6.QtCore.QObject):
 
 class QAbstractSocket(PySide6.QtCore.QIODevice):
 
-    DefaultForPlatform       : QAbstractSocket.BindFlag = ... # 0x0
-    ShareAddress             : QAbstractSocket.BindFlag = ... # 0x1
-    DontShareAddress         : QAbstractSocket.BindFlag = ... # 0x2
-    ReuseAddressHint         : QAbstractSocket.BindFlag = ... # 0x4
-    UnknownNetworkLayerProtocol: QAbstractSocket.NetworkLayerProtocol = ... # -0x1
-    IPv4Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x0
-    IPv6Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x1
-    AnyIPProtocol            : QAbstractSocket.NetworkLayerProtocol = ... # 0x2
-    PauseNever               : QAbstractSocket.PauseMode = ... # 0x0
-    PauseOnSslErrors         : QAbstractSocket.PauseMode = ... # 0x1
-    UnknownSocketError       : QAbstractSocket.SocketError = ... # -0x1
-    ConnectionRefusedError   : QAbstractSocket.SocketError = ... # 0x0
-    RemoteHostClosedError    : QAbstractSocket.SocketError = ... # 0x1
-    HostNotFoundError        : QAbstractSocket.SocketError = ... # 0x2
-    SocketAccessError        : QAbstractSocket.SocketError = ... # 0x3
-    SocketResourceError      : QAbstractSocket.SocketError = ... # 0x4
-    SocketTimeoutError       : QAbstractSocket.SocketError = ... # 0x5
-    DatagramTooLargeError    : QAbstractSocket.SocketError = ... # 0x6
-    NetworkError             : QAbstractSocket.SocketError = ... # 0x7
-    AddressInUseError        : QAbstractSocket.SocketError = ... # 0x8
-    SocketAddressNotAvailableError: QAbstractSocket.SocketError = ... # 0x9
-    UnsupportedSocketOperationError: QAbstractSocket.SocketError = ... # 0xa
-    UnfinishedSocketOperationError: QAbstractSocket.SocketError = ... # 0xb
-    ProxyAuthenticationRequiredError: QAbstractSocket.SocketError = ... # 0xc
-    SslHandshakeFailedError  : QAbstractSocket.SocketError = ... # 0xd
-    ProxyConnectionRefusedError: QAbstractSocket.SocketError = ... # 0xe
-    ProxyConnectionClosedError: QAbstractSocket.SocketError = ... # 0xf
-    ProxyConnectionTimeoutError: QAbstractSocket.SocketError = ... # 0x10
-    ProxyNotFoundError       : QAbstractSocket.SocketError = ... # 0x11
-    ProxyProtocolError       : QAbstractSocket.SocketError = ... # 0x12
-    OperationError           : QAbstractSocket.SocketError = ... # 0x13
-    SslInternalError         : QAbstractSocket.SocketError = ... # 0x14
-    SslInvalidUserDataError  : QAbstractSocket.SocketError = ... # 0x15
-    TemporaryError           : QAbstractSocket.SocketError = ... # 0x16
-    LowDelayOption           : QAbstractSocket.SocketOption = ... # 0x0
-    KeepAliveOption          : QAbstractSocket.SocketOption = ... # 0x1
-    MulticastTtlOption       : QAbstractSocket.SocketOption = ... # 0x2
-    MulticastLoopbackOption  : QAbstractSocket.SocketOption = ... # 0x3
-    TypeOfServiceOption      : QAbstractSocket.SocketOption = ... # 0x4
-    SendBufferSizeSocketOption: QAbstractSocket.SocketOption = ... # 0x5
-    ReceiveBufferSizeSocketOption: QAbstractSocket.SocketOption = ... # 0x6
-    PathMtuSocketOption      : QAbstractSocket.SocketOption = ... # 0x7
-    UnconnectedState         : QAbstractSocket.SocketState = ... # 0x0
-    HostLookupState          : QAbstractSocket.SocketState = ... # 0x1
-    ConnectingState          : QAbstractSocket.SocketState = ... # 0x2
-    ConnectedState           : QAbstractSocket.SocketState = ... # 0x3
-    BoundState               : QAbstractSocket.SocketState = ... # 0x4
-    ListeningState           : QAbstractSocket.SocketState = ... # 0x5
-    ClosingState             : QAbstractSocket.SocketState = ... # 0x6
-    UnknownSocketType        : QAbstractSocket.SocketType = ... # -0x1
-    TcpSocket                : QAbstractSocket.SocketType = ... # 0x0
-    UdpSocket                : QAbstractSocket.SocketType = ... # 0x1
-    SctpSocket               : QAbstractSocket.SocketType = ... # 0x2
-
-    class BindFlag(Shiboken.Enum):
+    class BindFlag(shibokensupport.enum_310.Flag):
 
         DefaultForPlatform       : QAbstractSocket.BindFlag = ... # 0x0
         ShareAddress             : QAbstractSocket.BindFlag = ... # 0x1
         DontShareAddress         : QAbstractSocket.BindFlag = ... # 0x2
         ReuseAddressHint         : QAbstractSocket.BindFlag = ... # 0x4
 
-    class BindMode(object): ...
 
-    class NetworkLayerProtocol(Shiboken.Enum):
+    class NetworkLayerProtocol(shibokensupport.enum_310.Enum):
 
         UnknownNetworkLayerProtocol: QAbstractSocket.NetworkLayerProtocol = ... # -0x1
         IPv4Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x0
         IPv6Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x1
         AnyIPProtocol            : QAbstractSocket.NetworkLayerProtocol = ... # 0x2
 
-    class PauseMode(Shiboken.Enum):
+
+    class PauseMode(shibokensupport.enum_310.Flag):
 
         PauseNever               : QAbstractSocket.PauseMode = ... # 0x0
         PauseOnSslErrors         : QAbstractSocket.PauseMode = ... # 0x1
 
-    class PauseModes(object): ...
 
-    class SocketError(Shiboken.Enum):
+    class SocketError(shibokensupport.enum_310.Enum):
 
         UnknownSocketError       : QAbstractSocket.SocketError = ... # -0x1
         ConnectionRefusedError   : QAbstractSocket.SocketError = ... # 0x0
@@ -172,7 +81,8 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         SslInvalidUserDataError  : QAbstractSocket.SocketError = ... # 0x15
         TemporaryError           : QAbstractSocket.SocketError = ... # 0x16
 
-    class SocketOption(Shiboken.Enum):
+
+    class SocketOption(shibokensupport.enum_310.Enum):
 
         LowDelayOption           : QAbstractSocket.SocketOption = ... # 0x0
         KeepAliveOption          : QAbstractSocket.SocketOption = ... # 0x1
@@ -183,7 +93,8 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         ReceiveBufferSizeSocketOption: QAbstractSocket.SocketOption = ... # 0x6
         PathMtuSocketOption      : QAbstractSocket.SocketOption = ... # 0x7
 
-    class SocketState(Shiboken.Enum):
+
+    class SocketState(shibokensupport.enum_310.Enum):
 
         UnconnectedState         : QAbstractSocket.SocketState = ... # 0x0
         HostLookupState          : QAbstractSocket.SocketState = ... # 0x1
@@ -193,7 +104,8 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         ListeningState           : QAbstractSocket.SocketState = ... # 0x5
         ClosingState             : QAbstractSocket.SocketState = ... # 0x6
 
-    class SocketType(Shiboken.Enum):
+
+    class SocketType(shibokensupport.enum_310.Enum):
 
         UnknownSocketType        : QAbstractSocket.SocketType = ... # -0x1
         TcpSocket                : QAbstractSocket.SocketType = ... # 0x0
@@ -205,16 +117,16 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
 
     def abort(self) -> None: ...
     @overload
-    def bind(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
     @overload
-    def bind(self, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
     def bytesAvailable(self) -> int: ...
     def bytesToWrite(self) -> int: ...
     def close(self) -> None: ...
     @overload
-    def connectToHost(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def connectToHost(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     @overload
-    def connectToHost(self, hostName: str, port: int, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
+    def connectToHost(self, hostName: str, port: int, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
     def disconnectFromHost(self) -> None: ...
     def error(self) -> PySide6.QtNetwork.QAbstractSocket.SocketError: ...
     def flush(self) -> bool: ...
@@ -222,26 +134,26 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
     def isValid(self) -> bool: ...
     def localAddress(self) -> PySide6.QtNetwork.QHostAddress: ...
     def localPort(self) -> int: ...
-    def pauseMode(self) -> PySide6.QtNetwork.QAbstractSocket.PauseModes: ...
+    def pauseMode(self) -> PySide6.QtNetwork.QAbstractSocket.PauseMode: ...
     def peerAddress(self) -> PySide6.QtNetwork.QHostAddress: ...
     def peerName(self) -> str: ...
     def peerPort(self) -> int: ...
     def protocolTag(self) -> str: ...
     def proxy(self) -> PySide6.QtNetwork.QNetworkProxy: ...
     def readBufferSize(self) -> int: ...
-    def readData(self, data: bytes, maxlen: int) -> object: ...
-    def readLineData(self, data: bytes, maxlen: int) -> object: ...
+    def readData(self, maxlen: int) -> object: ...
+    def readLineData(self, maxlen: int) -> object: ...
     def resume(self) -> None: ...
     def setLocalAddress(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress]) -> None: ...
     def setLocalPort(self, port: int) -> None: ...
-    def setPauseMode(self, pauseMode: PySide6.QtNetwork.QAbstractSocket.PauseModes) -> None: ...
+    def setPauseMode(self, pauseMode: PySide6.QtNetwork.QAbstractSocket.PauseMode) -> None: ...
     def setPeerAddress(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress]) -> None: ...
     def setPeerName(self, name: str) -> None: ...
     def setPeerPort(self, port: int) -> None: ...
     def setProtocolTag(self, tag: str) -> None: ...
     def setProxy(self, networkProxy: Union[PySide6.QtNetwork.QNetworkProxy, PySide6.QtNetwork.QNetworkProxy.ProxyType]) -> None: ...
     def setReadBufferSize(self, size: int) -> None: ...
-    def setSocketDescriptor(self, socketDescriptor: int, state: PySide6.QtNetwork.QAbstractSocket.SocketState = ..., openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> bool: ...
+    def setSocketDescriptor(self, socketDescriptor: int, state: PySide6.QtNetwork.QAbstractSocket.SocketState = ..., openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> bool: ...
     def setSocketError(self, socketError: PySide6.QtNetwork.QAbstractSocket.SocketError) -> None: ...
     def setSocketOption(self, option: PySide6.QtNetwork.QAbstractSocket.SocketOption, value: Any) -> None: ...
     def setSocketState(self, state: PySide6.QtNetwork.QAbstractSocket.SocketState) -> None: ...
@@ -310,25 +222,7 @@ class QDnsHostAddressRecord(Shiboken.Object):
 
 class QDnsLookup(PySide6.QtCore.QObject):
 
-    NoError                  : QDnsLookup.Error = ... # 0x0
-    ResolverError            : QDnsLookup.Error = ... # 0x1
-    OperationCancelledError  : QDnsLookup.Error = ... # 0x2
-    InvalidRequestError      : QDnsLookup.Error = ... # 0x3
-    InvalidReplyError        : QDnsLookup.Error = ... # 0x4
-    ServerFailureError       : QDnsLookup.Error = ... # 0x5
-    ServerRefusedError       : QDnsLookup.Error = ... # 0x6
-    NotFoundError            : QDnsLookup.Error = ... # 0x7
-    A                        : QDnsLookup.Type = ... # 0x1
-    NS                       : QDnsLookup.Type = ... # 0x2
-    CNAME                    : QDnsLookup.Type = ... # 0x5
-    PTR                      : QDnsLookup.Type = ... # 0xc
-    MX                       : QDnsLookup.Type = ... # 0xf
-    TXT                      : QDnsLookup.Type = ... # 0x10
-    AAAA                     : QDnsLookup.Type = ... # 0x1c
-    SRV                      : QDnsLookup.Type = ... # 0x21
-    ANY                      : QDnsLookup.Type = ... # 0xff
-
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         NoError                  : QDnsLookup.Error = ... # 0x0
         ResolverError            : QDnsLookup.Error = ... # 0x1
@@ -339,7 +233,8 @@ class QDnsLookup(PySide6.QtCore.QObject):
         ServerRefusedError       : QDnsLookup.Error = ... # 0x6
         NotFoundError            : QDnsLookup.Error = ... # 0x7
 
-    class Type(Shiboken.Enum):
+
+    class Type(shibokensupport.enum_310.Enum):
 
         A                        : QDnsLookup.Type = ... # 0x1
         NS                       : QDnsLookup.Type = ... # 0x2
@@ -430,12 +325,7 @@ class QDnsTextRecord(Shiboken.Object):
 
 class QDtls(PySide6.QtCore.QObject):
 
-    HandshakeNotStarted      : QDtls.HandshakeState = ... # 0x0
-    HandshakeInProgress      : QDtls.HandshakeState = ... # 0x1
-    PeerVerificationFailed   : QDtls.HandshakeState = ... # 0x2
-    HandshakeComplete        : QDtls.HandshakeState = ... # 0x3
-
-    class HandshakeState(Shiboken.Enum):
+    class HandshakeState(shibokensupport.enum_310.Enum):
 
         HandshakeNotStarted      : QDtls.HandshakeState = ... # 0x0
         HandshakeInProgress      : QDtls.HandshakeState = ... # 0x1
@@ -482,7 +372,7 @@ class QDtlsClientVerifier(PySide6.QtCore.QObject):
     def verifyClient(self, socket: PySide6.QtNetwork.QUdpSocket, dgram: Union[PySide6.QtCore.QByteArray, bytes], address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int) -> bool: ...
 
 
-class QDtlsError(Shiboken.Enum):
+class QDtlsError(shibokensupport.enum_310.Enum):
 
     NoError                  : QDtlsError = ... # 0x0
     InvalidInputParameters   : QDtlsError = ... # 0x1
@@ -501,23 +391,8 @@ class QHostAddress(Shiboken.Object):
     IPv4Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x0
     IPv6Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x1
     AnyIPProtocol            : QAbstractSocket.NetworkLayerProtocol = ... # 0x2
-    StrictConversion         : QHostAddress.ConversionModeFlag = ... # 0x0
-    ConvertV4MappedToIPv4    : QHostAddress.ConversionModeFlag = ... # 0x1
-    ConvertV4CompatToIPv4    : QHostAddress.ConversionModeFlag = ... # 0x2
-    ConvertUnspecifiedAddress: QHostAddress.ConversionModeFlag = ... # 0x4
-    ConvertLocalHost         : QHostAddress.ConversionModeFlag = ... # 0x8
-    TolerantConversion       : QHostAddress.ConversionModeFlag = ... # 0xff
-    Null                     : QHostAddress.SpecialAddress = ... # 0x0
-    Broadcast                : QHostAddress.SpecialAddress = ... # 0x1
-    LocalHost                : QHostAddress.SpecialAddress = ... # 0x2
-    LocalHostIPv6            : QHostAddress.SpecialAddress = ... # 0x3
-    Any                      : QHostAddress.SpecialAddress = ... # 0x4
-    AnyIPv6                  : QHostAddress.SpecialAddress = ... # 0x5
-    AnyIPv4                  : QHostAddress.SpecialAddress = ... # 0x6
 
-    class ConversionMode(object): ...
-
-    class ConversionModeFlag(Shiboken.Enum):
+    class ConversionModeFlag(shibokensupport.enum_310.Flag):
 
         StrictConversion         : QHostAddress.ConversionModeFlag = ... # 0x0
         ConvertV4MappedToIPv4    : QHostAddress.ConversionModeFlag = ... # 0x1
@@ -526,7 +401,8 @@ class QHostAddress(Shiboken.Object):
         ConvertLocalHost         : QHostAddress.ConversionModeFlag = ... # 0x8
         TolerantConversion       : QHostAddress.ConversionModeFlag = ... # 0xff
 
-    class SpecialAddress(Shiboken.Enum):
+
+    class SpecialAddress(shibokensupport.enum_310.Enum):
 
         Null                     : QHostAddress.SpecialAddress = ... # 0x0
         Broadcast                : QHostAddress.SpecialAddress = ... # 0x1
@@ -556,7 +432,7 @@ class QHostAddress(Shiboken.Object):
     def __rshift__(self, arg__1: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def clear(self) -> None: ...
     def isBroadcast(self) -> bool: ...
-    def isEqual(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], mode: PySide6.QtNetwork.QHostAddress.ConversionMode = ...) -> bool: ...
+    def isEqual(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], mode: PySide6.QtNetwork.QHostAddress.ConversionModeFlag = ...) -> bool: ...
     def isGlobal(self) -> bool: ...
     @overload
     def isInSubnet(self, subnet: Tuple[PySide6.QtNetwork.QHostAddress, int]) -> bool: ...
@@ -589,11 +465,7 @@ class QHostAddress(Shiboken.Object):
 
 class QHostInfo(Shiboken.Object):
 
-    NoError                  : QHostInfo.HostInfoError = ... # 0x0
-    HostNotFound             : QHostInfo.HostInfoError = ... # 0x1
-    UnknownError             : QHostInfo.HostInfoError = ... # 0x2
-
-    class HostInfoError(Shiboken.Enum):
+    class HostInfoError(shibokensupport.enum_310.Enum):
 
         NoError                  : QHostInfo.HostInfoError = ... # 0x0
         HostNotFound             : QHostInfo.HostInfoError = ... # 0x1
@@ -635,19 +507,15 @@ class QHostInfo(Shiboken.Object):
 
 class QHstsPolicy(Shiboken.Object):
 
-    IncludeSubDomains        : QHstsPolicy.PolicyFlag = ... # 0x1
-
-    class PolicyFlag(Shiboken.Enum):
+    class PolicyFlag(shibokensupport.enum_310.Flag):
 
         IncludeSubDomains        : QHstsPolicy.PolicyFlag = ... # 0x1
-
-    class PolicyFlags(object): ...
 
 
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, expiry: PySide6.QtCore.QDateTime, flags: PySide6.QtNetwork.QHstsPolicy.PolicyFlags, host: str, mode: PySide6.QtCore.QUrl.ParsingMode = ...) -> None: ...
+    def __init__(self, expiry: PySide6.QtCore.QDateTime, flags: PySide6.QtNetwork.QHstsPolicy.PolicyFlag, host: str, mode: PySide6.QtCore.QUrl.ParsingMode = ...) -> None: ...
     @overload
     def __init__(self, rhs: PySide6.QtNetwork.QHstsPolicy) -> None: ...
 
@@ -687,12 +555,7 @@ class QHttp2Configuration(Shiboken.Object):
 
 class QHttpMultiPart(PySide6.QtCore.QObject):
 
-    MixedType                : QHttpMultiPart.ContentType = ... # 0x0
-    RelatedType              : QHttpMultiPart.ContentType = ... # 0x1
-    FormDataType             : QHttpMultiPart.ContentType = ... # 0x2
-    AlternativeType          : QHttpMultiPart.ContentType = ... # 0x3
-
-    class ContentType(Shiboken.Enum):
+    class ContentType(shibokensupport.enum_310.Enum):
 
         MixedType                : QHttpMultiPart.ContentType = ... # 0x0
         RelatedType              : QHttpMultiPart.ContentType = ... # 0x1
@@ -743,14 +606,7 @@ class QIntList(object): ...
 
 class QLocalServer(PySide6.QtCore.QObject):
 
-    NoOptions                : QLocalServer.SocketOption = ... # 0x0
-    UserAccessOption         : QLocalServer.SocketOption = ... # 0x1
-    GroupAccessOption        : QLocalServer.SocketOption = ... # 0x2
-    OtherAccessOption        : QLocalServer.SocketOption = ... # 0x4
-    WorldAccessOption        : QLocalServer.SocketOption = ... # 0x7
-    AbstractNamespaceOption  : QLocalServer.SocketOption = ... # 0x8
-
-    class SocketOption(Shiboken.Enum):
+    class SocketOption(shibokensupport.enum_310.Flag):
 
         NoOptions                : QLocalServer.SocketOption = ... # 0x0
         UserAccessOption         : QLocalServer.SocketOption = ... # 0x1
@@ -758,8 +614,6 @@ class QLocalServer(PySide6.QtCore.QObject):
         OtherAccessOption        : QLocalServer.SocketOption = ... # 0x4
         WorldAccessOption        : QLocalServer.SocketOption = ... # 0x7
         AbstractNamespaceOption  : QLocalServer.SocketOption = ... # 0x8
-
-    class SocketOptions(object): ...
 
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -783,33 +637,15 @@ class QLocalServer(PySide6.QtCore.QObject):
     def serverName(self) -> str: ...
     def setListenBacklogSize(self, size: int) -> None: ...
     def setMaxPendingConnections(self, numConnections: int) -> None: ...
-    def setSocketOptions(self, options: PySide6.QtNetwork.QLocalServer.SocketOptions) -> None: ...
+    def setSocketOptions(self, options: PySide6.QtNetwork.QLocalServer.SocketOption) -> None: ...
     def socketDescriptor(self) -> int: ...
-    def socketOptions(self) -> PySide6.QtNetwork.QLocalServer.SocketOptions: ...
-    def waitForNewConnection(self, msec: int) -> Tuple[Tuple, bool]: ...
+    def socketOptions(self) -> PySide6.QtNetwork.QLocalServer.SocketOption: ...
+    def waitForNewConnection(self, msec: int) -> Tuple: ...
 
 
 class QLocalSocket(PySide6.QtCore.QIODevice):
 
-    UnknownSocketError       : QLocalSocket.LocalSocketError = ... # -0x1
-    ConnectionRefusedError   : QLocalSocket.LocalSocketError = ... # 0x0
-    PeerClosedError          : QLocalSocket.LocalSocketError = ... # 0x1
-    ServerNotFoundError      : QLocalSocket.LocalSocketError = ... # 0x2
-    SocketAccessError        : QLocalSocket.LocalSocketError = ... # 0x3
-    SocketResourceError      : QLocalSocket.LocalSocketError = ... # 0x4
-    SocketTimeoutError       : QLocalSocket.LocalSocketError = ... # 0x5
-    DatagramTooLargeError    : QLocalSocket.LocalSocketError = ... # 0x6
-    ConnectionError          : QLocalSocket.LocalSocketError = ... # 0x7
-    UnsupportedSocketOperationError: QLocalSocket.LocalSocketError = ... # 0xa
-    OperationError           : QLocalSocket.LocalSocketError = ... # 0x13
-    UnconnectedState         : QLocalSocket.LocalSocketState = ... # 0x0
-    ConnectingState          : QLocalSocket.LocalSocketState = ... # 0x2
-    ConnectedState           : QLocalSocket.LocalSocketState = ... # 0x3
-    ClosingState             : QLocalSocket.LocalSocketState = ... # 0x6
-    NoOptions                : QLocalSocket.SocketOption = ... # 0x0
-    AbstractNamespaceOption  : QLocalSocket.SocketOption = ... # 0x1
-
-    class LocalSocketError(Shiboken.Enum):
+    class LocalSocketError(shibokensupport.enum_310.Enum):
 
         UnknownSocketError       : QLocalSocket.LocalSocketError = ... # -0x1
         ConnectionRefusedError   : QLocalSocket.LocalSocketError = ... # 0x0
@@ -823,19 +659,19 @@ class QLocalSocket(PySide6.QtCore.QIODevice):
         UnsupportedSocketOperationError: QLocalSocket.LocalSocketError = ... # 0xa
         OperationError           : QLocalSocket.LocalSocketError = ... # 0x13
 
-    class LocalSocketState(Shiboken.Enum):
+
+    class LocalSocketState(shibokensupport.enum_310.Enum):
 
         UnconnectedState         : QLocalSocket.LocalSocketState = ... # 0x0
         ConnectingState          : QLocalSocket.LocalSocketState = ... # 0x2
         ConnectedState           : QLocalSocket.LocalSocketState = ... # 0x3
         ClosingState             : QLocalSocket.LocalSocketState = ... # 0x6
 
-    class SocketOption(Shiboken.Enum):
+
+    class SocketOption(shibokensupport.enum_310.Flag):
 
         NoOptions                : QLocalSocket.SocketOption = ... # 0x0
         AbstractNamespaceOption  : QLocalSocket.SocketOption = ... # 0x1
-
-    class SocketOptions(object): ...
 
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -846,27 +682,27 @@ class QLocalSocket(PySide6.QtCore.QIODevice):
     def canReadLine(self) -> bool: ...
     def close(self) -> None: ...
     @overload
-    def connectToServer(self, name: str, openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def connectToServer(self, name: str, openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     @overload
-    def connectToServer(self, openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def connectToServer(self, openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     def disconnectFromServer(self) -> None: ...
     def error(self) -> PySide6.QtNetwork.QLocalSocket.LocalSocketError: ...
     def flush(self) -> bool: ...
     def fullServerName(self) -> str: ...
     def isSequential(self) -> bool: ...
     def isValid(self) -> bool: ...
-    def open(self, openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> bool: ...
+    def open(self, openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> bool: ...
     def readBufferSize(self) -> int: ...
-    def readData(self, arg__1: bytes, arg__2: int) -> object: ...
-    def readLineData(self, data: bytes, maxSize: int) -> object: ...
+    def readData(self, arg__2: int) -> object: ...
+    def readLineData(self, maxSize: int) -> object: ...
     def serverName(self) -> str: ...
     def setReadBufferSize(self, size: int) -> None: ...
     def setServerName(self, name: str) -> None: ...
-    def setSocketDescriptor(self, socketDescriptor: int, socketState: PySide6.QtNetwork.QLocalSocket.LocalSocketState = ..., openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> bool: ...
-    def setSocketOptions(self, option: PySide6.QtNetwork.QLocalSocket.SocketOptions) -> None: ...
+    def setSocketDescriptor(self, socketDescriptor: int, socketState: PySide6.QtNetwork.QLocalSocket.LocalSocketState = ..., openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> bool: ...
+    def setSocketOptions(self, option: PySide6.QtNetwork.QLocalSocket.SocketOption) -> None: ...
     def skipData(self, maxSize: int) -> int: ...
     def socketDescriptor(self) -> int: ...
-    def socketOptions(self) -> PySide6.QtNetwork.QLocalSocket.SocketOptions: ...
+    def socketOptions(self) -> PySide6.QtNetwork.QLocalSocket.SocketOption: ...
     def state(self) -> PySide6.QtNetwork.QLocalSocket.LocalSocketState: ...
     def waitForBytesWritten(self, msecs: int = ...) -> bool: ...
     def waitForConnected(self, msecs: int = ...) -> bool: ...
@@ -877,15 +713,7 @@ class QLocalSocket(PySide6.QtCore.QIODevice):
 
 class QNetworkAccessManager(PySide6.QtCore.QObject):
 
-    UnknownOperation         : QNetworkAccessManager.Operation = ... # 0x0
-    HeadOperation            : QNetworkAccessManager.Operation = ... # 0x1
-    GetOperation             : QNetworkAccessManager.Operation = ... # 0x2
-    PutOperation             : QNetworkAccessManager.Operation = ... # 0x3
-    PostOperation            : QNetworkAccessManager.Operation = ... # 0x4
-    DeleteOperation          : QNetworkAccessManager.Operation = ... # 0x5
-    CustomOperation          : QNetworkAccessManager.Operation = ... # 0x6
-
-    class Operation(Shiboken.Enum):
+    class Operation(shibokensupport.enum_310.Enum):
 
         UnknownOperation         : QNetworkAccessManager.Operation = ... # 0x0
         HeadOperation            : QNetworkAccessManager.Operation = ... # 0x1
@@ -953,11 +781,7 @@ class QNetworkAccessManager(PySide6.QtCore.QObject):
 
 class QNetworkAddressEntry(Shiboken.Object):
 
-    DnsEligibilityUnknown    : QNetworkAddressEntry.DnsEligibilityStatus = ... # -0x1
-    DnsIneligible            : QNetworkAddressEntry.DnsEligibilityStatus = ... # 0x0
-    DnsEligible              : QNetworkAddressEntry.DnsEligibilityStatus = ... # 0x1
-
-    class DnsEligibilityStatus(Shiboken.Enum):
+    class DnsEligibilityStatus(shibokensupport.enum_310.Enum):
 
         DnsEligibilityUnknown    : QNetworkAddressEntry.DnsEligibilityStatus = ... # -0x1
         DnsIneligible            : QNetworkAddressEntry.DnsEligibilityStatus = ... # 0x0
@@ -1020,15 +844,13 @@ class QNetworkCacheMetaData(Shiboken.Object):
 
 class QNetworkCookie(Shiboken.Object):
 
-    NameAndValueOnly         : QNetworkCookie.RawForm = ... # 0x0
-    Full                     : QNetworkCookie.RawForm = ... # 0x1
-
-    class RawForm(Shiboken.Enum):
+    class RawForm(shibokensupport.enum_310.Enum):
 
         NameAndValueOnly         : QNetworkCookie.RawForm = ... # 0x0
         Full                     : QNetworkCookie.RawForm = ... # 0x1
 
-    class SameSite(Shiboken.Enum):
+
+    class SameSite(shibokensupport.enum_310.Enum):
 
         Default                  : QNetworkCookie.SameSite = ... # 0x0
         None_                    : QNetworkCookie.SameSite = ... # 0x1
@@ -1134,16 +956,15 @@ class QNetworkDiskCache(PySide6.QtNetwork.QAbstractNetworkCache):
 
 class QNetworkInformation(PySide6.QtCore.QObject):
 
-    class Feature(Shiboken.Enum):
+    class Feature(shibokensupport.enum_310.Flag):
 
         Reachability             : QNetworkInformation.Feature = ... # 0x1
         CaptivePortal            : QNetworkInformation.Feature = ... # 0x2
         TransportMedium          : QNetworkInformation.Feature = ... # 0x4
         Metered                  : QNetworkInformation.Feature = ... # 0x8
 
-    class Features(object): ...
 
-    class Reachability(Shiboken.Enum):
+    class Reachability(shibokensupport.enum_310.Enum):
 
         Unknown                  : QNetworkInformation.Reachability = ... # 0x0
         Disconnected             : QNetworkInformation.Reachability = ... # 0x1
@@ -1151,7 +972,8 @@ class QNetworkInformation(PySide6.QtCore.QObject):
         Site                     : QNetworkInformation.Reachability = ... # 0x3
         Online                   : QNetworkInformation.Reachability = ... # 0x4
 
-    class TransportMedium(Shiboken.Enum):
+
+    class TransportMedium(shibokensupport.enum_310.Enum):
 
         Unknown                  : QNetworkInformation.TransportMedium = ... # 0x0
         Ethernet                 : QNetworkInformation.TransportMedium = ... # 0x1
@@ -1172,40 +994,22 @@ class QNetworkInformation(PySide6.QtCore.QObject):
     def load(backend: str) -> bool: ...
     @overload
     @staticmethod
-    def load(features: PySide6.QtNetwork.QNetworkInformation.Features) -> bool: ...
+    def load(features: PySide6.QtNetwork.QNetworkInformation.Feature) -> bool: ...
+    @staticmethod
+    def loadBackendByFeatures(features: PySide6.QtNetwork.QNetworkInformation.Feature) -> bool: ...
+    @staticmethod
+    def loadBackendByName(backend: str) -> bool: ...
     @staticmethod
     def loadDefaultBackend() -> bool: ...
     def reachability(self) -> PySide6.QtNetwork.QNetworkInformation.Reachability: ...
-    def supportedFeatures(self) -> PySide6.QtNetwork.QNetworkInformation.Features: ...
-    def supports(self, features: PySide6.QtNetwork.QNetworkInformation.Features) -> bool: ...
+    def supportedFeatures(self) -> PySide6.QtNetwork.QNetworkInformation.Feature: ...
+    def supports(self, features: PySide6.QtNetwork.QNetworkInformation.Feature) -> bool: ...
     def transportMedium(self) -> PySide6.QtNetwork.QNetworkInformation.TransportMedium: ...
 
 
 class QNetworkInterface(Shiboken.Object):
 
-    IsUp                     : QNetworkInterface.InterfaceFlag = ... # 0x1
-    IsRunning                : QNetworkInterface.InterfaceFlag = ... # 0x2
-    CanBroadcast             : QNetworkInterface.InterfaceFlag = ... # 0x4
-    IsLoopBack               : QNetworkInterface.InterfaceFlag = ... # 0x8
-    IsPointToPoint           : QNetworkInterface.InterfaceFlag = ... # 0x10
-    CanMulticast             : QNetworkInterface.InterfaceFlag = ... # 0x20
-    Unknown                  : QNetworkInterface.InterfaceType = ... # 0x0
-    Loopback                 : QNetworkInterface.InterfaceType = ... # 0x1
-    Virtual                  : QNetworkInterface.InterfaceType = ... # 0x2
-    Ethernet                 : QNetworkInterface.InterfaceType = ... # 0x3
-    Slip                     : QNetworkInterface.InterfaceType = ... # 0x4
-    CanBus                   : QNetworkInterface.InterfaceType = ... # 0x5
-    Ppp                      : QNetworkInterface.InterfaceType = ... # 0x6
-    Fddi                     : QNetworkInterface.InterfaceType = ... # 0x7
-    Ieee80211                : QNetworkInterface.InterfaceType = ... # 0x8
-    Wifi                     : QNetworkInterface.InterfaceType = ... # 0x8
-    Phonet                   : QNetworkInterface.InterfaceType = ... # 0x9
-    Ieee802154               : QNetworkInterface.InterfaceType = ... # 0xa
-    SixLoWPAN                : QNetworkInterface.InterfaceType = ... # 0xb
-    Ieee80216                : QNetworkInterface.InterfaceType = ... # 0xc
-    Ieee1394                 : QNetworkInterface.InterfaceType = ... # 0xd
-
-    class InterfaceFlag(Shiboken.Enum):
+    class InterfaceFlag(shibokensupport.enum_310.Flag):
 
         IsUp                     : QNetworkInterface.InterfaceFlag = ... # 0x1
         IsRunning                : QNetworkInterface.InterfaceFlag = ... # 0x2
@@ -1214,9 +1018,8 @@ class QNetworkInterface(Shiboken.Object):
         IsPointToPoint           : QNetworkInterface.InterfaceFlag = ... # 0x10
         CanMulticast             : QNetworkInterface.InterfaceFlag = ... # 0x20
 
-    class InterfaceFlags(object): ...
 
-    class InterfaceType(Shiboken.Enum):
+    class InterfaceType(shibokensupport.enum_310.Enum):
 
         Unknown                  : QNetworkInterface.InterfaceType = ... # 0x0
         Loopback                 : QNetworkInterface.InterfaceType = ... # 0x1
@@ -1247,7 +1050,7 @@ class QNetworkInterface(Shiboken.Object):
     def allAddresses() -> List[PySide6.QtNetwork.QHostAddress]: ...
     @staticmethod
     def allInterfaces() -> List[PySide6.QtNetwork.QNetworkInterface]: ...
-    def flags(self) -> PySide6.QtNetwork.QNetworkInterface.InterfaceFlags: ...
+    def flags(self) -> PySide6.QtNetwork.QNetworkInterface.InterfaceFlag: ...
     def hardwareAddress(self) -> str: ...
     def humanReadableName(self) -> str: ...
     def index(self) -> int: ...
@@ -1268,23 +1071,7 @@ class QNetworkInterface(Shiboken.Object):
 
 class QNetworkProxy(Shiboken.Object):
 
-    TunnelingCapability      : QNetworkProxy.Capability = ... # 0x1
-    ListeningCapability      : QNetworkProxy.Capability = ... # 0x2
-    UdpTunnelingCapability   : QNetworkProxy.Capability = ... # 0x4
-    CachingCapability        : QNetworkProxy.Capability = ... # 0x8
-    HostNameLookupCapability : QNetworkProxy.Capability = ... # 0x10
-    SctpTunnelingCapability  : QNetworkProxy.Capability = ... # 0x20
-    SctpListeningCapability  : QNetworkProxy.Capability = ... # 0x40
-    DefaultProxy             : QNetworkProxy.ProxyType = ... # 0x0
-    Socks5Proxy              : QNetworkProxy.ProxyType = ... # 0x1
-    NoProxy                  : QNetworkProxy.ProxyType = ... # 0x2
-    HttpProxy                : QNetworkProxy.ProxyType = ... # 0x3
-    HttpCachingProxy         : QNetworkProxy.ProxyType = ... # 0x4
-    FtpCachingProxy          : QNetworkProxy.ProxyType = ... # 0x5
-
-    class Capabilities(object): ...
-
-    class Capability(Shiboken.Enum):
+    class Capability(shibokensupport.enum_310.Flag):
 
         TunnelingCapability      : QNetworkProxy.Capability = ... # 0x1
         ListeningCapability      : QNetworkProxy.Capability = ... # 0x2
@@ -1294,7 +1081,8 @@ class QNetworkProxy(Shiboken.Object):
         SctpTunnelingCapability  : QNetworkProxy.Capability = ... # 0x20
         SctpListeningCapability  : QNetworkProxy.Capability = ... # 0x40
 
-    class ProxyType(Shiboken.Enum):
+
+    class ProxyType(shibokensupport.enum_310.Enum):
 
         DefaultProxy             : QNetworkProxy.ProxyType = ... # 0x0
         Socks5Proxy              : QNetworkProxy.ProxyType = ... # 0x1
@@ -1315,7 +1103,7 @@ class QNetworkProxy(Shiboken.Object):
     def __copy__() -> None: ...
     @staticmethod
     def applicationProxy() -> PySide6.QtNetwork.QNetworkProxy: ...
-    def capabilities(self) -> PySide6.QtNetwork.QNetworkProxy.Capabilities: ...
+    def capabilities(self) -> PySide6.QtNetwork.QNetworkProxy.Capability: ...
     def hasRawHeader(self, headerName: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
     def header(self, header: PySide6.QtNetwork.QNetworkRequest.KnownHeaders) -> Any: ...
     def hostName(self) -> str: ...
@@ -1327,7 +1115,7 @@ class QNetworkProxy(Shiboken.Object):
     def rawHeaderList(self) -> List[PySide6.QtCore.QByteArray]: ...
     @staticmethod
     def setApplicationProxy(proxy: Union[PySide6.QtNetwork.QNetworkProxy, PySide6.QtNetwork.QNetworkProxy.ProxyType]) -> None: ...
-    def setCapabilities(self, capab: PySide6.QtNetwork.QNetworkProxy.Capabilities) -> None: ...
+    def setCapabilities(self, capab: PySide6.QtNetwork.QNetworkProxy.Capability) -> None: ...
     def setHeader(self, header: PySide6.QtNetwork.QNetworkRequest.KnownHeaders, value: Any) -> None: ...
     def setHostName(self, hostName: str) -> None: ...
     def setPassword(self, password: str) -> None: ...
@@ -1359,14 +1147,7 @@ class QNetworkProxyFactory(Shiboken.Object):
 
 class QNetworkProxyQuery(Shiboken.Object):
 
-    TcpSocket                : QNetworkProxyQuery.QueryType = ... # 0x0
-    UdpSocket                : QNetworkProxyQuery.QueryType = ... # 0x1
-    SctpSocket               : QNetworkProxyQuery.QueryType = ... # 0x2
-    TcpServer                : QNetworkProxyQuery.QueryType = ... # 0x64
-    UrlRequest               : QNetworkProxyQuery.QueryType = ... # 0x65
-    SctpServer               : QNetworkProxyQuery.QueryType = ... # 0x66
-
-    class QueryType(Shiboken.Enum):
+    class QueryType(shibokensupport.enum_310.Enum):
 
         TcpSocket                : QNetworkProxyQuery.QueryType = ... # 0x0
         UdpSocket                : QNetworkProxyQuery.QueryType = ... # 0x1
@@ -1406,42 +1187,7 @@ class QNetworkProxyQuery(Shiboken.Object):
 
 class QNetworkReply(PySide6.QtCore.QIODevice):
 
-    NoError                  : QNetworkReply.NetworkError = ... # 0x0
-    ConnectionRefusedError   : QNetworkReply.NetworkError = ... # 0x1
-    RemoteHostClosedError    : QNetworkReply.NetworkError = ... # 0x2
-    HostNotFoundError        : QNetworkReply.NetworkError = ... # 0x3
-    TimeoutError             : QNetworkReply.NetworkError = ... # 0x4
-    OperationCanceledError   : QNetworkReply.NetworkError = ... # 0x5
-    SslHandshakeFailedError  : QNetworkReply.NetworkError = ... # 0x6
-    TemporaryNetworkFailureError: QNetworkReply.NetworkError = ... # 0x7
-    NetworkSessionFailedError: QNetworkReply.NetworkError = ... # 0x8
-    BackgroundRequestNotAllowedError: QNetworkReply.NetworkError = ... # 0x9
-    TooManyRedirectsError    : QNetworkReply.NetworkError = ... # 0xa
-    InsecureRedirectError    : QNetworkReply.NetworkError = ... # 0xb
-    UnknownNetworkError      : QNetworkReply.NetworkError = ... # 0x63
-    ProxyConnectionRefusedError: QNetworkReply.NetworkError = ... # 0x65
-    ProxyConnectionClosedError: QNetworkReply.NetworkError = ... # 0x66
-    ProxyNotFoundError       : QNetworkReply.NetworkError = ... # 0x67
-    ProxyTimeoutError        : QNetworkReply.NetworkError = ... # 0x68
-    ProxyAuthenticationRequiredError: QNetworkReply.NetworkError = ... # 0x69
-    UnknownProxyError        : QNetworkReply.NetworkError = ... # 0xc7
-    ContentAccessDenied      : QNetworkReply.NetworkError = ... # 0xc9
-    ContentOperationNotPermittedError: QNetworkReply.NetworkError = ... # 0xca
-    ContentNotFoundError     : QNetworkReply.NetworkError = ... # 0xcb
-    AuthenticationRequiredError: QNetworkReply.NetworkError = ... # 0xcc
-    ContentReSendError       : QNetworkReply.NetworkError = ... # 0xcd
-    ContentConflictError     : QNetworkReply.NetworkError = ... # 0xce
-    ContentGoneError         : QNetworkReply.NetworkError = ... # 0xcf
-    UnknownContentError      : QNetworkReply.NetworkError = ... # 0x12b
-    ProtocolUnknownError     : QNetworkReply.NetworkError = ... # 0x12d
-    ProtocolInvalidOperationError: QNetworkReply.NetworkError = ... # 0x12e
-    ProtocolFailure          : QNetworkReply.NetworkError = ... # 0x18f
-    InternalServerError      : QNetworkReply.NetworkError = ... # 0x191
-    OperationNotImplementedError: QNetworkReply.NetworkError = ... # 0x192
-    ServiceUnavailableError  : QNetworkReply.NetworkError = ... # 0x193
-    UnknownServerError       : QNetworkReply.NetworkError = ... # 0x1f3
-
-    class NetworkError(Shiboken.Enum):
+    class NetworkError(shibokensupport.enum_310.Enum):
 
         NoError                  : QNetworkReply.NetworkError = ... # 0x0
         ConnectionRefusedError   : QNetworkReply.NetworkError = ... # 0x1
@@ -1521,65 +1267,7 @@ class QNetworkReply(PySide6.QtCore.QIODevice):
 
 class QNetworkRequest(Shiboken.Object):
 
-    HttpStatusCodeAttribute  : QNetworkRequest.Attribute = ... # 0x0
-    HttpReasonPhraseAttribute: QNetworkRequest.Attribute = ... # 0x1
-    RedirectionTargetAttribute: QNetworkRequest.Attribute = ... # 0x2
-    ConnectionEncryptedAttribute: QNetworkRequest.Attribute = ... # 0x3
-    CacheLoadControlAttribute: QNetworkRequest.Attribute = ... # 0x4
-    CacheSaveControlAttribute: QNetworkRequest.Attribute = ... # 0x5
-    SourceIsFromCacheAttribute: QNetworkRequest.Attribute = ... # 0x6
-    DoNotBufferUploadDataAttribute: QNetworkRequest.Attribute = ... # 0x7
-    HttpPipeliningAllowedAttribute: QNetworkRequest.Attribute = ... # 0x8
-    HttpPipeliningWasUsedAttribute: QNetworkRequest.Attribute = ... # 0x9
-    CustomVerbAttribute      : QNetworkRequest.Attribute = ... # 0xa
-    CookieLoadControlAttribute: QNetworkRequest.Attribute = ... # 0xb
-    AuthenticationReuseAttribute: QNetworkRequest.Attribute = ... # 0xc
-    CookieSaveControlAttribute: QNetworkRequest.Attribute = ... # 0xd
-    MaximumDownloadBufferSizeAttribute: QNetworkRequest.Attribute = ... # 0xe
-    DownloadBufferAttribute  : QNetworkRequest.Attribute = ... # 0xf
-    SynchronousRequestAttribute: QNetworkRequest.Attribute = ... # 0x10
-    BackgroundRequestAttribute: QNetworkRequest.Attribute = ... # 0x11
-    EmitAllUploadProgressSignalsAttribute: QNetworkRequest.Attribute = ... # 0x12
-    Http2AllowedAttribute    : QNetworkRequest.Attribute = ... # 0x13
-    Http2WasUsedAttribute    : QNetworkRequest.Attribute = ... # 0x14
-    OriginalContentLengthAttribute: QNetworkRequest.Attribute = ... # 0x15
-    RedirectPolicyAttribute  : QNetworkRequest.Attribute = ... # 0x16
-    Http2DirectAttribute     : QNetworkRequest.Attribute = ... # 0x17
-    ResourceTypeAttribute    : QNetworkRequest.Attribute = ... # 0x18
-    AutoDeleteReplyOnFinishAttribute: QNetworkRequest.Attribute = ... # 0x19
-    ConnectionCacheExpiryTimeoutSecondsAttribute: QNetworkRequest.Attribute = ... # 0x1a
-    Http2CleartextAllowedAttribute: QNetworkRequest.Attribute = ... # 0x1b
-    User                     : QNetworkRequest.Attribute = ... # 0x3e8
-    UserMax                  : QNetworkRequest.Attribute = ... # 0x7fff
-    AlwaysNetwork            : QNetworkRequest.CacheLoadControl = ... # 0x0
-    PreferNetwork            : QNetworkRequest.CacheLoadControl = ... # 0x1
-    PreferCache              : QNetworkRequest.CacheLoadControl = ... # 0x2
-    AlwaysCache              : QNetworkRequest.CacheLoadControl = ... # 0x3
-    ContentTypeHeader        : QNetworkRequest.KnownHeaders = ... # 0x0
-    ContentLengthHeader      : QNetworkRequest.KnownHeaders = ... # 0x1
-    LocationHeader           : QNetworkRequest.KnownHeaders = ... # 0x2
-    LastModifiedHeader       : QNetworkRequest.KnownHeaders = ... # 0x3
-    CookieHeader             : QNetworkRequest.KnownHeaders = ... # 0x4
-    SetCookieHeader          : QNetworkRequest.KnownHeaders = ... # 0x5
-    ContentDispositionHeader : QNetworkRequest.KnownHeaders = ... # 0x6
-    UserAgentHeader          : QNetworkRequest.KnownHeaders = ... # 0x7
-    ServerHeader             : QNetworkRequest.KnownHeaders = ... # 0x8
-    IfModifiedSinceHeader    : QNetworkRequest.KnownHeaders = ... # 0x9
-    ETagHeader               : QNetworkRequest.KnownHeaders = ... # 0xa
-    IfMatchHeader            : QNetworkRequest.KnownHeaders = ... # 0xb
-    IfNoneMatchHeader        : QNetworkRequest.KnownHeaders = ... # 0xc
-    Automatic                : QNetworkRequest.LoadControl = ... # 0x0
-    Manual                   : QNetworkRequest.LoadControl = ... # 0x1
-    HighPriority             : QNetworkRequest.Priority = ... # 0x1
-    NormalPriority           : QNetworkRequest.Priority = ... # 0x3
-    LowPriority              : QNetworkRequest.Priority = ... # 0x5
-    ManualRedirectPolicy     : QNetworkRequest.RedirectPolicy = ... # 0x0
-    NoLessSafeRedirectPolicy : QNetworkRequest.RedirectPolicy = ... # 0x1
-    SameOriginRedirectPolicy : QNetworkRequest.RedirectPolicy = ... # 0x2
-    UserVerifiedRedirectPolicy: QNetworkRequest.RedirectPolicy = ... # 0x3
-    DefaultTransferTimeoutConstant: QNetworkRequest.TransferTimeoutConstant = ... # 0x7530
-
-    class Attribute(Shiboken.Enum):
+    class Attribute(shibokensupport.enum_310.Enum):
 
         HttpStatusCodeAttribute  : QNetworkRequest.Attribute = ... # 0x0
         HttpReasonPhraseAttribute: QNetworkRequest.Attribute = ... # 0x1
@@ -1612,14 +1300,16 @@ class QNetworkRequest(Shiboken.Object):
         User                     : QNetworkRequest.Attribute = ... # 0x3e8
         UserMax                  : QNetworkRequest.Attribute = ... # 0x7fff
 
-    class CacheLoadControl(Shiboken.Enum):
+
+    class CacheLoadControl(shibokensupport.enum_310.Enum):
 
         AlwaysNetwork            : QNetworkRequest.CacheLoadControl = ... # 0x0
         PreferNetwork            : QNetworkRequest.CacheLoadControl = ... # 0x1
         PreferCache              : QNetworkRequest.CacheLoadControl = ... # 0x2
         AlwaysCache              : QNetworkRequest.CacheLoadControl = ... # 0x3
 
-    class KnownHeaders(Shiboken.Enum):
+
+    class KnownHeaders(shibokensupport.enum_310.Enum):
 
         ContentTypeHeader        : QNetworkRequest.KnownHeaders = ... # 0x0
         ContentLengthHeader      : QNetworkRequest.KnownHeaders = ... # 0x1
@@ -1635,25 +1325,29 @@ class QNetworkRequest(Shiboken.Object):
         IfMatchHeader            : QNetworkRequest.KnownHeaders = ... # 0xb
         IfNoneMatchHeader        : QNetworkRequest.KnownHeaders = ... # 0xc
 
-    class LoadControl(Shiboken.Enum):
+
+    class LoadControl(shibokensupport.enum_310.Enum):
 
         Automatic                : QNetworkRequest.LoadControl = ... # 0x0
         Manual                   : QNetworkRequest.LoadControl = ... # 0x1
 
-    class Priority(Shiboken.Enum):
+
+    class Priority(shibokensupport.enum_310.Enum):
 
         HighPriority             : QNetworkRequest.Priority = ... # 0x1
         NormalPriority           : QNetworkRequest.Priority = ... # 0x3
         LowPriority              : QNetworkRequest.Priority = ... # 0x5
 
-    class RedirectPolicy(Shiboken.Enum):
+
+    class RedirectPolicy(shibokensupport.enum_310.Enum):
 
         ManualRedirectPolicy     : QNetworkRequest.RedirectPolicy = ... # 0x0
         NoLessSafeRedirectPolicy : QNetworkRequest.RedirectPolicy = ... # 0x1
         SameOriginRedirectPolicy : QNetworkRequest.RedirectPolicy = ... # 0x2
         UserVerifiedRedirectPolicy: QNetworkRequest.RedirectPolicy = ... # 0x3
 
-    class TransferTimeoutConstant(Shiboken.Enum):
+
+    class TransferTimeoutConstant(shibokensupport.enum_310.Enum):
 
         DefaultTransferTimeoutConstant: QNetworkRequest.TransferTimeoutConstant = ... # 0x7530
 
@@ -1696,7 +1390,7 @@ class QNetworkRequest(Shiboken.Object):
     def url(self) -> PySide6.QtCore.QUrl: ...
 
 
-class QOcspCertificateStatus(Shiboken.Enum):
+class QOcspCertificateStatus(shibokensupport.enum_310.Enum):
 
     Good                     : QOcspCertificateStatus = ... # 0x0
     Revoked                  : QOcspCertificateStatus = ... # 0x1
@@ -1718,7 +1412,7 @@ class QOcspResponse(Shiboken.Object):
     def swap(self, other: PySide6.QtNetwork.QOcspResponse) -> None: ...
 
 
-class QOcspRevocationReason(Shiboken.Enum):
+class QOcspRevocationReason(shibokensupport.enum_310.Enum):
 
     None_                    : QOcspRevocationReason = ... # -0x1
     Unspecified              : QOcspRevocationReason = ... # 0x0
@@ -1740,49 +1434,14 @@ class QPasswordDigestor(Shiboken.Object):
 
 class QSsl(Shiboken.Object):
 
-    EmailEntry               : QSsl.AlternativeNameEntryType = ... # 0x0
-    DnsEntry                 : QSsl.AlternativeNameEntryType = ... # 0x1
-    IpAddressEntry           : QSsl.AlternativeNameEntryType = ... # 0x2
-    Pem                      : QSsl.EncodingFormat = ... # 0x0
-    Der                      : QSsl.EncodingFormat = ... # 0x1
-    Opaque                   : QSsl.KeyAlgorithm = ... # 0x0
-    Rsa                      : QSsl.KeyAlgorithm = ... # 0x1
-    Dsa                      : QSsl.KeyAlgorithm = ... # 0x2
-    Ec                       : QSsl.KeyAlgorithm = ... # 0x3
-    Dh                       : QSsl.KeyAlgorithm = ... # 0x4
-    PrivateKey               : QSsl.KeyType = ... # 0x0
-    PublicKey                : QSsl.KeyType = ... # 0x1
-    SslOptionDisableEmptyFragments: QSsl.SslOption = ... # 0x1
-    SslOptionDisableSessionTickets: QSsl.SslOption = ... # 0x2
-    SslOptionDisableCompression: QSsl.SslOption = ... # 0x4
-    SslOptionDisableServerNameIndication: QSsl.SslOption = ... # 0x8
-    SslOptionDisableLegacyRenegotiation: QSsl.SslOption = ... # 0x10
-    SslOptionDisableSessionSharing: QSsl.SslOption = ... # 0x20
-    SslOptionDisableSessionPersistence: QSsl.SslOption = ... # 0x40
-    SslOptionDisableServerCipherPreference: QSsl.SslOption = ... # 0x80
-    UnknownProtocol          : QSsl.SslProtocol = ... # -0x1
-    TlsV1_0                  : QSsl.SslProtocol = ... # 0x0
-    TlsV1_1                  : QSsl.SslProtocol = ... # 0x1
-    TlsV1_2                  : QSsl.SslProtocol = ... # 0x2
-    AnyProtocol              : QSsl.SslProtocol = ... # 0x3
-    SecureProtocols          : QSsl.SslProtocol = ... # 0x4
-    TlsV1_0OrLater           : QSsl.SslProtocol = ... # 0x5
-    TlsV1_1OrLater           : QSsl.SslProtocol = ... # 0x6
-    TlsV1_2OrLater           : QSsl.SslProtocol = ... # 0x7
-    DtlsV1_0                 : QSsl.SslProtocol = ... # 0x8
-    DtlsV1_0OrLater          : QSsl.SslProtocol = ... # 0x9
-    DtlsV1_2                 : QSsl.SslProtocol = ... # 0xa
-    DtlsV1_2OrLater          : QSsl.SslProtocol = ... # 0xb
-    TlsV1_3                  : QSsl.SslProtocol = ... # 0xc
-    TlsV1_3OrLater           : QSsl.SslProtocol = ... # 0xd
-
-    class AlertLevel(Shiboken.Enum):
+    class AlertLevel(shibokensupport.enum_310.Enum):
 
         Warning                  : QSsl.AlertLevel = ... # 0x0
         Fatal                    : QSsl.AlertLevel = ... # 0x1
         Unknown                  : QSsl.AlertLevel = ... # 0x2
 
-    class AlertType(Shiboken.Enum):
+
+    class AlertType(shibokensupport.enum_310.Enum):
 
         CloseNotify              : QSsl.AlertType = ... # 0x0
         UnexpectedMessage        : QSsl.AlertType = ... # 0xa
@@ -1819,18 +1478,21 @@ class QSsl(Shiboken.Object):
         NoApplicationProtocol    : QSsl.AlertType = ... # 0x78
         UnknownAlertMessage      : QSsl.AlertType = ... # 0xff
 
-    class AlternativeNameEntryType(Shiboken.Enum):
+
+    class AlternativeNameEntryType(shibokensupport.enum_310.Enum):
 
         EmailEntry               : QSsl.AlternativeNameEntryType = ... # 0x0
         DnsEntry                 : QSsl.AlternativeNameEntryType = ... # 0x1
         IpAddressEntry           : QSsl.AlternativeNameEntryType = ... # 0x2
 
-    class EncodingFormat(Shiboken.Enum):
+
+    class EncodingFormat(shibokensupport.enum_310.Enum):
 
         Pem                      : QSsl.EncodingFormat = ... # 0x0
         Der                      : QSsl.EncodingFormat = ... # 0x1
 
-    class ImplementedClass(Shiboken.Enum):
+
+    class ImplementedClass(shibokensupport.enum_310.Enum):
 
         Key                      : QSsl.ImplementedClass = ... # 0x0
         Certificate              : QSsl.ImplementedClass = ... # 0x1
@@ -1840,7 +1502,8 @@ class QSsl(Shiboken.Object):
         Dtls                     : QSsl.ImplementedClass = ... # 0x5
         DtlsCookie               : QSsl.ImplementedClass = ... # 0x6
 
-    class KeyAlgorithm(Shiboken.Enum):
+
+    class KeyAlgorithm(shibokensupport.enum_310.Enum):
 
         Opaque                   : QSsl.KeyAlgorithm = ... # 0x0
         Rsa                      : QSsl.KeyAlgorithm = ... # 0x1
@@ -1848,12 +1511,14 @@ class QSsl(Shiboken.Object):
         Ec                       : QSsl.KeyAlgorithm = ... # 0x3
         Dh                       : QSsl.KeyAlgorithm = ... # 0x4
 
-    class KeyType(Shiboken.Enum):
+
+    class KeyType(shibokensupport.enum_310.Enum):
 
         PrivateKey               : QSsl.KeyType = ... # 0x0
         PublicKey                : QSsl.KeyType = ... # 0x1
 
-    class SslOption(Shiboken.Enum):
+
+    class SslOption(shibokensupport.enum_310.Flag):
 
         SslOptionDisableEmptyFragments: QSsl.SslOption = ... # 0x1
         SslOptionDisableSessionTickets: QSsl.SslOption = ... # 0x2
@@ -1864,9 +1529,8 @@ class QSsl(Shiboken.Object):
         SslOptionDisableSessionPersistence: QSsl.SslOption = ... # 0x40
         SslOptionDisableServerCipherPreference: QSsl.SslOption = ... # 0x80
 
-    class SslOptions(object): ...
 
-    class SslProtocol(Shiboken.Enum):
+    class SslProtocol(shibokensupport.enum_310.Enum):
 
         UnknownProtocol          : QSsl.SslProtocol = ... # -0x1
         TlsV1_0                  : QSsl.SslProtocol = ... # 0x0
@@ -1884,7 +1548,8 @@ class QSsl(Shiboken.Object):
         TlsV1_3                  : QSsl.SslProtocol = ... # 0xc
         TlsV1_3OrLater           : QSsl.SslProtocol = ... # 0xd
 
-    class SupportedFeature(Shiboken.Enum):
+
+    class SupportedFeature(shibokensupport.enum_310.Enum):
 
         CertificateVerification  : QSsl.SupportedFeature = ... # 0x0
         ClientSideAlpn           : QSsl.SupportedFeature = ... # 0x1
@@ -1897,23 +1562,14 @@ class QSsl(Shiboken.Object):
 
 class QSslCertificate(Shiboken.Object):
 
-    Organization             : QSslCertificate.SubjectInfo = ... # 0x0
-    CommonName               : QSslCertificate.SubjectInfo = ... # 0x1
-    LocalityName             : QSslCertificate.SubjectInfo = ... # 0x2
-    OrganizationalUnitName   : QSslCertificate.SubjectInfo = ... # 0x3
-    CountryName              : QSslCertificate.SubjectInfo = ... # 0x4
-    StateOrProvinceName      : QSslCertificate.SubjectInfo = ... # 0x5
-    DistinguishedNameQualifier: QSslCertificate.SubjectInfo = ... # 0x6
-    SerialNumber             : QSslCertificate.SubjectInfo = ... # 0x7
-    EmailAddress             : QSslCertificate.SubjectInfo = ... # 0x8
-
-    class PatternSyntax(Shiboken.Enum):
+    class PatternSyntax(shibokensupport.enum_310.Enum):
 
         RegularExpression        : QSslCertificate.PatternSyntax = ... # 0x0
         Wildcard                 : QSslCertificate.PatternSyntax = ... # 0x1
         FixedString              : QSslCertificate.PatternSyntax = ... # 0x2
 
-    class SubjectInfo(Shiboken.Enum):
+
+    class SubjectInfo(shibokensupport.enum_310.Enum):
 
         Organization             : QSslCertificate.SubjectInfo = ... # 0x0
         CommonName               : QSslCertificate.SubjectInfo = ... # 0x1
@@ -2020,11 +1676,7 @@ class QSslCipher(Shiboken.Object):
 
 class QSslConfiguration(Shiboken.Object):
 
-    NextProtocolNegotiationNone: QSslConfiguration.NextProtocolNegotiationStatus = ... # 0x0
-    NextProtocolNegotiationNegotiated: QSslConfiguration.NextProtocolNegotiationStatus = ... # 0x1
-    NextProtocolNegotiationUnsupported: QSslConfiguration.NextProtocolNegotiationStatus = ... # 0x2
-
-    class NextProtocolNegotiationStatus(Shiboken.Enum):
+    class NextProtocolNegotiationStatus(shibokensupport.enum_310.Enum):
 
         NextProtocolNegotiationNone: QSslConfiguration.NextProtocolNegotiationStatus = ... # 0x0
         NextProtocolNegotiationNegotiated: QSslConfiguration.NextProtocolNegotiationStatus = ... # 0x1
@@ -2113,11 +1765,7 @@ class QSslConfiguration(Shiboken.Object):
 
 class QSslDiffieHellmanParameters(Shiboken.Object):
 
-    NoError                  : QSslDiffieHellmanParameters.Error = ... # 0x0
-    InvalidInputDataError    : QSslDiffieHellmanParameters.Error = ... # 0x1
-    UnsafeParametersError    : QSslDiffieHellmanParameters.Error = ... # 0x2
-
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         NoError                  : QSslDiffieHellmanParameters.Error = ... # 0x0
         InvalidInputDataError    : QSslDiffieHellmanParameters.Error = ... # 0x1
@@ -2167,46 +1815,7 @@ class QSslEllipticCurve(Shiboken.Object):
 
 class QSslError(Shiboken.Object):
 
-    UnspecifiedError         : QSslError.SslError = ... # -0x1
-    NoError                  : QSslError.SslError = ... # 0x0
-    UnableToGetIssuerCertificate: QSslError.SslError = ... # 0x1
-    UnableToDecryptCertificateSignature: QSslError.SslError = ... # 0x2
-    UnableToDecodeIssuerPublicKey: QSslError.SslError = ... # 0x3
-    CertificateSignatureFailed: QSslError.SslError = ... # 0x4
-    CertificateNotYetValid   : QSslError.SslError = ... # 0x5
-    CertificateExpired       : QSslError.SslError = ... # 0x6
-    InvalidNotBeforeField    : QSslError.SslError = ... # 0x7
-    InvalidNotAfterField     : QSslError.SslError = ... # 0x8
-    SelfSignedCertificate    : QSslError.SslError = ... # 0x9
-    SelfSignedCertificateInChain: QSslError.SslError = ... # 0xa
-    UnableToGetLocalIssuerCertificate: QSslError.SslError = ... # 0xb
-    UnableToVerifyFirstCertificate: QSslError.SslError = ... # 0xc
-    CertificateRevoked       : QSslError.SslError = ... # 0xd
-    InvalidCaCertificate     : QSslError.SslError = ... # 0xe
-    PathLengthExceeded       : QSslError.SslError = ... # 0xf
-    InvalidPurpose           : QSslError.SslError = ... # 0x10
-    CertificateUntrusted     : QSslError.SslError = ... # 0x11
-    CertificateRejected      : QSslError.SslError = ... # 0x12
-    SubjectIssuerMismatch    : QSslError.SslError = ... # 0x13
-    AuthorityIssuerSerialNumberMismatch: QSslError.SslError = ... # 0x14
-    NoPeerCertificate        : QSslError.SslError = ... # 0x15
-    HostNameMismatch         : QSslError.SslError = ... # 0x16
-    NoSslSupport             : QSslError.SslError = ... # 0x17
-    CertificateBlacklisted   : QSslError.SslError = ... # 0x18
-    CertificateStatusUnknown : QSslError.SslError = ... # 0x19
-    OcspNoResponseFound      : QSslError.SslError = ... # 0x1a
-    OcspMalformedRequest     : QSslError.SslError = ... # 0x1b
-    OcspMalformedResponse    : QSslError.SslError = ... # 0x1c
-    OcspInternalError        : QSslError.SslError = ... # 0x1d
-    OcspTryLater             : QSslError.SslError = ... # 0x1e
-    OcspSigRequred           : QSslError.SslError = ... # 0x1f
-    OcspUnauthorized         : QSslError.SslError = ... # 0x20
-    OcspResponseCannotBeTrusted: QSslError.SslError = ... # 0x21
-    OcspResponseCertIdUnknown: QSslError.SslError = ... # 0x22
-    OcspResponseExpired      : QSslError.SslError = ... # 0x23
-    OcspStatusUnknown        : QSslError.SslError = ... # 0x24
-
-    class SslError(Shiboken.Enum):
+    class SslError(shibokensupport.enum_310.Enum):
 
         UnspecifiedError         : QSslError.SslError = ... # -0x1
         NoError                  : QSslError.SslError = ... # 0x0
@@ -2310,24 +1919,28 @@ class QSslPreSharedKeyAuthenticator(Shiboken.Object):
     def swap(self, other: PySide6.QtNetwork.QSslPreSharedKeyAuthenticator) -> None: ...
 
 
+class QSslServer(PySide6.QtNetwork.QTcpServer):
+
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def handshakeTimeout(self) -> int: ...
+    def incomingConnection(self, socket: int) -> None: ...
+    def setHandshakeTimeout(self, timeout: int) -> None: ...
+    def setSslConfiguration(self, sslConfiguration: PySide6.QtNetwork.QSslConfiguration) -> None: ...
+    def sslConfiguration(self) -> PySide6.QtNetwork.QSslConfiguration: ...
+
+
 class QSslSocket(PySide6.QtNetwork.QTcpSocket):
 
-    VerifyNone               : QSslSocket.PeerVerifyMode = ... # 0x0
-    QueryPeer                : QSslSocket.PeerVerifyMode = ... # 0x1
-    VerifyPeer               : QSslSocket.PeerVerifyMode = ... # 0x2
-    AutoVerifyPeer           : QSslSocket.PeerVerifyMode = ... # 0x3
-    UnencryptedMode          : QSslSocket.SslMode = ... # 0x0
-    SslClientMode            : QSslSocket.SslMode = ... # 0x1
-    SslServerMode            : QSslSocket.SslMode = ... # 0x2
-
-    class PeerVerifyMode(Shiboken.Enum):
+    class PeerVerifyMode(shibokensupport.enum_310.Enum):
 
         VerifyNone               : QSslSocket.PeerVerifyMode = ... # 0x0
         QueryPeer                : QSslSocket.PeerVerifyMode = ... # 0x1
         VerifyPeer               : QSslSocket.PeerVerifyMode = ... # 0x2
         AutoVerifyPeer           : QSslSocket.PeerVerifyMode = ... # 0x3
 
-    class SslMode(Shiboken.Enum):
+
+    class SslMode(shibokensupport.enum_310.Enum):
 
         UnencryptedMode          : QSslSocket.SslMode = ... # 0x0
         SslClientMode            : QSslSocket.SslMode = ... # 0x1
@@ -2346,13 +1959,13 @@ class QSslSocket(PySide6.QtNetwork.QTcpSocket):
     def canReadLine(self) -> bool: ...
     def close(self) -> None: ...
     @overload
-    def connectToHost(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def connectToHost(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     @overload
-    def connectToHost(self, hostName: str, port: int, openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
+    def connectToHost(self, hostName: str, port: int, openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
     @overload
-    def connectToHostEncrypted(self, hostName: str, port: int, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
+    def connectToHostEncrypted(self, hostName: str, port: int, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
     @overload
-    def connectToHostEncrypted(self, hostName: str, port: int, sslPeerName: str, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
+    def connectToHostEncrypted(self, hostName: str, port: int, sslPeerName: str, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ..., protocol: PySide6.QtNetwork.QAbstractSocket.NetworkLayerProtocol = ...) -> None: ...
     def continueInterruptedHandshake(self) -> None: ...
     def disconnectFromHost(self) -> None: ...
     def encryptedBytesAvailable(self) -> int: ...
@@ -2381,7 +1994,7 @@ class QSslSocket(PySide6.QtNetwork.QTcpSocket):
     def peerVerifyName(self) -> str: ...
     def privateKey(self) -> PySide6.QtNetwork.QSslKey: ...
     def protocol(self) -> PySide6.QtNetwork.QSsl.SslProtocol: ...
-    def readData(self, data: bytes, maxlen: int) -> object: ...
+    def readData(self, maxlen: int) -> object: ...
     def resume(self) -> None: ...
     def sessionCipher(self) -> PySide6.QtNetwork.QSslCipher: ...
     def sessionProtocol(self) -> PySide6.QtNetwork.QSsl.SslProtocol: ...
@@ -2401,7 +2014,7 @@ class QSslSocket(PySide6.QtNetwork.QTcpSocket):
     def setPrivateKey(self, key: Union[PySide6.QtNetwork.QSslKey, int]) -> None: ...
     def setProtocol(self, protocol: PySide6.QtNetwork.QSsl.SslProtocol) -> None: ...
     def setReadBufferSize(self, size: int) -> None: ...
-    def setSocketDescriptor(self, socketDescriptor: int, state: PySide6.QtNetwork.QAbstractSocket.SocketState = ..., openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> bool: ...
+    def setSocketDescriptor(self, socketDescriptor: int, state: PySide6.QtNetwork.QAbstractSocket.SocketState = ..., openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> bool: ...
     def setSocketOption(self, option: PySide6.QtNetwork.QAbstractSocket.SocketOption, value: Any) -> None: ...
     def setSslConfiguration(self, config: PySide6.QtNetwork.QSslConfiguration) -> None: ...
     def skipData(self, maxSize: int) -> int: ...
@@ -2457,7 +2070,7 @@ class QTcpServer(PySide6.QtCore.QObject):
     def setProxy(self, networkProxy: Union[PySide6.QtNetwork.QNetworkProxy, PySide6.QtNetwork.QNetworkProxy.ProxyType]) -> None: ...
     def setSocketDescriptor(self, socketDescriptor: int) -> bool: ...
     def socketDescriptor(self) -> int: ...
-    def waitForNewConnection(self, msec: int) -> Tuple[Tuple, bool]: ...
+    def waitForNewConnection(self, msec: int) -> Tuple: ...
 
 
 class QTcpSocket(PySide6.QtNetwork.QAbstractSocket):
@@ -2465,11 +2078,11 @@ class QTcpSocket(PySide6.QtNetwork.QAbstractSocket):
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     @overload
-    def bind(self, addr: PySide6.QtNetwork.QHostAddress.SpecialAddress, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, addr: PySide6.QtNetwork.QHostAddress.SpecialAddress, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
     @overload
-    def bind(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
     @overload
-    def bind(self, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
 
 
 class QUdpSocket(PySide6.QtNetwork.QAbstractSocket):
@@ -2477,11 +2090,11 @@ class QUdpSocket(PySide6.QtNetwork.QAbstractSocket):
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     @overload
-    def bind(self, addr: PySide6.QtNetwork.QHostAddress.SpecialAddress, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, addr: PySide6.QtNetwork.QHostAddress.SpecialAddress, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
     @overload
-    def bind(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
     @overload
-    def bind(self, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindMode = ...) -> bool: ...
+    def bind(self, port: int = ..., mode: PySide6.QtNetwork.QAbstractSocket.BindFlag = ...) -> bool: ...
     def hasPendingDatagrams(self) -> bool: ...
     @overload
     def joinMulticastGroup(self, groupAddress: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress]) -> bool: ...
@@ -2493,7 +2106,7 @@ class QUdpSocket(PySide6.QtNetwork.QAbstractSocket):
     def leaveMulticastGroup(self, groupAddress: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], iface: PySide6.QtNetwork.QNetworkInterface) -> bool: ...
     def multicastInterface(self) -> PySide6.QtNetwork.QNetworkInterface: ...
     def pendingDatagramSize(self) -> int: ...
-    def readDatagram(self, data: bytes, maxlen: int, host: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress]) -> Tuple[Tuple, int]: ...
+    def readDatagram(self, maxlen: int) -> Tuple: ...
     def receiveDatagram(self, maxSize: int = ...) -> PySide6.QtNetwork.QNetworkDatagram: ...
     def setMulticastInterface(self, iface: PySide6.QtNetwork.QNetworkInterface) -> None: ...
     @overload

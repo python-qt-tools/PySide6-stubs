@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -55,16 +19,7 @@ from shiboken6 import Shiboken
 
 class QAbstractFileIconProvider(Shiboken.Object):
 
-    Computer                 : QAbstractFileIconProvider.IconType = ... # 0x0
-    Desktop                  : QAbstractFileIconProvider.IconType = ... # 0x1
-    Trashcan                 : QAbstractFileIconProvider.IconType = ... # 0x2
-    Network                  : QAbstractFileIconProvider.IconType = ... # 0x3
-    Drive                    : QAbstractFileIconProvider.IconType = ... # 0x4
-    Folder                   : QAbstractFileIconProvider.IconType = ... # 0x5
-    File                     : QAbstractFileIconProvider.IconType = ... # 0x6
-    DontUseCustomDirectoryIcons: QAbstractFileIconProvider.Option = ... # 0x1
-
-    class IconType(Shiboken.Enum):
+    class IconType(shibokensupport.enum_310.Enum):
 
         Computer                 : QAbstractFileIconProvider.IconType = ... # 0x0
         Desktop                  : QAbstractFileIconProvider.IconType = ... # 0x1
@@ -74,11 +29,10 @@ class QAbstractFileIconProvider(Shiboken.Object):
         Folder                   : QAbstractFileIconProvider.IconType = ... # 0x5
         File                     : QAbstractFileIconProvider.IconType = ... # 0x6
 
-    class Option(Shiboken.Enum):
+
+    class Option(shibokensupport.enum_310.Flag):
 
         DontUseCustomDirectoryIcons: QAbstractFileIconProvider.Option = ... # 0x1
-
-    class Options(object): ...
 
 
     def __init__(self) -> None: ...
@@ -87,8 +41,8 @@ class QAbstractFileIconProvider(Shiboken.Object):
     def icon(self, arg__1: PySide6.QtCore.QFileInfo) -> PySide6.QtGui.QIcon: ...
     @overload
     def icon(self, arg__1: PySide6.QtGui.QAbstractFileIconProvider.IconType) -> PySide6.QtGui.QIcon: ...
-    def options(self) -> PySide6.QtGui.QAbstractFileIconProvider.Options: ...
-    def setOptions(self, arg__1: PySide6.QtGui.QAbstractFileIconProvider.Options) -> None: ...
+    def options(self) -> PySide6.QtGui.QAbstractFileIconProvider.Option: ...
+    def setOptions(self, arg__1: PySide6.QtGui.QAbstractFileIconProvider.Option) -> None: ...
     def type(self, arg__1: PySide6.QtCore.QFileInfo) -> str: ...
 
 
@@ -143,180 +97,7 @@ class QAbstractTextDocumentLayout(PySide6.QtCore.QObject):
 
 class QAccessible(Shiboken.Object):
 
-    SoundPlayed              : QAccessible.Event = ... # 0x1
-    Alert                    : QAccessible.Event = ... # 0x2
-    ForegroundChanged        : QAccessible.Event = ... # 0x3
-    MenuStart                : QAccessible.Event = ... # 0x4
-    MenuEnd                  : QAccessible.Event = ... # 0x5
-    PopupMenuStart           : QAccessible.Event = ... # 0x6
-    PopupMenuEnd             : QAccessible.Event = ... # 0x7
-    ContextHelpStart         : QAccessible.Event = ... # 0xc
-    ContextHelpEnd           : QAccessible.Event = ... # 0xd
-    DragDropStart            : QAccessible.Event = ... # 0xe
-    DragDropEnd              : QAccessible.Event = ... # 0xf
-    DialogStart              : QAccessible.Event = ... # 0x10
-    DialogEnd                : QAccessible.Event = ... # 0x11
-    ScrollingStart           : QAccessible.Event = ... # 0x12
-    ScrollingEnd             : QAccessible.Event = ... # 0x13
-    MenuCommand              : QAccessible.Event = ... # 0x18
-    ActionChanged            : QAccessible.Event = ... # 0x101
-    ActiveDescendantChanged  : QAccessible.Event = ... # 0x102
-    AttributeChanged         : QAccessible.Event = ... # 0x103
-    DocumentContentChanged   : QAccessible.Event = ... # 0x104
-    DocumentLoadComplete     : QAccessible.Event = ... # 0x105
-    DocumentLoadStopped      : QAccessible.Event = ... # 0x106
-    DocumentReload           : QAccessible.Event = ... # 0x107
-    HyperlinkEndIndexChanged : QAccessible.Event = ... # 0x108
-    HyperlinkNumberOfAnchorsChanged: QAccessible.Event = ... # 0x109
-    HyperlinkSelectedLinkChanged: QAccessible.Event = ... # 0x10a
-    HypertextLinkActivated   : QAccessible.Event = ... # 0x10b
-    HypertextLinkSelected    : QAccessible.Event = ... # 0x10c
-    HyperlinkStartIndexChanged: QAccessible.Event = ... # 0x10d
-    HypertextChanged         : QAccessible.Event = ... # 0x10e
-    HypertextNLinksChanged   : QAccessible.Event = ... # 0x10f
-    ObjectAttributeChanged   : QAccessible.Event = ... # 0x110
-    PageChanged              : QAccessible.Event = ... # 0x111
-    SectionChanged           : QAccessible.Event = ... # 0x112
-    TableCaptionChanged      : QAccessible.Event = ... # 0x113
-    TableColumnDescriptionChanged: QAccessible.Event = ... # 0x114
-    TableColumnHeaderChanged : QAccessible.Event = ... # 0x115
-    TableModelChanged        : QAccessible.Event = ... # 0x116
-    TableRowDescriptionChanged: QAccessible.Event = ... # 0x117
-    TableRowHeaderChanged    : QAccessible.Event = ... # 0x118
-    TableSummaryChanged      : QAccessible.Event = ... # 0x119
-    TextAttributeChanged     : QAccessible.Event = ... # 0x11a
-    TextCaretMoved           : QAccessible.Event = ... # 0x11b
-    TextColumnChanged        : QAccessible.Event = ... # 0x11d
-    TextInserted             : QAccessible.Event = ... # 0x11e
-    TextRemoved              : QAccessible.Event = ... # 0x11f
-    TextUpdated              : QAccessible.Event = ... # 0x120
-    TextSelectionChanged     : QAccessible.Event = ... # 0x121
-    VisibleDataChanged       : QAccessible.Event = ... # 0x122
-    ObjectCreated            : QAccessible.Event = ... # 0x8000
-    ObjectDestroyed          : QAccessible.Event = ... # 0x8001
-    ObjectShow               : QAccessible.Event = ... # 0x8002
-    ObjectHide               : QAccessible.Event = ... # 0x8003
-    ObjectReorder            : QAccessible.Event = ... # 0x8004
-    Focus                    : QAccessible.Event = ... # 0x8005
-    Selection                : QAccessible.Event = ... # 0x8006
-    SelectionAdd             : QAccessible.Event = ... # 0x8007
-    SelectionRemove          : QAccessible.Event = ... # 0x8008
-    SelectionWithin          : QAccessible.Event = ... # 0x8009
-    StateChanged             : QAccessible.Event = ... # 0x800a
-    LocationChanged          : QAccessible.Event = ... # 0x800b
-    NameChanged              : QAccessible.Event = ... # 0x800c
-    DescriptionChanged       : QAccessible.Event = ... # 0x800d
-    ValueChanged             : QAccessible.Event = ... # 0x800e
-    ParentChanged            : QAccessible.Event = ... # 0x800f
-    HelpChanged              : QAccessible.Event = ... # 0x80a0
-    DefaultActionChanged     : QAccessible.Event = ... # 0x80b0
-    AcceleratorChanged       : QAccessible.Event = ... # 0x80c0
-    InvalidEvent             : QAccessible.Event = ... # 0x80c1
-    TextInterface            : QAccessible.InterfaceType = ... # 0x0
-    EditableTextInterface    : QAccessible.InterfaceType = ... # 0x1
-    ValueInterface           : QAccessible.InterfaceType = ... # 0x2
-    ActionInterface          : QAccessible.InterfaceType = ... # 0x3
-    ImageInterface           : QAccessible.InterfaceType = ... # 0x4
-    TableInterface           : QAccessible.InterfaceType = ... # 0x5
-    TableCellInterface       : QAccessible.InterfaceType = ... # 0x6
-    HyperlinkInterface       : QAccessible.InterfaceType = ... # 0x7
-    AllRelations             : QAccessible.RelationFlag = ... # -0x1
-    Label                    : QAccessible.RelationFlag = ... # 0x1
-    Labelled                 : QAccessible.RelationFlag = ... # 0x2
-    Controller               : QAccessible.RelationFlag = ... # 0x4
-    Controlled               : QAccessible.RelationFlag = ... # 0x8
-    NoRole                   : QAccessible.Role = ... # 0x0
-    TitleBar                 : QAccessible.Role = ... # 0x1
-    MenuBar                  : QAccessible.Role = ... # 0x2
-    ScrollBar                : QAccessible.Role = ... # 0x3
-    Grip                     : QAccessible.Role = ... # 0x4
-    Sound                    : QAccessible.Role = ... # 0x5
-    Cursor                   : QAccessible.Role = ... # 0x6
-    Caret                    : QAccessible.Role = ... # 0x7
-    AlertMessage             : QAccessible.Role = ... # 0x8
-    Window                   : QAccessible.Role = ... # 0x9
-    Client                   : QAccessible.Role = ... # 0xa
-    PopupMenu                : QAccessible.Role = ... # 0xb
-    MenuItem                 : QAccessible.Role = ... # 0xc
-    ToolTip                  : QAccessible.Role = ... # 0xd
-    Application              : QAccessible.Role = ... # 0xe
-    Document                 : QAccessible.Role = ... # 0xf
-    Pane                     : QAccessible.Role = ... # 0x10
-    Chart                    : QAccessible.Role = ... # 0x11
-    Dialog                   : QAccessible.Role = ... # 0x12
-    Border                   : QAccessible.Role = ... # 0x13
-    Grouping                 : QAccessible.Role = ... # 0x14
-    Separator                : QAccessible.Role = ... # 0x15
-    ToolBar                  : QAccessible.Role = ... # 0x16
-    StatusBar                : QAccessible.Role = ... # 0x17
-    Table                    : QAccessible.Role = ... # 0x18
-    ColumnHeader             : QAccessible.Role = ... # 0x19
-    RowHeader                : QAccessible.Role = ... # 0x1a
-    Column                   : QAccessible.Role = ... # 0x1b
-    Row                      : QAccessible.Role = ... # 0x1c
-    Cell                     : QAccessible.Role = ... # 0x1d
-    Link                     : QAccessible.Role = ... # 0x1e
-    HelpBalloon              : QAccessible.Role = ... # 0x1f
-    Assistant                : QAccessible.Role = ... # 0x20
-    List                     : QAccessible.Role = ... # 0x21
-    ListItem                 : QAccessible.Role = ... # 0x22
-    Tree                     : QAccessible.Role = ... # 0x23
-    TreeItem                 : QAccessible.Role = ... # 0x24
-    PageTab                  : QAccessible.Role = ... # 0x25
-    PropertyPage             : QAccessible.Role = ... # 0x26
-    Indicator                : QAccessible.Role = ... # 0x27
-    Graphic                  : QAccessible.Role = ... # 0x28
-    StaticText               : QAccessible.Role = ... # 0x29
-    EditableText             : QAccessible.Role = ... # 0x2a
-    Button                   : QAccessible.Role = ... # 0x2b
-    PushButton               : QAccessible.Role = ... # 0x2b
-    CheckBox                 : QAccessible.Role = ... # 0x2c
-    RadioButton              : QAccessible.Role = ... # 0x2d
-    ComboBox                 : QAccessible.Role = ... # 0x2e
-    ProgressBar              : QAccessible.Role = ... # 0x30
-    Dial                     : QAccessible.Role = ... # 0x31
-    HotkeyField              : QAccessible.Role = ... # 0x32
-    Slider                   : QAccessible.Role = ... # 0x33
-    SpinBox                  : QAccessible.Role = ... # 0x34
-    Canvas                   : QAccessible.Role = ... # 0x35
-    Animation                : QAccessible.Role = ... # 0x36
-    Equation                 : QAccessible.Role = ... # 0x37
-    ButtonDropDown           : QAccessible.Role = ... # 0x38
-    ButtonMenu               : QAccessible.Role = ... # 0x39
-    ButtonDropGrid           : QAccessible.Role = ... # 0x3a
-    Whitespace               : QAccessible.Role = ... # 0x3b
-    PageTabList              : QAccessible.Role = ... # 0x3c
-    Clock                    : QAccessible.Role = ... # 0x3d
-    Splitter                 : QAccessible.Role = ... # 0x3e
-    LayeredPane              : QAccessible.Role = ... # 0x80
-    Terminal                 : QAccessible.Role = ... # 0x81
-    Desktop                  : QAccessible.Role = ... # 0x82
-    Paragraph                : QAccessible.Role = ... # 0x83
-    WebDocument              : QAccessible.Role = ... # 0x84
-    Section                  : QAccessible.Role = ... # 0x85
-    Notification             : QAccessible.Role = ... # 0x86
-    ColorChooser             : QAccessible.Role = ... # 0x404
-    Footer                   : QAccessible.Role = ... # 0x40e
-    Form                     : QAccessible.Role = ... # 0x410
-    Heading                  : QAccessible.Role = ... # 0x414
-    Note                     : QAccessible.Role = ... # 0x41b
-    ComplementaryContent     : QAccessible.Role = ... # 0x42c
-    UserRole                 : QAccessible.Role = ... # 0xffff
-    Name                     : QAccessible.Text = ... # 0x0
-    Description              : QAccessible.Text = ... # 0x1
-    Value                    : QAccessible.Text = ... # 0x2
-    Help                     : QAccessible.Text = ... # 0x3
-    Accelerator              : QAccessible.Text = ... # 0x4
-    DebugDescription         : QAccessible.Text = ... # 0x5
-    UserText                 : QAccessible.Text = ... # 0xffff
-    CharBoundary             : QAccessible.TextBoundaryType = ... # 0x0
-    WordBoundary             : QAccessible.TextBoundaryType = ... # 0x1
-    SentenceBoundary         : QAccessible.TextBoundaryType = ... # 0x2
-    ParagraphBoundary        : QAccessible.TextBoundaryType = ... # 0x3
-    LineBoundary             : QAccessible.TextBoundaryType = ... # 0x4
-    NoBoundary               : QAccessible.TextBoundaryType = ... # 0x5
-
-    class Event(Shiboken.Enum):
+    class Event(shibokensupport.enum_310.Enum):
 
         SoundPlayed              : QAccessible.Event = ... # 0x1
         Alert                    : QAccessible.Event = ... # 0x2
@@ -388,7 +169,8 @@ class QAccessible(Shiboken.Object):
         AcceleratorChanged       : QAccessible.Event = ... # 0x80c0
         InvalidEvent             : QAccessible.Event = ... # 0x80c1
 
-    class InterfaceType(Shiboken.Enum):
+
+    class InterfaceType(shibokensupport.enum_310.Enum):
 
         TextInterface            : QAccessible.InterfaceType = ... # 0x0
         EditableTextInterface    : QAccessible.InterfaceType = ... # 0x1
@@ -399,9 +181,8 @@ class QAccessible(Shiboken.Object):
         TableCellInterface       : QAccessible.InterfaceType = ... # 0x6
         HyperlinkInterface       : QAccessible.InterfaceType = ... # 0x7
 
-    class Relation(object): ...
 
-    class RelationFlag(Shiboken.Enum):
+    class RelationFlag(shibokensupport.enum_310.Flag):
 
         AllRelations             : QAccessible.RelationFlag = ... # -0x1
         Label                    : QAccessible.RelationFlag = ... # 0x1
@@ -409,7 +190,8 @@ class QAccessible(Shiboken.Object):
         Controller               : QAccessible.RelationFlag = ... # 0x4
         Controlled               : QAccessible.RelationFlag = ... # 0x8
 
-    class Role(Shiboken.Enum):
+
+    class Role(shibokensupport.enum_310.Enum):
 
         NoRole                   : QAccessible.Role = ... # 0x0
         TitleBar                 : QAccessible.Role = ... # 0x1
@@ -489,6 +271,7 @@ class QAccessible(Shiboken.Object):
         ComplementaryContent     : QAccessible.Role = ... # 0x42c
         UserRole                 : QAccessible.Role = ... # 0xffff
 
+
     class State(Shiboken.Object):
 
         @overload
@@ -499,7 +282,7 @@ class QAccessible(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class Text(Shiboken.Enum):
+    class Text(shibokensupport.enum_310.Enum):
 
         Name                     : QAccessible.Text = ... # 0x0
         Description              : QAccessible.Text = ... # 0x1
@@ -509,7 +292,8 @@ class QAccessible(Shiboken.Object):
         DebugDescription         : QAccessible.Text = ... # 0x5
         UserText                 : QAccessible.Text = ... # 0xffff
 
-    class TextBoundaryType(Shiboken.Enum):
+
+    class TextBoundaryType(shibokensupport.enum_310.Enum):
 
         CharBoundary             : QAccessible.TextBoundaryType = ... # 0x0
         WordBoundary             : QAccessible.TextBoundaryType = ... # 0x1
@@ -626,7 +410,7 @@ class QAccessibleInterface(Shiboken.Object):
     def object(self) -> PySide6.QtCore.QObject: ...
     def parent(self) -> PySide6.QtGui.QAccessibleInterface: ...
     def rect(self) -> PySide6.QtCore.QRect: ...
-    def relations(self, match: PySide6.QtGui.QAccessible.Relation = ...) -> List[Tuple[PySide6.QtGui.QAccessibleInterface, PySide6.QtGui.QAccessible.Relation]]: ...
+    def relations(self, match: PySide6.QtGui.QAccessible.RelationFlag = ...) -> List[Tuple[PySide6.QtGui.QAccessibleInterface, PySide6.QtGui.QAccessible.RelationFlag]]: ...
     def role(self) -> PySide6.QtGui.QAccessible.Role: ...
     def setText(self, t: PySide6.QtGui.QAccessible.Text, text: str) -> None: ...
     def state(self) -> PySide6.QtGui.QAccessible.State: ...
@@ -675,14 +459,7 @@ class QAccessibleTableCellInterface(Shiboken.Object):
 
 class QAccessibleTableModelChangeEvent(PySide6.QtGui.QAccessibleEvent):
 
-    ModelReset               : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x0
-    DataChanged              : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x1
-    RowsInserted             : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x2
-    ColumnsInserted          : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x3
-    RowsRemoved              : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x4
-    ColumnsRemoved           : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x5
-
-    class ModelChangeType(Shiboken.Enum):
+    class ModelChangeType(shibokensupport.enum_310.Enum):
 
         ModelReset               : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x0
         DataChanged              : QAccessibleTableModelChangeEvent.ModelChangeType = ... # 0x1
@@ -812,25 +589,13 @@ class QAccessibleValueInterface(Shiboken.Object):
 
 class QAction(PySide6.QtCore.QObject):
 
-    Trigger                  : QAction.ActionEvent = ... # 0x0
-    Hover                    : QAction.ActionEvent = ... # 0x1
-    NoRole                   : QAction.MenuRole = ... # 0x0
-    TextHeuristicRole        : QAction.MenuRole = ... # 0x1
-    ApplicationSpecificRole  : QAction.MenuRole = ... # 0x2
-    AboutQtRole              : QAction.MenuRole = ... # 0x3
-    AboutRole                : QAction.MenuRole = ... # 0x4
-    PreferencesRole          : QAction.MenuRole = ... # 0x5
-    QuitRole                 : QAction.MenuRole = ... # 0x6
-    LowPriority              : QAction.Priority = ... # 0x0
-    NormalPriority           : QAction.Priority = ... # 0x80
-    HighPriority             : QAction.Priority = ... # 0x100
-
-    class ActionEvent(Shiboken.Enum):
+    class ActionEvent(shibokensupport.enum_310.Enum):
 
         Trigger                  : QAction.ActionEvent = ... # 0x0
         Hover                    : QAction.ActionEvent = ... # 0x1
 
-    class MenuRole(Shiboken.Enum):
+
+    class MenuRole(shibokensupport.enum_310.Enum):
 
         NoRole                   : QAction.MenuRole = ... # 0x0
         TextHeuristicRole        : QAction.MenuRole = ... # 0x1
@@ -840,7 +605,8 @@ class QAction(PySide6.QtCore.QObject):
         PreferencesRole          : QAction.MenuRole = ... # 0x5
         QuitRole                 : QAction.MenuRole = ... # 0x6
 
-    class Priority(Shiboken.Enum):
+
+    class Priority(shibokensupport.enum_310.Enum):
 
         LowPriority              : QAction.Priority = ... # 0x0
         NormalPriority           : QAction.Priority = ... # 0x80
@@ -931,7 +697,7 @@ class QActionEvent(PySide6.QtCore.QEvent):
 
 class QActionGroup(PySide6.QtCore.QObject):
 
-    class ExclusionPolicy(Shiboken.Enum):
+    class ExclusionPolicy(shibokensupport.enum_310.Enum):
 
         None_                    : QActionGroup.ExclusionPolicy = ... # 0x0
         Exclusive                : QActionGroup.ExclusionPolicy = ... # 0x1
@@ -998,7 +764,7 @@ class QBitmap(PySide6.QtGui.QPixmap):
     @staticmethod
     def fromData(size: PySide6.QtCore.QSize, bits: bytes, monoFormat: PySide6.QtGui.QImage.Format = ...) -> PySide6.QtGui.QBitmap: ...
     @staticmethod
-    def fromImage(image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QBitmap: ...
+    def fromImage(image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QBitmap: ...
     @staticmethod
     def fromPixmap(pixmap: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str]) -> PySide6.QtGui.QBitmap: ...
     def swap(self, other: Union[PySide6.QtGui.QBitmap, str]) -> None: ...
@@ -1052,12 +818,7 @@ class QBrush(Shiboken.Object):
 
 class QClipboard(PySide6.QtCore.QObject):
 
-    Clipboard                : QClipboard.Mode = ... # 0x0
-    Selection                : QClipboard.Mode = ... # 0x1
-    FindBuffer               : QClipboard.Mode = ... # 0x2
-    LastMode                 : QClipboard.Mode = ... # 0x2
-
-    class Mode(Shiboken.Enum):
+    class Mode(shibokensupport.enum_310.Enum):
 
         Clipboard                : QClipboard.Mode = ... # 0x0
         Selection                : QClipboard.Mode = ... # 0x1
@@ -1091,24 +852,18 @@ class QCloseEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QCloseEvent) -> None: ...
 
+    def clone(self) -> PySide6.QtGui.QCloseEvent: ...
+
 
 class QColor(Shiboken.Object):
 
-    HexRgb                   : QColor.NameFormat = ... # 0x0
-    HexArgb                  : QColor.NameFormat = ... # 0x1
-    Invalid                  : QColor.Spec = ... # 0x0
-    Rgb                      : QColor.Spec = ... # 0x1
-    Hsv                      : QColor.Spec = ... # 0x2
-    Cmyk                     : QColor.Spec = ... # 0x3
-    Hsl                      : QColor.Spec = ... # 0x4
-    ExtendedRgb              : QColor.Spec = ... # 0x5
-
-    class NameFormat(Shiboken.Enum):
+    class NameFormat(shibokensupport.enum_310.Enum):
 
         HexRgb                   : QColor.NameFormat = ... # 0x0
         HexArgb                  : QColor.NameFormat = ... # 0x1
 
-    class Spec(Shiboken.Enum):
+
+    class Spec(shibokensupport.enum_310.Enum):
 
         Invalid                  : QColor.Spec = ... # 0x0
         Rgb                      : QColor.Spec = ... # 0x1
@@ -1183,14 +938,16 @@ class QColor(Shiboken.Object):
     @overload
     @staticmethod
     def fromRgba64(rgba: PySide6.QtGui.QRgba64) -> PySide6.QtGui.QColor: ...
-    def getCmyk(self) -> Tuple[int, int, int, int, int]: ...
-    def getCmykF(self) -> Tuple[float, float, float, float, float]: ...
-    def getHsl(self) -> Tuple[int, int, int, int]: ...
-    def getHslF(self) -> Tuple[float, float, float, float]: ...
-    def getHsv(self) -> Tuple[int, int, int, int]: ...
-    def getHsvF(self) -> Tuple[float, float, float, float]: ...
-    def getRgb(self) -> Tuple[int, int, int, int]: ...
-    def getRgbF(self) -> Tuple[float, float, float, float]: ...
+    @staticmethod
+    def fromString(name: str) -> PySide6.QtGui.QColor: ...
+    def getCmyk(self) -> object: ...
+    def getCmykF(self) -> object: ...
+    def getHsl(self) -> object: ...
+    def getHslF(self) -> object: ...
+    def getHsv(self) -> object: ...
+    def getHsvF(self) -> object: ...
+    def getRgb(self) -> object: ...
+    def getRgbF(self) -> object: ...
     def green(self) -> int: ...
     def greenF(self) -> float: ...
     def hslHue(self) -> int: ...
@@ -1210,6 +967,8 @@ class QColor(Shiboken.Object):
     @overload
     @staticmethod
     def isValidColor(name: str) -> bool: ...
+    @staticmethod
+    def isValidColorName(arg__1: str) -> bool: ...
     def lighter(self, f: int = ...) -> PySide6.QtGui.QColor: ...
     def lightness(self) -> int: ...
     def lightnessF(self) -> float: ...
@@ -1265,13 +1024,7 @@ class QColorConstants(Shiboken.Object):
 
 class QColorSpace(Shiboken.Object):
 
-    SRgb                     : QColorSpace.NamedColorSpace = ... # 0x1
-    SRgbLinear               : QColorSpace.NamedColorSpace = ... # 0x2
-    AdobeRgb                 : QColorSpace.NamedColorSpace = ... # 0x3
-    DisplayP3                : QColorSpace.NamedColorSpace = ... # 0x4
-    ProPhotoRgb              : QColorSpace.NamedColorSpace = ... # 0x5
-
-    class NamedColorSpace(Shiboken.Enum):
+    class NamedColorSpace(shibokensupport.enum_310.Enum):
 
         SRgb                     : QColorSpace.NamedColorSpace = ... # 0x1
         SRgbLinear               : QColorSpace.NamedColorSpace = ... # 0x2
@@ -1279,7 +1032,8 @@ class QColorSpace(Shiboken.Object):
         DisplayP3                : QColorSpace.NamedColorSpace = ... # 0x4
         ProPhotoRgb              : QColorSpace.NamedColorSpace = ... # 0x5
 
-    class Primaries(Shiboken.Enum):
+
+    class Primaries(shibokensupport.enum_310.Enum):
 
         Custom                   : QColorSpace.Primaries = ... # 0x0
         SRgb                     : QColorSpace.Primaries = ... # 0x1
@@ -1287,7 +1041,8 @@ class QColorSpace(Shiboken.Object):
         DciP3D65                 : QColorSpace.Primaries = ... # 0x3
         ProPhotoRgb              : QColorSpace.Primaries = ... # 0x4
 
-    class TransferFunction(Shiboken.Enum):
+
+    class TransferFunction(shibokensupport.enum_310.Enum):
 
         Custom                   : QColorSpace.TransferFunction = ... # 0x0
         Linear                   : QColorSpace.TransferFunction = ... # 0x1
@@ -1355,6 +1110,7 @@ class QColorTransform(Shiboken.Object):
 
     @staticmethod
     def __copy__() -> None: ...
+    def isIdentity(self) -> bool: ...
     @overload
     def map(self, argb: int) -> int: ...
     @overload
@@ -1388,11 +1144,7 @@ class QConicalGradient(PySide6.QtGui.QGradient):
 
 class QContextMenuEvent(PySide6.QtGui.QInputEvent):
 
-    Mouse                    : QContextMenuEvent.Reason = ... # 0x0
-    Keyboard                 : QContextMenuEvent.Reason = ... # 0x1
-    Other                    : QContextMenuEvent.Reason = ... # 0x2
-
-    class Reason(Shiboken.Enum):
+    class Reason(shibokensupport.enum_310.Enum):
 
         Mouse                    : QContextMenuEvent.Reason = ... # 0x0
         Keyboard                 : QContextMenuEvent.Reason = ... # 0x1
@@ -1404,7 +1156,7 @@ class QContextMenuEvent(PySide6.QtGui.QInputEvent):
     @overload
     def __init__(self, reason: PySide6.QtGui.QContextMenuEvent.Reason, pos: PySide6.QtCore.QPoint) -> None: ...
     @overload
-    def __init__(self, reason: PySide6.QtGui.QContextMenuEvent.Reason, pos: PySide6.QtCore.QPoint, globalPos: PySide6.QtCore.QPoint, modifiers: PySide6.QtCore.Qt.KeyboardModifiers = ...) -> None: ...
+    def __init__(self, reason: PySide6.QtGui.QContextMenuEvent.Reason, pos: PySide6.QtCore.QPoint, globalPos: PySide6.QtCore.QPoint, modifiers: PySide6.QtCore.Qt.KeyboardModifier = ...) -> None: ...
 
     def clone(self) -> PySide6.QtGui.QContextMenuEvent: ...
     def globalPos(self) -> PySide6.QtCore.QPoint: ...
@@ -1480,10 +1232,7 @@ class QDesktopServices(Shiboken.Object):
 
 class QDoubleValidator(PySide6.QtGui.QValidator):
 
-    StandardNotation         : QDoubleValidator.Notation = ... # 0x0
-    ScientificNotation       : QDoubleValidator.Notation = ... # 0x1
-
-    class Notation(Shiboken.Enum):
+    class Notation(shibokensupport.enum_310.Enum):
 
         StandardNotation         : QDoubleValidator.Notation = ... # 0x0
         ScientificNotation       : QDoubleValidator.Notation = ... # 0x1
@@ -1496,7 +1245,7 @@ class QDoubleValidator(PySide6.QtGui.QValidator):
 
     def bottom(self) -> float: ...
     def decimals(self) -> int: ...
-    def fixup(self, input: str) -> None: ...
+    def fixup(self, input: str) -> str: ...
     def notation(self) -> PySide6.QtGui.QDoubleValidator.Notation: ...
     def setBottom(self, arg__1: float) -> None: ...
     def setDecimals(self, arg__1: int) -> None: ...
@@ -1519,13 +1268,13 @@ class QDrag(PySide6.QtCore.QObject):
     def defaultAction(self) -> PySide6.QtCore.Qt.DropAction: ...
     def dragCursor(self, action: PySide6.QtCore.Qt.DropAction) -> PySide6.QtGui.QPixmap: ...
     @overload
-    def exec(self, supportedActions: PySide6.QtCore.Qt.DropActions, defaultAction: PySide6.QtCore.Qt.DropAction) -> PySide6.QtCore.Qt.DropAction: ...
+    def exec(self, supportedActions: PySide6.QtCore.Qt.DropAction, defaultAction: PySide6.QtCore.Qt.DropAction) -> PySide6.QtCore.Qt.DropAction: ...
     @overload
-    def exec(self, supportedActions: PySide6.QtCore.Qt.DropActions = ...) -> PySide6.QtCore.Qt.DropAction: ...
+    def exec(self, supportedActions: PySide6.QtCore.Qt.DropAction = ...) -> PySide6.QtCore.Qt.DropAction: ...
     @overload
-    def exec_(self, arg__1: PySide6.QtCore.Qt.DropActions, arg__2: PySide6.QtCore.Qt.DropAction) -> PySide6.QtCore.Qt.DropAction: ...
+    def exec_(self, arg__1: PySide6.QtCore.Qt.DropAction, arg__2: PySide6.QtCore.Qt.DropAction) -> PySide6.QtCore.Qt.DropAction: ...
     @overload
-    def exec_(self, supportedActions: PySide6.QtCore.Qt.DropActions = ...) -> PySide6.QtCore.Qt.DropAction: ...
+    def exec_(self, supportedActions: PySide6.QtCore.Qt.DropAction = ...) -> PySide6.QtCore.Qt.DropAction: ...
     def hotSpot(self) -> PySide6.QtCore.QPoint: ...
     def mimeData(self) -> PySide6.QtCore.QMimeData: ...
     def pixmap(self) -> PySide6.QtGui.QPixmap: ...
@@ -1534,7 +1283,7 @@ class QDrag(PySide6.QtCore.QObject):
     def setMimeData(self, data: PySide6.QtCore.QMimeData) -> None: ...
     def setPixmap(self, arg__1: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str]) -> None: ...
     def source(self) -> PySide6.QtCore.QObject: ...
-    def supportedActions(self) -> PySide6.QtCore.Qt.DropActions: ...
+    def supportedActions(self) -> PySide6.QtCore.Qt.DropAction: ...
     def target(self) -> PySide6.QtCore.QObject: ...
 
 
@@ -1543,9 +1292,10 @@ class QDragEnterEvent(PySide6.QtGui.QDragMoveEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QDragEnterEvent) -> None: ...
     @overload
-    def __init__(self, pos: PySide6.QtCore.QPoint, actions: PySide6.QtCore.Qt.DropActions, data: PySide6.QtCore.QMimeData, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers) -> None: ...
+    def __init__(self, pos: PySide6.QtCore.QPoint, actions: PySide6.QtCore.Qt.DropAction, data: PySide6.QtCore.QMimeData, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier) -> None: ...
 
     def __repr__(self) -> object: ...
+    def clone(self) -> PySide6.QtGui.QDragEnterEvent: ...
 
 
 class QDragLeaveEvent(PySide6.QtCore.QEvent):
@@ -1556,6 +1306,7 @@ class QDragLeaveEvent(PySide6.QtCore.QEvent):
     def __init__(self, arg__1: PySide6.QtGui.QDragLeaveEvent) -> None: ...
 
     def __repr__(self) -> object: ...
+    def clone(self) -> PySide6.QtGui.QDragLeaveEvent: ...
 
 
 class QDragMoveEvent(PySide6.QtGui.QDropEvent):
@@ -1563,7 +1314,7 @@ class QDragMoveEvent(PySide6.QtGui.QDropEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QDragMoveEvent) -> None: ...
     @overload
-    def __init__(self, pos: PySide6.QtCore.QPoint, actions: PySide6.QtCore.Qt.DropActions, data: PySide6.QtCore.QMimeData, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, type: PySide6.QtCore.QEvent.Type = ...) -> None: ...
+    def __init__(self, pos: PySide6.QtCore.QPoint, actions: PySide6.QtCore.Qt.DropAction, data: PySide6.QtCore.QMimeData, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, type: PySide6.QtCore.QEvent.Type = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     @overload
@@ -1583,21 +1334,21 @@ class QDropEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QDropEvent) -> None: ...
     @overload
-    def __init__(self, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], actions: PySide6.QtCore.Qt.DropActions, data: PySide6.QtCore.QMimeData, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, type: PySide6.QtCore.QEvent.Type = ...) -> None: ...
+    def __init__(self, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], actions: PySide6.QtCore.Qt.DropAction, data: PySide6.QtCore.QMimeData, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, type: PySide6.QtCore.QEvent.Type = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     def acceptProposedAction(self) -> None: ...
-    def buttons(self) -> PySide6.QtCore.Qt.MouseButtons: ...
+    def buttons(self) -> PySide6.QtCore.Qt.MouseButton: ...
     def clone(self) -> PySide6.QtGui.QDropEvent: ...
     def dropAction(self) -> PySide6.QtCore.Qt.DropAction: ...
-    def keyboardModifiers(self) -> PySide6.QtCore.Qt.KeyboardModifiers: ...
+    def keyboardModifiers(self) -> PySide6.QtCore.Qt.KeyboardModifier: ...
     def mimeData(self) -> PySide6.QtCore.QMimeData: ...
-    def modifiers(self) -> PySide6.QtCore.Qt.KeyboardModifiers: ...
-    def mouseButtons(self) -> PySide6.QtCore.Qt.MouseButtons: ...
+    def modifiers(self) -> PySide6.QtCore.Qt.KeyboardModifier: ...
+    def mouseButtons(self) -> PySide6.QtCore.Qt.MouseButton: ...
     def pos(self) -> PySide6.QtCore.QPoint: ...
     def posF(self) -> PySide6.QtCore.QPointF: ...
     def position(self) -> PySide6.QtCore.QPointF: ...
-    def possibleActions(self) -> PySide6.QtCore.Qt.DropActions: ...
+    def possibleActions(self) -> PySide6.QtCore.Qt.DropAction: ...
     def proposedAction(self) -> PySide6.QtCore.Qt.DropAction: ...
     def setDropAction(self, action: PySide6.QtCore.Qt.DropAction) -> None: ...
     def source(self) -> PySide6.QtCore.QObject: ...
@@ -1624,13 +1375,7 @@ class QEnterEvent(PySide6.QtGui.QSinglePointEvent):
 
 class QEventPoint(Shiboken.Object):
 
-    Unknown                  : QEventPoint.State = ... # 0x0
-    Pressed                  : QEventPoint.State = ... # 0x1
-    Updated                  : QEventPoint.State = ... # 0x2
-    Stationary               : QEventPoint.State = ... # 0x4
-    Released                 : QEventPoint.State = ... # 0x8
-
-    class State(Shiboken.Enum):
+    class State(shibokensupport.enum_310.Enum):
 
         Unknown                  : QEventPoint.State = ... # 0x0
         Pressed                  : QEventPoint.State = ... # 0x1
@@ -1731,66 +1476,7 @@ class QFocusEvent(PySide6.QtCore.QEvent):
 
 class QFont(Shiboken.Object):
 
-    MixedCase                : QFont.Capitalization = ... # 0x0
-    AllUppercase             : QFont.Capitalization = ... # 0x1
-    AllLowercase             : QFont.Capitalization = ... # 0x2
-    SmallCaps                : QFont.Capitalization = ... # 0x3
-    Capitalize               : QFont.Capitalization = ... # 0x4
-    PreferDefaultHinting     : QFont.HintingPreference = ... # 0x0
-    PreferNoHinting          : QFont.HintingPreference = ... # 0x1
-    PreferVerticalHinting    : QFont.HintingPreference = ... # 0x2
-    PreferFullHinting        : QFont.HintingPreference = ... # 0x3
-    PercentageSpacing        : QFont.SpacingType = ... # 0x0
-    AbsoluteSpacing          : QFont.SpacingType = ... # 0x1
-    AnyStretch               : QFont.Stretch = ... # 0x0
-    UltraCondensed           : QFont.Stretch = ... # 0x32
-    ExtraCondensed           : QFont.Stretch = ... # 0x3e
-    Condensed                : QFont.Stretch = ... # 0x4b
-    SemiCondensed            : QFont.Stretch = ... # 0x57
-    Unstretched              : QFont.Stretch = ... # 0x64
-    SemiExpanded             : QFont.Stretch = ... # 0x70
-    Expanded                 : QFont.Stretch = ... # 0x7d
-    ExtraExpanded            : QFont.Stretch = ... # 0x96
-    UltraExpanded            : QFont.Stretch = ... # 0xc8
-    StyleNormal              : QFont.Style = ... # 0x0
-    StyleItalic              : QFont.Style = ... # 0x1
-    StyleOblique             : QFont.Style = ... # 0x2
-    Helvetica                : QFont.StyleHint = ... # 0x0
-    SansSerif                : QFont.StyleHint = ... # 0x0
-    Serif                    : QFont.StyleHint = ... # 0x1
-    Times                    : QFont.StyleHint = ... # 0x1
-    Courier                  : QFont.StyleHint = ... # 0x2
-    TypeWriter               : QFont.StyleHint = ... # 0x2
-    Decorative               : QFont.StyleHint = ... # 0x3
-    OldEnglish               : QFont.StyleHint = ... # 0x3
-    System                   : QFont.StyleHint = ... # 0x4
-    AnyStyle                 : QFont.StyleHint = ... # 0x5
-    Cursive                  : QFont.StyleHint = ... # 0x6
-    Monospace                : QFont.StyleHint = ... # 0x7
-    Fantasy                  : QFont.StyleHint = ... # 0x8
-    PreferDefault            : QFont.StyleStrategy = ... # 0x1
-    PreferBitmap             : QFont.StyleStrategy = ... # 0x2
-    PreferDevice             : QFont.StyleStrategy = ... # 0x4
-    PreferOutline            : QFont.StyleStrategy = ... # 0x8
-    ForceOutline             : QFont.StyleStrategy = ... # 0x10
-    PreferMatch              : QFont.StyleStrategy = ... # 0x20
-    PreferQuality            : QFont.StyleStrategy = ... # 0x40
-    PreferAntialias          : QFont.StyleStrategy = ... # 0x80
-    NoAntialias              : QFont.StyleStrategy = ... # 0x100
-    NoSubpixelAntialias      : QFont.StyleStrategy = ... # 0x800
-    PreferNoShaping          : QFont.StyleStrategy = ... # 0x1000
-    NoFontMerging            : QFont.StyleStrategy = ... # 0x8000
-    Thin                     : QFont.Weight = ... # 0x64
-    ExtraLight               : QFont.Weight = ... # 0xc8
-    Light                    : QFont.Weight = ... # 0x12c
-    Normal                   : QFont.Weight = ... # 0x190
-    Medium                   : QFont.Weight = ... # 0x1f4
-    DemiBold                 : QFont.Weight = ... # 0x258
-    Bold                     : QFont.Weight = ... # 0x2bc
-    ExtraBold                : QFont.Weight = ... # 0x320
-    Black                    : QFont.Weight = ... # 0x384
-
-    class Capitalization(Shiboken.Enum):
+    class Capitalization(shibokensupport.enum_310.Enum):
 
         MixedCase                : QFont.Capitalization = ... # 0x0
         AllUppercase             : QFont.Capitalization = ... # 0x1
@@ -1798,19 +1484,22 @@ class QFont(Shiboken.Object):
         SmallCaps                : QFont.Capitalization = ... # 0x3
         Capitalize               : QFont.Capitalization = ... # 0x4
 
-    class HintingPreference(Shiboken.Enum):
+
+    class HintingPreference(shibokensupport.enum_310.Enum):
 
         PreferDefaultHinting     : QFont.HintingPreference = ... # 0x0
         PreferNoHinting          : QFont.HintingPreference = ... # 0x1
         PreferVerticalHinting    : QFont.HintingPreference = ... # 0x2
         PreferFullHinting        : QFont.HintingPreference = ... # 0x3
 
-    class SpacingType(Shiboken.Enum):
+
+    class SpacingType(shibokensupport.enum_310.Enum):
 
         PercentageSpacing        : QFont.SpacingType = ... # 0x0
         AbsoluteSpacing          : QFont.SpacingType = ... # 0x1
 
-    class Stretch(Shiboken.Enum):
+
+    class Stretch(shibokensupport.enum_310.IntEnum):
 
         AnyStretch               : QFont.Stretch = ... # 0x0
         UltraCondensed           : QFont.Stretch = ... # 0x32
@@ -1823,13 +1512,15 @@ class QFont(Shiboken.Object):
         ExtraExpanded            : QFont.Stretch = ... # 0x96
         UltraExpanded            : QFont.Stretch = ... # 0xc8
 
-    class Style(Shiboken.Enum):
+
+    class Style(shibokensupport.enum_310.Enum):
 
         StyleNormal              : QFont.Style = ... # 0x0
         StyleItalic              : QFont.Style = ... # 0x1
         StyleOblique             : QFont.Style = ... # 0x2
 
-    class StyleHint(Shiboken.Enum):
+
+    class StyleHint(shibokensupport.enum_310.Enum):
 
         Helvetica                : QFont.StyleHint = ... # 0x0
         SansSerif                : QFont.StyleHint = ... # 0x0
@@ -1845,7 +1536,8 @@ class QFont(Shiboken.Object):
         Monospace                : QFont.StyleHint = ... # 0x7
         Fantasy                  : QFont.StyleHint = ... # 0x8
 
-    class StyleStrategy(Shiboken.Enum):
+
+    class StyleStrategy(shibokensupport.enum_310.Enum):
 
         PreferDefault            : QFont.StyleStrategy = ... # 0x1
         PreferBitmap             : QFont.StyleStrategy = ... # 0x2
@@ -1860,7 +1552,8 @@ class QFont(Shiboken.Object):
         PreferNoShaping          : QFont.StyleStrategy = ... # 0x1000
         NoFontMerging            : QFont.StyleStrategy = ... # 0x8000
 
-    class Weight(Shiboken.Enum):
+
+    class Weight(shibokensupport.enum_310.IntEnum):
 
         Thin                     : QFont.Weight = ... # 0x64
         ExtraLight               : QFont.Weight = ... # 0xc8
@@ -1967,55 +1660,15 @@ class QFont(Shiboken.Object):
 
 class QFontDatabase(Shiboken.Object):
 
-    GeneralFont              : QFontDatabase.SystemFont = ... # 0x0
-    FixedFont                : QFontDatabase.SystemFont = ... # 0x1
-    TitleFont                : QFontDatabase.SystemFont = ... # 0x2
-    SmallestReadableFont     : QFontDatabase.SystemFont = ... # 0x3
-    Any                      : QFontDatabase.WritingSystem = ... # 0x0
-    Latin                    : QFontDatabase.WritingSystem = ... # 0x1
-    Greek                    : QFontDatabase.WritingSystem = ... # 0x2
-    Cyrillic                 : QFontDatabase.WritingSystem = ... # 0x3
-    Armenian                 : QFontDatabase.WritingSystem = ... # 0x4
-    Hebrew                   : QFontDatabase.WritingSystem = ... # 0x5
-    Arabic                   : QFontDatabase.WritingSystem = ... # 0x6
-    Syriac                   : QFontDatabase.WritingSystem = ... # 0x7
-    Thaana                   : QFontDatabase.WritingSystem = ... # 0x8
-    Devanagari               : QFontDatabase.WritingSystem = ... # 0x9
-    Bengali                  : QFontDatabase.WritingSystem = ... # 0xa
-    Gurmukhi                 : QFontDatabase.WritingSystem = ... # 0xb
-    Gujarati                 : QFontDatabase.WritingSystem = ... # 0xc
-    Oriya                    : QFontDatabase.WritingSystem = ... # 0xd
-    Tamil                    : QFontDatabase.WritingSystem = ... # 0xe
-    Telugu                   : QFontDatabase.WritingSystem = ... # 0xf
-    Kannada                  : QFontDatabase.WritingSystem = ... # 0x10
-    Malayalam                : QFontDatabase.WritingSystem = ... # 0x11
-    Sinhala                  : QFontDatabase.WritingSystem = ... # 0x12
-    Thai                     : QFontDatabase.WritingSystem = ... # 0x13
-    Lao                      : QFontDatabase.WritingSystem = ... # 0x14
-    Tibetan                  : QFontDatabase.WritingSystem = ... # 0x15
-    Myanmar                  : QFontDatabase.WritingSystem = ... # 0x16
-    Georgian                 : QFontDatabase.WritingSystem = ... # 0x17
-    Khmer                    : QFontDatabase.WritingSystem = ... # 0x18
-    SimplifiedChinese        : QFontDatabase.WritingSystem = ... # 0x19
-    TraditionalChinese       : QFontDatabase.WritingSystem = ... # 0x1a
-    Japanese                 : QFontDatabase.WritingSystem = ... # 0x1b
-    Korean                   : QFontDatabase.WritingSystem = ... # 0x1c
-    Vietnamese               : QFontDatabase.WritingSystem = ... # 0x1d
-    Other                    : QFontDatabase.WritingSystem = ... # 0x1e
-    Symbol                   : QFontDatabase.WritingSystem = ... # 0x1e
-    Ogham                    : QFontDatabase.WritingSystem = ... # 0x1f
-    Runic                    : QFontDatabase.WritingSystem = ... # 0x20
-    Nko                      : QFontDatabase.WritingSystem = ... # 0x21
-    WritingSystemsCount      : QFontDatabase.WritingSystem = ... # 0x22
-
-    class SystemFont(Shiboken.Enum):
+    class SystemFont(shibokensupport.enum_310.Enum):
 
         GeneralFont              : QFontDatabase.SystemFont = ... # 0x0
         FixedFont                : QFontDatabase.SystemFont = ... # 0x1
         TitleFont                : QFontDatabase.SystemFont = ... # 0x2
         SmallestReadableFont     : QFontDatabase.SystemFont = ... # 0x3
 
-    class WritingSystem(Shiboken.Enum):
+
+    class WritingSystem(shibokensupport.enum_310.Enum):
 
         Any                      : QFontDatabase.WritingSystem = ... # 0x0
         Latin                    : QFontDatabase.WritingSystem = ... # 0x1
@@ -2168,7 +1821,7 @@ class QFontMetrics(Shiboken.Object):
     @overload
     def boundingRect(self, text: str) -> PySide6.QtCore.QRect: ...
     @overload
-    def boundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> PySide6.QtCore.QRect: ...
+    def boundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> PySide6.QtCore.QRect: ...
     @overload
     def boundingRect(self, x: int, y: int, w: int, h: int, flags: int, text: str, tabstops: int, tabarray: object = ...) -> PySide6.QtCore.QRect: ...
     def boundingRectChar(self, arg__1: int) -> PySide6.QtCore.QRect: ...
@@ -2180,7 +1833,7 @@ class QFontMetrics(Shiboken.Object):
     @overload
     def horizontalAdvance(self, arg__1: str, len: int = ...) -> int: ...
     @overload
-    def horizontalAdvance(self, arg__1: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> int: ...
+    def horizontalAdvance(self, arg__1: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> int: ...
     def horizontalAdvanceChar(self, arg__1: int) -> int: ...
     def inFont(self, arg__1: str) -> bool: ...
     def inFontUcs4(self, ucs4: int) -> bool: ...
@@ -2199,7 +1852,7 @@ class QFontMetrics(Shiboken.Object):
     @overload
     def tightBoundingRect(self, text: str) -> PySide6.QtCore.QRect: ...
     @overload
-    def tightBoundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> PySide6.QtCore.QRect: ...
+    def tightBoundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> PySide6.QtCore.QRect: ...
     def underlinePos(self) -> int: ...
     def xHeight(self) -> int: ...
 
@@ -2224,7 +1877,7 @@ class QFontMetricsF(Shiboken.Object):
     @overload
     def boundingRect(self, string: str) -> PySide6.QtCore.QRectF: ...
     @overload
-    def boundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> PySide6.QtCore.QRectF: ...
+    def boundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> PySide6.QtCore.QRectF: ...
     def boundingRectChar(self, arg__1: int) -> PySide6.QtCore.QRectF: ...
     def capHeight(self) -> float: ...
     def descent(self) -> float: ...
@@ -2234,7 +1887,7 @@ class QFontMetricsF(Shiboken.Object):
     @overload
     def horizontalAdvance(self, string: str, length: int = ...) -> float: ...
     @overload
-    def horizontalAdvance(self, string: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> float: ...
+    def horizontalAdvance(self, string: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> float: ...
     def horizontalAdvanceChar(self, arg__1: int) -> float: ...
     def inFont(self, arg__1: str) -> bool: ...
     def inFontUcs4(self, ucs4: int) -> bool: ...
@@ -2253,28 +1906,20 @@ class QFontMetricsF(Shiboken.Object):
     @overload
     def tightBoundingRect(self, text: str) -> PySide6.QtCore.QRectF: ...
     @overload
-    def tightBoundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> PySide6.QtCore.QRectF: ...
+    def tightBoundingRect(self, text: str, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> PySide6.QtCore.QRectF: ...
     def underlinePos(self) -> float: ...
     def xHeight(self) -> float: ...
 
 
 class QGlyphRun(Shiboken.Object):
 
-    Overline                 : QGlyphRun.GlyphRunFlag = ... # 0x1
-    Underline                : QGlyphRun.GlyphRunFlag = ... # 0x2
-    StrikeOut                : QGlyphRun.GlyphRunFlag = ... # 0x4
-    RightToLeft              : QGlyphRun.GlyphRunFlag = ... # 0x8
-    SplitLigature            : QGlyphRun.GlyphRunFlag = ... # 0x10
-
-    class GlyphRunFlag(Shiboken.Enum):
+    class GlyphRunFlag(shibokensupport.enum_310.Flag):
 
         Overline                 : QGlyphRun.GlyphRunFlag = ... # 0x1
         Underline                : QGlyphRun.GlyphRunFlag = ... # 0x2
         StrikeOut                : QGlyphRun.GlyphRunFlag = ... # 0x4
         RightToLeft              : QGlyphRun.GlyphRunFlag = ... # 0x8
         SplitLigature            : QGlyphRun.GlyphRunFlag = ... # 0x10
-
-    class GlyphRunFlags(object): ...
 
 
     @overload
@@ -2286,7 +1931,7 @@ class QGlyphRun(Shiboken.Object):
     def __copy__() -> None: ...
     def boundingRect(self) -> PySide6.QtCore.QRectF: ...
     def clear(self) -> None: ...
-    def flags(self) -> PySide6.QtGui.QGlyphRun.GlyphRunFlags: ...
+    def flags(self) -> PySide6.QtGui.QGlyphRun.GlyphRunFlag: ...
     def glyphIndexes(self) -> List[int]: ...
     def isEmpty(self) -> bool: ...
     def isRightToLeft(self) -> bool: ...
@@ -2295,7 +1940,7 @@ class QGlyphRun(Shiboken.Object):
     def rawFont(self) -> PySide6.QtGui.QRawFont: ...
     def setBoundingRect(self, boundingRect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> None: ...
     def setFlag(self, flag: PySide6.QtGui.QGlyphRun.GlyphRunFlag, enabled: bool = ...) -> None: ...
-    def setFlags(self, flags: PySide6.QtGui.QGlyphRun.GlyphRunFlags) -> None: ...
+    def setFlags(self, flags: PySide6.QtGui.QGlyphRun.GlyphRunFlag) -> None: ...
     def setGlyphIndexes(self, glyphIndexes: Sequence[int]) -> None: ...
     def setOverline(self, overline: bool) -> None: ...
     def setPositions(self, positions: Sequence[PySide6.QtCore.QPointF]) -> None: ...
@@ -2311,202 +1956,21 @@ class QGlyphRun(Shiboken.Object):
 
 class QGradient(Shiboken.Object):
 
-    LogicalMode              : QGradient.CoordinateMode = ... # 0x0
-    StretchToDeviceMode      : QGradient.CoordinateMode = ... # 0x1
-    ObjectBoundingMode       : QGradient.CoordinateMode = ... # 0x2
-    ObjectMode               : QGradient.CoordinateMode = ... # 0x3
-    ColorInterpolation       : QGradient.InterpolationMode = ... # 0x0
-    ComponentInterpolation   : QGradient.InterpolationMode = ... # 0x1
-    WarmFlame                : QGradient.Preset = ... # 0x1
-    NightFade                : QGradient.Preset = ... # 0x2
-    SpringWarmth             : QGradient.Preset = ... # 0x3
-    JuicyPeach               : QGradient.Preset = ... # 0x4
-    YoungPassion             : QGradient.Preset = ... # 0x5
-    LadyLips                 : QGradient.Preset = ... # 0x6
-    SunnyMorning             : QGradient.Preset = ... # 0x7
-    RainyAshville            : QGradient.Preset = ... # 0x8
-    FrozenDreams             : QGradient.Preset = ... # 0x9
-    WinterNeva               : QGradient.Preset = ... # 0xa
-    DustyGrass               : QGradient.Preset = ... # 0xb
-    TemptingAzure            : QGradient.Preset = ... # 0xc
-    HeavyRain                : QGradient.Preset = ... # 0xd
-    AmyCrisp                 : QGradient.Preset = ... # 0xe
-    MeanFruit                : QGradient.Preset = ... # 0xf
-    DeepBlue                 : QGradient.Preset = ... # 0x10
-    RipeMalinka              : QGradient.Preset = ... # 0x11
-    CloudyKnoxville          : QGradient.Preset = ... # 0x12
-    MalibuBeach              : QGradient.Preset = ... # 0x13
-    NewLife                  : QGradient.Preset = ... # 0x14
-    TrueSunset               : QGradient.Preset = ... # 0x15
-    MorpheusDen              : QGradient.Preset = ... # 0x16
-    RareWind                 : QGradient.Preset = ... # 0x17
-    NearMoon                 : QGradient.Preset = ... # 0x18
-    WildApple                : QGradient.Preset = ... # 0x19
-    SaintPetersburg          : QGradient.Preset = ... # 0x1a
-    PlumPlate                : QGradient.Preset = ... # 0x1c
-    EverlastingSky           : QGradient.Preset = ... # 0x1d
-    HappyFisher              : QGradient.Preset = ... # 0x1e
-    Blessing                 : QGradient.Preset = ... # 0x1f
-    SharpeyeEagle            : QGradient.Preset = ... # 0x20
-    LadogaBottom             : QGradient.Preset = ... # 0x21
-    LemonGate                : QGradient.Preset = ... # 0x22
-    ItmeoBranding            : QGradient.Preset = ... # 0x23
-    ZeusMiracle              : QGradient.Preset = ... # 0x24
-    OldHat                   : QGradient.Preset = ... # 0x25
-    StarWine                 : QGradient.Preset = ... # 0x26
-    HappyAcid                : QGradient.Preset = ... # 0x29
-    AwesomePine              : QGradient.Preset = ... # 0x2a
-    NewYork                  : QGradient.Preset = ... # 0x2b
-    ShyRainbow               : QGradient.Preset = ... # 0x2c
-    MixedHopes               : QGradient.Preset = ... # 0x2e
-    FlyHigh                  : QGradient.Preset = ... # 0x2f
-    StrongBliss              : QGradient.Preset = ... # 0x30
-    FreshMilk                : QGradient.Preset = ... # 0x31
-    SnowAgain                : QGradient.Preset = ... # 0x32
-    FebruaryInk              : QGradient.Preset = ... # 0x33
-    KindSteel                : QGradient.Preset = ... # 0x34
-    SoftGrass                : QGradient.Preset = ... # 0x35
-    GrownEarly               : QGradient.Preset = ... # 0x36
-    SharpBlues               : QGradient.Preset = ... # 0x37
-    ShadyWater               : QGradient.Preset = ... # 0x38
-    DirtyBeauty              : QGradient.Preset = ... # 0x39
-    GreatWhale               : QGradient.Preset = ... # 0x3a
-    TeenNotebook             : QGradient.Preset = ... # 0x3b
-    PoliteRumors             : QGradient.Preset = ... # 0x3c
-    SweetPeriod              : QGradient.Preset = ... # 0x3d
-    WideMatrix               : QGradient.Preset = ... # 0x3e
-    SoftCherish              : QGradient.Preset = ... # 0x3f
-    RedSalvation             : QGradient.Preset = ... # 0x40
-    BurningSpring            : QGradient.Preset = ... # 0x41
-    NightParty               : QGradient.Preset = ... # 0x42
-    SkyGlider                : QGradient.Preset = ... # 0x43
-    HeavenPeach              : QGradient.Preset = ... # 0x44
-    PurpleDivision           : QGradient.Preset = ... # 0x45
-    AquaSplash               : QGradient.Preset = ... # 0x46
-    SpikyNaga                : QGradient.Preset = ... # 0x48
-    LoveKiss                 : QGradient.Preset = ... # 0x49
-    CleanMirror              : QGradient.Preset = ... # 0x4b
-    PremiumDark              : QGradient.Preset = ... # 0x4c
-    ColdEvening              : QGradient.Preset = ... # 0x4d
-    CochitiLake              : QGradient.Preset = ... # 0x4e
-    SummerGames              : QGradient.Preset = ... # 0x4f
-    PassionateBed            : QGradient.Preset = ... # 0x50
-    MountainRock             : QGradient.Preset = ... # 0x51
-    DesertHump               : QGradient.Preset = ... # 0x52
-    JungleDay                : QGradient.Preset = ... # 0x53
-    PhoenixStart             : QGradient.Preset = ... # 0x54
-    OctoberSilence           : QGradient.Preset = ... # 0x55
-    FarawayRiver             : QGradient.Preset = ... # 0x56
-    AlchemistLab             : QGradient.Preset = ... # 0x57
-    OverSun                  : QGradient.Preset = ... # 0x58
-    PremiumWhite             : QGradient.Preset = ... # 0x59
-    MarsParty                : QGradient.Preset = ... # 0x5a
-    EternalConstance         : QGradient.Preset = ... # 0x5b
-    JapanBlush               : QGradient.Preset = ... # 0x5c
-    SmilingRain              : QGradient.Preset = ... # 0x5d
-    CloudyApple              : QGradient.Preset = ... # 0x5e
-    BigMango                 : QGradient.Preset = ... # 0x5f
-    HealthyWater             : QGradient.Preset = ... # 0x60
-    AmourAmour               : QGradient.Preset = ... # 0x61
-    RiskyConcrete            : QGradient.Preset = ... # 0x62
-    StrongStick              : QGradient.Preset = ... # 0x63
-    ViciousStance            : QGradient.Preset = ... # 0x64
-    PaloAlto                 : QGradient.Preset = ... # 0x65
-    HappyMemories            : QGradient.Preset = ... # 0x66
-    MidnightBloom            : QGradient.Preset = ... # 0x67
-    Crystalline              : QGradient.Preset = ... # 0x68
-    PartyBliss               : QGradient.Preset = ... # 0x6a
-    ConfidentCloud           : QGradient.Preset = ... # 0x6b
-    LeCocktail               : QGradient.Preset = ... # 0x6c
-    RiverCity                : QGradient.Preset = ... # 0x6d
-    FrozenBerry              : QGradient.Preset = ... # 0x6e
-    ChildCare                : QGradient.Preset = ... # 0x70
-    FlyingLemon              : QGradient.Preset = ... # 0x71
-    NewRetrowave             : QGradient.Preset = ... # 0x72
-    HiddenJaguar             : QGradient.Preset = ... # 0x73
-    AboveTheSky              : QGradient.Preset = ... # 0x74
-    Nega                     : QGradient.Preset = ... # 0x75
-    DenseWater               : QGradient.Preset = ... # 0x76
-    Seashore                 : QGradient.Preset = ... # 0x78
-    MarbleWall               : QGradient.Preset = ... # 0x79
-    CheerfulCaramel          : QGradient.Preset = ... # 0x7a
-    NightSky                 : QGradient.Preset = ... # 0x7b
-    MagicLake                : QGradient.Preset = ... # 0x7c
-    YoungGrass               : QGradient.Preset = ... # 0x7d
-    ColorfulPeach            : QGradient.Preset = ... # 0x7e
-    GentleCare               : QGradient.Preset = ... # 0x7f
-    PlumBath                 : QGradient.Preset = ... # 0x80
-    HappyUnicorn             : QGradient.Preset = ... # 0x81
-    AfricanField             : QGradient.Preset = ... # 0x83
-    SolidStone               : QGradient.Preset = ... # 0x84
-    OrangeJuice              : QGradient.Preset = ... # 0x85
-    GlassWater               : QGradient.Preset = ... # 0x86
-    NorthMiracle             : QGradient.Preset = ... # 0x88
-    FruitBlend               : QGradient.Preset = ... # 0x89
-    MillenniumPine           : QGradient.Preset = ... # 0x8a
-    HighFlight               : QGradient.Preset = ... # 0x8b
-    MoleHall                 : QGradient.Preset = ... # 0x8c
-    SpaceShift               : QGradient.Preset = ... # 0x8e
-    ForestInei               : QGradient.Preset = ... # 0x8f
-    RoyalGarden              : QGradient.Preset = ... # 0x90
-    RichMetal                : QGradient.Preset = ... # 0x91
-    JuicyCake                : QGradient.Preset = ... # 0x92
-    SmartIndigo              : QGradient.Preset = ... # 0x93
-    SandStrike               : QGradient.Preset = ... # 0x94
-    NorseBeauty              : QGradient.Preset = ... # 0x95
-    AquaGuidance             : QGradient.Preset = ... # 0x96
-    SunVeggie                : QGradient.Preset = ... # 0x97
-    SeaLord                  : QGradient.Preset = ... # 0x98
-    BlackSea                 : QGradient.Preset = ... # 0x99
-    GrassShampoo             : QGradient.Preset = ... # 0x9a
-    LandingAircraft          : QGradient.Preset = ... # 0x9b
-    WitchDance               : QGradient.Preset = ... # 0x9c
-    SleeplessNight           : QGradient.Preset = ... # 0x9d
-    AngelCare                : QGradient.Preset = ... # 0x9e
-    CrystalRiver             : QGradient.Preset = ... # 0x9f
-    SoftLipstick             : QGradient.Preset = ... # 0xa0
-    SaltMountain             : QGradient.Preset = ... # 0xa1
-    PerfectWhite             : QGradient.Preset = ... # 0xa2
-    FreshOasis               : QGradient.Preset = ... # 0xa3
-    StrictNovember           : QGradient.Preset = ... # 0xa4
-    MorningSalad             : QGradient.Preset = ... # 0xa5
-    DeepRelief               : QGradient.Preset = ... # 0xa6
-    SeaStrike                : QGradient.Preset = ... # 0xa7
-    NightCall                : QGradient.Preset = ... # 0xa8
-    SupremeSky               : QGradient.Preset = ... # 0xa9
-    LightBlue                : QGradient.Preset = ... # 0xaa
-    MindCrawl                : QGradient.Preset = ... # 0xab
-    LilyMeadow               : QGradient.Preset = ... # 0xac
-    SugarLollipop            : QGradient.Preset = ... # 0xad
-    SweetDessert             : QGradient.Preset = ... # 0xae
-    MagicRay                 : QGradient.Preset = ... # 0xaf
-    TeenParty                : QGradient.Preset = ... # 0xb0
-    FrozenHeat               : QGradient.Preset = ... # 0xb1
-    GagarinView              : QGradient.Preset = ... # 0xb2
-    FabledSunset             : QGradient.Preset = ... # 0xb3
-    PerfectBlue              : QGradient.Preset = ... # 0xb4
-    NumPresets               : QGradient.Preset = ... # 0xb5
-    PadSpread                : QGradient.Spread = ... # 0x0
-    ReflectSpread            : QGradient.Spread = ... # 0x1
-    RepeatSpread             : QGradient.Spread = ... # 0x2
-    LinearGradient           : QGradient.Type = ... # 0x0
-    RadialGradient           : QGradient.Type = ... # 0x1
-    ConicalGradient          : QGradient.Type = ... # 0x2
-    NoGradient               : QGradient.Type = ... # 0x3
-
-    class CoordinateMode(Shiboken.Enum):
+    class CoordinateMode(shibokensupport.enum_310.Enum):
 
         LogicalMode              : QGradient.CoordinateMode = ... # 0x0
         StretchToDeviceMode      : QGradient.CoordinateMode = ... # 0x1
         ObjectBoundingMode       : QGradient.CoordinateMode = ... # 0x2
         ObjectMode               : QGradient.CoordinateMode = ... # 0x3
 
-    class InterpolationMode(Shiboken.Enum):
+
+    class InterpolationMode(shibokensupport.enum_310.Enum):
 
         ColorInterpolation       : QGradient.InterpolationMode = ... # 0x0
         ComponentInterpolation   : QGradient.InterpolationMode = ... # 0x1
 
-    class Preset(Shiboken.Enum):
+
+    class Preset(shibokensupport.enum_310.Enum):
 
         WarmFlame                : QGradient.Preset = ... # 0x1
         NightFade                : QGradient.Preset = ... # 0x2
@@ -2678,13 +2142,15 @@ class QGradient(Shiboken.Object):
         PerfectBlue              : QGradient.Preset = ... # 0xb4
         NumPresets               : QGradient.Preset = ... # 0xb5
 
-    class Spread(Shiboken.Enum):
+
+    class Spread(shibokensupport.enum_310.Enum):
 
         PadSpread                : QGradient.Spread = ... # 0x0
         ReflectSpread            : QGradient.Spread = ... # 0x1
         RepeatSpread             : QGradient.Spread = ... # 0x2
 
-    class Type(Shiboken.Enum):
+
+    class Type(shibokensupport.enum_310.Enum):
 
         LinearGradient           : QGradient.Type = ... # 0x0
         RadialGradient           : QGradient.Type = ... # 0x1
@@ -2756,13 +2222,13 @@ class QGuiApplication(PySide6.QtCore.QCoreApplication):
     def isSavingSession(self) -> bool: ...
     def isSessionRestored(self) -> bool: ...
     @staticmethod
-    def keyboardModifiers() -> PySide6.QtCore.Qt.KeyboardModifiers: ...
+    def keyboardModifiers() -> PySide6.QtCore.Qt.KeyboardModifier: ...
     @staticmethod
     def layoutDirection() -> PySide6.QtCore.Qt.LayoutDirection: ...
     @staticmethod
     def modalWindow() -> PySide6.QtGui.QWindow: ...
     @staticmethod
-    def mouseButtons() -> PySide6.QtCore.Qt.MouseButtons: ...
+    def mouseButtons() -> PySide6.QtCore.Qt.MouseButton: ...
     def notify(self, arg__1: PySide6.QtCore.QObject, arg__2: PySide6.QtCore.QEvent) -> bool: ...
     @staticmethod
     def overrideCursor() -> PySide6.QtGui.QCursor: ...
@@ -2773,7 +2239,7 @@ class QGuiApplication(PySide6.QtCore.QCoreApplication):
     @staticmethod
     def primaryScreen() -> PySide6.QtGui.QScreen: ...
     @staticmethod
-    def queryKeyboardModifiers() -> PySide6.QtCore.Qt.KeyboardModifiers: ...
+    def queryKeyboardModifiers() -> PySide6.QtCore.Qt.KeyboardModifier: ...
     @staticmethod
     def quitOnLastWindowClosed() -> bool: ...
     def resolveInterface(self, name: bytes, revision: int) -> int: ...
@@ -2798,7 +2264,7 @@ class QGuiApplication(PySide6.QtCore.QCoreApplication):
     @staticmethod
     def setLayoutDirection(direction: PySide6.QtCore.Qt.LayoutDirection) -> None: ...
     @staticmethod
-    def setOverrideCursor(arg__1: Union[PySide6.QtGui.QCursor, PySide6.QtCore.Qt.CursorShape, PySide6.QtGui.QPixmap]) -> None: ...
+    def setOverrideCursor(arg__1: Union[PySide6.QtGui.QCursor, PySide6.QtCore.Qt.CursorShape, PySide6.QtGui.QPixmap]) -> object: ...
     @staticmethod
     def setPalette(pal: Union[PySide6.QtGui.QPalette, PySide6.QtCore.Qt.GlobalColor, PySide6.QtGui.QColor]) -> None: ...
     @staticmethod
@@ -2840,15 +2306,17 @@ class QHideEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QHideEvent) -> None: ...
 
+    def clone(self) -> PySide6.QtGui.QHideEvent: ...
+
 
 class QHoverEvent(PySide6.QtGui.QSinglePointEvent):
 
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QHoverEvent) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], oldPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], modifiers: PySide6.QtCore.Qt.KeyboardModifiers = ..., device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], oldPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], modifiers: PySide6.QtCore.Qt.KeyboardModifier = ..., device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], oldPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], modifiers: PySide6.QtCore.Qt.KeyboardModifiers = ..., device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], oldPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], modifiers: PySide6.QtCore.Qt.KeyboardModifier = ..., device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
 
     def clone(self) -> PySide6.QtGui.QHoverEvent: ...
     def isUpdateEvent(self) -> bool: ...
@@ -2860,21 +2328,15 @@ class QHoverEvent(PySide6.QtGui.QSinglePointEvent):
 
 class QIcon(Shiboken.Object):
 
-    Normal                   : QIcon.Mode = ... # 0x0
-    Disabled                 : QIcon.Mode = ... # 0x1
-    Active                   : QIcon.Mode = ... # 0x2
-    Selected                 : QIcon.Mode = ... # 0x3
-    On                       : QIcon.State = ... # 0x0
-    Off                      : QIcon.State = ... # 0x1
-
-    class Mode(Shiboken.Enum):
+    class Mode(shibokensupport.enum_310.Enum):
 
         Normal                   : QIcon.Mode = ... # 0x0
         Disabled                 : QIcon.Mode = ... # 0x1
         Active                   : QIcon.Mode = ... # 0x2
         Selected                 : QIcon.Mode = ... # 0x3
 
-    class State(Shiboken.Enum):
+
+    class State(shibokensupport.enum_310.Enum):
 
         On                       : QIcon.State = ... # 0x0
         Off                      : QIcon.State = ... # 0x1
@@ -2922,9 +2384,9 @@ class QIcon(Shiboken.Object):
     def isNull(self) -> bool: ...
     def name(self) -> str: ...
     @overload
-    def paint(self, painter: PySide6.QtGui.QPainter, rect: PySide6.QtCore.QRect, alignment: PySide6.QtCore.Qt.Alignment = ..., mode: PySide6.QtGui.QIcon.Mode = ..., state: PySide6.QtGui.QIcon.State = ...) -> None: ...
+    def paint(self, painter: PySide6.QtGui.QPainter, rect: PySide6.QtCore.QRect, alignment: PySide6.QtCore.Qt.AlignmentFlag = ..., mode: PySide6.QtGui.QIcon.Mode = ..., state: PySide6.QtGui.QIcon.State = ...) -> None: ...
     @overload
-    def paint(self, painter: PySide6.QtGui.QPainter, x: int, y: int, w: int, h: int, alignment: PySide6.QtCore.Qt.Alignment = ..., mode: PySide6.QtGui.QIcon.Mode = ..., state: PySide6.QtGui.QIcon.State = ...) -> None: ...
+    def paint(self, painter: PySide6.QtGui.QPainter, x: int, y: int, w: int, h: int, alignment: PySide6.QtCore.Qt.AlignmentFlag = ..., mode: PySide6.QtGui.QIcon.Mode = ..., state: PySide6.QtGui.QIcon.State = ...) -> None: ...
     @overload
     def pixmap(self, extent: int, mode: PySide6.QtGui.QIcon.Mode = ..., state: PySide6.QtGui.QIcon.State = ...) -> PySide6.QtGui.QPixmap: ...
     @overload
@@ -2958,16 +2420,16 @@ class QIconDragEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QIconDragEvent) -> None: ...
 
+    def clone(self) -> PySide6.QtGui.QIconDragEvent: ...
+
 
 class QIconEngine(Shiboken.Object):
 
-    IsNullHook               : QIconEngine.IconEngineHook = ... # 0x3
-    ScaledPixmapHook         : QIconEngine.IconEngineHook = ... # 0x4
-
-    class IconEngineHook(Shiboken.Enum):
+    class IconEngineHook(shibokensupport.enum_310.Enum):
 
         IsNullHook               : QIconEngine.IconEngineHook = ... # 0x3
         ScaledPixmapHook         : QIconEngine.IconEngineHook = ... # 0x4
+
 
     class ScaledPixmapArgument(Shiboken.Object):
 
@@ -2996,47 +2458,7 @@ class QIconEngine(Shiboken.Object):
 
 class QImage(PySide6.QtGui.QPaintDevice):
 
-    Format_Invalid           : QImage.Format = ... # 0x0
-    Format_Mono              : QImage.Format = ... # 0x1
-    Format_MonoLSB           : QImage.Format = ... # 0x2
-    Format_Indexed8          : QImage.Format = ... # 0x3
-    Format_RGB32             : QImage.Format = ... # 0x4
-    Format_ARGB32            : QImage.Format = ... # 0x5
-    Format_ARGB32_Premultiplied: QImage.Format = ... # 0x6
-    Format_RGB16             : QImage.Format = ... # 0x7
-    Format_ARGB8565_Premultiplied: QImage.Format = ... # 0x8
-    Format_RGB666            : QImage.Format = ... # 0x9
-    Format_ARGB6666_Premultiplied: QImage.Format = ... # 0xa
-    Format_RGB555            : QImage.Format = ... # 0xb
-    Format_ARGB8555_Premultiplied: QImage.Format = ... # 0xc
-    Format_RGB888            : QImage.Format = ... # 0xd
-    Format_RGB444            : QImage.Format = ... # 0xe
-    Format_ARGB4444_Premultiplied: QImage.Format = ... # 0xf
-    Format_RGBX8888          : QImage.Format = ... # 0x10
-    Format_RGBA8888          : QImage.Format = ... # 0x11
-    Format_RGBA8888_Premultiplied: QImage.Format = ... # 0x12
-    Format_BGR30             : QImage.Format = ... # 0x13
-    Format_A2BGR30_Premultiplied: QImage.Format = ... # 0x14
-    Format_RGB30             : QImage.Format = ... # 0x15
-    Format_A2RGB30_Premultiplied: QImage.Format = ... # 0x16
-    Format_Alpha8            : QImage.Format = ... # 0x17
-    Format_Grayscale8        : QImage.Format = ... # 0x18
-    Format_RGBX64            : QImage.Format = ... # 0x19
-    Format_RGBA64            : QImage.Format = ... # 0x1a
-    Format_RGBA64_Premultiplied: QImage.Format = ... # 0x1b
-    Format_Grayscale16       : QImage.Format = ... # 0x1c
-    Format_BGR888            : QImage.Format = ... # 0x1d
-    Format_RGBX16FPx4        : QImage.Format = ... # 0x1e
-    Format_RGBA16FPx4        : QImage.Format = ... # 0x1f
-    Format_RGBA16FPx4_Premultiplied: QImage.Format = ... # 0x20
-    Format_RGBX32FPx4        : QImage.Format = ... # 0x21
-    Format_RGBA32FPx4        : QImage.Format = ... # 0x22
-    Format_RGBA32FPx4_Premultiplied: QImage.Format = ... # 0x23
-    NImageFormats            : QImage.Format = ... # 0x24
-    InvertRgb                : QImage.InvertMode = ... # 0x0
-    InvertRgba               : QImage.InvertMode = ... # 0x1
-
-    class Format(Shiboken.Enum):
+    class Format(shibokensupport.enum_310.Enum):
 
         Format_Invalid           : QImage.Format = ... # 0x0
         Format_Mono              : QImage.Format = ... # 0x1
@@ -3076,7 +2498,8 @@ class QImage(PySide6.QtGui.QPaintDevice):
         Format_RGBA32FPx4_Premultiplied: QImage.Format = ... # 0x23
         NImageFormats            : QImage.Format = ... # 0x24
 
-    class InvertMode(Shiboken.Enum):
+
+    class InvertMode(shibokensupport.enum_310.Enum):
 
         InvertRgb                : QImage.InvertMode = ... # 0x0
         InvertRgba               : QImage.InvertMode = ... # 0x1
@@ -3117,26 +2540,28 @@ class QImage(PySide6.QtGui.QPaintDevice):
     def colorCount(self) -> int: ...
     def colorSpace(self) -> PySide6.QtGui.QColorSpace: ...
     def colorTable(self) -> List[int]: ...
+    def colorTransformed(self, transform: PySide6.QtGui.QColorTransform) -> PySide6.QtGui.QImage: ...
     def constBits(self) -> bytes: ...
     def constScanLine(self, arg__1: int) -> object: ...
-    def convertTo(self, f: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def convertTo(self, f: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     def convertToColorSpace(self, arg__1: Union[PySide6.QtGui.QColorSpace, PySide6.QtGui.QColorSpace.NamedColorSpace]) -> None: ...
     @overload
-    def convertToFormat(self, f: PySide6.QtGui.QImage.Format, colorTable: Sequence[int], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QImage: ...
+    def convertToFormat(self, f: PySide6.QtGui.QImage.Format, colorTable: Sequence[int], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QImage: ...
     @overload
-    def convertToFormat(self, f: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QImage: ...
-    def convertToFormat_helper(self, format: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlags) -> PySide6.QtGui.QImage: ...
-    def convertToFormat_inplace(self, format: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlags) -> bool: ...
-    def convertedTo(self, f: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QImage: ...
+    def convertToFormat(self, f: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QImage: ...
+    def convertToFormat_helper(self, format: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlag) -> PySide6.QtGui.QImage: ...
+    def convertToFormat_inplace(self, format: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlag) -> bool: ...
+    def convertedTo(self, f: PySide6.QtGui.QImage.Format, flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QImage: ...
     def convertedToColorSpace(self, arg__1: Union[PySide6.QtGui.QColorSpace, PySide6.QtGui.QColorSpace.NamedColorSpace]) -> PySide6.QtGui.QImage: ...
     @overload
     def copy(self, rect: PySide6.QtCore.QRect = ...) -> PySide6.QtGui.QImage: ...
     @overload
     def copy(self, x: int, y: int, w: int, h: int) -> PySide6.QtGui.QImage: ...
-    def createAlphaMask(self, flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QImage: ...
+    def createAlphaMask(self, flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QImage: ...
     def createHeuristicMask(self, clipTight: bool = ...) -> PySide6.QtGui.QImage: ...
     def createMaskFromColor(self, color: int, mode: PySide6.QtCore.Qt.MaskMode = ...) -> PySide6.QtGui.QImage: ...
     def depth(self) -> int: ...
+    def detachMetadata(self, invalidateCache: bool = ...) -> None: ...
     def devType(self) -> int: ...
     def deviceIndependentSize(self) -> PySide6.QtCore.QSizeF: ...
     def devicePixelRatio(self) -> float: ...
@@ -3244,35 +2669,7 @@ class QImage(PySide6.QtGui.QPaintDevice):
 
 class QImageIOHandler(Shiboken.Object):
 
-    Size                     : QImageIOHandler.ImageOption = ... # 0x0
-    ClipRect                 : QImageIOHandler.ImageOption = ... # 0x1
-    Description              : QImageIOHandler.ImageOption = ... # 0x2
-    ScaledClipRect           : QImageIOHandler.ImageOption = ... # 0x3
-    ScaledSize               : QImageIOHandler.ImageOption = ... # 0x4
-    CompressionRatio         : QImageIOHandler.ImageOption = ... # 0x5
-    Gamma                    : QImageIOHandler.ImageOption = ... # 0x6
-    Quality                  : QImageIOHandler.ImageOption = ... # 0x7
-    Name                     : QImageIOHandler.ImageOption = ... # 0x8
-    SubType                  : QImageIOHandler.ImageOption = ... # 0x9
-    IncrementalReading       : QImageIOHandler.ImageOption = ... # 0xa
-    Endianness               : QImageIOHandler.ImageOption = ... # 0xb
-    Animation                : QImageIOHandler.ImageOption = ... # 0xc
-    BackgroundColor          : QImageIOHandler.ImageOption = ... # 0xd
-    ImageFormat              : QImageIOHandler.ImageOption = ... # 0xe
-    SupportedSubTypes        : QImageIOHandler.ImageOption = ... # 0xf
-    OptimizedWrite           : QImageIOHandler.ImageOption = ... # 0x10
-    ProgressiveScanWrite     : QImageIOHandler.ImageOption = ... # 0x11
-    ImageTransformation      : QImageIOHandler.ImageOption = ... # 0x12
-    TransformationNone       : QImageIOHandler.Transformation = ... # 0x0
-    TransformationMirror     : QImageIOHandler.Transformation = ... # 0x1
-    TransformationFlip       : QImageIOHandler.Transformation = ... # 0x2
-    TransformationRotate180  : QImageIOHandler.Transformation = ... # 0x3
-    TransformationRotate90   : QImageIOHandler.Transformation = ... # 0x4
-    TransformationMirrorAndRotate90: QImageIOHandler.Transformation = ... # 0x5
-    TransformationFlipAndRotate90: QImageIOHandler.Transformation = ... # 0x6
-    TransformationRotate270  : QImageIOHandler.Transformation = ... # 0x7
-
-    class ImageOption(Shiboken.Enum):
+    class ImageOption(shibokensupport.enum_310.Enum):
 
         Size                     : QImageIOHandler.ImageOption = ... # 0x0
         ClipRect                 : QImageIOHandler.ImageOption = ... # 0x1
@@ -3294,7 +2691,8 @@ class QImageIOHandler(Shiboken.Object):
         ProgressiveScanWrite     : QImageIOHandler.ImageOption = ... # 0x11
         ImageTransformation      : QImageIOHandler.ImageOption = ... # 0x12
 
-    class Transformation(Shiboken.Enum):
+
+    class Transformation(shibokensupport.enum_310.Flag):
 
         TransformationNone       : QImageIOHandler.Transformation = ... # 0x0
         TransformationMirror     : QImageIOHandler.Transformation = ... # 0x1
@@ -3304,8 +2702,6 @@ class QImageIOHandler(Shiboken.Object):
         TransformationMirrorAndRotate90: QImageIOHandler.Transformation = ... # 0x5
         TransformationFlipAndRotate90: QImageIOHandler.Transformation = ... # 0x6
         TransformationRotate270  : QImageIOHandler.Transformation = ... # 0x7
-
-    class Transformations(object): ...
 
 
     def __init__(self) -> None: ...
@@ -3333,13 +2729,7 @@ class QImageIOHandler(Shiboken.Object):
 
 class QImageReader(Shiboken.Object):
 
-    UnknownError             : QImageReader.ImageReaderError = ... # 0x0
-    FileNotFoundError        : QImageReader.ImageReaderError = ... # 0x1
-    DeviceError              : QImageReader.ImageReaderError = ... # 0x2
-    UnsupportedFormatError   : QImageReader.ImageReaderError = ... # 0x3
-    InvalidDataError         : QImageReader.ImageReaderError = ... # 0x4
-
-    class ImageReaderError(Shiboken.Enum):
+    class ImageReaderError(shibokensupport.enum_310.Enum):
 
         UnknownError             : QImageReader.ImageReaderError = ... # 0x0
         FileNotFoundError        : QImageReader.ImageReaderError = ... # 0x1
@@ -3413,17 +2803,12 @@ class QImageReader(Shiboken.Object):
     def supportsOption(self, option: PySide6.QtGui.QImageIOHandler.ImageOption) -> bool: ...
     def text(self, key: str) -> str: ...
     def textKeys(self) -> List[str]: ...
-    def transformation(self) -> PySide6.QtGui.QImageIOHandler.Transformations: ...
+    def transformation(self) -> PySide6.QtGui.QImageIOHandler.Transformation: ...
 
 
 class QImageWriter(Shiboken.Object):
 
-    UnknownError             : QImageWriter.ImageWriterError = ... # 0x0
-    DeviceError              : QImageWriter.ImageWriterError = ... # 0x1
-    UnsupportedFormatError   : QImageWriter.ImageWriterError = ... # 0x2
-    InvalidImageError        : QImageWriter.ImageWriterError = ... # 0x3
-
-    class ImageWriterError(Shiboken.Enum):
+    class ImageWriterError(shibokensupport.enum_310.Enum):
 
         UnknownError             : QImageWriter.ImageWriterError = ... # 0x0
         DeviceError              : QImageWriter.ImageWriterError = ... # 0x1
@@ -3459,7 +2844,7 @@ class QImageWriter(Shiboken.Object):
     def setQuality(self, quality: int) -> None: ...
     def setSubType(self, type: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
     def setText(self, key: str, text: str) -> None: ...
-    def setTransformation(self, orientation: PySide6.QtGui.QImageIOHandler.Transformations) -> None: ...
+    def setTransformation(self, orientation: PySide6.QtGui.QImageIOHandler.Transformation) -> None: ...
     def subType(self) -> PySide6.QtCore.QByteArray: ...
     @staticmethod
     def supportedImageFormats() -> List[PySide6.QtCore.QByteArray]: ...
@@ -3467,15 +2852,13 @@ class QImageWriter(Shiboken.Object):
     def supportedMimeTypes() -> List[PySide6.QtCore.QByteArray]: ...
     def supportedSubTypes(self) -> List[PySide6.QtCore.QByteArray]: ...
     def supportsOption(self, option: PySide6.QtGui.QImageIOHandler.ImageOption) -> bool: ...
-    def transformation(self) -> PySide6.QtGui.QImageIOHandler.Transformations: ...
+    def transformation(self) -> PySide6.QtGui.QImageIOHandler.Transformation: ...
     def write(self, image: Union[PySide6.QtGui.QImage, str]) -> bool: ...
 
 
 class QInputDevice(PySide6.QtCore.QObject):
 
-    class Capabilities(object): ...
-
-    class Capability(Shiboken.Enum):
+    class Capability(shibokensupport.enum_310.Flag):
 
         None_                    : QInputDevice.Capability = ... # 0x0
         Position                 : QInputDevice.Capability = ... # 0x1
@@ -3494,7 +2877,8 @@ class QInputDevice(PySide6.QtCore.QObject):
         ZPosition                : QInputDevice.Capability = ... # 0x4000
         All                      : QInputDevice.Capability = ... # 0x7fffffff
 
-    class DeviceType(Shiboken.Enum):
+
+    class DeviceType(shibokensupport.enum_310.Flag):
 
         Unknown                  : QInputDevice.DeviceType = ... # 0x0
         Mouse                    : QInputDevice.DeviceType = ... # 0x1
@@ -3506,8 +2890,6 @@ class QInputDevice(PySide6.QtCore.QObject):
         Keyboard                 : QInputDevice.DeviceType = ... # 0x1000
         AllDevices               : QInputDevice.DeviceType = ... # 0x7fffffff
 
-    class DeviceTypes(object): ...
-
 
     @overload
     def __init__(self, name: str, systemId: int, type: PySide6.QtGui.QInputDevice.DeviceType, seatName: str = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -3515,7 +2897,7 @@ class QInputDevice(PySide6.QtCore.QObject):
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def availableVirtualGeometry(self) -> PySide6.QtCore.QRect: ...
-    def capabilities(self) -> PySide6.QtGui.QInputDevice.Capabilities: ...
+    def capabilities(self) -> PySide6.QtGui.QInputDevice.Capability: ...
     @staticmethod
     def devices() -> List[PySide6.QtGui.QInputDevice]: ...
     def hasCapability(self, cap: PySide6.QtGui.QInputDevice.Capability) -> bool: ...
@@ -3534,23 +2916,20 @@ class QInputEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QInputEvent) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, m_dev: PySide6.QtGui.QInputDevice, modifiers: PySide6.QtCore.Qt.KeyboardModifiers = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, m_dev: PySide6.QtGui.QInputDevice, modifiers: PySide6.QtCore.Qt.KeyboardModifier = ...) -> None: ...
 
     def clone(self) -> PySide6.QtGui.QInputEvent: ...
     def device(self) -> PySide6.QtGui.QInputDevice: ...
     def deviceType(self) -> PySide6.QtGui.QInputDevice.DeviceType: ...
-    def modifiers(self) -> PySide6.QtCore.Qt.KeyboardModifiers: ...
-    def setModifiers(self, modifiers: PySide6.QtCore.Qt.KeyboardModifiers) -> None: ...
+    def modifiers(self) -> PySide6.QtCore.Qt.KeyboardModifier: ...
+    def setModifiers(self, modifiers: PySide6.QtCore.Qt.KeyboardModifier) -> None: ...
     def setTimestamp(self, timestamp: int) -> None: ...
     def timestamp(self) -> int: ...
 
 
 class QInputMethod(PySide6.QtCore.QObject):
 
-    Click                    : QInputMethod.Action = ... # 0x0
-    ContextMenu              : QInputMethod.Action = ... # 0x1
-
-    class Action(Shiboken.Enum):
+    class Action(shibokensupport.enum_310.Enum):
 
         Click                    : QInputMethod.Action = ... # 0x0
         ContextMenu              : QInputMethod.Action = ... # 0x1
@@ -3576,16 +2955,10 @@ class QInputMethod(PySide6.QtCore.QObject):
     def setInputItemTransform(self, transform: PySide6.QtGui.QTransform) -> None: ...
     def setVisible(self, visible: bool) -> None: ...
     def show(self) -> None: ...
-    def update(self, queries: PySide6.QtCore.Qt.InputMethodQueries) -> None: ...
+    def update(self, queries: PySide6.QtCore.Qt.InputMethodQuery) -> None: ...
 
 
 class QInputMethodEvent(PySide6.QtCore.QEvent):
-
-    TextFormat               : QInputMethodEvent.AttributeType = ... # 0x0
-    Cursor                   : QInputMethodEvent.AttributeType = ... # 0x1
-    Language                 : QInputMethodEvent.AttributeType = ... # 0x2
-    Ruby                     : QInputMethodEvent.AttributeType = ... # 0x3
-    Selection                : QInputMethodEvent.AttributeType = ... # 0x4
 
     class Attribute(Shiboken.Object):
 
@@ -3599,7 +2972,7 @@ class QInputMethodEvent(PySide6.QtCore.QEvent):
         @staticmethod
         def __copy__() -> None: ...
 
-    class AttributeType(Shiboken.Enum):
+    class AttributeType(shibokensupport.enum_310.Enum):
 
         TextFormat               : QInputMethodEvent.AttributeType = ... # 0x0
         Cursor                   : QInputMethodEvent.AttributeType = ... # 0x1
@@ -3630,10 +3003,10 @@ class QInputMethodQueryEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QInputMethodQueryEvent) -> None: ...
     @overload
-    def __init__(self, queries: PySide6.QtCore.Qt.InputMethodQueries) -> None: ...
+    def __init__(self, queries: PySide6.QtCore.Qt.InputMethodQuery) -> None: ...
 
     def clone(self) -> PySide6.QtGui.QInputMethodQueryEvent: ...
-    def queries(self) -> PySide6.QtCore.Qt.InputMethodQueries: ...
+    def queries(self) -> PySide6.QtCore.Qt.InputMethodQuery: ...
     def setValue(self, query: PySide6.QtCore.Qt.InputMethodQuery, value: Any) -> None: ...
     def value(self, query: PySide6.QtCore.Qt.InputMethodQuery) -> Any: ...
 
@@ -3649,7 +3022,7 @@ class QIntValidator(PySide6.QtGui.QValidator):
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def bottom(self) -> int: ...
-    def fixup(self, input: str) -> None: ...
+    def fixup(self, input: str) -> str: ...
     def setBottom(self, arg__1: int) -> None: ...
     def setRange(self, bottom: int, top: int) -> None: ...
     def setTop(self, arg__1: int) -> None: ...
@@ -3662,9 +3035,9 @@ class QKeyEvent(PySide6.QtGui.QInputEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QKeyEvent) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, nativeScanCode: int, nativeVirtualKey: int, nativeModifiers: int, text: str = ..., autorep: bool = ..., count: int = ..., device: PySide6.QtGui.QInputDevice = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifier, nativeScanCode: int, nativeVirtualKey: int, nativeModifiers: int, text: str = ..., autorep: bool = ..., count: int = ..., device: PySide6.QtGui.QInputDevice = ...) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, text: str = ..., autorep: bool = ..., count: int = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifier, text: str = ..., autorep: bool = ..., count: int = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     def clone(self) -> PySide6.QtGui.QKeyEvent: ...
@@ -3673,7 +3046,7 @@ class QKeyEvent(PySide6.QtGui.QInputEvent):
     def key(self) -> int: ...
     def keyCombination(self) -> PySide6.QtCore.QKeyCombination: ...
     def matches(self, key: PySide6.QtGui.QKeySequence.StandardKey) -> bool: ...
-    def modifiers(self) -> PySide6.QtCore.Qt.KeyboardModifiers: ...
+    def modifiers(self) -> PySide6.QtCore.Qt.KeyboardModifier: ...
     def nativeModifiers(self) -> int: ...
     def nativeScanCode(self) -> int: ...
     def nativeVirtualKey(self) -> int: ...
@@ -3682,95 +3055,20 @@ class QKeyEvent(PySide6.QtGui.QInputEvent):
 
 class QKeySequence(Shiboken.Object):
 
-    NativeText               : QKeySequence.SequenceFormat = ... # 0x0
-    PortableText             : QKeySequence.SequenceFormat = ... # 0x1
-    NoMatch                  : QKeySequence.SequenceMatch = ... # 0x0
-    PartialMatch             : QKeySequence.SequenceMatch = ... # 0x1
-    ExactMatch               : QKeySequence.SequenceMatch = ... # 0x2
-    UnknownKey               : QKeySequence.StandardKey = ... # 0x0
-    HelpContents             : QKeySequence.StandardKey = ... # 0x1
-    WhatsThis                : QKeySequence.StandardKey = ... # 0x2
-    Open                     : QKeySequence.StandardKey = ... # 0x3
-    Close                    : QKeySequence.StandardKey = ... # 0x4
-    Save                     : QKeySequence.StandardKey = ... # 0x5
-    New                      : QKeySequence.StandardKey = ... # 0x6
-    Delete                   : QKeySequence.StandardKey = ... # 0x7
-    Cut                      : QKeySequence.StandardKey = ... # 0x8
-    Copy                     : QKeySequence.StandardKey = ... # 0x9
-    Paste                    : QKeySequence.StandardKey = ... # 0xa
-    Undo                     : QKeySequence.StandardKey = ... # 0xb
-    Redo                     : QKeySequence.StandardKey = ... # 0xc
-    Back                     : QKeySequence.StandardKey = ... # 0xd
-    Forward                  : QKeySequence.StandardKey = ... # 0xe
-    Refresh                  : QKeySequence.StandardKey = ... # 0xf
-    ZoomIn                   : QKeySequence.StandardKey = ... # 0x10
-    ZoomOut                  : QKeySequence.StandardKey = ... # 0x11
-    Print                    : QKeySequence.StandardKey = ... # 0x12
-    AddTab                   : QKeySequence.StandardKey = ... # 0x13
-    NextChild                : QKeySequence.StandardKey = ... # 0x14
-    PreviousChild            : QKeySequence.StandardKey = ... # 0x15
-    Find                     : QKeySequence.StandardKey = ... # 0x16
-    FindNext                 : QKeySequence.StandardKey = ... # 0x17
-    FindPrevious             : QKeySequence.StandardKey = ... # 0x18
-    Replace                  : QKeySequence.StandardKey = ... # 0x19
-    SelectAll                : QKeySequence.StandardKey = ... # 0x1a
-    Bold                     : QKeySequence.StandardKey = ... # 0x1b
-    Italic                   : QKeySequence.StandardKey = ... # 0x1c
-    Underline                : QKeySequence.StandardKey = ... # 0x1d
-    MoveToNextChar           : QKeySequence.StandardKey = ... # 0x1e
-    MoveToPreviousChar       : QKeySequence.StandardKey = ... # 0x1f
-    MoveToNextWord           : QKeySequence.StandardKey = ... # 0x20
-    MoveToPreviousWord       : QKeySequence.StandardKey = ... # 0x21
-    MoveToNextLine           : QKeySequence.StandardKey = ... # 0x22
-    MoveToPreviousLine       : QKeySequence.StandardKey = ... # 0x23
-    MoveToNextPage           : QKeySequence.StandardKey = ... # 0x24
-    MoveToPreviousPage       : QKeySequence.StandardKey = ... # 0x25
-    MoveToStartOfLine        : QKeySequence.StandardKey = ... # 0x26
-    MoveToEndOfLine          : QKeySequence.StandardKey = ... # 0x27
-    MoveToStartOfBlock       : QKeySequence.StandardKey = ... # 0x28
-    MoveToEndOfBlock         : QKeySequence.StandardKey = ... # 0x29
-    MoveToStartOfDocument    : QKeySequence.StandardKey = ... # 0x2a
-    MoveToEndOfDocument      : QKeySequence.StandardKey = ... # 0x2b
-    SelectNextChar           : QKeySequence.StandardKey = ... # 0x2c
-    SelectPreviousChar       : QKeySequence.StandardKey = ... # 0x2d
-    SelectNextWord           : QKeySequence.StandardKey = ... # 0x2e
-    SelectPreviousWord       : QKeySequence.StandardKey = ... # 0x2f
-    SelectNextLine           : QKeySequence.StandardKey = ... # 0x30
-    SelectPreviousLine       : QKeySequence.StandardKey = ... # 0x31
-    SelectNextPage           : QKeySequence.StandardKey = ... # 0x32
-    SelectPreviousPage       : QKeySequence.StandardKey = ... # 0x33
-    SelectStartOfLine        : QKeySequence.StandardKey = ... # 0x34
-    SelectEndOfLine          : QKeySequence.StandardKey = ... # 0x35
-    SelectStartOfBlock       : QKeySequence.StandardKey = ... # 0x36
-    SelectEndOfBlock         : QKeySequence.StandardKey = ... # 0x37
-    SelectStartOfDocument    : QKeySequence.StandardKey = ... # 0x38
-    SelectEndOfDocument      : QKeySequence.StandardKey = ... # 0x39
-    DeleteStartOfWord        : QKeySequence.StandardKey = ... # 0x3a
-    DeleteEndOfWord          : QKeySequence.StandardKey = ... # 0x3b
-    DeleteEndOfLine          : QKeySequence.StandardKey = ... # 0x3c
-    InsertParagraphSeparator : QKeySequence.StandardKey = ... # 0x3d
-    InsertLineSeparator      : QKeySequence.StandardKey = ... # 0x3e
-    SaveAs                   : QKeySequence.StandardKey = ... # 0x3f
-    Preferences              : QKeySequence.StandardKey = ... # 0x40
-    Quit                     : QKeySequence.StandardKey = ... # 0x41
-    FullScreen               : QKeySequence.StandardKey = ... # 0x42
-    Deselect                 : QKeySequence.StandardKey = ... # 0x43
-    DeleteCompleteLine       : QKeySequence.StandardKey = ... # 0x44
-    Backspace                : QKeySequence.StandardKey = ... # 0x45
-    Cancel                   : QKeySequence.StandardKey = ... # 0x46
-
-    class SequenceFormat(Shiboken.Enum):
+    class SequenceFormat(shibokensupport.enum_310.Enum):
 
         NativeText               : QKeySequence.SequenceFormat = ... # 0x0
         PortableText             : QKeySequence.SequenceFormat = ... # 0x1
 
-    class SequenceMatch(Shiboken.Enum):
+
+    class SequenceMatch(shibokensupport.enum_310.Enum):
 
         NoMatch                  : QKeySequence.SequenceMatch = ... # 0x0
         PartialMatch             : QKeySequence.SequenceMatch = ... # 0x1
         ExactMatch               : QKeySequence.SequenceMatch = ... # 0x2
 
-    class StandardKey(Shiboken.Enum):
+
+    class StandardKey(shibokensupport.enum_310.Enum):
 
         UnknownKey               : QKeySequence.StandardKey = ... # 0x0
         HelpContents             : QKeySequence.StandardKey = ... # 0x1
@@ -3850,7 +3148,7 @@ class QKeySequence(Shiboken.Object):
     @overload
     def __init__(self, k1: int, k2: int = ..., k3: int = ..., k4: int = ...) -> None: ...
     @overload
-    def __init__(self, k1: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifiers, PySide6.QtCore.Qt.Key], k2: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifiers, PySide6.QtCore.Qt.Key] = ..., k3: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifiers, PySide6.QtCore.Qt.Key] = ..., k4: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifiers, PySide6.QtCore.Qt.Key] = ...) -> None: ...
+    def __init__(self, k1: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifier, PySide6.QtCore.Qt.Key], k2: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifier, PySide6.QtCore.Qt.Key] = ..., k3: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifier, PySide6.QtCore.Qt.Key] = ..., k4: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifier, PySide6.QtCore.Qt.Key] = ...) -> None: ...
     @overload
     def __init__(self, key: PySide6.QtGui.QKeySequence.StandardKey) -> None: ...
     @overload
@@ -4100,15 +3398,7 @@ class QMatrix4x3(Shiboken.Object):
 
 class QMatrix4x4(Shiboken.Object):
 
-    Identity                 : QMatrix4x4.Flag = ... # 0x0
-    Translation              : QMatrix4x4.Flag = ... # 0x1
-    Scale                    : QMatrix4x4.Flag = ... # 0x2
-    Rotation2D               : QMatrix4x4.Flag = ... # 0x4
-    Rotation                 : QMatrix4x4.Flag = ... # 0x8
-    Perspective              : QMatrix4x4.Flag = ... # 0x10
-    General                  : QMatrix4x4.Flag = ... # 0x1f
-
-    class Flag(Shiboken.Enum):
+    class Flag(shibokensupport.enum_310.Flag):
 
         Identity                 : QMatrix4x4.Flag = ... # 0x0
         Translation              : QMatrix4x4.Flag = ... # 0x1
@@ -4117,8 +3407,6 @@ class QMatrix4x4(Shiboken.Object):
         Rotation                 : QMatrix4x4.Flag = ... # 0x8
         Perspective              : QMatrix4x4.Flag = ... # 0x10
         General                  : QMatrix4x4.Flag = ... # 0x1f
-
-    class Flags(object): ...
 
 
     @overload
@@ -4155,14 +3443,14 @@ class QMatrix4x4(Shiboken.Object):
     def __rshift__(self, arg__1: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def __sub__(self, m2: Union[PySide6.QtGui.QMatrix4x4, PySide6.QtGui.QTransform]) -> PySide6.QtGui.QMatrix4x4: ...
     def column(self, index: int) -> PySide6.QtGui.QVector4D: ...
-    def copyDataTo(self) -> float: ...
+    def copyDataTo(self) -> Tuple: ...
     def data(self) -> List[float]: ...
     def determinant(self) -> float: ...
     def fill(self, value: float) -> None: ...
-    def flags(self) -> PySide6.QtGui.QMatrix4x4.Flags: ...
+    def flags(self) -> PySide6.QtGui.QMatrix4x4.Flag: ...
     def flipCoordinates(self) -> None: ...
     def frustum(self, left: float, right: float, bottom: float, top: float, nearPlane: float, farPlane: float) -> None: ...
-    def inverted(self) -> Tuple[Tuple, bool]: ...
+    def inverted(self) -> Tuple: ...
     def isAffine(self) -> bool: ...
     def isIdentity(self) -> bool: ...
     def lookAt(self, eye: PySide6.QtGui.QVector3D, center: PySide6.QtGui.QVector3D, up: PySide6.QtGui.QVector3D) -> None: ...
@@ -4229,17 +3517,17 @@ class QMouseEvent(PySide6.QtGui.QSinglePointEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QMouseEvent) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], scenePos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], scenePos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], scenePos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, source: PySide6.QtCore.Qt.MouseEventSource, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], scenePos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, source: PySide6.QtCore.Qt.MouseEventSource, device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     def clone(self) -> PySide6.QtGui.QMouseEvent: ...
-    def flags(self) -> PySide6.QtCore.Qt.MouseEventFlags: ...
+    def flags(self) -> PySide6.QtCore.Qt.MouseEventFlag: ...
     def globalPos(self) -> PySide6.QtCore.QPoint: ...
     def globalX(self) -> int: ...
     def globalY(self) -> int: ...
@@ -4267,18 +3555,13 @@ class QMoveEvent(PySide6.QtCore.QEvent):
 
 class QMovie(PySide6.QtCore.QObject):
 
-    CacheNone                : QMovie.CacheMode = ... # 0x0
-    CacheAll                 : QMovie.CacheMode = ... # 0x1
-    NotRunning               : QMovie.MovieState = ... # 0x0
-    Paused                   : QMovie.MovieState = ... # 0x1
-    Running                  : QMovie.MovieState = ... # 0x2
-
-    class CacheMode(Shiboken.Enum):
+    class CacheMode(shibokensupport.enum_310.Enum):
 
         CacheNone                : QMovie.CacheMode = ... # 0x0
         CacheAll                 : QMovie.CacheMode = ... # 0x1
 
-    class MovieState(Shiboken.Enum):
+
+    class MovieState(shibokensupport.enum_310.Enum):
 
         NotRunning               : QMovie.MovieState = ... # 0x0
         Paused                   : QMovie.MovieState = ... # 0x1
@@ -4358,7 +3641,7 @@ class QOffscreenSurface(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     def requestedFormat(self) -> PySide6.QtGui.QSurfaceFormat: ...
     def resolveInterface(self, name: bytes, revision: int) -> int: ...
     def screen(self) -> PySide6.QtGui.QScreen: ...
-    def setFormat(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOptions]) -> None: ...
+    def setFormat(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption]) -> None: ...
     def setScreen(self, screen: PySide6.QtGui.QScreen) -> None: ...
     def size(self) -> PySide6.QtCore.QSize: ...
     def surfaceHandle(self) -> int: ...
@@ -4367,10 +3650,7 @@ class QOffscreenSurface(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
 
 class QOpenGLContext(PySide6.QtCore.QObject):
 
-    LibGL                    : QOpenGLContext.OpenGLModuleType = ... # 0x0
-    LibGLES                  : QOpenGLContext.OpenGLModuleType = ... # 0x1
-
-    class OpenGLModuleType(Shiboken.Enum):
+    class OpenGLModuleType(shibokensupport.enum_310.Enum):
 
         LibGL                    : QOpenGLContext.OpenGLModuleType = ... # 0x0
         LibGLES                  : QOpenGLContext.OpenGLModuleType = ... # 0x1
@@ -4399,7 +3679,7 @@ class QOpenGLContext(PySide6.QtCore.QObject):
     def openGLModuleType() -> PySide6.QtGui.QOpenGLContext.OpenGLModuleType: ...
     def resolveInterface(self, name: bytes, revision: int) -> int: ...
     def screen(self) -> PySide6.QtGui.QScreen: ...
-    def setFormat(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOptions]) -> None: ...
+    def setFormat(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption]) -> None: ...
     def setScreen(self, screen: PySide6.QtGui.QScreen) -> None: ...
     def setShareContext(self, shareContext: PySide6.QtGui.QOpenGLContext) -> None: ...
     def shareContext(self) -> PySide6.QtGui.QOpenGLContext: ...
@@ -4477,9 +3757,13 @@ class QOpenGLExtraFunctions(PySide6.QtGui.QOpenGLFunctions):
     def glGenVertexArrays(self, n: int, arrays: Sequence[int]) -> None: ...
     def glGetActiveUniformBlockiv(self, program: int, uniformBlockIndex: int, pname: int, params: Sequence[int]) -> None: ...
     def glGetActiveUniformsiv(self, program: int, uniformCount: int, uniformIndices: Sequence[int], pname: int, params: Sequence[int]) -> None: ...
+    def glGetBooleani_v(self, target: int, index: int) -> Union[bool, List[Any]]: ...
     def glGetFragDataLocation(self, program: int, name: bytes) -> int: ...
     def glGetFramebufferParameteriv(self, target: int, pname: int, params: Sequence[int]) -> None: ...
     def glGetGraphicsResetStatus(self) -> int: ...
+    @overload
+    def glGetIntegeri_v(self, arg__1: int, arg__2: int) -> Union[int, List[Any]]: ...
+    @overload
     def glGetIntegeri_v(self, target: int, index: int, data: Sequence[int]) -> None: ...
     def glGetInternalformativ(self, target: int, internalformat: int, pname: int, bufSize: int, params: Sequence[int]) -> None: ...
     def glGetMultisamplefv(self, pname: int, index: int, val: Sequence[float]) -> None: ...
@@ -4609,26 +3893,7 @@ class QOpenGLExtraFunctions(PySide6.QtGui.QOpenGLFunctions):
 
 class QOpenGLFunctions(Shiboken.Object):
 
-    Multitexture             : QOpenGLFunctions.OpenGLFeature = ... # 0x1
-    Shaders                  : QOpenGLFunctions.OpenGLFeature = ... # 0x2
-    Buffers                  : QOpenGLFunctions.OpenGLFeature = ... # 0x4
-    Framebuffers             : QOpenGLFunctions.OpenGLFeature = ... # 0x8
-    BlendColor               : QOpenGLFunctions.OpenGLFeature = ... # 0x10
-    BlendEquation            : QOpenGLFunctions.OpenGLFeature = ... # 0x20
-    BlendEquationSeparate    : QOpenGLFunctions.OpenGLFeature = ... # 0x40
-    BlendFuncSeparate        : QOpenGLFunctions.OpenGLFeature = ... # 0x80
-    BlendSubtract            : QOpenGLFunctions.OpenGLFeature = ... # 0x100
-    CompressedTextures       : QOpenGLFunctions.OpenGLFeature = ... # 0x200
-    Multisample              : QOpenGLFunctions.OpenGLFeature = ... # 0x400
-    StencilSeparate          : QOpenGLFunctions.OpenGLFeature = ... # 0x800
-    NPOTTextures             : QOpenGLFunctions.OpenGLFeature = ... # 0x1000
-    NPOTTextureRepeat        : QOpenGLFunctions.OpenGLFeature = ... # 0x2000
-    FixedFunctionPipeline    : QOpenGLFunctions.OpenGLFeature = ... # 0x4000
-    TextureRGFormats         : QOpenGLFunctions.OpenGLFeature = ... # 0x8000
-    MultipleRenderTargets    : QOpenGLFunctions.OpenGLFeature = ... # 0x10000
-    BlendEquationAdvanced    : QOpenGLFunctions.OpenGLFeature = ... # 0x20000
-
-    class OpenGLFeature(Shiboken.Enum):
+    class OpenGLFeature(shibokensupport.enum_310.Flag):
 
         Multitexture             : QOpenGLFunctions.OpenGLFeature = ... # 0x1
         Shaders                  : QOpenGLFunctions.OpenGLFeature = ... # 0x2
@@ -4648,8 +3913,6 @@ class QOpenGLFunctions(Shiboken.Object):
         TextureRGFormats         : QOpenGLFunctions.OpenGLFeature = ... # 0x8000
         MultipleRenderTargets    : QOpenGLFunctions.OpenGLFeature = ... # 0x10000
         BlendEquationAdvanced    : QOpenGLFunctions.OpenGLFeature = ... # 0x20000
-
-    class OpenGLFeatures(object): ...
 
 
     @overload
@@ -4711,10 +3974,17 @@ class QOpenGLFunctions(Shiboken.Object):
     def glGenerateMipmap(self, target: int) -> None: ...
     def glGetAttachedShaders(self, program: int, maxcount: int, count: Sequence[int], shaders: Sequence[int]) -> None: ...
     def glGetAttribLocation(self, program: int, name: bytes) -> int: ...
+    def glGetBooleanv(self, pname: int) -> Union[bool, List[Any]]: ...
     def glGetBufferParameteriv(self, target: int, pname: int, params: Sequence[int]) -> None: ...
     def glGetError(self) -> int: ...
+    @overload
+    def glGetFloatv(self, arg__1: int) -> Union[float, List[Any]]: ...
+    @overload
     def glGetFloatv(self, pname: int, params: Sequence[float]) -> None: ...
     def glGetFramebufferAttachmentParameteriv(self, target: int, attachment: int, pname: int, params: Sequence[int]) -> None: ...
+    @overload
+    def glGetIntegerv(self, arg__1: int) -> Union[int, List[Any]]: ...
+    @overload
     def glGetIntegerv(self, pname: int, params: Sequence[int]) -> None: ...
     def glGetProgramiv(self, program: int, pname: int, params: Sequence[int]) -> None: ...
     def glGetRenderbufferParameteriv(self, target: int, pname: int, params: Sequence[int]) -> None: ...
@@ -4793,7 +4063,7 @@ class QOpenGLFunctions(Shiboken.Object):
     def glViewport(self, x: int, y: int, width: int, height: int) -> None: ...
     def hasOpenGLFeature(self, feature: PySide6.QtGui.QOpenGLFunctions.OpenGLFeature) -> bool: ...
     def initializeOpenGLFunctions(self) -> None: ...
-    def openGLFeatures(self) -> PySide6.QtGui.QOpenGLFunctions.OpenGLFeatures: ...
+    def openGLFeatures(self) -> PySide6.QtGui.QOpenGLFunctions.OpenGLFeature: ...
 
 
 class QOverrideCursorGuard(Shiboken.Object):
@@ -4807,28 +4077,19 @@ class QOverrideCursorGuard(Shiboken.Object):
 
 class QPageLayout(Shiboken.Object):
 
-    StandardMode             : QPageLayout.Mode = ... # 0x0
-    FullPageMode             : QPageLayout.Mode = ... # 0x1
-    Portrait                 : QPageLayout.Orientation = ... # 0x0
-    Landscape                : QPageLayout.Orientation = ... # 0x1
-    Millimeter               : QPageLayout.Unit = ... # 0x0
-    Point                    : QPageLayout.Unit = ... # 0x1
-    Inch                     : QPageLayout.Unit = ... # 0x2
-    Pica                     : QPageLayout.Unit = ... # 0x3
-    Didot                    : QPageLayout.Unit = ... # 0x4
-    Cicero                   : QPageLayout.Unit = ... # 0x5
-
-    class Mode(Shiboken.Enum):
+    class Mode(shibokensupport.enum_310.Enum):
 
         StandardMode             : QPageLayout.Mode = ... # 0x0
         FullPageMode             : QPageLayout.Mode = ... # 0x1
 
-    class Orientation(Shiboken.Enum):
+
+    class Orientation(shibokensupport.enum_310.Enum):
 
         Portrait                 : QPageLayout.Orientation = ... # 0x0
         Landscape                : QPageLayout.Orientation = ... # 0x1
 
-    class Unit(Shiboken.Enum):
+
+    class Unit(shibokensupport.enum_310.Enum):
 
         Millimeter               : QPageLayout.Unit = ... # 0x0
         Point                    : QPageLayout.Unit = ... # 0x1
@@ -4925,142 +4186,7 @@ class QPageRanges(Shiboken.Object):
 
 class QPageSize(Shiboken.Object):
 
-    AnsiA                    : QPageSize.PageSizeId = ... # 0x0
-    Letter                   : QPageSize.PageSizeId = ... # 0x0
-    Legal                    : QPageSize.PageSizeId = ... # 0x1
-    Executive                : QPageSize.PageSizeId = ... # 0x2
-    A0                       : QPageSize.PageSizeId = ... # 0x3
-    A1                       : QPageSize.PageSizeId = ... # 0x4
-    A2                       : QPageSize.PageSizeId = ... # 0x5
-    A3                       : QPageSize.PageSizeId = ... # 0x6
-    A4                       : QPageSize.PageSizeId = ... # 0x7
-    A5                       : QPageSize.PageSizeId = ... # 0x8
-    A6                       : QPageSize.PageSizeId = ... # 0x9
-    A7                       : QPageSize.PageSizeId = ... # 0xa
-    A8                       : QPageSize.PageSizeId = ... # 0xb
-    A9                       : QPageSize.PageSizeId = ... # 0xc
-    A10                      : QPageSize.PageSizeId = ... # 0xd
-    B0                       : QPageSize.PageSizeId = ... # 0xe
-    B1                       : QPageSize.PageSizeId = ... # 0xf
-    B2                       : QPageSize.PageSizeId = ... # 0x10
-    B3                       : QPageSize.PageSizeId = ... # 0x11
-    B4                       : QPageSize.PageSizeId = ... # 0x12
-    B5                       : QPageSize.PageSizeId = ... # 0x13
-    B6                       : QPageSize.PageSizeId = ... # 0x14
-    B7                       : QPageSize.PageSizeId = ... # 0x15
-    B8                       : QPageSize.PageSizeId = ... # 0x16
-    B9                       : QPageSize.PageSizeId = ... # 0x17
-    B10                      : QPageSize.PageSizeId = ... # 0x18
-    C5E                      : QPageSize.PageSizeId = ... # 0x19
-    EnvelopeC5               : QPageSize.PageSizeId = ... # 0x19
-    Comm10E                  : QPageSize.PageSizeId = ... # 0x1a
-    Envelope10               : QPageSize.PageSizeId = ... # 0x1a
-    DLE                      : QPageSize.PageSizeId = ... # 0x1b
-    EnvelopeDL               : QPageSize.PageSizeId = ... # 0x1b
-    Folio                    : QPageSize.PageSizeId = ... # 0x1c
-    AnsiB                    : QPageSize.PageSizeId = ... # 0x1d
-    Ledger                   : QPageSize.PageSizeId = ... # 0x1d
-    Tabloid                  : QPageSize.PageSizeId = ... # 0x1e
-    Custom                   : QPageSize.PageSizeId = ... # 0x1f
-    A3Extra                  : QPageSize.PageSizeId = ... # 0x20
-    A4Extra                  : QPageSize.PageSizeId = ... # 0x21
-    A4Plus                   : QPageSize.PageSizeId = ... # 0x22
-    A4Small                  : QPageSize.PageSizeId = ... # 0x23
-    A5Extra                  : QPageSize.PageSizeId = ... # 0x24
-    B5Extra                  : QPageSize.PageSizeId = ... # 0x25
-    JisB0                    : QPageSize.PageSizeId = ... # 0x26
-    JisB1                    : QPageSize.PageSizeId = ... # 0x27
-    JisB2                    : QPageSize.PageSizeId = ... # 0x28
-    JisB3                    : QPageSize.PageSizeId = ... # 0x29
-    JisB4                    : QPageSize.PageSizeId = ... # 0x2a
-    JisB5                    : QPageSize.PageSizeId = ... # 0x2b
-    JisB6                    : QPageSize.PageSizeId = ... # 0x2c
-    JisB7                    : QPageSize.PageSizeId = ... # 0x2d
-    JisB8                    : QPageSize.PageSizeId = ... # 0x2e
-    JisB9                    : QPageSize.PageSizeId = ... # 0x2f
-    JisB10                   : QPageSize.PageSizeId = ... # 0x30
-    AnsiC                    : QPageSize.PageSizeId = ... # 0x31
-    AnsiD                    : QPageSize.PageSizeId = ... # 0x32
-    AnsiE                    : QPageSize.PageSizeId = ... # 0x33
-    LegalExtra               : QPageSize.PageSizeId = ... # 0x34
-    LetterExtra              : QPageSize.PageSizeId = ... # 0x35
-    LetterPlus               : QPageSize.PageSizeId = ... # 0x36
-    LetterSmall              : QPageSize.PageSizeId = ... # 0x37
-    TabloidExtra             : QPageSize.PageSizeId = ... # 0x38
-    ArchA                    : QPageSize.PageSizeId = ... # 0x39
-    ArchB                    : QPageSize.PageSizeId = ... # 0x3a
-    ArchC                    : QPageSize.PageSizeId = ... # 0x3b
-    ArchD                    : QPageSize.PageSizeId = ... # 0x3c
-    ArchE                    : QPageSize.PageSizeId = ... # 0x3d
-    Imperial7x9              : QPageSize.PageSizeId = ... # 0x3e
-    Imperial8x10             : QPageSize.PageSizeId = ... # 0x3f
-    Imperial9x11             : QPageSize.PageSizeId = ... # 0x40
-    Imperial9x12             : QPageSize.PageSizeId = ... # 0x41
-    Imperial10x11            : QPageSize.PageSizeId = ... # 0x42
-    Imperial10x13            : QPageSize.PageSizeId = ... # 0x43
-    Imperial10x14            : QPageSize.PageSizeId = ... # 0x44
-    Imperial12x11            : QPageSize.PageSizeId = ... # 0x45
-    Imperial15x11            : QPageSize.PageSizeId = ... # 0x46
-    ExecutiveStandard        : QPageSize.PageSizeId = ... # 0x47
-    Note                     : QPageSize.PageSizeId = ... # 0x48
-    Quarto                   : QPageSize.PageSizeId = ... # 0x49
-    Statement                : QPageSize.PageSizeId = ... # 0x4a
-    SuperA                   : QPageSize.PageSizeId = ... # 0x4b
-    SuperB                   : QPageSize.PageSizeId = ... # 0x4c
-    Postcard                 : QPageSize.PageSizeId = ... # 0x4d
-    DoublePostcard           : QPageSize.PageSizeId = ... # 0x4e
-    Prc16K                   : QPageSize.PageSizeId = ... # 0x4f
-    Prc32K                   : QPageSize.PageSizeId = ... # 0x50
-    Prc32KBig                : QPageSize.PageSizeId = ... # 0x51
-    FanFoldUS                : QPageSize.PageSizeId = ... # 0x52
-    FanFoldGerman            : QPageSize.PageSizeId = ... # 0x53
-    FanFoldGermanLegal       : QPageSize.PageSizeId = ... # 0x54
-    EnvelopeB4               : QPageSize.PageSizeId = ... # 0x55
-    EnvelopeB5               : QPageSize.PageSizeId = ... # 0x56
-    EnvelopeB6               : QPageSize.PageSizeId = ... # 0x57
-    EnvelopeC0               : QPageSize.PageSizeId = ... # 0x58
-    EnvelopeC1               : QPageSize.PageSizeId = ... # 0x59
-    EnvelopeC2               : QPageSize.PageSizeId = ... # 0x5a
-    EnvelopeC3               : QPageSize.PageSizeId = ... # 0x5b
-    EnvelopeC4               : QPageSize.PageSizeId = ... # 0x5c
-    EnvelopeC6               : QPageSize.PageSizeId = ... # 0x5d
-    EnvelopeC65              : QPageSize.PageSizeId = ... # 0x5e
-    EnvelopeC7               : QPageSize.PageSizeId = ... # 0x5f
-    Envelope9                : QPageSize.PageSizeId = ... # 0x60
-    Envelope11               : QPageSize.PageSizeId = ... # 0x61
-    Envelope12               : QPageSize.PageSizeId = ... # 0x62
-    Envelope14               : QPageSize.PageSizeId = ... # 0x63
-    EnvelopeMonarch          : QPageSize.PageSizeId = ... # 0x64
-    EnvelopePersonal         : QPageSize.PageSizeId = ... # 0x65
-    EnvelopeChou3            : QPageSize.PageSizeId = ... # 0x66
-    EnvelopeChou4            : QPageSize.PageSizeId = ... # 0x67
-    EnvelopeInvite           : QPageSize.PageSizeId = ... # 0x68
-    EnvelopeItalian          : QPageSize.PageSizeId = ... # 0x69
-    EnvelopeKaku2            : QPageSize.PageSizeId = ... # 0x6a
-    EnvelopeKaku3            : QPageSize.PageSizeId = ... # 0x6b
-    EnvelopePrc1             : QPageSize.PageSizeId = ... # 0x6c
-    EnvelopePrc2             : QPageSize.PageSizeId = ... # 0x6d
-    EnvelopePrc3             : QPageSize.PageSizeId = ... # 0x6e
-    EnvelopePrc4             : QPageSize.PageSizeId = ... # 0x6f
-    EnvelopePrc5             : QPageSize.PageSizeId = ... # 0x70
-    EnvelopePrc6             : QPageSize.PageSizeId = ... # 0x71
-    EnvelopePrc7             : QPageSize.PageSizeId = ... # 0x72
-    EnvelopePrc8             : QPageSize.PageSizeId = ... # 0x73
-    EnvelopePrc9             : QPageSize.PageSizeId = ... # 0x74
-    EnvelopePrc10            : QPageSize.PageSizeId = ... # 0x75
-    EnvelopeYou4             : QPageSize.PageSizeId = ... # 0x76
-    LastPageSize             : QPageSize.PageSizeId = ... # 0x76
-    FuzzyMatch               : QPageSize.SizeMatchPolicy = ... # 0x0
-    FuzzyOrientationMatch    : QPageSize.SizeMatchPolicy = ... # 0x1
-    ExactMatch               : QPageSize.SizeMatchPolicy = ... # 0x2
-    Millimeter               : QPageSize.Unit = ... # 0x0
-    Point                    : QPageSize.Unit = ... # 0x1
-    Inch                     : QPageSize.Unit = ... # 0x2
-    Pica                     : QPageSize.Unit = ... # 0x3
-    Didot                    : QPageSize.Unit = ... # 0x4
-    Cicero                   : QPageSize.Unit = ... # 0x5
-
-    class PageSizeId(Shiboken.Enum):
+    class PageSizeId(shibokensupport.enum_310.Enum):
 
         AnsiA                    : QPageSize.PageSizeId = ... # 0x0
         Letter                   : QPageSize.PageSizeId = ... # 0x0
@@ -5188,13 +4314,15 @@ class QPageSize(Shiboken.Object):
         EnvelopeYou4             : QPageSize.PageSizeId = ... # 0x76
         LastPageSize             : QPageSize.PageSizeId = ... # 0x76
 
-    class SizeMatchPolicy(Shiboken.Enum):
+
+    class SizeMatchPolicy(shibokensupport.enum_310.Enum):
 
         FuzzyMatch               : QPageSize.SizeMatchPolicy = ... # 0x0
         FuzzyOrientationMatch    : QPageSize.SizeMatchPolicy = ... # 0x1
         ExactMatch               : QPageSize.SizeMatchPolicy = ... # 0x2
 
-    class Unit(Shiboken.Enum):
+
+    class Unit(shibokensupport.enum_310.Enum):
 
         Millimeter               : QPageSize.Unit = ... # 0x0
         Point                    : QPageSize.Unit = ... # 0x1
@@ -5278,11 +4406,7 @@ class QPageSize(Shiboken.Object):
 
 class QPagedPaintDevice(PySide6.QtGui.QPaintDevice):
 
-    PdfVersion_1_4           : QPagedPaintDevice.PdfVersion = ... # 0x0
-    PdfVersion_A1b           : QPagedPaintDevice.PdfVersion = ... # 0x1
-    PdfVersion_1_6           : QPagedPaintDevice.PdfVersion = ... # 0x2
-
-    class PdfVersion(Shiboken.Enum):
+    class PdfVersion(shibokensupport.enum_310.Enum):
 
         PdfVersion_1_4           : QPagedPaintDevice.PdfVersion = ... # 0x0
         PdfVersion_A1b           : QPagedPaintDevice.PdfVersion = ... # 0x1
@@ -5301,20 +4425,7 @@ class QPagedPaintDevice(PySide6.QtGui.QPaintDevice):
 
 class QPaintDevice(Shiboken.Object):
 
-    PdmWidth                 : QPaintDevice.PaintDeviceMetric = ... # 0x1
-    PdmHeight                : QPaintDevice.PaintDeviceMetric = ... # 0x2
-    PdmWidthMM               : QPaintDevice.PaintDeviceMetric = ... # 0x3
-    PdmHeightMM              : QPaintDevice.PaintDeviceMetric = ... # 0x4
-    PdmNumColors             : QPaintDevice.PaintDeviceMetric = ... # 0x5
-    PdmDepth                 : QPaintDevice.PaintDeviceMetric = ... # 0x6
-    PdmDpiX                  : QPaintDevice.PaintDeviceMetric = ... # 0x7
-    PdmDpiY                  : QPaintDevice.PaintDeviceMetric = ... # 0x8
-    PdmPhysicalDpiX          : QPaintDevice.PaintDeviceMetric = ... # 0x9
-    PdmPhysicalDpiY          : QPaintDevice.PaintDeviceMetric = ... # 0xa
-    PdmDevicePixelRatio      : QPaintDevice.PaintDeviceMetric = ... # 0xb
-    PdmDevicePixelRatioScaled: QPaintDevice.PaintDeviceMetric = ... # 0xc
-
-    class PaintDeviceMetric(Shiboken.Enum):
+    class PaintDeviceMetric(shibokensupport.enum_310.Enum):
 
         PdmWidth                 : QPaintDevice.PaintDeviceMetric = ... # 0x1
         PdmHeight                : QPaintDevice.PaintDeviceMetric = ... # 0x2
@@ -5371,65 +4482,7 @@ class QPaintDeviceWindow(PySide6.QtGui.QWindow, PySide6.QtGui.QPaintDevice):
 
 class QPaintEngine(Shiboken.Object):
 
-    DirtyPen                 : QPaintEngine.DirtyFlag = ... # 0x1
-    DirtyBrush               : QPaintEngine.DirtyFlag = ... # 0x2
-    DirtyBrushOrigin         : QPaintEngine.DirtyFlag = ... # 0x4
-    DirtyFont                : QPaintEngine.DirtyFlag = ... # 0x8
-    DirtyBackground          : QPaintEngine.DirtyFlag = ... # 0x10
-    DirtyBackgroundMode      : QPaintEngine.DirtyFlag = ... # 0x20
-    DirtyTransform           : QPaintEngine.DirtyFlag = ... # 0x40
-    DirtyClipRegion          : QPaintEngine.DirtyFlag = ... # 0x80
-    DirtyClipPath            : QPaintEngine.DirtyFlag = ... # 0x100
-    DirtyHints               : QPaintEngine.DirtyFlag = ... # 0x200
-    DirtyCompositionMode     : QPaintEngine.DirtyFlag = ... # 0x400
-    DirtyClipEnabled         : QPaintEngine.DirtyFlag = ... # 0x800
-    DirtyOpacity             : QPaintEngine.DirtyFlag = ... # 0x1000
-    AllDirty                 : QPaintEngine.DirtyFlag = ... # 0xffff
-    AllFeatures              : QPaintEngine.PaintEngineFeature = ... # -0x1
-    PrimitiveTransform       : QPaintEngine.PaintEngineFeature = ... # 0x1
-    PatternTransform         : QPaintEngine.PaintEngineFeature = ... # 0x2
-    PixmapTransform          : QPaintEngine.PaintEngineFeature = ... # 0x4
-    PatternBrush             : QPaintEngine.PaintEngineFeature = ... # 0x8
-    LinearGradientFill       : QPaintEngine.PaintEngineFeature = ... # 0x10
-    RadialGradientFill       : QPaintEngine.PaintEngineFeature = ... # 0x20
-    ConicalGradientFill      : QPaintEngine.PaintEngineFeature = ... # 0x40
-    AlphaBlend               : QPaintEngine.PaintEngineFeature = ... # 0x80
-    PorterDuff               : QPaintEngine.PaintEngineFeature = ... # 0x100
-    PainterPaths             : QPaintEngine.PaintEngineFeature = ... # 0x200
-    Antialiasing             : QPaintEngine.PaintEngineFeature = ... # 0x400
-    BrushStroke              : QPaintEngine.PaintEngineFeature = ... # 0x800
-    ConstantOpacity          : QPaintEngine.PaintEngineFeature = ... # 0x1000
-    MaskedBrush              : QPaintEngine.PaintEngineFeature = ... # 0x2000
-    PerspectiveTransform     : QPaintEngine.PaintEngineFeature = ... # 0x4000
-    BlendModes               : QPaintEngine.PaintEngineFeature = ... # 0x8000
-    ObjectBoundingModeGradients: QPaintEngine.PaintEngineFeature = ... # 0x10000
-    RasterOpModes            : QPaintEngine.PaintEngineFeature = ... # 0x20000
-    PaintOutsidePaintEvent   : QPaintEngine.PaintEngineFeature = ... # 0x20000000
-    OddEvenMode              : QPaintEngine.PolygonDrawMode = ... # 0x0
-    WindingMode              : QPaintEngine.PolygonDrawMode = ... # 0x1
-    ConvexMode               : QPaintEngine.PolygonDrawMode = ... # 0x2
-    PolylineMode             : QPaintEngine.PolygonDrawMode = ... # 0x3
-    X11                      : QPaintEngine.Type = ... # 0x0
-    Windows                  : QPaintEngine.Type = ... # 0x1
-    QuickDraw                : QPaintEngine.Type = ... # 0x2
-    CoreGraphics             : QPaintEngine.Type = ... # 0x3
-    MacPrinter               : QPaintEngine.Type = ... # 0x4
-    QWindowSystem            : QPaintEngine.Type = ... # 0x5
-    OpenGL                   : QPaintEngine.Type = ... # 0x6
-    Picture                  : QPaintEngine.Type = ... # 0x7
-    SVG                      : QPaintEngine.Type = ... # 0x8
-    Raster                   : QPaintEngine.Type = ... # 0x9
-    Direct3D                 : QPaintEngine.Type = ... # 0xa
-    Pdf                      : QPaintEngine.Type = ... # 0xb
-    OpenVG                   : QPaintEngine.Type = ... # 0xc
-    OpenGL2                  : QPaintEngine.Type = ... # 0xd
-    PaintBuffer              : QPaintEngine.Type = ... # 0xe
-    Blitter                  : QPaintEngine.Type = ... # 0xf
-    Direct2D                 : QPaintEngine.Type = ... # 0x10
-    User                     : QPaintEngine.Type = ... # 0x32
-    MaxUser                  : QPaintEngine.Type = ... # 0x64
-
-    class DirtyFlag(Shiboken.Enum):
+    class DirtyFlag(shibokensupport.enum_310.Flag):
 
         DirtyPen                 : QPaintEngine.DirtyFlag = ... # 0x1
         DirtyBrush               : QPaintEngine.DirtyFlag = ... # 0x2
@@ -5446,9 +4499,8 @@ class QPaintEngine(Shiboken.Object):
         DirtyOpacity             : QPaintEngine.DirtyFlag = ... # 0x1000
         AllDirty                 : QPaintEngine.DirtyFlag = ... # 0xffff
 
-    class DirtyFlags(object): ...
 
-    class PaintEngineFeature(Shiboken.Enum):
+    class PaintEngineFeature(shibokensupport.enum_310.Flag):
 
         AllFeatures              : QPaintEngine.PaintEngineFeature = ... # -0x1
         PrimitiveTransform       : QPaintEngine.PaintEngineFeature = ... # 0x1
@@ -5471,16 +4523,16 @@ class QPaintEngine(Shiboken.Object):
         RasterOpModes            : QPaintEngine.PaintEngineFeature = ... # 0x20000
         PaintOutsidePaintEvent   : QPaintEngine.PaintEngineFeature = ... # 0x20000000
 
-    class PaintEngineFeatures(object): ...
 
-    class PolygonDrawMode(Shiboken.Enum):
+    class PolygonDrawMode(shibokensupport.enum_310.Enum):
 
         OddEvenMode              : QPaintEngine.PolygonDrawMode = ... # 0x0
         WindingMode              : QPaintEngine.PolygonDrawMode = ... # 0x1
         ConvexMode               : QPaintEngine.PolygonDrawMode = ... # 0x2
         PolylineMode             : QPaintEngine.PolygonDrawMode = ... # 0x3
 
-    class Type(Shiboken.Enum):
+
+    class Type(shibokensupport.enum_310.Enum):
 
         X11                      : QPaintEngine.Type = ... # 0x0
         Windows                  : QPaintEngine.Type = ... # 0x1
@@ -5503,18 +4555,18 @@ class QPaintEngine(Shiboken.Object):
         MaxUser                  : QPaintEngine.Type = ... # 0x64
 
 
-    def __init__(self, features: PySide6.QtGui.QPaintEngine.PaintEngineFeatures = ...) -> None: ...
+    def __init__(self, features: PySide6.QtGui.QPaintEngine.PaintEngineFeature = ...) -> None: ...
 
     def begin(self, pdev: PySide6.QtGui.QPaintDevice) -> bool: ...
-    def clearDirty(self, df: PySide6.QtGui.QPaintEngine.DirtyFlags) -> None: ...
+    def clearDirty(self, df: PySide6.QtGui.QPaintEngine.DirtyFlag) -> None: ...
     def coordinateOffset(self) -> PySide6.QtCore.QPoint: ...
     def createPixmap(self, size: PySide6.QtCore.QSize) -> PySide6.QtGui.QPixmap: ...
-    def createPixmapFromImage(self, image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QPixmap: ...
+    def createPixmapFromImage(self, image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QPixmap: ...
     @overload
     def drawEllipse(self, r: PySide6.QtCore.QRect) -> None: ...
     @overload
     def drawEllipse(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> None: ...
-    def drawImage(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], pm: Union[PySide6.QtGui.QImage, str], sr: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def drawImage(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], pm: Union[PySide6.QtGui.QImage, str], sr: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     @overload
     def drawLines(self, lines: PySide6.QtCore.QLine, lineCount: int) -> None: ...
     @overload
@@ -5536,19 +4588,19 @@ class QPaintEngine(Shiboken.Object):
     def drawTextItem(self, p: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], textItem: PySide6.QtGui.QTextItem) -> None: ...
     def drawTiledPixmap(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], pixmap: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str], s: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element]) -> None: ...
     def end(self) -> bool: ...
-    def hasFeature(self, feature: PySide6.QtGui.QPaintEngine.PaintEngineFeatures) -> bool: ...
+    def hasFeature(self, feature: PySide6.QtGui.QPaintEngine.PaintEngineFeature) -> bool: ...
     def isActive(self) -> bool: ...
     def isExtended(self) -> bool: ...
     def paintDevice(self) -> PySide6.QtGui.QPaintDevice: ...
     def painter(self) -> PySide6.QtGui.QPainter: ...
     def setActive(self, newState: bool) -> None: ...
-    def setDirty(self, df: PySide6.QtGui.QPaintEngine.DirtyFlags) -> None: ...
+    def setDirty(self, df: PySide6.QtGui.QPaintEngine.DirtyFlag) -> None: ...
     def setSystemClip(self, baseClip: Union[PySide6.QtGui.QRegion, PySide6.QtGui.QBitmap, PySide6.QtGui.QPolygon, PySide6.QtCore.QRect]) -> None: ...
     def setSystemRect(self, rect: PySide6.QtCore.QRect) -> None: ...
     def syncState(self) -> None: ...
     def systemClip(self) -> PySide6.QtGui.QRegion: ...
     def systemRect(self) -> PySide6.QtCore.QRect: ...
-    def testDirty(self, df: PySide6.QtGui.QPaintEngine.DirtyFlags) -> bool: ...
+    def testDirty(self, df: PySide6.QtGui.QPaintEngine.DirtyFlag) -> bool: ...
     def type(self) -> PySide6.QtGui.QPaintEngine.Type: ...
     def updateState(self, state: PySide6.QtGui.QPaintEngineState) -> None: ...
 
@@ -5572,8 +4624,8 @@ class QPaintEngineState(Shiboken.Object):
     def painter(self) -> PySide6.QtGui.QPainter: ...
     def pen(self) -> PySide6.QtGui.QPen: ...
     def penNeedsResolving(self) -> bool: ...
-    def renderHints(self) -> PySide6.QtGui.QPainter.RenderHints: ...
-    def state(self) -> PySide6.QtGui.QPaintEngine.DirtyFlags: ...
+    def renderHints(self) -> PySide6.QtGui.QPainter.RenderHint: ...
+    def state(self) -> PySide6.QtGui.QPaintEngine.DirtyFlag: ...
     def transform(self) -> PySide6.QtGui.QTransform: ...
 
 
@@ -5593,52 +4645,7 @@ class QPaintEvent(PySide6.QtCore.QEvent):
 
 class QPainter(Shiboken.Object):
 
-    CompositionMode_SourceOver: QPainter.CompositionMode = ... # 0x0
-    CompositionMode_DestinationOver: QPainter.CompositionMode = ... # 0x1
-    CompositionMode_Clear    : QPainter.CompositionMode = ... # 0x2
-    CompositionMode_Source   : QPainter.CompositionMode = ... # 0x3
-    CompositionMode_Destination: QPainter.CompositionMode = ... # 0x4
-    CompositionMode_SourceIn : QPainter.CompositionMode = ... # 0x5
-    CompositionMode_DestinationIn: QPainter.CompositionMode = ... # 0x6
-    CompositionMode_SourceOut: QPainter.CompositionMode = ... # 0x7
-    CompositionMode_DestinationOut: QPainter.CompositionMode = ... # 0x8
-    CompositionMode_SourceAtop: QPainter.CompositionMode = ... # 0x9
-    CompositionMode_DestinationAtop: QPainter.CompositionMode = ... # 0xa
-    CompositionMode_Xor      : QPainter.CompositionMode = ... # 0xb
-    CompositionMode_Plus     : QPainter.CompositionMode = ... # 0xc
-    CompositionMode_Multiply : QPainter.CompositionMode = ... # 0xd
-    CompositionMode_Screen   : QPainter.CompositionMode = ... # 0xe
-    CompositionMode_Overlay  : QPainter.CompositionMode = ... # 0xf
-    CompositionMode_Darken   : QPainter.CompositionMode = ... # 0x10
-    CompositionMode_Lighten  : QPainter.CompositionMode = ... # 0x11
-    CompositionMode_ColorDodge: QPainter.CompositionMode = ... # 0x12
-    CompositionMode_ColorBurn: QPainter.CompositionMode = ... # 0x13
-    CompositionMode_HardLight: QPainter.CompositionMode = ... # 0x14
-    CompositionMode_SoftLight: QPainter.CompositionMode = ... # 0x15
-    CompositionMode_Difference: QPainter.CompositionMode = ... # 0x16
-    CompositionMode_Exclusion: QPainter.CompositionMode = ... # 0x17
-    RasterOp_SourceOrDestination: QPainter.CompositionMode = ... # 0x18
-    RasterOp_SourceAndDestination: QPainter.CompositionMode = ... # 0x19
-    RasterOp_SourceXorDestination: QPainter.CompositionMode = ... # 0x1a
-    RasterOp_NotSourceAndNotDestination: QPainter.CompositionMode = ... # 0x1b
-    RasterOp_NotSourceOrNotDestination: QPainter.CompositionMode = ... # 0x1c
-    RasterOp_NotSourceXorDestination: QPainter.CompositionMode = ... # 0x1d
-    RasterOp_NotSource       : QPainter.CompositionMode = ... # 0x1e
-    RasterOp_NotSourceAndDestination: QPainter.CompositionMode = ... # 0x1f
-    RasterOp_SourceAndNotDestination: QPainter.CompositionMode = ... # 0x20
-    RasterOp_NotSourceOrDestination: QPainter.CompositionMode = ... # 0x21
-    RasterOp_SourceOrNotDestination: QPainter.CompositionMode = ... # 0x22
-    RasterOp_ClearDestination: QPainter.CompositionMode = ... # 0x23
-    RasterOp_SetDestination  : QPainter.CompositionMode = ... # 0x24
-    RasterOp_NotDestination  : QPainter.CompositionMode = ... # 0x25
-    OpaqueHint               : QPainter.PixmapFragmentHint = ... # 0x1
-    Antialiasing             : QPainter.RenderHint = ... # 0x1
-    TextAntialiasing         : QPainter.RenderHint = ... # 0x2
-    SmoothPixmapTransform    : QPainter.RenderHint = ... # 0x4
-    VerticalSubpixelPositioning: QPainter.RenderHint = ... # 0x8
-    LosslessImageRendering   : QPainter.RenderHint = ... # 0x40
-
-    class CompositionMode(Shiboken.Enum):
+    class CompositionMode(shibokensupport.enum_310.Enum):
 
         CompositionMode_SourceOver: QPainter.CompositionMode = ... # 0x0
         CompositionMode_DestinationOver: QPainter.CompositionMode = ... # 0x1
@@ -5679,6 +4686,7 @@ class QPainter(Shiboken.Object):
         RasterOp_SetDestination  : QPainter.CompositionMode = ... # 0x24
         RasterOp_NotDestination  : QPainter.CompositionMode = ... # 0x25
 
+
     class PixmapFragment(Shiboken.Object):
 
         @overload
@@ -5691,21 +4699,19 @@ class QPainter(Shiboken.Object):
         @staticmethod
         def create(pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], sourceRect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], scaleX: float = ..., scaleY: float = ..., rotation: float = ..., opacity: float = ...) -> PySide6.QtGui.QPainter.PixmapFragment: ...
 
-    class PixmapFragmentHint(Shiboken.Enum):
+    class PixmapFragmentHint(shibokensupport.enum_310.Flag):
 
         OpaqueHint               : QPainter.PixmapFragmentHint = ... # 0x1
 
-    class PixmapFragmentHints(object): ...
 
-    class RenderHint(Shiboken.Enum):
+    class RenderHint(shibokensupport.enum_310.Flag):
 
         Antialiasing             : QPainter.RenderHint = ... # 0x1
         TextAntialiasing         : QPainter.RenderHint = ... # 0x2
         SmoothPixmapTransform    : QPainter.RenderHint = ... # 0x4
         VerticalSubpixelPositioning: QPainter.RenderHint = ... # 0x8
         LosslessImageRendering   : QPainter.RenderHint = ... # 0x40
-
-    class RenderHints(object): ...
+        NonCosmeticBrushPatterns : QPainter.RenderHint = ... # 0x80
 
 
     @overload
@@ -5724,7 +4730,7 @@ class QPainter(Shiboken.Object):
     @overload
     def boundingRect(self, rect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: int, text: str) -> PySide6.QtCore.QRectF: ...
     @overload
-    def boundingRect(self, rect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], text: str, o: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment] = ...) -> PySide6.QtCore.QRectF: ...
+    def boundingRect(self, rect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], text: str, o: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag] = ...) -> PySide6.QtCore.QRectF: ...
     @overload
     def boundingRect(self, x: int, y: int, w: int, h: int, flags: int, text: str) -> PySide6.QtCore.QRect: ...
     def brush(self) -> PySide6.QtGui.QBrush: ...
@@ -5770,21 +4776,21 @@ class QPainter(Shiboken.Object):
     @overload
     def drawImage(self, p: PySide6.QtCore.QPoint, image: Union[PySide6.QtGui.QImage, str]) -> None: ...
     @overload
-    def drawImage(self, p: PySide6.QtCore.QPoint, image: Union[PySide6.QtGui.QImage, str], sr: PySide6.QtCore.QRect, flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def drawImage(self, p: PySide6.QtCore.QPoint, image: Union[PySide6.QtGui.QImage, str], sr: PySide6.QtCore.QRect, flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     @overload
     def drawImage(self, p: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], image: Union[PySide6.QtGui.QImage, str]) -> None: ...
     @overload
-    def drawImage(self, p: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], image: Union[PySide6.QtGui.QImage, str], sr: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def drawImage(self, p: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], image: Union[PySide6.QtGui.QImage, str], sr: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     @overload
     def drawImage(self, r: PySide6.QtCore.QRect, image: Union[PySide6.QtGui.QImage, str]) -> None: ...
     @overload
     def drawImage(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], image: Union[PySide6.QtGui.QImage, str]) -> None: ...
     @overload
-    def drawImage(self, targetRect: PySide6.QtCore.QRect, image: Union[PySide6.QtGui.QImage, str], sourceRect: PySide6.QtCore.QRect, flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def drawImage(self, targetRect: PySide6.QtCore.QRect, image: Union[PySide6.QtGui.QImage, str], sourceRect: PySide6.QtCore.QRect, flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     @overload
-    def drawImage(self, targetRect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], image: Union[PySide6.QtGui.QImage, str], sourceRect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def drawImage(self, targetRect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], image: Union[PySide6.QtGui.QImage, str], sourceRect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     @overload
-    def drawImage(self, x: int, y: int, image: Union[PySide6.QtGui.QImage, str], sx: int = ..., sy: int = ..., sw: int = ..., sh: int = ..., flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def drawImage(self, x: int, y: int, image: Union[PySide6.QtGui.QImage, str], sx: int = ..., sy: int = ..., sw: int = ..., sh: int = ..., flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     @overload
     def drawLine(self, line: PySide6.QtCore.QLine) -> None: ...
     @overload
@@ -5838,7 +4844,7 @@ class QPainter(Shiboken.Object):
     def drawPixmap(self, x: int, y: int, w: int, h: int, pm: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str]) -> None: ...
     @overload
     def drawPixmap(self, x: int, y: int, w: int, h: int, pm: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str], sx: int, sy: int, sw: int, sh: int) -> None: ...
-    def drawPixmapFragments(self, fragments: PySide6.QtGui.QPainter.PixmapFragment, fragmentCount: int, pixmap: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str], hints: PySide6.QtGui.QPainter.PixmapFragmentHints = ...) -> None: ...
+    def drawPixmapFragments(self, fragments: PySide6.QtGui.QPainter.PixmapFragment, fragmentCount: int, pixmap: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str], hints: PySide6.QtGui.QPainter.PixmapFragmentHint = ...) -> None: ...
     @overload
     def drawPoint(self, p: PySide6.QtCore.QPoint) -> None: ...
     @overload
@@ -5897,15 +4903,15 @@ class QPainter(Shiboken.Object):
     @overload
     def drawText(self, p: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], s: str) -> None: ...
     @overload
-    def drawText(self, r: PySide6.QtCore.QRect, flags: int, text: str, br: PySide6.QtCore.QRect) -> None: ...
+    def drawText(self, r: PySide6.QtCore.QRect, flags: int, text: str) -> PySide6.QtCore.QRect: ...
     @overload
-    def drawText(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: int, text: str, br: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> None: ...
+    def drawText(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], flags: int, text: str) -> PySide6.QtCore.QRectF: ...
     @overload
-    def drawText(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], text: str, o: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment] = ...) -> None: ...
+    def drawText(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], text: str, o: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag] = ...) -> None: ...
     @overload
     def drawText(self, x: int, y: int, s: str) -> None: ...
     @overload
-    def drawText(self, x: int, y: int, w: int, h: int, flags: int, text: str, br: PySide6.QtCore.QRect) -> None: ...
+    def drawText(self, x: int, y: int, w: int, h: int, flags: int, text: str) -> None: ...
     @overload
     def drawTextItem(self, p: PySide6.QtCore.QPoint, ti: PySide6.QtGui.QTextItem) -> None: ...
     @overload
@@ -5966,7 +4972,7 @@ class QPainter(Shiboken.Object):
     def opacity(self) -> float: ...
     def paintEngine(self) -> PySide6.QtGui.QPaintEngine: ...
     def pen(self) -> PySide6.QtGui.QPen: ...
-    def renderHints(self) -> PySide6.QtGui.QPainter.RenderHints: ...
+    def renderHints(self) -> PySide6.QtGui.QPainter.RenderHint: ...
     def resetTransform(self) -> None: ...
     def restore(self) -> None: ...
     def rotate(self, a: float) -> None: ...
@@ -6004,7 +5010,7 @@ class QPainter(Shiboken.Object):
     @overload
     def setPen(self, style: PySide6.QtCore.Qt.PenStyle) -> None: ...
     def setRenderHint(self, hint: PySide6.QtGui.QPainter.RenderHint, on: bool = ...) -> None: ...
-    def setRenderHints(self, hints: PySide6.QtGui.QPainter.RenderHints, on: bool = ...) -> None: ...
+    def setRenderHints(self, hints: PySide6.QtGui.QPainter.RenderHint, on: bool = ...) -> None: ...
     def setTransform(self, transform: PySide6.QtGui.QTransform, combine: bool = ...) -> None: ...
     def setViewTransformEnabled(self, enable: bool) -> None: ...
     @overload
@@ -6036,11 +5042,6 @@ class QPainter(Shiboken.Object):
 
 class QPainterPath(Shiboken.Object):
 
-    MoveToElement            : QPainterPath.ElementType = ... # 0x0
-    LineToElement            : QPainterPath.ElementType = ... # 0x1
-    CurveToElement           : QPainterPath.ElementType = ... # 0x2
-    CurveToDataElement       : QPainterPath.ElementType = ... # 0x3
-
     class Element(Shiboken.Object):
 
         @overload
@@ -6054,7 +5055,7 @@ class QPainterPath(Shiboken.Object):
         def isLineTo(self) -> bool: ...
         def isMoveTo(self) -> bool: ...
 
-    class ElementType(Shiboken.Enum):
+    class ElementType(shibokensupport.enum_310.Enum):
 
         MoveToElement            : QPainterPath.ElementType = ... # 0x0
         LineToElement            : QPainterPath.ElementType = ... # 0x1
@@ -6204,37 +5205,7 @@ class QPainterPathStroker(Shiboken.Object):
 
 class QPalette(Shiboken.Object):
 
-    Active                   : QPalette.ColorGroup = ... # 0x0
-    Normal                   : QPalette.ColorGroup = ... # 0x0
-    Disabled                 : QPalette.ColorGroup = ... # 0x1
-    Inactive                 : QPalette.ColorGroup = ... # 0x2
-    NColorGroups             : QPalette.ColorGroup = ... # 0x3
-    Current                  : QPalette.ColorGroup = ... # 0x4
-    All                      : QPalette.ColorGroup = ... # 0x5
-    WindowText               : QPalette.ColorRole = ... # 0x0
-    Button                   : QPalette.ColorRole = ... # 0x1
-    Light                    : QPalette.ColorRole = ... # 0x2
-    Midlight                 : QPalette.ColorRole = ... # 0x3
-    Dark                     : QPalette.ColorRole = ... # 0x4
-    Mid                      : QPalette.ColorRole = ... # 0x5
-    Text                     : QPalette.ColorRole = ... # 0x6
-    BrightText               : QPalette.ColorRole = ... # 0x7
-    ButtonText               : QPalette.ColorRole = ... # 0x8
-    Base                     : QPalette.ColorRole = ... # 0x9
-    Window                   : QPalette.ColorRole = ... # 0xa
-    Shadow                   : QPalette.ColorRole = ... # 0xb
-    Highlight                : QPalette.ColorRole = ... # 0xc
-    HighlightedText          : QPalette.ColorRole = ... # 0xd
-    Link                     : QPalette.ColorRole = ... # 0xe
-    LinkVisited              : QPalette.ColorRole = ... # 0xf
-    AlternateBase            : QPalette.ColorRole = ... # 0x10
-    NoRole                   : QPalette.ColorRole = ... # 0x11
-    ToolTipBase              : QPalette.ColorRole = ... # 0x12
-    ToolTipText              : QPalette.ColorRole = ... # 0x13
-    PlaceholderText          : QPalette.ColorRole = ... # 0x14
-    NColorRoles              : QPalette.ColorRole = ... # 0x15
-
-    class ColorGroup(Shiboken.Enum):
+    class ColorGroup(shibokensupport.enum_310.Enum):
 
         Active                   : QPalette.ColorGroup = ... # 0x0
         Normal                   : QPalette.ColorGroup = ... # 0x0
@@ -6244,7 +5215,8 @@ class QPalette(Shiboken.Object):
         Current                  : QPalette.ColorGroup = ... # 0x4
         All                      : QPalette.ColorGroup = ... # 0x5
 
-    class ColorRole(Shiboken.Enum):
+
+    class ColorRole(shibokensupport.enum_310.Enum):
 
         WindowText               : QPalette.ColorRole = ... # 0x0
         Button                   : QPalette.ColorRole = ... # 0x1
@@ -6431,74 +5403,39 @@ class QPicture(PySide6.QtGui.QPaintDevice):
     @overload
     def save(self, fileName: str) -> bool: ...
     def setBoundingRect(self, r: PySide6.QtCore.QRect) -> None: ...
-    def setData(self, data: bytes, size: int) -> None: ...
+    def setData(self, data: bytes) -> None: ...
     def size(self) -> int: ...
     def swap(self, other: Union[PySide6.QtGui.QPicture, int]) -> None: ...
 
 
 class QPixelFormat(Shiboken.Object):
 
-    AtBeginning              : QPixelFormat.AlphaPosition = ... # 0x0
-    AtEnd                    : QPixelFormat.AlphaPosition = ... # 0x1
-    NotPremultiplied         : QPixelFormat.AlphaPremultiplied = ... # 0x0
-    Premultiplied            : QPixelFormat.AlphaPremultiplied = ... # 0x1
-    UsesAlpha                : QPixelFormat.AlphaUsage = ... # 0x0
-    IgnoresAlpha             : QPixelFormat.AlphaUsage = ... # 0x1
-    LittleEndian             : QPixelFormat.ByteOrder = ... # 0x0
-    BigEndian                : QPixelFormat.ByteOrder = ... # 0x1
-    CurrentSystemEndian      : QPixelFormat.ByteOrder = ... # 0x2
-    RGB                      : QPixelFormat.ColorModel = ... # 0x0
-    BGR                      : QPixelFormat.ColorModel = ... # 0x1
-    Indexed                  : QPixelFormat.ColorModel = ... # 0x2
-    Grayscale                : QPixelFormat.ColorModel = ... # 0x3
-    CMYK                     : QPixelFormat.ColorModel = ... # 0x4
-    HSL                      : QPixelFormat.ColorModel = ... # 0x5
-    HSV                      : QPixelFormat.ColorModel = ... # 0x6
-    YUV                      : QPixelFormat.ColorModel = ... # 0x7
-    Alpha                    : QPixelFormat.ColorModel = ... # 0x8
-    UnsignedInteger          : QPixelFormat.TypeInterpretation = ... # 0x0
-    UnsignedShort            : QPixelFormat.TypeInterpretation = ... # 0x1
-    UnsignedByte             : QPixelFormat.TypeInterpretation = ... # 0x2
-    FloatingPoint            : QPixelFormat.TypeInterpretation = ... # 0x3
-    YUV444                   : QPixelFormat.YUVLayout = ... # 0x0
-    YUV422                   : QPixelFormat.YUVLayout = ... # 0x1
-    YUV411                   : QPixelFormat.YUVLayout = ... # 0x2
-    YUV420P                  : QPixelFormat.YUVLayout = ... # 0x3
-    YUV420SP                 : QPixelFormat.YUVLayout = ... # 0x4
-    YV12                     : QPixelFormat.YUVLayout = ... # 0x5
-    UYVY                     : QPixelFormat.YUVLayout = ... # 0x6
-    YUYV                     : QPixelFormat.YUVLayout = ... # 0x7
-    NV12                     : QPixelFormat.YUVLayout = ... # 0x8
-    NV21                     : QPixelFormat.YUVLayout = ... # 0x9
-    IMC1                     : QPixelFormat.YUVLayout = ... # 0xa
-    IMC2                     : QPixelFormat.YUVLayout = ... # 0xb
-    IMC3                     : QPixelFormat.YUVLayout = ... # 0xc
-    IMC4                     : QPixelFormat.YUVLayout = ... # 0xd
-    Y8                       : QPixelFormat.YUVLayout = ... # 0xe
-    Y16                      : QPixelFormat.YUVLayout = ... # 0xf
-
-    class AlphaPosition(Shiboken.Enum):
+    class AlphaPosition(shibokensupport.enum_310.Enum):
 
         AtBeginning              : QPixelFormat.AlphaPosition = ... # 0x0
         AtEnd                    : QPixelFormat.AlphaPosition = ... # 0x1
 
-    class AlphaPremultiplied(Shiboken.Enum):
+
+    class AlphaPremultiplied(shibokensupport.enum_310.Enum):
 
         NotPremultiplied         : QPixelFormat.AlphaPremultiplied = ... # 0x0
         Premultiplied            : QPixelFormat.AlphaPremultiplied = ... # 0x1
 
-    class AlphaUsage(Shiboken.Enum):
+
+    class AlphaUsage(shibokensupport.enum_310.Enum):
 
         UsesAlpha                : QPixelFormat.AlphaUsage = ... # 0x0
         IgnoresAlpha             : QPixelFormat.AlphaUsage = ... # 0x1
 
-    class ByteOrder(Shiboken.Enum):
+
+    class ByteOrder(shibokensupport.enum_310.Enum):
 
         LittleEndian             : QPixelFormat.ByteOrder = ... # 0x0
         BigEndian                : QPixelFormat.ByteOrder = ... # 0x1
         CurrentSystemEndian      : QPixelFormat.ByteOrder = ... # 0x2
 
-    class ColorModel(Shiboken.Enum):
+
+    class ColorModel(shibokensupport.enum_310.Enum):
 
         RGB                      : QPixelFormat.ColorModel = ... # 0x0
         BGR                      : QPixelFormat.ColorModel = ... # 0x1
@@ -6510,14 +5447,16 @@ class QPixelFormat(Shiboken.Object):
         YUV                      : QPixelFormat.ColorModel = ... # 0x7
         Alpha                    : QPixelFormat.ColorModel = ... # 0x8
 
-    class TypeInterpretation(Shiboken.Enum):
+
+    class TypeInterpretation(shibokensupport.enum_310.Enum):
 
         UnsignedInteger          : QPixelFormat.TypeInterpretation = ... # 0x0
         UnsignedShort            : QPixelFormat.TypeInterpretation = ... # 0x1
         UnsignedByte             : QPixelFormat.TypeInterpretation = ... # 0x2
         FloatingPoint            : QPixelFormat.TypeInterpretation = ... # 0x3
 
-    class YUVLayout(Shiboken.Enum):
+
+    class YUVLayout(shibokensupport.enum_310.Enum):
 
         YUV444                   : QPixelFormat.YUVLayout = ... # 0x0
         YUV422                   : QPixelFormat.YUVLayout = ... # 0x1
@@ -6579,7 +5518,7 @@ class QPixmap(PySide6.QtGui.QPaintDevice):
     @overload
     def __init__(self, arg__1: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str]) -> None: ...
     @overload
-    def __init__(self, fileName: Union[str, bytes, os.PathLike], format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> None: ...
+    def __init__(self, fileName: Union[str, bytes, os.PathLike], format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> None: ...
     @overload
     def __init__(self, image: Union[PySide6.QtGui.QImage, str]) -> None: ...
     @overload
@@ -6592,7 +5531,7 @@ class QPixmap(PySide6.QtGui.QPaintDevice):
     def __lshift__(self, arg__1: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def __rshift__(self, arg__1: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def cacheKey(self) -> int: ...
-    def convertFromImage(self, img: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> bool: ...
+    def convertFromImage(self, img: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> bool: ...
     @overload
     def copy(self, rect: PySide6.QtCore.QRect = ...) -> PySide6.QtGui.QPixmap: ...
     @overload
@@ -6607,21 +5546,21 @@ class QPixmap(PySide6.QtGui.QPaintDevice):
     def devicePixelRatio(self) -> float: ...
     def fill(self, fillColor: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int] = ...) -> None: ...
     @staticmethod
-    def fromImage(image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QPixmap: ...
+    def fromImage(image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QPixmap: ...
     @staticmethod
-    def fromImageInPlace(image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QPixmap: ...
+    def fromImageInPlace(image: Union[PySide6.QtGui.QImage, str], flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QPixmap: ...
     @staticmethod
-    def fromImageReader(imageReader: PySide6.QtGui.QImageReader, flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> PySide6.QtGui.QPixmap: ...
+    def fromImageReader(imageReader: PySide6.QtGui.QImageReader, flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> PySide6.QtGui.QPixmap: ...
     def hasAlpha(self) -> bool: ...
     def hasAlphaChannel(self) -> bool: ...
     def height(self) -> int: ...
     def isNull(self) -> bool: ...
     def isQBitmap(self) -> bool: ...
-    def load(self, fileName: str, format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> bool: ...
+    def load(self, fileName: str, format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> bool: ...
     @overload
-    def loadFromData(self, buf: bytes, len: int, format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> bool: ...
+    def loadFromData(self, buf: bytes, format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> bool: ...
     @overload
-    def loadFromData(self, data: Union[PySide6.QtCore.QByteArray, bytes], format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlags = ...) -> bool: ...
+    def loadFromData(self, data: Union[PySide6.QtCore.QByteArray, bytes], format: Optional[bytes] = ..., flags: PySide6.QtCore.Qt.ImageConversionFlag = ...) -> bool: ...
     def mask(self) -> PySide6.QtGui.QBitmap: ...
     def metric(self, arg__1: PySide6.QtGui.QPaintDevice.PaintDeviceMetric) -> int: ...
     def paintEngine(self) -> PySide6.QtGui.QPaintEngine: ...
@@ -6702,10 +5641,7 @@ class QPixmapCache(Shiboken.Object):
 
 class QPlatformSurfaceEvent(PySide6.QtCore.QEvent):
 
-    SurfaceCreated           : QPlatformSurfaceEvent.SurfaceEventType = ... # 0x0
-    SurfaceAboutToBeDestroyed: QPlatformSurfaceEvent.SurfaceEventType = ... # 0x1
-
-    class SurfaceEventType(Shiboken.Enum):
+    class SurfaceEventType(shibokensupport.enum_310.Enum):
 
         SurfaceCreated           : QPlatformSurfaceEvent.SurfaceEventType = ... # 0x0
         SurfaceAboutToBeDestroyed: QPlatformSurfaceEvent.SurfaceEventType = ... # 0x1
@@ -6728,7 +5664,7 @@ class QPointerEvent(PySide6.QtGui.QInputEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QPointerEvent) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, dev: PySide6.QtGui.QPointingDevice, modifiers: PySide6.QtCore.Qt.KeyboardModifiers = ..., points: Sequence[PySide6.QtGui.QEventPoint] = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, dev: PySide6.QtGui.QPointingDevice, modifiers: PySide6.QtCore.Qt.KeyboardModifier = ..., points: Sequence[PySide6.QtGui.QEventPoint] = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     def addPassiveGrabber(self, point: PySide6.QtGui.QEventPoint, grabber: PySide6.QtCore.QObject) -> bool: ...
@@ -6754,15 +5690,7 @@ class QPointerEvent(PySide6.QtGui.QInputEvent):
 
 class QPointingDevice(PySide6.QtGui.QInputDevice):
 
-    GrabPassive              : QPointingDevice.GrabTransition = ... # 0x1
-    UngrabPassive            : QPointingDevice.GrabTransition = ... # 0x2
-    CancelGrabPassive        : QPointingDevice.GrabTransition = ... # 0x3
-    OverrideGrabPassive      : QPointingDevice.GrabTransition = ... # 0x4
-    GrabExclusive            : QPointingDevice.GrabTransition = ... # 0x10
-    UngrabExclusive          : QPointingDevice.GrabTransition = ... # 0x20
-    CancelGrabExclusive      : QPointingDevice.GrabTransition = ... # 0x30
-
-    class GrabTransition(Shiboken.Enum):
+    class GrabTransition(shibokensupport.enum_310.Enum):
 
         GrabPassive              : QPointingDevice.GrabTransition = ... # 0x1
         UngrabPassive            : QPointingDevice.GrabTransition = ... # 0x2
@@ -6772,7 +5700,8 @@ class QPointingDevice(PySide6.QtGui.QInputDevice):
         UngrabExclusive          : QPointingDevice.GrabTransition = ... # 0x20
         CancelGrabExclusive      : QPointingDevice.GrabTransition = ... # 0x30
 
-    class PointerType(Shiboken.Enum):
+
+    class PointerType(shibokensupport.enum_310.Flag):
 
         Unknown                  : QPointingDevice.PointerType = ... # 0x0
         Generic                  : QPointingDevice.PointerType = ... # 0x1
@@ -6782,11 +5711,9 @@ class QPointingDevice(PySide6.QtGui.QInputDevice):
         Cursor                   : QPointingDevice.PointerType = ... # 0x10
         AllPointerTypes          : QPointingDevice.PointerType = ... # 0x7fff
 
-    class PointerTypes(object): ...
-
 
     @overload
-    def __init__(self, name: str, systemId: int, devType: PySide6.QtGui.QInputDevice.DeviceType, pType: PySide6.QtGui.QPointingDevice.PointerType, caps: PySide6.QtGui.QInputDevice.Capabilities, maxPoints: int, buttonCount: int, seatName: str = ..., uniqueId: PySide6.QtGui.QPointingDeviceUniqueId = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+    def __init__(self, name: str, systemId: int, devType: PySide6.QtGui.QInputDevice.DeviceType, pType: PySide6.QtGui.QPointingDevice.PointerType, caps: PySide6.QtGui.QInputDevice.Capability, maxPoints: int, buttonCount: int, seatName: str = ..., uniqueId: PySide6.QtGui.QPointingDeviceUniqueId = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -6795,7 +5722,7 @@ class QPointingDevice(PySide6.QtGui.QInputDevice):
     def pointerType(self) -> PySide6.QtGui.QPointingDevice.PointerType: ...
     @staticmethod
     def primaryPointingDevice(seatName: str = ...) -> PySide6.QtGui.QPointingDevice: ...
-    def setCapabilities(self, caps: PySide6.QtGui.QInputDevice.Capabilities) -> None: ...
+    def setCapabilities(self, caps: PySide6.QtGui.QInputDevice.Capability) -> None: ...
     def setMaximumTouchPoints(self, c: int) -> None: ...
     def setType(self, devType: PySide6.QtGui.QInputDevice.DeviceType) -> None: ...
     def uniqueId(self) -> PySide6.QtGui.QPointingDeviceUniqueId: ...
@@ -6901,6 +5828,7 @@ class QPolygon(Shiboken.Object):
     def swapItemsAt(self, i: int, j: int) -> None: ...
     def takeAt(self, i: int) -> PySide6.QtCore.QPoint: ...
     def toList(self) -> List[PySide6.QtCore.QPoint]: ...
+    def toPolygonF(self) -> PySide6.QtGui.QPolygonF: ...
     def toVector(self) -> List[PySide6.QtCore.QPoint]: ...
     @overload
     def translate(self, dx: int, dy: int) -> None: ...
@@ -7148,24 +6076,17 @@ class QRasterWindow(PySide6.QtGui.QPaintDeviceWindow):
 
 class QRawFont(Shiboken.Object):
 
-    PixelAntialiasing        : QRawFont.AntialiasingType = ... # 0x0
-    SubPixelAntialiasing     : QRawFont.AntialiasingType = ... # 0x1
-    SeparateAdvances         : QRawFont.LayoutFlag = ... # 0x0
-    KernedAdvances           : QRawFont.LayoutFlag = ... # 0x1
-    UseDesignMetrics         : QRawFont.LayoutFlag = ... # 0x2
-
-    class AntialiasingType(Shiboken.Enum):
+    class AntialiasingType(shibokensupport.enum_310.Enum):
 
         PixelAntialiasing        : QRawFont.AntialiasingType = ... # 0x0
         SubPixelAntialiasing     : QRawFont.AntialiasingType = ... # 0x1
 
-    class LayoutFlag(Shiboken.Enum):
+
+    class LayoutFlag(shibokensupport.enum_310.Flag):
 
         SeparateAdvances         : QRawFont.LayoutFlag = ... # 0x0
         KernedAdvances           : QRawFont.LayoutFlag = ... # 0x1
         UseDesignMetrics         : QRawFont.LayoutFlag = ... # 0x2
-
-    class LayoutFlags(object): ...
 
 
     @overload
@@ -7182,7 +6103,7 @@ class QRawFont(Shiboken.Object):
     @overload
     def advancesForGlyphIndexes(self, glyphIndexes: Sequence[int]) -> List[PySide6.QtCore.QPointF]: ...
     @overload
-    def advancesForGlyphIndexes(self, glyphIndexes: Sequence[int], layoutFlags: PySide6.QtGui.QRawFont.LayoutFlags) -> List[PySide6.QtCore.QPointF]: ...
+    def advancesForGlyphIndexes(self, glyphIndexes: Sequence[int], layoutFlags: PySide6.QtGui.QRawFont.LayoutFlag) -> List[PySide6.QtCore.QPointF]: ...
     def alphaMapForGlyph(self, glyphIndex: int, antialiasingType: PySide6.QtGui.QRawFont.AntialiasingType = ..., transform: PySide6.QtGui.QTransform = ...) -> PySide6.QtGui.QImage: ...
     def ascent(self) -> float: ...
     def averageCharWidth(self) -> float: ...
@@ -7220,10 +6141,7 @@ class QRawFont(Shiboken.Object):
 
 class QRegion(Shiboken.Object):
 
-    Rectangle                : QRegion.RegionType = ... # 0x0
-    Ellipse                  : QRegion.RegionType = ... # 0x1
-
-    class RegionType(Shiboken.Enum):
+    class RegionType(shibokensupport.enum_310.Enum):
 
         Rectangle                : QRegion.RegionType = ... # 0x0
         Ellipse                  : QRegion.RegionType = ... # 0x1
@@ -7409,11 +6327,7 @@ class QScreen(PySide6.QtCore.QObject):
 
 class QScrollEvent(PySide6.QtCore.QEvent):
 
-    ScrollStarted            : QScrollEvent.ScrollState = ... # 0x0
-    ScrollUpdated            : QScrollEvent.ScrollState = ... # 0x1
-    ScrollFinished           : QScrollEvent.ScrollState = ... # 0x2
-
-    class ScrollState(Shiboken.Enum):
+    class ScrollState(shibokensupport.enum_310.Enum):
 
         ScrollStarted            : QScrollEvent.ScrollState = ... # 0x0
         ScrollUpdated            : QScrollEvent.ScrollState = ... # 0x1
@@ -7450,12 +6364,7 @@ class QScrollPrepareEvent(PySide6.QtCore.QEvent):
 
 class QSessionManager(PySide6.QtCore.QObject):
 
-    RestartIfRunning         : QSessionManager.RestartHint = ... # 0x0
-    RestartAnyway            : QSessionManager.RestartHint = ... # 0x1
-    RestartImmediately       : QSessionManager.RestartHint = ... # 0x2
-    RestartNever             : QSessionManager.RestartHint = ... # 0x3
-
-    class RestartHint(Shiboken.Enum):
+    class RestartHint(shibokensupport.enum_310.Enum):
 
         RestartIfRunning         : QSessionManager.RestartHint = ... # 0x0
         RestartAnyway            : QSessionManager.RestartHint = ... # 0x1
@@ -7535,18 +6444,20 @@ class QShowEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QShowEvent) -> None: ...
 
+    def clone(self) -> PySide6.QtGui.QShowEvent: ...
+
 
 class QSinglePointEvent(PySide6.QtGui.QPointerEvent):
 
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QSinglePointEvent) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, dev: PySide6.QtGui.QPointingDevice, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], scenePos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, source: PySide6.QtCore.Qt.MouseEventSource = ...) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, dev: PySide6.QtGui.QPointingDevice, localPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], scenePos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, source: PySide6.QtCore.Qt.MouseEventSource = ...) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCore.QEvent.Type, dev: PySide6.QtGui.QPointingDevice, point: PySide6.QtGui.QEventPoint, button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, source: PySide6.QtCore.Qt.MouseEventSource) -> None: ...
+    def __init__(self, type: PySide6.QtCore.QEvent.Type, dev: PySide6.QtGui.QPointingDevice, point: PySide6.QtGui.QEventPoint, button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, source: PySide6.QtCore.Qt.MouseEventSource) -> None: ...
 
     def button(self) -> PySide6.QtCore.Qt.MouseButton: ...
-    def buttons(self) -> PySide6.QtCore.Qt.MouseButtons: ...
+    def buttons(self) -> PySide6.QtCore.Qt.MouseButton: ...
     def clone(self) -> PySide6.QtGui.QSinglePointEvent: ...
     def exclusivePointGrabber(self) -> PySide6.QtCore.QObject: ...
     def globalPosition(self) -> PySide6.QtCore.QPointF: ...
@@ -7560,10 +6471,7 @@ class QSinglePointEvent(PySide6.QtGui.QPointerEvent):
 
 class QStandardItem(Shiboken.Object):
 
-    Type                     : QStandardItem.ItemType = ... # 0x0
-    UserType                 : QStandardItem.ItemType = ... # 0x3e8
-
-    class ItemType(Shiboken.Enum):
+    class ItemType(shibokensupport.enum_310.Enum):
 
         Type                     : QStandardItem.ItemType = ... # 0x0
         UserType                 : QStandardItem.ItemType = ... # 0x3e8
@@ -7599,7 +6507,7 @@ class QStandardItem(Shiboken.Object):
     def columnCount(self) -> int: ...
     def data(self, role: int = ...) -> Any: ...
     def emitDataChanged(self) -> None: ...
-    def flags(self) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self) -> PySide6.QtCore.Qt.ItemFlag: ...
     def font(self) -> PySide6.QtGui.QFont: ...
     def foreground(self) -> PySide6.QtGui.QBrush: ...
     def hasChildren(self) -> bool: ...
@@ -7648,7 +6556,7 @@ class QStandardItem(Shiboken.Object):
     def setDropEnabled(self, dropEnabled: bool) -> None: ...
     def setEditable(self, editable: bool) -> None: ...
     def setEnabled(self, enabled: bool) -> None: ...
-    def setFlags(self, flags: PySide6.QtCore.Qt.ItemFlags) -> None: ...
+    def setFlags(self, flags: PySide6.QtCore.Qt.ItemFlag) -> None: ...
     def setFont(self, font: Union[PySide6.QtGui.QFont, str, Sequence[str]]) -> None: ...
     def setForeground(self, brush: Union[PySide6.QtGui.QBrush, PySide6.QtCore.Qt.BrushStyle, PySide6.QtCore.Qt.GlobalColor, PySide6.QtGui.QColor, PySide6.QtGui.QGradient, PySide6.QtGui.QImage, PySide6.QtGui.QPixmap]) -> None: ...
     def setIcon(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap]) -> None: ...
@@ -7657,7 +6565,7 @@ class QStandardItem(Shiboken.Object):
     def setSizeHint(self, sizeHint: PySide6.QtCore.QSize) -> None: ...
     def setStatusTip(self, statusTip: str) -> None: ...
     def setText(self, text: str) -> None: ...
-    def setTextAlignment(self, textAlignment: PySide6.QtCore.Qt.Alignment) -> None: ...
+    def setTextAlignment(self, textAlignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     def setToolTip(self, toolTip: str) -> None: ...
     def setUserTristate(self, tristate: bool) -> None: ...
     def setWhatsThis(self, whatsThis: str) -> None: ...
@@ -7668,7 +6576,7 @@ class QStandardItem(Shiboken.Object):
     def takeColumn(self, column: int) -> List[PySide6.QtGui.QStandardItem]: ...
     def takeRow(self, row: int) -> List[PySide6.QtGui.QStandardItem]: ...
     def text(self) -> str: ...
-    def textAlignment(self) -> PySide6.QtCore.Qt.Alignment: ...
+    def textAlignment(self) -> PySide6.QtCore.Qt.AlignmentFlag: ...
     def toolTip(self) -> str: ...
     def type(self) -> int: ...
     def whatsThis(self) -> str: ...
@@ -7692,8 +6600,8 @@ class QStandardItemModel(PySide6.QtCore.QAbstractItemModel):
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
     def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
     def dropMimeData(self, data: PySide6.QtCore.QMimeData, action: PySide6.QtCore.Qt.DropAction, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
-    def findItems(self, text: str, flags: PySide6.QtCore.Qt.MatchFlags = ..., column: int = ...) -> List[PySide6.QtGui.QStandardItem]: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def findItems(self, text: str, flags: PySide6.QtCore.Qt.MatchFlag = ..., column: int = ...) -> List[PySide6.QtGui.QStandardItem]: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def hasChildren(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def headerData(self, section: int, orientation: PySide6.QtCore.Qt.Orientation, role: int = ...) -> Any: ...
     def horizontalHeaderItem(self, column: int) -> PySide6.QtGui.QStandardItem: ...
@@ -7744,7 +6652,7 @@ class QStandardItemModel(PySide6.QtCore.QAbstractItemModel):
     def setVerticalHeaderLabels(self, labels: Sequence[str]) -> None: ...
     def sort(self, column: int, order: PySide6.QtCore.Qt.SortOrder = ...) -> None: ...
     def sortRole(self) -> int: ...
-    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropActions: ...
+    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropAction: ...
     def takeColumn(self, column: int) -> List[PySide6.QtGui.QStandardItem]: ...
     def takeHorizontalHeaderItem(self, column: int) -> PySide6.QtGui.QStandardItem: ...
     def takeItem(self, row: int, column: int = ...) -> PySide6.QtGui.QStandardItem: ...
@@ -7755,10 +6663,7 @@ class QStandardItemModel(PySide6.QtCore.QAbstractItemModel):
 
 class QStaticText(Shiboken.Object):
 
-    ModerateCaching          : QStaticText.PerformanceHint = ... # 0x0
-    AggressiveCaching        : QStaticText.PerformanceHint = ... # 0x1
-
-    class PerformanceHint(Shiboken.Enum):
+    class PerformanceHint(shibokensupport.enum_310.Enum):
 
         ModerateCaching          : QStaticText.PerformanceHint = ... # 0x0
         AggressiveCaching        : QStaticText.PerformanceHint = ... # 0x1
@@ -7778,7 +6683,7 @@ class QStaticText(Shiboken.Object):
     def setPerformanceHint(self, performanceHint: PySide6.QtGui.QStaticText.PerformanceHint) -> None: ...
     def setText(self, text: str) -> None: ...
     def setTextFormat(self, textFormat: PySide6.QtCore.Qt.TextFormat) -> None: ...
-    def setTextOption(self, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> None: ...
+    def setTextOption(self, textOption: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> None: ...
     def setTextWidth(self, textWidth: float) -> None: ...
     def size(self) -> PySide6.QtCore.QSizeF: ...
     def swap(self, other: PySide6.QtGui.QStaticText) -> None: ...
@@ -7838,22 +6743,13 @@ class QStyleHints(PySide6.QtCore.QObject):
 
 class QSurface(Shiboken.Object):
 
-    Window                   : QSurface.SurfaceClass = ... # 0x0
-    Offscreen                : QSurface.SurfaceClass = ... # 0x1
-    RasterSurface            : QSurface.SurfaceType = ... # 0x0
-    OpenGLSurface            : QSurface.SurfaceType = ... # 0x1
-    RasterGLSurface          : QSurface.SurfaceType = ... # 0x2
-    OpenVGSurface            : QSurface.SurfaceType = ... # 0x3
-    VulkanSurface            : QSurface.SurfaceType = ... # 0x4
-    MetalSurface             : QSurface.SurfaceType = ... # 0x5
-    Direct3DSurface          : QSurface.SurfaceType = ... # 0x6
-
-    class SurfaceClass(Shiboken.Enum):
+    class SurfaceClass(shibokensupport.enum_310.Enum):
 
         Window                   : QSurface.SurfaceClass = ... # 0x0
         Offscreen                : QSurface.SurfaceClass = ... # 0x1
 
-    class SurfaceType(Shiboken.Enum):
+
+    class SurfaceType(shibokensupport.enum_310.Enum):
 
         RasterSurface            : QSurface.SurfaceType = ... # 0x0
         OpenGLSurface            : QSurface.SurfaceType = ... # 0x1
@@ -7876,31 +6772,13 @@ class QSurface(Shiboken.Object):
 
 class QSurfaceFormat(Shiboken.Object):
 
-    DefaultColorSpace        : QSurfaceFormat.ColorSpace = ... # 0x0
-    sRGBColorSpace           : QSurfaceFormat.ColorSpace = ... # 0x1
-    StereoBuffers            : QSurfaceFormat.FormatOption = ... # 0x1
-    DebugContext             : QSurfaceFormat.FormatOption = ... # 0x2
-    DeprecatedFunctions      : QSurfaceFormat.FormatOption = ... # 0x4
-    ResetNotification        : QSurfaceFormat.FormatOption = ... # 0x8
-    ProtectedContent         : QSurfaceFormat.FormatOption = ... # 0x10
-    NoProfile                : QSurfaceFormat.OpenGLContextProfile = ... # 0x0
-    CoreProfile              : QSurfaceFormat.OpenGLContextProfile = ... # 0x1
-    CompatibilityProfile     : QSurfaceFormat.OpenGLContextProfile = ... # 0x2
-    DefaultRenderableType    : QSurfaceFormat.RenderableType = ... # 0x0
-    OpenGL                   : QSurfaceFormat.RenderableType = ... # 0x1
-    OpenGLES                 : QSurfaceFormat.RenderableType = ... # 0x2
-    OpenVG                   : QSurfaceFormat.RenderableType = ... # 0x4
-    DefaultSwapBehavior      : QSurfaceFormat.SwapBehavior = ... # 0x0
-    SingleBuffer             : QSurfaceFormat.SwapBehavior = ... # 0x1
-    DoubleBuffer             : QSurfaceFormat.SwapBehavior = ... # 0x2
-    TripleBuffer             : QSurfaceFormat.SwapBehavior = ... # 0x3
-
-    class ColorSpace(Shiboken.Enum):
+    class ColorSpace(shibokensupport.enum_310.Enum):
 
         DefaultColorSpace        : QSurfaceFormat.ColorSpace = ... # 0x0
         sRGBColorSpace           : QSurfaceFormat.ColorSpace = ... # 0x1
 
-    class FormatOption(Shiboken.Enum):
+
+    class FormatOption(shibokensupport.enum_310.Flag):
 
         StereoBuffers            : QSurfaceFormat.FormatOption = ... # 0x1
         DebugContext             : QSurfaceFormat.FormatOption = ... # 0x2
@@ -7908,22 +6786,23 @@ class QSurfaceFormat(Shiboken.Object):
         ResetNotification        : QSurfaceFormat.FormatOption = ... # 0x8
         ProtectedContent         : QSurfaceFormat.FormatOption = ... # 0x10
 
-    class FormatOptions(object): ...
 
-    class OpenGLContextProfile(Shiboken.Enum):
+    class OpenGLContextProfile(shibokensupport.enum_310.Enum):
 
         NoProfile                : QSurfaceFormat.OpenGLContextProfile = ... # 0x0
         CoreProfile              : QSurfaceFormat.OpenGLContextProfile = ... # 0x1
         CompatibilityProfile     : QSurfaceFormat.OpenGLContextProfile = ... # 0x2
 
-    class RenderableType(Shiboken.Enum):
+
+    class RenderableType(shibokensupport.enum_310.Enum):
 
         DefaultRenderableType    : QSurfaceFormat.RenderableType = ... # 0x0
         OpenGL                   : QSurfaceFormat.RenderableType = ... # 0x1
         OpenGLES                 : QSurfaceFormat.RenderableType = ... # 0x2
         OpenVG                   : QSurfaceFormat.RenderableType = ... # 0x4
 
-    class SwapBehavior(Shiboken.Enum):
+
+    class SwapBehavior(shibokensupport.enum_310.Enum):
 
         DefaultSwapBehavior      : QSurfaceFormat.SwapBehavior = ... # 0x0
         SingleBuffer             : QSurfaceFormat.SwapBehavior = ... # 0x1
@@ -7934,9 +6813,9 @@ class QSurfaceFormat(Shiboken.Object):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, options: PySide6.QtGui.QSurfaceFormat.FormatOptions) -> None: ...
+    def __init__(self, options: PySide6.QtGui.QSurfaceFormat.FormatOption) -> None: ...
     @overload
-    def __init__(self, other: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOptions]) -> None: ...
+    def __init__(self, other: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption]) -> None: ...
 
     @staticmethod
     def __copy__() -> None: ...
@@ -7950,7 +6829,7 @@ class QSurfaceFormat(Shiboken.Object):
     def hasAlpha(self) -> bool: ...
     def majorVersion(self) -> int: ...
     def minorVersion(self) -> int: ...
-    def options(self) -> PySide6.QtGui.QSurfaceFormat.FormatOptions: ...
+    def options(self) -> PySide6.QtGui.QSurfaceFormat.FormatOption: ...
     def profile(self) -> PySide6.QtGui.QSurfaceFormat.OpenGLContextProfile: ...
     def redBufferSize(self) -> int: ...
     def renderableType(self) -> PySide6.QtGui.QSurfaceFormat.RenderableType: ...
@@ -7962,13 +6841,13 @@ class QSurfaceFormat(Shiboken.Object):
     @overload
     def setColorSpace(self, colorSpace: Union[PySide6.QtGui.QColorSpace, PySide6.QtGui.QColorSpace.NamedColorSpace]) -> None: ...
     @staticmethod
-    def setDefaultFormat(format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOptions]) -> None: ...
+    def setDefaultFormat(format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption]) -> None: ...
     def setDepthBufferSize(self, size: int) -> None: ...
     def setGreenBufferSize(self, size: int) -> None: ...
     def setMajorVersion(self, majorVersion: int) -> None: ...
     def setMinorVersion(self, minorVersion: int) -> None: ...
     def setOption(self, option: PySide6.QtGui.QSurfaceFormat.FormatOption, on: bool = ...) -> None: ...
-    def setOptions(self, options: PySide6.QtGui.QSurfaceFormat.FormatOptions) -> None: ...
+    def setOptions(self, options: PySide6.QtGui.QSurfaceFormat.FormatOption) -> None: ...
     def setProfile(self, profile: PySide6.QtGui.QSurfaceFormat.OpenGLContextProfile) -> None: ...
     def setRedBufferSize(self, size: int) -> None: ...
     def setRenderableType(self, type: PySide6.QtGui.QSurfaceFormat.RenderableType) -> None: ...
@@ -8018,7 +6897,7 @@ class QTabletEvent(PySide6.QtGui.QSinglePointEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QTabletEvent) -> None: ...
     @overload
-    def __init__(self, t: PySide6.QtCore.QEvent.Type, device: PySide6.QtGui.QPointingDevice, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], pressure: float, xTilt: float, yTilt: float, tangentialPressure: float, rotation: float, z: float, keyState: PySide6.QtCore.Qt.KeyboardModifiers, button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButtons) -> None: ...
+    def __init__(self, t: PySide6.QtCore.QEvent.Type, device: PySide6.QtGui.QPointingDevice, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], pressure: float, xTilt: float, yTilt: float, tangentialPressure: float, rotation: float, z: float, keyState: PySide6.QtCore.Qt.KeyboardModifier, button: PySide6.QtCore.Qt.MouseButton, buttons: PySide6.QtCore.Qt.MouseButton) -> None: ...
 
     def __repr__(self) -> object: ...
     def clone(self) -> PySide6.QtGui.QTabletEvent: ...
@@ -8101,13 +6980,7 @@ class QTextBlock(Shiboken.Object):
 
 class QTextBlockFormat(PySide6.QtGui.QTextFormat):
 
-    SingleHeight             : QTextBlockFormat.LineHeightTypes = ... # 0x0
-    ProportionalHeight       : QTextBlockFormat.LineHeightTypes = ... # 0x1
-    FixedHeight              : QTextBlockFormat.LineHeightTypes = ... # 0x2
-    MinimumHeight            : QTextBlockFormat.LineHeightTypes = ... # 0x3
-    LineDistanceHeight       : QTextBlockFormat.LineHeightTypes = ... # 0x4
-
-    class LineHeightTypes(Shiboken.Enum):
+    class LineHeightTypes(shibokensupport.enum_310.Enum):
 
         SingleHeight             : QTextBlockFormat.LineHeightTypes = ... # 0x0
         ProportionalHeight       : QTextBlockFormat.LineHeightTypes = ... # 0x1
@@ -8115,7 +6988,8 @@ class QTextBlockFormat(PySide6.QtGui.QTextFormat):
         MinimumHeight            : QTextBlockFormat.LineHeightTypes = ... # 0x3
         LineDistanceHeight       : QTextBlockFormat.LineHeightTypes = ... # 0x4
 
-    class MarkerType(Shiboken.Enum):
+
+    class MarkerType(shibokensupport.enum_310.Enum):
 
         NoMarker                 : QTextBlockFormat.MarkerType = ... # 0x0
         Unchecked                : QTextBlockFormat.MarkerType = ... # 0x1
@@ -8131,7 +7005,7 @@ class QTextBlockFormat(PySide6.QtGui.QTextFormat):
 
     @staticmethod
     def __copy__() -> None: ...
-    def alignment(self) -> PySide6.QtCore.Qt.Alignment: ...
+    def alignment(self) -> PySide6.QtCore.Qt.AlignmentFlag: ...
     def bottomMargin(self) -> float: ...
     def headingLevel(self) -> int: ...
     def indent(self) -> int: ...
@@ -8144,9 +7018,9 @@ class QTextBlockFormat(PySide6.QtGui.QTextFormat):
     def lineHeightType(self) -> int: ...
     def marker(self) -> PySide6.QtGui.QTextBlockFormat.MarkerType: ...
     def nonBreakableLines(self) -> bool: ...
-    def pageBreakPolicy(self) -> PySide6.QtGui.QTextFormat.PageBreakFlags: ...
+    def pageBreakPolicy(self) -> PySide6.QtGui.QTextFormat.PageBreakFlag: ...
     def rightMargin(self) -> float: ...
-    def setAlignment(self, alignment: PySide6.QtCore.Qt.Alignment) -> None: ...
+    def setAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     def setBottomMargin(self, margin: float) -> None: ...
     def setHeadingLevel(self, alevel: int) -> None: ...
     def setIndent(self, indent: int) -> None: ...
@@ -8154,7 +7028,7 @@ class QTextBlockFormat(PySide6.QtGui.QTextFormat):
     def setLineHeight(self, height: float, heightType: int) -> None: ...
     def setMarker(self, marker: PySide6.QtGui.QTextBlockFormat.MarkerType) -> None: ...
     def setNonBreakableLines(self, b: bool) -> None: ...
-    def setPageBreakPolicy(self, flags: PySide6.QtGui.QTextFormat.PageBreakFlags) -> None: ...
+    def setPageBreakPolicy(self, flags: PySide6.QtGui.QTextFormat.PageBreakFlag) -> None: ...
     def setRightMargin(self, margin: float) -> None: ...
     def setTabPositions(self, tabs: Sequence[PySide6.QtGui.QTextOption.Tab]) -> None: ...
     def setTextIndent(self, aindent: float) -> None: ...
@@ -8181,30 +7055,13 @@ class QTextBlockUserData(Shiboken.Object):
 
 class QTextCharFormat(PySide6.QtGui.QTextFormat):
 
-    FontPropertiesSpecifiedOnly: QTextCharFormat.FontPropertiesInheritanceBehavior = ... # 0x0
-    FontPropertiesAll        : QTextCharFormat.FontPropertiesInheritanceBehavior = ... # 0x1
-    NoUnderline              : QTextCharFormat.UnderlineStyle = ... # 0x0
-    SingleUnderline          : QTextCharFormat.UnderlineStyle = ... # 0x1
-    DashUnderline            : QTextCharFormat.UnderlineStyle = ... # 0x2
-    DotLine                  : QTextCharFormat.UnderlineStyle = ... # 0x3
-    DashDotLine              : QTextCharFormat.UnderlineStyle = ... # 0x4
-    DashDotDotLine           : QTextCharFormat.UnderlineStyle = ... # 0x5
-    WaveUnderline            : QTextCharFormat.UnderlineStyle = ... # 0x6
-    SpellCheckUnderline      : QTextCharFormat.UnderlineStyle = ... # 0x7
-    AlignNormal              : QTextCharFormat.VerticalAlignment = ... # 0x0
-    AlignSuperScript         : QTextCharFormat.VerticalAlignment = ... # 0x1
-    AlignSubScript           : QTextCharFormat.VerticalAlignment = ... # 0x2
-    AlignMiddle              : QTextCharFormat.VerticalAlignment = ... # 0x3
-    AlignTop                 : QTextCharFormat.VerticalAlignment = ... # 0x4
-    AlignBottom              : QTextCharFormat.VerticalAlignment = ... # 0x5
-    AlignBaseline            : QTextCharFormat.VerticalAlignment = ... # 0x6
-
-    class FontPropertiesInheritanceBehavior(Shiboken.Enum):
+    class FontPropertiesInheritanceBehavior(shibokensupport.enum_310.Enum):
 
         FontPropertiesSpecifiedOnly: QTextCharFormat.FontPropertiesInheritanceBehavior = ... # 0x0
         FontPropertiesAll        : QTextCharFormat.FontPropertiesInheritanceBehavior = ... # 0x1
 
-    class UnderlineStyle(Shiboken.Enum):
+
+    class UnderlineStyle(shibokensupport.enum_310.Enum):
 
         NoUnderline              : QTextCharFormat.UnderlineStyle = ... # 0x0
         SingleUnderline          : QTextCharFormat.UnderlineStyle = ... # 0x1
@@ -8215,7 +7072,8 @@ class QTextCharFormat(PySide6.QtGui.QTextFormat):
         WaveUnderline            : QTextCharFormat.UnderlineStyle = ... # 0x6
         SpellCheckUnderline      : QTextCharFormat.UnderlineStyle = ... # 0x7
 
-    class VerticalAlignment(Shiboken.Enum):
+
+    class VerticalAlignment(shibokensupport.enum_310.Enum):
 
         AlignNormal              : QTextCharFormat.VerticalAlignment = ... # 0x0
         AlignSuperScript         : QTextCharFormat.VerticalAlignment = ... # 0x1
@@ -8306,44 +7164,13 @@ class QTextCharFormat(PySide6.QtGui.QTextFormat):
 
 class QTextCursor(Shiboken.Object):
 
-    MoveAnchor               : QTextCursor.MoveMode = ... # 0x0
-    KeepAnchor               : QTextCursor.MoveMode = ... # 0x1
-    NoMove                   : QTextCursor.MoveOperation = ... # 0x0
-    Start                    : QTextCursor.MoveOperation = ... # 0x1
-    Up                       : QTextCursor.MoveOperation = ... # 0x2
-    StartOfLine              : QTextCursor.MoveOperation = ... # 0x3
-    StartOfBlock             : QTextCursor.MoveOperation = ... # 0x4
-    StartOfWord              : QTextCursor.MoveOperation = ... # 0x5
-    PreviousBlock            : QTextCursor.MoveOperation = ... # 0x6
-    PreviousCharacter        : QTextCursor.MoveOperation = ... # 0x7
-    PreviousWord             : QTextCursor.MoveOperation = ... # 0x8
-    Left                     : QTextCursor.MoveOperation = ... # 0x9
-    WordLeft                 : QTextCursor.MoveOperation = ... # 0xa
-    End                      : QTextCursor.MoveOperation = ... # 0xb
-    Down                     : QTextCursor.MoveOperation = ... # 0xc
-    EndOfLine                : QTextCursor.MoveOperation = ... # 0xd
-    EndOfWord                : QTextCursor.MoveOperation = ... # 0xe
-    EndOfBlock               : QTextCursor.MoveOperation = ... # 0xf
-    NextBlock                : QTextCursor.MoveOperation = ... # 0x10
-    NextCharacter            : QTextCursor.MoveOperation = ... # 0x11
-    NextWord                 : QTextCursor.MoveOperation = ... # 0x12
-    Right                    : QTextCursor.MoveOperation = ... # 0x13
-    WordRight                : QTextCursor.MoveOperation = ... # 0x14
-    NextCell                 : QTextCursor.MoveOperation = ... # 0x15
-    PreviousCell             : QTextCursor.MoveOperation = ... # 0x16
-    NextRow                  : QTextCursor.MoveOperation = ... # 0x17
-    PreviousRow              : QTextCursor.MoveOperation = ... # 0x18
-    WordUnderCursor          : QTextCursor.SelectionType = ... # 0x0
-    LineUnderCursor          : QTextCursor.SelectionType = ... # 0x1
-    BlockUnderCursor         : QTextCursor.SelectionType = ... # 0x2
-    Document                 : QTextCursor.SelectionType = ... # 0x3
-
-    class MoveMode(Shiboken.Enum):
+    class MoveMode(shibokensupport.enum_310.Enum):
 
         MoveAnchor               : QTextCursor.MoveMode = ... # 0x0
         KeepAnchor               : QTextCursor.MoveMode = ... # 0x1
 
-    class MoveOperation(Shiboken.Enum):
+
+    class MoveOperation(shibokensupport.enum_310.Enum):
 
         NoMove                   : QTextCursor.MoveOperation = ... # 0x0
         Start                    : QTextCursor.MoveOperation = ... # 0x1
@@ -8371,7 +7198,8 @@ class QTextCursor(Shiboken.Object):
         NextRow                  : QTextCursor.MoveOperation = ... # 0x17
         PreviousRow              : QTextCursor.MoveOperation = ... # 0x18
 
-    class SelectionType(Shiboken.Enum):
+
+    class SelectionType(shibokensupport.enum_310.Enum):
 
         WordUnderCursor          : QTextCursor.SelectionType = ... # 0x0
         LineUnderCursor          : QTextCursor.SelectionType = ... # 0x1
@@ -8439,6 +7267,7 @@ class QTextCursor(Shiboken.Object):
     def insertList(self, format: PySide6.QtGui.QTextListFormat) -> PySide6.QtGui.QTextList: ...
     @overload
     def insertList(self, style: PySide6.QtGui.QTextListFormat.Style) -> PySide6.QtGui.QTextList: ...
+    def insertMarkdown(self, markdown: str, features: PySide6.QtGui.QTextDocument.MarkdownFeature = ...) -> None: ...
     @overload
     def insertTable(self, rows: int, cols: int) -> PySide6.QtGui.QTextTable: ...
     @overload
@@ -8459,7 +7288,7 @@ class QTextCursor(Shiboken.Object):
     def positionInBlock(self) -> int: ...
     def removeSelectedText(self) -> None: ...
     def select(self, selection: PySide6.QtGui.QTextCursor.SelectionType) -> None: ...
-    def selectedTableCells(self) -> Tuple[int, int, int, int]: ...
+    def selectedTableCells(self) -> object: ...
     def selectedText(self) -> str: ...
     def selection(self) -> PySide6.QtGui.QTextDocumentFragment: ...
     def selectionEnd(self) -> int: ...
@@ -8478,48 +7307,28 @@ class QTextCursor(Shiboken.Object):
 
 class QTextDocument(PySide6.QtCore.QObject):
 
-    FindBackward             : QTextDocument.FindFlag = ... # 0x1
-    FindCaseSensitively      : QTextDocument.FindFlag = ... # 0x2
-    FindWholeWords           : QTextDocument.FindFlag = ... # 0x4
-    MarkdownDialectCommonMark: QTextDocument.MarkdownFeature = ... # 0x0
-    MarkdownNoHTML           : QTextDocument.MarkdownFeature = ... # 0x60
-    MarkdownDialectGitHub    : QTextDocument.MarkdownFeature = ... # 0x4f0c
-    DocumentTitle            : QTextDocument.MetaInformation = ... # 0x0
-    DocumentUrl              : QTextDocument.MetaInformation = ... # 0x1
-    CssMedia                 : QTextDocument.MetaInformation = ... # 0x2
-    UnknownResource          : QTextDocument.ResourceType = ... # 0x0
-    HtmlResource             : QTextDocument.ResourceType = ... # 0x1
-    ImageResource            : QTextDocument.ResourceType = ... # 0x2
-    StyleSheetResource       : QTextDocument.ResourceType = ... # 0x3
-    MarkdownResource         : QTextDocument.ResourceType = ... # 0x4
-    UserResource             : QTextDocument.ResourceType = ... # 0x64
-    UndoStack                : QTextDocument.Stacks = ... # 0x1
-    RedoStack                : QTextDocument.Stacks = ... # 0x2
-    UndoAndRedoStacks        : QTextDocument.Stacks = ... # 0x3
-
-    class FindFlag(Shiboken.Enum):
+    class FindFlag(shibokensupport.enum_310.Flag):
 
         FindBackward             : QTextDocument.FindFlag = ... # 0x1
         FindCaseSensitively      : QTextDocument.FindFlag = ... # 0x2
         FindWholeWords           : QTextDocument.FindFlag = ... # 0x4
 
-    class FindFlags(object): ...
 
-    class MarkdownFeature(Shiboken.Enum):
+    class MarkdownFeature(shibokensupport.enum_310.Flag):
 
         MarkdownDialectCommonMark: QTextDocument.MarkdownFeature = ... # 0x0
         MarkdownNoHTML           : QTextDocument.MarkdownFeature = ... # 0x60
         MarkdownDialectGitHub    : QTextDocument.MarkdownFeature = ... # 0x4f0c
 
-    class MarkdownFeatures(object): ...
 
-    class MetaInformation(Shiboken.Enum):
+    class MetaInformation(shibokensupport.enum_310.Enum):
 
         DocumentTitle            : QTextDocument.MetaInformation = ... # 0x0
         DocumentUrl              : QTextDocument.MetaInformation = ... # 0x1
         CssMedia                 : QTextDocument.MetaInformation = ... # 0x2
 
-    class ResourceType(Shiboken.Enum):
+
+    class ResourceType(shibokensupport.enum_310.Enum):
 
         UnknownResource          : QTextDocument.ResourceType = ... # 0x0
         HtmlResource             : QTextDocument.ResourceType = ... # 0x1
@@ -8528,7 +7337,8 @@ class QTextDocument(PySide6.QtCore.QObject):
         MarkdownResource         : QTextDocument.ResourceType = ... # 0x4
         UserResource             : QTextDocument.ResourceType = ... # 0x64
 
-    class Stacks(Shiboken.Enum):
+
+    class Stacks(shibokensupport.enum_310.Enum):
 
         UndoStack                : QTextDocument.Stacks = ... # 0x1
         RedoStack                : QTextDocument.Stacks = ... # 0x2
@@ -8564,13 +7374,13 @@ class QTextDocument(PySide6.QtCore.QObject):
     def drawContents(self, painter: PySide6.QtGui.QPainter, rect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect] = ...) -> None: ...
     def end(self) -> PySide6.QtGui.QTextBlock: ...
     @overload
-    def find(self, expr: Union[PySide6.QtCore.QRegularExpression, str], cursor: PySide6.QtGui.QTextCursor, options: PySide6.QtGui.QTextDocument.FindFlags = ...) -> PySide6.QtGui.QTextCursor: ...
+    def find(self, expr: Union[PySide6.QtCore.QRegularExpression, str], cursor: PySide6.QtGui.QTextCursor, options: PySide6.QtGui.QTextDocument.FindFlag = ...) -> PySide6.QtGui.QTextCursor: ...
     @overload
-    def find(self, expr: Union[PySide6.QtCore.QRegularExpression, str], from_: int = ..., options: PySide6.QtGui.QTextDocument.FindFlags = ...) -> PySide6.QtGui.QTextCursor: ...
+    def find(self, expr: Union[PySide6.QtCore.QRegularExpression, str], from_: int = ..., options: PySide6.QtGui.QTextDocument.FindFlag = ...) -> PySide6.QtGui.QTextCursor: ...
     @overload
-    def find(self, subString: str, cursor: PySide6.QtGui.QTextCursor, options: PySide6.QtGui.QTextDocument.FindFlags = ...) -> PySide6.QtGui.QTextCursor: ...
+    def find(self, subString: str, cursor: PySide6.QtGui.QTextCursor, options: PySide6.QtGui.QTextDocument.FindFlag = ...) -> PySide6.QtGui.QTextCursor: ...
     @overload
-    def find(self, subString: str, from_: int = ..., options: PySide6.QtGui.QTextDocument.FindFlags = ...) -> PySide6.QtGui.QTextCursor: ...
+    def find(self, subString: str, from_: int = ..., options: PySide6.QtGui.QTextDocument.FindFlag = ...) -> PySide6.QtGui.QTextCursor: ...
     def findBlock(self, pos: int) -> PySide6.QtGui.QTextBlock: ...
     def findBlockByLineNumber(self, blockNumber: int) -> PySide6.QtGui.QTextBlock: ...
     def findBlockByNumber(self, blockNumber: int) -> PySide6.QtGui.QTextBlock: ...
@@ -8579,6 +7389,7 @@ class QTextDocument(PySide6.QtCore.QObject):
     def idealWidth(self) -> float: ...
     def indentWidth(self) -> float: ...
     def isEmpty(self) -> bool: ...
+    def isLayoutEnabled(self) -> bool: ...
     def isModified(self) -> bool: ...
     def isRedoAvailable(self) -> bool: ...
     def isUndoAvailable(self) -> bool: ...
@@ -8606,12 +7417,13 @@ class QTextDocument(PySide6.QtCore.QObject):
     def setDefaultCursorMoveStyle(self, style: PySide6.QtCore.Qt.CursorMoveStyle) -> None: ...
     def setDefaultFont(self, font: Union[PySide6.QtGui.QFont, str, Sequence[str]]) -> None: ...
     def setDefaultStyleSheet(self, sheet: str) -> None: ...
-    def setDefaultTextOption(self, option: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> None: ...
+    def setDefaultTextOption(self, option: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> None: ...
     def setDocumentLayout(self, layout: PySide6.QtGui.QAbstractTextDocumentLayout) -> None: ...
     def setDocumentMargin(self, margin: float) -> None: ...
     def setHtml(self, html: str) -> None: ...
     def setIndentWidth(self, width: float) -> None: ...
-    def setMarkdown(self, markdown: str, features: PySide6.QtGui.QTextDocument.MarkdownFeatures = ...) -> None: ...
+    def setLayoutEnabled(self, b: bool) -> None: ...
+    def setMarkdown(self, markdown: str, features: PySide6.QtGui.QTextDocument.MarkdownFeature = ...) -> None: ...
     def setMaximumBlockCount(self, maximum: int) -> None: ...
     def setMetaInformation(self, info: PySide6.QtGui.QTextDocument.MetaInformation, arg__2: str) -> None: ...
     def setModified(self, m: bool = ...) -> None: ...
@@ -8627,7 +7439,7 @@ class QTextDocument(PySide6.QtCore.QObject):
     def superScriptBaseline(self) -> float: ...
     def textWidth(self) -> float: ...
     def toHtml(self) -> str: ...
-    def toMarkdown(self, features: PySide6.QtGui.QTextDocument.MarkdownFeatures = ...) -> str: ...
+    def toMarkdown(self, features: PySide6.QtGui.QTextDocument.MarkdownFeature = ...) -> str: ...
     def toPlainText(self) -> str: ...
     def toRawText(self) -> str: ...
     @overload
@@ -8653,10 +7465,14 @@ class QTextDocumentFragment(Shiboken.Object):
     @staticmethod
     def fromHtml(html: str, resourceProvider: Optional[PySide6.QtGui.QTextDocument] = ...) -> PySide6.QtGui.QTextDocumentFragment: ...
     @staticmethod
+    def fromMarkdown(markdown: str, features: PySide6.QtGui.QTextDocument.MarkdownFeature = ...) -> PySide6.QtGui.QTextDocumentFragment: ...
+    @staticmethod
     def fromPlainText(plainText: str) -> PySide6.QtGui.QTextDocumentFragment: ...
     def isEmpty(self) -> bool: ...
     def toHtml(self) -> str: ...
+    def toMarkdown(self, features: PySide6.QtGui.QTextDocument.MarkdownFeature = ...) -> str: ...
     def toPlainText(self) -> str: ...
+    def toRawText(self) -> str: ...
 
 
 class QTextDocumentWriter(Shiboken.Object):
@@ -8684,134 +7500,7 @@ class QTextDocumentWriter(Shiboken.Object):
 
 class QTextFormat(Shiboken.Object):
 
-    InvalidFormat            : QTextFormat.FormatType = ... # -0x1
-    BlockFormat              : QTextFormat.FormatType = ... # 0x1
-    CharFormat               : QTextFormat.FormatType = ... # 0x2
-    ListFormat               : QTextFormat.FormatType = ... # 0x3
-    FrameFormat              : QTextFormat.FormatType = ... # 0x5
-    UserFormat               : QTextFormat.FormatType = ... # 0x64
-    NoObject                 : QTextFormat.ObjectTypes = ... # 0x0
-    ImageObject              : QTextFormat.ObjectTypes = ... # 0x1
-    TableObject              : QTextFormat.ObjectTypes = ... # 0x2
-    TableCellObject          : QTextFormat.ObjectTypes = ... # 0x3
-    UserObject               : QTextFormat.ObjectTypes = ... # 0x1000
-    PageBreak_Auto           : QTextFormat.PageBreakFlag = ... # 0x0
-    PageBreak_AlwaysBefore   : QTextFormat.PageBreakFlag = ... # 0x1
-    PageBreak_AlwaysAfter    : QTextFormat.PageBreakFlag = ... # 0x10
-    ObjectIndex              : QTextFormat.Property = ... # 0x0
-    CssFloat                 : QTextFormat.Property = ... # 0x800
-    LayoutDirection          : QTextFormat.Property = ... # 0x801
-    OutlinePen               : QTextFormat.Property = ... # 0x810
-    BackgroundBrush          : QTextFormat.Property = ... # 0x820
-    ForegroundBrush          : QTextFormat.Property = ... # 0x821
-    BackgroundImageUrl       : QTextFormat.Property = ... # 0x823
-    BlockAlignment           : QTextFormat.Property = ... # 0x1010
-    BlockTopMargin           : QTextFormat.Property = ... # 0x1030
-    BlockBottomMargin        : QTextFormat.Property = ... # 0x1031
-    BlockLeftMargin          : QTextFormat.Property = ... # 0x1032
-    BlockRightMargin         : QTextFormat.Property = ... # 0x1033
-    TextIndent               : QTextFormat.Property = ... # 0x1034
-    TabPositions             : QTextFormat.Property = ... # 0x1035
-    BlockIndent              : QTextFormat.Property = ... # 0x1040
-    LineHeight               : QTextFormat.Property = ... # 0x1048
-    LineHeightType           : QTextFormat.Property = ... # 0x1049
-    BlockNonBreakableLines   : QTextFormat.Property = ... # 0x1050
-    BlockTrailingHorizontalRulerWidth: QTextFormat.Property = ... # 0x1060
-    HeadingLevel             : QTextFormat.Property = ... # 0x1070
-    BlockQuoteLevel          : QTextFormat.Property = ... # 0x1080
-    BlockCodeLanguage        : QTextFormat.Property = ... # 0x1090
-    BlockCodeFence           : QTextFormat.Property = ... # 0x1091
-    BlockMarker              : QTextFormat.Property = ... # 0x10a0
-    FirstFontProperty        : QTextFormat.Property = ... # 0x1fe0
-    FontCapitalization       : QTextFormat.Property = ... # 0x1fe0
-    FontLetterSpacing        : QTextFormat.Property = ... # 0x1fe1
-    FontWordSpacing          : QTextFormat.Property = ... # 0x1fe2
-    FontStyleHint            : QTextFormat.Property = ... # 0x1fe3
-    FontStyleStrategy        : QTextFormat.Property = ... # 0x1fe4
-    FontKerning              : QTextFormat.Property = ... # 0x1fe5
-    FontHintingPreference    : QTextFormat.Property = ... # 0x1fe6
-    FontFamilies             : QTextFormat.Property = ... # 0x1fe7
-    FontStyleName            : QTextFormat.Property = ... # 0x1fe8
-    FontLetterSpacingType    : QTextFormat.Property = ... # 0x1fe9
-    FontStretch              : QTextFormat.Property = ... # 0x1fea
-    FontFamily               : QTextFormat.Property = ... # 0x2000
-    OldFontFamily            : QTextFormat.Property = ... # 0x2000
-    FontPointSize            : QTextFormat.Property = ... # 0x2001
-    FontSizeAdjustment       : QTextFormat.Property = ... # 0x2002
-    FontSizeIncrement        : QTextFormat.Property = ... # 0x2002
-    FontWeight               : QTextFormat.Property = ... # 0x2003
-    FontItalic               : QTextFormat.Property = ... # 0x2004
-    FontUnderline            : QTextFormat.Property = ... # 0x2005
-    FontOverline             : QTextFormat.Property = ... # 0x2006
-    FontStrikeOut            : QTextFormat.Property = ... # 0x2007
-    FontFixedPitch           : QTextFormat.Property = ... # 0x2008
-    FontPixelSize            : QTextFormat.Property = ... # 0x2009
-    LastFontProperty         : QTextFormat.Property = ... # 0x2009
-    OldTextUnderlineColor    : QTextFormat.Property = ... # 0x2010
-    TextUnderlineColor       : QTextFormat.Property = ... # 0x2020
-    TextVerticalAlignment    : QTextFormat.Property = ... # 0x2021
-    TextOutline              : QTextFormat.Property = ... # 0x2022
-    TextUnderlineStyle       : QTextFormat.Property = ... # 0x2023
-    TextToolTip              : QTextFormat.Property = ... # 0x2024
-    TextSuperScriptBaseline  : QTextFormat.Property = ... # 0x2025
-    TextSubScriptBaseline    : QTextFormat.Property = ... # 0x2026
-    TextBaselineOffset       : QTextFormat.Property = ... # 0x2027
-    IsAnchor                 : QTextFormat.Property = ... # 0x2030
-    AnchorHref               : QTextFormat.Property = ... # 0x2031
-    AnchorName               : QTextFormat.Property = ... # 0x2032
-    OldFontLetterSpacingType : QTextFormat.Property = ... # 0x2033
-    OldFontStretch           : QTextFormat.Property = ... # 0x2034
-    ObjectType               : QTextFormat.Property = ... # 0x2f00
-    ListStyle                : QTextFormat.Property = ... # 0x3000
-    ListIndent               : QTextFormat.Property = ... # 0x3001
-    ListNumberPrefix         : QTextFormat.Property = ... # 0x3002
-    ListNumberSuffix         : QTextFormat.Property = ... # 0x3003
-    FrameBorder              : QTextFormat.Property = ... # 0x4000
-    FrameMargin              : QTextFormat.Property = ... # 0x4001
-    FramePadding             : QTextFormat.Property = ... # 0x4002
-    FrameWidth               : QTextFormat.Property = ... # 0x4003
-    FrameHeight              : QTextFormat.Property = ... # 0x4004
-    FrameTopMargin           : QTextFormat.Property = ... # 0x4005
-    FrameBottomMargin        : QTextFormat.Property = ... # 0x4006
-    FrameLeftMargin          : QTextFormat.Property = ... # 0x4007
-    FrameRightMargin         : QTextFormat.Property = ... # 0x4008
-    FrameBorderBrush         : QTextFormat.Property = ... # 0x4009
-    FrameBorderStyle         : QTextFormat.Property = ... # 0x4010
-    TableColumns             : QTextFormat.Property = ... # 0x4100
-    TableColumnWidthConstraints: QTextFormat.Property = ... # 0x4101
-    TableCellSpacing         : QTextFormat.Property = ... # 0x4102
-    TableCellPadding         : QTextFormat.Property = ... # 0x4103
-    TableHeaderRowCount      : QTextFormat.Property = ... # 0x4104
-    TableBorderCollapse      : QTextFormat.Property = ... # 0x4105
-    TableCellRowSpan         : QTextFormat.Property = ... # 0x4810
-    TableCellColumnSpan      : QTextFormat.Property = ... # 0x4811
-    TableCellTopPadding      : QTextFormat.Property = ... # 0x4812
-    TableCellBottomPadding   : QTextFormat.Property = ... # 0x4813
-    TableCellLeftPadding     : QTextFormat.Property = ... # 0x4814
-    TableCellRightPadding    : QTextFormat.Property = ... # 0x4815
-    TableCellTopBorder       : QTextFormat.Property = ... # 0x4816
-    TableCellBottomBorder    : QTextFormat.Property = ... # 0x4817
-    TableCellLeftBorder      : QTextFormat.Property = ... # 0x4818
-    TableCellRightBorder     : QTextFormat.Property = ... # 0x4819
-    TableCellTopBorderStyle  : QTextFormat.Property = ... # 0x481a
-    TableCellBottomBorderStyle: QTextFormat.Property = ... # 0x481b
-    TableCellLeftBorderStyle : QTextFormat.Property = ... # 0x481c
-    TableCellRightBorderStyle: QTextFormat.Property = ... # 0x481d
-    TableCellTopBorderBrush  : QTextFormat.Property = ... # 0x481e
-    TableCellBottomBorderBrush: QTextFormat.Property = ... # 0x481f
-    TableCellLeftBorderBrush : QTextFormat.Property = ... # 0x4820
-    TableCellRightBorderBrush: QTextFormat.Property = ... # 0x4821
-    ImageName                : QTextFormat.Property = ... # 0x5000
-    ImageTitle               : QTextFormat.Property = ... # 0x5001
-    ImageAltText             : QTextFormat.Property = ... # 0x5002
-    ImageWidth               : QTextFormat.Property = ... # 0x5010
-    ImageHeight              : QTextFormat.Property = ... # 0x5011
-    ImageQuality             : QTextFormat.Property = ... # 0x5014
-    FullWidthSelection       : QTextFormat.Property = ... # 0x6000
-    PageBreakPolicy          : QTextFormat.Property = ... # 0x7000
-    UserProperty             : QTextFormat.Property = ... # 0x100000
-
-    class FormatType(Shiboken.Enum):
+    class FormatType(shibokensupport.enum_310.IntEnum):
 
         InvalidFormat            : QTextFormat.FormatType = ... # -0x1
         BlockFormat              : QTextFormat.FormatType = ... # 0x1
@@ -8820,7 +7509,8 @@ class QTextFormat(Shiboken.Object):
         FrameFormat              : QTextFormat.FormatType = ... # 0x5
         UserFormat               : QTextFormat.FormatType = ... # 0x64
 
-    class ObjectTypes(Shiboken.Enum):
+
+    class ObjectTypes(shibokensupport.enum_310.IntEnum):
 
         NoObject                 : QTextFormat.ObjectTypes = ... # 0x0
         ImageObject              : QTextFormat.ObjectTypes = ... # 0x1
@@ -8828,15 +7518,15 @@ class QTextFormat(Shiboken.Object):
         TableCellObject          : QTextFormat.ObjectTypes = ... # 0x3
         UserObject               : QTextFormat.ObjectTypes = ... # 0x1000
 
-    class PageBreakFlag(Shiboken.Enum):
+
+    class PageBreakFlag(shibokensupport.enum_310.Flag):
 
         PageBreak_Auto           : QTextFormat.PageBreakFlag = ... # 0x0
         PageBreak_AlwaysBefore   : QTextFormat.PageBreakFlag = ... # 0x1
         PageBreak_AlwaysAfter    : QTextFormat.PageBreakFlag = ... # 0x10
 
-    class PageBreakFlags(object): ...
 
-    class Property(Shiboken.Enum):
+    class Property(shibokensupport.enum_310.IntEnum):
 
         ObjectIndex              : QTextFormat.Property = ... # 0x0
         CssFloat                 : QTextFormat.Property = ... # 0x800
@@ -9069,22 +7759,7 @@ class QTextFrame(PySide6.QtGui.QTextObject):
 
 class QTextFrameFormat(PySide6.QtGui.QTextFormat):
 
-    BorderStyle_None         : QTextFrameFormat.BorderStyle = ... # 0x0
-    BorderStyle_Dotted       : QTextFrameFormat.BorderStyle = ... # 0x1
-    BorderStyle_Dashed       : QTextFrameFormat.BorderStyle = ... # 0x2
-    BorderStyle_Solid        : QTextFrameFormat.BorderStyle = ... # 0x3
-    BorderStyle_Double       : QTextFrameFormat.BorderStyle = ... # 0x4
-    BorderStyle_DotDash      : QTextFrameFormat.BorderStyle = ... # 0x5
-    BorderStyle_DotDotDash   : QTextFrameFormat.BorderStyle = ... # 0x6
-    BorderStyle_Groove       : QTextFrameFormat.BorderStyle = ... # 0x7
-    BorderStyle_Ridge        : QTextFrameFormat.BorderStyle = ... # 0x8
-    BorderStyle_Inset        : QTextFrameFormat.BorderStyle = ... # 0x9
-    BorderStyle_Outset       : QTextFrameFormat.BorderStyle = ... # 0xa
-    InFlow                   : QTextFrameFormat.Position = ... # 0x0
-    FloatLeft                : QTextFrameFormat.Position = ... # 0x1
-    FloatRight               : QTextFrameFormat.Position = ... # 0x2
-
-    class BorderStyle(Shiboken.Enum):
+    class BorderStyle(shibokensupport.enum_310.Enum):
 
         BorderStyle_None         : QTextFrameFormat.BorderStyle = ... # 0x0
         BorderStyle_Dotted       : QTextFrameFormat.BorderStyle = ... # 0x1
@@ -9098,7 +7773,8 @@ class QTextFrameFormat(PySide6.QtGui.QTextFormat):
         BorderStyle_Inset        : QTextFrameFormat.BorderStyle = ... # 0x9
         BorderStyle_Outset       : QTextFrameFormat.BorderStyle = ... # 0xa
 
-    class Position(Shiboken.Enum):
+
+    class Position(shibokensupport.enum_310.Enum):
 
         InFlow                   : QTextFrameFormat.Position = ... # 0x0
         FloatLeft                : QTextFrameFormat.Position = ... # 0x1
@@ -9123,7 +7799,7 @@ class QTextFrameFormat(PySide6.QtGui.QTextFormat):
     def leftMargin(self) -> float: ...
     def margin(self) -> float: ...
     def padding(self) -> float: ...
-    def pageBreakPolicy(self) -> PySide6.QtGui.QTextFormat.PageBreakFlags: ...
+    def pageBreakPolicy(self) -> PySide6.QtGui.QTextFormat.PageBreakFlag: ...
     def position(self) -> PySide6.QtGui.QTextFrameFormat.Position: ...
     def rightMargin(self) -> float: ...
     def setBorder(self, border: float) -> None: ...
@@ -9137,7 +7813,7 @@ class QTextFrameFormat(PySide6.QtGui.QTextFormat):
     def setLeftMargin(self, margin: float) -> None: ...
     def setMargin(self, margin: float) -> None: ...
     def setPadding(self, padding: float) -> None: ...
-    def setPageBreakPolicy(self, flags: PySide6.QtGui.QTextFormat.PageBreakFlags) -> None: ...
+    def setPageBreakPolicy(self, flags: PySide6.QtGui.QTextFormat.PageBreakFlag) -> None: ...
     def setPosition(self, f: PySide6.QtGui.QTextFrameFormat.Position) -> None: ...
     def setRightMargin(self, margin: float) -> None: ...
     def setTopMargin(self, margin: float) -> None: ...
@@ -9197,13 +7873,7 @@ class QTextInlineObject(Shiboken.Object):
 
 class QTextItem(Shiboken.Object):
 
-    Dummy                    : QTextItem.RenderFlag = ... # -0x1
-    RightToLeft              : QTextItem.RenderFlag = ... # 0x1
-    Overline                 : QTextItem.RenderFlag = ... # 0x10
-    Underline                : QTextItem.RenderFlag = ... # 0x20
-    StrikeOut                : QTextItem.RenderFlag = ... # 0x40
-
-    class RenderFlag(Shiboken.Enum):
+    class RenderFlag(shibokensupport.enum_310.Flag):
 
         Dummy                    : QTextItem.RenderFlag = ... # -0x1
         RightToLeft              : QTextItem.RenderFlag = ... # 0x1
@@ -9211,28 +7881,24 @@ class QTextItem(Shiboken.Object):
         Underline                : QTextItem.RenderFlag = ... # 0x20
         StrikeOut                : QTextItem.RenderFlag = ... # 0x40
 
-    class RenderFlags(object): ...
-
 
     def __init__(self) -> None: ...
 
     def ascent(self) -> float: ...
     def descent(self) -> float: ...
     def font(self) -> PySide6.QtGui.QFont: ...
-    def renderFlags(self) -> PySide6.QtGui.QTextItem.RenderFlags: ...
+    def renderFlags(self) -> PySide6.QtGui.QTextItem.RenderFlag: ...
     def text(self) -> str: ...
     def width(self) -> float: ...
 
 
 class QTextLayout(Shiboken.Object):
 
-    SkipCharacters           : QTextLayout.CursorMode = ... # 0x0
-    SkipWords                : QTextLayout.CursorMode = ... # 0x1
-
-    class CursorMode(Shiboken.Enum):
+    class CursorMode(shibokensupport.enum_310.Enum):
 
         SkipCharacters           : QTextLayout.CursorMode = ... # 0x0
         SkipWords                : QTextLayout.CursorMode = ... # 0x1
+
 
     class FormatRange(Shiboken.Object):
 
@@ -9292,18 +7958,14 @@ class QTextLayout(Shiboken.Object):
     def setPreeditArea(self, position: int, text: str) -> None: ...
     def setRawFont(self, rawFont: PySide6.QtGui.QRawFont) -> None: ...
     def setText(self, string: str) -> None: ...
-    def setTextOption(self, option: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> None: ...
+    def setTextOption(self, option: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> None: ...
     def text(self) -> str: ...
     def textOption(self) -> PySide6.QtGui.QTextOption: ...
 
 
 class QTextLength(Shiboken.Object):
 
-    VariableLength           : QTextLength.Type = ... # 0x0
-    FixedLength              : QTextLength.Type = ... # 0x1
-    PercentageLength         : QTextLength.Type = ... # 0x2
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         VariableLength           : QTextLength.Type = ... # 0x0
         FixedLength              : QTextLength.Type = ... # 0x1
@@ -9326,17 +7988,13 @@ class QTextLength(Shiboken.Object):
 
 class QTextLine(Shiboken.Object):
 
-    CursorBetweenCharacters  : QTextLine.CursorPosition = ... # 0x0
-    CursorOnCharacter        : QTextLine.CursorPosition = ... # 0x1
-    Leading                  : QTextLine.Edge = ... # 0x0
-    Trailing                 : QTextLine.Edge = ... # 0x1
-
-    class CursorPosition(Shiboken.Enum):
+    class CursorPosition(shibokensupport.enum_310.Enum):
 
         CursorBetweenCharacters  : QTextLine.CursorPosition = ... # 0x0
         CursorOnCharacter        : QTextLine.CursorPosition = ... # 0x1
 
-    class Edge(Shiboken.Enum):
+
+    class Edge(shibokensupport.enum_310.Enum):
 
         Leading                  : QTextLine.Edge = ... # 0x0
         Trailing                 : QTextLine.Edge = ... # 0x1
@@ -9393,17 +8051,7 @@ class QTextList(PySide6.QtGui.QTextBlockGroup):
 
 class QTextListFormat(PySide6.QtGui.QTextFormat):
 
-    ListUpperRoman           : QTextListFormat.Style = ... # -0x8
-    ListLowerRoman           : QTextListFormat.Style = ... # -0x7
-    ListUpperAlpha           : QTextListFormat.Style = ... # -0x6
-    ListLowerAlpha           : QTextListFormat.Style = ... # -0x5
-    ListDecimal              : QTextListFormat.Style = ... # -0x4
-    ListSquare               : QTextListFormat.Style = ... # -0x3
-    ListCircle               : QTextListFormat.Style = ... # -0x2
-    ListDisc                 : QTextListFormat.Style = ... # -0x1
-    ListStyleUndefined       : QTextListFormat.Style = ... # 0x0
-
-    class Style(Shiboken.Enum):
+    class Style(shibokensupport.enum_310.Enum):
 
         ListUpperRoman           : QTextListFormat.Style = ... # -0x8
         ListLowerRoman           : QTextListFormat.Style = ... # -0x7
@@ -9457,23 +8105,7 @@ class QTextObjectInterface(Shiboken.Object):
 
 class QTextOption(Shiboken.Object):
 
-    IncludeTrailingSpaces    : QTextOption.Flag = ... # -0x80000000
-    ShowTabsAndSpaces        : QTextOption.Flag = ... # 0x1
-    ShowLineAndParagraphSeparators: QTextOption.Flag = ... # 0x2
-    AddSpaceForLineAndParagraphSeparators: QTextOption.Flag = ... # 0x4
-    SuppressColors           : QTextOption.Flag = ... # 0x8
-    ShowDocumentTerminator   : QTextOption.Flag = ... # 0x10
-    LeftTab                  : QTextOption.TabType = ... # 0x0
-    RightTab                 : QTextOption.TabType = ... # 0x1
-    CenterTab                : QTextOption.TabType = ... # 0x2
-    DelimiterTab             : QTextOption.TabType = ... # 0x3
-    NoWrap                   : QTextOption.WrapMode = ... # 0x0
-    WordWrap                 : QTextOption.WrapMode = ... # 0x1
-    ManualWrap               : QTextOption.WrapMode = ... # 0x2
-    WrapAnywhere             : QTextOption.WrapMode = ... # 0x3
-    WrapAtWordBoundaryOrAnywhere: QTextOption.WrapMode = ... # 0x4
-
-    class Flag(Shiboken.Enum):
+    class Flag(shibokensupport.enum_310.Flag):
 
         IncludeTrailingSpaces    : QTextOption.Flag = ... # -0x80000000
         ShowTabsAndSpaces        : QTextOption.Flag = ... # 0x1
@@ -9482,7 +8114,6 @@ class QTextOption(Shiboken.Object):
         SuppressColors           : QTextOption.Flag = ... # 0x8
         ShowDocumentTerminator   : QTextOption.Flag = ... # 0x10
 
-    class Flags(object): ...
 
     class Tab(Shiboken.Object):
 
@@ -9496,14 +8127,15 @@ class QTextOption(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class TabType(Shiboken.Enum):
+    class TabType(shibokensupport.enum_310.Enum):
 
         LeftTab                  : QTextOption.TabType = ... # 0x0
         RightTab                 : QTextOption.TabType = ... # 0x1
         CenterTab                : QTextOption.TabType = ... # 0x2
         DelimiterTab             : QTextOption.TabType = ... # 0x3
 
-    class WrapMode(Shiboken.Enum):
+
+    class WrapMode(shibokensupport.enum_310.Enum):
 
         NoWrap                   : QTextOption.WrapMode = ... # 0x0
         WordWrap                 : QTextOption.WrapMode = ... # 0x1
@@ -9515,16 +8147,16 @@ class QTextOption(Shiboken.Object):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, alignment: PySide6.QtCore.Qt.Alignment) -> None: ...
+    def __init__(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     @overload
-    def __init__(self, o: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.Alignment]) -> None: ...
+    def __init__(self, o: Union[PySide6.QtGui.QTextOption, PySide6.QtCore.Qt.AlignmentFlag]) -> None: ...
 
     @staticmethod
     def __copy__() -> None: ...
-    def alignment(self) -> PySide6.QtCore.Qt.Alignment: ...
-    def flags(self) -> PySide6.QtGui.QTextOption.Flags: ...
-    def setAlignment(self, alignment: PySide6.QtCore.Qt.Alignment) -> None: ...
-    def setFlags(self, flags: PySide6.QtGui.QTextOption.Flags) -> None: ...
+    def alignment(self) -> PySide6.QtCore.Qt.AlignmentFlag: ...
+    def flags(self) -> PySide6.QtGui.QTextOption.Flag: ...
+    def setAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
+    def setFlags(self, flags: PySide6.QtGui.QTextOption.Flag) -> None: ...
     def setTabArray(self, tabStops: Sequence[float]) -> None: ...
     def setTabStopDistance(self, tabStopDistance: float) -> None: ...
     def setTabs(self, tabStops: Sequence[PySide6.QtGui.QTextOption.Tab]) -> None: ...
@@ -9655,7 +8287,7 @@ class QTextTableFormat(PySide6.QtGui.QTextFrameFormat):
 
     @staticmethod
     def __copy__() -> None: ...
-    def alignment(self) -> PySide6.QtCore.Qt.Alignment: ...
+    def alignment(self) -> PySide6.QtCore.Qt.AlignmentFlag: ...
     def borderCollapse(self) -> bool: ...
     def cellPadding(self) -> float: ...
     def cellSpacing(self) -> float: ...
@@ -9664,7 +8296,7 @@ class QTextTableFormat(PySide6.QtGui.QTextFrameFormat):
     def columns(self) -> int: ...
     def headerRowCount(self) -> int: ...
     def isValid(self) -> bool: ...
-    def setAlignment(self, alignment: PySide6.QtCore.Qt.Alignment) -> None: ...
+    def setAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     def setBorderCollapse(self, borderCollapse: bool) -> None: ...
     def setCellPadding(self, padding: float) -> None: ...
     def setCellSpacing(self, spacing: float) -> None: ...
@@ -9689,7 +8321,7 @@ class QTouchEvent(PySide6.QtGui.QPointerEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QTouchEvent) -> None: ...
     @overload
-    def __init__(self, eventType: PySide6.QtCore.QEvent.Type, device: Optional[PySide6.QtGui.QPointingDevice] = ..., modifiers: PySide6.QtCore.Qt.KeyboardModifiers = ..., touchPoints: Sequence[PySide6.QtGui.QEventPoint] = ...) -> None: ...
+    def __init__(self, eventType: PySide6.QtCore.QEvent.Type, device: Optional[PySide6.QtGui.QPointingDevice] = ..., modifiers: PySide6.QtCore.Qt.KeyboardModifier = ..., touchPoints: Sequence[PySide6.QtGui.QEventPoint] = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     def clone(self) -> PySide6.QtGui.QTouchEvent: ...
@@ -9702,14 +8334,7 @@ class QTouchEvent(PySide6.QtGui.QPointerEvent):
 
 class QTransform(Shiboken.Object):
 
-    TxNone                   : QTransform.TransformationType = ... # 0x0
-    TxTranslate              : QTransform.TransformationType = ... # 0x1
-    TxScale                  : QTransform.TransformationType = ... # 0x2
-    TxRotate                 : QTransform.TransformationType = ... # 0x4
-    TxShear                  : QTransform.TransformationType = ... # 0x8
-    TxProject                : QTransform.TransformationType = ... # 0x10
-
-    class TransformationType(Shiboken.Enum):
+    class TransformationType(shibokensupport.enum_310.Enum):
 
         TxNone                   : QTransform.TransformationType = ... # 0x0
         TxTranslate              : QTransform.TransformationType = ... # 0x1
@@ -9762,7 +8387,7 @@ class QTransform(Shiboken.Object):
     def fromScale(dx: float, dy: float) -> PySide6.QtGui.QTransform: ...
     @staticmethod
     def fromTranslate(dx: float, dy: float) -> PySide6.QtGui.QTransform: ...
-    def inverted(self) -> Tuple[Tuple, bool]: ...
+    def inverted(self) -> Tuple: ...
     def isAffine(self) -> bool: ...
     def isIdentity(self) -> bool: ...
     def isInvertible(self) -> bool: ...
@@ -9795,7 +8420,7 @@ class QTransform(Shiboken.Object):
     @overload
     def map(self, r: Union[PySide6.QtGui.QRegion, PySide6.QtGui.QBitmap, PySide6.QtGui.QPolygon, PySide6.QtCore.QRect]) -> PySide6.QtGui.QRegion: ...
     @overload
-    def map(self, x: float, y: float) -> Tuple[float, float]: ...
+    def map(self, x: float, y: float) -> object: ...
     @overload
     def mapRect(self, arg__1: PySide6.QtCore.QRect) -> PySide6.QtCore.QRect: ...
     @overload
@@ -9903,11 +8528,7 @@ class QUndoStack(PySide6.QtCore.QObject):
 
 class QValidator(PySide6.QtCore.QObject):
 
-    Invalid                  : QValidator.State = ... # 0x0
-    Intermediate             : QValidator.State = ... # 0x1
-    Acceptable               : QValidator.State = ... # 0x2
-
-    class State(Shiboken.Enum):
+    class State(shibokensupport.enum_310.Enum):
 
         Invalid                  : QValidator.State = ... # 0x0
         Intermediate             : QValidator.State = ... # 0x1
@@ -9916,7 +8537,7 @@ class QValidator(PySide6.QtCore.QObject):
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
-    def fixup(self, arg__1: str) -> None: ...
+    def fixup(self, arg__1: str) -> str: ...
     def locale(self) -> PySide6.QtCore.QLocale: ...
     def setLocale(self, locale: Union[PySide6.QtCore.QLocale, PySide6.QtCore.QLocale.Language]) -> None: ...
     def validate(self, arg__1: str, arg__2: int) -> object: ...
@@ -10141,7 +8762,7 @@ class QWheelEvent(PySide6.QtGui.QSinglePointEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QWheelEvent) -> None: ...
     @overload
-    def __init__(self, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], pixelDelta: PySide6.QtCore.QPoint, angleDelta: PySide6.QtCore.QPoint, buttons: PySide6.QtCore.Qt.MouseButtons, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, phase: PySide6.QtCore.Qt.ScrollPhase, inverted: bool, source: PySide6.QtCore.Qt.MouseEventSource = ..., device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
+    def __init__(self, pos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], globalPos: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], pixelDelta: PySide6.QtCore.QPoint, angleDelta: PySide6.QtCore.QPoint, buttons: PySide6.QtCore.Qt.MouseButton, modifiers: PySide6.QtCore.Qt.KeyboardModifier, phase: PySide6.QtCore.Qt.ScrollPhase, inverted: bool, source: PySide6.QtCore.Qt.MouseEventSource = ..., device: PySide6.QtGui.QPointingDevice = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     def angleDelta(self) -> PySide6.QtCore.QPoint: ...
@@ -10159,21 +8780,13 @@ class QWheelEvent(PySide6.QtGui.QSinglePointEvent):
 
 class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
 
-    ExcludeTransients        : QWindow.AncestorMode = ... # 0x0
-    IncludeTransients        : QWindow.AncestorMode = ... # 0x1
-    Hidden                   : QWindow.Visibility = ... # 0x0
-    AutomaticVisibility      : QWindow.Visibility = ... # 0x1
-    Windowed                 : QWindow.Visibility = ... # 0x2
-    Minimized                : QWindow.Visibility = ... # 0x3
-    Maximized                : QWindow.Visibility = ... # 0x4
-    FullScreen               : QWindow.Visibility = ... # 0x5
-
-    class AncestorMode(Shiboken.Enum):
+    class AncestorMode(shibokensupport.enum_310.Enum):
 
         ExcludeTransients        : QWindow.AncestorMode = ... # 0x0
         IncludeTransients        : QWindow.AncestorMode = ... # 0x1
 
-    class Visibility(Shiboken.Enum):
+
+    class Visibility(shibokensupport.enum_310.Enum):
 
         Hidden                   : QWindow.Visibility = ... # 0x0
         AutomaticVisibility      : QWindow.Visibility = ... # 0x1
@@ -10201,7 +8814,7 @@ class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     def event(self, arg__1: PySide6.QtCore.QEvent) -> bool: ...
     def exposeEvent(self, arg__1: PySide6.QtGui.QExposeEvent) -> None: ...
     def filePath(self) -> str: ...
-    def flags(self) -> PySide6.QtCore.Qt.WindowFlags: ...
+    def flags(self) -> PySide6.QtCore.Qt.WindowType: ...
     def focusInEvent(self, arg__1: PySide6.QtGui.QFocusEvent) -> None: ...
     def focusObject(self) -> PySide6.QtCore.QObject: ...
     def focusOutEvent(self, arg__1: PySide6.QtGui.QFocusEvent) -> None: ...
@@ -10246,7 +8859,7 @@ class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     def mousePressEvent(self, arg__1: PySide6.QtGui.QMouseEvent) -> None: ...
     def mouseReleaseEvent(self, arg__1: PySide6.QtGui.QMouseEvent) -> None: ...
     def moveEvent(self, arg__1: PySide6.QtGui.QMoveEvent) -> None: ...
-    def nativeEvent(self, eventType: Union[PySide6.QtCore.QByteArray, bytes], message: int) -> Tuple[object, int]: ...
+    def nativeEvent(self, eventType: Union[PySide6.QtCore.QByteArray, bytes], message: int) -> object: ...
     def opacity(self) -> float: ...
     def paintEvent(self, arg__1: PySide6.QtGui.QPaintEvent) -> None: ...
     def parent(self, mode: PySide6.QtGui.QWindow.AncestorMode = ...) -> PySide6.QtGui.QWindow: ...
@@ -10267,8 +8880,8 @@ class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     def setCursor(self, arg__1: Union[PySide6.QtGui.QCursor, PySide6.QtCore.Qt.CursorShape, PySide6.QtGui.QPixmap]) -> None: ...
     def setFilePath(self, filePath: str) -> None: ...
     def setFlag(self, arg__1: PySide6.QtCore.Qt.WindowType, on: bool = ...) -> None: ...
-    def setFlags(self, flags: PySide6.QtCore.Qt.WindowFlags) -> None: ...
-    def setFormat(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOptions]) -> None: ...
+    def setFlags(self, flags: PySide6.QtCore.Qt.WindowType) -> None: ...
+    def setFormat(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption]) -> None: ...
     def setFramePosition(self, point: PySide6.QtCore.QPoint) -> None: ...
     @overload
     def setGeometry(self, posx: int, posy: int, w: int, h: int) -> None: ...
@@ -10301,7 +8914,7 @@ class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     def setVisible(self, visible: bool) -> None: ...
     def setWidth(self, arg: int) -> None: ...
     def setWindowState(self, state: PySide6.QtCore.Qt.WindowState) -> None: ...
-    def setWindowStates(self, states: PySide6.QtCore.Qt.WindowStates) -> None: ...
+    def setWindowStates(self, states: PySide6.QtCore.Qt.WindowState) -> None: ...
     def setX(self, arg: int) -> None: ...
     def setY(self, arg: int) -> None: ...
     def show(self) -> None: ...
@@ -10313,7 +8926,7 @@ class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     def size(self) -> PySide6.QtCore.QSize: ...
     def sizeIncrement(self) -> PySide6.QtCore.QSize: ...
     def startSystemMove(self) -> bool: ...
-    def startSystemResize(self, edges: PySide6.QtCore.Qt.Edges) -> bool: ...
+    def startSystemResize(self, edges: PySide6.QtCore.Qt.Edge) -> bool: ...
     def surfaceHandle(self) -> int: ...
     def surfaceType(self) -> PySide6.QtGui.QSurface.SurfaceType: ...
     def tabletEvent(self, arg__1: PySide6.QtGui.QTabletEvent) -> None: ...
@@ -10327,7 +8940,7 @@ class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
     def width(self) -> int: ...
     def winId(self) -> int: ...
     def windowState(self) -> PySide6.QtCore.Qt.WindowState: ...
-    def windowStates(self) -> PySide6.QtCore.Qt.WindowStates: ...
+    def windowStates(self) -> PySide6.QtCore.Qt.WindowState: ...
     def x(self) -> int: ...
     def y(self) -> int: ...
 
@@ -10337,12 +8950,12 @@ class QWindowStateChangeEvent(PySide6.QtCore.QEvent):
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QWindowStateChangeEvent) -> None: ...
     @overload
-    def __init__(self, oldState: PySide6.QtCore.Qt.WindowStates, isOverride: bool = ...) -> None: ...
+    def __init__(self, oldState: PySide6.QtCore.Qt.WindowState, isOverride: bool = ...) -> None: ...
 
     def __repr__(self) -> object: ...
     def clone(self) -> PySide6.QtGui.QWindowStateChangeEvent: ...
     def isOverride(self) -> bool: ...
-    def oldState(self) -> PySide6.QtCore.Qt.WindowStates: ...
+    def oldState(self) -> PySide6.QtCore.Qt.WindowState: ...
 
 
 class Qt(PySide6.QtCore.Qt):
@@ -10382,6 +8995,7 @@ def qPixelFormatYuv(layout: PySide6.QtGui.QPixelFormat.YUVLayout, alfa: int = ..
 def qRed(rgb: int) -> int: ...
 def qRgb(r: int, g: int, b: int) -> int: ...
 def qRgba(r: int, g: int, b: int, a: int) -> int: ...
+def qt_set_sequence_auto_mnemonic(b: bool) -> None: ...
 
 
 # eof
