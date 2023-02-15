@@ -48,7 +48,6 @@ PySide6.QtXml, except for defaults which are replaced by "...".
 import PySide6.QtXml
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Tuple, Union, overload
 from shiboken6 import Shiboken
 
@@ -273,7 +272,7 @@ class QDomImplementation(Shiboken.Object):
     DropInvalidChars         : QDomImplementation.InvalidDataPolicy = ... # 0x1
     ReturnNullNode           : QDomImplementation.InvalidDataPolicy = ... # 0x2
 
-    class InvalidDataPolicy(Enum):
+    class InvalidDataPolicy(Shiboken.Enum):
 
         AcceptInvalidChars       : QDomImplementation.InvalidDataPolicy = ... # 0x0
         DropInvalidChars         : QDomImplementation.InvalidDataPolicy = ... # 0x1
@@ -339,12 +338,12 @@ class QDomNode(Shiboken.Object):
     BaseNode                 : QDomNode.NodeType = ... # 0x15
     CharacterDataNode        : QDomNode.NodeType = ... # 0x16
 
-    class EncodingPolicy(Enum):
+    class EncodingPolicy(Shiboken.Enum):
 
         EncodingFromDocument     : QDomNode.EncodingPolicy = ... # 0x1
         EncodingFromTextStream   : QDomNode.EncodingPolicy = ... # 0x2
 
-    class NodeType(Enum):
+    class NodeType(Shiboken.Enum):
 
         ElementNode              : QDomNode.NodeType = ... # 0x1
         AttributeNode            : QDomNode.NodeType = ... # 0x2

@@ -48,7 +48,6 @@ PySide6.QtWebEngineQuick, except for defaults which are replaced by "...".
 import PySide6.QtWebEngineQuick
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Optional, Union, Sequence, List
 from shiboken6 import Shiboken
 
@@ -65,13 +64,13 @@ class QQuickWebEngineProfile(PySide6.QtCore.QObject):
     AllowPersistentCookies   : QQuickWebEngineProfile.PersistentCookiesPolicy = ... # 0x1
     ForcePersistentCookies   : QQuickWebEngineProfile.PersistentCookiesPolicy = ... # 0x2
 
-    class HttpCacheType(Enum):
+    class HttpCacheType(Shiboken.Enum):
 
         MemoryHttpCache          : QQuickWebEngineProfile.HttpCacheType = ... # 0x0
         DiskHttpCache            : QQuickWebEngineProfile.HttpCacheType = ... # 0x1
         NoCache                  : QQuickWebEngineProfile.HttpCacheType = ... # 0x2
 
-    class PersistentCookiesPolicy(Enum):
+    class PersistentCookiesPolicy(Shiboken.Enum):
 
         NoPersistentCookies      : QQuickWebEngineProfile.PersistentCookiesPolicy = ... # 0x0
         AllowPersistentCookies   : QQuickWebEngineProfile.PersistentCookiesPolicy = ... # 0x1

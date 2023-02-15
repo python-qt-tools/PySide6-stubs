@@ -49,7 +49,6 @@ import PySide6.QtMultimedia
 import PySide6.QtCore
 import PySide6.QtGui
 
-from enum import Enum
 from typing import Any, Optional, Union, List, overload
 from shiboken6 import Shiboken
 
@@ -70,7 +69,7 @@ class QAudio(Shiboken.Object):
     LogarithmicVolumeScale   : QAudio.VolumeScale = ... # 0x2
     DecibelVolumeScale       : QAudio.VolumeScale = ... # 0x3
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QAudio.Error = ... # 0x0
         OpenError                : QAudio.Error = ... # 0x1
@@ -78,14 +77,14 @@ class QAudio(Shiboken.Object):
         UnderrunError            : QAudio.Error = ... # 0x3
         FatalError               : QAudio.Error = ... # 0x4
 
-    class State(Enum):
+    class State(Shiboken.Enum):
 
         ActiveState              : QAudio.State = ... # 0x0
         SuspendedState           : QAudio.State = ... # 0x1
         StoppedState             : QAudio.State = ... # 0x2
         IdleState                : QAudio.State = ... # 0x3
 
-    class VolumeScale(Enum):
+    class VolumeScale(Shiboken.Enum):
 
         LinearVolumeScale        : QAudio.VolumeScale = ... # 0x0
         CubicVolumeScale         : QAudio.VolumeScale = ... # 0x1
@@ -111,6 +110,8 @@ class QAudioBuffer(Shiboken.Object):
     @staticmethod
     def __copy__() -> None: ...
     def byteCount(self) -> int: ...
+    def constData(self) -> bytes: ...
+    def data(self) -> bytes: ...
     def duration(self) -> int: ...
     def format(self) -> PySide6.QtMultimedia.QAudioFormat: ...
     def frameCount(self) -> int: ...
@@ -128,7 +129,7 @@ class QAudioDecoder(PySide6.QtCore.QObject):
     AccessDeniedError        : QAudioDecoder.Error = ... # 0x3
     NotSupportedError        : QAudioDecoder.Error = ... # 0x4
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QAudioDecoder.Error = ... # 0x0
         ResourceError            : QAudioDecoder.Error = ... # 0x1
@@ -163,7 +164,7 @@ class QAudioDevice(Shiboken.Object):
     Input                    : QAudioDevice.Mode = ... # 0x1
     Output                   : QAudioDevice.Mode = ... # 0x2
 
-    class Mode(Enum):
+    class Mode(Shiboken.Enum):
 
         Null                     : QAudioDevice.Mode = ... # 0x0
         Input                    : QAudioDevice.Mode = ... # 0x1
@@ -234,7 +235,7 @@ class QAudioFormat(Shiboken.Object):
     Float                    : QAudioFormat.SampleFormat = ... # 0x4
     NSampleFormats           : QAudioFormat.SampleFormat = ... # 0x5
 
-    class AudioChannelPosition(Enum):
+    class AudioChannelPosition(Shiboken.Enum):
 
         UnknownPosition          : QAudioFormat.AudioChannelPosition = ... # 0x0
         FrontLeft                : QAudioFormat.AudioChannelPosition = ... # 0x1
@@ -262,7 +263,7 @@ class QAudioFormat(Shiboken.Object):
         BottomFrontLeft          : QAudioFormat.AudioChannelPosition = ... # 0x17
         BottomFrontRight         : QAudioFormat.AudioChannelPosition = ... # 0x18
 
-    class ChannelConfig(Enum):
+    class ChannelConfig(Shiboken.Enum):
 
         ChannelConfigUnknown     : QAudioFormat.ChannelConfig = ... # 0x0
         ChannelConfigStereo      : QAudioFormat.ChannelConfig = ... # 0x6
@@ -273,7 +274,7 @@ class QAudioFormat(Shiboken.Object):
         ChannelConfigSurround7Dot0: QAudioFormat.ChannelConfig = ... # 0x186e
         ChannelConfigSurround7Dot1: QAudioFormat.ChannelConfig = ... # 0x187e
 
-    class SampleFormat(Enum):
+    class SampleFormat(Shiboken.Enum):
 
         Unknown                  : QAudioFormat.SampleFormat = ... # 0x0
         UInt8                    : QAudioFormat.SampleFormat = ... # 0x1
@@ -440,12 +441,12 @@ class QCamera(PySide6.QtCore.QObject):
     WhiteBalanceFlash        : QCamera.WhiteBalanceMode = ... # 0x7
     WhiteBalanceSunset       : QCamera.WhiteBalanceMode = ... # 0x8
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QCamera.Error = ... # 0x0
         CameraError              : QCamera.Error = ... # 0x1
 
-    class ExposureMode(Enum):
+    class ExposureMode(Shiboken.Enum):
 
         ExposureAuto             : QCamera.ExposureMode = ... # 0x0
         ExposureManual           : QCamera.ExposureMode = ... # 0x1
@@ -465,7 +466,7 @@ class QCamera(PySide6.QtCore.QObject):
         ExposureCandlelight      : QCamera.ExposureMode = ... # 0xf
         ExposureBarcode          : QCamera.ExposureMode = ... # 0x10
 
-    class Feature(Enum):
+    class Feature(Shiboken.Enum):
 
         ColorTemperature         : QCamera.Feature = ... # 0x1
         ExposureCompensation     : QCamera.Feature = ... # 0x2
@@ -476,13 +477,13 @@ class QCamera(PySide6.QtCore.QObject):
 
     class Features(object): ...
 
-    class FlashMode(Enum):
+    class FlashMode(Shiboken.Enum):
 
         FlashOff                 : QCamera.FlashMode = ... # 0x0
         FlashOn                  : QCamera.FlashMode = ... # 0x1
         FlashAuto                : QCamera.FlashMode = ... # 0x2
 
-    class FocusMode(Enum):
+    class FocusMode(Shiboken.Enum):
 
         FocusModeAuto            : QCamera.FocusMode = ... # 0x0
         FocusModeAutoNear        : QCamera.FocusMode = ... # 0x1
@@ -491,13 +492,13 @@ class QCamera(PySide6.QtCore.QObject):
         FocusModeInfinity        : QCamera.FocusMode = ... # 0x4
         FocusModeManual          : QCamera.FocusMode = ... # 0x5
 
-    class TorchMode(Enum):
+    class TorchMode(Shiboken.Enum):
 
         TorchOff                 : QCamera.TorchMode = ... # 0x0
         TorchOn                  : QCamera.TorchMode = ... # 0x1
         TorchAuto                : QCamera.TorchMode = ... # 0x2
 
-    class WhiteBalanceMode(Enum):
+    class WhiteBalanceMode(Shiboken.Enum):
 
         WhiteBalanceAuto         : QCamera.WhiteBalanceMode = ... # 0x0
         WhiteBalanceManual       : QCamera.WhiteBalanceMode = ... # 0x1
@@ -580,7 +581,7 @@ class QCameraDevice(Shiboken.Object):
     BackFace                 : QCameraDevice.Position = ... # 0x1
     FrontFace                : QCameraDevice.Position = ... # 0x2
 
-    class Position(Enum):
+    class Position(Shiboken.Enum):
 
         UnspecifiedPosition      : QCameraDevice.Position = ... # 0x0
         BackFace                 : QCameraDevice.Position = ... # 0x1
@@ -639,7 +640,7 @@ class QImageCapture(PySide6.QtCore.QObject):
     HighQuality              : QImageCapture.Quality = ... # 0x3
     VeryHighQuality          : QImageCapture.Quality = ... # 0x4
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QImageCapture.Error = ... # 0x0
         NotReadyError            : QImageCapture.Error = ... # 0x1
@@ -648,7 +649,7 @@ class QImageCapture(PySide6.QtCore.QObject):
         NotSupportedFeatureError : QImageCapture.Error = ... # 0x4
         FormatError              : QImageCapture.Error = ... # 0x5
 
-    class FileFormat(Enum):
+    class FileFormat(Shiboken.Enum):
 
         UnspecifiedFormat        : QImageCapture.FileFormat = ... # 0x0
         JPEG                     : QImageCapture.FileFormat = ... # 0x1
@@ -657,7 +658,7 @@ class QImageCapture(PySide6.QtCore.QObject):
         LastFileFormat           : QImageCapture.FileFormat = ... # 0x4
         Tiff                     : QImageCapture.FileFormat = ... # 0x4
 
-    class Quality(Enum):
+    class Quality(Shiboken.Enum):
 
         VeryLowQuality           : QImageCapture.Quality = ... # 0x0
         LowQuality               : QImageCapture.Quality = ... # 0x1
@@ -758,7 +759,7 @@ class QMediaFormat(Shiboken.Object):
     NoFlags                  : QMediaFormat.ResolveFlags = ... # 0x0
     RequiresVideo            : QMediaFormat.ResolveFlags = ... # 0x1
 
-    class AudioCodec(Enum):
+    class AudioCodec(Shiboken.Enum):
 
         Unspecified              : QMediaFormat.AudioCodec = ... # -0x1
         MP3                      : QMediaFormat.AudioCodec = ... # 0x0
@@ -774,12 +775,12 @@ class QMediaFormat(Shiboken.Object):
         ALAC                     : QMediaFormat.AudioCodec = ... # 0xa
         LastAudioCodec           : QMediaFormat.AudioCodec = ... # 0xa
 
-    class ConversionMode(Enum):
+    class ConversionMode(Shiboken.Enum):
 
         Encode                   : QMediaFormat.ConversionMode = ... # 0x0
         Decode                   : QMediaFormat.ConversionMode = ... # 0x1
 
-    class FileFormat(Enum):
+    class FileFormat(Shiboken.Enum):
 
         UnspecifiedFormat        : QMediaFormat.FileFormat = ... # -0x1
         WMV                      : QMediaFormat.FileFormat = ... # 0x0
@@ -797,12 +798,12 @@ class QMediaFormat(Shiboken.Object):
         LastFileFormat           : QMediaFormat.FileFormat = ... # 0xc
         Wave                     : QMediaFormat.FileFormat = ... # 0xc
 
-    class ResolveFlags(Enum):
+    class ResolveFlags(Shiboken.Enum):
 
         NoFlags                  : QMediaFormat.ResolveFlags = ... # 0x0
         RequiresVideo            : QMediaFormat.ResolveFlags = ... # 0x1
 
-    class VideoCodec(Enum):
+    class VideoCodec(Shiboken.Enum):
 
         Unspecified              : QMediaFormat.VideoCodec = ... # -0x1
         MPEG1                    : QMediaFormat.VideoCodec = ... # 0x0
@@ -884,7 +885,7 @@ class QMediaMetaData(Shiboken.Object):
     Orientation              : QMediaMetaData.Key = ... # 0x1a
     Resolution               : QMediaMetaData.Key = ... # 0x1b
 
-    class Key(Enum):
+    class Key(Shiboken.Enum):
 
         Title                    : QMediaMetaData.Key = ... # 0x0
         Author                   : QMediaMetaData.Key = ... # 0x1
@@ -916,6 +917,9 @@ class QMediaMetaData(Shiboken.Object):
         Resolution               : QMediaMetaData.Key = ... # 0x1b
 
 
+    @overload
+    def __init__(self) -> None: ...
+    @overload
     def __init__(self, QMediaMetaData: PySide6.QtMultimedia.QMediaMetaData) -> None: ...
 
     @staticmethod
@@ -952,7 +956,7 @@ class QMediaPlayer(PySide6.QtCore.QObject):
     PlayingState             : QMediaPlayer.PlaybackState = ... # 0x1
     PausedState              : QMediaPlayer.PlaybackState = ... # 0x2
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QMediaPlayer.Error = ... # 0x0
         ResourceError            : QMediaPlayer.Error = ... # 0x1
@@ -960,12 +964,12 @@ class QMediaPlayer(PySide6.QtCore.QObject):
         NetworkError             : QMediaPlayer.Error = ... # 0x3
         AccessDeniedError        : QMediaPlayer.Error = ... # 0x4
 
-    class Loops(Enum):
+    class Loops(Shiboken.Enum):
 
         Infinite                 : QMediaPlayer.Loops = ... # -0x1
         Once                     : QMediaPlayer.Loops = ... # 0x1
 
-    class MediaStatus(Enum):
+    class MediaStatus(Shiboken.Enum):
 
         NoMedia                  : QMediaPlayer.MediaStatus = ... # 0x0
         LoadingMedia             : QMediaPlayer.MediaStatus = ... # 0x1
@@ -976,7 +980,7 @@ class QMediaPlayer(PySide6.QtCore.QObject):
         EndOfMedia               : QMediaPlayer.MediaStatus = ... # 0x6
         InvalidMedia             : QMediaPlayer.MediaStatus = ... # 0x7
 
-    class PlaybackState(Enum):
+    class PlaybackState(Shiboken.Enum):
 
         StoppedState             : QMediaPlayer.PlaybackState = ... # 0x0
         PlayingState             : QMediaPlayer.PlaybackState = ... # 0x1
@@ -1047,14 +1051,14 @@ class QMediaRecorder(PySide6.QtCore.QObject):
     RecordingState           : QMediaRecorder.RecorderState = ... # 0x1
     PausedState              : QMediaRecorder.RecorderState = ... # 0x2
 
-    class EncodingMode(Enum):
+    class EncodingMode(Shiboken.Enum):
 
         ConstantQualityEncoding  : QMediaRecorder.EncodingMode = ... # 0x0
         ConstantBitRateEncoding  : QMediaRecorder.EncodingMode = ... # 0x1
         AverageBitRateEncoding   : QMediaRecorder.EncodingMode = ... # 0x2
         TwoPassEncoding          : QMediaRecorder.EncodingMode = ... # 0x3
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QMediaRecorder.Error = ... # 0x0
         ResourceError            : QMediaRecorder.Error = ... # 0x1
@@ -1062,7 +1066,7 @@ class QMediaRecorder(PySide6.QtCore.QObject):
         OutOfSpaceError          : QMediaRecorder.Error = ... # 0x3
         LocationNotWritable      : QMediaRecorder.Error = ... # 0x4
 
-    class Quality(Enum):
+    class Quality(Shiboken.Enum):
 
         VeryLowQuality           : QMediaRecorder.Quality = ... # 0x0
         LowQuality               : QMediaRecorder.Quality = ... # 0x1
@@ -1070,7 +1074,7 @@ class QMediaRecorder(PySide6.QtCore.QObject):
         HighQuality              : QMediaRecorder.Quality = ... # 0x3
         VeryHighQuality          : QMediaRecorder.Quality = ... # 0x4
 
-    class RecorderState(Enum):
+    class RecorderState(Shiboken.Enum):
 
         StoppedState             : QMediaRecorder.RecorderState = ... # 0x0
         RecordingState           : QMediaRecorder.RecorderState = ... # 0x1
@@ -1187,11 +1191,11 @@ class QSoundEffect(PySide6.QtCore.QObject):
     Ready                    : QSoundEffect.Status = ... # 0x2
     Error                    : QSoundEffect.Status = ... # 0x3
 
-    class Loop(Enum):
+    class Loop(Shiboken.Enum):
 
         Infinite                 : QSoundEffect.Loop = ... # -0x2
 
-    class Status(Enum):
+    class Status(Shiboken.Enum):
 
         Null                     : QSoundEffect.Status = ... # 0x0
         Loading                  : QSoundEffect.Status = ... # 0x1
@@ -1237,19 +1241,19 @@ class QVideoFrame(Shiboken.Object):
     Rotation180              : QVideoFrame.RotationAngle = ... # 0xb4
     Rotation270              : QVideoFrame.RotationAngle = ... # 0x10e
 
-    class HandleType(Enum):
+    class HandleType(Shiboken.Enum):
 
         NoHandle                 : QVideoFrame.HandleType = ... # 0x0
         RhiTextureHandle         : QVideoFrame.HandleType = ... # 0x1
 
-    class MapMode(Enum):
+    class MapMode(Shiboken.Enum):
 
         NotMapped                : QVideoFrame.MapMode = ... # 0x0
         ReadOnly                 : QVideoFrame.MapMode = ... # 0x1
         WriteOnly                : QVideoFrame.MapMode = ... # 0x2
         ReadWrite                : QVideoFrame.MapMode = ... # 0x3
 
-    class RotationAngle(Enum):
+    class RotationAngle(Shiboken.Enum):
 
         Rotation0                : QVideoFrame.RotationAngle = ... # 0x0
         Rotation90               : QVideoFrame.RotationAngle = ... # 0x5a
@@ -1341,12 +1345,12 @@ class QVideoFrameFormat(Shiboken.Object):
     YCbCr_JPEG               : QVideoFrameFormat.YCbCrColorSpace = ... # 0x5
     YCbCr_BT2020             : QVideoFrameFormat.YCbCrColorSpace = ... # 0x6
 
-    class Direction(Enum):
+    class Direction(Shiboken.Enum):
 
         TopToBottom              : QVideoFrameFormat.Direction = ... # 0x0
         BottomToTop              : QVideoFrameFormat.Direction = ... # 0x1
 
-    class PixelFormat(Enum):
+    class PixelFormat(Shiboken.Enum):
 
         Format_Invalid           : QVideoFrameFormat.PixelFormat = ... # 0x0
         Format_ARGB8888          : QVideoFrameFormat.PixelFormat = ... # 0x1
@@ -1380,7 +1384,7 @@ class QVideoFrameFormat(Shiboken.Object):
         Format_Jpeg              : QVideoFrameFormat.PixelFormat = ... # 0x1d
         Format_SamplerRect       : QVideoFrameFormat.PixelFormat = ... # 0x1e
 
-    class YCbCrColorSpace(Enum):
+    class YCbCrColorSpace(Shiboken.Enum):
 
         YCbCr_Undefined          : QVideoFrameFormat.YCbCrColorSpace = ... # 0x0
         YCbCr_BT601              : QVideoFrameFormat.YCbCrColorSpace = ... # 0x1
