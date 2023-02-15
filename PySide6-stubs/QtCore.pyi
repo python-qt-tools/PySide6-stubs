@@ -6502,9 +6502,8 @@ class QSettings(PySide6.QtCore.QObject):
 
     NativeFormat             : QSettings.Format = ... # 0x0
     IniFormat                : QSettings.Format = ... # 0x1
-    if sys.platform() == 'win32':
-        Registry32Format         : QSettings.Format = ... # 0x2
-        Registry64Format         : QSettings.Format = ... # 0x3
+    Registry32Format         : QSettings.Format = ... # 0x2
+    Registry64Format         : QSettings.Format = ... # 0x3
     InvalidFormat            : QSettings.Format = ... # 0x10
     CustomFormat1            : QSettings.Format = ... # 0x11
     CustomFormat2            : QSettings.Format = ... # 0x12
@@ -6524,9 +6523,6 @@ class QSettings(PySide6.QtCore.QObject):
     CustomFormat16           : QSettings.Format = ... # 0x20
 
 
-        Registry32Format         : QSettings.Format = ... # 0x2
-        Registry64Format         : QSettings.Format = ... # 0x3
-        InvalidFormat            : QSettings.Format = ... # 0x10
 
 
     class Scope(enum.Enum):

@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -50,6 +14,7 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
+import enum
 from typing import Any, Optional, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -129,10 +94,7 @@ class QAxObjectInterface(Shiboken.Object):
 
 class QAxScript(PySide6.QtCore.QObject):
 
-    FunctionNames            : QAxScript.FunctionFlags = ... # 0x0
-    FunctionSignatures       : QAxScript.FunctionFlags = ... # 0x1
-
-    class FunctionFlags(Shiboken.Enum):
+    class FunctionFlags(enum.Enum):
 
         FunctionNames            : QAxScript.FunctionFlags = ... # 0x0
         FunctionSignatures       : QAxScript.FunctionFlags = ... # 0x1
@@ -153,14 +115,7 @@ class QAxScript(PySide6.QtCore.QObject):
 
 class QAxScriptEngine(PySide6.QtAxContainer.QAxObject):
 
-    Uninitialized            : QAxScriptEngine.State = ... # 0x0
-    Started                  : QAxScriptEngine.State = ... # 0x1
-    Connected                : QAxScriptEngine.State = ... # 0x2
-    Disconnected             : QAxScriptEngine.State = ... # 0x3
-    Closed                   : QAxScriptEngine.State = ... # 0x4
-    Initialized              : QAxScriptEngine.State = ... # 0x5
-
-    class State(Shiboken.Enum):
+    class State(enum.Enum):
 
         Uninitialized            : QAxScriptEngine.State = ... # 0x0
         Started                  : QAxScriptEngine.State = ... # 0x1
@@ -204,18 +159,14 @@ class QAxScriptManager(PySide6.QtCore.QObject):
 
 class QAxSelect(PySide6.QtWidgets.QDialog):
 
-    SandboxingNone           : QAxSelect.SandboxingLevel = ... # 0x0
-    SandboxingProcess        : QAxSelect.SandboxingLevel = ... # 0x1
-    SandboxingLowIntegrity   : QAxSelect.SandboxingLevel = ... # 0x2
-
-    class SandboxingLevel(Shiboken.Enum):
+    class SandboxingLevel(enum.Enum):
 
         SandboxingNone           : QAxSelect.SandboxingLevel = ... # 0x0
         SandboxingProcess        : QAxSelect.SandboxingLevel = ... # 0x1
         SandboxingLowIntegrity   : QAxSelect.SandboxingLevel = ... # 0x2
 
 
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def clsid(self) -> str: ...
     def sandboxingLevel(self) -> PySide6.QtAxContainer.QAxSelect.SandboxingLevel: ...
@@ -224,9 +175,9 @@ class QAxSelect(PySide6.QtWidgets.QDialog):
 class QAxWidget(PySide6.QtAxContainer.QAxBaseWidget, PySide6.QtAxContainer.QAxBase):
 
     @overload
-    def __init__(self, c: str, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, c: str, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
     @overload
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def changeEvent(self, e: PySide6.QtCore.QEvent) -> None: ...
     def classContext(self) -> int: ...
