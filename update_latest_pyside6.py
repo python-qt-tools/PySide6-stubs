@@ -63,7 +63,7 @@ def download_stubs(download_folder: Path, platform: str, branch_name: str) -> No
         (PYSIDE6_ADDONS, PATH_STUBS_PYSIDE6),
         (PYSIDE6_SHIBOKEN, PATH_STUBS_SHIBOKEN6),
     ]:
-        print(f'Downloading wheel for {platform}')
+        print(f'Downloading wheel {stub_name} for {platform}')
         output = subprocess.run(download_cmd + [
                 f"{stub_name}=={'.'.join((str(nbr) for nbr in PYSIDE6_VERSION))}",
             ],
