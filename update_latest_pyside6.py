@@ -109,7 +109,7 @@ def download_stubs(download_folder: Path, platform: str, branch_name: str) -> No
         subprocess.call(['git', 'add', target_folder])
 
     print(f'Git commit new files')
-    subprocess.call(['git', 'commit', '-m', f'"upgrading upstream to version {PYSIDE6_VERSION_STR}"'])
+    subprocess.call(['git', 'commit', '-m', f'Upgrading upstream to version {PYSIDE6_VERSION_STR}'])
     print(f'Commit of new version to {target_folder} done')
     print(f'Restoring git branch {current_branch}')
     subprocess.check_call(['git', 'checkout', current_branch])
