@@ -29,9 +29,16 @@ PYSIDE6_ESSENTIALS = "PySide6_Essentials"
 PYSIDE6_ADDONS     = "PySide6_Addons"
 PYSIDE6_SHIBOKEN   = "shiboken6"
 
+def git_current_branch() -> str:
+    '''Return the current git branch'''
+    branches = subprocess.check_output(['git', 'branch'], text=True).splitlines()
+    current_branch = [br for br in branches if br.startswith('* ')][0][2:]
+    return current_branch
+
 
 def download_stubs(download_folder: Path, platform: str, branch_name: str) -> None:
     """Download the stubs and copy them to pyside6-stubs folder."""
+    current_branch = git_current_branch()
     print(f'Git checkout branch {branch_name}')
     subprocess.check_call(['git', 'checkout', branch_name])
 
@@ -56,7 +63,7 @@ def download_stubs(download_folder: Path, platform: str, branch_name: str) -> No
         (PYSIDE6_ADDONS, PATH_STUBS_PYSIDE6),
         (PYSIDE6_SHIBOKEN, PATH_STUBS_SHIBOKEN6),
     ]:
-        print('Downloading wheel')
+        print(f'Downloading wheel for {platform}')
         output = subprocess.run(download_cmd + [
                 f"{stub_name}=={'.'.join((str(nbr) for nbr in PYSIDE6_VERSION))}",
             ],
@@ -66,6 +73,7 @@ def download_stubs(download_folder: Path, platform: str, branch_name: str) -> No
             },
             capture_output=True,
             text=True,
+            check=True,
         ).stdout
 
         mo = re.search(r'^\s*(Saved|File was already downloaded) (.*)\s*$', output, flags=re.MULTILINE)
@@ -103,6 +111,8 @@ def download_stubs(download_folder: Path, platform: str, branch_name: str) -> No
     print(f'Git commit new files')
     subprocess.call(['git', 'commit', '-m', f'"upgrading upstream to version {PYSIDE6_VERSION_STR}"'])
     print(f'Commit of new version to {target_folder} done')
+    print(f'Restoring git branch {current_branch}')
+    subprocess.check_call(['git', 'checkout', current_branch])
 
 
 
