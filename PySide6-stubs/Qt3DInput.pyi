@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -115,10 +79,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QAxisAccumulator(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        Velocity                 : Qt3DInput.QAxisAccumulator.SourceAxisType = ... # 0x0
-        Acceleration             : Qt3DInput.QAxisAccumulator.SourceAxisType = ... # 0x1
-
-        class SourceAxisType(Shiboken.Enum):
+        class SourceAxisType(shibokensupport.enum_310.Enum):
 
             Velocity                 : Qt3DInput.QAxisAccumulator.SourceAxisType = ... # 0x0
             Acceleration             : Qt3DInput.QAxisAccumulator.SourceAxisType = ... # 0x1
@@ -197,7 +158,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QKeyEvent(PySide6.QtCore.QObject):
 
-        def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, text: str = ..., autorep: bool = ..., count: int = ...) -> None: ...
+        def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifier, text: str = ..., autorep: bool = ..., count: int = ...) -> None: ...
 
         def count(self) -> int: ...
         def isAccepted(self) -> bool: ...
@@ -244,12 +205,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QMouseDevice(PySide6.Qt3DInput.Qt3DInput.QAbstractPhysicalDevice):
 
-        X                        : Qt3DInput.QMouseDevice.Axis = ... # 0x0
-        Y                        : Qt3DInput.QMouseDevice.Axis = ... # 0x1
-        WheelX                   : Qt3DInput.QMouseDevice.Axis = ... # 0x2
-        WheelY                   : Qt3DInput.QMouseDevice.Axis = ... # 0x3
-
-        class Axis(Shiboken.Enum):
+        class Axis(shibokensupport.enum_310.Enum):
 
             X                        : Qt3DInput.QMouseDevice.Axis = ... # 0x0
             Y                        : Qt3DInput.QMouseDevice.Axis = ... # 0x1
@@ -272,19 +228,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QMouseEvent(PySide6.QtCore.QObject):
 
-        NoButton                 : Qt3DInput.QMouseEvent.Buttons = ... # 0x0
-        LeftButton               : Qt3DInput.QMouseEvent.Buttons = ... # 0x1
-        RightButton              : Qt3DInput.QMouseEvent.Buttons = ... # 0x2
-        MiddleButton             : Qt3DInput.QMouseEvent.Buttons = ... # 0x4
-        BackButton               : Qt3DInput.QMouseEvent.Buttons = ... # 0x8
-        NoModifier               : Qt3DInput.QMouseEvent.Modifiers = ... # 0x0
-        ShiftModifier            : Qt3DInput.QMouseEvent.Modifiers = ... # 0x2000000
-        ControlModifier          : Qt3DInput.QMouseEvent.Modifiers = ... # 0x4000000
-        AltModifier              : Qt3DInput.QMouseEvent.Modifiers = ... # 0x8000000
-        MetaModifier             : Qt3DInput.QMouseEvent.Modifiers = ... # 0x10000000
-        KeypadModifier           : Qt3DInput.QMouseEvent.Modifiers = ... # 0x20000000
-
-        class Buttons(Shiboken.Enum):
+        class Buttons(shibokensupport.enum_310.Enum):
 
             NoButton                 : Qt3DInput.QMouseEvent.Buttons = ... # 0x0
             LeftButton               : Qt3DInput.QMouseEvent.Buttons = ... # 0x1
@@ -292,7 +236,8 @@ class Qt3DInput(Shiboken.Object):
             MiddleButton             : Qt3DInput.QMouseEvent.Buttons = ... # 0x4
             BackButton               : Qt3DInput.QMouseEvent.Buttons = ... # 0x8
 
-        class Modifiers(Shiboken.Enum):
+
+        class Modifiers(shibokensupport.enum_310.Enum):
 
             NoModifier               : Qt3DInput.QMouseEvent.Modifiers = ... # 0x0
             ShiftModifier            : Qt3DInput.QMouseEvent.Modifiers = ... # 0x2000000
@@ -323,19 +268,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QWheelEvent(PySide6.QtCore.QObject):
 
-        NoButton                 : Qt3DInput.QWheelEvent.Buttons = ... # 0x0
-        LeftButton               : Qt3DInput.QWheelEvent.Buttons = ... # 0x1
-        RightButton              : Qt3DInput.QWheelEvent.Buttons = ... # 0x2
-        MiddleButton             : Qt3DInput.QWheelEvent.Buttons = ... # 0x4
-        BackButton               : Qt3DInput.QWheelEvent.Buttons = ... # 0x8
-        NoModifier               : Qt3DInput.QWheelEvent.Modifiers = ... # 0x0
-        ShiftModifier            : Qt3DInput.QWheelEvent.Modifiers = ... # 0x2000000
-        ControlModifier          : Qt3DInput.QWheelEvent.Modifiers = ... # 0x4000000
-        AltModifier              : Qt3DInput.QWheelEvent.Modifiers = ... # 0x8000000
-        MetaModifier             : Qt3DInput.QWheelEvent.Modifiers = ... # 0x10000000
-        KeypadModifier           : Qt3DInput.QWheelEvent.Modifiers = ... # 0x20000000
-
-        class Buttons(Shiboken.Enum):
+        class Buttons(shibokensupport.enum_310.Enum):
 
             NoButton                 : Qt3DInput.QWheelEvent.Buttons = ... # 0x0
             LeftButton               : Qt3DInput.QWheelEvent.Buttons = ... # 0x1
@@ -343,7 +276,8 @@ class Qt3DInput(Shiboken.Object):
             MiddleButton             : Qt3DInput.QWheelEvent.Buttons = ... # 0x4
             BackButton               : Qt3DInput.QWheelEvent.Buttons = ... # 0x8
 
-        class Modifiers(Shiboken.Enum):
+
+        class Modifiers(shibokensupport.enum_310.Enum):
 
             NoModifier               : Qt3DInput.QWheelEvent.Modifiers = ... # 0x0
             ShiftModifier            : Qt3DInput.QWheelEvent.Modifiers = ... # 0x2000000

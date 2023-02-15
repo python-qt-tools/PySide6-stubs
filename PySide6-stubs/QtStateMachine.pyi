@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -50,7 +14,6 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 from typing import Any, Optional, Type, Union, Sequence, List, Set, overload
-from shiboken6 import Shiboken
 
 
 class QAbstractState(PySide6.QtCore.QObject):
@@ -67,10 +30,7 @@ class QAbstractState(PySide6.QtCore.QObject):
 
 class QAbstractTransition(PySide6.QtCore.QObject):
 
-    ExternalTransition       : QAbstractTransition.TransitionType = ... # 0x0
-    InternalTransition       : QAbstractTransition.TransitionType = ... # 0x1
-
-    class TransitionType(Shiboken.Enum):
+    class TransitionType(shibokensupport.enum_310.Enum):
 
         ExternalTransition       : QAbstractTransition.TransitionType = ... # 0x0
         InternalTransition       : QAbstractTransition.TransitionType = ... # 0x1
@@ -121,10 +81,7 @@ class QFinalState(PySide6.QtStateMachine.QAbstractState):
 
 class QHistoryState(PySide6.QtStateMachine.QAbstractState):
 
-    ShallowHistory           : QHistoryState.HistoryType = ... # 0x0
-    DeepHistory              : QHistoryState.HistoryType = ... # 0x1
-
-    class HistoryType(Shiboken.Enum):
+    class HistoryType(shibokensupport.enum_310.Enum):
 
         ShallowHistory           : QHistoryState.HistoryType = ... # 0x0
         DeepHistory              : QHistoryState.HistoryType = ... # 0x1
@@ -158,10 +115,10 @@ class QKeyEventTransition(PySide6.QtStateMachine.QEventTransition):
 
     def eventTest(self, event: PySide6.QtCore.QEvent) -> bool: ...
     def key(self) -> int: ...
-    def modifierMask(self) -> PySide6.QtCore.Qt.KeyboardModifiers: ...
+    def modifierMask(self) -> PySide6.QtCore.Qt.KeyboardModifier: ...
     def onTransition(self, event: PySide6.QtCore.QEvent) -> None: ...
     def setKey(self, key: int) -> None: ...
-    def setModifierMask(self, modifiers: PySide6.QtCore.Qt.KeyboardModifiers) -> None: ...
+    def setModifierMask(self, modifiers: PySide6.QtCore.Qt.KeyboardModifier) -> None: ...
 
 
 class QMouseEventTransition(PySide6.QtStateMachine.QEventTransition):
@@ -174,11 +131,11 @@ class QMouseEventTransition(PySide6.QtStateMachine.QEventTransition):
     def button(self) -> PySide6.QtCore.Qt.MouseButton: ...
     def eventTest(self, event: PySide6.QtCore.QEvent) -> bool: ...
     def hitTestPath(self) -> PySide6.QtGui.QPainterPath: ...
-    def modifierMask(self) -> PySide6.QtCore.Qt.KeyboardModifiers: ...
+    def modifierMask(self) -> PySide6.QtCore.Qt.KeyboardModifier: ...
     def onTransition(self, event: PySide6.QtCore.QEvent) -> None: ...
     def setButton(self, button: PySide6.QtCore.Qt.MouseButton) -> None: ...
     def setHitTestPath(self, path: PySide6.QtGui.QPainterPath) -> None: ...
-    def setModifierMask(self, modifiers: PySide6.QtCore.Qt.KeyboardModifiers) -> None: ...
+    def setModifierMask(self, modifiers: PySide6.QtCore.Qt.KeyboardModifier) -> None: ...
 
 
 class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
@@ -201,17 +158,13 @@ class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
 
 class QState(PySide6.QtStateMachine.QAbstractState):
 
-    ExclusiveStates          : QState.ChildMode = ... # 0x0
-    ParallelStates           : QState.ChildMode = ... # 0x1
-    DontRestoreProperties    : QState.RestorePolicy = ... # 0x0
-    RestoreProperties        : QState.RestorePolicy = ... # 0x1
-
-    class ChildMode(Shiboken.Enum):
+    class ChildMode(shibokensupport.enum_310.Enum):
 
         ExclusiveStates          : QState.ChildMode = ... # 0x0
         ParallelStates           : QState.ChildMode = ... # 0x1
 
-    class RestorePolicy(Shiboken.Enum):
+
+    class RestorePolicy(shibokensupport.enum_310.Enum):
 
         DontRestoreProperties    : QState.RestorePolicy = ... # 0x0
         RestoreProperties        : QState.RestorePolicy = ... # 0x1
@@ -246,15 +199,7 @@ class QState(PySide6.QtStateMachine.QAbstractState):
 
 class QStateMachine(PySide6.QtStateMachine.QState):
 
-    NoError                  : QStateMachine.Error = ... # 0x0
-    NoInitialStateError      : QStateMachine.Error = ... # 0x1
-    NoDefaultStateInHistoryStateError: QStateMachine.Error = ... # 0x2
-    NoCommonAncestorForTransitionError: QStateMachine.Error = ... # 0x3
-    StateMachineChildModeSetToParallelError: QStateMachine.Error = ... # 0x4
-    NormalPriority           : QStateMachine.EventPriority = ... # 0x0
-    HighPriority             : QStateMachine.EventPriority = ... # 0x1
-
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         NoError                  : QStateMachine.Error = ... # 0x0
         NoInitialStateError      : QStateMachine.Error = ... # 0x1
@@ -262,10 +207,12 @@ class QStateMachine(PySide6.QtStateMachine.QState):
         NoCommonAncestorForTransitionError: QStateMachine.Error = ... # 0x3
         StateMachineChildModeSetToParallelError: QStateMachine.Error = ... # 0x4
 
-    class EventPriority(Shiboken.Enum):
+
+    class EventPriority(shibokensupport.enum_310.Enum):
 
         NormalPriority           : QStateMachine.EventPriority = ... # 0x0
         HighPriority             : QStateMachine.EventPriority = ... # 0x1
+
 
     class SignalEvent(PySide6.QtCore.QEvent):
 

@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -60,7 +24,12 @@ class QIntList(object): ...
 
 class QWebEngineView(PySide6.QtWidgets.QWidget):
 
+    @overload
+    def __init__(self, page: PySide6.QtWebEngineCore.QWebEnginePage, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
+    @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
+    @overload
+    def __init__(self, profile: PySide6.QtWebEngineCore.QWebEngineProfile, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def back(self) -> None: ...
     def closeEvent(self, arg__1: PySide6.QtGui.QCloseEvent) -> None: ...
@@ -73,9 +42,9 @@ class QWebEngineView(PySide6.QtWidgets.QWidget):
     def dropEvent(self, e: PySide6.QtGui.QDropEvent) -> None: ...
     def event(self, arg__1: PySide6.QtCore.QEvent) -> bool: ...
     @overload
-    def findText(self, arg__1: str, arg__2: PySide6.QtWebEngineCore.QWebEnginePage.FindFlags, arg__3: object) -> None: ...
+    def findText(self, arg__1: str, arg__2: PySide6.QtWebEngineCore.QWebEnginePage.FindFlag, arg__3: object) -> None: ...
     @overload
-    def findText(self, subString: str, options: PySide6.QtWebEngineCore.QWebEnginePage.FindFlags = ...) -> None: ...
+    def findText(self, subString: str, options: PySide6.QtWebEngineCore.QWebEnginePage.FindFlag = ...) -> None: ...
     @staticmethod
     def forPage(page: PySide6.QtWebEngineCore.QWebEnginePage) -> PySide6.QtWebEngineWidgets.QWebEngineView: ...
     def forward(self) -> None: ...
