@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -54,12 +18,7 @@ from shiboken6 import Shiboken
 
 class QDBus(Shiboken.Object):
 
-    NoBlock                  : QDBus.CallMode = ... # 0x0
-    Block                    : QDBus.CallMode = ... # 0x1
-    BlockWithGui             : QDBus.CallMode = ... # 0x2
-    AutoDetect               : QDBus.CallMode = ... # 0x3
-
-    class CallMode(Shiboken.Enum):
+    class CallMode(shibokensupport.enum_310.Enum):
 
         NoBlock                  : QDBus.CallMode = ... # 0x0
         Block                    : QDBus.CallMode = ... # 0x1
@@ -134,15 +93,7 @@ class QDBusAbstractInterfaceBase(PySide6.QtCore.QObject): ...
 
 class QDBusArgument(Shiboken.Object):
 
-    UnknownType              : QDBusArgument.ElementType = ... # -0x1
-    BasicType                : QDBusArgument.ElementType = ... # 0x0
-    VariantType              : QDBusArgument.ElementType = ... # 0x1
-    ArrayType                : QDBusArgument.ElementType = ... # 0x2
-    StructureType            : QDBusArgument.ElementType = ... # 0x3
-    MapType                  : QDBusArgument.ElementType = ... # 0x4
-    MapEntryType             : QDBusArgument.ElementType = ... # 0x5
-
-    class ElementType(Shiboken.Enum):
+    class ElementType(shibokensupport.enum_310.Enum):
 
         UnknownType              : QDBusArgument.ElementType = ... # -0x1
         BasicType                : QDBusArgument.ElementType = ... # 0x0
@@ -304,46 +255,19 @@ class QDBusArgument(Shiboken.Object):
 
 class QDBusConnection(Shiboken.Object):
 
-    SessionBus               : QDBusConnection.BusType = ... # 0x0
-    SystemBus                : QDBusConnection.BusType = ... # 0x1
-    ActivationBus            : QDBusConnection.BusType = ... # 0x2
-    UnixFileDescriptorPassing: QDBusConnection.ConnectionCapability = ... # 0x1
-    ExportAdaptors           : QDBusConnection.RegisterOption = ... # 0x1
-    ExportScriptableSlots    : QDBusConnection.RegisterOption = ... # 0x10
-    ExportScriptableSignals  : QDBusConnection.RegisterOption = ... # 0x20
-    ExportScriptableProperties: QDBusConnection.RegisterOption = ... # 0x40
-    ExportScriptableInvokables: QDBusConnection.RegisterOption = ... # 0x80
-    ExportScriptableContents : QDBusConnection.RegisterOption = ... # 0xf0
-    ExportNonScriptableSlots : QDBusConnection.RegisterOption = ... # 0x100
-    ExportAllSlots           : QDBusConnection.RegisterOption = ... # 0x110
-    ExportNonScriptableSignals: QDBusConnection.RegisterOption = ... # 0x200
-    ExportAllSignal          : QDBusConnection.RegisterOption = ... # 0x220
-    ExportAllSignals         : QDBusConnection.RegisterOption = ... # 0x220
-    ExportNonScriptableProperties: QDBusConnection.RegisterOption = ... # 0x400
-    ExportAllProperties      : QDBusConnection.RegisterOption = ... # 0x440
-    ExportNonScriptableInvokables: QDBusConnection.RegisterOption = ... # 0x800
-    ExportAllInvokables      : QDBusConnection.RegisterOption = ... # 0x880
-    ExportNonScriptableContents: QDBusConnection.RegisterOption = ... # 0xf00
-    ExportAllContents        : QDBusConnection.RegisterOption = ... # 0xff0
-    ExportChildObjects       : QDBusConnection.RegisterOption = ... # 0x1000
-    UnregisterNode           : QDBusConnection.UnregisterMode = ... # 0x0
-    UnregisterTree           : QDBusConnection.UnregisterMode = ... # 0x1
-    SingleNode               : QDBusConnection.VirtualObjectRegisterOption = ... # 0x0
-    SubPath                  : QDBusConnection.VirtualObjectRegisterOption = ... # 0x1
-
-    class BusType(Shiboken.Enum):
+    class BusType(shibokensupport.enum_310.Enum):
 
         SessionBus               : QDBusConnection.BusType = ... # 0x0
         SystemBus                : QDBusConnection.BusType = ... # 0x1
         ActivationBus            : QDBusConnection.BusType = ... # 0x2
 
-    class ConnectionCapabilities(object): ...
 
-    class ConnectionCapability(Shiboken.Enum):
+    class ConnectionCapability(shibokensupport.enum_310.Flag):
 
         UnixFileDescriptorPassing: QDBusConnection.ConnectionCapability = ... # 0x1
 
-    class RegisterOption(Shiboken.Enum):
+
+    class RegisterOption(shibokensupport.enum_310.Flag):
 
         ExportAdaptors           : QDBusConnection.RegisterOption = ... # 0x1
         ExportScriptableSlots    : QDBusConnection.RegisterOption = ... # 0x10
@@ -364,19 +288,17 @@ class QDBusConnection(Shiboken.Object):
         ExportAllContents        : QDBusConnection.RegisterOption = ... # 0xff0
         ExportChildObjects       : QDBusConnection.RegisterOption = ... # 0x1000
 
-    class RegisterOptions(object): ...
 
-    class UnregisterMode(Shiboken.Enum):
+    class UnregisterMode(shibokensupport.enum_310.Enum):
 
         UnregisterNode           : QDBusConnection.UnregisterMode = ... # 0x0
         UnregisterTree           : QDBusConnection.UnregisterMode = ... # 0x1
 
-    class VirtualObjectRegisterOption(Shiboken.Enum):
+
+    class VirtualObjectRegisterOption(shibokensupport.enum_310.Flag):
 
         SingleNode               : QDBusConnection.VirtualObjectRegisterOption = ... # 0x0
         SubPath                  : QDBusConnection.VirtualObjectRegisterOption = ... # 0x1
-
-    class VirtualObjectRegisterOptions(object): ...
 
 
     @overload
@@ -407,7 +329,7 @@ class QDBusConnection(Shiboken.Object):
     def connectToBus(type: PySide6.QtDBus.QDBusConnection.BusType, name: str) -> PySide6.QtDBus.QDBusConnection: ...
     @staticmethod
     def connectToPeer(address: str, name: str) -> PySide6.QtDBus.QDBusConnection: ...
-    def connectionCapabilities(self) -> PySide6.QtDBus.QDBusConnection.ConnectionCapabilities: ...
+    def connectionCapabilities(self) -> PySide6.QtDBus.QDBusConnection.ConnectionCapability: ...
     @overload
     def disconnect(self, service: str, path: str, interface: str, name: str, argumentMatch: Sequence[str], signature: str, receiver: PySide6.QtCore.QObject, slot: bytes) -> bool: ...
     @overload
@@ -427,9 +349,9 @@ class QDBusConnection(Shiboken.Object):
     def name(self) -> str: ...
     def objectRegisteredAt(self, path: str) -> PySide6.QtCore.QObject: ...
     @overload
-    def registerObject(self, path: str, interface: str, object: PySide6.QtCore.QObject, options: PySide6.QtDBus.QDBusConnection.RegisterOptions = ...) -> bool: ...
+    def registerObject(self, path: str, interface: str, object: PySide6.QtCore.QObject, options: PySide6.QtDBus.QDBusConnection.RegisterOption = ...) -> bool: ...
     @overload
-    def registerObject(self, path: str, object: PySide6.QtCore.QObject, options: PySide6.QtDBus.QDBusConnection.RegisterOptions = ...) -> bool: ...
+    def registerObject(self, path: str, object: PySide6.QtCore.QObject, options: PySide6.QtDBus.QDBusConnection.RegisterOption = ...) -> bool: ...
     def registerService(self, serviceName: str) -> bool: ...
     def registerVirtualObject(self, path: str, object: PySide6.QtDBus.QDBusVirtualObject, options: PySide6.QtDBus.QDBusConnection.VirtualObjectRegisterOption = ...) -> bool: ...
     def send(self, message: PySide6.QtDBus.QDBusMessage) -> bool: ...
@@ -444,28 +366,21 @@ class QDBusConnection(Shiboken.Object):
 
 class QDBusConnectionInterface(PySide6.QtDBus.QDBusAbstractInterface):
 
-    ServiceNotRegistered     : QDBusConnectionInterface.RegisterServiceReply = ... # 0x0
-    ServiceRegistered        : QDBusConnectionInterface.RegisterServiceReply = ... # 0x1
-    ServiceQueued            : QDBusConnectionInterface.RegisterServiceReply = ... # 0x2
-    DontQueueService         : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x0
-    QueueService             : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x1
-    ReplaceExistingService   : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x2
-    DontAllowReplacement     : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x0
-    AllowReplacement         : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x1
-
-    class RegisterServiceReply(Shiboken.Enum):
+    class RegisterServiceReply(shibokensupport.enum_310.Enum):
 
         ServiceNotRegistered     : QDBusConnectionInterface.RegisterServiceReply = ... # 0x0
         ServiceRegistered        : QDBusConnectionInterface.RegisterServiceReply = ... # 0x1
         ServiceQueued            : QDBusConnectionInterface.RegisterServiceReply = ... # 0x2
 
-    class ServiceQueueOptions(Shiboken.Enum):
+
+    class ServiceQueueOptions(shibokensupport.enum_310.Enum):
 
         DontQueueService         : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x0
         QueueService             : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x1
         ReplaceExistingService   : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x2
 
-    class ServiceReplacementOptions(Shiboken.Enum):
+
+    class ServiceReplacementOptions(shibokensupport.enum_310.Enum):
 
         DontAllowReplacement     : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x0
         AllowReplacement         : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x1
@@ -506,37 +421,7 @@ class QDBusContext(Shiboken.Object):
 
 class QDBusError(Shiboken.Object):
 
-    NoError                  : QDBusError.ErrorType = ... # 0x0
-    Other                    : QDBusError.ErrorType = ... # 0x1
-    Failed                   : QDBusError.ErrorType = ... # 0x2
-    NoMemory                 : QDBusError.ErrorType = ... # 0x3
-    ServiceUnknown           : QDBusError.ErrorType = ... # 0x4
-    NoReply                  : QDBusError.ErrorType = ... # 0x5
-    BadAddress               : QDBusError.ErrorType = ... # 0x6
-    NotSupported             : QDBusError.ErrorType = ... # 0x7
-    LimitsExceeded           : QDBusError.ErrorType = ... # 0x8
-    AccessDenied             : QDBusError.ErrorType = ... # 0x9
-    NoServer                 : QDBusError.ErrorType = ... # 0xa
-    Timeout                  : QDBusError.ErrorType = ... # 0xb
-    NoNetwork                : QDBusError.ErrorType = ... # 0xc
-    AddressInUse             : QDBusError.ErrorType = ... # 0xd
-    Disconnected             : QDBusError.ErrorType = ... # 0xe
-    InvalidArgs              : QDBusError.ErrorType = ... # 0xf
-    UnknownMethod            : QDBusError.ErrorType = ... # 0x10
-    TimedOut                 : QDBusError.ErrorType = ... # 0x11
-    InvalidSignature         : QDBusError.ErrorType = ... # 0x12
-    UnknownInterface         : QDBusError.ErrorType = ... # 0x13
-    UnknownObject            : QDBusError.ErrorType = ... # 0x14
-    UnknownProperty          : QDBusError.ErrorType = ... # 0x15
-    PropertyReadOnly         : QDBusError.ErrorType = ... # 0x16
-    InternalError            : QDBusError.ErrorType = ... # 0x17
-    InvalidService           : QDBusError.ErrorType = ... # 0x18
-    InvalidObjectPath        : QDBusError.ErrorType = ... # 0x19
-    InvalidInterface         : QDBusError.ErrorType = ... # 0x1a
-    InvalidMember            : QDBusError.ErrorType = ... # 0x1b
-    LastErrorType            : QDBusError.ErrorType = ... # 0x1b
-
-    class ErrorType(Shiboken.Enum):
+    class ErrorType(shibokensupport.enum_310.Enum):
 
         NoError                  : QDBusError.ErrorType = ... # 0x0
         Other                    : QDBusError.ErrorType = ... # 0x1
@@ -596,13 +481,7 @@ class QDBusInterface(PySide6.QtDBus.QDBusAbstractInterface):
 
 class QDBusMessage(Shiboken.Object):
 
-    InvalidMessage           : QDBusMessage.MessageType = ... # 0x0
-    MethodCallMessage        : QDBusMessage.MessageType = ... # 0x1
-    ReplyMessage             : QDBusMessage.MessageType = ... # 0x2
-    ErrorMessage             : QDBusMessage.MessageType = ... # 0x3
-    SignalMessage            : QDBusMessage.MessageType = ... # 0x4
-
-    class MessageType(Shiboken.Enum):
+    class MessageType(shibokensupport.enum_310.Enum):
 
         InvalidMessage           : QDBusMessage.MessageType = ... # 0x0
         MethodCallMessage        : QDBusMessage.MessageType = ... # 0x1
@@ -732,13 +611,7 @@ class QDBusServer(PySide6.QtCore.QObject):
 
 class QDBusServiceWatcher(PySide6.QtCore.QObject):
 
-    WatchForRegistration     : QDBusServiceWatcher.WatchModeFlag = ... # 0x1
-    WatchForUnregistration   : QDBusServiceWatcher.WatchModeFlag = ... # 0x2
-    WatchForOwnerChange      : QDBusServiceWatcher.WatchModeFlag = ... # 0x3
-
-    class WatchMode(object): ...
-
-    class WatchModeFlag(Shiboken.Enum):
+    class WatchModeFlag(shibokensupport.enum_310.Flag):
 
         WatchForRegistration     : QDBusServiceWatcher.WatchModeFlag = ... # 0x1
         WatchForUnregistration   : QDBusServiceWatcher.WatchModeFlag = ... # 0x2
@@ -748,15 +621,15 @@ class QDBusServiceWatcher(PySide6.QtCore.QObject):
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
-    def __init__(self, service: str, connection: PySide6.QtDBus.QDBusConnection, watchMode: PySide6.QtDBus.QDBusServiceWatcher.WatchMode = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+    def __init__(self, service: str, connection: PySide6.QtDBus.QDBusConnection, watchMode: PySide6.QtDBus.QDBusServiceWatcher.WatchModeFlag = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addWatchedService(self, newService: str) -> None: ...
     def connection(self) -> PySide6.QtDBus.QDBusConnection: ...
     def removeWatchedService(self, service: str) -> bool: ...
     def setConnection(self, connection: PySide6.QtDBus.QDBusConnection) -> None: ...
-    def setWatchMode(self, mode: PySide6.QtDBus.QDBusServiceWatcher.WatchMode) -> None: ...
+    def setWatchMode(self, mode: PySide6.QtDBus.QDBusServiceWatcher.WatchModeFlag) -> None: ...
     def setWatchedServices(self, services: Sequence[str]) -> None: ...
-    def watchMode(self) -> PySide6.QtDBus.QDBusServiceWatcher.WatchMode: ...
+    def watchMode(self) -> PySide6.QtDBus.QDBusServiceWatcher.WatchModeFlag: ...
     def watchedServices(self) -> List[str]: ...
 
 

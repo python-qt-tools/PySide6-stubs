@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -58,43 +22,29 @@ class QIntList(object): ...
 
 class QSql(Shiboken.Object):
 
-    AfterLastRow             : QSql.Location = ... # -0x2
-    BeforeFirstRow           : QSql.Location = ... # -0x1
-    HighPrecision            : QSql.NumericalPrecisionPolicy = ... # 0x0
-    LowPrecisionInt32        : QSql.NumericalPrecisionPolicy = ... # 0x1
-    LowPrecisionInt64        : QSql.NumericalPrecisionPolicy = ... # 0x2
-    LowPrecisionDouble       : QSql.NumericalPrecisionPolicy = ... # 0x4
-    In                       : QSql.ParamTypeFlag = ... # 0x1
-    Out                      : QSql.ParamTypeFlag = ... # 0x2
-    InOut                    : QSql.ParamTypeFlag = ... # 0x3
-    Binary                   : QSql.ParamTypeFlag = ... # 0x4
-    Tables                   : QSql.TableType = ... # 0x1
-    SystemTables             : QSql.TableType = ... # 0x2
-    Views                    : QSql.TableType = ... # 0x4
-    AllTables                : QSql.TableType = ... # 0xff
-
-    class Location(Shiboken.Enum):
+    class Location(shibokensupport.enum_310.Enum):
 
         AfterLastRow             : QSql.Location = ... # -0x2
         BeforeFirstRow           : QSql.Location = ... # -0x1
 
-    class NumericalPrecisionPolicy(Shiboken.Enum):
+
+    class NumericalPrecisionPolicy(shibokensupport.enum_310.Enum):
 
         HighPrecision            : QSql.NumericalPrecisionPolicy = ... # 0x0
         LowPrecisionInt32        : QSql.NumericalPrecisionPolicy = ... # 0x1
         LowPrecisionInt64        : QSql.NumericalPrecisionPolicy = ... # 0x2
         LowPrecisionDouble       : QSql.NumericalPrecisionPolicy = ... # 0x4
 
-    class ParamType(object): ...
 
-    class ParamTypeFlag(Shiboken.Enum):
+    class ParamTypeFlag(shibokensupport.enum_310.Flag):
 
         In                       : QSql.ParamTypeFlag = ... # 0x1
         Out                      : QSql.ParamTypeFlag = ... # 0x2
         InOut                    : QSql.ParamTypeFlag = ... # 0x3
         Binary                   : QSql.ParamTypeFlag = ... # 0x4
 
-    class TableType(Shiboken.Enum):
+
+    class TableType(shibokensupport.enum_310.Enum):
 
         Tables                   : QSql.TableType = ... # 0x1
         SystemTables             : QSql.TableType = ... # 0x2
@@ -179,42 +129,7 @@ class QSqlDatabase(Shiboken.Object):
 
 class QSqlDriver(PySide6.QtCore.QObject):
 
-    UnknownDbms              : QSqlDriver.DbmsType = ... # 0x0
-    MSSqlServer              : QSqlDriver.DbmsType = ... # 0x1
-    MySqlServer              : QSqlDriver.DbmsType = ... # 0x2
-    PostgreSQL               : QSqlDriver.DbmsType = ... # 0x3
-    Oracle                   : QSqlDriver.DbmsType = ... # 0x4
-    Sybase                   : QSqlDriver.DbmsType = ... # 0x5
-    SQLite                   : QSqlDriver.DbmsType = ... # 0x6
-    Interbase                : QSqlDriver.DbmsType = ... # 0x7
-    DB2                      : QSqlDriver.DbmsType = ... # 0x8
-    Transactions             : QSqlDriver.DriverFeature = ... # 0x0
-    QuerySize                : QSqlDriver.DriverFeature = ... # 0x1
-    BLOB                     : QSqlDriver.DriverFeature = ... # 0x2
-    Unicode                  : QSqlDriver.DriverFeature = ... # 0x3
-    PreparedQueries          : QSqlDriver.DriverFeature = ... # 0x4
-    NamedPlaceholders        : QSqlDriver.DriverFeature = ... # 0x5
-    PositionalPlaceholders   : QSqlDriver.DriverFeature = ... # 0x6
-    LastInsertId             : QSqlDriver.DriverFeature = ... # 0x7
-    BatchOperations          : QSqlDriver.DriverFeature = ... # 0x8
-    SimpleLocking            : QSqlDriver.DriverFeature = ... # 0x9
-    LowPrecisionNumbers      : QSqlDriver.DriverFeature = ... # 0xa
-    EventNotifications       : QSqlDriver.DriverFeature = ... # 0xb
-    FinishQuery              : QSqlDriver.DriverFeature = ... # 0xc
-    MultipleResultSets       : QSqlDriver.DriverFeature = ... # 0xd
-    CancelQuery              : QSqlDriver.DriverFeature = ... # 0xe
-    FieldName                : QSqlDriver.IdentifierType = ... # 0x0
-    TableName                : QSqlDriver.IdentifierType = ... # 0x1
-    UnknownSource            : QSqlDriver.NotificationSource = ... # 0x0
-    SelfSource               : QSqlDriver.NotificationSource = ... # 0x1
-    OtherSource              : QSqlDriver.NotificationSource = ... # 0x2
-    WhereStatement           : QSqlDriver.StatementType = ... # 0x0
-    SelectStatement          : QSqlDriver.StatementType = ... # 0x1
-    UpdateStatement          : QSqlDriver.StatementType = ... # 0x2
-    InsertStatement          : QSqlDriver.StatementType = ... # 0x3
-    DeleteStatement          : QSqlDriver.StatementType = ... # 0x4
-
-    class DbmsType(Shiboken.Enum):
+    class DbmsType(shibokensupport.enum_310.Enum):
 
         UnknownDbms              : QSqlDriver.DbmsType = ... # 0x0
         MSSqlServer              : QSqlDriver.DbmsType = ... # 0x1
@@ -226,7 +141,8 @@ class QSqlDriver(PySide6.QtCore.QObject):
         Interbase                : QSqlDriver.DbmsType = ... # 0x7
         DB2                      : QSqlDriver.DbmsType = ... # 0x8
 
-    class DriverFeature(Shiboken.Enum):
+
+    class DriverFeature(shibokensupport.enum_310.Enum):
 
         Transactions             : QSqlDriver.DriverFeature = ... # 0x0
         QuerySize                : QSqlDriver.DriverFeature = ... # 0x1
@@ -244,18 +160,21 @@ class QSqlDriver(PySide6.QtCore.QObject):
         MultipleResultSets       : QSqlDriver.DriverFeature = ... # 0xd
         CancelQuery              : QSqlDriver.DriverFeature = ... # 0xe
 
-    class IdentifierType(Shiboken.Enum):
+
+    class IdentifierType(shibokensupport.enum_310.Enum):
 
         FieldName                : QSqlDriver.IdentifierType = ... # 0x0
         TableName                : QSqlDriver.IdentifierType = ... # 0x1
 
-    class NotificationSource(Shiboken.Enum):
+
+    class NotificationSource(shibokensupport.enum_310.Enum):
 
         UnknownSource            : QSqlDriver.NotificationSource = ... # 0x0
         SelfSource               : QSqlDriver.NotificationSource = ... # 0x1
         OtherSource              : QSqlDriver.NotificationSource = ... # 0x2
 
-    class StatementType(Shiboken.Enum):
+
+    class StatementType(shibokensupport.enum_310.Enum):
 
         WhereStatement           : QSqlDriver.StatementType = ... # 0x0
         SelectStatement          : QSqlDriver.StatementType = ... # 0x1
@@ -306,13 +225,7 @@ class QSqlDriverCreatorBase(Shiboken.Object):
 
 class QSqlError(Shiboken.Object):
 
-    NoError                  : QSqlError.ErrorType = ... # 0x0
-    ConnectionError          : QSqlError.ErrorType = ... # 0x1
-    StatementError           : QSqlError.ErrorType = ... # 0x2
-    TransactionError         : QSqlError.ErrorType = ... # 0x3
-    UnknownError             : QSqlError.ErrorType = ... # 0x4
-
-    class ErrorType(Shiboken.Enum):
+    class ErrorType(shibokensupport.enum_310.Enum):
 
         NoError                  : QSqlError.ErrorType = ... # 0x0
         ConnectionError          : QSqlError.ErrorType = ... # 0x1
@@ -339,11 +252,7 @@ class QSqlError(Shiboken.Object):
 
 class QSqlField(Shiboken.Object):
 
-    Unknown                  : QSqlField.RequiredStatus = ... # -0x1
-    Optional                 : QSqlField.RequiredStatus = ... # 0x0
-    Required                 : QSqlField.RequiredStatus = ... # 0x1
-
-    class RequiredStatus(Shiboken.Enum):
+    class RequiredStatus(shibokensupport.enum_310.Enum):
 
         Unknown                  : QSqlField.RequiredStatus = ... # -0x1
         Optional                 : QSqlField.RequiredStatus = ... # 0x0
@@ -410,10 +319,7 @@ class QSqlIndex(PySide6.QtSql.QSqlRecord):
 
 class QSqlQuery(Shiboken.Object):
 
-    ValuesAsRows             : QSqlQuery.BatchExecutionMode = ... # 0x0
-    ValuesAsColumns          : QSqlQuery.BatchExecutionMode = ... # 0x1
-
-    class BatchExecutionMode(Shiboken.Enum):
+    class BatchExecutionMode(shibokensupport.enum_310.Enum):
 
         ValuesAsRows             : QSqlQuery.BatchExecutionMode = ... # 0x0
         ValuesAsColumns          : QSqlQuery.BatchExecutionMode = ... # 0x1
@@ -430,12 +336,12 @@ class QSqlQuery(Shiboken.Object):
 
     @staticmethod
     def __copy__() -> None: ...
-    def addBindValue(self, val: Any, type: PySide6.QtSql.QSql.ParamType = ...) -> None: ...
+    def addBindValue(self, val: Any, type: PySide6.QtSql.QSql.ParamTypeFlag = ...) -> None: ...
     def at(self) -> int: ...
     @overload
-    def bindValue(self, placeholder: str, val: Any, type: PySide6.QtSql.QSql.ParamType = ...) -> None: ...
+    def bindValue(self, placeholder: str, val: Any, type: PySide6.QtSql.QSql.ParamTypeFlag = ...) -> None: ...
     @overload
-    def bindValue(self, pos: int, val: Any, type: PySide6.QtSql.QSql.ParamType = ...) -> None: ...
+    def bindValue(self, pos: int, val: Any, type: PySide6.QtSql.QSql.ParamTypeFlag = ...) -> None: ...
     @overload
     def boundValue(self, placeholder: str) -> Any: ...
     @overload
@@ -606,10 +512,7 @@ class QSqlRelationalDelegate(PySide6.QtWidgets.QStyledItemDelegate):
 
 class QSqlRelationalTableModel(PySide6.QtSql.QSqlTableModel):
 
-    InnerJoin                : QSqlRelationalTableModel.JoinMode = ... # 0x0
-    LeftJoin                 : QSqlRelationalTableModel.JoinMode = ... # 0x1
-
-    class JoinMode(Shiboken.Enum):
+    class JoinMode(shibokensupport.enum_310.Enum):
 
         InnerJoin                : QSqlRelationalTableModel.JoinMode = ... # 0x0
         LeftJoin                 : QSqlRelationalTableModel.JoinMode = ... # 0x1
@@ -636,29 +539,27 @@ class QSqlRelationalTableModel(PySide6.QtSql.QSqlTableModel):
 
 class QSqlResult(Shiboken.Object):
 
-    PositionalBinding        : QSqlResult.BindingSyntax = ... # 0x0
-    NamedBinding             : QSqlResult.BindingSyntax = ... # 0x1
-
-    class BindingSyntax(Shiboken.Enum):
+    class BindingSyntax(shibokensupport.enum_310.Enum):
 
         PositionalBinding        : QSqlResult.BindingSyntax = ... # 0x0
         NamedBinding             : QSqlResult.BindingSyntax = ... # 0x1
+
 
     class VirtualHookOperation(Shiboken.Enum): ...
 
 
     def __init__(self, db: PySide6.QtSql.QSqlDriver) -> None: ...
 
-    def addBindValue(self, val: Any, type: PySide6.QtSql.QSql.ParamType) -> None: ...
+    def addBindValue(self, val: Any, type: PySide6.QtSql.QSql.ParamTypeFlag) -> None: ...
     def at(self) -> int: ...
     @overload
-    def bindValue(self, placeholder: str, val: Any, type: PySide6.QtSql.QSql.ParamType) -> None: ...
+    def bindValue(self, placeholder: str, val: Any, type: PySide6.QtSql.QSql.ParamTypeFlag) -> None: ...
     @overload
-    def bindValue(self, pos: int, val: Any, type: PySide6.QtSql.QSql.ParamType) -> None: ...
+    def bindValue(self, pos: int, val: Any, type: PySide6.QtSql.QSql.ParamTypeFlag) -> None: ...
     @overload
-    def bindValueType(self, placeholder: str) -> PySide6.QtSql.QSql.ParamType: ...
+    def bindValueType(self, placeholder: str) -> PySide6.QtSql.QSql.ParamTypeFlag: ...
     @overload
-    def bindValueType(self, pos: int) -> PySide6.QtSql.QSql.ParamType: ...
+    def bindValueType(self, pos: int) -> PySide6.QtSql.QSql.ParamTypeFlag: ...
     def bindingSyntax(self) -> PySide6.QtSql.QSqlResult.BindingSyntax: ...
     @overload
     def boundValue(self, placeholder: str) -> Any: ...
@@ -710,11 +611,7 @@ class QSqlResult(Shiboken.Object):
 
 class QSqlTableModel(PySide6.QtSql.QSqlQueryModel):
 
-    OnFieldChange            : QSqlTableModel.EditStrategy = ... # 0x0
-    OnRowChange              : QSqlTableModel.EditStrategy = ... # 0x1
-    OnManualSubmit           : QSqlTableModel.EditStrategy = ... # 0x2
-
-    class EditStrategy(Shiboken.Enum):
+    class EditStrategy(shibokensupport.enum_310.Enum):
 
         OnFieldChange            : QSqlTableModel.EditStrategy = ... # 0x0
         OnRowChange              : QSqlTableModel.EditStrategy = ... # 0x1
@@ -731,7 +628,7 @@ class QSqlTableModel(PySide6.QtSql.QSqlQueryModel):
     def editStrategy(self) -> PySide6.QtSql.QSqlTableModel.EditStrategy: ...
     def fieldIndex(self, fieldName: str) -> int: ...
     def filter(self) -> str: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def headerData(self, section: int, orientation: PySide6.QtCore.Qt.Orientation, role: int = ...) -> Any: ...
     def indexInQuery(self, item: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QModelIndex: ...
     def insertRecord(self, row: int, record: PySide6.QtSql.QSqlRecord) -> bool: ...

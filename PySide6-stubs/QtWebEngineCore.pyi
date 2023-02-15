@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -60,26 +24,7 @@ class QIntList(object): ...
 
 class QWebEngineCertificateError(Shiboken.Object):
 
-    SslObsoleteVersion       : QWebEngineCertificateError.Type = ... # -0xda
-    CertificateKnownInterceptionBlocked: QWebEngineCertificateError.Type = ... # -0xd9
-    CertificateSymantecLegacy: QWebEngineCertificateError.Type = ... # -0xd7
-    CertificateTransparencyRequired: QWebEngineCertificateError.Type = ... # -0xd6
-    CertificateValidityTooLong: QWebEngineCertificateError.Type = ... # -0xd5
-    CertificateNameConstraintViolation: QWebEngineCertificateError.Type = ... # -0xd4
-    CertificateWeakKey       : QWebEngineCertificateError.Type = ... # -0xd3
-    CertificateNonUniqueName : QWebEngineCertificateError.Type = ... # -0xd2
-    CertificateWeakSignatureAlgorithm: QWebEngineCertificateError.Type = ... # -0xd0
-    CertificateInvalid       : QWebEngineCertificateError.Type = ... # -0xcf
-    CertificateRevoked       : QWebEngineCertificateError.Type = ... # -0xce
-    CertificateUnableToCheckRevocation: QWebEngineCertificateError.Type = ... # -0xcd
-    CertificateNoRevocationMechanism: QWebEngineCertificateError.Type = ... # -0xcc
-    CertificateContainsErrors: QWebEngineCertificateError.Type = ... # -0xcb
-    CertificateAuthorityInvalid: QWebEngineCertificateError.Type = ... # -0xca
-    CertificateDateInvalid   : QWebEngineCertificateError.Type = ... # -0xc9
-    CertificateCommonNameInvalid: QWebEngineCertificateError.Type = ... # -0xc8
-    SslPinnedKeyNotInCertificateChain: QWebEngineCertificateError.Type = ... # -0x96
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         SslObsoleteVersion       : QWebEngineCertificateError.Type = ... # -0xda
         CertificateKnownInterceptionBlocked: QWebEngineCertificateError.Type = ... # -0xd9
@@ -117,34 +62,7 @@ class QWebEngineCertificateError(Shiboken.Object):
 
 class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
 
-    CanUndo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x1
-    CanRedo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x2
-    CanCut                   : QWebEngineContextMenuRequest.EditFlag = ... # 0x4
-    CanCopy                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x8
-    CanPaste                 : QWebEngineContextMenuRequest.EditFlag = ... # 0x10
-    CanDelete                : QWebEngineContextMenuRequest.EditFlag = ... # 0x20
-    CanSelectAll             : QWebEngineContextMenuRequest.EditFlag = ... # 0x40
-    CanTranslate             : QWebEngineContextMenuRequest.EditFlag = ... # 0x80
-    CanEditRichly            : QWebEngineContextMenuRequest.EditFlag = ... # 0x100
-    MediaInError             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x1
-    MediaPaused              : QWebEngineContextMenuRequest.MediaFlag = ... # 0x2
-    MediaMuted               : QWebEngineContextMenuRequest.MediaFlag = ... # 0x4
-    MediaLoop                : QWebEngineContextMenuRequest.MediaFlag = ... # 0x8
-    MediaCanSave             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x10
-    MediaHasAudio            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x20
-    MediaCanToggleControls   : QWebEngineContextMenuRequest.MediaFlag = ... # 0x40
-    MediaControls            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x80
-    MediaCanPrint            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x100
-    MediaCanRotate           : QWebEngineContextMenuRequest.MediaFlag = ... # 0x200
-    MediaTypeNone            : QWebEngineContextMenuRequest.MediaType = ... # 0x0
-    MediaTypeImage           : QWebEngineContextMenuRequest.MediaType = ... # 0x1
-    MediaTypeVideo           : QWebEngineContextMenuRequest.MediaType = ... # 0x2
-    MediaTypeAudio           : QWebEngineContextMenuRequest.MediaType = ... # 0x3
-    MediaTypeCanvas          : QWebEngineContextMenuRequest.MediaType = ... # 0x4
-    MediaTypeFile            : QWebEngineContextMenuRequest.MediaType = ... # 0x5
-    MediaTypePlugin          : QWebEngineContextMenuRequest.MediaType = ... # 0x6
-
-    class EditFlag(Shiboken.Enum):
+    class EditFlag(shibokensupport.enum_310.Flag):
 
         CanUndo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x1
         CanRedo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x2
@@ -156,9 +74,8 @@ class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
         CanTranslate             : QWebEngineContextMenuRequest.EditFlag = ... # 0x80
         CanEditRichly            : QWebEngineContextMenuRequest.EditFlag = ... # 0x100
 
-    class EditFlags(object): ...
 
-    class MediaFlag(Shiboken.Enum):
+    class MediaFlag(shibokensupport.enum_310.Flag):
 
         MediaInError             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x1
         MediaPaused              : QWebEngineContextMenuRequest.MediaFlag = ... # 0x2
@@ -171,9 +88,8 @@ class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
         MediaCanPrint            : QWebEngineContextMenuRequest.MediaFlag = ... # 0x100
         MediaCanRotate           : QWebEngineContextMenuRequest.MediaFlag = ... # 0x200
 
-    class MediaFlags(object): ...
 
-    class MediaType(Shiboken.Enum):
+    class MediaType(shibokensupport.enum_310.Enum):
 
         MediaTypeNone            : QWebEngineContextMenuRequest.MediaType = ... # 0x0
         MediaTypeImage           : QWebEngineContextMenuRequest.MediaType = ... # 0x1
@@ -184,12 +100,12 @@ class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
         MediaTypePlugin          : QWebEngineContextMenuRequest.MediaType = ... # 0x6
 
 
-    def editFlags(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.EditFlags: ...
+    def editFlags(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.EditFlag: ...
     def isAccepted(self) -> bool: ...
     def isContentEditable(self) -> bool: ...
     def linkText(self) -> str: ...
     def linkUrl(self) -> PySide6.QtCore.QUrl: ...
-    def mediaFlags(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.MediaFlags: ...
+    def mediaFlags(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.MediaFlag: ...
     def mediaType(self) -> PySide6.QtWebEngineCore.QWebEngineContextMenuRequest.MediaType: ...
     def mediaUrl(self) -> PySide6.QtCore.QUrl: ...
     def misspelledWord(self) -> str: ...
@@ -222,41 +138,7 @@ class QWebEngineCookieStore(PySide6.QtCore.QObject):
 
 class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
 
-    NoReason                 : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x0
-    FileFailed               : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1
-    FileAccessDenied         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x2
-    FileNoSpace              : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x3
-    FileNameTooLong          : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x5
-    FileTooLarge             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x6
-    FileVirusInfected        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x7
-    FileTransientError       : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xa
-    FileBlocked              : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xb
-    FileSecurityCheckFailed  : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xc
-    FileTooShort             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xd
-    FileHashMismatch         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0xe
-    NetworkFailed            : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x14
-    NetworkTimeout           : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x15
-    NetworkDisconnected      : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x16
-    NetworkServerDown        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x17
-    NetworkInvalidRequest    : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x18
-    ServerFailed             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1e
-    ServerBadContent         : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x21
-    ServerUnauthorized       : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x22
-    ServerCertProblem        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x23
-    ServerForbidden          : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x24
-    ServerUnreachable        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x25
-    UserCanceled             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x28
-    DownloadRequested        : QWebEngineDownloadRequest.DownloadState = ... # 0x0
-    DownloadInProgress       : QWebEngineDownloadRequest.DownloadState = ... # 0x1
-    DownloadCompleted        : QWebEngineDownloadRequest.DownloadState = ... # 0x2
-    DownloadCancelled        : QWebEngineDownloadRequest.DownloadState = ... # 0x3
-    DownloadInterrupted      : QWebEngineDownloadRequest.DownloadState = ... # 0x4
-    UnknownSaveFormat        : QWebEngineDownloadRequest.SavePageFormat = ... # -0x1
-    SingleHtmlSaveFormat     : QWebEngineDownloadRequest.SavePageFormat = ... # 0x0
-    CompleteHtmlSaveFormat   : QWebEngineDownloadRequest.SavePageFormat = ... # 0x1
-    MimeHtmlSaveFormat       : QWebEngineDownloadRequest.SavePageFormat = ... # 0x2
-
-    class DownloadInterruptReason(Shiboken.Enum):
+    class DownloadInterruptReason(shibokensupport.enum_310.Enum):
 
         NoReason                 : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x0
         FileFailed               : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1
@@ -283,7 +165,8 @@ class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
         ServerUnreachable        : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x25
         UserCanceled             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x28
 
-    class DownloadState(Shiboken.Enum):
+
+    class DownloadState(shibokensupport.enum_310.Enum):
 
         DownloadRequested        : QWebEngineDownloadRequest.DownloadState = ... # 0x0
         DownloadInProgress       : QWebEngineDownloadRequest.DownloadState = ... # 0x1
@@ -291,7 +174,8 @@ class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
         DownloadCancelled        : QWebEngineDownloadRequest.DownloadState = ... # 0x3
         DownloadInterrupted      : QWebEngineDownloadRequest.DownloadState = ... # 0x4
 
-    class SavePageFormat(Shiboken.Enum):
+
+    class SavePageFormat(shibokensupport.enum_310.Enum):
 
         UnknownSaveFormat        : QWebEngineDownloadRequest.SavePageFormat = ... # -0x1
         SingleHtmlSaveFormat     : QWebEngineDownloadRequest.SavePageFormat = ... # 0x0
@@ -388,12 +272,7 @@ class QWebEngineHistoryItem(Shiboken.Object):
 
 class QWebEngineHistoryModel(PySide6.QtCore.QAbstractListModel):
 
-    UrlRole                  : QWebEngineHistoryModel.Roles = ... # 0x100
-    TitleRole                : QWebEngineHistoryModel.Roles = ... # 0x101
-    OffsetRole               : QWebEngineHistoryModel.Roles = ... # 0x102
-    IconUrlRole              : QWebEngineHistoryModel.Roles = ... # 0x103
-
-    class Roles(Shiboken.Enum):
+    class Roles(shibokensupport.enum_310.Enum):
 
         UrlRole                  : QWebEngineHistoryModel.Roles = ... # 0x100
         TitleRole                : QWebEngineHistoryModel.Roles = ... # 0x101
@@ -409,10 +288,7 @@ class QWebEngineHistoryModel(PySide6.QtCore.QAbstractListModel):
 
 class QWebEngineHttpRequest(Shiboken.Object):
 
-    Get                      : QWebEngineHttpRequest.Method = ... # 0x0
-    Post                     : QWebEngineHttpRequest.Method = ... # 0x1
-
-    class Method(Shiboken.Enum):
+    class Method(shibokensupport.enum_310.Enum):
 
         Get                      : QWebEngineHttpRequest.Method = ... # 0x0
         Post                     : QWebEngineHttpRequest.Method = ... # 0x1
@@ -441,19 +317,7 @@ class QWebEngineHttpRequest(Shiboken.Object):
 
 class QWebEngineLoadingInfo(Shiboken.Object):
 
-    NoErrorDomain            : QWebEngineLoadingInfo.ErrorDomain = ... # 0x0
-    InternalErrorDomain      : QWebEngineLoadingInfo.ErrorDomain = ... # 0x1
-    ConnectionErrorDomain    : QWebEngineLoadingInfo.ErrorDomain = ... # 0x2
-    CertificateErrorDomain   : QWebEngineLoadingInfo.ErrorDomain = ... # 0x3
-    HttpErrorDomain          : QWebEngineLoadingInfo.ErrorDomain = ... # 0x4
-    FtpErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x5
-    DnsErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x6
-    LoadStartedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x0
-    LoadStoppedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x1
-    LoadSucceededStatus      : QWebEngineLoadingInfo.LoadStatus = ... # 0x2
-    LoadFailedStatus         : QWebEngineLoadingInfo.LoadStatus = ... # 0x3
-
-    class ErrorDomain(Shiboken.Enum):
+    class ErrorDomain(shibokensupport.enum_310.Enum):
 
         NoErrorDomain            : QWebEngineLoadingInfo.ErrorDomain = ... # 0x0
         InternalErrorDomain      : QWebEngineLoadingInfo.ErrorDomain = ... # 0x1
@@ -462,8 +326,10 @@ class QWebEngineLoadingInfo(Shiboken.Object):
         HttpErrorDomain          : QWebEngineLoadingInfo.ErrorDomain = ... # 0x4
         FtpErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x5
         DnsErrorDomain           : QWebEngineLoadingInfo.ErrorDomain = ... # 0x6
+        HttpStatusCodeDomain     : QWebEngineLoadingInfo.ErrorDomain = ... # 0x7
 
-    class LoadStatus(Shiboken.Enum):
+
+    class LoadStatus(shibokensupport.enum_310.Enum):
 
         LoadStartedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x0
         LoadStoppedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x1
@@ -485,12 +351,7 @@ class QWebEngineLoadingInfo(Shiboken.Object):
 
 class QWebEngineNewWindowRequest(PySide6.QtCore.QObject):
 
-    InNewWindow              : QWebEngineNewWindowRequest.DestinationType = ... # 0x0
-    InNewTab                 : QWebEngineNewWindowRequest.DestinationType = ... # 0x1
-    InNewDialog              : QWebEngineNewWindowRequest.DestinationType = ... # 0x2
-    InNewBackgroundTab       : QWebEngineNewWindowRequest.DestinationType = ... # 0x3
-
-    class DestinationType(Shiboken.Enum):
+    class DestinationType(shibokensupport.enum_310.Enum):
 
         InNewWindow              : QWebEngineNewWindowRequest.DestinationType = ... # 0x0
         InNewTab                 : QWebEngineNewWindowRequest.DestinationType = ... # 0x1
@@ -521,90 +382,7 @@ class QWebEngineNotification(PySide6.QtCore.QObject):
 
 class QWebEnginePage(PySide6.QtCore.QObject):
 
-    Notifications            : QWebEnginePage.Feature = ... # 0x0
-    Geolocation              : QWebEnginePage.Feature = ... # 0x1
-    MediaAudioCapture        : QWebEnginePage.Feature = ... # 0x2
-    MediaVideoCapture        : QWebEnginePage.Feature = ... # 0x3
-    MediaAudioVideoCapture   : QWebEnginePage.Feature = ... # 0x4
-    MouseLock                : QWebEnginePage.Feature = ... # 0x5
-    DesktopVideoCapture      : QWebEnginePage.Feature = ... # 0x6
-    DesktopAudioVideoCapture : QWebEnginePage.Feature = ... # 0x7
-    FileSelectOpen           : QWebEnginePage.FileSelectionMode = ... # 0x0
-    FileSelectOpenMultiple   : QWebEnginePage.FileSelectionMode = ... # 0x1
-    FileSelectUploadFolder   : QWebEnginePage.FileSelectionMode = ... # 0x2
-    FileSelectSave           : QWebEnginePage.FileSelectionMode = ... # 0x3
-    FindBackward             : QWebEnginePage.FindFlag = ... # 0x1
-    FindCaseSensitively      : QWebEnginePage.FindFlag = ... # 0x2
-    InfoMessageLevel         : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x0
-    WarningMessageLevel      : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x1
-    ErrorMessageLevel        : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x2
-    NavigationTypeLinkClicked: QWebEnginePage.NavigationType = ... # 0x0
-    NavigationTypeTyped      : QWebEnginePage.NavigationType = ... # 0x1
-    NavigationTypeFormSubmitted: QWebEnginePage.NavigationType = ... # 0x2
-    NavigationTypeBackForward: QWebEnginePage.NavigationType = ... # 0x3
-    NavigationTypeReload     : QWebEnginePage.NavigationType = ... # 0x4
-    NavigationTypeOther      : QWebEnginePage.NavigationType = ... # 0x5
-    NavigationTypeRedirect   : QWebEnginePage.NavigationType = ... # 0x6
-    PermissionUnknown        : QWebEnginePage.PermissionPolicy = ... # 0x0
-    PermissionGrantedByUser  : QWebEnginePage.PermissionPolicy = ... # 0x1
-    PermissionDeniedByUser   : QWebEnginePage.PermissionPolicy = ... # 0x2
-    NormalTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x0
-    AbnormalTerminationStatus: QWebEnginePage.RenderProcessTerminationStatus = ... # 0x1
-    CrashedTerminationStatus : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x2
-    KilledTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x3
-    NoWebAction              : QWebEnginePage.WebAction = ... # -0x1
-    Back                     : QWebEnginePage.WebAction = ... # 0x0
-    Forward                  : QWebEnginePage.WebAction = ... # 0x1
-    Stop                     : QWebEnginePage.WebAction = ... # 0x2
-    Reload                   : QWebEnginePage.WebAction = ... # 0x3
-    Cut                      : QWebEnginePage.WebAction = ... # 0x4
-    Copy                     : QWebEnginePage.WebAction = ... # 0x5
-    Paste                    : QWebEnginePage.WebAction = ... # 0x6
-    Undo                     : QWebEnginePage.WebAction = ... # 0x7
-    Redo                     : QWebEnginePage.WebAction = ... # 0x8
-    SelectAll                : QWebEnginePage.WebAction = ... # 0x9
-    ReloadAndBypassCache     : QWebEnginePage.WebAction = ... # 0xa
-    PasteAndMatchStyle       : QWebEnginePage.WebAction = ... # 0xb
-    OpenLinkInThisWindow     : QWebEnginePage.WebAction = ... # 0xc
-    OpenLinkInNewWindow      : QWebEnginePage.WebAction = ... # 0xd
-    OpenLinkInNewTab         : QWebEnginePage.WebAction = ... # 0xe
-    CopyLinkToClipboard      : QWebEnginePage.WebAction = ... # 0xf
-    DownloadLinkToDisk       : QWebEnginePage.WebAction = ... # 0x10
-    CopyImageToClipboard     : QWebEnginePage.WebAction = ... # 0x11
-    CopyImageUrlToClipboard  : QWebEnginePage.WebAction = ... # 0x12
-    DownloadImageToDisk      : QWebEnginePage.WebAction = ... # 0x13
-    CopyMediaUrlToClipboard  : QWebEnginePage.WebAction = ... # 0x14
-    ToggleMediaControls      : QWebEnginePage.WebAction = ... # 0x15
-    ToggleMediaLoop          : QWebEnginePage.WebAction = ... # 0x16
-    ToggleMediaPlayPause     : QWebEnginePage.WebAction = ... # 0x17
-    ToggleMediaMute          : QWebEnginePage.WebAction = ... # 0x18
-    DownloadMediaToDisk      : QWebEnginePage.WebAction = ... # 0x19
-    InspectElement           : QWebEnginePage.WebAction = ... # 0x1a
-    ExitFullScreen           : QWebEnginePage.WebAction = ... # 0x1b
-    RequestClose             : QWebEnginePage.WebAction = ... # 0x1c
-    Unselect                 : QWebEnginePage.WebAction = ... # 0x1d
-    SavePage                 : QWebEnginePage.WebAction = ... # 0x1e
-    OpenLinkInNewBackgroundTab: QWebEnginePage.WebAction = ... # 0x1f
-    ViewSource               : QWebEnginePage.WebAction = ... # 0x20
-    ToggleBold               : QWebEnginePage.WebAction = ... # 0x21
-    ToggleItalic             : QWebEnginePage.WebAction = ... # 0x22
-    ToggleUnderline          : QWebEnginePage.WebAction = ... # 0x23
-    ToggleStrikethrough      : QWebEnginePage.WebAction = ... # 0x24
-    AlignLeft                : QWebEnginePage.WebAction = ... # 0x25
-    AlignCenter              : QWebEnginePage.WebAction = ... # 0x26
-    AlignRight               : QWebEnginePage.WebAction = ... # 0x27
-    AlignJustified           : QWebEnginePage.WebAction = ... # 0x28
-    Indent                   : QWebEnginePage.WebAction = ... # 0x29
-    Outdent                  : QWebEnginePage.WebAction = ... # 0x2a
-    InsertOrderedList        : QWebEnginePage.WebAction = ... # 0x2b
-    InsertUnorderedList      : QWebEnginePage.WebAction = ... # 0x2c
-    WebActionCount           : QWebEnginePage.WebAction = ... # 0x2d
-    WebBrowserWindow         : QWebEnginePage.WebWindowType = ... # 0x0
-    WebBrowserTab            : QWebEnginePage.WebWindowType = ... # 0x1
-    WebDialog                : QWebEnginePage.WebWindowType = ... # 0x2
-    WebBrowserBackgroundTab  : QWebEnginePage.WebWindowType = ... # 0x3
-
-    class Feature(Shiboken.Enum):
+    class Feature(shibokensupport.enum_310.Enum):
 
         Notifications            : QWebEnginePage.Feature = ... # 0x0
         Geolocation              : QWebEnginePage.Feature = ... # 0x1
@@ -615,33 +393,36 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         DesktopVideoCapture      : QWebEnginePage.Feature = ... # 0x6
         DesktopAudioVideoCapture : QWebEnginePage.Feature = ... # 0x7
 
-    class FileSelectionMode(Shiboken.Enum):
+
+    class FileSelectionMode(shibokensupport.enum_310.Enum):
 
         FileSelectOpen           : QWebEnginePage.FileSelectionMode = ... # 0x0
         FileSelectOpenMultiple   : QWebEnginePage.FileSelectionMode = ... # 0x1
         FileSelectUploadFolder   : QWebEnginePage.FileSelectionMode = ... # 0x2
         FileSelectSave           : QWebEnginePage.FileSelectionMode = ... # 0x3
 
-    class FindFlag(Shiboken.Enum):
+
+    class FindFlag(shibokensupport.enum_310.Flag):
 
         FindBackward             : QWebEnginePage.FindFlag = ... # 0x1
         FindCaseSensitively      : QWebEnginePage.FindFlag = ... # 0x2
 
-    class FindFlags(object): ...
 
-    class JavaScriptConsoleMessageLevel(Shiboken.Enum):
+    class JavaScriptConsoleMessageLevel(shibokensupport.enum_310.Enum):
 
         InfoMessageLevel         : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x0
         WarningMessageLevel      : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x1
         ErrorMessageLevel        : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x2
 
-    class LifecycleState(Shiboken.Enum):
+
+    class LifecycleState(shibokensupport.enum_310.Enum):
 
         Active                   : QWebEnginePage.LifecycleState = ... # 0x0
         Frozen                   : QWebEnginePage.LifecycleState = ... # 0x1
         Discarded                : QWebEnginePage.LifecycleState = ... # 0x2
 
-    class NavigationType(Shiboken.Enum):
+
+    class NavigationType(shibokensupport.enum_310.Enum):
 
         NavigationTypeLinkClicked: QWebEnginePage.NavigationType = ... # 0x0
         NavigationTypeTyped      : QWebEnginePage.NavigationType = ... # 0x1
@@ -651,20 +432,23 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         NavigationTypeOther      : QWebEnginePage.NavigationType = ... # 0x5
         NavigationTypeRedirect   : QWebEnginePage.NavigationType = ... # 0x6
 
-    class PermissionPolicy(Shiboken.Enum):
+
+    class PermissionPolicy(shibokensupport.enum_310.Enum):
 
         PermissionUnknown        : QWebEnginePage.PermissionPolicy = ... # 0x0
         PermissionGrantedByUser  : QWebEnginePage.PermissionPolicy = ... # 0x1
         PermissionDeniedByUser   : QWebEnginePage.PermissionPolicy = ... # 0x2
 
-    class RenderProcessTerminationStatus(Shiboken.Enum):
+
+    class RenderProcessTerminationStatus(shibokensupport.enum_310.Enum):
 
         NormalTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x0
         AbnormalTerminationStatus: QWebEnginePage.RenderProcessTerminationStatus = ... # 0x1
         CrashedTerminationStatus : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x2
         KilledTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x3
 
-    class WebAction(Shiboken.Enum):
+
+    class WebAction(shibokensupport.enum_310.Enum):
 
         NoWebAction              : QWebEnginePage.WebAction = ... # -0x1
         Back                     : QWebEnginePage.WebAction = ... # 0x0
@@ -714,7 +498,8 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         InsertUnorderedList      : QWebEnginePage.WebAction = ... # 0x2c
         WebActionCount           : QWebEnginePage.WebAction = ... # 0x2d
 
-    class WebWindowType(Shiboken.Enum):
+
+    class WebWindowType(shibokensupport.enum_310.Enum):
 
         WebBrowserWindow         : QWebEnginePage.WebWindowType = ... # 0x0
         WebBrowserTab            : QWebEnginePage.WebWindowType = ... # 0x1
@@ -738,9 +523,9 @@ class QWebEnginePage(PySide6.QtCore.QObject):
     def download(self, url: Union[PySide6.QtCore.QUrl, str], filename: str = ...) -> None: ...
     def event(self, arg__1: PySide6.QtCore.QEvent) -> bool: ...
     @overload
-    def findText(self, arg__1: str, arg__2: PySide6.QtWebEngineCore.QWebEnginePage.FindFlags, arg__3: object) -> None: ...
+    def findText(self, arg__1: str, arg__2: PySide6.QtWebEngineCore.QWebEnginePage.FindFlag, arg__3: object) -> None: ...
     @overload
-    def findText(self, subString: str, options: PySide6.QtWebEngineCore.QWebEnginePage.FindFlags = ...) -> None: ...
+    def findText(self, subString: str, options: PySide6.QtWebEngineCore.QWebEnginePage.FindFlag = ...) -> None: ...
     def hasSelection(self) -> bool: ...
     def history(self) -> PySide6.QtWebEngineCore.QWebEngineHistory: ...
     def icon(self) -> PySide6.QtGui.QIcon: ...
@@ -798,20 +583,14 @@ class QWebEnginePage(PySide6.QtCore.QObject):
 
 class QWebEngineProfile(PySide6.QtCore.QObject):
 
-    MemoryHttpCache          : QWebEngineProfile.HttpCacheType = ... # 0x0
-    DiskHttpCache            : QWebEngineProfile.HttpCacheType = ... # 0x1
-    NoCache                  : QWebEngineProfile.HttpCacheType = ... # 0x2
-    NoPersistentCookies      : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x0
-    AllowPersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x1
-    ForcePersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x2
-
-    class HttpCacheType(Shiboken.Enum):
+    class HttpCacheType(shibokensupport.enum_310.Enum):
 
         MemoryHttpCache          : QWebEngineProfile.HttpCacheType = ... # 0x0
         DiskHttpCache            : QWebEngineProfile.HttpCacheType = ... # 0x1
         NoCache                  : QWebEngineProfile.HttpCacheType = ... # 0x2
 
-    class PersistentCookiesPolicy(Shiboken.Enum):
+
+    class PersistentCookiesPolicy(shibokensupport.enum_310.Enum):
 
         NoPersistentCookies      : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x0
         AllowPersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x1
@@ -885,20 +664,14 @@ class QWebEngineRegisterProtocolHandlerRequest(Shiboken.Object):
 
 class QWebEngineScript(Shiboken.Object):
 
-    Deferred                 : QWebEngineScript.InjectionPoint = ... # 0x0
-    DocumentReady            : QWebEngineScript.InjectionPoint = ... # 0x1
-    DocumentCreation         : QWebEngineScript.InjectionPoint = ... # 0x2
-    MainWorld                : QWebEngineScript.ScriptWorldId = ... # 0x0
-    ApplicationWorld         : QWebEngineScript.ScriptWorldId = ... # 0x1
-    UserWorld                : QWebEngineScript.ScriptWorldId = ... # 0x2
-
-    class InjectionPoint(Shiboken.Enum):
+    class InjectionPoint(shibokensupport.enum_310.Enum):
 
         Deferred                 : QWebEngineScript.InjectionPoint = ... # 0x0
         DocumentReady            : QWebEngineScript.InjectionPoint = ... # 0x1
         DocumentCreation         : QWebEngineScript.InjectionPoint = ... # 0x2
 
-    class ScriptWorldId(Shiboken.Enum):
+
+    class ScriptWorldId(shibokensupport.enum_310.Enum):
 
         MainWorld                : QWebEngineScript.ScriptWorldId = ... # 0x0
         ApplicationWorld         : QWebEngineScript.ScriptWorldId = ... # 0x1
@@ -943,54 +716,7 @@ class QWebEngineScriptCollection(Shiboken.Object):
 
 class QWebEngineSettings(Shiboken.Object):
 
-    StandardFont             : QWebEngineSettings.FontFamily = ... # 0x0
-    FixedFont                : QWebEngineSettings.FontFamily = ... # 0x1
-    SerifFont                : QWebEngineSettings.FontFamily = ... # 0x2
-    SansSerifFont            : QWebEngineSettings.FontFamily = ... # 0x3
-    CursiveFont              : QWebEngineSettings.FontFamily = ... # 0x4
-    FantasyFont              : QWebEngineSettings.FontFamily = ... # 0x5
-    PictographFont           : QWebEngineSettings.FontFamily = ... # 0x6
-    MinimumFontSize          : QWebEngineSettings.FontSize = ... # 0x0
-    MinimumLogicalFontSize   : QWebEngineSettings.FontSize = ... # 0x1
-    DefaultFontSize          : QWebEngineSettings.FontSize = ... # 0x2
-    DefaultFixedFontSize     : QWebEngineSettings.FontSize = ... # 0x3
-    InheritedUnknownUrlSchemePolicy: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x0
-    DisallowUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x1
-    AllowUnknownUrlSchemesFromUserInteraction: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x2
-    AllowAllUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x3
-    AutoLoadImages           : QWebEngineSettings.WebAttribute = ... # 0x0
-    JavascriptEnabled        : QWebEngineSettings.WebAttribute = ... # 0x1
-    JavascriptCanOpenWindows : QWebEngineSettings.WebAttribute = ... # 0x2
-    JavascriptCanAccessClipboard: QWebEngineSettings.WebAttribute = ... # 0x3
-    LinksIncludedInFocusChain: QWebEngineSettings.WebAttribute = ... # 0x4
-    LocalStorageEnabled      : QWebEngineSettings.WebAttribute = ... # 0x5
-    LocalContentCanAccessRemoteUrls: QWebEngineSettings.WebAttribute = ... # 0x6
-    XSSAuditingEnabled       : QWebEngineSettings.WebAttribute = ... # 0x7
-    SpatialNavigationEnabled : QWebEngineSettings.WebAttribute = ... # 0x8
-    LocalContentCanAccessFileUrls: QWebEngineSettings.WebAttribute = ... # 0x9
-    HyperlinkAuditingEnabled : QWebEngineSettings.WebAttribute = ... # 0xa
-    ScrollAnimatorEnabled    : QWebEngineSettings.WebAttribute = ... # 0xb
-    ErrorPageEnabled         : QWebEngineSettings.WebAttribute = ... # 0xc
-    PluginsEnabled           : QWebEngineSettings.WebAttribute = ... # 0xd
-    FullScreenSupportEnabled : QWebEngineSettings.WebAttribute = ... # 0xe
-    ScreenCaptureEnabled     : QWebEngineSettings.WebAttribute = ... # 0xf
-    WebGLEnabled             : QWebEngineSettings.WebAttribute = ... # 0x10
-    Accelerated2dCanvasEnabled: QWebEngineSettings.WebAttribute = ... # 0x11
-    AutoLoadIconsForPage     : QWebEngineSettings.WebAttribute = ... # 0x12
-    TouchIconsEnabled        : QWebEngineSettings.WebAttribute = ... # 0x13
-    FocusOnNavigationEnabled : QWebEngineSettings.WebAttribute = ... # 0x14
-    PrintElementBackgrounds  : QWebEngineSettings.WebAttribute = ... # 0x15
-    AllowRunningInsecureContent: QWebEngineSettings.WebAttribute = ... # 0x16
-    AllowGeolocationOnInsecureOrigins: QWebEngineSettings.WebAttribute = ... # 0x17
-    AllowWindowActivationFromJavaScript: QWebEngineSettings.WebAttribute = ... # 0x18
-    ShowScrollBars           : QWebEngineSettings.WebAttribute = ... # 0x19
-    PlaybackRequiresUserGesture: QWebEngineSettings.WebAttribute = ... # 0x1a
-    WebRTCPublicInterfacesOnly: QWebEngineSettings.WebAttribute = ... # 0x1b
-    JavascriptCanPaste       : QWebEngineSettings.WebAttribute = ... # 0x1c
-    DnsPrefetchEnabled       : QWebEngineSettings.WebAttribute = ... # 0x1d
-    PdfViewerEnabled         : QWebEngineSettings.WebAttribute = ... # 0x1e
-
-    class FontFamily(Shiboken.Enum):
+    class FontFamily(shibokensupport.enum_310.Enum):
 
         StandardFont             : QWebEngineSettings.FontFamily = ... # 0x0
         FixedFont                : QWebEngineSettings.FontFamily = ... # 0x1
@@ -1000,21 +726,24 @@ class QWebEngineSettings(Shiboken.Object):
         FantasyFont              : QWebEngineSettings.FontFamily = ... # 0x5
         PictographFont           : QWebEngineSettings.FontFamily = ... # 0x6
 
-    class FontSize(Shiboken.Enum):
+
+    class FontSize(shibokensupport.enum_310.Enum):
 
         MinimumFontSize          : QWebEngineSettings.FontSize = ... # 0x0
         MinimumLogicalFontSize   : QWebEngineSettings.FontSize = ... # 0x1
         DefaultFontSize          : QWebEngineSettings.FontSize = ... # 0x2
         DefaultFixedFontSize     : QWebEngineSettings.FontSize = ... # 0x3
 
-    class UnknownUrlSchemePolicy(Shiboken.Enum):
+
+    class UnknownUrlSchemePolicy(shibokensupport.enum_310.Enum):
 
         InheritedUnknownUrlSchemePolicy: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x0
         DisallowUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x1
         AllowUnknownUrlSchemesFromUserInteraction: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x2
         AllowAllUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x3
 
-    class WebAttribute(Shiboken.Enum):
+
+    class WebAttribute(shibokensupport.enum_310.Enum):
 
         AutoLoadImages           : QWebEngineSettings.WebAttribute = ... # 0x0
         JavascriptEnabled        : QWebEngineSettings.WebAttribute = ... # 0x1
@@ -1047,6 +776,7 @@ class QWebEngineSettings(Shiboken.Object):
         JavascriptCanPaste       : QWebEngineSettings.WebAttribute = ... # 0x1c
         DnsPrefetchEnabled       : QWebEngineSettings.WebAttribute = ... # 0x1d
         PdfViewerEnabled         : QWebEngineSettings.WebAttribute = ... # 0x1e
+        NavigateOnDropEnabled    : QWebEngineSettings.WebAttribute = ... # 0x1f
 
 
     def defaultTextEncoding(self) -> str: ...
@@ -1067,37 +797,7 @@ class QWebEngineSettings(Shiboken.Object):
 
 class QWebEngineUrlRequestInfo(Shiboken.Object):
 
-    NavigationTypeLink       : QWebEngineUrlRequestInfo.NavigationType = ... # 0x0
-    NavigationTypeTyped      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x1
-    NavigationTypeFormSubmitted: QWebEngineUrlRequestInfo.NavigationType = ... # 0x2
-    NavigationTypeBackForward: QWebEngineUrlRequestInfo.NavigationType = ... # 0x3
-    NavigationTypeReload     : QWebEngineUrlRequestInfo.NavigationType = ... # 0x4
-    NavigationTypeOther      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x5
-    NavigationTypeRedirect   : QWebEngineUrlRequestInfo.NavigationType = ... # 0x6
-    ResourceTypeMainFrame    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x0
-    ResourceTypeSubFrame     : QWebEngineUrlRequestInfo.ResourceType = ... # 0x1
-    ResourceTypeStylesheet   : QWebEngineUrlRequestInfo.ResourceType = ... # 0x2
-    ResourceTypeScript       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x3
-    ResourceTypeImage        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x4
-    ResourceTypeFontResource : QWebEngineUrlRequestInfo.ResourceType = ... # 0x5
-    ResourceTypeSubResource  : QWebEngineUrlRequestInfo.ResourceType = ... # 0x6
-    ResourceTypeObject       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x7
-    ResourceTypeMedia        : QWebEngineUrlRequestInfo.ResourceType = ... # 0x8
-    ResourceTypeWorker       : QWebEngineUrlRequestInfo.ResourceType = ... # 0x9
-    ResourceTypeSharedWorker : QWebEngineUrlRequestInfo.ResourceType = ... # 0xa
-    ResourceTypePrefetch     : QWebEngineUrlRequestInfo.ResourceType = ... # 0xb
-    ResourceTypeFavicon      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xc
-    ResourceTypeXhr          : QWebEngineUrlRequestInfo.ResourceType = ... # 0xd
-    ResourceTypePing         : QWebEngineUrlRequestInfo.ResourceType = ... # 0xe
-    ResourceTypeServiceWorker: QWebEngineUrlRequestInfo.ResourceType = ... # 0xf
-    ResourceTypeCspReport    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x10
-    ResourceTypePluginResource: QWebEngineUrlRequestInfo.ResourceType = ... # 0x11
-    ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x13
-    ResourceTypeLast         : QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
-    ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
-    ResourceTypeUnknown      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xff
-
-    class NavigationType(Shiboken.Enum):
+    class NavigationType(shibokensupport.enum_310.Enum):
 
         NavigationTypeLink       : QWebEngineUrlRequestInfo.NavigationType = ... # 0x0
         NavigationTypeTyped      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x1
@@ -1107,7 +807,8 @@ class QWebEngineUrlRequestInfo(Shiboken.Object):
         NavigationTypeOther      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x5
         NavigationTypeRedirect   : QWebEngineUrlRequestInfo.NavigationType = ... # 0x6
 
-    class ResourceType(Shiboken.Enum):
+
+    class ResourceType(shibokensupport.enum_310.Enum):
 
         ResourceTypeMainFrame    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x0
         ResourceTypeSubFrame     : QWebEngineUrlRequestInfo.ResourceType = ... # 0x1
@@ -1130,6 +831,7 @@ class QWebEngineUrlRequestInfo(Shiboken.Object):
         ResourceTypeNavigationPreloadMainFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x13
         ResourceTypeLast         : QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
         ResourceTypeNavigationPreloadSubFrame: QWebEngineUrlRequestInfo.ResourceType = ... # 0x14
+        ResourceTypeWebSocket    : QWebEngineUrlRequestInfo.ResourceType = ... # 0xfe
         ResourceTypeUnknown      : QWebEngineUrlRequestInfo.ResourceType = ... # 0xff
 
 
@@ -1154,14 +856,7 @@ class QWebEngineUrlRequestInterceptor(PySide6.QtCore.QObject):
 
 class QWebEngineUrlRequestJob(PySide6.QtCore.QObject):
 
-    NoError                  : QWebEngineUrlRequestJob.Error = ... # 0x0
-    UrlNotFound              : QWebEngineUrlRequestJob.Error = ... # 0x1
-    UrlInvalid               : QWebEngineUrlRequestJob.Error = ... # 0x2
-    RequestAborted           : QWebEngineUrlRequestJob.Error = ... # 0x3
-    RequestDenied            : QWebEngineUrlRequestJob.Error = ... # 0x4
-    RequestFailed            : QWebEngineUrlRequestJob.Error = ... # 0x5
-
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         NoError                  : QWebEngineUrlRequestJob.Error = ... # 0x0
         UrlNotFound              : QWebEngineUrlRequestJob.Error = ... # 0x1
@@ -1182,17 +877,7 @@ class QWebEngineUrlRequestJob(PySide6.QtCore.QObject):
 
 class QWebEngineUrlScheme(Shiboken.Object):
 
-    SecureScheme             : QWebEngineUrlScheme.Flag = ... # 0x1
-    LocalScheme              : QWebEngineUrlScheme.Flag = ... # 0x2
-    LocalAccessAllowed       : QWebEngineUrlScheme.Flag = ... # 0x4
-    NoAccessAllowed          : QWebEngineUrlScheme.Flag = ... # 0x8
-    ServiceWorkersAllowed    : QWebEngineUrlScheme.Flag = ... # 0x10
-    ViewSourceAllowed        : QWebEngineUrlScheme.Flag = ... # 0x20
-    ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ... # 0x40
-    CorsEnabled              : QWebEngineUrlScheme.Flag = ... # 0x80
-    PortUnspecified          : QWebEngineUrlScheme.SpecialPort = ... # -0x1
-
-    class Flag(Shiboken.Enum):
+    class Flag(shibokensupport.enum_310.Flag):
 
         SecureScheme             : QWebEngineUrlScheme.Flag = ... # 0x1
         LocalScheme              : QWebEngineUrlScheme.Flag = ... # 0x2
@@ -1203,13 +888,13 @@ class QWebEngineUrlScheme(Shiboken.Object):
         ContentSecurityPolicyIgnored: QWebEngineUrlScheme.Flag = ... # 0x40
         CorsEnabled              : QWebEngineUrlScheme.Flag = ... # 0x80
 
-    class Flags(object): ...
 
-    class SpecialPort(Shiboken.Enum):
+    class SpecialPort(shibokensupport.enum_310.Enum):
 
         PortUnspecified          : QWebEngineUrlScheme.SpecialPort = ... # -0x1
 
-    class Syntax(Shiboken.Enum):
+
+    class Syntax(shibokensupport.enum_310.Enum):
 
         HostPortAndUserInformation: QWebEngineUrlScheme.Syntax = ... # 0x0
         HostAndPort              : QWebEngineUrlScheme.Syntax = ... # 0x1
@@ -1227,14 +912,14 @@ class QWebEngineUrlScheme(Shiboken.Object):
     @staticmethod
     def __copy__() -> None: ...
     def defaultPort(self) -> int: ...
-    def flags(self) -> PySide6.QtWebEngineCore.QWebEngineUrlScheme.Flags: ...
+    def flags(self) -> PySide6.QtWebEngineCore.QWebEngineUrlScheme.Flag: ...
     def name(self) -> PySide6.QtCore.QByteArray: ...
     @staticmethod
     def registerScheme(scheme: PySide6.QtWebEngineCore.QWebEngineUrlScheme) -> None: ...
     @staticmethod
     def schemeByName(name: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtWebEngineCore.QWebEngineUrlScheme: ...
     def setDefaultPort(self, newValue: int) -> None: ...
-    def setFlags(self, newValue: PySide6.QtWebEngineCore.QWebEngineUrlScheme.Flags) -> None: ...
+    def setFlags(self, newValue: PySide6.QtWebEngineCore.QWebEngineUrlScheme.Flag) -> None: ...
     def setName(self, newValue: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
     def setSyntax(self, newValue: PySide6.QtWebEngineCore.QWebEngineUrlScheme.Syntax) -> None: ...
     def syntax(self) -> PySide6.QtWebEngineCore.QWebEngineUrlScheme.Syntax: ...
