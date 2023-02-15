@@ -50,7 +50,6 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
-from enum import Enum
 from typing import Any, Optional, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -68,7 +67,7 @@ class QAbstractPrintDialog(PySide6.QtWidgets.QDialog):
     PageRange                : QAbstractPrintDialog.PrintRange = ... # 0x2
     CurrentPage              : QAbstractPrintDialog.PrintRange = ... # 0x3
 
-    class PrintDialogOption(Enum):
+    class PrintDialogOption(Shiboken.Enum):
 
         PrintToFile              : QAbstractPrintDialog.PrintDialogOption = ... # 0x1
         PrintSelection           : QAbstractPrintDialog.PrintDialogOption = ... # 0x2
@@ -79,7 +78,7 @@ class QAbstractPrintDialog(PySide6.QtWidgets.QDialog):
 
     class PrintDialogOptions(object): ...
 
-    class PrintRange(Enum):
+    class PrintRange(Shiboken.Enum):
 
         AllPages                 : QAbstractPrintDialog.PrintRange = ... # 0x0
         Selection                : QAbstractPrintDialog.PrintRange = ... # 0x1
@@ -175,7 +174,7 @@ class QPrintEngine(Shiboken.Object):
     PPK_QPageLayout          : QPrintEngine.PrintEnginePropertyKey = ... # 0x1d
     PPK_CustomBase           : QPrintEngine.PrintEnginePropertyKey = ... # 0xff00
 
-    class PrintEnginePropertyKey(Enum):
+    class PrintEnginePropertyKey(Shiboken.Enum):
 
         PPK_CollateCopies        : QPrintEngine.PrintEnginePropertyKey = ... # 0x0
         PPK_ColorMode            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1
@@ -246,13 +245,13 @@ class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
     FitToWidth               : QPrintPreviewWidget.ZoomMode = ... # 0x1
     FitInView                : QPrintPreviewWidget.ZoomMode = ... # 0x2
 
-    class ViewMode(Enum):
+    class ViewMode(Shiboken.Enum):
 
         SinglePageView           : QPrintPreviewWidget.ViewMode = ... # 0x0
         FacingPagesView          : QPrintPreviewWidget.ViewMode = ... # 0x1
         AllPagesView             : QPrintPreviewWidget.ViewMode = ... # 0x2
 
-    class ZoomMode(Enum):
+    class ZoomMode(Shiboken.Enum):
 
         CustomZoom               : QPrintPreviewWidget.ZoomMode = ... # 0x0
         FitToWidth               : QPrintPreviewWidget.ZoomMode = ... # 0x1
@@ -337,29 +336,29 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
     Cicero                   : QPrinter.Unit = ... # 0x5
     DevicePixel              : QPrinter.Unit = ... # 0x6
 
-    class ColorMode(Enum):
+    class ColorMode(Shiboken.Enum):
 
         GrayScale                : QPrinter.ColorMode = ... # 0x0
         Color                    : QPrinter.ColorMode = ... # 0x1
 
-    class DuplexMode(Enum):
+    class DuplexMode(Shiboken.Enum):
 
         DuplexNone               : QPrinter.DuplexMode = ... # 0x0
         DuplexAuto               : QPrinter.DuplexMode = ... # 0x1
         DuplexLongSide           : QPrinter.DuplexMode = ... # 0x2
         DuplexShortSide          : QPrinter.DuplexMode = ... # 0x3
 
-    class OutputFormat(Enum):
+    class OutputFormat(Shiboken.Enum):
 
         NativeFormat             : QPrinter.OutputFormat = ... # 0x0
         PdfFormat                : QPrinter.OutputFormat = ... # 0x1
 
-    class PageOrder(Enum):
+    class PageOrder(Shiboken.Enum):
 
         FirstPageFirst           : QPrinter.PageOrder = ... # 0x0
         LastPageFirst            : QPrinter.PageOrder = ... # 0x1
 
-    class PaperSource(Enum):
+    class PaperSource(Shiboken.Enum):
 
         OnlyOne                  : QPrinter.PaperSource = ... # 0x0
         Upper                    : QPrinter.PaperSource = ... # 0x0
@@ -379,27 +378,27 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
         CustomSource             : QPrinter.PaperSource = ... # 0xe
         LastPaperSource          : QPrinter.PaperSource = ... # 0xe
 
-    class PrintRange(Enum):
+    class PrintRange(Shiboken.Enum):
 
         AllPages                 : QPrinter.PrintRange = ... # 0x0
         Selection                : QPrinter.PrintRange = ... # 0x1
         PageRange                : QPrinter.PrintRange = ... # 0x2
         CurrentPage              : QPrinter.PrintRange = ... # 0x3
 
-    class PrinterMode(Enum):
+    class PrinterMode(Shiboken.Enum):
 
         ScreenResolution         : QPrinter.PrinterMode = ... # 0x0
         PrinterResolution        : QPrinter.PrinterMode = ... # 0x1
         HighResolution           : QPrinter.PrinterMode = ... # 0x2
 
-    class PrinterState(Enum):
+    class PrinterState(Shiboken.Enum):
 
         Idle                     : QPrinter.PrinterState = ... # 0x0
         Active                   : QPrinter.PrinterState = ... # 0x1
         Aborted                  : QPrinter.PrinterState = ... # 0x2
         Error                    : QPrinter.PrinterState = ... # 0x3
 
-    class Unit(Enum):
+    class Unit(Shiboken.Enum):
 
         Millimeter               : QPrinter.Unit = ... # 0x0
         Point                    : QPrinter.Unit = ... # 0x1

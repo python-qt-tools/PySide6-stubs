@@ -48,7 +48,6 @@ PySide6.QtNfc, except for defaults which are replaced by "...".
 import PySide6.QtNfc
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Optional, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -190,7 +189,7 @@ class QNdefNfcSmartPosterRecord(PySide6.QtNfc.QNdefRecord):
     SaveAction               : QNdefNfcSmartPosterRecord.Action = ... # 0x1
     EditAction               : QNdefNfcSmartPosterRecord.Action = ... # 0x2
 
-    class Action(Enum):
+    class Action(Shiboken.Enum):
 
         UnspecifiedAction        : QNdefNfcSmartPosterRecord.Action = ... # -0x1
         DoAction                 : QNdefNfcSmartPosterRecord.Action = ... # 0x0
@@ -258,7 +257,7 @@ class QNdefNfcTextRecord(PySide6.QtNfc.QNdefRecord):
     Utf8                     : QNdefNfcTextRecord.Encoding = ... # 0x0
     Utf16                    : QNdefNfcTextRecord.Encoding = ... # 0x1
 
-    class Encoding(Enum):
+    class Encoding(Shiboken.Enum):
 
         Utf8                     : QNdefNfcTextRecord.Encoding = ... # 0x0
         Utf16                    : QNdefNfcTextRecord.Encoding = ... # 0x1
@@ -305,7 +304,7 @@ class QNdefRecord(Shiboken.Object):
     ExternalRtd              : QNdefRecord.TypeNameFormat = ... # 0x4
     Unknown                  : QNdefRecord.TypeNameFormat = ... # 0x5
 
-    class TypeNameFormat(Enum):
+    class TypeNameFormat(Shiboken.Enum):
 
         Empty                    : QNdefRecord.TypeNameFormat = ... # 0x0
         NfcRtd                   : QNdefRecord.TypeNameFormat = ... # 0x1
@@ -342,7 +341,7 @@ class QNdefRecord(Shiboken.Object):
 
 class QNearFieldManager(PySide6.QtCore.QObject):
 
-    class AdapterState(Enum):
+    class AdapterState(Shiboken.Enum):
 
         Offline                  : QNearFieldManager.AdapterState = ... # 0x1
         TurningOn                : QNearFieldManager.AdapterState = ... # 0x2
@@ -386,7 +385,7 @@ class QNearFieldTarget(PySide6.QtCore.QObject):
     NfcTagType4B             : QNearFieldTarget.Type = ... # 0x6
     MifareTag                : QNearFieldTarget.Type = ... # 0x7
 
-    class AccessMethod(Enum):
+    class AccessMethod(Shiboken.Enum):
 
         UnknownAccess            : QNearFieldTarget.AccessMethod = ... # 0x0
         NdefAccess               : QNearFieldTarget.AccessMethod = ... # 0x1
@@ -395,7 +394,7 @@ class QNearFieldTarget(PySide6.QtCore.QObject):
 
     class AccessMethods(object): ...
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QNearFieldTarget.Error = ... # 0x0
         UnknownError             : QNearFieldTarget.Error = ... # 0x1
@@ -410,7 +409,7 @@ class QNearFieldTarget(PySide6.QtCore.QObject):
         CommandError             : QNearFieldTarget.Error = ... # 0xa
         TimeoutError             : QNearFieldTarget.Error = ... # 0xb
 
-    class Type(Enum):
+    class Type(Shiboken.Enum):
 
         ProprietaryTag           : QNearFieldTarget.Type = ... # 0x0
         NfcTagType1              : QNearFieldTarget.Type = ... # 0x1
