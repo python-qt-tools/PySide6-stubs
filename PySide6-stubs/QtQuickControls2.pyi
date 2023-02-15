@@ -36,6 +36,8 @@
 ## $QT_END_LICENSE$
 ##
 #############################################################################
+from __future__ import annotations
+
 """
 This file contains the exact signatures for all functions in module
 PySide6.QtQuickControls2, except for defaults which are replaced by "...".
@@ -58,9 +60,9 @@ class QQuickStyle(Shiboken.Object):
     @staticmethod
     def name() -> str: ...
     @staticmethod
-    def setFallbackStyle(style:str) -> None: ...
+    def setFallbackStyle(style: str) -> None: ...
     @staticmethod
-    def setStyle(style:str) -> None: ...
+    def setStyle(style: str) -> None: ...
 
 
 # eof

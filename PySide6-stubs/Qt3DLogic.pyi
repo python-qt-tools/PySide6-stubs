@@ -36,6 +36,8 @@
 ## $QT_END_LICENSE$
 ##
 #############################################################################
+from __future__ import annotations
+
 """
 This file contains the exact signatures for all functions in module
 PySide6.Qt3DLogic, except for defaults which are replaced by "...".
@@ -58,12 +60,12 @@ class Qt3DLogic(Shiboken.Object):
 
     class QFrameAction(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        def __init__(self, parent:Optional[PySide6.Qt3DCore.Qt3DCore.QNode]=...) -> None: ...
+        def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
 
     class QLogicAspect(PySide6.Qt3DCore.Qt3DCore.QAbstractAspect):
 
-        def __init__(self, parent:Optional[PySide6.QtCore.QObject]=...) -> None: ...
+        def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
 
 # eof
