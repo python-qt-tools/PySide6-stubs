@@ -12,6 +12,7 @@ PySide6.QtCore, except for defaults which are replaced by "...".
 import PySide6.QtCore
 
 import os
+import enum
 from typing import Any, Callable, Optional, Tuple, Type, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -48,19 +49,19 @@ class PyClassProperty(property):
 
 class QAbstractAnimation(PySide6.QtCore.QObject):
 
-    class DeletionPolicy(shibokensupport.enum_310.Enum):
+    class DeletionPolicy(enum.Enum):
 
         KeepWhenStopped          : QAbstractAnimation.DeletionPolicy = ... # 0x0
         DeleteWhenStopped        : QAbstractAnimation.DeletionPolicy = ... # 0x1
 
 
-    class Direction(shibokensupport.enum_310.Enum):
+    class Direction(enum.Enum):
 
         Forward                  : QAbstractAnimation.Direction = ... # 0x0
         Backward                 : QAbstractAnimation.Direction = ... # 0x1
 
 
-    class State(shibokensupport.enum_310.Enum):
+    class State(enum.Enum):
 
         Stopped                  : QAbstractAnimation.State = ... # 0x0
         Paused                   : QAbstractAnimation.State = ... # 0x1
@@ -131,7 +132,7 @@ class QAbstractEventDispatcher(PySide6.QtCore.QObject):
 
 class QAbstractItemModel(PySide6.QtCore.QObject):
 
-    class CheckIndexOption(shibokensupport.enum_310.Flag):
+    class CheckIndexOption(enum.Flag):
 
         NoOption                 : QAbstractItemModel.CheckIndexOption = ... # 0x0
         IndexIsValid             : QAbstractItemModel.CheckIndexOption = ... # 0x1
@@ -139,7 +140,7 @@ class QAbstractItemModel(PySide6.QtCore.QObject):
         ParentIsInvalid          : QAbstractItemModel.CheckIndexOption = ... # 0x4
 
 
-    class LayoutChangeHint(shibokensupport.enum_310.Enum):
+    class LayoutChangeHint(enum.Enum):
 
         NoLayoutChangeHint       : QAbstractItemModel.LayoutChangeHint = ... # 0x0
         VerticalSortHint         : QAbstractItemModel.LayoutChangeHint = ... # 0x1
@@ -407,7 +408,7 @@ class QBuffer(PySide6.QtCore.QIODevice):
 
 class QByteArray(Shiboken.Object):
 
-    class Base64DecodingStatus(shibokensupport.enum_310.Enum):
+    class Base64DecodingStatus(enum.Enum):
 
         Ok                       : QByteArray.Base64DecodingStatus = ... # 0x0
         IllegalInputLength       : QByteArray.Base64DecodingStatus = ... # 0x1
@@ -415,7 +416,7 @@ class QByteArray(Shiboken.Object):
         IllegalPadding           : QByteArray.Base64DecodingStatus = ... # 0x3
 
 
-    class Base64Option(shibokensupport.enum_310.Flag):
+    class Base64Option(enum.Flag):
 
         Base64Encoding           : QByteArray.Base64Option = ... # 0x0
         IgnoreBase64DecodingErrors: QByteArray.Base64Option = ... # 0x0
@@ -655,7 +656,7 @@ class QByteArrayMatcher(Shiboken.Object):
 
 class QCalendar(Shiboken.Object):
 
-    class System(shibokensupport.enum_310.Enum):
+    class System(enum.Enum):
 
         User                     : QCalendar.System = ... # -0x1
         Gregorian                : QCalendar.System = ... # 0x0
@@ -779,7 +780,7 @@ class QCborArray(Shiboken.Object):
 
 class QCborError(Shiboken.Object):
 
-    class Code(shibokensupport.enum_310.Enum):
+    class Code(enum.Enum):
 
         NoError                  : QCborError.Code = ... # 0x0
         UnknownError             : QCborError.Code = ... # 0x1
@@ -808,7 +809,7 @@ class QCborError(Shiboken.Object):
     def toString(self) -> str: ...
 
 
-class QCborKnownTags(shibokensupport.enum_310.Enum):
+class QCborKnownTags(enum.Enum):
 
     DateTimeString           : QCborKnownTags = ... # 0x0
     UnixTime_t               : QCborKnownTags = ... # 0x1
@@ -899,7 +900,7 @@ class QCborParserError(Shiboken.Object):
     def errorString(self) -> str: ...
 
 
-class QCborSimpleType(shibokensupport.enum_310.Enum):
+class QCborSimpleType(enum.Enum):
 
     False_                   : QCborSimpleType = ... # 0x14
     True_                    : QCborSimpleType = ... # 0x15
@@ -909,14 +910,14 @@ class QCborSimpleType(shibokensupport.enum_310.Enum):
 
 class QCborStreamReader(Shiboken.Object):
 
-    class StringResultCode(shibokensupport.enum_310.Enum):
+    class StringResultCode(enum.Enum):
 
         Error                    : QCborStreamReader.StringResultCode = ... # -0x1
         EndOfString              : QCborStreamReader.StringResultCode = ... # 0x0
         Ok                       : QCborStreamReader.StringResultCode = ... # 0x1
 
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         UnsignedInteger          : QCborStreamReader.Type = ... # 0x0
         NegativeInteger          : QCborStreamReader.Type = ... # 0x20
@@ -1081,14 +1082,14 @@ class QCborTag(Shiboken.Enum): ...
 
 class QCborValue(Shiboken.Object):
 
-    class DiagnosticNotationOption(shibokensupport.enum_310.Flag):
+    class DiagnosticNotationOption(enum.Flag):
 
         Compact                  : QCborValue.DiagnosticNotationOption = ... # 0x0
         LineWrapped              : QCborValue.DiagnosticNotationOption = ... # 0x1
         ExtendedFormat           : QCborValue.DiagnosticNotationOption = ... # 0x2
 
 
-    class EncodingOption(shibokensupport.enum_310.Flag):
+    class EncodingOption(enum.Flag):
 
         NoTransformation         : QCborValue.EncodingOption = ... # 0x0
         SortKeysInMaps           : QCborValue.EncodingOption = ... # 0x1
@@ -1097,7 +1098,7 @@ class QCborValue(Shiboken.Object):
         UseIntegers              : QCborValue.EncodingOption = ... # 0x8
 
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         Invalid                  : QCborValue.Type = ... # -0x1
         Integer                  : QCborValue.Type = ... # 0x0
@@ -1285,7 +1286,7 @@ class QCollatorSortKey(Shiboken.Object):
 
 class QCommandLineOption(Shiboken.Object):
 
-    class Flag(shibokensupport.enum_310.Flag):
+    class Flag(enum.Flag):
 
         HiddenFromHelp           : QCommandLineOption.Flag = ... # 0x1
         ShortOptionStyle         : QCommandLineOption.Flag = ... # 0x2
@@ -1317,13 +1318,13 @@ class QCommandLineOption(Shiboken.Object):
 
 class QCommandLineParser(Shiboken.Object):
 
-    class OptionsAfterPositionalArgumentsMode(shibokensupport.enum_310.Enum):
+    class OptionsAfterPositionalArgumentsMode(enum.Enum):
 
         ParseAsOptions           : QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x0
         ParseAsPositionalArguments: QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x1
 
 
-    class SingleDashWordOptionMode(shibokensupport.enum_310.Enum):
+    class SingleDashWordOptionMode(enum.Enum):
 
         ParseAsCompactedShortOptions: QCommandLineParser.SingleDashWordOptionMode = ... # 0x0
         ParseAsLongOptions       : QCommandLineParser.SingleDashWordOptionMode = ... # 0x1
@@ -1494,7 +1495,7 @@ class QCoreApplication(PySide6.QtCore.QObject):
 
 class QCryptographicHash(Shiboken.Object):
 
-    class Algorithm(shibokensupport.enum_310.Enum):
+    class Algorithm(enum.Enum):
 
         Md4                      : QCryptographicHash.Algorithm = ... # 0x0
         Md5                      : QCryptographicHash.Algorithm = ... # 0x1
@@ -1544,19 +1545,19 @@ class QCryptographicHash(Shiboken.Object):
 
 class QDataStream(PySide6.QtCore.QIODeviceBase):
 
-    class ByteOrder(shibokensupport.enum_310.Enum):
+    class ByteOrder(enum.Enum):
 
         BigEndian                : QDataStream.ByteOrder = ... # 0x0
         LittleEndian             : QDataStream.ByteOrder = ... # 0x1
 
 
-    class FloatingPointPrecision(shibokensupport.enum_310.Enum):
+    class FloatingPointPrecision(enum.Enum):
 
         SinglePrecision          : QDataStream.FloatingPointPrecision = ... # 0x0
         DoublePrecision          : QDataStream.FloatingPointPrecision = ... # 0x1
 
 
-    class Status(shibokensupport.enum_310.Enum):
+    class Status(enum.Enum):
 
         Ok                       : QDataStream.Status = ... # 0x0
         ReadPastEnd              : QDataStream.Status = ... # 0x1
@@ -1564,7 +1565,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
         WriteFailed              : QDataStream.Status = ... # 0x3
 
 
-    class Version(shibokensupport.enum_310.IntEnum):
+    class Version(enum.IntEnum):
 
         Qt_1_0                   : QDataStream.Version = ... # 0x1
         Qt_2_0                   : QDataStream.Version = ... # 0x2
@@ -1908,7 +1909,7 @@ class QDate(Shiboken.Object):
 
 class QDateTime(Shiboken.Object):
 
-    class YearRange(shibokensupport.enum_310.Enum):
+    class YearRange(enum.Enum):
 
         First                    : QDateTime.YearRange = ... # -0x116bc370
         Last                     : QDateTime.YearRange = ... # 0x116bd2d2
@@ -2000,7 +2001,7 @@ class QDateTime(Shiboken.Object):
 
 class QDeadlineTimer(Shiboken.Object):
 
-    class ForeverConstant(shibokensupport.enum_310.Enum):
+    class ForeverConstant(enum.Enum):
 
         Forever                  : QDeadlineTimer.ForeverConstant = ... # 0x0
 
@@ -2045,7 +2046,7 @@ class QDeadlineTimer(Shiboken.Object):
 
 class QDir(Shiboken.Object):
 
-    class Filter(shibokensupport.enum_310.Flag):
+    class Filter(enum.Flag):
 
         NoFilter                 : QDir.Filter = ... # -0x1
         Dirs                     : QDir.Filter = ... # 0x1
@@ -2069,7 +2070,7 @@ class QDir(Shiboken.Object):
         NoDotAndDotDot           : QDir.Filter = ... # 0x6000
 
 
-    class SortFlag(shibokensupport.enum_310.Flag):
+    class SortFlag(enum.Flag):
 
         NoSort                   : QDir.SortFlag = ... # -0x1
         Name                     : QDir.SortFlag = ... # 0x0
@@ -2191,7 +2192,7 @@ class QDir(Shiboken.Object):
 
 class QDirIterator(Shiboken.Object):
 
-    class IteratorFlag(shibokensupport.enum_310.Flag):
+    class IteratorFlag(enum.Flag):
 
         NoIteratorFlags          : QDirIterator.IteratorFlag = ... # 0x0
         FollowSymlinks           : QDirIterator.IteratorFlag = ... # 0x1
@@ -2229,7 +2230,7 @@ class QDynamicPropertyChangeEvent(PySide6.QtCore.QEvent):
 
 class QEasingCurve(Shiboken.Object):
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         Linear                   : QEasingCurve.Type = ... # 0x0
         InQuad                   : QEasingCurve.Type = ... # 0x1
@@ -2308,7 +2309,7 @@ class QEasingCurve(Shiboken.Object):
 
 class QElapsedTimer(Shiboken.Object):
 
-    class ClockType(shibokensupport.enum_310.Enum):
+    class ClockType(enum.Enum):
 
         SystemTime               : QElapsedTimer.ClockType = ... # 0x0
         MonotonicClock           : QElapsedTimer.ClockType = ... # 0x1
@@ -2342,7 +2343,7 @@ class QElapsedTimer(Shiboken.Object):
 
 class QEvent(Shiboken.Object):
 
-    class Type(shibokensupport.enum_310.IntEnum):
+    class Type(enum.IntEnum):
 
         None_                    : QEvent.Type = ... # 0x0
         Timer                    : QEvent.Type = ... # 0x1
@@ -2541,7 +2542,7 @@ class QEvent(Shiboken.Object):
 
 class QEventLoop(PySide6.QtCore.QObject):
 
-    class ProcessEventsFlag(shibokensupport.enum_310.Flag):
+    class ProcessEventsFlag(enum.Flag):
 
         AllEvents                : QEventLoop.ProcessEventsFlag = ... # 0x0
         ExcludeUserInputEvents   : QEventLoop.ProcessEventsFlag = ... # 0x1
@@ -2657,7 +2658,7 @@ class QFile(PySide6.QtCore.QFileDevice):
 
 class QFileDevice(PySide6.QtCore.QIODevice):
 
-    class FileError(shibokensupport.enum_310.Enum):
+    class FileError(enum.Enum):
 
         NoError                  : QFileDevice.FileError = ... # 0x0
         ReadError                : QFileDevice.FileError = ... # 0x1
@@ -2676,13 +2677,13 @@ class QFileDevice(PySide6.QtCore.QIODevice):
         CopyError                : QFileDevice.FileError = ... # 0xe
 
 
-    class FileHandleFlag(shibokensupport.enum_310.Flag):
+    class FileHandleFlag(enum.Flag):
 
         DontCloseHandle          : QFileDevice.FileHandleFlag = ... # 0x0
         AutoCloseHandle          : QFileDevice.FileHandleFlag = ... # 0x1
 
 
-    class FileTime(shibokensupport.enum_310.Enum):
+    class FileTime(enum.Enum):
 
         FileAccessTime           : QFileDevice.FileTime = ... # 0x0
         FileBirthTime            : QFileDevice.FileTime = ... # 0x1
@@ -2690,13 +2691,13 @@ class QFileDevice(PySide6.QtCore.QIODevice):
         FileModificationTime     : QFileDevice.FileTime = ... # 0x3
 
 
-    class MemoryMapFlag(shibokensupport.enum_310.Flag):
+    class MemoryMapFlag(enum.Flag):
 
         NoOptions                : QFileDevice.MemoryMapFlag = ... # 0x0
         MapPrivateOption         : QFileDevice.MemoryMapFlag = ... # 0x1
 
 
-    class Permission(shibokensupport.enum_310.Flag):
+    class Permission(enum.Flag):
 
         ExeOther                 : QFileDevice.Permission = ... # 0x1
         WriteOther               : QFileDevice.Permission = ... # 0x2
@@ -2846,13 +2847,13 @@ class QFileSystemWatcher(PySide6.QtCore.QObject):
 
 class QFutureInterfaceBase(Shiboken.Object):
 
-    class CancelMode(shibokensupport.enum_310.Enum):
+    class CancelMode(enum.Enum):
 
         CancelOnly               : QFutureInterfaceBase.CancelMode = ... # 0x0
         CancelAndFinish          : QFutureInterfaceBase.CancelMode = ... # 0x1
 
 
-    class State(shibokensupport.enum_310.Enum):
+    class State(enum.Enum):
 
         NoState                  : QFutureInterfaceBase.State = ... # 0x0
         Running                  : QFutureInterfaceBase.State = ... # 0x1
@@ -2875,6 +2876,7 @@ class QFutureInterfaceBase(Shiboken.Object):
     @overload
     def cancel(self, mode: PySide6.QtCore.QFutureInterfaceBase.CancelMode) -> None: ...
     def cancelAndFinish(self) -> None: ...
+    def cleanContinuation(self) -> None: ...
     def derefT(self) -> bool: ...
     def expectedResultCount(self) -> int: ...
     def hasException(self) -> bool: ...
@@ -3039,7 +3041,7 @@ class QIODevice(PySide6.QtCore.QObject, PySide6.QtCore.QIODeviceBase):
 
 class QIODeviceBase(Shiboken.Object):
 
-    class OpenModeFlag(shibokensupport.enum_310.Flag):
+    class OpenModeFlag(enum.Flag):
 
         NotOpen                  : QIODeviceBase.OpenModeFlag = ... # 0x0
         ReadOnly                 : QIODeviceBase.OpenModeFlag = ... # 0x1
@@ -3170,7 +3172,7 @@ class QItemSelection(Shiboken.Object):
 
 class QItemSelectionModel(PySide6.QtCore.QObject):
 
-    class SelectionFlag(shibokensupport.enum_310.Flag):
+    class SelectionFlag(enum.Flag):
 
         NoUpdate                 : QItemSelectionModel.SelectionFlag = ... # 0x0
         Clear                    : QItemSelectionModel.SelectionFlag = ... # 0x1
@@ -3292,7 +3294,7 @@ class QJsonArray(Shiboken.Object):
 
 class QJsonDocument(Shiboken.Object):
 
-    class JsonFormat(shibokensupport.enum_310.Enum):
+    class JsonFormat(enum.Enum):
 
         Indented                 : QJsonDocument.JsonFormat = ... # 0x0
         Compact                  : QJsonDocument.JsonFormat = ... # 0x1
@@ -3328,7 +3330,7 @@ class QJsonDocument(Shiboken.Object):
 
 class QJsonParseError(Shiboken.Object):
 
-    class ParseError(shibokensupport.enum_310.Enum):
+    class ParseError(enum.Enum):
 
         NoError                  : QJsonParseError.ParseError = ... # 0x0
         UnterminatedObject       : QJsonParseError.ParseError = ... # 0x1
@@ -3359,7 +3361,7 @@ class QJsonParseError(Shiboken.Object):
 
 class QJsonValue(Shiboken.Object):
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         Null                     : QJsonValue.Type = ... # 0x0
         Bool                     : QJsonValue.Type = ... # 0x1
@@ -3445,7 +3447,7 @@ class QKeyCombination(Shiboken.Object):
 
 class QLibrary(PySide6.QtCore.QObject):
 
-    class LoadHint(shibokensupport.enum_310.Flag):
+    class LoadHint(enum.Flag):
 
         ResolveAllSymbolsHint    : QLibrary.LoadHint = ... # 0x1
         ExportExternalSymbolsHint: QLibrary.LoadHint = ... # 0x2
@@ -3481,7 +3483,7 @@ class QLibrary(PySide6.QtCore.QObject):
 
 class QLibraryInfo(Shiboken.Object):
 
-    class LibraryPath(shibokensupport.enum_310.Enum):
+    class LibraryPath(enum.Enum):
 
         PrefixPath               : QLibraryInfo.LibraryPath = ... # 0x0
         DocumentationPath        : QLibraryInfo.LibraryPath = ... # 0x1
@@ -3557,7 +3559,7 @@ class QLine(Shiboken.Object):
 
 class QLineF(Shiboken.Object):
 
-    class IntersectionType(shibokensupport.enum_310.Enum):
+    class IntersectionType(enum.Enum):
 
         NoIntersection           : QLineF.IntersectionType = ... # 0x0
         BoundedIntersection      : QLineF.IntersectionType = ... # 0x1
@@ -3618,7 +3620,7 @@ class QLineF(Shiboken.Object):
 
 class QLocale(Shiboken.Object):
 
-    class Country(shibokensupport.enum_310.Enum):
+    class Country(enum.Enum):
 
         AnyCountry               : QLocale.Country = ... # 0x0
         AnyTerritory             : QLocale.Country = ... # 0x0
@@ -3910,14 +3912,14 @@ class QLocale(Shiboken.Object):
         Zimbabwe                 : QLocale.Country = ... # 0x105
 
 
-    class CurrencySymbolFormat(shibokensupport.enum_310.Enum):
+    class CurrencySymbolFormat(enum.Enum):
 
         CurrencyIsoCode          : QLocale.CurrencySymbolFormat = ... # 0x0
         CurrencySymbol           : QLocale.CurrencySymbolFormat = ... # 0x1
         CurrencyDisplayName      : QLocale.CurrencySymbolFormat = ... # 0x2
 
 
-    class DataSizeFormat(shibokensupport.enum_310.Flag):
+    class DataSizeFormat(enum.Flag):
 
         DataSizeIecFormat        : QLocale.DataSizeFormat = ... # 0x0
         DataSizeBase1000         : QLocale.DataSizeFormat = ... # 0x1
@@ -3926,19 +3928,19 @@ class QLocale(Shiboken.Object):
         DataSizeSIFormat         : QLocale.DataSizeFormat = ... # 0x3
 
 
-    class FloatingPointPrecisionOption(shibokensupport.enum_310.IntEnum):
+    class FloatingPointPrecisionOption(enum.IntEnum):
 
         FloatingPointShortest    : QLocale.FloatingPointPrecisionOption = ... # -0x80
 
 
-    class FormatType(shibokensupport.enum_310.Enum):
+    class FormatType(enum.Enum):
 
         LongFormat               : QLocale.FormatType = ... # 0x0
         ShortFormat              : QLocale.FormatType = ... # 0x1
         NarrowFormat             : QLocale.FormatType = ... # 0x2
 
 
-    class Language(shibokensupport.enum_310.Enum):
+    class Language(enum.Enum):
 
         AnyLanguage              : QLocale.Language = ... # 0x0
         C                        : QLocale.Language = ... # 0x1
@@ -4292,7 +4294,7 @@ class QLocale(Shiboken.Object):
         Nheengatu                : QLocale.Language = ... # 0x149
 
 
-    class LanguageCodeType(shibokensupport.enum_310.IntFlag):
+    class LanguageCodeType(enum.IntFlag):
 
         AnyLanguageCode          : QLocale.LanguageCodeType = ... # -0x1
         ISO639Alpha2             : QLocale.LanguageCodeType = ... # 0x1
@@ -4306,7 +4308,7 @@ class QLocale(Shiboken.Object):
         LegacyLanguageCode       : QLocale.LanguageCodeType = ... # 0x8000
 
 
-    class MeasurementSystem(shibokensupport.enum_310.Enum):
+    class MeasurementSystem(enum.Enum):
 
         MetricSystem             : QLocale.MeasurementSystem = ... # 0x0
         ImperialSystem           : QLocale.MeasurementSystem = ... # 0x1
@@ -4314,7 +4316,7 @@ class QLocale(Shiboken.Object):
         ImperialUKSystem         : QLocale.MeasurementSystem = ... # 0x2
 
 
-    class NumberOption(shibokensupport.enum_310.Flag):
+    class NumberOption(enum.Flag):
 
         DefaultNumberOptions     : QLocale.NumberOption = ... # 0x0
         OmitGroupSeparator       : QLocale.NumberOption = ... # 0x1
@@ -4325,13 +4327,13 @@ class QLocale(Shiboken.Object):
         RejectTrailingZeroesAfterDot: QLocale.NumberOption = ... # 0x20
 
 
-    class QuotationStyle(shibokensupport.enum_310.Enum):
+    class QuotationStyle(enum.Enum):
 
         StandardQuotation        : QLocale.QuotationStyle = ... # 0x0
         AlternateQuotation       : QLocale.QuotationStyle = ... # 0x1
 
 
-    class Script(shibokensupport.enum_310.Enum):
+    class Script(enum.Enum):
 
         AnyScript                : QLocale.Script = ... # 0x0
         AdlamScript              : QLocale.Script = ... # 0x1
@@ -4678,7 +4680,7 @@ class QLocale(Shiboken.Object):
 
 class QLockFile(Shiboken.Object):
 
-    class LockError(shibokensupport.enum_310.Enum):
+    class LockError(enum.Enum):
 
         NoError                  : QLockFile.LockError = ... # 0x0
         LockFailedError          : QLockFile.LockError = ... # 0x1
@@ -4885,14 +4887,14 @@ class QMetaEnum(Shiboken.Object):
 
 class QMetaMethod(Shiboken.Object):
 
-    class Access(shibokensupport.enum_310.Enum):
+    class Access(enum.Enum):
 
         Private                  : QMetaMethod.Access = ... # 0x0
         Protected                : QMetaMethod.Access = ... # 0x1
         Public                   : QMetaMethod.Access = ... # 0x2
 
 
-    class MethodType(shibokensupport.enum_310.Enum):
+    class MethodType(enum.Enum):
 
         Method                   : QMetaMethod.MethodType = ... # 0x0
         Signal                   : QMetaMethod.MethodType = ... # 0x1
@@ -4940,7 +4942,7 @@ class QMetaMethod(Shiboken.Object):
 
 class QMetaObject(Shiboken.Object):
 
-    class Call(shibokensupport.enum_310.Enum):
+    class Call(enum.Enum):
 
         InvokeMetaMethod         : QMetaObject.Call = ... # 0x0
         ReadProperty             : QMetaObject.Call = ... # 0x1
@@ -5086,7 +5088,7 @@ class QMetaProperty(Shiboken.Object):
 
 class QMetaType(Shiboken.Object):
 
-    class Type(shibokensupport.enum_310.IntEnum):
+    class Type(enum.IntEnum):
 
         UnknownType              : QMetaType.Type = ... # 0x0
         Bool                     : QMetaType.Type = ... # 0x1
@@ -5181,7 +5183,7 @@ class QMetaType(Shiboken.Object):
         User                     : QMetaType.Type = ... # 0x10000
 
 
-    class TypeFlag(shibokensupport.enum_310.Flag):
+    class TypeFlag(enum.Flag):
 
         NeedsConstruction        : QMetaType.TypeFlag = ... # 0x1
         NeedsDestruction         : QMetaType.TypeFlag = ... # 0x2
@@ -5335,7 +5337,7 @@ class QMimeData(PySide6.QtCore.QObject):
 
 class QMimeDatabase(Shiboken.Object):
 
-    class MatchMode(shibokensupport.enum_310.Enum):
+    class MatchMode(enum.Enum):
 
         MatchDefault             : QMimeDatabase.MatchMode = ... # 0x0
         MatchExtension           : QMimeDatabase.MatchMode = ... # 0x1
@@ -5535,7 +5537,7 @@ class QObject(Shiboken.Object):
 
 class QOperatingSystemVersion(PySide6.QtCore.QOperatingSystemVersionBase):
 
-    class OSType(shibokensupport.enum_310.Enum):
+    class OSType(enum.Enum):
 
         Unknown                  : QOperatingSystemVersion.OSType = ... # 0x0
         Windows                  : QOperatingSystemVersion.OSType = ... # 0x1
@@ -5568,7 +5570,7 @@ class QOperatingSystemVersion(PySide6.QtCore.QOperatingSystemVersionBase):
 
 class QOperatingSystemVersionBase(Shiboken.Object):
 
-    class OSType(shibokensupport.enum_310.Enum):
+    class OSType(enum.Enum):
 
         Unknown                  : QOperatingSystemVersionBase.OSType = ... # 0x0
         Windows                  : QOperatingSystemVersionBase.OSType = ... # 0x1
@@ -5765,25 +5767,25 @@ class QPointList(object): ...
 
 class QProcess(PySide6.QtCore.QIODevice):
 
-    class ExitStatus(shibokensupport.enum_310.Enum):
+    class ExitStatus(enum.Enum):
 
         NormalExit               : QProcess.ExitStatus = ... # 0x0
         CrashExit                : QProcess.ExitStatus = ... # 0x1
 
 
-    class InputChannelMode(shibokensupport.enum_310.Enum):
+    class InputChannelMode(enum.Enum):
 
         ManagedInputChannel      : QProcess.InputChannelMode = ... # 0x0
         ForwardedInputChannel    : QProcess.InputChannelMode = ... # 0x1
 
 
-    class ProcessChannel(shibokensupport.enum_310.Enum):
+    class ProcessChannel(enum.Enum):
 
         StandardOutput           : QProcess.ProcessChannel = ... # 0x0
         StandardError            : QProcess.ProcessChannel = ... # 0x1
 
 
-    class ProcessChannelMode(shibokensupport.enum_310.Enum):
+    class ProcessChannelMode(enum.Enum):
 
         SeparateChannels         : QProcess.ProcessChannelMode = ... # 0x0
         MergedChannels           : QProcess.ProcessChannelMode = ... # 0x1
@@ -5792,7 +5794,7 @@ class QProcess(PySide6.QtCore.QIODevice):
         ForwardedErrorChannel    : QProcess.ProcessChannelMode = ... # 0x4
 
 
-    class ProcessError(shibokensupport.enum_310.Enum):
+    class ProcessError(enum.Enum):
 
         FailedToStart            : QProcess.ProcessError = ... # 0x0
         Crashed                  : QProcess.ProcessError = ... # 0x1
@@ -5802,7 +5804,7 @@ class QProcess(PySide6.QtCore.QIODevice):
         UnknownError             : QProcess.ProcessError = ... # 0x5
 
 
-    class ProcessState(shibokensupport.enum_310.Enum):
+    class ProcessState(enum.Enum):
 
         NotRunning               : QProcess.ProcessState = ... # 0x0
         Starting                 : QProcess.ProcessState = ... # 0x1
@@ -5877,7 +5879,7 @@ class QProcess(PySide6.QtCore.QIODevice):
 
 class QProcessEnvironment(Shiboken.Object):
 
-    class Initialization(shibokensupport.enum_310.Enum):
+    class Initialization(enum.Enum):
 
         InheritFromParent        : QProcessEnvironment.Initialization = ... # 0x0
 
@@ -6016,7 +6018,7 @@ class QReadLocker(Shiboken.Object):
 
 class QReadWriteLock(Shiboken.Object):
 
-    class RecursionMode(shibokensupport.enum_310.Enum):
+    class RecursionMode(enum.Enum):
 
         NonRecursive             : QReadWriteLock.RecursionMode = ... # 0x0
         Recursive                : QReadWriteLock.RecursionMode = ... # 0x1
@@ -6255,7 +6257,7 @@ class QRecursiveMutex(Shiboken.Object):
 
 class QRegularExpression(Shiboken.Object):
 
-    class MatchOption(shibokensupport.enum_310.Flag):
+    class MatchOption(enum.Flag):
 
         NoMatchOption            : QRegularExpression.MatchOption = ... # 0x0
         AnchorAtOffsetMatchOption: QRegularExpression.MatchOption = ... # 0x1
@@ -6263,7 +6265,7 @@ class QRegularExpression(Shiboken.Object):
         DontCheckSubjectStringMatchOption: QRegularExpression.MatchOption = ... # 0x2
 
 
-    class MatchType(shibokensupport.enum_310.Enum):
+    class MatchType(enum.Enum):
 
         NormalMatch              : QRegularExpression.MatchType = ... # 0x0
         PartialPreferCompleteMatch: QRegularExpression.MatchType = ... # 0x1
@@ -6271,7 +6273,7 @@ class QRegularExpression(Shiboken.Object):
         NoMatch                  : QRegularExpression.MatchType = ... # 0x3
 
 
-    class PatternOption(shibokensupport.enum_310.Flag):
+    class PatternOption(enum.Flag):
 
         NoPatternOption          : QRegularExpression.PatternOption = ... # 0x0
         CaseInsensitiveOption    : QRegularExpression.PatternOption = ... # 0x1
@@ -6283,7 +6285,7 @@ class QRegularExpression(Shiboken.Object):
         UseUnicodePropertiesOption: QRegularExpression.PatternOption = ... # 0x40
 
 
-    class WildcardConversionOption(shibokensupport.enum_310.Flag):
+    class WildcardConversionOption(enum.Flag):
 
         DefaultWildcardConversion: QRegularExpression.WildcardConversionOption = ... # 0x0
         UnanchoredWildcardConversion: QRegularExpression.WildcardConversionOption = ... # 0x1
@@ -6392,7 +6394,7 @@ class QRegularExpressionMatchIterator(Shiboken.Object):
 
 class QResource(Shiboken.Object):
 
-    class Compression(shibokensupport.enum_310.Enum):
+    class Compression(enum.Enum):
 
         NoCompression            : QResource.Compression = ... # 0x0
         ZlibCompression          : QResource.Compression = ... # 0x1
@@ -6497,7 +6499,7 @@ class QSequentialAnimationGroup(PySide6.QtCore.QAnimationGroup):
 
 class QSettings(PySide6.QtCore.QObject):
 
-    class Format(shibokensupport.enum_310.Enum):
+    class Format(enum.Enum):
 
         NativeFormat             : QSettings.Format = ... # 0x0
         IniFormat                : QSettings.Format = ... # 0x1
@@ -6522,13 +6524,13 @@ class QSettings(PySide6.QtCore.QObject):
         CustomFormat16           : QSettings.Format = ... # 0x20
 
 
-    class Scope(shibokensupport.enum_310.Enum):
+    class Scope(enum.Enum):
 
         UserScope                : QSettings.Scope = ... # 0x0
         SystemScope              : QSettings.Scope = ... # 0x1
 
 
-    class Status(shibokensupport.enum_310.Enum):
+    class Status(enum.Enum):
 
         NoError                  : QSettings.Status = ... # 0x0
         AccessError              : QSettings.Status = ... # 0x1
@@ -6589,13 +6591,13 @@ class QSettings(PySide6.QtCore.QObject):
 
 class QSharedMemory(PySide6.QtCore.QObject):
 
-    class AccessMode(shibokensupport.enum_310.Enum):
+    class AccessMode(enum.Enum):
 
         ReadOnly                 : QSharedMemory.AccessMode = ... # 0x0
         ReadWrite                : QSharedMemory.AccessMode = ... # 0x1
 
 
-    class SharedMemoryError(shibokensupport.enum_310.Enum):
+    class SharedMemoryError(enum.Enum):
 
         NoError                  : QSharedMemory.SharedMemoryError = ... # 0x0
         PermissionDenied         : QSharedMemory.SharedMemoryError = ... # 0x1
@@ -6770,7 +6772,7 @@ class QSocketDescriptor(Shiboken.Object):
 
 class QSocketNotifier(PySide6.QtCore.QObject):
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         Read                     : QSocketNotifier.Type = ... # 0x0
         Write                    : QSocketNotifier.Type = ... # 0x1
@@ -6868,13 +6870,13 @@ class QSortFilterProxyModel(PySide6.QtCore.QAbstractProxyModel):
 
 class QStandardPaths(Shiboken.Object):
 
-    class LocateOption(shibokensupport.enum_310.Flag):
+    class LocateOption(enum.Flag):
 
         LocateFile               : QStandardPaths.LocateOption = ... # 0x0
         LocateDirectory          : QStandardPaths.LocateOption = ... # 0x1
 
 
-    class StandardLocation(shibokensupport.enum_310.Enum):
+    class StandardLocation(enum.Enum):
 
         DesktopLocation          : QStandardPaths.StandardLocation = ... # 0x0
         DocumentsLocation        : QStandardPaths.StandardLocation = ... # 0x1
@@ -6955,7 +6957,7 @@ class QStorageInfo(Shiboken.Object):
 
 class QStringConverter(PySide6.QtCore.QStringConverterBase):
 
-    class Encoding(shibokensupport.enum_310.Enum):
+    class Encoding(enum.Enum):
 
         Utf8                     : QStringConverter.Encoding = ... # 0x0
         Utf16                    : QStringConverter.Encoding = ... # 0x1
@@ -6986,7 +6988,7 @@ class QStringConverter(PySide6.QtCore.QStringConverterBase):
 
 class QStringConverterBase(Shiboken.Object):
 
-    class Flag(shibokensupport.enum_310.Flag):
+    class Flag(enum.Flag):
 
         Default                  : QStringConverterBase.Flag = ... # 0x0
         Stateless                : QStringConverterBase.Flag = ... # 0x1
@@ -7060,14 +7062,14 @@ class QStringListModel(PySide6.QtCore.QAbstractListModel):
 
 class QSysInfo(Shiboken.Object):
 
-    class Endian(shibokensupport.enum_310.Enum):
+    class Endian(enum.Enum):
 
         BigEndian                : QSysInfo.Endian = ... # 0x0
         ByteOrder                : QSysInfo.Endian = ... # 0x1
         LittleEndian             : QSysInfo.Endian = ... # 0x1
 
 
-    class Sizes(shibokensupport.enum_310.Enum):
+    class Sizes(enum.Enum):
 
         WordSize                 : QSysInfo.Sizes = ... # 0x40
 
@@ -7100,13 +7102,13 @@ class QSysInfo(Shiboken.Object):
 
 class QSystemSemaphore(Shiboken.Object):
 
-    class AccessMode(shibokensupport.enum_310.Enum):
+    class AccessMode(enum.Enum):
 
         Open                     : QSystemSemaphore.AccessMode = ... # 0x0
         Create                   : QSystemSemaphore.AccessMode = ... # 0x1
 
 
-    class SystemSemaphoreError(shibokensupport.enum_310.Enum):
+    class SystemSemaphoreError(enum.Enum):
 
         NoError                  : QSystemSemaphore.SystemSemaphoreError = ... # 0x0
         PermissionDenied         : QSystemSemaphore.SystemSemaphoreError = ... # 0x1
@@ -7175,7 +7177,7 @@ class QTemporaryFile(PySide6.QtCore.QFile):
 
 class QTextBoundaryFinder(Shiboken.Object):
 
-    class BoundaryReason(shibokensupport.enum_310.Flag):
+    class BoundaryReason(enum.Flag):
 
         NotAtBoundary            : QTextBoundaryFinder.BoundaryReason = ... # 0x0
         BreakOpportunity         : QTextBoundaryFinder.BoundaryReason = ... # 0x1f
@@ -7185,7 +7187,7 @@ class QTextBoundaryFinder(Shiboken.Object):
         SoftHyphen               : QTextBoundaryFinder.BoundaryReason = ... # 0x100
 
 
-    class BoundaryType(shibokensupport.enum_310.Enum):
+    class BoundaryType(enum.Enum):
 
         Grapheme                 : QTextBoundaryFinder.BoundaryType = ... # 0x0
         Word                     : QTextBoundaryFinder.BoundaryType = ... # 0x1
@@ -7219,7 +7221,7 @@ class QTextBoundaryFinder(Shiboken.Object):
 
 class QTextStream(PySide6.QtCore.QIODeviceBase):
 
-    class FieldAlignment(shibokensupport.enum_310.Enum):
+    class FieldAlignment(enum.Enum):
 
         AlignLeft                : QTextStream.FieldAlignment = ... # 0x0
         AlignRight               : QTextStream.FieldAlignment = ... # 0x1
@@ -7227,7 +7229,7 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
         AlignAccountingStyle     : QTextStream.FieldAlignment = ... # 0x3
 
 
-    class NumberFlag(shibokensupport.enum_310.Flag):
+    class NumberFlag(enum.Flag):
 
         ShowBase                 : QTextStream.NumberFlag = ... # 0x1
         ForcePoint               : QTextStream.NumberFlag = ... # 0x2
@@ -7236,14 +7238,14 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
         UppercaseDigits          : QTextStream.NumberFlag = ... # 0x10
 
 
-    class RealNumberNotation(shibokensupport.enum_310.Enum):
+    class RealNumberNotation(enum.Enum):
 
         SmartNotation            : QTextStream.RealNumberNotation = ... # 0x0
         FixedNotation            : QTextStream.RealNumberNotation = ... # 0x1
         ScientificNotation       : QTextStream.RealNumberNotation = ... # 0x2
 
 
-    class Status(shibokensupport.enum_310.Enum):
+    class Status(enum.Enum):
 
         Ok                       : QTextStream.Status = ... # 0x0
         ReadPastEnd              : QTextStream.Status = ... # 0x1
@@ -7291,6 +7293,7 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
     def read(self, maxlen: int) -> str: ...
     def readAll(self) -> str: ...
     def readLine(self, maxlen: int = ...) -> str: ...
+    def readLineInto(self, maxlen: int = ...) -> Tuple[bool, str]: ...
     def realNumberNotation(self) -> PySide6.QtCore.QTextStream.RealNumberNotation: ...
     def realNumberPrecision(self) -> int: ...
     def reset(self) -> None: ...
@@ -7323,7 +7326,7 @@ class QTextStreamManipulator(Shiboken.Object):
 
 class QThread(PySide6.QtCore.QObject):
 
-    class Priority(shibokensupport.enum_310.Enum):
+    class Priority(enum.Enum):
 
         IdlePriority             : QThread.Priority = ... # 0x0
         LowestPriority           : QThread.Priority = ... # 0x1
@@ -7456,13 +7459,13 @@ class QTime(Shiboken.Object):
 
 class QTimeLine(PySide6.QtCore.QObject):
 
-    class Direction(shibokensupport.enum_310.Enum):
+    class Direction(enum.Enum):
 
         Forward                  : QTimeLine.Direction = ... # 0x0
         Backward                 : QTimeLine.Direction = ... # 0x1
 
 
-    class State(shibokensupport.enum_310.Enum):
+    class State(enum.Enum):
 
         NotRunning               : QTimeLine.State = ... # 0x0
         Paused                   : QTimeLine.State = ... # 0x1
@@ -7503,7 +7506,7 @@ class QTimeLine(PySide6.QtCore.QObject):
 
 class QTimeZone(Shiboken.Object):
 
-    class NameType(shibokensupport.enum_310.Enum):
+    class NameType(enum.Enum):
 
         DefaultName              : QTimeZone.NameType = ... # 0x0
         LongName                 : QTimeZone.NameType = ... # 0x1
@@ -7521,7 +7524,7 @@ class QTimeZone(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class TimeType(shibokensupport.enum_310.Enum):
+    class TimeType(enum.Enum):
 
         StandardTime             : QTimeZone.TimeType = ... # 0x0
         DaylightTime             : QTimeZone.TimeType = ... # 0x1
@@ -7683,13 +7686,13 @@ class QTransposeProxyModel(PySide6.QtCore.QAbstractProxyModel):
 
 class QUrl(Shiboken.Object):
 
-    class AceProcessingOption(shibokensupport.enum_310.Flag):
+    class AceProcessingOption(enum.Flag):
 
         IgnoreIDNWhitelist       : QUrl.AceProcessingOption = ... # 0x1
         AceTransitionalProcessing: QUrl.AceProcessingOption = ... # 0x2
 
 
-    class ComponentFormattingOption(shibokensupport.enum_310.IntFlag):
+    class ComponentFormattingOption(enum.IntFlag):
 
         PrettyDecoded            : QUrl.ComponentFormattingOption = ... # 0x0
         EncodeSpaces             : QUrl.ComponentFormattingOption = ... # 0x100000
@@ -7701,14 +7704,14 @@ class QUrl(Shiboken.Object):
         FullyDecoded             : QUrl.ComponentFormattingOption = ... # 0x7f00000
 
 
-    class ParsingMode(shibokensupport.enum_310.Enum):
+    class ParsingMode(enum.Enum):
 
         TolerantMode             : QUrl.ParsingMode = ... # 0x0
         StrictMode               : QUrl.ParsingMode = ... # 0x1
         DecodedMode              : QUrl.ParsingMode = ... # 0x2
 
 
-    class UrlFormattingOption(shibokensupport.enum_310.IntFlag):
+    class UrlFormattingOption(enum.IntFlag):
 
         None_                    : QUrl.UrlFormattingOption = ... # 0x0
         RemoveScheme             : QUrl.UrlFormattingOption = ... # 0x1
@@ -7725,7 +7728,7 @@ class QUrl(Shiboken.Object):
         NormalizePathSegments    : QUrl.UrlFormattingOption = ... # 0x1000
 
 
-    class UserInputResolutionOption(shibokensupport.enum_310.Flag):
+    class UserInputResolutionOption(enum.Flag):
 
         DefaultResolution        : QUrl.UserInputResolutionOption = ... # 0x0
         AssumeLocalFile          : QUrl.UserInputResolutionOption = ... # 0x1
@@ -7843,14 +7846,14 @@ class QUrlQuery(Shiboken.Object):
 
 class QUuid(Shiboken.Object):
 
-    class StringFormat(shibokensupport.enum_310.Enum):
+    class StringFormat(enum.Enum):
 
         WithBraces               : QUuid.StringFormat = ... # 0x0
         WithoutBraces            : QUuid.StringFormat = ... # 0x1
         Id128                    : QUuid.StringFormat = ... # 0x3
 
 
-    class Variant(shibokensupport.enum_310.Enum):
+    class Variant(enum.Enum):
 
         VarUnknown               : QUuid.Variant = ... # -0x1
         NCS                      : QUuid.Variant = ... # 0x0
@@ -7859,7 +7862,7 @@ class QUuid(Shiboken.Object):
         Reserved                 : QUuid.Variant = ... # 0x7
 
 
-    class Version(shibokensupport.enum_310.Enum):
+    class Version(enum.Enum):
 
         VerUnknown               : QUuid.Version = ... # -0x1
         Time                     : QUuid.Version = ... # 0x1
@@ -8162,7 +8165,7 @@ class QXmlStreamNotationDeclaration(Shiboken.Object):
 
 class QXmlStreamReader(Shiboken.Object):
 
-    class Error(shibokensupport.enum_310.Enum):
+    class Error(enum.Enum):
 
         NoError                  : QXmlStreamReader.Error = ... # 0x0
         UnexpectedElementError   : QXmlStreamReader.Error = ... # 0x1
@@ -8171,14 +8174,14 @@ class QXmlStreamReader(Shiboken.Object):
         PrematureEndOfDocumentError: QXmlStreamReader.Error = ... # 0x4
 
 
-    class ReadElementTextBehaviour(shibokensupport.enum_310.Enum):
+    class ReadElementTextBehaviour(enum.Enum):
 
         ErrorOnUnexpectedElement : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x0
         IncludeChildElements     : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x1
         SkipChildElements        : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x2
 
 
-    class TokenType(shibokensupport.enum_310.Enum):
+    class TokenType(enum.Enum):
 
         NoToken                  : QXmlStreamReader.TokenType = ... # 0x0
         Invalid                  : QXmlStreamReader.TokenType = ... # 0x1
@@ -8321,7 +8324,7 @@ class QXmlStreamWriter(Shiboken.Object):
 
 class Qt(Shiboken.Object):
 
-    class AlignmentFlag(shibokensupport.enum_310.IntFlag):
+    class AlignmentFlag(enum.IntFlag):
 
         AlignLeading             : Qt.AlignmentFlag = ... # 0x1
         AlignLeft                : Qt.AlignmentFlag = ... # 0x1
@@ -8339,7 +8342,7 @@ class Qt(Shiboken.Object):
         AlignVertical_Mask       : Qt.AlignmentFlag = ... # 0x1e0
 
 
-    class AnchorPoint(shibokensupport.enum_310.Enum):
+    class AnchorPoint(enum.Enum):
 
         AnchorLeft               : Qt.AnchorPoint = ... # 0x0
         AnchorHorizontalCenter   : Qt.AnchorPoint = ... # 0x1
@@ -8349,7 +8352,7 @@ class Qt(Shiboken.Object):
         AnchorBottom             : Qt.AnchorPoint = ... # 0x5
 
 
-    class ApplicationAttribute(shibokensupport.enum_310.Enum):
+    class ApplicationAttribute(enum.Enum):
 
         AA_DontShowIconsInMenus  : Qt.ApplicationAttribute = ... # 0x2
         AA_NativeWindows         : Qt.ApplicationAttribute = ... # 0x3
@@ -8382,7 +8385,7 @@ class Qt(Shiboken.Object):
         AA_AttributeCount        : Qt.ApplicationAttribute = ... # 0x20
 
 
-    class ApplicationState(shibokensupport.enum_310.Flag):
+    class ApplicationState(enum.Flag):
 
         ApplicationSuspended     : Qt.ApplicationState = ... # 0x0
         ApplicationHidden        : Qt.ApplicationState = ... # 0x1
@@ -8390,7 +8393,7 @@ class Qt(Shiboken.Object):
         ApplicationActive        : Qt.ApplicationState = ... # 0x4
 
 
-    class ArrowType(shibokensupport.enum_310.Enum):
+    class ArrowType(enum.Enum):
 
         NoArrow                  : Qt.ArrowType = ... # 0x0
         UpArrow                  : Qt.ArrowType = ... # 0x1
@@ -8399,27 +8402,27 @@ class Qt(Shiboken.Object):
         RightArrow               : Qt.ArrowType = ... # 0x4
 
 
-    class AspectRatioMode(shibokensupport.enum_310.Enum):
+    class AspectRatioMode(enum.Enum):
 
         IgnoreAspectRatio        : Qt.AspectRatioMode = ... # 0x0
         KeepAspectRatio          : Qt.AspectRatioMode = ... # 0x1
         KeepAspectRatioByExpanding: Qt.AspectRatioMode = ... # 0x2
 
 
-    class Axis(shibokensupport.enum_310.Enum):
+    class Axis(enum.Enum):
 
         XAxis                    : Qt.Axis = ... # 0x0
         YAxis                    : Qt.Axis = ... # 0x1
         ZAxis                    : Qt.Axis = ... # 0x2
 
 
-    class BGMode(shibokensupport.enum_310.Enum):
+    class BGMode(enum.Enum):
 
         TransparentMode          : Qt.BGMode = ... # 0x0
         OpaqueMode               : Qt.BGMode = ... # 0x1
 
 
-    class BrushStyle(shibokensupport.enum_310.Enum):
+    class BrushStyle(enum.Enum):
 
         NoBrush                  : Qt.BrushStyle = ... # 0x0
         SolidPattern             : Qt.BrushStyle = ... # 0x1
@@ -8442,33 +8445,33 @@ class Qt(Shiboken.Object):
         TexturePattern           : Qt.BrushStyle = ... # 0x18
 
 
-    class CaseSensitivity(shibokensupport.enum_310.Enum):
+    class CaseSensitivity(enum.Enum):
 
         CaseInsensitive          : Qt.CaseSensitivity = ... # 0x0
         CaseSensitive            : Qt.CaseSensitivity = ... # 0x1
 
 
-    class CheckState(shibokensupport.enum_310.Enum):
+    class CheckState(enum.Enum):
 
         Unchecked                : Qt.CheckState = ... # 0x0
         PartiallyChecked         : Qt.CheckState = ... # 0x1
         Checked                  : Qt.CheckState = ... # 0x2
 
 
-    class ChecksumType(shibokensupport.enum_310.Enum):
+    class ChecksumType(enum.Enum):
 
         ChecksumIso3309          : Qt.ChecksumType = ... # 0x0
         ChecksumItuV41           : Qt.ChecksumType = ... # 0x1
 
 
-    class ClipOperation(shibokensupport.enum_310.Enum):
+    class ClipOperation(enum.Enum):
 
         NoClip                   : Qt.ClipOperation = ... # 0x0
         ReplaceClip              : Qt.ClipOperation = ... # 0x1
         IntersectClip            : Qt.ClipOperation = ... # 0x2
 
 
-    class ConnectionType(shibokensupport.enum_310.Enum):
+    class ConnectionType(enum.Enum):
 
         AutoConnection           : Qt.ConnectionType = ... # 0x0
         DirectConnection         : Qt.ConnectionType = ... # 0x1
@@ -8478,7 +8481,7 @@ class Qt(Shiboken.Object):
         SingleShotConnection     : Qt.ConnectionType = ... # 0x100
 
 
-    class ContextMenuPolicy(shibokensupport.enum_310.Enum):
+    class ContextMenuPolicy(enum.Enum):
 
         NoContextMenu            : Qt.ContextMenuPolicy = ... # 0x0
         DefaultContextMenu       : Qt.ContextMenuPolicy = ... # 0x1
@@ -8487,13 +8490,13 @@ class Qt(Shiboken.Object):
         PreventContextMenu       : Qt.ContextMenuPolicy = ... # 0x4
 
 
-    class CoordinateSystem(shibokensupport.enum_310.Enum):
+    class CoordinateSystem(enum.Enum):
 
         DeviceCoordinates        : Qt.CoordinateSystem = ... # 0x0
         LogicalCoordinates       : Qt.CoordinateSystem = ... # 0x1
 
 
-    class Corner(shibokensupport.enum_310.Enum):
+    class Corner(enum.Enum):
 
         TopLeftCorner            : Qt.Corner = ... # 0x0
         TopRightCorner           : Qt.Corner = ... # 0x1
@@ -8501,13 +8504,13 @@ class Qt(Shiboken.Object):
         BottomRightCorner        : Qt.Corner = ... # 0x3
 
 
-    class CursorMoveStyle(shibokensupport.enum_310.Enum):
+    class CursorMoveStyle(enum.Enum):
 
         LogicalMoveStyle         : Qt.CursorMoveStyle = ... # 0x0
         VisualMoveStyle          : Qt.CursorMoveStyle = ... # 0x1
 
 
-    class CursorShape(shibokensupport.enum_310.Enum):
+    class CursorShape(enum.Enum):
 
         ArrowCursor              : Qt.CursorShape = ... # 0x0
         UpArrowCursor            : Qt.CursorShape = ... # 0x1
@@ -8536,7 +8539,7 @@ class Qt(Shiboken.Object):
         CustomCursor             : Qt.CursorShape = ... # 0x19
 
 
-    class DateFormat(shibokensupport.enum_310.Enum):
+    class DateFormat(enum.Enum):
 
         TextDate                 : Qt.DateFormat = ... # 0x0
         ISODate                  : Qt.DateFormat = ... # 0x1
@@ -8544,7 +8547,7 @@ class Qt(Shiboken.Object):
         ISODateWithMs            : Qt.DateFormat = ... # 0x9
 
 
-    class DayOfWeek(shibokensupport.enum_310.Enum):
+    class DayOfWeek(enum.Enum):
 
         Monday                   : Qt.DayOfWeek = ... # 0x1
         Tuesday                  : Qt.DayOfWeek = ... # 0x2
@@ -8555,7 +8558,7 @@ class Qt(Shiboken.Object):
         Sunday                   : Qt.DayOfWeek = ... # 0x7
 
 
-    class DockWidgetArea(shibokensupport.enum_310.Flag):
+    class DockWidgetArea(enum.Flag):
 
         NoDockWidgetArea         : Qt.DockWidgetArea = ... # 0x0
         LeftDockWidgetArea       : Qt.DockWidgetArea = ... # 0x1
@@ -8566,12 +8569,12 @@ class Qt(Shiboken.Object):
         DockWidgetArea_Mask      : Qt.DockWidgetArea = ... # 0xf
 
 
-    class DockWidgetAreaSizes(shibokensupport.enum_310.Enum):
+    class DockWidgetAreaSizes(enum.Enum):
 
         NDockWidgetAreas         : Qt.DockWidgetAreaSizes = ... # 0x4
 
 
-    class DropAction(shibokensupport.enum_310.Flag):
+    class DropAction(enum.Flag):
 
         IgnoreAction             : Qt.DropAction = ... # 0x0
         CopyAction               : Qt.DropAction = ... # 0x1
@@ -8581,7 +8584,7 @@ class Qt(Shiboken.Object):
         TargetMoveAction         : Qt.DropAction = ... # 0x8002
 
 
-    class Edge(shibokensupport.enum_310.Flag):
+    class Edge(enum.Flag):
 
         TopEdge                  : Qt.Edge = ... # 0x1
         LeftEdge                 : Qt.Edge = ... # 0x2
@@ -8589,7 +8592,7 @@ class Qt(Shiboken.Object):
         BottomEdge               : Qt.Edge = ... # 0x8
 
 
-    class EnterKeyType(shibokensupport.enum_310.Enum):
+    class EnterKeyType(enum.Enum):
 
         EnterKeyDefault          : Qt.EnterKeyType = ... # 0x0
         EnterKeyReturn           : Qt.EnterKeyType = ... # 0x1
@@ -8601,26 +8604,26 @@ class Qt(Shiboken.Object):
         EnterKeyPrevious         : Qt.EnterKeyType = ... # 0x7
 
 
-    class EventPriority(shibokensupport.enum_310.Enum):
+    class EventPriority(enum.Enum):
 
         LowEventPriority         : Qt.EventPriority = ... # -0x1
         NormalEventPriority      : Qt.EventPriority = ... # 0x0
         HighEventPriority        : Qt.EventPriority = ... # 0x1
 
 
-    class FillRule(shibokensupport.enum_310.Enum):
+    class FillRule(enum.Enum):
 
         OddEvenFill              : Qt.FillRule = ... # 0x0
         WindingFill              : Qt.FillRule = ... # 0x1
 
 
-    class FindChildOption(shibokensupport.enum_310.Flag):
+    class FindChildOption(enum.Flag):
 
         FindDirectChildrenOnly   : Qt.FindChildOption = ... # 0x0
         FindChildrenRecursively  : Qt.FindChildOption = ... # 0x1
 
 
-    class FocusPolicy(shibokensupport.enum_310.Enum):
+    class FocusPolicy(enum.IntFlag):
 
         NoFocus                  : Qt.FocusPolicy = ... # 0x0
         TabFocus                 : Qt.FocusPolicy = ... # 0x1
@@ -8629,7 +8632,7 @@ class Qt(Shiboken.Object):
         WheelFocus               : Qt.FocusPolicy = ... # 0xf
 
 
-    class FocusReason(shibokensupport.enum_310.Enum):
+    class FocusReason(enum.Enum):
 
         MouseFocusReason         : Qt.FocusReason = ... # 0x0
         TabFocusReason           : Qt.FocusReason = ... # 0x1
@@ -8642,14 +8645,14 @@ class Qt(Shiboken.Object):
         NoFocusReason            : Qt.FocusReason = ... # 0x8
 
 
-    class GestureFlag(shibokensupport.enum_310.Flag):
+    class GestureFlag(enum.Flag):
 
         DontStartGestureOnChildren: Qt.GestureFlag = ... # 0x1
         ReceivePartialGestures   : Qt.GestureFlag = ... # 0x2
         IgnoredGesturesPropagateToParent: Qt.GestureFlag = ... # 0x4
 
 
-    class GestureState(shibokensupport.enum_310.Enum):
+    class GestureState(enum.Enum):
 
         NoGesture                : Qt.GestureState = ... # 0x0
         GestureStarted           : Qt.GestureState = ... # 0x1
@@ -8658,7 +8661,7 @@ class Qt(Shiboken.Object):
         GestureCanceled          : Qt.GestureState = ... # 0x4
 
 
-    class GestureType(shibokensupport.enum_310.IntEnum):
+    class GestureType(enum.IntEnum):
 
         LastGestureType          : Qt.GestureType = ... # -0x1
         TapGesture               : Qt.GestureType = ... # 0x1
@@ -8669,7 +8672,7 @@ class Qt(Shiboken.Object):
         CustomGesture            : Qt.GestureType = ... # 0x100
 
 
-    class GlobalColor(shibokensupport.enum_310.Enum):
+    class GlobalColor(enum.Enum):
 
         color0                   : Qt.GlobalColor = ... # 0x0
         color1                   : Qt.GlobalColor = ... # 0x1
@@ -8693,7 +8696,7 @@ class Qt(Shiboken.Object):
         transparent              : Qt.GlobalColor = ... # 0x13
 
 
-    class HighDpiScaleFactorRoundingPolicy(shibokensupport.enum_310.Enum):
+    class HighDpiScaleFactorRoundingPolicy(enum.Enum):
 
         Unset                    : Qt.HighDpiScaleFactorRoundingPolicy = ... # 0x0
         Round                    : Qt.HighDpiScaleFactorRoundingPolicy = ... # 0x1
@@ -8703,13 +8706,13 @@ class Qt(Shiboken.Object):
         PassThrough              : Qt.HighDpiScaleFactorRoundingPolicy = ... # 0x5
 
 
-    class HitTestAccuracy(shibokensupport.enum_310.Enum):
+    class HitTestAccuracy(enum.Enum):
 
         ExactHit                 : Qt.HitTestAccuracy = ... # 0x0
         FuzzyHit                 : Qt.HitTestAccuracy = ... # 0x1
 
 
-    class ImageConversionFlag(shibokensupport.enum_310.Flag):
+    class ImageConversionFlag(enum.Flag):
 
         AutoColor                : Qt.ImageConversionFlag = ... # 0x0
         AutoDither               : Qt.ImageConversionFlag = ... # 0x0
@@ -8732,7 +8735,7 @@ class Qt(Shiboken.Object):
         NoFormatConversion       : Qt.ImageConversionFlag = ... # 0x200
 
 
-    class InputMethodHint(shibokensupport.enum_310.Flag):
+    class InputMethodHint(enum.Flag):
 
         ImhExclusiveInputMask    : Qt.InputMethodHint = ... # -0x10000
         ImhNone                  : Qt.InputMethodHint = ... # 0x0
@@ -8759,7 +8762,7 @@ class Qt(Shiboken.Object):
         ImhLatinOnly             : Qt.InputMethodHint = ... # 0x800000
 
 
-    class InputMethodQuery(shibokensupport.enum_310.Flag):
+    class InputMethodQuery(enum.Flag):
 
         ImPlatformData           : Qt.InputMethodQuery = ... # -0x80000000
         ImQueryAll               : Qt.InputMethodQuery = ... # -0x1
@@ -8783,7 +8786,7 @@ class Qt(Shiboken.Object):
         ImReadOnly               : Qt.InputMethodQuery = ... # 0x10000
 
 
-    class ItemDataRole(shibokensupport.enum_310.IntEnum):
+    class ItemDataRole(enum.IntEnum):
 
         DisplayRole              : Qt.ItemDataRole = ... # 0x0
         DecorationRole           : Qt.ItemDataRole = ... # 0x1
@@ -8808,7 +8811,7 @@ class Qt(Shiboken.Object):
         UserRole                 : Qt.ItemDataRole = ... # 0x100
 
 
-    class ItemFlag(shibokensupport.enum_310.Flag):
+    class ItemFlag(enum.Flag):
 
         NoItemFlags              : Qt.ItemFlag = ... # 0x0
         ItemIsSelectable         : Qt.ItemFlag = ... # 0x1
@@ -8822,7 +8825,7 @@ class Qt(Shiboken.Object):
         ItemIsUserTristate       : Qt.ItemFlag = ... # 0x100
 
 
-    class ItemSelectionMode(shibokensupport.enum_310.Enum):
+    class ItemSelectionMode(enum.Enum):
 
         ContainsItemShape        : Qt.ItemSelectionMode = ... # 0x0
         IntersectsItemShape      : Qt.ItemSelectionMode = ... # 0x1
@@ -8830,13 +8833,13 @@ class Qt(Shiboken.Object):
         IntersectsItemBoundingRect: Qt.ItemSelectionMode = ... # 0x3
 
 
-    class ItemSelectionOperation(shibokensupport.enum_310.Enum):
+    class ItemSelectionOperation(enum.Enum):
 
         ReplaceSelection         : Qt.ItemSelectionOperation = ... # 0x0
         AddToSelection           : Qt.ItemSelectionOperation = ... # 0x1
 
 
-    class Key(shibokensupport.enum_310.IntEnum):
+    class Key(enum.IntEnum):
 
         Key_Any                  : Qt.Key = ... # 0x20
         Key_Space                : Qt.Key = ... # 0x20
@@ -9309,7 +9312,7 @@ class Qt(Shiboken.Object):
         Key_unknown              : Qt.Key = ... # 0x1ffffff
 
 
-    class KeyboardModifier(shibokensupport.enum_310.Flag):
+    class KeyboardModifier(enum.Flag):
 
         KeyboardModifierMask     : Qt.KeyboardModifier = ... # -0x2000000
         NoModifier               : Qt.KeyboardModifier = ... # 0x0
@@ -9321,20 +9324,20 @@ class Qt(Shiboken.Object):
         GroupSwitchModifier      : Qt.KeyboardModifier = ... # 0x40000000
 
 
-    class LayoutDirection(shibokensupport.enum_310.Enum):
+    class LayoutDirection(enum.Enum):
 
         LeftToRight              : Qt.LayoutDirection = ... # 0x0
         RightToLeft              : Qt.LayoutDirection = ... # 0x1
         LayoutDirectionAuto      : Qt.LayoutDirection = ... # 0x2
 
 
-    class MaskMode(shibokensupport.enum_310.Enum):
+    class MaskMode(enum.Enum):
 
         MaskInColor              : Qt.MaskMode = ... # 0x0
         MaskOutColor             : Qt.MaskMode = ... # 0x1
 
 
-    class MatchFlag(shibokensupport.enum_310.Flag):
+    class MatchFlag(enum.Flag):
 
         MatchExactly             : Qt.MatchFlag = ... # 0x0
         MatchContains            : Qt.MatchFlag = ... # 0x1
@@ -9349,7 +9352,7 @@ class Qt(Shiboken.Object):
         MatchRecursive           : Qt.MatchFlag = ... # 0x40
 
 
-    class Modifier(shibokensupport.enum_310.Flag):
+    class Modifier(enum.Flag):
 
         MODIFIER_MASK            : Qt.Modifier = ... # -0x2000000
         SHIFT                    : Qt.Modifier = ... # 0x2000000
@@ -9358,7 +9361,7 @@ class Qt(Shiboken.Object):
         META                     : Qt.Modifier = ... # 0x10000000
 
 
-    class MouseButton(shibokensupport.enum_310.Flag):
+    class MouseButton(enum.Flag):
 
         MouseButtonMask          : Qt.MouseButton = ... # -0x1
         NoButton                 : Qt.MouseButton = ... # 0x0
@@ -9398,14 +9401,14 @@ class Qt(Shiboken.Object):
         AllButtons               : Qt.MouseButton = ... # 0x7ffffff
 
 
-    class MouseEventFlag(shibokensupport.enum_310.Flag):
+    class MouseEventFlag(enum.Flag):
 
         NoMouseEventFlag         : Qt.MouseEventFlag = ... # 0x0
         MouseEventCreatedDoubleClick: Qt.MouseEventFlag = ... # 0x1
         MouseEventFlagMask       : Qt.MouseEventFlag = ... # 0xff
 
 
-    class MouseEventSource(shibokensupport.enum_310.Enum):
+    class MouseEventSource(enum.Enum):
 
         MouseEventNotSynthesized : Qt.MouseEventSource = ... # 0x0
         MouseEventSynthesizedBySystem: Qt.MouseEventSource = ... # 0x1
@@ -9413,7 +9416,7 @@ class Qt(Shiboken.Object):
         MouseEventSynthesizedByApplication: Qt.MouseEventSource = ... # 0x3
 
 
-    class NativeGestureType(shibokensupport.enum_310.Enum):
+    class NativeGestureType(enum.Enum):
 
         BeginNativeGesture       : Qt.NativeGestureType = ... # 0x0
         EndNativeGesture         : Qt.NativeGestureType = ... # 0x1
@@ -9424,7 +9427,7 @@ class Qt(Shiboken.Object):
         SwipeNativeGesture       : Qt.NativeGestureType = ... # 0x6
 
 
-    class NavigationMode(shibokensupport.enum_310.Enum):
+    class NavigationMode(enum.Enum):
 
         NavigationModeNone       : Qt.NavigationMode = ... # 0x0
         NavigationModeKeypadTabOrder: Qt.NavigationMode = ... # 0x1
@@ -9433,13 +9436,13 @@ class Qt(Shiboken.Object):
         NavigationModeCursorForceVisible: Qt.NavigationMode = ... # 0x4
 
 
-    class Orientation(shibokensupport.enum_310.Flag):
+    class Orientation(enum.Flag):
 
         Horizontal               : Qt.Orientation = ... # 0x1
         Vertical                 : Qt.Orientation = ... # 0x2
 
 
-    class PenCapStyle(shibokensupport.enum_310.Enum):
+    class PenCapStyle(enum.Enum):
 
         FlatCap                  : Qt.PenCapStyle = ... # 0x0
         SquareCap                : Qt.PenCapStyle = ... # 0x10
@@ -9447,7 +9450,7 @@ class Qt(Shiboken.Object):
         MPenCapStyle             : Qt.PenCapStyle = ... # 0x30
 
 
-    class PenJoinStyle(shibokensupport.enum_310.Enum):
+    class PenJoinStyle(enum.Enum):
 
         MiterJoin                : Qt.PenJoinStyle = ... # 0x0
         BevelJoin                : Qt.PenJoinStyle = ... # 0x40
@@ -9456,7 +9459,7 @@ class Qt(Shiboken.Object):
         MPenJoinStyle            : Qt.PenJoinStyle = ... # 0x1c0
 
 
-    class PenStyle(shibokensupport.enum_310.Enum):
+    class PenStyle(enum.Enum):
 
         NoPen                    : Qt.PenStyle = ... # 0x0
         SolidLine                : Qt.PenStyle = ... # 0x1
@@ -9468,12 +9471,12 @@ class Qt(Shiboken.Object):
         MPenStyle                : Qt.PenStyle = ... # 0xf
 
 
-    class ReturnByValueConstant(shibokensupport.enum_310.Enum):
+    class ReturnByValueConstant(enum.Enum):
 
         ReturnByValue            : Qt.ReturnByValueConstant = ... # 0x0
 
 
-    class ScreenOrientation(shibokensupport.enum_310.Flag):
+    class ScreenOrientation(enum.Flag):
 
         PrimaryOrientation       : Qt.ScreenOrientation = ... # 0x0
         PortraitOrientation      : Qt.ScreenOrientation = ... # 0x1
@@ -9482,14 +9485,14 @@ class Qt(Shiboken.Object):
         InvertedLandscapeOrientation: Qt.ScreenOrientation = ... # 0x8
 
 
-    class ScrollBarPolicy(shibokensupport.enum_310.Enum):
+    class ScrollBarPolicy(enum.Enum):
 
         ScrollBarAsNeeded        : Qt.ScrollBarPolicy = ... # 0x0
         ScrollBarAlwaysOff       : Qt.ScrollBarPolicy = ... # 0x1
         ScrollBarAlwaysOn        : Qt.ScrollBarPolicy = ... # 0x2
 
 
-    class ScrollPhase(shibokensupport.enum_310.Enum):
+    class ScrollPhase(enum.Enum):
 
         NoScrollPhase            : Qt.ScrollPhase = ... # 0x0
         ScrollBegin              : Qt.ScrollPhase = ... # 0x1
@@ -9498,7 +9501,7 @@ class Qt(Shiboken.Object):
         ScrollMomentum           : Qt.ScrollPhase = ... # 0x4
 
 
-    class ShortcutContext(shibokensupport.enum_310.Enum):
+    class ShortcutContext(enum.Enum):
 
         WidgetShortcut           : Qt.ShortcutContext = ... # 0x0
         WindowShortcut           : Qt.ShortcutContext = ... # 0x1
@@ -9506,7 +9509,7 @@ class Qt(Shiboken.Object):
         WidgetWithChildrenShortcut: Qt.ShortcutContext = ... # 0x3
 
 
-    class SizeHint(shibokensupport.enum_310.Enum):
+    class SizeHint(enum.Enum):
 
         MinimumSize              : Qt.SizeHint = ... # 0x0
         PreferredSize            : Qt.SizeHint = ... # 0x1
@@ -9515,25 +9518,25 @@ class Qt(Shiboken.Object):
         NSizeHints               : Qt.SizeHint = ... # 0x4
 
 
-    class SizeMode(shibokensupport.enum_310.Enum):
+    class SizeMode(enum.Enum):
 
         AbsoluteSize             : Qt.SizeMode = ... # 0x0
         RelativeSize             : Qt.SizeMode = ... # 0x1
 
 
-    class SortOrder(shibokensupport.enum_310.Enum):
+    class SortOrder(enum.Enum):
 
         AscendingOrder           : Qt.SortOrder = ... # 0x0
         DescendingOrder          : Qt.SortOrder = ... # 0x1
 
 
-    class SplitBehaviorFlags(shibokensupport.enum_310.Flag):
+    class SplitBehaviorFlags(enum.Flag):
 
         KeepEmptyParts           : Qt.SplitBehaviorFlags = ... # 0x0
         SkipEmptyParts           : Qt.SplitBehaviorFlags = ... # 0x1
 
 
-    class TabFocusBehavior(shibokensupport.enum_310.Enum):
+    class TabFocusBehavior(enum.Enum):
 
         NoTabFocus               : Qt.TabFocusBehavior = ... # 0x0
         TabFocusTextControls     : Qt.TabFocusBehavior = ... # 0x1
@@ -9541,7 +9544,7 @@ class Qt(Shiboken.Object):
         TabFocusAllControls      : Qt.TabFocusBehavior = ... # 0xff
 
 
-    class TextElideMode(shibokensupport.enum_310.Enum):
+    class TextElideMode(enum.Enum):
 
         ElideLeft                : Qt.TextElideMode = ... # 0x0
         ElideRight               : Qt.TextElideMode = ... # 0x1
@@ -9549,7 +9552,7 @@ class Qt(Shiboken.Object):
         ElideNone                : Qt.TextElideMode = ... # 0x3
 
 
-    class TextFlag(shibokensupport.enum_310.IntFlag):
+    class TextFlag(enum.IntFlag):
 
         TextSingleLine           : Qt.TextFlag = ... # 0x100
         TextDontClip             : Qt.TextFlag = ... # 0x200
@@ -9566,7 +9569,7 @@ class Qt(Shiboken.Object):
         TextIncludeTrailingSpaces: Qt.TextFlag = ... # 0x8000000
 
 
-    class TextFormat(shibokensupport.enum_310.Enum):
+    class TextFormat(enum.Enum):
 
         PlainText                : Qt.TextFormat = ... # 0x0
         RichText                 : Qt.TextFormat = ... # 0x1
@@ -9574,7 +9577,7 @@ class Qt(Shiboken.Object):
         MarkdownText             : Qt.TextFormat = ... # 0x3
 
 
-    class TextInteractionFlag(shibokensupport.enum_310.Flag):
+    class TextInteractionFlag(enum.Flag):
 
         NoTextInteraction        : Qt.TextInteractionFlag = ... # 0x0
         TextSelectableByMouse    : Qt.TextInteractionFlag = ... # 0x1
@@ -9586,14 +9589,14 @@ class Qt(Shiboken.Object):
         TextEditorInteraction    : Qt.TextInteractionFlag = ... # 0x13
 
 
-    class TileRule(shibokensupport.enum_310.Enum):
+    class TileRule(enum.Enum):
 
         StretchTile              : Qt.TileRule = ... # 0x0
         RepeatTile               : Qt.TileRule = ... # 0x1
         RoundTile                : Qt.TileRule = ... # 0x2
 
 
-    class TimeSpec(shibokensupport.enum_310.Enum):
+    class TimeSpec(enum.Enum):
 
         LocalTime                : Qt.TimeSpec = ... # 0x0
         UTC                      : Qt.TimeSpec = ... # 0x1
@@ -9601,14 +9604,14 @@ class Qt(Shiboken.Object):
         TimeZone                 : Qt.TimeSpec = ... # 0x3
 
 
-    class TimerType(shibokensupport.enum_310.Enum):
+    class TimerType(enum.Enum):
 
         PreciseTimer             : Qt.TimerType = ... # 0x0
         CoarseTimer              : Qt.TimerType = ... # 0x1
         VeryCoarseTimer          : Qt.TimerType = ... # 0x2
 
 
-    class ToolBarArea(shibokensupport.enum_310.Flag):
+    class ToolBarArea(enum.Flag):
 
         NoToolBarArea            : Qt.ToolBarArea = ... # 0x0
         LeftToolBarArea          : Qt.ToolBarArea = ... # 0x1
@@ -9619,12 +9622,12 @@ class Qt(Shiboken.Object):
         ToolBarArea_Mask         : Qt.ToolBarArea = ... # 0xf
 
 
-    class ToolBarAreaSizes(shibokensupport.enum_310.Enum):
+    class ToolBarAreaSizes(enum.Enum):
 
         NToolBarAreas            : Qt.ToolBarAreaSizes = ... # 0x4
 
 
-    class ToolButtonStyle(shibokensupport.enum_310.Enum):
+    class ToolButtonStyle(enum.Enum):
 
         ToolButtonIconOnly       : Qt.ToolButtonStyle = ... # 0x0
         ToolButtonTextOnly       : Qt.ToolButtonStyle = ... # 0x1
@@ -9633,7 +9636,7 @@ class Qt(Shiboken.Object):
         ToolButtonFollowStyle    : Qt.ToolButtonStyle = ... # 0x4
 
 
-    class TouchPointState(shibokensupport.enum_310.Flag):
+    class TouchPointState(enum.Flag):
 
         TouchPointUnknownState   : Qt.TouchPointState = ... # 0x0
         TouchPointPressed        : Qt.TouchPointState = ... # 0x1
@@ -9642,13 +9645,13 @@ class Qt(Shiboken.Object):
         TouchPointReleased       : Qt.TouchPointState = ... # 0x8
 
 
-    class TransformationMode(shibokensupport.enum_310.Enum):
+    class TransformationMode(enum.Enum):
 
         FastTransformation       : Qt.TransformationMode = ... # 0x0
         SmoothTransformation     : Qt.TransformationMode = ... # 0x1
 
 
-    class UIEffect(shibokensupport.enum_310.Enum):
+    class UIEffect(enum.Enum):
 
         UI_General               : Qt.UIEffect = ... # 0x0
         UI_AnimateMenu           : Qt.UIEffect = ... # 0x1
@@ -9659,7 +9662,7 @@ class Qt(Shiboken.Object):
         UI_AnimateToolBox        : Qt.UIEffect = ... # 0x6
 
 
-    class WhiteSpaceMode(shibokensupport.enum_310.Enum):
+    class WhiteSpaceMode(enum.Enum):
 
         WhiteSpaceModeUndefined  : Qt.WhiteSpaceMode = ... # -0x1
         WhiteSpaceNormal         : Qt.WhiteSpaceMode = ... # 0x0
@@ -9667,7 +9670,7 @@ class Qt(Shiboken.Object):
         WhiteSpaceNoWrap         : Qt.WhiteSpaceMode = ... # 0x2
 
 
-    class WidgetAttribute(shibokensupport.enum_310.Enum):
+    class WidgetAttribute(enum.Enum):
 
         WA_Disabled              : Qt.WidgetAttribute = ... # 0x0
         WA_UnderMouse            : Qt.WidgetAttribute = ... # 0x1
@@ -9774,7 +9777,7 @@ class Qt(Shiboken.Object):
         WA_AttributeCount        : Qt.WidgetAttribute = ... # 0x84
 
 
-    class WindowFrameSection(shibokensupport.enum_310.Enum):
+    class WindowFrameSection(enum.Enum):
 
         NoSection                : Qt.WindowFrameSection = ... # 0x0
         LeftSection              : Qt.WindowFrameSection = ... # 0x1
@@ -9788,14 +9791,14 @@ class Qt(Shiboken.Object):
         TitleBarArea             : Qt.WindowFrameSection = ... # 0x9
 
 
-    class WindowModality(shibokensupport.enum_310.Enum):
+    class WindowModality(enum.Enum):
 
         NonModal                 : Qt.WindowModality = ... # 0x0
         WindowModal              : Qt.WindowModality = ... # 0x1
         ApplicationModal         : Qt.WindowModality = ... # 0x2
 
 
-    class WindowState(shibokensupport.enum_310.Flag):
+    class WindowState(enum.Flag):
 
         WindowNoState            : Qt.WindowState = ... # 0x0
         WindowMinimized          : Qt.WindowState = ... # 0x1
@@ -9804,7 +9807,7 @@ class Qt(Shiboken.Object):
         WindowActive             : Qt.WindowState = ... # 0x8
 
 
-    class WindowType(shibokensupport.enum_310.IntFlag):
+    class WindowType(enum.IntFlag):
 
         WindowFullscreenButtonHint: Qt.WindowType = ... # -0x80000000
         Widget                   : Qt.WindowType = ... # 0x0
@@ -9900,7 +9903,7 @@ class Qt(Shiboken.Object):
     def ws(s: PySide6.QtCore.QTextStream) -> PySide6.QtCore.QTextStream: ...
 
 
-class QtMsgType(shibokensupport.enum_310.Enum):
+class QtMsgType(enum.Enum):
 
     QtDebugMsg               : QtMsgType = ... # 0x0
     QtWarningMsg             : QtMsgType = ... # 0x1

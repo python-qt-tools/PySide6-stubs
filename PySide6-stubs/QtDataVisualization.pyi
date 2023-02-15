@@ -13,6 +13,7 @@ import PySide6.QtDataVisualization
 import PySide6.QtCore
 import PySide6.QtGui
 
+import enum
 from typing import Any, Optional, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -53,7 +54,7 @@ class Q3DBars(PySide6.QtDataVisualization.QAbstract3DGraph):
 
 class Q3DCamera(PySide6.QtDataVisualization.Q3DObject):
 
-    class CameraPreset(shibokensupport.enum_310.Enum):
+    class CameraPreset(enum.Enum):
 
         CameraPresetNone         : Q3DCamera.CameraPreset = ... # -0x1
         CameraPresetFrontLow     : Q3DCamera.CameraPreset = ... # 0x0
@@ -215,14 +216,14 @@ class Q3DSurface(PySide6.QtDataVisualization.QAbstract3DGraph):
 
 class Q3DTheme(PySide6.QtCore.QObject):
 
-    class ColorStyle(shibokensupport.enum_310.Enum):
+    class ColorStyle(enum.Enum):
 
         ColorStyleUniform        : Q3DTheme.ColorStyle = ... # 0x0
         ColorStyleObjectGradient : Q3DTheme.ColorStyle = ... # 0x1
         ColorStyleRangeGradient  : Q3DTheme.ColorStyle = ... # 0x2
 
 
-    class Theme(shibokensupport.enum_310.Enum):
+    class Theme(enum.Enum):
 
         ThemeQt                  : Q3DTheme.Theme = ... # 0x0
         ThemePrimaryColors       : Q3DTheme.Theme = ... # 0x1
@@ -288,7 +289,7 @@ class Q3DTheme(PySide6.QtCore.QObject):
 
 class QAbstract3DAxis(PySide6.QtCore.QObject):
 
-    class AxisOrientation(shibokensupport.enum_310.Enum):
+    class AxisOrientation(enum.Enum):
 
         AxisOrientationNone      : QAbstract3DAxis.AxisOrientation = ... # 0x0
         AxisOrientationX         : QAbstract3DAxis.AxisOrientation = ... # 0x1
@@ -296,7 +297,7 @@ class QAbstract3DAxis(PySide6.QtCore.QObject):
         AxisOrientationZ         : QAbstract3DAxis.AxisOrientation = ... # 0x4
 
 
-    class AxisType(shibokensupport.enum_310.Enum):
+    class AxisType(enum.Enum):
 
         AxisTypeNone             : QAbstract3DAxis.AxisType = ... # 0x0
         AxisTypeCategory         : QAbstract3DAxis.AxisType = ... # 0x1
@@ -326,7 +327,7 @@ class QAbstract3DAxis(PySide6.QtCore.QObject):
 
 class QAbstract3DGraph(PySide6.QtGui.QWindow):
 
-    class ElementType(shibokensupport.enum_310.Enum):
+    class ElementType(enum.Enum):
 
         ElementNone              : QAbstract3DGraph.ElementType = ... # 0x0
         ElementSeries            : QAbstract3DGraph.ElementType = ... # 0x1
@@ -336,13 +337,13 @@ class QAbstract3DGraph(PySide6.QtGui.QWindow):
         ElementCustomItem        : QAbstract3DGraph.ElementType = ... # 0x5
 
 
-    class OptimizationHint(shibokensupport.enum_310.Flag):
+    class OptimizationHint(enum.Flag):
 
         OptimizationDefault      : QAbstract3DGraph.OptimizationHint = ... # 0x0
         OptimizationStatic       : QAbstract3DGraph.OptimizationHint = ... # 0x1
 
 
-    class SelectionFlag(shibokensupport.enum_310.Flag):
+    class SelectionFlag(enum.Flag):
 
         SelectionNone            : QAbstract3DGraph.SelectionFlag = ... # 0x0
         SelectionItem            : QAbstract3DGraph.SelectionFlag = ... # 0x1
@@ -356,7 +357,7 @@ class QAbstract3DGraph(PySide6.QtGui.QWindow):
         SelectionMultiSeries     : QAbstract3DGraph.SelectionFlag = ... # 0x10
 
 
-    class ShadowQuality(shibokensupport.enum_310.Enum):
+    class ShadowQuality(enum.Enum):
 
         ShadowQualityNone        : QAbstract3DGraph.ShadowQuality = ... # 0x0
         ShadowQualityLow         : QAbstract3DGraph.ShadowQuality = ... # 0x1
@@ -435,7 +436,7 @@ class QAbstract3DGraph(PySide6.QtGui.QWindow):
 
 class QAbstract3DInputHandler(PySide6.QtCore.QObject):
 
-    class InputView(shibokensupport.enum_310.Enum):
+    class InputView(enum.Enum):
 
         InputViewNone            : QAbstract3DInputHandler.InputView = ... # 0x0
         InputViewOnPrimary       : QAbstract3DInputHandler.InputView = ... # 0x1
@@ -464,7 +465,7 @@ class QAbstract3DInputHandler(PySide6.QtCore.QObject):
 
 class QAbstract3DSeries(PySide6.QtCore.QObject):
 
-    class Mesh(shibokensupport.enum_310.Enum):
+    class Mesh(enum.Enum):
 
         MeshUserDefined          : QAbstract3DSeries.Mesh = ... # 0x0
         MeshBar                  : QAbstract3DSeries.Mesh = ... # 0x1
@@ -480,7 +481,7 @@ class QAbstract3DSeries(PySide6.QtCore.QObject):
         MeshPoint                : QAbstract3DSeries.Mesh = ... # 0xb
 
 
-    class SeriesType(shibokensupport.enum_310.Enum):
+    class SeriesType(enum.Enum):
 
         SeriesTypeNone           : QAbstract3DSeries.SeriesType = ... # 0x0
         SeriesTypeBar            : QAbstract3DSeries.SeriesType = ... # 0x1
@@ -525,7 +526,7 @@ class QAbstract3DSeries(PySide6.QtCore.QObject):
 
 class QAbstractDataProxy(PySide6.QtCore.QObject):
 
-    class DataType(shibokensupport.enum_310.Enum):
+    class DataType(enum.Enum):
 
         DataTypeNone             : QAbstractDataProxy.DataType = ... # 0x0
         DataTypeBar              : QAbstractDataProxy.DataType = ... # 0x1
@@ -777,7 +778,7 @@ class QIntList(object): ...
 
 class QItemModelBarDataProxy(PySide6.QtDataVisualization.QBarDataProxy):
 
-    class MultiMatchBehavior(shibokensupport.enum_310.Enum):
+    class MultiMatchBehavior(enum.Enum):
 
         MMBFirst                 : QItemModelBarDataProxy.MultiMatchBehavior = ... # 0x0
         MMBLast                  : QItemModelBarDataProxy.MultiMatchBehavior = ... # 0x1
@@ -885,7 +886,7 @@ class QItemModelScatterDataProxy(PySide6.QtDataVisualization.QScatterDataProxy):
 
 class QItemModelSurfaceDataProxy(PySide6.QtDataVisualization.QSurfaceDataProxy):
 
-    class MultiMatchBehavior(shibokensupport.enum_310.Enum):
+    class MultiMatchBehavior(enum.Enum):
 
         MMBFirst                 : QItemModelSurfaceDataProxy.MultiMatchBehavior = ... # 0x0
         MMBLast                  : QItemModelSurfaceDataProxy.MultiMatchBehavior = ... # 0x1
@@ -1037,7 +1038,7 @@ class QScatterDataProxy(PySide6.QtDataVisualization.QAbstractDataProxy):
 
 class QSurface3DSeries(PySide6.QtDataVisualization.QAbstract3DSeries):
 
-    class DrawFlag(shibokensupport.enum_310.Flag):
+    class DrawFlag(enum.Flag):
 
         DrawWireframe            : QSurface3DSeries.DrawFlag = ... # 0x1
         DrawSurface              : QSurface3DSeries.DrawFlag = ... # 0x2

@@ -14,6 +14,7 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.Qt3DCore
 
+import enum
 from typing import Optional, Type, Sequence, List
 from shiboken6 import Shiboken
 
@@ -79,7 +80,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QAxisAccumulator(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        class SourceAxisType(shibokensupport.enum_310.Enum):
+        class SourceAxisType(enum.Enum):
 
             Velocity                 : Qt3DInput.QAxisAccumulator.SourceAxisType = ... # 0x0
             Acceleration             : Qt3DInput.QAxisAccumulator.SourceAxisType = ... # 0x1
@@ -205,7 +206,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QMouseDevice(PySide6.Qt3DInput.Qt3DInput.QAbstractPhysicalDevice):
 
-        class Axis(shibokensupport.enum_310.Enum):
+        class Axis(enum.Enum):
 
             X                        : Qt3DInput.QMouseDevice.Axis = ... # 0x0
             Y                        : Qt3DInput.QMouseDevice.Axis = ... # 0x1
@@ -228,7 +229,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QMouseEvent(PySide6.QtCore.QObject):
 
-        class Buttons(shibokensupport.enum_310.Enum):
+        class Buttons(enum.Enum):
 
             NoButton                 : Qt3DInput.QMouseEvent.Buttons = ... # 0x0
             LeftButton               : Qt3DInput.QMouseEvent.Buttons = ... # 0x1
@@ -237,7 +238,7 @@ class Qt3DInput(Shiboken.Object):
             BackButton               : Qt3DInput.QMouseEvent.Buttons = ... # 0x8
 
 
-        class Modifiers(shibokensupport.enum_310.Enum):
+        class Modifiers(enum.Enum):
 
             NoModifier               : Qt3DInput.QMouseEvent.Modifiers = ... # 0x0
             ShiftModifier            : Qt3DInput.QMouseEvent.Modifiers = ... # 0x2000000
@@ -268,7 +269,7 @@ class Qt3DInput(Shiboken.Object):
 
     class QWheelEvent(PySide6.QtCore.QObject):
 
-        class Buttons(shibokensupport.enum_310.Enum):
+        class Buttons(enum.Enum):
 
             NoButton                 : Qt3DInput.QWheelEvent.Buttons = ... # 0x0
             LeftButton               : Qt3DInput.QWheelEvent.Buttons = ... # 0x1
@@ -277,7 +278,7 @@ class Qt3DInput(Shiboken.Object):
             BackButton               : Qt3DInput.QWheelEvent.Buttons = ... # 0x8
 
 
-        class Modifiers(shibokensupport.enum_310.Enum):
+        class Modifiers(enum.Enum):
 
             NoModifier               : Qt3DInput.QWheelEvent.Modifiers = ... # 0x0
             ShiftModifier            : Qt3DInput.QWheelEvent.Modifiers = ... # 0x2000000

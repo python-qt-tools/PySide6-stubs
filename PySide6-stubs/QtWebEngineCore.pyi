@@ -15,6 +15,7 @@ import PySide6.QtGui
 import PySide6.QtNetwork
 import PySide6.QtWebChannel
 
+import enum
 from typing import Any, Callable, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -24,7 +25,7 @@ class QIntList(object): ...
 
 class QWebEngineCertificateError(Shiboken.Object):
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         SslObsoleteVersion       : QWebEngineCertificateError.Type = ... # -0xda
         CertificateKnownInterceptionBlocked: QWebEngineCertificateError.Type = ... # -0xd9
@@ -62,7 +63,7 @@ class QWebEngineCertificateError(Shiboken.Object):
 
 class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
 
-    class EditFlag(shibokensupport.enum_310.Flag):
+    class EditFlag(enum.Flag):
 
         CanUndo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x1
         CanRedo                  : QWebEngineContextMenuRequest.EditFlag = ... # 0x2
@@ -75,7 +76,7 @@ class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
         CanEditRichly            : QWebEngineContextMenuRequest.EditFlag = ... # 0x100
 
 
-    class MediaFlag(shibokensupport.enum_310.Flag):
+    class MediaFlag(enum.Flag):
 
         MediaInError             : QWebEngineContextMenuRequest.MediaFlag = ... # 0x1
         MediaPaused              : QWebEngineContextMenuRequest.MediaFlag = ... # 0x2
@@ -89,7 +90,7 @@ class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
         MediaCanRotate           : QWebEngineContextMenuRequest.MediaFlag = ... # 0x200
 
 
-    class MediaType(shibokensupport.enum_310.Enum):
+    class MediaType(enum.Enum):
 
         MediaTypeNone            : QWebEngineContextMenuRequest.MediaType = ... # 0x0
         MediaTypeImage           : QWebEngineContextMenuRequest.MediaType = ... # 0x1
@@ -138,7 +139,7 @@ class QWebEngineCookieStore(PySide6.QtCore.QObject):
 
 class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
 
-    class DownloadInterruptReason(shibokensupport.enum_310.Enum):
+    class DownloadInterruptReason(enum.Enum):
 
         NoReason                 : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x0
         FileFailed               : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x1
@@ -166,7 +167,7 @@ class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
         UserCanceled             : QWebEngineDownloadRequest.DownloadInterruptReason = ... # 0x28
 
 
-    class DownloadState(shibokensupport.enum_310.Enum):
+    class DownloadState(enum.Enum):
 
         DownloadRequested        : QWebEngineDownloadRequest.DownloadState = ... # 0x0
         DownloadInProgress       : QWebEngineDownloadRequest.DownloadState = ... # 0x1
@@ -175,7 +176,7 @@ class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
         DownloadInterrupted      : QWebEngineDownloadRequest.DownloadState = ... # 0x4
 
 
-    class SavePageFormat(shibokensupport.enum_310.Enum):
+    class SavePageFormat(enum.Enum):
 
         UnknownSaveFormat        : QWebEngineDownloadRequest.SavePageFormat = ... # -0x1
         SingleHtmlSaveFormat     : QWebEngineDownloadRequest.SavePageFormat = ... # 0x0
@@ -272,7 +273,7 @@ class QWebEngineHistoryItem(Shiboken.Object):
 
 class QWebEngineHistoryModel(PySide6.QtCore.QAbstractListModel):
 
-    class Roles(shibokensupport.enum_310.Enum):
+    class Roles(enum.Enum):
 
         UrlRole                  : QWebEngineHistoryModel.Roles = ... # 0x100
         TitleRole                : QWebEngineHistoryModel.Roles = ... # 0x101
@@ -288,7 +289,7 @@ class QWebEngineHistoryModel(PySide6.QtCore.QAbstractListModel):
 
 class QWebEngineHttpRequest(Shiboken.Object):
 
-    class Method(shibokensupport.enum_310.Enum):
+    class Method(enum.Enum):
 
         Get                      : QWebEngineHttpRequest.Method = ... # 0x0
         Post                     : QWebEngineHttpRequest.Method = ... # 0x1
@@ -317,7 +318,7 @@ class QWebEngineHttpRequest(Shiboken.Object):
 
 class QWebEngineLoadingInfo(Shiboken.Object):
 
-    class ErrorDomain(shibokensupport.enum_310.Enum):
+    class ErrorDomain(enum.Enum):
 
         NoErrorDomain            : QWebEngineLoadingInfo.ErrorDomain = ... # 0x0
         InternalErrorDomain      : QWebEngineLoadingInfo.ErrorDomain = ... # 0x1
@@ -329,7 +330,7 @@ class QWebEngineLoadingInfo(Shiboken.Object):
         HttpStatusCodeDomain     : QWebEngineLoadingInfo.ErrorDomain = ... # 0x7
 
 
-    class LoadStatus(shibokensupport.enum_310.Enum):
+    class LoadStatus(enum.Enum):
 
         LoadStartedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x0
         LoadStoppedStatus        : QWebEngineLoadingInfo.LoadStatus = ... # 0x1
@@ -351,7 +352,7 @@ class QWebEngineLoadingInfo(Shiboken.Object):
 
 class QWebEngineNewWindowRequest(PySide6.QtCore.QObject):
 
-    class DestinationType(shibokensupport.enum_310.Enum):
+    class DestinationType(enum.Enum):
 
         InNewWindow              : QWebEngineNewWindowRequest.DestinationType = ... # 0x0
         InNewTab                 : QWebEngineNewWindowRequest.DestinationType = ... # 0x1
@@ -382,7 +383,7 @@ class QWebEngineNotification(PySide6.QtCore.QObject):
 
 class QWebEnginePage(PySide6.QtCore.QObject):
 
-    class Feature(shibokensupport.enum_310.Enum):
+    class Feature(enum.Enum):
 
         Notifications            : QWebEnginePage.Feature = ... # 0x0
         Geolocation              : QWebEnginePage.Feature = ... # 0x1
@@ -394,7 +395,7 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         DesktopAudioVideoCapture : QWebEnginePage.Feature = ... # 0x7
 
 
-    class FileSelectionMode(shibokensupport.enum_310.Enum):
+    class FileSelectionMode(enum.Enum):
 
         FileSelectOpen           : QWebEnginePage.FileSelectionMode = ... # 0x0
         FileSelectOpenMultiple   : QWebEnginePage.FileSelectionMode = ... # 0x1
@@ -402,27 +403,27 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         FileSelectSave           : QWebEnginePage.FileSelectionMode = ... # 0x3
 
 
-    class FindFlag(shibokensupport.enum_310.Flag):
+    class FindFlag(enum.Flag):
 
         FindBackward             : QWebEnginePage.FindFlag = ... # 0x1
         FindCaseSensitively      : QWebEnginePage.FindFlag = ... # 0x2
 
 
-    class JavaScriptConsoleMessageLevel(shibokensupport.enum_310.Enum):
+    class JavaScriptConsoleMessageLevel(enum.Enum):
 
         InfoMessageLevel         : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x0
         WarningMessageLevel      : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x1
         ErrorMessageLevel        : QWebEnginePage.JavaScriptConsoleMessageLevel = ... # 0x2
 
 
-    class LifecycleState(shibokensupport.enum_310.Enum):
+    class LifecycleState(enum.Enum):
 
         Active                   : QWebEnginePage.LifecycleState = ... # 0x0
         Frozen                   : QWebEnginePage.LifecycleState = ... # 0x1
         Discarded                : QWebEnginePage.LifecycleState = ... # 0x2
 
 
-    class NavigationType(shibokensupport.enum_310.Enum):
+    class NavigationType(enum.Enum):
 
         NavigationTypeLinkClicked: QWebEnginePage.NavigationType = ... # 0x0
         NavigationTypeTyped      : QWebEnginePage.NavigationType = ... # 0x1
@@ -433,14 +434,14 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         NavigationTypeRedirect   : QWebEnginePage.NavigationType = ... # 0x6
 
 
-    class PermissionPolicy(shibokensupport.enum_310.Enum):
+    class PermissionPolicy(enum.Enum):
 
         PermissionUnknown        : QWebEnginePage.PermissionPolicy = ... # 0x0
         PermissionGrantedByUser  : QWebEnginePage.PermissionPolicy = ... # 0x1
         PermissionDeniedByUser   : QWebEnginePage.PermissionPolicy = ... # 0x2
 
 
-    class RenderProcessTerminationStatus(shibokensupport.enum_310.Enum):
+    class RenderProcessTerminationStatus(enum.Enum):
 
         NormalTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x0
         AbnormalTerminationStatus: QWebEnginePage.RenderProcessTerminationStatus = ... # 0x1
@@ -448,7 +449,7 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         KilledTerminationStatus  : QWebEnginePage.RenderProcessTerminationStatus = ... # 0x3
 
 
-    class WebAction(shibokensupport.enum_310.Enum):
+    class WebAction(enum.Enum):
 
         NoWebAction              : QWebEnginePage.WebAction = ... # -0x1
         Back                     : QWebEnginePage.WebAction = ... # 0x0
@@ -499,7 +500,7 @@ class QWebEnginePage(PySide6.QtCore.QObject):
         WebActionCount           : QWebEnginePage.WebAction = ... # 0x2d
 
 
-    class WebWindowType(shibokensupport.enum_310.Enum):
+    class WebWindowType(enum.Enum):
 
         WebBrowserWindow         : QWebEnginePage.WebWindowType = ... # 0x0
         WebBrowserTab            : QWebEnginePage.WebWindowType = ... # 0x1
@@ -583,14 +584,14 @@ class QWebEnginePage(PySide6.QtCore.QObject):
 
 class QWebEngineProfile(PySide6.QtCore.QObject):
 
-    class HttpCacheType(shibokensupport.enum_310.Enum):
+    class HttpCacheType(enum.Enum):
 
         MemoryHttpCache          : QWebEngineProfile.HttpCacheType = ... # 0x0
         DiskHttpCache            : QWebEngineProfile.HttpCacheType = ... # 0x1
         NoCache                  : QWebEngineProfile.HttpCacheType = ... # 0x2
 
 
-    class PersistentCookiesPolicy(shibokensupport.enum_310.Enum):
+    class PersistentCookiesPolicy(enum.Enum):
 
         NoPersistentCookies      : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x0
         AllowPersistentCookies   : QWebEngineProfile.PersistentCookiesPolicy = ... # 0x1
@@ -664,14 +665,14 @@ class QWebEngineRegisterProtocolHandlerRequest(Shiboken.Object):
 
 class QWebEngineScript(Shiboken.Object):
 
-    class InjectionPoint(shibokensupport.enum_310.Enum):
+    class InjectionPoint(enum.Enum):
 
         Deferred                 : QWebEngineScript.InjectionPoint = ... # 0x0
         DocumentReady            : QWebEngineScript.InjectionPoint = ... # 0x1
         DocumentCreation         : QWebEngineScript.InjectionPoint = ... # 0x2
 
 
-    class ScriptWorldId(shibokensupport.enum_310.Enum):
+    class ScriptWorldId(enum.IntEnum):
 
         MainWorld                : QWebEngineScript.ScriptWorldId = ... # 0x0
         ApplicationWorld         : QWebEngineScript.ScriptWorldId = ... # 0x1
@@ -716,7 +717,7 @@ class QWebEngineScriptCollection(Shiboken.Object):
 
 class QWebEngineSettings(Shiboken.Object):
 
-    class FontFamily(shibokensupport.enum_310.Enum):
+    class FontFamily(enum.Enum):
 
         StandardFont             : QWebEngineSettings.FontFamily = ... # 0x0
         FixedFont                : QWebEngineSettings.FontFamily = ... # 0x1
@@ -727,7 +728,7 @@ class QWebEngineSettings(Shiboken.Object):
         PictographFont           : QWebEngineSettings.FontFamily = ... # 0x6
 
 
-    class FontSize(shibokensupport.enum_310.Enum):
+    class FontSize(enum.Enum):
 
         MinimumFontSize          : QWebEngineSettings.FontSize = ... # 0x0
         MinimumLogicalFontSize   : QWebEngineSettings.FontSize = ... # 0x1
@@ -735,7 +736,7 @@ class QWebEngineSettings(Shiboken.Object):
         DefaultFixedFontSize     : QWebEngineSettings.FontSize = ... # 0x3
 
 
-    class UnknownUrlSchemePolicy(shibokensupport.enum_310.Enum):
+    class UnknownUrlSchemePolicy(enum.Enum):
 
         InheritedUnknownUrlSchemePolicy: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x0
         DisallowUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x1
@@ -743,7 +744,7 @@ class QWebEngineSettings(Shiboken.Object):
         AllowAllUnknownUrlSchemes: QWebEngineSettings.UnknownUrlSchemePolicy = ... # 0x3
 
 
-    class WebAttribute(shibokensupport.enum_310.Enum):
+    class WebAttribute(enum.Enum):
 
         AutoLoadImages           : QWebEngineSettings.WebAttribute = ... # 0x0
         JavascriptEnabled        : QWebEngineSettings.WebAttribute = ... # 0x1
@@ -797,7 +798,7 @@ class QWebEngineSettings(Shiboken.Object):
 
 class QWebEngineUrlRequestInfo(Shiboken.Object):
 
-    class NavigationType(shibokensupport.enum_310.Enum):
+    class NavigationType(enum.Enum):
 
         NavigationTypeLink       : QWebEngineUrlRequestInfo.NavigationType = ... # 0x0
         NavigationTypeTyped      : QWebEngineUrlRequestInfo.NavigationType = ... # 0x1
@@ -808,7 +809,7 @@ class QWebEngineUrlRequestInfo(Shiboken.Object):
         NavigationTypeRedirect   : QWebEngineUrlRequestInfo.NavigationType = ... # 0x6
 
 
-    class ResourceType(shibokensupport.enum_310.Enum):
+    class ResourceType(enum.Enum):
 
         ResourceTypeMainFrame    : QWebEngineUrlRequestInfo.ResourceType = ... # 0x0
         ResourceTypeSubFrame     : QWebEngineUrlRequestInfo.ResourceType = ... # 0x1
@@ -856,7 +857,7 @@ class QWebEngineUrlRequestInterceptor(PySide6.QtCore.QObject):
 
 class QWebEngineUrlRequestJob(PySide6.QtCore.QObject):
 
-    class Error(shibokensupport.enum_310.Enum):
+    class Error(enum.Enum):
 
         NoError                  : QWebEngineUrlRequestJob.Error = ... # 0x0
         UrlNotFound              : QWebEngineUrlRequestJob.Error = ... # 0x1
@@ -877,7 +878,7 @@ class QWebEngineUrlRequestJob(PySide6.QtCore.QObject):
 
 class QWebEngineUrlScheme(Shiboken.Object):
 
-    class Flag(shibokensupport.enum_310.Flag):
+    class Flag(enum.Flag):
 
         SecureScheme             : QWebEngineUrlScheme.Flag = ... # 0x1
         LocalScheme              : QWebEngineUrlScheme.Flag = ... # 0x2
@@ -889,12 +890,12 @@ class QWebEngineUrlScheme(Shiboken.Object):
         CorsEnabled              : QWebEngineUrlScheme.Flag = ... # 0x80
 
 
-    class SpecialPort(shibokensupport.enum_310.Enum):
+    class SpecialPort(enum.Enum):
 
         PortUnspecified          : QWebEngineUrlScheme.SpecialPort = ... # -0x1
 
 
-    class Syntax(shibokensupport.enum_310.Enum):
+    class Syntax(enum.Enum):
 
         HostPortAndUserInformation: QWebEngineUrlScheme.Syntax = ... # 0x0
         HostAndPort              : QWebEngineUrlScheme.Syntax = ... # 0x1

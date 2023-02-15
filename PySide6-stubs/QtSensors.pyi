@@ -12,13 +12,14 @@ PySide6.QtSensors, except for defaults which are replaced by "...".
 import PySide6.QtSensors
 import PySide6.QtCore
 
+import enum
 from typing import Optional, Tuple, Union, List, overload
 from shiboken6 import Shiboken
 
 
 class QAccelerometer(PySide6.QtSensors.QSensor):
 
-    class AccelerationMode(shibokensupport.enum_310.Enum):
+    class AccelerationMode(enum.Enum):
 
         Combined                 : QAccelerometer.AccelerationMode = ... # 0x0
         Gravity                  : QAccelerometer.AccelerationMode = ... # 0x1
@@ -61,7 +62,7 @@ class QAmbientLightFilter(PySide6.QtSensors.QSensorFilter):
 
 class QAmbientLightReading(PySide6.QtSensors.QSensorReading):
 
-    class LightLevel(shibokensupport.enum_310.Enum):
+    class LightLevel(enum.Enum):
 
         Undefined                : QAmbientLightReading.LightLevel = ... # 0x0
         Dark                     : QAmbientLightReading.LightLevel = ... # 0x1
@@ -301,7 +302,7 @@ class QOrientationFilter(PySide6.QtSensors.QSensorFilter):
 
 class QOrientationReading(PySide6.QtSensors.QSensorReading):
 
-    class Orientation(shibokensupport.enum_310.Enum):
+    class Orientation(enum.Enum):
 
         Undefined                : QOrientationReading.Orientation = ... # 0x0
         TopUp                    : QOrientationReading.Orientation = ... # 0x1
@@ -403,14 +404,14 @@ class QRotationSensor(PySide6.QtSensors.QSensor):
 
 class QSensor(PySide6.QtCore.QObject):
 
-    class AxesOrientationMode(shibokensupport.enum_310.Enum):
+    class AxesOrientationMode(enum.Enum):
 
         FixedOrientation         : QSensor.AxesOrientationMode = ... # 0x0
         AutomaticOrientation     : QSensor.AxesOrientationMode = ... # 0x1
         UserOrientation          : QSensor.AxesOrientationMode = ... # 0x2
 
 
-    class Feature(shibokensupport.enum_310.Enum):
+    class Feature(enum.Enum):
 
         Buffering                : QSensor.Feature = ... # 0x0
         AlwaysOn                 : QSensor.Feature = ... # 0x1
@@ -554,7 +555,7 @@ class QTapFilter(PySide6.QtSensors.QSensorFilter):
 
 class QTapReading(PySide6.QtSensors.QSensorReading):
 
-    class TapDirection(shibokensupport.enum_310.Enum):
+    class TapDirection(enum.Enum):
 
         Undefined                : QTapReading.TapDirection = ... # 0x0
         X                        : QTapReading.TapDirection = ... # 0x1
