@@ -48,7 +48,6 @@ PySide6.QtSensors, except for defaults which are replaced by "...".
 import PySide6.QtSensors
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Optional, Tuple, Union, List, overload
 from shiboken6 import Shiboken
 
@@ -59,7 +58,7 @@ class QAccelerometer(PySide6.QtSensors.QSensor):
     Gravity                  : QAccelerometer.AccelerationMode = ... # 0x1
     User                     : QAccelerometer.AccelerationMode = ... # 0x2
 
-    class AccelerationMode(Enum):
+    class AccelerationMode(Shiboken.Enum):
 
         Combined                 : QAccelerometer.AccelerationMode = ... # 0x0
         Gravity                  : QAccelerometer.AccelerationMode = ... # 0x1
@@ -109,7 +108,7 @@ class QAmbientLightReading(PySide6.QtSensors.QSensorReading):
     Bright                   : QAmbientLightReading.LightLevel = ... # 0x4
     Sunny                    : QAmbientLightReading.LightLevel = ... # 0x5
 
-    class LightLevel(Enum):
+    class LightLevel(Shiboken.Enum):
 
         Undefined                : QAmbientLightReading.LightLevel = ... # 0x0
         Dark                     : QAmbientLightReading.LightLevel = ... # 0x1
@@ -357,7 +356,7 @@ class QOrientationReading(PySide6.QtSensors.QSensorReading):
     FaceUp                   : QOrientationReading.Orientation = ... # 0x5
     FaceDown                 : QOrientationReading.Orientation = ... # 0x6
 
-    class Orientation(Enum):
+    class Orientation(Shiboken.Enum):
 
         Undefined                : QOrientationReading.Orientation = ... # 0x0
         TopUp                    : QOrientationReading.Orientation = ... # 0x1
@@ -472,13 +471,13 @@ class QSensor(PySide6.QtCore.QObject):
     PressureSensorTemperature: QSensor.Feature = ... # 0x7
     Reserved                 : QSensor.Feature = ... # 0x101
 
-    class AxesOrientationMode(Enum):
+    class AxesOrientationMode(Shiboken.Enum):
 
         FixedOrientation         : QSensor.AxesOrientationMode = ... # 0x0
         AutomaticOrientation     : QSensor.AxesOrientationMode = ... # 0x1
         UserOrientation          : QSensor.AxesOrientationMode = ... # 0x2
 
-    class Feature(Enum):
+    class Feature(Shiboken.Enum):
 
         Buffering                : QSensor.Feature = ... # 0x0
         AlwaysOn                 : QSensor.Feature = ... # 0x1
@@ -636,7 +635,7 @@ class QTapReading(PySide6.QtSensors.QSensorReading):
     Z_Neg                    : QTapReading.TapDirection = ... # 0x404
     Z_Both                   : QTapReading.TapDirection = ... # 0x444
 
-    class TapDirection(Enum):
+    class TapDirection(Shiboken.Enum):
 
         Undefined                : QTapReading.TapDirection = ... # 0x0
         X                        : QTapReading.TapDirection = ... # 0x1
