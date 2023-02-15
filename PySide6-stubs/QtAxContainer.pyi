@@ -48,7 +48,6 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
-from enum import Enum
 from typing import Any, Optional, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -131,7 +130,7 @@ class QAxScript(PySide6.QtCore.QObject):
     FunctionNames            : QAxScript.FunctionFlags = ... # 0x0
     FunctionSignatures       : QAxScript.FunctionFlags = ... # 0x1
 
-    class FunctionFlags(Enum):
+    class FunctionFlags(Shiboken.Enum):
 
         FunctionNames            : QAxScript.FunctionFlags = ... # 0x0
         FunctionSignatures       : QAxScript.FunctionFlags = ... # 0x1
@@ -159,7 +158,7 @@ class QAxScriptEngine(PySide6.QtAxContainer.QAxObject):
     Closed                   : QAxScriptEngine.State = ... # 0x4
     Initialized              : QAxScriptEngine.State = ... # 0x5
 
-    class State(Enum):
+    class State(Shiboken.Enum):
 
         Uninitialized            : QAxScriptEngine.State = ... # 0x0
         Started                  : QAxScriptEngine.State = ... # 0x1
@@ -207,7 +206,7 @@ class QAxSelect(PySide6.QtWidgets.QDialog):
     SandboxingProcess        : QAxSelect.SandboxingLevel = ... # 0x1
     SandboxingLowIntegrity   : QAxSelect.SandboxingLevel = ... # 0x2
 
-    class SandboxingLevel(Enum):
+    class SandboxingLevel(Shiboken.Enum):
 
         SandboxingNone           : QAxSelect.SandboxingLevel = ... # 0x0
         SandboxingProcess        : QAxSelect.SandboxingLevel = ... # 0x1
