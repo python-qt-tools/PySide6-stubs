@@ -13,6 +13,7 @@ import PySide6.QtWidgets
 import PySide6.QtCore
 import PySide6.QtGui
 
+import enum
 from typing import Any, Optional, Tuple, Type, Union, Iterable, Sequence, Dict, List, overload, Text
 from shiboken6 import Shiboken
 
@@ -80,7 +81,7 @@ class QAbstractGraphicsShapeItem(PySide6.QtWidgets.QGraphicsItem):
 
 class QAbstractItemDelegate(PySide6.QtCore.QObject):
 
-    class EndEditHint(shibokensupport.enum_310.Enum):
+    class EndEditHint(enum.Enum):
 
         NoHint                   : QAbstractItemDelegate.EndEditHint = ... # 0x0
         EditNextItem             : QAbstractItemDelegate.EndEditHint = ... # 0x1
@@ -105,7 +106,7 @@ class QAbstractItemDelegate(PySide6.QtCore.QObject):
 
 class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
 
-    class CursorAction(shibokensupport.enum_310.Enum):
+    class CursorAction(enum.Enum):
 
         MoveUp                   : QAbstractItemView.CursorAction = ... # 0x0
         MoveDown                 : QAbstractItemView.CursorAction = ... # 0x1
@@ -119,7 +120,7 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         MovePrevious             : QAbstractItemView.CursorAction = ... # 0x9
 
 
-    class DragDropMode(shibokensupport.enum_310.Enum):
+    class DragDropMode(enum.Enum):
 
         NoDragDrop               : QAbstractItemView.DragDropMode = ... # 0x0
         DragOnly                 : QAbstractItemView.DragDropMode = ... # 0x1
@@ -128,7 +129,7 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         InternalMove             : QAbstractItemView.DragDropMode = ... # 0x4
 
 
-    class DropIndicatorPosition(shibokensupport.enum_310.Enum):
+    class DropIndicatorPosition(enum.Enum):
 
         OnItem                   : QAbstractItemView.DropIndicatorPosition = ... # 0x0
         AboveItem                : QAbstractItemView.DropIndicatorPosition = ... # 0x1
@@ -136,7 +137,7 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         OnViewport               : QAbstractItemView.DropIndicatorPosition = ... # 0x3
 
 
-    class EditTrigger(shibokensupport.enum_310.Flag):
+    class EditTrigger(enum.Flag):
 
         NoEditTriggers           : QAbstractItemView.EditTrigger = ... # 0x0
         CurrentChanged           : QAbstractItemView.EditTrigger = ... # 0x1
@@ -147,7 +148,7 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         AllEditTriggers          : QAbstractItemView.EditTrigger = ... # 0x1f
 
 
-    class ScrollHint(shibokensupport.enum_310.Enum):
+    class ScrollHint(enum.Enum):
 
         EnsureVisible            : QAbstractItemView.ScrollHint = ... # 0x0
         PositionAtTop            : QAbstractItemView.ScrollHint = ... # 0x1
@@ -155,20 +156,20 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         PositionAtCenter         : QAbstractItemView.ScrollHint = ... # 0x3
 
 
-    class ScrollMode(shibokensupport.enum_310.Enum):
+    class ScrollMode(enum.Enum):
 
         ScrollPerItem            : QAbstractItemView.ScrollMode = ... # 0x0
         ScrollPerPixel           : QAbstractItemView.ScrollMode = ... # 0x1
 
 
-    class SelectionBehavior(shibokensupport.enum_310.Enum):
+    class SelectionBehavior(enum.Enum):
 
         SelectItems              : QAbstractItemView.SelectionBehavior = ... # 0x0
         SelectRows               : QAbstractItemView.SelectionBehavior = ... # 0x1
         SelectColumns            : QAbstractItemView.SelectionBehavior = ... # 0x2
 
 
-    class SelectionMode(shibokensupport.enum_310.Enum):
+    class SelectionMode(enum.Enum):
 
         NoSelection              : QAbstractItemView.SelectionMode = ... # 0x0
         SingleSelection          : QAbstractItemView.SelectionMode = ... # 0x1
@@ -177,7 +178,7 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         ContiguousSelection      : QAbstractItemView.SelectionMode = ... # 0x4
 
 
-    class State(shibokensupport.enum_310.Enum):
+    class State(enum.Enum):
 
         NoState                  : QAbstractItemView.State = ... # 0x0
         DraggingState            : QAbstractItemView.State = ... # 0x1
@@ -325,7 +326,7 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
 
 class QAbstractScrollArea(PySide6.QtWidgets.QFrame):
 
-    class SizeAdjustPolicy(shibokensupport.enum_310.Enum):
+    class SizeAdjustPolicy(enum.Enum):
 
         AdjustIgnored            : QAbstractScrollArea.SizeAdjustPolicy = ... # 0x0
         AdjustToContentsOnFirstShow: QAbstractScrollArea.SizeAdjustPolicy = ... # 0x1
@@ -381,7 +382,7 @@ class QAbstractScrollArea(PySide6.QtWidgets.QFrame):
 
 class QAbstractSlider(PySide6.QtWidgets.QWidget):
 
-    class SliderAction(shibokensupport.enum_310.Enum):
+    class SliderAction(enum.Enum):
 
         SliderNoAction           : QAbstractSlider.SliderAction = ... # 0x0
         SliderSingleStepAdd      : QAbstractSlider.SliderAction = ... # 0x1
@@ -393,7 +394,7 @@ class QAbstractSlider(PySide6.QtWidgets.QWidget):
         SliderMove               : QAbstractSlider.SliderAction = ... # 0x7
 
 
-    class SliderChange(shibokensupport.enum_310.Enum):
+    class SliderChange(enum.Enum):
 
         SliderRangeChange        : QAbstractSlider.SliderChange = ... # 0x0
         SliderOrientationChange  : QAbstractSlider.SliderChange = ... # 0x1
@@ -439,27 +440,27 @@ class QAbstractSlider(PySide6.QtWidgets.QWidget):
 
 class QAbstractSpinBox(PySide6.QtWidgets.QWidget):
 
-    class ButtonSymbols(shibokensupport.enum_310.Enum):
+    class ButtonSymbols(enum.Enum):
 
         UpDownArrows             : QAbstractSpinBox.ButtonSymbols = ... # 0x0
         PlusMinus                : QAbstractSpinBox.ButtonSymbols = ... # 0x1
         NoButtons                : QAbstractSpinBox.ButtonSymbols = ... # 0x2
 
 
-    class CorrectionMode(shibokensupport.enum_310.Enum):
+    class CorrectionMode(enum.Enum):
 
         CorrectToPreviousValue   : QAbstractSpinBox.CorrectionMode = ... # 0x0
         CorrectToNearestValue    : QAbstractSpinBox.CorrectionMode = ... # 0x1
 
 
-    class StepEnabledFlag(shibokensupport.enum_310.Flag):
+    class StepEnabledFlag(enum.Flag):
 
         StepNone                 : QAbstractSpinBox.StepEnabledFlag = ... # 0x0
         StepUpEnabled            : QAbstractSpinBox.StepEnabledFlag = ... # 0x1
         StepDownEnabled          : QAbstractSpinBox.StepEnabledFlag = ... # 0x2
 
 
-    class StepType(shibokensupport.enum_310.Enum):
+    class StepType(enum.Enum):
 
         DefaultStepType          : QAbstractSpinBox.StepType = ... # 0x0
         AdaptiveDecimalStepType  : QAbstractSpinBox.StepType = ... # 0x1
@@ -665,7 +666,7 @@ class QApplication(PySide6.QtGui.QGuiApplication):
 
 class QBoxLayout(PySide6.QtWidgets.QLayout):
 
-    class Direction(shibokensupport.enum_310.Enum):
+    class Direction(enum.Enum):
 
         LeftToRight              : QBoxLayout.Direction = ... # 0x0
         RightToLeft              : QBoxLayout.Direction = ... # 0x1
@@ -732,7 +733,7 @@ class QButtonGroup(PySide6.QtCore.QObject):
 
 class QCalendarWidget(PySide6.QtWidgets.QWidget):
 
-    class HorizontalHeaderFormat(shibokensupport.enum_310.Enum):
+    class HorizontalHeaderFormat(enum.Enum):
 
         NoHorizontalHeader       : QCalendarWidget.HorizontalHeaderFormat = ... # 0x0
         SingleLetterDayNames     : QCalendarWidget.HorizontalHeaderFormat = ... # 0x1
@@ -740,13 +741,13 @@ class QCalendarWidget(PySide6.QtWidgets.QWidget):
         LongDayNames             : QCalendarWidget.HorizontalHeaderFormat = ... # 0x3
 
 
-    class SelectionMode(shibokensupport.enum_310.Enum):
+    class SelectionMode(enum.Enum):
 
         NoSelection              : QCalendarWidget.SelectionMode = ... # 0x0
         SingleSelection          : QCalendarWidget.SelectionMode = ... # 0x1
 
 
-    class VerticalHeaderFormat(shibokensupport.enum_310.Enum):
+    class VerticalHeaderFormat(enum.Enum):
 
         NoVerticalHeader         : QCalendarWidget.VerticalHeaderFormat = ... # 0x0
         ISOWeekNumbers           : QCalendarWidget.VerticalHeaderFormat = ... # 0x1
@@ -833,7 +834,7 @@ class QCheckBox(PySide6.QtWidgets.QAbstractButton):
 
 class QColorDialog(PySide6.QtWidgets.QDialog):
 
-    class ColorDialogOption(shibokensupport.enum_310.Flag):
+    class ColorDialogOption(enum.Flag):
 
         ShowAlphaChannel         : QColorDialog.ColorDialogOption = ... # 0x1
         NoButtons                : QColorDialog.ColorDialogOption = ... # 0x2
@@ -875,7 +876,7 @@ class QColorDialog(PySide6.QtWidgets.QDialog):
 
 class QColormap(Shiboken.Object):
 
-    class Mode(shibokensupport.enum_310.Enum):
+    class Mode(enum.Enum):
 
         Direct                   : QColormap.Mode = ... # 0x0
         Indexed                  : QColormap.Mode = ... # 0x1
@@ -934,7 +935,7 @@ class QColumnView(PySide6.QtWidgets.QAbstractItemView):
 
 class QComboBox(PySide6.QtWidgets.QWidget):
 
-    class InsertPolicy(shibokensupport.enum_310.Enum):
+    class InsertPolicy(enum.Enum):
 
         NoInsert                 : QComboBox.InsertPolicy = ... # 0x0
         InsertAtTop              : QComboBox.InsertPolicy = ... # 0x1
@@ -945,7 +946,7 @@ class QComboBox(PySide6.QtWidgets.QWidget):
         InsertAlphabetically     : QComboBox.InsertPolicy = ... # 0x6
 
 
-    class SizeAdjustPolicy(shibokensupport.enum_310.Enum):
+    class SizeAdjustPolicy(enum.Enum):
 
         AdjustToContents         : QComboBox.SizeAdjustPolicy = ... # 0x0
         AdjustToContentsOnFirstShow: QComboBox.SizeAdjustPolicy = ... # 0x1
@@ -1097,14 +1098,14 @@ class QCommonStyle(PySide6.QtWidgets.QStyle):
 
 class QCompleter(PySide6.QtCore.QObject):
 
-    class CompletionMode(shibokensupport.enum_310.Enum):
+    class CompletionMode(enum.Enum):
 
         PopupCompletion          : QCompleter.CompletionMode = ... # 0x0
         UnfilteredPopupCompletion: QCompleter.CompletionMode = ... # 0x1
         InlineCompletion         : QCompleter.CompletionMode = ... # 0x2
 
 
-    class ModelSorting(shibokensupport.enum_310.Enum):
+    class ModelSorting(enum.Enum):
 
         UnsortedModel            : QCompleter.ModelSorting = ... # 0x0
         CaseSensitivelySortedModel: QCompleter.ModelSorting = ... # 0x1
@@ -1157,7 +1158,7 @@ class QCompleter(PySide6.QtCore.QObject):
 
 class QDataWidgetMapper(PySide6.QtCore.QObject):
 
-    class SubmitPolicy(shibokensupport.enum_310.Enum):
+    class SubmitPolicy(enum.Enum):
 
         AutoSubmit               : QDataWidgetMapper.SubmitPolicy = ... # 0x0
         ManualSubmit             : QDataWidgetMapper.SubmitPolicy = ... # 0x1
@@ -1205,7 +1206,7 @@ class QDateEdit(PySide6.QtWidgets.QDateTimeEdit):
 
 class QDateTimeEdit(PySide6.QtWidgets.QAbstractSpinBox):
 
-    class Section(shibokensupport.enum_310.Flag):
+    class Section(enum.Flag):
 
         NoSection                : QDateTimeEdit.Section = ... # 0x0
         AmPmSection              : QDateTimeEdit.Section = ... # 0x1
@@ -1320,7 +1321,7 @@ class QDial(PySide6.QtWidgets.QAbstractSlider):
 
 class QDialog(PySide6.QtWidgets.QWidget):
 
-    class DialogCode(shibokensupport.enum_310.IntEnum):
+    class DialogCode(enum.IntEnum):
 
         Rejected                 : QDialog.DialogCode = ... # 0x0
         Accepted                 : QDialog.DialogCode = ... # 0x1
@@ -1353,7 +1354,7 @@ class QDialog(PySide6.QtWidgets.QWidget):
 
 class QDialogButtonBox(PySide6.QtWidgets.QWidget):
 
-    class ButtonLayout(shibokensupport.enum_310.Enum):
+    class ButtonLayout(enum.Enum):
 
         WinLayout                : QDialogButtonBox.ButtonLayout = ... # 0x0
         MacLayout                : QDialogButtonBox.ButtonLayout = ... # 0x1
@@ -1362,7 +1363,7 @@ class QDialogButtonBox(PySide6.QtWidgets.QWidget):
         AndroidLayout            : QDialogButtonBox.ButtonLayout = ... # 0x4
 
 
-    class ButtonRole(shibokensupport.enum_310.Enum):
+    class ButtonRole(enum.Enum):
 
         InvalidRole              : QDialogButtonBox.ButtonRole = ... # -0x1
         AcceptRole               : QDialogButtonBox.ButtonRole = ... # 0x0
@@ -1377,7 +1378,7 @@ class QDialogButtonBox(PySide6.QtWidgets.QWidget):
         NRoles                   : QDialogButtonBox.ButtonRole = ... # 0x9
 
 
-    class StandardButton(shibokensupport.enum_310.Flag):
+    class StandardButton(enum.Flag):
 
         NoButton                 : QDialogButtonBox.StandardButton = ... # 0x0
         FirstButton              : QDialogButtonBox.StandardButton = ... # 0x400
@@ -1435,7 +1436,7 @@ class QDialogButtonBox(PySide6.QtWidgets.QWidget):
 
 class QDockWidget(PySide6.QtWidgets.QWidget):
 
-    class DockWidgetFeature(shibokensupport.enum_310.Flag):
+    class DockWidgetFeature(enum.Flag):
 
         NoDockWidgetFeatures     : QDockWidget.DockWidgetFeature = ... # 0x0
         DockWidgetClosable       : QDockWidget.DockWidgetFeature = ... # 0x1
@@ -1514,13 +1515,13 @@ class QErrorMessage(PySide6.QtWidgets.QDialog):
 
 class QFileDialog(PySide6.QtWidgets.QDialog):
 
-    class AcceptMode(shibokensupport.enum_310.Enum):
+    class AcceptMode(enum.Enum):
 
         AcceptOpen               : QFileDialog.AcceptMode = ... # 0x0
         AcceptSave               : QFileDialog.AcceptMode = ... # 0x1
 
 
-    class DialogLabel(shibokensupport.enum_310.Enum):
+    class DialogLabel(enum.Enum):
 
         LookIn                   : QFileDialog.DialogLabel = ... # 0x0
         FileName                 : QFileDialog.DialogLabel = ... # 0x1
@@ -1529,7 +1530,7 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
         Reject                   : QFileDialog.DialogLabel = ... # 0x4
 
 
-    class FileMode(shibokensupport.enum_310.Enum):
+    class FileMode(enum.Enum):
 
         AnyFile                  : QFileDialog.FileMode = ... # 0x0
         ExistingFile             : QFileDialog.FileMode = ... # 0x1
@@ -1537,7 +1538,7 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
         ExistingFiles            : QFileDialog.FileMode = ... # 0x3
 
 
-    class Option(shibokensupport.enum_310.Flag):
+    class Option(enum.Flag):
 
         ShowDirsOnly             : QFileDialog.Option = ... # 0x1
         DontResolveSymlinks      : QFileDialog.Option = ... # 0x2
@@ -1548,7 +1549,7 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
         DontUseCustomDirectoryIcons: QFileDialog.Option = ... # 0x40
 
 
-    class ViewMode(shibokensupport.enum_310.Enum):
+    class ViewMode(enum.Enum):
 
         Detail                   : QFileDialog.ViewMode = ... # 0x0
         List                     : QFileDialog.ViewMode = ... # 0x1
@@ -1651,14 +1652,14 @@ class QFileIconProvider(PySide6.QtGui.QAbstractFileIconProvider):
 
 class QFileSystemModel(PySide6.QtCore.QAbstractItemModel):
 
-    class Option(shibokensupport.enum_310.Flag):
+    class Option(enum.Flag):
 
         DontWatchForChanges      : QFileSystemModel.Option = ... # 0x1
         DontResolveSymlinks      : QFileSystemModel.Option = ... # 0x2
         DontUseCustomDirectoryIcons: QFileSystemModel.Option = ... # 0x4
 
 
-    class Roles(shibokensupport.enum_310.IntEnum):
+    class Roles(enum.IntEnum):
 
         FileIconRole             : QFileSystemModel.Roles = ... # 0x1
         FilePathRole             : QFileSystemModel.Roles = ... # 0x101
@@ -1741,7 +1742,7 @@ class QFocusFrame(PySide6.QtWidgets.QWidget):
 
 class QFontComboBox(PySide6.QtWidgets.QComboBox):
 
-    class FontFilter(shibokensupport.enum_310.Flag):
+    class FontFilter(enum.Flag):
 
         AllFonts                 : QFontComboBox.FontFilter = ... # 0x0
         ScalableFonts            : QFontComboBox.FontFilter = ... # 0x1
@@ -1769,7 +1770,7 @@ class QFontComboBox(PySide6.QtWidgets.QComboBox):
 
 class QFontDialog(PySide6.QtWidgets.QDialog):
 
-    class FontDialogOption(shibokensupport.enum_310.Flag):
+    class FontDialogOption(enum.Flag):
 
         NoButtons                : QFontDialog.FontDialogOption = ... # 0x1
         DontUseNativeDialog      : QFontDialog.FontDialogOption = ... # 0x2
@@ -1809,21 +1810,21 @@ class QFontDialog(PySide6.QtWidgets.QDialog):
 
 class QFormLayout(PySide6.QtWidgets.QLayout):
 
-    class FieldGrowthPolicy(shibokensupport.enum_310.Enum):
+    class FieldGrowthPolicy(enum.Enum):
 
         FieldsStayAtSizeHint     : QFormLayout.FieldGrowthPolicy = ... # 0x0
         ExpandingFieldsGrow      : QFormLayout.FieldGrowthPolicy = ... # 0x1
         AllNonFixedFieldsGrow    : QFormLayout.FieldGrowthPolicy = ... # 0x2
 
 
-    class ItemRole(shibokensupport.enum_310.Enum):
+    class ItemRole(enum.Enum):
 
         LabelRole                : QFormLayout.ItemRole = ... # 0x0
         FieldRole                : QFormLayout.ItemRole = ... # 0x1
         SpanningRole             : QFormLayout.ItemRole = ... # 0x2
 
 
-    class RowWrapPolicy(shibokensupport.enum_310.Enum):
+    class RowWrapPolicy(enum.Enum):
 
         DontWrapRows             : QFormLayout.RowWrapPolicy = ... # 0x0
         WrapLongRows             : QFormLayout.RowWrapPolicy = ... # 0x1
@@ -1934,14 +1935,14 @@ class QFormLayout(PySide6.QtWidgets.QLayout):
 
 class QFrame(PySide6.QtWidgets.QWidget):
 
-    class Shadow(shibokensupport.enum_310.IntEnum):
+    class Shadow(enum.IntEnum):
 
         Plain                    : QFrame.Shadow = ... # 0x10
         Raised                   : QFrame.Shadow = ... # 0x20
         Sunken                   : QFrame.Shadow = ... # 0x30
 
 
-    class Shape(shibokensupport.enum_310.IntEnum):
+    class Shape(enum.IntEnum):
 
         NoFrame                  : QFrame.Shape = ... # 0x0
         Box                      : QFrame.Shape = ... # 0x1
@@ -1952,7 +1953,7 @@ class QFrame(PySide6.QtWidgets.QWidget):
         StyledPanel              : QFrame.Shape = ... # 0x6
 
 
-    class StyleMask(shibokensupport.enum_310.Enum):
+    class StyleMask(enum.Enum):
 
         Shape_Mask               : QFrame.StyleMask = ... # 0xf
         Shadow_Mask              : QFrame.StyleMask = ... # 0xf0
@@ -1983,7 +1984,7 @@ class QFrame(PySide6.QtWidgets.QWidget):
 
 class QGesture(PySide6.QtCore.QObject):
 
-    class GestureCancelPolicy(shibokensupport.enum_310.Enum):
+    class GestureCancelPolicy(enum.Enum):
 
         CancelNone               : QGesture.GestureCancelPolicy = ... # 0x0
         CancelAllInContext       : QGesture.GestureCancelPolicy = ... # 0x1
@@ -2040,7 +2041,7 @@ class QGestureEvent(PySide6.QtCore.QEvent):
 
 class QGestureRecognizer(Shiboken.Object):
 
-    class ResultFlag(shibokensupport.enum_310.Flag):
+    class ResultFlag(enum.Flag):
 
         Ignore                   : QGestureRecognizer.ResultFlag = ... # 0x1
         MayBeGesture             : QGestureRecognizer.ResultFlag = ... # 0x2
@@ -2094,7 +2095,7 @@ class QGraphicsAnchorLayout(PySide6.QtWidgets.QGraphicsLayout):
 
 class QGraphicsBlurEffect(PySide6.QtWidgets.QGraphicsEffect):
 
-    class BlurHint(shibokensupport.enum_310.Flag):
+    class BlurHint(enum.Flag):
 
         PerformanceHint          : QGraphicsBlurEffect.BlurHint = ... # 0x0
         QualityHint              : QGraphicsBlurEffect.BlurHint = ... # 0x1
@@ -2147,7 +2148,7 @@ class QGraphicsDropShadowEffect(PySide6.QtWidgets.QGraphicsEffect):
 
 class QGraphicsEffect(PySide6.QtCore.QObject):
 
-    class ChangeFlag(shibokensupport.enum_310.Flag):
+    class ChangeFlag(enum.Flag):
 
         SourceAttached           : QGraphicsEffect.ChangeFlag = ... # 0x1
         SourceDetached           : QGraphicsEffect.ChangeFlag = ... # 0x2
@@ -2155,7 +2156,7 @@ class QGraphicsEffect(PySide6.QtCore.QObject):
         SourceInvalidated        : QGraphicsEffect.ChangeFlag = ... # 0x8
 
 
-    class PixmapPadMode(shibokensupport.enum_310.Enum):
+    class PixmapPadMode(enum.Enum):
 
         NoPad                    : QGraphicsEffect.PixmapPadMode = ... # 0x0
         PadToTransparentBorder   : QGraphicsEffect.PixmapPadMode = ... # 0x1
@@ -2263,19 +2264,19 @@ class QGraphicsGridLayout(PySide6.QtWidgets.QGraphicsLayout):
 
 class QGraphicsItem(Shiboken.Object):
 
-    class CacheMode(shibokensupport.enum_310.Enum):
+    class CacheMode(enum.Enum):
 
         NoCache                  : QGraphicsItem.CacheMode = ... # 0x0
         ItemCoordinateCache      : QGraphicsItem.CacheMode = ... # 0x1
         DeviceCoordinateCache    : QGraphicsItem.CacheMode = ... # 0x2
 
 
-    class Extension(shibokensupport.enum_310.Enum):
+    class Extension(enum.Enum):
 
         UserExtension            : QGraphicsItem.Extension = ... # 0x80000000
 
 
-    class GraphicsItemChange(shibokensupport.enum_310.Enum):
+    class GraphicsItemChange(enum.Enum):
 
         ItemPositionChange       : QGraphicsItem.GraphicsItemChange = ... # 0x0
         ItemVisibleChange        : QGraphicsItem.GraphicsItemChange = ... # 0x2
@@ -2312,7 +2313,7 @@ class QGraphicsItem(Shiboken.Object):
         ItemTransformOriginPointHasChanged: QGraphicsItem.GraphicsItemChange = ... # 0x21
 
 
-    class GraphicsItemFlag(shibokensupport.enum_310.Flag):
+    class GraphicsItemFlag(enum.Flag):
 
         ItemIsMovable            : QGraphicsItem.GraphicsItemFlag = ... # 0x1
         ItemIsSelectable         : QGraphicsItem.GraphicsItemFlag = ... # 0x2
@@ -2336,7 +2337,7 @@ class QGraphicsItem(Shiboken.Object):
         ItemContainsChildrenInShape: QGraphicsItem.GraphicsItemFlag = ... # 0x80000
 
 
-    class PanelModality(shibokensupport.enum_310.Enum):
+    class PanelModality(enum.Enum):
 
         NonModal                 : QGraphicsItem.PanelModality = ... # 0x0
         PanelModal               : QGraphicsItem.PanelModality = ... # 0x1
@@ -2829,7 +2830,7 @@ class QGraphicsPathItem(PySide6.QtWidgets.QAbstractGraphicsShapeItem):
 
 class QGraphicsPixmapItem(PySide6.QtWidgets.QGraphicsItem):
 
-    class ShapeMode(shibokensupport.enum_310.Enum):
+    class ShapeMode(enum.Enum):
 
         MaskShape                : QGraphicsPixmapItem.ShapeMode = ... # 0x0
         BoundingRectShape        : QGraphicsPixmapItem.ShapeMode = ... # 0x1
@@ -2986,13 +2987,13 @@ class QGraphicsScale(PySide6.QtWidgets.QGraphicsTransform):
 
 class QGraphicsScene(PySide6.QtCore.QObject):
 
-    class ItemIndexMethod(shibokensupport.enum_310.Enum):
+    class ItemIndexMethod(enum.Enum):
 
         NoIndex                  : QGraphicsScene.ItemIndexMethod = ... # -0x1
         BspTreeIndex             : QGraphicsScene.ItemIndexMethod = ... # 0x0
 
 
-    class SceneLayer(shibokensupport.enum_310.Flag):
+    class SceneLayer(enum.Flag):
 
         ItemLayer                : QGraphicsScene.SceneLayer = ... # 0x1
         BackgroundLayer          : QGraphicsScene.SceneLayer = ... # 0x2
@@ -3131,7 +3132,7 @@ class QGraphicsScene(PySide6.QtCore.QObject):
 
 class QGraphicsSceneContextMenuEvent(PySide6.QtWidgets.QGraphicsSceneEvent):
 
-    class Reason(shibokensupport.enum_310.Enum):
+    class Reason(enum.Enum):
 
         Mouse                    : QGraphicsSceneContextMenuEvent.Reason = ... # 0x0
         Keyboard                 : QGraphicsSceneContextMenuEvent.Reason = ... # 0x1
@@ -3386,34 +3387,34 @@ class QGraphicsTransform(PySide6.QtCore.QObject):
 
 class QGraphicsView(PySide6.QtWidgets.QAbstractScrollArea):
 
-    class CacheModeFlag(shibokensupport.enum_310.Flag):
+    class CacheModeFlag(enum.Flag):
 
         CacheNone                : QGraphicsView.CacheModeFlag = ... # 0x0
         CacheBackground          : QGraphicsView.CacheModeFlag = ... # 0x1
 
 
-    class DragMode(shibokensupport.enum_310.Enum):
+    class DragMode(enum.Enum):
 
         NoDrag                   : QGraphicsView.DragMode = ... # 0x0
         ScrollHandDrag           : QGraphicsView.DragMode = ... # 0x1
         RubberBandDrag           : QGraphicsView.DragMode = ... # 0x2
 
 
-    class OptimizationFlag(shibokensupport.enum_310.Flag):
+    class OptimizationFlag(enum.Flag):
 
         DontSavePainterState     : QGraphicsView.OptimizationFlag = ... # 0x1
         DontAdjustForAntialiasing: QGraphicsView.OptimizationFlag = ... # 0x2
         IndirectPainting         : QGraphicsView.OptimizationFlag = ... # 0x4
 
 
-    class ViewportAnchor(shibokensupport.enum_310.Enum):
+    class ViewportAnchor(enum.Enum):
 
         NoAnchor                 : QGraphicsView.ViewportAnchor = ... # 0x0
         AnchorViewCenter         : QGraphicsView.ViewportAnchor = ... # 0x1
         AnchorUnderMouse         : QGraphicsView.ViewportAnchor = ... # 0x2
 
 
-    class ViewportUpdateMode(shibokensupport.enum_310.Enum):
+    class ViewportUpdateMode(enum.Enum):
 
         FullViewportUpdate       : QGraphicsView.ViewportUpdateMode = ... # 0x0
         MinimalViewportUpdate    : QGraphicsView.ViewportUpdateMode = ... # 0x1
@@ -3756,7 +3757,7 @@ class QHBoxLayout(PySide6.QtWidgets.QBoxLayout):
 
 class QHeaderView(PySide6.QtWidgets.QAbstractItemView):
 
-    class ResizeMode(shibokensupport.enum_310.Enum):
+    class ResizeMode(enum.Enum):
 
         Interactive              : QHeaderView.ResizeMode = ... # 0x0
         Stretch                  : QHeaderView.ResizeMode = ... # 0x1
@@ -3885,14 +3886,14 @@ class QHeaderView(PySide6.QtWidgets.QAbstractItemView):
 
 class QInputDialog(PySide6.QtWidgets.QDialog):
 
-    class InputDialogOption(shibokensupport.enum_310.Enum):
+    class InputDialogOption(enum.Enum):
 
         NoButtons                : QInputDialog.InputDialogOption = ... # 0x1
         UseListViewForComboBoxItems: QInputDialog.InputDialogOption = ... # 0x2
         UsePlainTextEditForTextInput: QInputDialog.InputDialogOption = ... # 0x4
 
 
-    class InputMode(shibokensupport.enum_310.Enum):
+    class InputMode(enum.Enum):
 
         TextInput                : QInputDialog.InputMode = ... # 0x0
         IntInput                 : QInputDialog.InputMode = ... # 0x1
@@ -3910,15 +3911,15 @@ class QInputDialog(PySide6.QtWidgets.QDialog):
     def doubleStep(self) -> float: ...
     def doubleValue(self) -> float: ...
     @staticmethod
-    def getDouble(parent: PySide6.QtWidgets.QWidget, title: str, label: str, value: float = ..., minValue: float = ..., maxValue: float = ..., decimals: int = ..., flags: PySide6.QtCore.Qt.WindowType = ..., step: float = ...) -> float: ...
+    def getDouble(parent: PySide6.QtWidgets.QWidget, title: str, label: str, value: float = ..., minValue: float = ..., maxValue: float = ..., decimals: int = ..., flags: PySide6.QtCore.Qt.WindowType = ..., step: float = ...) -> Tuple[float, bool]: ...
     @staticmethod
-    def getInt(parent: PySide6.QtWidgets.QWidget, title: str, label: str, value: int = ..., minValue: int = ..., maxValue: int = ..., step: int = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> int: ...
+    def getInt(parent: PySide6.QtWidgets.QWidget, title: str, label: str, value: int = ..., minValue: int = ..., maxValue: int = ..., step: int = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> Tuple[int, bool]: ...
     @staticmethod
-    def getItem(parent: PySide6.QtWidgets.QWidget, title: str, label: str, items: Sequence[str], current: int = ..., editable: bool = ..., flags: PySide6.QtCore.Qt.WindowType = ..., inputMethodHints: PySide6.QtCore.Qt.InputMethodHint = ...) -> str: ...
+    def getItem(parent: PySide6.QtWidgets.QWidget, title: str, label: str, items: Sequence[str], current: int = ..., editable: bool = ..., flags: PySide6.QtCore.Qt.WindowType = ..., inputMethodHints: PySide6.QtCore.Qt.InputMethodHint = ...) -> Tuple[str, bool]: ...
     @staticmethod
-    def getMultiLineText(parent: PySide6.QtWidgets.QWidget, title: str, label: str, text: str = ..., flags: PySide6.QtCore.Qt.WindowType = ..., inputMethodHints: PySide6.QtCore.Qt.InputMethodHint = ...) -> str: ...
+    def getMultiLineText(parent: PySide6.QtWidgets.QWidget, title: str, label: str, text: str = ..., flags: PySide6.QtCore.Qt.WindowType = ..., inputMethodHints: PySide6.QtCore.Qt.InputMethodHint = ...) -> Tuple[str, bool]: ...
     @staticmethod
-    def getText(parent: PySide6.QtWidgets.QWidget, title: str, label: str, echo: PySide6.QtWidgets.QLineEdit.EchoMode = ..., text: str = ..., flags: PySide6.QtCore.Qt.WindowType = ..., inputMethodHints: PySide6.QtCore.Qt.InputMethodHint = ...) -> str: ...
+    def getText(parent: PySide6.QtWidgets.QWidget, title: str, label: str, echo: PySide6.QtWidgets.QLineEdit.EchoMode = ..., text: str = ..., flags: PySide6.QtCore.Qt.WindowType = ..., inputMethodHints: PySide6.QtCore.Qt.InputMethodHint = ...) -> Tuple[str, bool]: ...
     def inputMode(self) -> PySide6.QtWidgets.QInputDialog.InputMode: ...
     def intMaximum(self) -> int: ...
     def intMinimum(self) -> int: ...
@@ -4034,7 +4035,7 @@ class QKeySequenceEdit(PySide6.QtWidgets.QWidget):
 
 class QLCDNumber(PySide6.QtWidgets.QFrame):
 
-    class Mode(shibokensupport.enum_310.Enum):
+    class Mode(enum.Enum):
 
         Hex                      : QLCDNumber.Mode = ... # 0x0
         Dec                      : QLCDNumber.Mode = ... # 0x1
@@ -4042,7 +4043,7 @@ class QLCDNumber(PySide6.QtWidgets.QFrame):
         Bin                      : QLCDNumber.Mode = ... # 0x3
 
 
-    class SegmentStyle(shibokensupport.enum_310.Enum):
+    class SegmentStyle(enum.Enum):
 
         Outline                  : QLCDNumber.SegmentStyle = ... # 0x0
         Filled                   : QLCDNumber.SegmentStyle = ... # 0x1
@@ -4143,7 +4144,7 @@ class QLabel(PySide6.QtWidgets.QFrame):
 
 class QLayout(PySide6.QtCore.QObject, PySide6.QtWidgets.QLayoutItem):
 
-    class SizeConstraint(shibokensupport.enum_310.Enum):
+    class SizeConstraint(enum.Enum):
 
         SetDefaultConstraint     : QLayout.SizeConstraint = ... # 0x0
         SetNoConstraint          : QLayout.SizeConstraint = ... # 0x1
@@ -4241,13 +4242,13 @@ class QLayoutItem(Shiboken.Object):
 
 class QLineEdit(PySide6.QtWidgets.QWidget):
 
-    class ActionPosition(shibokensupport.enum_310.Enum):
+    class ActionPosition(enum.Enum):
 
         LeadingPosition          : QLineEdit.ActionPosition = ... # 0x0
         TrailingPosition         : QLineEdit.ActionPosition = ... # 0x1
 
 
-    class EchoMode(shibokensupport.enum_310.Enum):
+    class EchoMode(enum.Enum):
 
         Normal                   : QLineEdit.EchoMode = ... # 0x0
         NoEcho                   : QLineEdit.EchoMode = ... # 0x1
@@ -4386,32 +4387,32 @@ class QLineEdit(PySide6.QtWidgets.QWidget):
 
 class QListView(PySide6.QtWidgets.QAbstractItemView):
 
-    class Flow(shibokensupport.enum_310.Enum):
+    class Flow(enum.Enum):
 
         LeftToRight              : QListView.Flow = ... # 0x0
         TopToBottom              : QListView.Flow = ... # 0x1
 
 
-    class LayoutMode(shibokensupport.enum_310.Enum):
+    class LayoutMode(enum.Enum):
 
         SinglePass               : QListView.LayoutMode = ... # 0x0
         Batched                  : QListView.LayoutMode = ... # 0x1
 
 
-    class Movement(shibokensupport.enum_310.Enum):
+    class Movement(enum.Enum):
 
         Static                   : QListView.Movement = ... # 0x0
         Free                     : QListView.Movement = ... # 0x1
         Snap                     : QListView.Movement = ... # 0x2
 
 
-    class ResizeMode(shibokensupport.enum_310.Enum):
+    class ResizeMode(enum.Enum):
 
         Fixed                    : QListView.ResizeMode = ... # 0x0
         Adjust                   : QListView.ResizeMode = ... # 0x1
 
 
-    class ViewMode(shibokensupport.enum_310.Enum):
+    class ViewMode(enum.Enum):
 
         ListMode                 : QListView.ViewMode = ... # 0x0
         IconMode                 : QListView.ViewMode = ... # 0x1
@@ -4551,7 +4552,7 @@ class QListWidget(PySide6.QtWidgets.QListView):
 
 class QListWidgetItem(Shiboken.Object):
 
-    class ItemType(shibokensupport.enum_310.IntEnum):
+    class ItemType(enum.IntEnum):
 
         Type                     : QListWidgetItem.ItemType = ... # 0x0
         UserType                 : QListWidgetItem.ItemType = ... # 0x3e8
@@ -4612,7 +4613,7 @@ class QListWidgetItem(Shiboken.Object):
 
 class QMainWindow(PySide6.QtWidgets.QWidget):
 
-    class DockOption(shibokensupport.enum_310.Flag):
+    class DockOption(enum.Flag):
 
         AnimatedDocks            : QMainWindow.DockOption = ... # 0x1
         AllowNestedDocks         : QMainWindow.DockOption = ... # 0x2
@@ -4687,18 +4688,18 @@ class QMainWindow(PySide6.QtWidgets.QWidget):
 
 class QMdiArea(PySide6.QtWidgets.QAbstractScrollArea):
 
-    class AreaOption(shibokensupport.enum_310.Flag):
+    class AreaOption(enum.Flag):
 
         DontMaximizeSubWindowOnActivation: QMdiArea.AreaOption = ... # 0x1
 
 
-    class ViewMode(shibokensupport.enum_310.Enum):
+    class ViewMode(enum.Enum):
 
         SubWindowView            : QMdiArea.ViewMode = ... # 0x0
         TabbedView               : QMdiArea.ViewMode = ... # 0x1
 
 
-    class WindowOrder(shibokensupport.enum_310.Enum):
+    class WindowOrder(enum.Enum):
 
         CreationOrder            : QMdiArea.WindowOrder = ... # 0x0
         StackingOrder            : QMdiArea.WindowOrder = ... # 0x1
@@ -4753,7 +4754,7 @@ class QMdiArea(PySide6.QtWidgets.QAbstractScrollArea):
 
 class QMdiSubWindow(PySide6.QtWidgets.QWidget):
 
-    class SubWindowOption(shibokensupport.enum_310.Flag):
+    class SubWindowOption(enum.Flag):
 
         AllowOutsideAreaHorizontally: QMdiSubWindow.SubWindowOption = ... # 0x1
         AllowOutsideAreaVertically: QMdiSubWindow.SubWindowOption = ... # 0x2
@@ -4969,7 +4970,7 @@ class QMenuBar(PySide6.QtWidgets.QWidget):
 
 class QMessageBox(PySide6.QtWidgets.QDialog):
 
-    class ButtonRole(shibokensupport.enum_310.Enum):
+    class ButtonRole(enum.Enum):
 
         InvalidRole              : QMessageBox.ButtonRole = ... # -0x1
         AcceptRole               : QMessageBox.ButtonRole = ... # 0x0
@@ -4984,7 +4985,7 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
         NRoles                   : QMessageBox.ButtonRole = ... # 0x9
 
 
-    class Icon(shibokensupport.enum_310.Enum):
+    class Icon(enum.Enum):
 
         NoIcon                   : QMessageBox.Icon = ... # 0x0
         Information              : QMessageBox.Icon = ... # 0x1
@@ -4993,7 +4994,7 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
         Question                 : QMessageBox.Icon = ... # 0x4
 
 
-    class StandardButton(shibokensupport.enum_310.IntFlag):
+    class StandardButton(enum.IntFlag):
 
         ButtonMask               : QMessageBox.StandardButton = ... # -0x301
         NoButton                 : QMessageBox.StandardButton = ... # 0x0
@@ -5130,7 +5131,7 @@ class QPanGesture(PySide6.QtWidgets.QGesture):
 
 class QPinchGesture(PySide6.QtWidgets.QGesture):
 
-    class ChangeFlag(shibokensupport.enum_310.Flag):
+    class ChangeFlag(enum.Flag):
 
         ScaleFactorChanged       : QPinchGesture.ChangeFlag = ... # 0x1
         RotationAngleChanged     : QPinchGesture.ChangeFlag = ... # 0x2
@@ -5182,7 +5183,7 @@ class QPlainTextDocumentLayout(PySide6.QtGui.QAbstractTextDocumentLayout):
 
 class QPlainTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
 
-    class LineWrapMode(shibokensupport.enum_310.Enum):
+    class LineWrapMode(enum.Enum):
 
         NoWrap                   : QPlainTextEdit.LineWrapMode = ... # 0x0
         WidgetWidth              : QPlainTextEdit.LineWrapMode = ... # 0x1
@@ -5312,7 +5313,7 @@ class QPointList(object): ...
 
 class QProgressBar(PySide6.QtWidgets.QWidget):
 
-    class Direction(shibokensupport.enum_310.Enum):
+    class Direction(enum.Enum):
 
         TopToBottom              : QProgressBar.Direction = ... # 0x0
         BottomToTop              : QProgressBar.Direction = ... # 0x1
@@ -5480,7 +5481,7 @@ class QRadioButton(PySide6.QtWidgets.QAbstractButton):
 
 class QRubberBand(PySide6.QtWidgets.QWidget):
 
-    class Shape(shibokensupport.enum_310.Enum):
+    class Shape(enum.Enum):
 
         Line                     : QRubberBand.Shape = ... # 0x0
         Rectangle                : QRubberBand.Shape = ... # 0x1
@@ -5554,14 +5555,14 @@ class QScrollBar(PySide6.QtWidgets.QAbstractSlider):
 
 class QScroller(PySide6.QtCore.QObject):
 
-    class Input(shibokensupport.enum_310.Enum):
+    class Input(enum.Enum):
 
         InputPress               : QScroller.Input = ... # 0x1
         InputMove                : QScroller.Input = ... # 0x2
         InputRelease             : QScroller.Input = ... # 0x3
 
 
-    class ScrollerGestureType(shibokensupport.enum_310.Enum):
+    class ScrollerGestureType(enum.Enum):
 
         TouchGesture             : QScroller.ScrollerGestureType = ... # 0x0
         LeftMouseButtonGesture   : QScroller.ScrollerGestureType = ... # 0x1
@@ -5569,7 +5570,7 @@ class QScroller(PySide6.QtCore.QObject):
         MiddleMouseButtonGesture : QScroller.ScrollerGestureType = ... # 0x3
 
 
-    class State(shibokensupport.enum_310.Enum):
+    class State(enum.Enum):
 
         Inactive                 : QScroller.State = ... # 0x0
         Pressed                  : QScroller.State = ... # 0x1
@@ -5619,7 +5620,7 @@ class QScroller(PySide6.QtCore.QObject):
 
 class QScrollerProperties(Shiboken.Object):
 
-    class FrameRates(shibokensupport.enum_310.Enum):
+    class FrameRates(enum.Enum):
 
         Standard                 : QScrollerProperties.FrameRates = ... # 0x0
         Fps60                    : QScrollerProperties.FrameRates = ... # 0x1
@@ -5627,14 +5628,14 @@ class QScrollerProperties(Shiboken.Object):
         Fps20                    : QScrollerProperties.FrameRates = ... # 0x3
 
 
-    class OvershootPolicy(shibokensupport.enum_310.Enum):
+    class OvershootPolicy(enum.Enum):
 
         OvershootWhenScrollable  : QScrollerProperties.OvershootPolicy = ... # 0x0
         OvershootAlwaysOff       : QScrollerProperties.OvershootPolicy = ... # 0x1
         OvershootAlwaysOn        : QScrollerProperties.OvershootPolicy = ... # 0x2
 
 
-    class ScrollMetric(shibokensupport.enum_310.Enum):
+    class ScrollMetric(enum.Enum):
 
         MousePressEventDelay     : QScrollerProperties.ScrollMetric = ... # 0x0
         DragStartDistance        : QScrollerProperties.ScrollMetric = ... # 0x1
@@ -5693,7 +5694,7 @@ class QSizeGrip(PySide6.QtWidgets.QWidget):
 
 class QSizePolicy(Shiboken.Object):
 
-    class ControlType(shibokensupport.enum_310.Flag):
+    class ControlType(enum.Flag):
 
         DefaultType              : QSizePolicy.ControlType = ... # 0x1
         ButtonBox                : QSizePolicy.ControlType = ... # 0x2
@@ -5712,7 +5713,7 @@ class QSizePolicy(Shiboken.Object):
         ToolButton               : QSizePolicy.ControlType = ... # 0x4000
 
 
-    class Policy(shibokensupport.enum_310.Enum):
+    class Policy(enum.Enum):
 
         Fixed                    : QSizePolicy.Policy = ... # 0x0
         Minimum                  : QSizePolicy.Policy = ... # 0x1
@@ -5723,7 +5724,7 @@ class QSizePolicy(Shiboken.Object):
         Ignored                  : QSizePolicy.Policy = ... # 0xd
 
 
-    class PolicyFlag(shibokensupport.enum_310.IntFlag):
+    class PolicyFlag(enum.IntFlag):
 
         GrowFlag                 : QSizePolicy.PolicyFlag = ... # 0x1
         ExpandFlag               : QSizePolicy.PolicyFlag = ... # 0x2
@@ -5763,7 +5764,7 @@ class QSizePolicy(Shiboken.Object):
 
 class QSlider(PySide6.QtWidgets.QAbstractSlider):
 
-    class TickPosition(shibokensupport.enum_310.Enum):
+    class TickPosition(enum.Enum):
 
         NoTicks                  : QSlider.TickPosition = ... # 0x0
         TicksAbove               : QSlider.TickPosition = ... # 0x1
@@ -5919,7 +5920,7 @@ class QSplitterHandle(PySide6.QtWidgets.QWidget):
 
 class QStackedLayout(PySide6.QtWidgets.QLayout):
 
-    class StackingMode(shibokensupport.enum_310.Enum):
+    class StackingMode(enum.Enum):
 
         StackOne                 : QStackedLayout.StackingMode = ... # 0x0
         StackAll                 : QStackedLayout.StackingMode = ... # 0x1
@@ -5996,7 +5997,7 @@ class QStatusBar(PySide6.QtWidgets.QWidget):
 
 class QStyle(PySide6.QtCore.QObject):
 
-    class ComplexControl(shibokensupport.enum_310.IntEnum):
+    class ComplexControl(enum.IntEnum):
 
         CC_SpinBox               : QStyle.ComplexControl = ... # 0x0
         CC_ComboBox              : QStyle.ComplexControl = ... # 0x1
@@ -6010,7 +6011,7 @@ class QStyle(PySide6.QtCore.QObject):
         CC_CustomBase            : QStyle.ComplexControl = ... # 0xf0000000
 
 
-    class ContentsType(shibokensupport.enum_310.IntEnum):
+    class ContentsType(enum.IntEnum):
 
         CT_PushButton            : QStyle.ContentsType = ... # 0x0
         CT_CheckBox              : QStyle.ContentsType = ... # 0x1
@@ -6038,7 +6039,7 @@ class QStyle(PySide6.QtCore.QObject):
         CT_CustomBase            : QStyle.ContentsType = ... # 0xf0000000
 
 
-    class ControlElement(shibokensupport.enum_310.IntEnum):
+    class ControlElement(enum.IntEnum):
 
         CE_PushButton            : QStyle.ControlElement = ... # 0x0
         CE_PushButtonBevel       : QStyle.ControlElement = ... # 0x1
@@ -6090,7 +6091,7 @@ class QStyle(PySide6.QtCore.QObject):
         CE_CustomBase            : QStyle.ControlElement = ... # 0xf0000000
 
 
-    class PixelMetric(shibokensupport.enum_310.IntEnum):
+    class PixelMetric(enum.IntEnum):
 
         PM_ButtonMargin          : QStyle.PixelMetric = ... # 0x0
         PM_ButtonDefaultIndicator: QStyle.PixelMetric = ... # 0x1
@@ -6190,7 +6191,7 @@ class QStyle(PySide6.QtCore.QObject):
         PM_CustomBase            : QStyle.PixelMetric = ... # 0xf0000000
 
 
-    class PrimitiveElement(shibokensupport.enum_310.IntEnum):
+    class PrimitiveElement(enum.IntEnum):
 
         PE_Frame                 : QStyle.PrimitiveElement = ... # 0x0
         PE_FrameDefaultButton    : QStyle.PrimitiveElement = ... # 0x1
@@ -6246,13 +6247,13 @@ class QStyle(PySide6.QtCore.QObject):
         PE_CustomBase            : QStyle.PrimitiveElement = ... # 0xf000000
 
 
-    class RequestSoftwareInputPanel(shibokensupport.enum_310.Enum):
+    class RequestSoftwareInputPanel(enum.Enum):
 
         RSIP_OnMouseClickAndAlreadyFocused: QStyle.RequestSoftwareInputPanel = ... # 0x0
         RSIP_OnMouseClick        : QStyle.RequestSoftwareInputPanel = ... # 0x1
 
 
-    class StandardPixmap(shibokensupport.enum_310.IntEnum):
+    class StandardPixmap(enum.IntEnum):
 
         SP_TitleBarMenuButton    : QStyle.StandardPixmap = ... # 0x0
         SP_TitleBarMinButton     : QStyle.StandardPixmap = ... # 0x1
@@ -6337,7 +6338,7 @@ class QStyle(PySide6.QtCore.QObject):
         SP_CustomBase            : QStyle.StandardPixmap = ... # 0xf0000000
 
 
-    class StateFlag(shibokensupport.enum_310.Flag):
+    class StateFlag(enum.Flag):
 
         State_None               : QStyle.StateFlag = ... # 0x0
         State_Enabled            : QStyle.StateFlag = ... # 0x1
@@ -6369,7 +6370,7 @@ class QStyle(PySide6.QtCore.QObject):
         State_Mini               : QStyle.StateFlag = ... # 0x8000000
 
 
-    class StyleHint(shibokensupport.enum_310.IntEnum):
+    class StyleHint(enum.IntEnum):
 
         SH_EtchDisabledText      : QStyle.StyleHint = ... # 0x0
         SH_DitherDisabledText    : QStyle.StyleHint = ... # 0x1
@@ -6494,7 +6495,7 @@ class QStyle(PySide6.QtCore.QObject):
         SH_CustomBase            : QStyle.StyleHint = ... # 0xf0000000
 
 
-    class SubControl(shibokensupport.enum_310.Flag):
+    class SubControl(enum.Flag):
 
         SC_None                  : QStyle.SubControl = ... # 0x0
         SC_ComboBoxFrame         : QStyle.SubControl = ... # 0x1
@@ -6541,7 +6542,7 @@ class QStyle(PySide6.QtCore.QObject):
         SC_All                   : QStyle.SubControl = ... # 0xffffffff
 
 
-    class SubElement(shibokensupport.enum_310.IntEnum):
+    class SubElement(enum.IntEnum):
 
         SE_PushButtonContents    : QStyle.SubElement = ... # 0x0
         SE_PushButtonFocusRect   : QStyle.SubElement = ... # 0x1
@@ -6663,19 +6664,19 @@ class QStyleFactory(Shiboken.Object):
 
 class QStyleHintReturn(Shiboken.Object):
 
-    class HintReturnType(shibokensupport.enum_310.Enum):
+    class HintReturnType(enum.Enum):
 
         SH_Default               : QStyleHintReturn.HintReturnType = ... # 0xf000
         SH_Mask                  : QStyleHintReturn.HintReturnType = ... # 0xf001
         SH_Variant               : QStyleHintReturn.HintReturnType = ... # 0xf002
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleHintReturn.StyleOptionType = ... # 0xf000
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleHintReturn.StyleOptionVersion = ... # 0x1
 
@@ -6685,12 +6686,12 @@ class QStyleHintReturn(Shiboken.Object):
 
 class QStyleHintReturnMask(PySide6.QtWidgets.QStyleHintReturn):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleHintReturnMask.StyleOptionType = ... # 0xf001
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleHintReturnMask.StyleOptionVersion = ... # 0x1
 
@@ -6700,12 +6701,12 @@ class QStyleHintReturnMask(PySide6.QtWidgets.QStyleHintReturn):
 
 class QStyleHintReturnVariant(PySide6.QtWidgets.QStyleHintReturn):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleHintReturnVariant.StyleOptionType = ... # 0xf002
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleHintReturnVariant.StyleOptionVersion = ... # 0x1
 
@@ -6715,7 +6716,7 @@ class QStyleHintReturnVariant(PySide6.QtWidgets.QStyleHintReturn):
 
 class QStyleOption(Shiboken.Object):
 
-    class OptionType(shibokensupport.enum_310.Enum):
+    class OptionType(enum.Enum):
 
         SO_Default               : QStyleOption.OptionType = ... # 0x0
         SO_FocusRect             : QStyleOption.OptionType = ... # 0x1
@@ -6745,12 +6746,12 @@ class QStyleOption(Shiboken.Object):
         SO_ComplexCustomBase     : QStyleOption.OptionType = ... # 0xf000000
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOption.StyleOptionType = ... # 0x0
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOption.StyleOptionVersion = ... # 0x1
 
@@ -6765,7 +6766,7 @@ class QStyleOption(Shiboken.Object):
 
 class QStyleOptionButton(PySide6.QtWidgets.QStyleOption):
 
-    class ButtonFeature(shibokensupport.enum_310.Flag):
+    class ButtonFeature(enum.Flag):
 
         None_                    : QStyleOptionButton.ButtonFeature = ... # 0x0
         Flat                     : QStyleOptionButton.ButtonFeature = ... # 0x1
@@ -6775,12 +6776,12 @@ class QStyleOptionButton(PySide6.QtWidgets.QStyleOption):
         CommandLinkButton        : QStyleOptionButton.ButtonFeature = ... # 0x10
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionButton.StyleOptionType = ... # 0x2
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionButton.StyleOptionVersion = ... # 0x1
 
@@ -6795,12 +6796,12 @@ class QStyleOptionButton(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionComboBox(PySide6.QtWidgets.QStyleOptionComplex):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionComboBox.StyleOptionType = ... # 0xf0004
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionComboBox.StyleOptionVersion = ... # 0x1
 
@@ -6815,12 +6816,12 @@ class QStyleOptionComboBox(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionComplex(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionComplex.StyleOptionType = ... # 0xf0000
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionComplex.StyleOptionVersion = ... # 0x1
 
@@ -6833,12 +6834,12 @@ class QStyleOptionComplex(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionDockWidget(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionDockWidget.StyleOptionType = ... # 0x9
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionDockWidget.StyleOptionVersion = ... # 0x1
 
@@ -6853,12 +6854,12 @@ class QStyleOptionDockWidget(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionFocusRect(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionFocusRect.StyleOptionType = ... # 0x1
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionFocusRect.StyleOptionVersion = ... # 0x1
 
@@ -6873,19 +6874,19 @@ class QStyleOptionFocusRect(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionFrame(PySide6.QtWidgets.QStyleOption):
 
-    class FrameFeature(shibokensupport.enum_310.Flag):
+    class FrameFeature(enum.Flag):
 
         None_                    : QStyleOptionFrame.FrameFeature = ... # 0x0
         Flat                     : QStyleOptionFrame.FrameFeature = ... # 0x1
         Rounded                  : QStyleOptionFrame.FrameFeature = ... # 0x2
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionFrame.StyleOptionType = ... # 0x5
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionFrame.StyleOptionVersion = ... # 0x1
 
@@ -6900,12 +6901,12 @@ class QStyleOptionFrame(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionGraphicsItem(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionGraphicsItem.StyleOptionType = ... # 0xf
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionGraphicsItem.StyleOptionVersion = ... # 0x1
 
@@ -6923,12 +6924,12 @@ class QStyleOptionGraphicsItem(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionGroupBox(PySide6.QtWidgets.QStyleOptionComplex):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionGroupBox.StyleOptionType = ... # 0xf0006
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionGroupBox.StyleOptionVersion = ... # 0x1
 
@@ -6943,7 +6944,7 @@ class QStyleOptionGroupBox(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
 
-    class SectionPosition(shibokensupport.enum_310.Enum):
+    class SectionPosition(enum.Enum):
 
         Beginning                : QStyleOptionHeader.SectionPosition = ... # 0x0
         Middle                   : QStyleOptionHeader.SectionPosition = ... # 0x1
@@ -6951,7 +6952,7 @@ class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
         OnlyOneSection           : QStyleOptionHeader.SectionPosition = ... # 0x3
 
 
-    class SelectedPosition(shibokensupport.enum_310.Enum):
+    class SelectedPosition(enum.Enum):
 
         NotAdjacent              : QStyleOptionHeader.SelectedPosition = ... # 0x0
         NextIsSelected           : QStyleOptionHeader.SelectedPosition = ... # 0x1
@@ -6959,19 +6960,19 @@ class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
         NextAndPreviousAreSelected: QStyleOptionHeader.SelectedPosition = ... # 0x3
 
 
-    class SortIndicator(shibokensupport.enum_310.Enum):
+    class SortIndicator(enum.Enum):
 
         None_                    : QStyleOptionHeader.SortIndicator = ... # 0x0
         SortUp                   : QStyleOptionHeader.SortIndicator = ... # 0x1
         SortDown                 : QStyleOptionHeader.SortIndicator = ... # 0x2
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionHeader.StyleOptionType = ... # 0x8
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionHeader.StyleOptionVersion = ... # 0x1
 
@@ -6986,12 +6987,12 @@ class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionHeaderV2(PySide6.QtWidgets.QStyleOptionHeader):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionHeaderV2.StyleOptionType = ... # 0x8
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionHeaderV2.StyleOptionVersion = ... # 0x2
 
@@ -7006,14 +7007,14 @@ class QStyleOptionHeaderV2(PySide6.QtWidgets.QStyleOptionHeader):
 
 class QStyleOptionMenuItem(PySide6.QtWidgets.QStyleOption):
 
-    class CheckType(shibokensupport.enum_310.Enum):
+    class CheckType(enum.Enum):
 
         NotCheckable             : QStyleOptionMenuItem.CheckType = ... # 0x0
         Exclusive                : QStyleOptionMenuItem.CheckType = ... # 0x1
         NonExclusive             : QStyleOptionMenuItem.CheckType = ... # 0x2
 
 
-    class MenuItemType(shibokensupport.enum_310.Enum):
+    class MenuItemType(enum.Enum):
 
         Normal                   : QStyleOptionMenuItem.MenuItemType = ... # 0x0
         DefaultItem              : QStyleOptionMenuItem.MenuItemType = ... # 0x1
@@ -7025,12 +7026,12 @@ class QStyleOptionMenuItem(PySide6.QtWidgets.QStyleOption):
         EmptyArea                : QStyleOptionMenuItem.MenuItemType = ... # 0x7
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionMenuItem.StyleOptionType = ... # 0x4
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionMenuItem.StyleOptionVersion = ... # 0x1
 
@@ -7045,12 +7046,12 @@ class QStyleOptionMenuItem(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionProgressBar(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionProgressBar.StyleOptionType = ... # 0x6
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionProgressBar.StyleOptionVersion = ... # 0x1
 
@@ -7065,12 +7066,12 @@ class QStyleOptionProgressBar(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionRubberBand(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionRubberBand.StyleOptionType = ... # 0xd
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionRubberBand.StyleOptionVersion = ... # 0x1
 
@@ -7085,12 +7086,12 @@ class QStyleOptionRubberBand(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionSizeGrip(PySide6.QtWidgets.QStyleOptionComplex):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionSizeGrip.StyleOptionType = ... # 0xf0007
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionSizeGrip.StyleOptionVersion = ... # 0x1
 
@@ -7105,12 +7106,12 @@ class QStyleOptionSizeGrip(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionSlider(PySide6.QtWidgets.QStyleOptionComplex):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionSlider.StyleOptionType = ... # 0xf0001
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionSlider.StyleOptionVersion = ... # 0x1
 
@@ -7125,12 +7126,12 @@ class QStyleOptionSlider(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionSpinBox(PySide6.QtWidgets.QStyleOptionComplex):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionSpinBox.StyleOptionType = ... # 0xf0002
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionSpinBox.StyleOptionVersion = ... # 0x1
 
@@ -7145,37 +7146,37 @@ class QStyleOptionSpinBox(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionTab(PySide6.QtWidgets.QStyleOption):
 
-    class CornerWidget(shibokensupport.enum_310.Flag):
+    class CornerWidget(enum.Flag):
 
         NoCornerWidgets          : QStyleOptionTab.CornerWidget = ... # 0x0
         LeftCornerWidget         : QStyleOptionTab.CornerWidget = ... # 0x1
         RightCornerWidget        : QStyleOptionTab.CornerWidget = ... # 0x2
 
 
-    class SelectedPosition(shibokensupport.enum_310.Enum):
+    class SelectedPosition(enum.Enum):
 
         NotAdjacent              : QStyleOptionTab.SelectedPosition = ... # 0x0
         NextIsSelected           : QStyleOptionTab.SelectedPosition = ... # 0x1
         PreviousIsSelected       : QStyleOptionTab.SelectedPosition = ... # 0x2
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionTab.StyleOptionType = ... # 0x3
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionTab.StyleOptionVersion = ... # 0x1
 
 
-    class TabFeature(shibokensupport.enum_310.Flag):
+    class TabFeature(enum.Flag):
 
         None_                    : QStyleOptionTab.TabFeature = ... # 0x0
         HasFrame                 : QStyleOptionTab.TabFeature = ... # 0x1
 
 
-    class TabPosition(shibokensupport.enum_310.Enum):
+    class TabPosition(enum.Enum):
 
         Beginning                : QStyleOptionTab.TabPosition = ... # 0x0
         Middle                   : QStyleOptionTab.TabPosition = ... # 0x1
@@ -7193,12 +7194,12 @@ class QStyleOptionTab(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionTabBarBase(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionTabBarBase.StyleOptionType = ... # 0xc
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionTabBarBase.StyleOptionVersion = ... # 0x1
 
@@ -7213,12 +7214,12 @@ class QStyleOptionTabBarBase(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionTabWidgetFrame(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionTabWidgetFrame.StyleOptionType = ... # 0xb
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionTabWidgetFrame.StyleOptionVersion = ... # 0x1
 
@@ -7233,12 +7234,12 @@ class QStyleOptionTabWidgetFrame(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionTitleBar(PySide6.QtWidgets.QStyleOptionComplex):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionTitleBar.StyleOptionType = ... # 0xf0005
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionTitleBar.StyleOptionVersion = ... # 0x1
 
@@ -7253,23 +7254,23 @@ class QStyleOptionTitleBar(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionToolBar(PySide6.QtWidgets.QStyleOption):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionToolBar.StyleOptionType = ... # 0xe
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionToolBar.StyleOptionVersion = ... # 0x1
 
 
-    class ToolBarFeature(shibokensupport.enum_310.Flag):
+    class ToolBarFeature(enum.Flag):
 
         None_                    : QStyleOptionToolBar.ToolBarFeature = ... # 0x0
         Movable                  : QStyleOptionToolBar.ToolBarFeature = ... # 0x1
 
 
-    class ToolBarPosition(shibokensupport.enum_310.Enum):
+    class ToolBarPosition(enum.Enum):
 
         Beginning                : QStyleOptionToolBar.ToolBarPosition = ... # 0x0
         Middle                   : QStyleOptionToolBar.ToolBarPosition = ... # 0x1
@@ -7287,24 +7288,24 @@ class QStyleOptionToolBar(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionToolBox(PySide6.QtWidgets.QStyleOption):
 
-    class SelectedPosition(shibokensupport.enum_310.Enum):
+    class SelectedPosition(enum.Enum):
 
         NotAdjacent              : QStyleOptionToolBox.SelectedPosition = ... # 0x0
         NextIsSelected           : QStyleOptionToolBox.SelectedPosition = ... # 0x1
         PreviousIsSelected       : QStyleOptionToolBox.SelectedPosition = ... # 0x2
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionToolBox.StyleOptionType = ... # 0x7
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionToolBox.StyleOptionVersion = ... # 0x1
 
 
-    class TabPosition(shibokensupport.enum_310.Enum):
+    class TabPosition(enum.Enum):
 
         Beginning                : QStyleOptionToolBox.TabPosition = ... # 0x0
         Middle                   : QStyleOptionToolBox.TabPosition = ... # 0x1
@@ -7322,17 +7323,17 @@ class QStyleOptionToolBox(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionToolButton(PySide6.QtWidgets.QStyleOptionComplex):
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionToolButton.StyleOptionType = ... # 0xf0003
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionToolButton.StyleOptionVersion = ... # 0x1
 
 
-    class ToolButtonFeature(shibokensupport.enum_310.Flag):
+    class ToolButtonFeature(enum.Flag):
 
         None_                    : QStyleOptionToolButton.ToolButtonFeature = ... # 0x0
         Arrow                    : QStyleOptionToolButton.ToolButtonFeature = ... # 0x1
@@ -7352,7 +7353,7 @@ class QStyleOptionToolButton(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionViewItem(PySide6.QtWidgets.QStyleOption):
 
-    class Position(shibokensupport.enum_310.Enum):
+    class Position(enum.Enum):
 
         Left                     : QStyleOptionViewItem.Position = ... # 0x0
         Right                    : QStyleOptionViewItem.Position = ... # 0x1
@@ -7360,17 +7361,17 @@ class QStyleOptionViewItem(PySide6.QtWidgets.QStyleOption):
         Bottom                   : QStyleOptionViewItem.Position = ... # 0x3
 
 
-    class StyleOptionType(shibokensupport.enum_310.Enum):
+    class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionViewItem.StyleOptionType = ... # 0xa
 
 
-    class StyleOptionVersion(shibokensupport.enum_310.Enum):
+    class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionViewItem.StyleOptionVersion = ... # 0x1
 
 
-    class ViewItemFeature(shibokensupport.enum_310.Flag):
+    class ViewItemFeature(enum.Flag):
 
         None_                    : QStyleOptionViewItem.ViewItemFeature = ... # 0x0
         WrapText                 : QStyleOptionViewItem.ViewItemFeature = ... # 0x1
@@ -7380,7 +7381,7 @@ class QStyleOptionViewItem(PySide6.QtWidgets.QStyleOption):
         HasDecoration            : QStyleOptionViewItem.ViewItemFeature = ... # 0x10
 
 
-    class ViewItemPosition(shibokensupport.enum_310.Enum):
+    class ViewItemPosition(enum.Enum):
 
         Invalid                  : QStyleOptionViewItem.ViewItemPosition = ... # 0x0
         Beginning                : QStyleOptionViewItem.ViewItemPosition = ... # 0x1
@@ -7441,7 +7442,7 @@ class QStyledItemDelegate(PySide6.QtWidgets.QAbstractItemDelegate):
 
 class QSwipeGesture(PySide6.QtWidgets.QGesture):
 
-    class SwipeDirection(shibokensupport.enum_310.Enum):
+    class SwipeDirection(enum.Enum):
 
         NoDirection              : QSwipeGesture.SwipeDirection = ... # 0x0
         Left                     : QSwipeGesture.SwipeDirection = ... # 0x1
@@ -7460,7 +7461,7 @@ class QSwipeGesture(PySide6.QtWidgets.QGesture):
 
 class QSystemTrayIcon(PySide6.QtCore.QObject):
 
-    class ActivationReason(shibokensupport.enum_310.Enum):
+    class ActivationReason(enum.Enum):
 
         Unknown                  : QSystemTrayIcon.ActivationReason = ... # 0x0
         Context                  : QSystemTrayIcon.ActivationReason = ... # 0x1
@@ -7469,7 +7470,7 @@ class QSystemTrayIcon(PySide6.QtCore.QObject):
         MiddleClick              : QSystemTrayIcon.ActivationReason = ... # 0x4
 
 
-    class MessageIcon(shibokensupport.enum_310.Enum):
+    class MessageIcon(enum.Enum):
 
         NoIcon                   : QSystemTrayIcon.MessageIcon = ... # 0x0
         Information              : QSystemTrayIcon.MessageIcon = ... # 0x1
@@ -7506,20 +7507,20 @@ class QSystemTrayIcon(PySide6.QtCore.QObject):
 
 class QTabBar(PySide6.QtWidgets.QWidget):
 
-    class ButtonPosition(shibokensupport.enum_310.Enum):
+    class ButtonPosition(enum.Enum):
 
         LeftSide                 : QTabBar.ButtonPosition = ... # 0x0
         RightSide                : QTabBar.ButtonPosition = ... # 0x1
 
 
-    class SelectionBehavior(shibokensupport.enum_310.Enum):
+    class SelectionBehavior(enum.Enum):
 
         SelectLeftTab            : QTabBar.SelectionBehavior = ... # 0x0
         SelectRightTab           : QTabBar.SelectionBehavior = ... # 0x1
         SelectPreviousTab        : QTabBar.SelectionBehavior = ... # 0x2
 
 
-    class Shape(shibokensupport.enum_310.Enum):
+    class Shape(enum.Enum):
 
         RoundedNorth             : QTabBar.Shape = ... # 0x0
         RoundedSouth             : QTabBar.Shape = ... # 0x1
@@ -7617,7 +7618,7 @@ class QTabBar(PySide6.QtWidgets.QWidget):
 
 class QTabWidget(PySide6.QtWidgets.QWidget):
 
-    class TabPosition(shibokensupport.enum_310.Enum):
+    class TabPosition(enum.Enum):
 
         North                    : QTabWidget.TabPosition = ... # 0x0
         South                    : QTabWidget.TabPosition = ... # 0x1
@@ -7625,7 +7626,7 @@ class QTabWidget(PySide6.QtWidgets.QWidget):
         East                     : QTabWidget.TabPosition = ... # 0x3
 
 
-    class TabShape(shibokensupport.enum_310.Enum):
+    class TabShape(enum.Enum):
 
         Rounded                  : QTabWidget.TabShape = ... # 0x0
         Triangular               : QTabWidget.TabShape = ... # 0x1
@@ -7857,7 +7858,7 @@ class QTableWidget(PySide6.QtWidgets.QTableView):
 
 class QTableWidgetItem(Shiboken.Object):
 
-    class ItemType(shibokensupport.enum_310.IntEnum):
+    class ItemType(enum.IntEnum):
 
         Type                     : QTableWidgetItem.ItemType = ... # 0x0
         UserType                 : QTableWidgetItem.ItemType = ... # 0x3e8
@@ -7993,7 +7994,7 @@ class QTextBrowser(PySide6.QtWidgets.QTextEdit):
 
 class QTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
 
-    class AutoFormattingFlag(shibokensupport.enum_310.Flag):
+    class AutoFormattingFlag(enum.Flag):
 
         AutoNone                 : QTextEdit.AutoFormattingFlag = ... # 0x0
         AutoBulletList           : QTextEdit.AutoFormattingFlag = ... # 0x1
@@ -8010,7 +8011,7 @@ class QTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
         @staticmethod
         def __copy__() -> None: ...
 
-    class LineWrapMode(shibokensupport.enum_310.Enum):
+    class LineWrapMode(enum.Enum):
 
         NoWrap                   : QTextEdit.LineWrapMode = ... # 0x0
         WidgetWidth              : QTextEdit.LineWrapMode = ... # 0x1
@@ -8249,7 +8250,7 @@ class QToolBox(PySide6.QtWidgets.QFrame):
 
 class QToolButton(PySide6.QtWidgets.QAbstractButton):
 
-    class ToolButtonPopupMode(shibokensupport.enum_310.Enum):
+    class ToolButtonPopupMode(enum.Enum):
 
         DelayedPopup             : QToolButton.ToolButtonPopupMode = ... # 0x0
         MenuButtonPopup          : QToolButton.ToolButtonPopupMode = ... # 0x1
@@ -8475,14 +8476,14 @@ class QTreeWidget(PySide6.QtWidgets.QTreeView):
 
 class QTreeWidgetItem(Shiboken.Object):
 
-    class ChildIndicatorPolicy(shibokensupport.enum_310.Enum):
+    class ChildIndicatorPolicy(enum.Enum):
 
         ShowIndicator            : QTreeWidgetItem.ChildIndicatorPolicy = ... # 0x0
         DontShowIndicator        : QTreeWidgetItem.ChildIndicatorPolicy = ... # 0x1
         DontShowIndicatorWhenChildless: QTreeWidgetItem.ChildIndicatorPolicy = ... # 0x2
 
 
-    class ItemType(shibokensupport.enum_310.IntEnum):
+    class ItemType(enum.IntEnum):
 
         Type                     : QTreeWidgetItem.ItemType = ... # 0x0
         UserType                 : QTreeWidgetItem.ItemType = ... # 0x3e8
@@ -8575,7 +8576,7 @@ class QTreeWidgetItem(Shiboken.Object):
 
 class QTreeWidgetItemIterator(Shiboken.Object):
 
-    class IteratorFlag(shibokensupport.enum_310.Flag):
+    class IteratorFlag(enum.Flag):
 
         All                      : QTreeWidgetItemIterator.IteratorFlag = ... # 0x0
         Hidden                   : QTreeWidgetItemIterator.IteratorFlag = ... # 0x1
@@ -8659,7 +8660,7 @@ class QWhatsThis(Shiboken.Object):
 
 class QWidget(PySide6.QtCore.QObject, PySide6.QtGui.QPaintDevice):
 
-    class RenderFlag(shibokensupport.enum_310.Flag):
+    class RenderFlag(enum.Flag):
 
         DrawWindowBackground     : QWidget.RenderFlag = ... # 0x1
         DrawChildren             : QWidget.RenderFlag = ... # 0x2
@@ -9079,7 +9080,7 @@ class QWidgetItem(PySide6.QtWidgets.QLayoutItem):
 
 class QWizard(PySide6.QtWidgets.QDialog):
 
-    class WizardButton(shibokensupport.enum_310.Enum):
+    class WizardButton(enum.Enum):
 
         NoButton                 : QWizard.WizardButton = ... # -0x1
         BackButton               : QWizard.WizardButton = ... # 0x0
@@ -9096,7 +9097,7 @@ class QWizard(PySide6.QtWidgets.QDialog):
         Stretch                  : QWizard.WizardButton = ... # 0x9
 
 
-    class WizardOption(shibokensupport.enum_310.Flag):
+    class WizardOption(enum.Flag):
 
         IndependentPages         : QWizard.WizardOption = ... # 0x1
         IgnoreSubTitles          : QWizard.WizardOption = ... # 0x2
@@ -9117,7 +9118,7 @@ class QWizard(PySide6.QtWidgets.QDialog):
         NoCancelButtonOnLastPage : QWizard.WizardOption = ... # 0x10000
 
 
-    class WizardPixmap(shibokensupport.enum_310.Enum):
+    class WizardPixmap(enum.Enum):
 
         WatermarkPixmap          : QWizard.WizardPixmap = ... # 0x0
         LogoPixmap               : QWizard.WizardPixmap = ... # 0x1
@@ -9126,7 +9127,7 @@ class QWizard(PySide6.QtWidgets.QDialog):
         NPixmaps                 : QWizard.WizardPixmap = ... # 0x4
 
 
-    class WizardStyle(shibokensupport.enum_310.Enum):
+    class WizardStyle(enum.Enum):
 
         ClassicStyle             : QWizard.WizardStyle = ... # 0x0
         ModernStyle              : QWizard.WizardStyle = ... # 0x1

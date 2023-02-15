@@ -14,6 +14,7 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
+import enum
 from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -228,7 +229,7 @@ class QHelpSearchEngine(PySide6.QtCore.QObject):
 
 class QHelpSearchQuery(Shiboken.Object):
 
-    class FieldName(shibokensupport.enum_310.Enum):
+    class FieldName(enum.Enum):
 
         DEFAULT                  : QHelpSearchQuery.FieldName = ... # 0x0
         FUZZY                    : QHelpSearchQuery.FieldName = ... # 0x1

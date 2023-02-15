@@ -12,6 +12,7 @@ PySide6.QtNetwork, except for defaults which are replaced by "...".
 import PySide6.QtNetwork
 import PySide6.QtCore
 
+import enum
 from typing import Any, Callable, Optional, Tuple, Type, Union, Sequence, Dict, List, OrderedDict, overload
 from shiboken6 import Shiboken
 
@@ -32,7 +33,7 @@ class QAbstractNetworkCache(PySide6.QtCore.QObject):
 
 class QAbstractSocket(PySide6.QtCore.QIODevice):
 
-    class BindFlag(shibokensupport.enum_310.Flag):
+    class BindFlag(enum.Flag):
 
         DefaultForPlatform       : QAbstractSocket.BindFlag = ... # 0x0
         ShareAddress             : QAbstractSocket.BindFlag = ... # 0x1
@@ -40,7 +41,7 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         ReuseAddressHint         : QAbstractSocket.BindFlag = ... # 0x4
 
 
-    class NetworkLayerProtocol(shibokensupport.enum_310.Enum):
+    class NetworkLayerProtocol(enum.Enum):
 
         UnknownNetworkLayerProtocol: QAbstractSocket.NetworkLayerProtocol = ... # -0x1
         IPv4Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x0
@@ -48,13 +49,13 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         AnyIPProtocol            : QAbstractSocket.NetworkLayerProtocol = ... # 0x2
 
 
-    class PauseMode(shibokensupport.enum_310.Flag):
+    class PauseMode(enum.Flag):
 
         PauseNever               : QAbstractSocket.PauseMode = ... # 0x0
         PauseOnSslErrors         : QAbstractSocket.PauseMode = ... # 0x1
 
 
-    class SocketError(shibokensupport.enum_310.Enum):
+    class SocketError(enum.Enum):
 
         UnknownSocketError       : QAbstractSocket.SocketError = ... # -0x1
         ConnectionRefusedError   : QAbstractSocket.SocketError = ... # 0x0
@@ -82,7 +83,7 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         TemporaryError           : QAbstractSocket.SocketError = ... # 0x16
 
 
-    class SocketOption(shibokensupport.enum_310.Enum):
+    class SocketOption(enum.Enum):
 
         LowDelayOption           : QAbstractSocket.SocketOption = ... # 0x0
         KeepAliveOption          : QAbstractSocket.SocketOption = ... # 0x1
@@ -94,7 +95,7 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         PathMtuSocketOption      : QAbstractSocket.SocketOption = ... # 0x7
 
 
-    class SocketState(shibokensupport.enum_310.Enum):
+    class SocketState(enum.Enum):
 
         UnconnectedState         : QAbstractSocket.SocketState = ... # 0x0
         HostLookupState          : QAbstractSocket.SocketState = ... # 0x1
@@ -105,7 +106,7 @@ class QAbstractSocket(PySide6.QtCore.QIODevice):
         ClosingState             : QAbstractSocket.SocketState = ... # 0x6
 
 
-    class SocketType(shibokensupport.enum_310.Enum):
+    class SocketType(enum.Enum):
 
         UnknownSocketType        : QAbstractSocket.SocketType = ... # -0x1
         TcpSocket                : QAbstractSocket.SocketType = ... # 0x0
@@ -222,7 +223,7 @@ class QDnsHostAddressRecord(Shiboken.Object):
 
 class QDnsLookup(PySide6.QtCore.QObject):
 
-    class Error(shibokensupport.enum_310.Enum):
+    class Error(enum.Enum):
 
         NoError                  : QDnsLookup.Error = ... # 0x0
         ResolverError            : QDnsLookup.Error = ... # 0x1
@@ -234,7 +235,7 @@ class QDnsLookup(PySide6.QtCore.QObject):
         NotFoundError            : QDnsLookup.Error = ... # 0x7
 
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         A                        : QDnsLookup.Type = ... # 0x1
         NS                       : QDnsLookup.Type = ... # 0x2
@@ -325,7 +326,7 @@ class QDnsTextRecord(Shiboken.Object):
 
 class QDtls(PySide6.QtCore.QObject):
 
-    class HandshakeState(shibokensupport.enum_310.Enum):
+    class HandshakeState(enum.Enum):
 
         HandshakeNotStarted      : QDtls.HandshakeState = ... # 0x0
         HandshakeInProgress      : QDtls.HandshakeState = ... # 0x1
@@ -372,7 +373,7 @@ class QDtlsClientVerifier(PySide6.QtCore.QObject):
     def verifyClient(self, socket: PySide6.QtNetwork.QUdpSocket, dgram: Union[PySide6.QtCore.QByteArray, bytes], address: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], port: int) -> bool: ...
 
 
-class QDtlsError(shibokensupport.enum_310.Enum):
+class QDtlsError(enum.Enum):
 
     NoError                  : QDtlsError = ... # 0x0
     InvalidInputParameters   : QDtlsError = ... # 0x1
@@ -392,7 +393,7 @@ class QHostAddress(Shiboken.Object):
     IPv6Protocol             : QAbstractSocket.NetworkLayerProtocol = ... # 0x1
     AnyIPProtocol            : QAbstractSocket.NetworkLayerProtocol = ... # 0x2
 
-    class ConversionModeFlag(shibokensupport.enum_310.Flag):
+    class ConversionModeFlag(enum.Flag):
 
         StrictConversion         : QHostAddress.ConversionModeFlag = ... # 0x0
         ConvertV4MappedToIPv4    : QHostAddress.ConversionModeFlag = ... # 0x1
@@ -402,7 +403,7 @@ class QHostAddress(Shiboken.Object):
         TolerantConversion       : QHostAddress.ConversionModeFlag = ... # 0xff
 
 
-    class SpecialAddress(shibokensupport.enum_310.Enum):
+    class SpecialAddress(enum.Enum):
 
         Null                     : QHostAddress.SpecialAddress = ... # 0x0
         Broadcast                : QHostAddress.SpecialAddress = ... # 0x1
@@ -465,7 +466,7 @@ class QHostAddress(Shiboken.Object):
 
 class QHostInfo(Shiboken.Object):
 
-    class HostInfoError(shibokensupport.enum_310.Enum):
+    class HostInfoError(enum.Enum):
 
         NoError                  : QHostInfo.HostInfoError = ... # 0x0
         HostNotFound             : QHostInfo.HostInfoError = ... # 0x1
@@ -507,7 +508,7 @@ class QHostInfo(Shiboken.Object):
 
 class QHstsPolicy(Shiboken.Object):
 
-    class PolicyFlag(shibokensupport.enum_310.Flag):
+    class PolicyFlag(enum.Flag):
 
         IncludeSubDomains        : QHstsPolicy.PolicyFlag = ... # 0x1
 
@@ -555,7 +556,7 @@ class QHttp2Configuration(Shiboken.Object):
 
 class QHttpMultiPart(PySide6.QtCore.QObject):
 
-    class ContentType(shibokensupport.enum_310.Enum):
+    class ContentType(enum.Enum):
 
         MixedType                : QHttpMultiPart.ContentType = ... # 0x0
         RelatedType              : QHttpMultiPart.ContentType = ... # 0x1
@@ -606,7 +607,7 @@ class QIntList(object): ...
 
 class QLocalServer(PySide6.QtCore.QObject):
 
-    class SocketOption(shibokensupport.enum_310.Flag):
+    class SocketOption(enum.Flag):
 
         NoOptions                : QLocalServer.SocketOption = ... # 0x0
         UserAccessOption         : QLocalServer.SocketOption = ... # 0x1
@@ -645,7 +646,7 @@ class QLocalServer(PySide6.QtCore.QObject):
 
 class QLocalSocket(PySide6.QtCore.QIODevice):
 
-    class LocalSocketError(shibokensupport.enum_310.Enum):
+    class LocalSocketError(enum.Enum):
 
         UnknownSocketError       : QLocalSocket.LocalSocketError = ... # -0x1
         ConnectionRefusedError   : QLocalSocket.LocalSocketError = ... # 0x0
@@ -660,7 +661,7 @@ class QLocalSocket(PySide6.QtCore.QIODevice):
         OperationError           : QLocalSocket.LocalSocketError = ... # 0x13
 
 
-    class LocalSocketState(shibokensupport.enum_310.Enum):
+    class LocalSocketState(enum.Enum):
 
         UnconnectedState         : QLocalSocket.LocalSocketState = ... # 0x0
         ConnectingState          : QLocalSocket.LocalSocketState = ... # 0x2
@@ -668,7 +669,7 @@ class QLocalSocket(PySide6.QtCore.QIODevice):
         ClosingState             : QLocalSocket.LocalSocketState = ... # 0x6
 
 
-    class SocketOption(shibokensupport.enum_310.Flag):
+    class SocketOption(enum.Flag):
 
         NoOptions                : QLocalSocket.SocketOption = ... # 0x0
         AbstractNamespaceOption  : QLocalSocket.SocketOption = ... # 0x1
@@ -713,7 +714,7 @@ class QLocalSocket(PySide6.QtCore.QIODevice):
 
 class QNetworkAccessManager(PySide6.QtCore.QObject):
 
-    class Operation(shibokensupport.enum_310.Enum):
+    class Operation(enum.Enum):
 
         UnknownOperation         : QNetworkAccessManager.Operation = ... # 0x0
         HeadOperation            : QNetworkAccessManager.Operation = ... # 0x1
@@ -781,7 +782,7 @@ class QNetworkAccessManager(PySide6.QtCore.QObject):
 
 class QNetworkAddressEntry(Shiboken.Object):
 
-    class DnsEligibilityStatus(shibokensupport.enum_310.Enum):
+    class DnsEligibilityStatus(enum.Enum):
 
         DnsEligibilityUnknown    : QNetworkAddressEntry.DnsEligibilityStatus = ... # -0x1
         DnsIneligible            : QNetworkAddressEntry.DnsEligibilityStatus = ... # 0x0
@@ -844,13 +845,13 @@ class QNetworkCacheMetaData(Shiboken.Object):
 
 class QNetworkCookie(Shiboken.Object):
 
-    class RawForm(shibokensupport.enum_310.Enum):
+    class RawForm(enum.Enum):
 
         NameAndValueOnly         : QNetworkCookie.RawForm = ... # 0x0
         Full                     : QNetworkCookie.RawForm = ... # 0x1
 
 
-    class SameSite(shibokensupport.enum_310.Enum):
+    class SameSite(enum.Enum):
 
         Default                  : QNetworkCookie.SameSite = ... # 0x0
         None_                    : QNetworkCookie.SameSite = ... # 0x1
@@ -956,7 +957,7 @@ class QNetworkDiskCache(PySide6.QtNetwork.QAbstractNetworkCache):
 
 class QNetworkInformation(PySide6.QtCore.QObject):
 
-    class Feature(shibokensupport.enum_310.Flag):
+    class Feature(enum.Flag):
 
         Reachability             : QNetworkInformation.Feature = ... # 0x1
         CaptivePortal            : QNetworkInformation.Feature = ... # 0x2
@@ -964,7 +965,7 @@ class QNetworkInformation(PySide6.QtCore.QObject):
         Metered                  : QNetworkInformation.Feature = ... # 0x8
 
 
-    class Reachability(shibokensupport.enum_310.Enum):
+    class Reachability(enum.Enum):
 
         Unknown                  : QNetworkInformation.Reachability = ... # 0x0
         Disconnected             : QNetworkInformation.Reachability = ... # 0x1
@@ -973,7 +974,7 @@ class QNetworkInformation(PySide6.QtCore.QObject):
         Online                   : QNetworkInformation.Reachability = ... # 0x4
 
 
-    class TransportMedium(shibokensupport.enum_310.Enum):
+    class TransportMedium(enum.Enum):
 
         Unknown                  : QNetworkInformation.TransportMedium = ... # 0x0
         Ethernet                 : QNetworkInformation.TransportMedium = ... # 0x1
@@ -1009,7 +1010,7 @@ class QNetworkInformation(PySide6.QtCore.QObject):
 
 class QNetworkInterface(Shiboken.Object):
 
-    class InterfaceFlag(shibokensupport.enum_310.Flag):
+    class InterfaceFlag(enum.Flag):
 
         IsUp                     : QNetworkInterface.InterfaceFlag = ... # 0x1
         IsRunning                : QNetworkInterface.InterfaceFlag = ... # 0x2
@@ -1019,7 +1020,7 @@ class QNetworkInterface(Shiboken.Object):
         CanMulticast             : QNetworkInterface.InterfaceFlag = ... # 0x20
 
 
-    class InterfaceType(shibokensupport.enum_310.Enum):
+    class InterfaceType(enum.Enum):
 
         Unknown                  : QNetworkInterface.InterfaceType = ... # 0x0
         Loopback                 : QNetworkInterface.InterfaceType = ... # 0x1
@@ -1071,7 +1072,7 @@ class QNetworkInterface(Shiboken.Object):
 
 class QNetworkProxy(Shiboken.Object):
 
-    class Capability(shibokensupport.enum_310.Flag):
+    class Capability(enum.Flag):
 
         TunnelingCapability      : QNetworkProxy.Capability = ... # 0x1
         ListeningCapability      : QNetworkProxy.Capability = ... # 0x2
@@ -1082,7 +1083,7 @@ class QNetworkProxy(Shiboken.Object):
         SctpListeningCapability  : QNetworkProxy.Capability = ... # 0x40
 
 
-    class ProxyType(shibokensupport.enum_310.Enum):
+    class ProxyType(enum.Enum):
 
         DefaultProxy             : QNetworkProxy.ProxyType = ... # 0x0
         Socks5Proxy              : QNetworkProxy.ProxyType = ... # 0x1
@@ -1147,7 +1148,7 @@ class QNetworkProxyFactory(Shiboken.Object):
 
 class QNetworkProxyQuery(Shiboken.Object):
 
-    class QueryType(shibokensupport.enum_310.Enum):
+    class QueryType(enum.Enum):
 
         TcpSocket                : QNetworkProxyQuery.QueryType = ... # 0x0
         UdpSocket                : QNetworkProxyQuery.QueryType = ... # 0x1
@@ -1187,7 +1188,7 @@ class QNetworkProxyQuery(Shiboken.Object):
 
 class QNetworkReply(PySide6.QtCore.QIODevice):
 
-    class NetworkError(shibokensupport.enum_310.Enum):
+    class NetworkError(enum.Enum):
 
         NoError                  : QNetworkReply.NetworkError = ... # 0x0
         ConnectionRefusedError   : QNetworkReply.NetworkError = ... # 0x1
@@ -1267,7 +1268,7 @@ class QNetworkReply(PySide6.QtCore.QIODevice):
 
 class QNetworkRequest(Shiboken.Object):
 
-    class Attribute(shibokensupport.enum_310.Enum):
+    class Attribute(enum.Enum):
 
         HttpStatusCodeAttribute  : QNetworkRequest.Attribute = ... # 0x0
         HttpReasonPhraseAttribute: QNetworkRequest.Attribute = ... # 0x1
@@ -1301,7 +1302,7 @@ class QNetworkRequest(Shiboken.Object):
         UserMax                  : QNetworkRequest.Attribute = ... # 0x7fff
 
 
-    class CacheLoadControl(shibokensupport.enum_310.Enum):
+    class CacheLoadControl(enum.Enum):
 
         AlwaysNetwork            : QNetworkRequest.CacheLoadControl = ... # 0x0
         PreferNetwork            : QNetworkRequest.CacheLoadControl = ... # 0x1
@@ -1309,7 +1310,7 @@ class QNetworkRequest(Shiboken.Object):
         AlwaysCache              : QNetworkRequest.CacheLoadControl = ... # 0x3
 
 
-    class KnownHeaders(shibokensupport.enum_310.Enum):
+    class KnownHeaders(enum.Enum):
 
         ContentTypeHeader        : QNetworkRequest.KnownHeaders = ... # 0x0
         ContentLengthHeader      : QNetworkRequest.KnownHeaders = ... # 0x1
@@ -1326,20 +1327,20 @@ class QNetworkRequest(Shiboken.Object):
         IfNoneMatchHeader        : QNetworkRequest.KnownHeaders = ... # 0xc
 
 
-    class LoadControl(shibokensupport.enum_310.Enum):
+    class LoadControl(enum.Enum):
 
         Automatic                : QNetworkRequest.LoadControl = ... # 0x0
         Manual                   : QNetworkRequest.LoadControl = ... # 0x1
 
 
-    class Priority(shibokensupport.enum_310.Enum):
+    class Priority(enum.Enum):
 
         HighPriority             : QNetworkRequest.Priority = ... # 0x1
         NormalPriority           : QNetworkRequest.Priority = ... # 0x3
         LowPriority              : QNetworkRequest.Priority = ... # 0x5
 
 
-    class RedirectPolicy(shibokensupport.enum_310.Enum):
+    class RedirectPolicy(enum.Enum):
 
         ManualRedirectPolicy     : QNetworkRequest.RedirectPolicy = ... # 0x0
         NoLessSafeRedirectPolicy : QNetworkRequest.RedirectPolicy = ... # 0x1
@@ -1347,7 +1348,7 @@ class QNetworkRequest(Shiboken.Object):
         UserVerifiedRedirectPolicy: QNetworkRequest.RedirectPolicy = ... # 0x3
 
 
-    class TransferTimeoutConstant(shibokensupport.enum_310.Enum):
+    class TransferTimeoutConstant(enum.Enum):
 
         DefaultTransferTimeoutConstant: QNetworkRequest.TransferTimeoutConstant = ... # 0x7530
 
@@ -1390,7 +1391,7 @@ class QNetworkRequest(Shiboken.Object):
     def url(self) -> PySide6.QtCore.QUrl: ...
 
 
-class QOcspCertificateStatus(shibokensupport.enum_310.Enum):
+class QOcspCertificateStatus(enum.Enum):
 
     Good                     : QOcspCertificateStatus = ... # 0x0
     Revoked                  : QOcspCertificateStatus = ... # 0x1
@@ -1412,7 +1413,7 @@ class QOcspResponse(Shiboken.Object):
     def swap(self, other: PySide6.QtNetwork.QOcspResponse) -> None: ...
 
 
-class QOcspRevocationReason(shibokensupport.enum_310.Enum):
+class QOcspRevocationReason(enum.Enum):
 
     None_                    : QOcspRevocationReason = ... # -0x1
     Unspecified              : QOcspRevocationReason = ... # 0x0
@@ -1434,14 +1435,14 @@ class QPasswordDigestor(Shiboken.Object):
 
 class QSsl(Shiboken.Object):
 
-    class AlertLevel(shibokensupport.enum_310.Enum):
+    class AlertLevel(enum.Enum):
 
         Warning                  : QSsl.AlertLevel = ... # 0x0
         Fatal                    : QSsl.AlertLevel = ... # 0x1
         Unknown                  : QSsl.AlertLevel = ... # 0x2
 
 
-    class AlertType(shibokensupport.enum_310.Enum):
+    class AlertType(enum.Enum):
 
         CloseNotify              : QSsl.AlertType = ... # 0x0
         UnexpectedMessage        : QSsl.AlertType = ... # 0xa
@@ -1479,20 +1480,20 @@ class QSsl(Shiboken.Object):
         UnknownAlertMessage      : QSsl.AlertType = ... # 0xff
 
 
-    class AlternativeNameEntryType(shibokensupport.enum_310.Enum):
+    class AlternativeNameEntryType(enum.Enum):
 
         EmailEntry               : QSsl.AlternativeNameEntryType = ... # 0x0
         DnsEntry                 : QSsl.AlternativeNameEntryType = ... # 0x1
         IpAddressEntry           : QSsl.AlternativeNameEntryType = ... # 0x2
 
 
-    class EncodingFormat(shibokensupport.enum_310.Enum):
+    class EncodingFormat(enum.Enum):
 
         Pem                      : QSsl.EncodingFormat = ... # 0x0
         Der                      : QSsl.EncodingFormat = ... # 0x1
 
 
-    class ImplementedClass(shibokensupport.enum_310.Enum):
+    class ImplementedClass(enum.Enum):
 
         Key                      : QSsl.ImplementedClass = ... # 0x0
         Certificate              : QSsl.ImplementedClass = ... # 0x1
@@ -1503,7 +1504,7 @@ class QSsl(Shiboken.Object):
         DtlsCookie               : QSsl.ImplementedClass = ... # 0x6
 
 
-    class KeyAlgorithm(shibokensupport.enum_310.Enum):
+    class KeyAlgorithm(enum.Enum):
 
         Opaque                   : QSsl.KeyAlgorithm = ... # 0x0
         Rsa                      : QSsl.KeyAlgorithm = ... # 0x1
@@ -1512,13 +1513,13 @@ class QSsl(Shiboken.Object):
         Dh                       : QSsl.KeyAlgorithm = ... # 0x4
 
 
-    class KeyType(shibokensupport.enum_310.Enum):
+    class KeyType(enum.Enum):
 
         PrivateKey               : QSsl.KeyType = ... # 0x0
         PublicKey                : QSsl.KeyType = ... # 0x1
 
 
-    class SslOption(shibokensupport.enum_310.Flag):
+    class SslOption(enum.Flag):
 
         SslOptionDisableEmptyFragments: QSsl.SslOption = ... # 0x1
         SslOptionDisableSessionTickets: QSsl.SslOption = ... # 0x2
@@ -1530,7 +1531,7 @@ class QSsl(Shiboken.Object):
         SslOptionDisableServerCipherPreference: QSsl.SslOption = ... # 0x80
 
 
-    class SslProtocol(shibokensupport.enum_310.Enum):
+    class SslProtocol(enum.Enum):
 
         UnknownProtocol          : QSsl.SslProtocol = ... # -0x1
         TlsV1_0                  : QSsl.SslProtocol = ... # 0x0
@@ -1549,7 +1550,7 @@ class QSsl(Shiboken.Object):
         TlsV1_3OrLater           : QSsl.SslProtocol = ... # 0xd
 
 
-    class SupportedFeature(shibokensupport.enum_310.Enum):
+    class SupportedFeature(enum.Enum):
 
         CertificateVerification  : QSsl.SupportedFeature = ... # 0x0
         ClientSideAlpn           : QSsl.SupportedFeature = ... # 0x1
@@ -1562,14 +1563,14 @@ class QSsl(Shiboken.Object):
 
 class QSslCertificate(Shiboken.Object):
 
-    class PatternSyntax(shibokensupport.enum_310.Enum):
+    class PatternSyntax(enum.Enum):
 
         RegularExpression        : QSslCertificate.PatternSyntax = ... # 0x0
         Wildcard                 : QSslCertificate.PatternSyntax = ... # 0x1
         FixedString              : QSslCertificate.PatternSyntax = ... # 0x2
 
 
-    class SubjectInfo(shibokensupport.enum_310.Enum):
+    class SubjectInfo(enum.Enum):
 
         Organization             : QSslCertificate.SubjectInfo = ... # 0x0
         CommonName               : QSslCertificate.SubjectInfo = ... # 0x1
@@ -1676,7 +1677,7 @@ class QSslCipher(Shiboken.Object):
 
 class QSslConfiguration(Shiboken.Object):
 
-    class NextProtocolNegotiationStatus(shibokensupport.enum_310.Enum):
+    class NextProtocolNegotiationStatus(enum.Enum):
 
         NextProtocolNegotiationNone: QSslConfiguration.NextProtocolNegotiationStatus = ... # 0x0
         NextProtocolNegotiationNegotiated: QSslConfiguration.NextProtocolNegotiationStatus = ... # 0x1
@@ -1765,7 +1766,7 @@ class QSslConfiguration(Shiboken.Object):
 
 class QSslDiffieHellmanParameters(Shiboken.Object):
 
-    class Error(shibokensupport.enum_310.Enum):
+    class Error(enum.Enum):
 
         NoError                  : QSslDiffieHellmanParameters.Error = ... # 0x0
         InvalidInputDataError    : QSslDiffieHellmanParameters.Error = ... # 0x1
@@ -1815,7 +1816,7 @@ class QSslEllipticCurve(Shiboken.Object):
 
 class QSslError(Shiboken.Object):
 
-    class SslError(shibokensupport.enum_310.Enum):
+    class SslError(enum.Enum):
 
         UnspecifiedError         : QSslError.SslError = ... # -0x1
         NoError                  : QSslError.SslError = ... # 0x0
@@ -1932,7 +1933,7 @@ class QSslServer(PySide6.QtNetwork.QTcpServer):
 
 class QSslSocket(PySide6.QtNetwork.QTcpSocket):
 
-    class PeerVerifyMode(shibokensupport.enum_310.Enum):
+    class PeerVerifyMode(enum.Enum):
 
         VerifyNone               : QSslSocket.PeerVerifyMode = ... # 0x0
         QueryPeer                : QSslSocket.PeerVerifyMode = ... # 0x1
@@ -1940,7 +1941,7 @@ class QSslSocket(PySide6.QtNetwork.QTcpSocket):
         AutoVerifyPeer           : QSslSocket.PeerVerifyMode = ... # 0x3
 
 
-    class SslMode(shibokensupport.enum_310.Enum):
+    class SslMode(enum.Enum):
 
         UnencryptedMode          : QSslSocket.SslMode = ... # 0x0
         SslClientMode            : QSslSocket.SslMode = ... # 0x1

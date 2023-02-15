@@ -14,6 +14,7 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtQml
 
+import enum
 from typing import Any, Optional, Tuple, Union, List, overload
 from shiboken6 import Shiboken
 
@@ -33,7 +34,7 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
 
     class Attribute(Shiboken.Object):
 
-        class ComponentType(shibokensupport.enum_310.Enum):
+        class ComponentType(enum.Enum):
 
             U16Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x0
             U32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x1
@@ -41,7 +42,7 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
             F32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x3
 
 
-        class Semantic(shibokensupport.enum_310.Enum):
+        class Semantic(enum.Enum):
 
             IndexSemantic            : QQuick3DGeometry.Attribute.Semantic = ... # 0x0
             PositionSemantic         : QQuick3DGeometry.Attribute.Semantic = ... # 0x1
@@ -68,7 +69,7 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
         @staticmethod
         def __copy__() -> None: ...
 
-    class PrimitiveType(shibokensupport.enum_310.Enum):
+    class PrimitiveType(enum.Enum):
 
         Points                   : QQuick3DGeometry.PrimitiveType = ... # 0x0
         LineStrip                : QQuick3DGeometry.PrimitiveType = ... # 0x1
@@ -157,7 +158,7 @@ class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
 class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
-    class ItemChange(shibokensupport.enum_310.Enum):
+    class ItemChange(enum.Enum):
 
         ItemChildAddedChange     : QQuick3DObject.ItemChange = ... # 0x0
         ItemChildRemovedChange   : QQuick3DObject.ItemChange = ... # 0x1
@@ -187,7 +188,7 @@ class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
 class QQuick3DTextureData(PySide6.QtQuick3D.QQuick3DObject):
 
-    class Format(shibokensupport.enum_310.Enum):
+    class Format(enum.Enum):
 
         None_                    : QQuick3DTextureData.Format = ... # 0x0
         RGBA8                    : QQuick3DTextureData.Format = ... # 0x1
