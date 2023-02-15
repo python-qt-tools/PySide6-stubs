@@ -50,8 +50,8 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
-from enum import Enum
 from typing import Optional, Union
+from shiboken6 import Shiboken
 
 
 class QIntList(object): ...
@@ -62,7 +62,7 @@ class QOpenGLWidget(PySide6.QtWidgets.QWidget):
     NoPartialUpdate          : QOpenGLWidget.UpdateBehavior = ... # 0x0
     PartialUpdate            : QOpenGLWidget.UpdateBehavior = ... # 0x1
 
-    class UpdateBehavior(Enum):
+    class UpdateBehavior(Shiboken.Enum):
 
         NoPartialUpdate          : QOpenGLWidget.UpdateBehavior = ... # 0x0
         PartialUpdate            : QOpenGLWidget.UpdateBehavior = ... # 0x1

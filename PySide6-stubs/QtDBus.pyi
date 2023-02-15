@@ -48,7 +48,6 @@ PySide6.QtDBus, except for defaults which are replaced by "...".
 import PySide6.QtDBus
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Any, Optional, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -60,7 +59,7 @@ class QDBus(Shiboken.Object):
     BlockWithGui             : QDBus.CallMode = ... # 0x2
     AutoDetect               : QDBus.CallMode = ... # 0x3
 
-    class CallMode(Enum):
+    class CallMode(Shiboken.Enum):
 
         NoBlock                  : QDBus.CallMode = ... # 0x0
         Block                    : QDBus.CallMode = ... # 0x1
@@ -90,6 +89,14 @@ class QDBusAbstractInterface(PySide6.QtDBus.QDBusAbstractInterfaceBase):
     def call(self, arg__1: PySide6.QtDBus.QDBus.CallMode, arg__2: str, arg__3: Any, arg__4: Any, arg__5: Any) -> PySide6.QtDBus.QDBusMessage: ...
     @overload
     def call(self, arg__1: PySide6.QtDBus.QDBus.CallMode, arg__2: str, arg__3: Any, arg__4: Any, arg__5: Any, arg__6: Any) -> PySide6.QtDBus.QDBusMessage: ...
+    @overload
+    def call(self, arg__1: PySide6.QtDBus.QDBus.CallMode, arg__2: str, arg__3: Any, arg__4: Any, arg__5: Any, arg__6: Any, arg__7: Any) -> PySide6.QtDBus.QDBusMessage: ...
+    @overload
+    def call(self, arg__1: PySide6.QtDBus.QDBus.CallMode, arg__2: str, arg__3: Any, arg__4: Any, arg__5: Any, arg__6: Any, arg__7: Any, arg__8: Any) -> PySide6.QtDBus.QDBusMessage: ...
+    @overload
+    def call(self, arg__1: PySide6.QtDBus.QDBus.CallMode, arg__2: str, arg__3: Any, arg__4: Any, arg__5: Any, arg__6: Any, arg__7: Any, arg__8: Any, arg__9: Any) -> PySide6.QtDBus.QDBusMessage: ...
+    @overload
+    def call(self, arg__1: PySide6.QtDBus.QDBus.CallMode, arg__2: str, arg__3: Any, arg__4: Any, arg__5: Any, arg__6: Any, arg__7: Any, arg__8: Any, arg__9: Any, arg__10: Any) -> PySide6.QtDBus.QDBusMessage: ...
     @overload
     def call(self, arg__1: str, arg__2: Any) -> PySide6.QtDBus.QDBusMessage: ...
     @overload
@@ -135,7 +142,7 @@ class QDBusArgument(Shiboken.Object):
     MapType                  : QDBusArgument.ElementType = ... # 0x4
     MapEntryType             : QDBusArgument.ElementType = ... # 0x5
 
-    class ElementType(Enum):
+    class ElementType(Shiboken.Enum):
 
         UnknownType              : QDBusArgument.ElementType = ... # -0x1
         BasicType                : QDBusArgument.ElementType = ... # 0x0
@@ -324,7 +331,7 @@ class QDBusConnection(Shiboken.Object):
     SingleNode               : QDBusConnection.VirtualObjectRegisterOption = ... # 0x0
     SubPath                  : QDBusConnection.VirtualObjectRegisterOption = ... # 0x1
 
-    class BusType(Enum):
+    class BusType(Shiboken.Enum):
 
         SessionBus               : QDBusConnection.BusType = ... # 0x0
         SystemBus                : QDBusConnection.BusType = ... # 0x1
@@ -332,11 +339,11 @@ class QDBusConnection(Shiboken.Object):
 
     class ConnectionCapabilities(object): ...
 
-    class ConnectionCapability(Enum):
+    class ConnectionCapability(Shiboken.Enum):
 
         UnixFileDescriptorPassing: QDBusConnection.ConnectionCapability = ... # 0x1
 
-    class RegisterOption(Enum):
+    class RegisterOption(Shiboken.Enum):
 
         ExportAdaptors           : QDBusConnection.RegisterOption = ... # 0x1
         ExportScriptableSlots    : QDBusConnection.RegisterOption = ... # 0x10
@@ -359,12 +366,12 @@ class QDBusConnection(Shiboken.Object):
 
     class RegisterOptions(object): ...
 
-    class UnregisterMode(Enum):
+    class UnregisterMode(Shiboken.Enum):
 
         UnregisterNode           : QDBusConnection.UnregisterMode = ... # 0x0
         UnregisterTree           : QDBusConnection.UnregisterMode = ... # 0x1
 
-    class VirtualObjectRegisterOption(Enum):
+    class VirtualObjectRegisterOption(Shiboken.Enum):
 
         SingleNode               : QDBusConnection.VirtualObjectRegisterOption = ... # 0x0
         SubPath                  : QDBusConnection.VirtualObjectRegisterOption = ... # 0x1
@@ -446,19 +453,19 @@ class QDBusConnectionInterface(PySide6.QtDBus.QDBusAbstractInterface):
     DontAllowReplacement     : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x0
     AllowReplacement         : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x1
 
-    class RegisterServiceReply(Enum):
+    class RegisterServiceReply(Shiboken.Enum):
 
         ServiceNotRegistered     : QDBusConnectionInterface.RegisterServiceReply = ... # 0x0
         ServiceRegistered        : QDBusConnectionInterface.RegisterServiceReply = ... # 0x1
         ServiceQueued            : QDBusConnectionInterface.RegisterServiceReply = ... # 0x2
 
-    class ServiceQueueOptions(Enum):
+    class ServiceQueueOptions(Shiboken.Enum):
 
         DontQueueService         : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x0
         QueueService             : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x1
         ReplaceExistingService   : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x2
 
-    class ServiceReplacementOptions(Enum):
+    class ServiceReplacementOptions(Shiboken.Enum):
 
         DontAllowReplacement     : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x0
         AllowReplacement         : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x1
@@ -529,7 +536,7 @@ class QDBusError(Shiboken.Object):
     InvalidMember            : QDBusError.ErrorType = ... # 0x1b
     LastErrorType            : QDBusError.ErrorType = ... # 0x1b
 
-    class ErrorType(Enum):
+    class ErrorType(Shiboken.Enum):
 
         NoError                  : QDBusError.ErrorType = ... # 0x0
         Other                    : QDBusError.ErrorType = ... # 0x1
@@ -595,7 +602,7 @@ class QDBusMessage(Shiboken.Object):
     ErrorMessage             : QDBusMessage.MessageType = ... # 0x3
     SignalMessage            : QDBusMessage.MessageType = ... # 0x4
 
-    class MessageType(Enum):
+    class MessageType(Shiboken.Enum):
 
         InvalidMessage           : QDBusMessage.MessageType = ... # 0x0
         MethodCallMessage        : QDBusMessage.MessageType = ... # 0x1
@@ -609,6 +616,8 @@ class QDBusMessage(Shiboken.Object):
     @overload
     def __init__(self, other: PySide6.QtDBus.QDBusMessage) -> None: ...
 
+    @staticmethod
+    def __copy__() -> None: ...
     def __lshift__(self, arg: Any) -> PySide6.QtDBus.QDBusMessage: ...
     def arguments(self) -> List[Any]: ...
     def autoStartService(self) -> bool: ...
@@ -664,6 +673,8 @@ class QDBusObjectPath(Shiboken.Object):
     @overload
     def __init__(self, path: bytes) -> None: ...
 
+    @staticmethod
+    def __copy__() -> None: ...
     def path(self) -> str: ...
     def setPath(self, path: str) -> None: ...
     def swap(self, other: PySide6.QtDBus.QDBusObjectPath) -> None: ...
@@ -727,7 +738,7 @@ class QDBusServiceWatcher(PySide6.QtCore.QObject):
 
     class WatchMode(object): ...
 
-    class WatchModeFlag(Enum):
+    class WatchModeFlag(Shiboken.Enum):
 
         WatchForRegistration     : QDBusServiceWatcher.WatchModeFlag = ... # 0x1
         WatchForUnregistration   : QDBusServiceWatcher.WatchModeFlag = ... # 0x2

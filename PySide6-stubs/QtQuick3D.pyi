@@ -50,7 +50,6 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtQml
 
-from enum import Enum
 from typing import Any, Optional, Tuple, Union, List, overload
 from shiboken6 import Shiboken
 
@@ -90,14 +89,14 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
         TargetBinormalSemantic   : QQuick3DGeometry.Attribute.Semantic = ... # 0xc
         TexCoord1Semantic        : QQuick3DGeometry.Attribute.Semantic = ... # 0xd
 
-        class ComponentType(Enum):
+        class ComponentType(Shiboken.Enum):
 
             U16Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x0
             U32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x1
             I32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x2
             F32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x3
 
-        class Semantic(Enum):
+        class Semantic(Shiboken.Enum):
 
             IndexSemantic            : QQuick3DGeometry.Attribute.Semantic = ... # 0x0
             PositionSemantic         : QQuick3DGeometry.Attribute.Semantic = ... # 0x1
@@ -124,7 +123,7 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
         @staticmethod
         def __copy__() -> None: ...
 
-    class PrimitiveType(Enum):
+    class PrimitiveType(Shiboken.Enum):
 
         Points                   : QQuick3DGeometry.PrimitiveType = ... # 0x0
         LineStrip                : QQuick3DGeometry.PrimitiveType = ... # 0x1
@@ -221,7 +220,7 @@ class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
     ItemDevicePixelRatioHasChanged: QQuick3DObject.ItemChange = ... # 0x9
     ItemEnabledHasChanged    : QQuick3DObject.ItemChange = ... # 0xa
 
-    class ItemChange(Enum):
+    class ItemChange(Shiboken.Enum):
 
         ItemChildAddedChange     : QQuick3DObject.ItemChange = ... # 0x0
         ItemChildRemovedChange   : QQuick3DObject.ItemChange = ... # 0x1
@@ -289,7 +288,7 @@ class QQuick3DTextureData(PySide6.QtQuick3D.QQuick3DObject):
     ASTC_12x10               : QQuick3DTextureData.Format = ... # 0x23
     ASTC_12x12               : QQuick3DTextureData.Format = ... # 0x24
 
-    class Format(Enum):
+    class Format(Shiboken.Enum):
 
         None_                    : QQuick3DTextureData.Format = ... # 0x0
         RGBA8                    : QQuick3DTextureData.Format = ... # 0x1

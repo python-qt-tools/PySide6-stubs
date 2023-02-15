@@ -48,7 +48,6 @@ PySide6.QtRemoteObjects, except for defaults which are replaced by "...".
 import PySide6.QtRemoteObjects
 import PySide6.QtCore
 
-from enum import Enum
 from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -107,7 +106,7 @@ class QRemoteObjectHostBase(PySide6.QtRemoteObjects.QRemoteObjectNode):
     BuiltInSchemasOnly       : QRemoteObjectHostBase.AllowedSchemas = ... # 0x0
     AllowExternalRegistration: QRemoteObjectHostBase.AllowedSchemas = ... # 0x1
 
-    class AllowedSchemas(Enum):
+    class AllowedSchemas(Shiboken.Enum):
 
         BuiltInSchemasOnly       : QRemoteObjectHostBase.AllowedSchemas = ... # 0x0
         AllowExternalRegistration: QRemoteObjectHostBase.AllowedSchemas = ... # 0x1
@@ -141,7 +140,7 @@ class QRemoteObjectNode(PySide6.QtCore.QObject):
     ProtocolMismatch         : QRemoteObjectNode.ErrorCode = ... # 0xa
     ListenFailed             : QRemoteObjectNode.ErrorCode = ... # 0xb
 
-    class ErrorCode(Enum):
+    class ErrorCode(Shiboken.Enum):
 
         NoError                  : QRemoteObjectNode.ErrorCode = ... # 0x0
         RegistryNotAcquired      : QRemoteObjectNode.ErrorCode = ... # 0x1
@@ -185,7 +184,7 @@ class QRemoteObjectPendingCall(Shiboken.Object):
     NoError                  : QRemoteObjectPendingCall.Error = ... # 0x0
     InvalidMessage           : QRemoteObjectPendingCall.Error = ... # 0x1
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QRemoteObjectPendingCall.Error = ... # 0x0
         InvalidMessage           : QRemoteObjectPendingCall.Error = ... # 0x1
@@ -237,7 +236,7 @@ class QRemoteObjectReplica(PySide6.QtCore.QObject):
     Suspect                  : QRemoteObjectReplica.State = ... # 0x3
     SignatureMismatch        : QRemoteObjectReplica.State = ... # 0x4
 
-    class State(Enum):
+    class State(Shiboken.Enum):
 
         Uninitialized            : QRemoteObjectReplica.State = ... # 0x0
         Default                  : QRemoteObjectReplica.State = ... # 0x1

@@ -49,8 +49,8 @@ import PySide6.QtStateMachine
 import PySide6.QtCore
 import PySide6.QtGui
 
-from enum import Enum
 from typing import Any, Optional, Type, Union, Sequence, List, Set, overload
+from shiboken6 import Shiboken
 
 
 class QAbstractState(PySide6.QtCore.QObject):
@@ -70,7 +70,7 @@ class QAbstractTransition(PySide6.QtCore.QObject):
     ExternalTransition       : QAbstractTransition.TransitionType = ... # 0x0
     InternalTransition       : QAbstractTransition.TransitionType = ... # 0x1
 
-    class TransitionType(Enum):
+    class TransitionType(Shiboken.Enum):
 
         ExternalTransition       : QAbstractTransition.TransitionType = ... # 0x0
         InternalTransition       : QAbstractTransition.TransitionType = ... # 0x1
@@ -124,7 +124,7 @@ class QHistoryState(PySide6.QtStateMachine.QAbstractState):
     ShallowHistory           : QHistoryState.HistoryType = ... # 0x0
     DeepHistory              : QHistoryState.HistoryType = ... # 0x1
 
-    class HistoryType(Enum):
+    class HistoryType(Shiboken.Enum):
 
         ShallowHistory           : QHistoryState.HistoryType = ... # 0x0
         DeepHistory              : QHistoryState.HistoryType = ... # 0x1
@@ -206,12 +206,12 @@ class QState(PySide6.QtStateMachine.QAbstractState):
     DontRestoreProperties    : QState.RestorePolicy = ... # 0x0
     RestoreProperties        : QState.RestorePolicy = ... # 0x1
 
-    class ChildMode(Enum):
+    class ChildMode(Shiboken.Enum):
 
         ExclusiveStates          : QState.ChildMode = ... # 0x0
         ParallelStates           : QState.ChildMode = ... # 0x1
 
-    class RestorePolicy(Enum):
+    class RestorePolicy(Shiboken.Enum):
 
         DontRestoreProperties    : QState.RestorePolicy = ... # 0x0
         RestoreProperties        : QState.RestorePolicy = ... # 0x1
@@ -254,7 +254,7 @@ class QStateMachine(PySide6.QtStateMachine.QState):
     NormalPriority           : QStateMachine.EventPriority = ... # 0x0
     HighPriority             : QStateMachine.EventPriority = ... # 0x1
 
-    class Error(Enum):
+    class Error(Shiboken.Enum):
 
         NoError                  : QStateMachine.Error = ... # 0x0
         NoInitialStateError      : QStateMachine.Error = ... # 0x1
@@ -262,7 +262,7 @@ class QStateMachine(PySide6.QtStateMachine.QState):
         NoCommonAncestorForTransitionError: QStateMachine.Error = ... # 0x3
         StateMachineChildModeSetToParallelError: QStateMachine.Error = ... # 0x4
 
-    class EventPriority(Enum):
+    class EventPriority(Shiboken.Enum):
 
         NormalPriority           : QStateMachine.EventPriority = ... # 0x0
         HighPriority             : QStateMachine.EventPriority = ... # 0x1
