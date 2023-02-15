@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -77,6 +41,7 @@ class QWebSocket(PySide6.QtCore.QObject):
     def error(self) -> PySide6.QtNetwork.QAbstractSocket.SocketError: ...
     def errorString(self) -> str: ...
     def flush(self) -> bool: ...
+    def handshakeOptions(self) -> PySide6.QtWebSockets.QWebSocketHandshakeOptions: ...
     @overload
     def ignoreSslErrors(self) -> None: ...
     @overload
@@ -96,10 +61,14 @@ class QWebSocket(PySide6.QtCore.QObject):
     @overload
     def open(self, request: PySide6.QtNetwork.QNetworkRequest) -> None: ...
     @overload
+    def open(self, request: PySide6.QtNetwork.QNetworkRequest, options: PySide6.QtWebSockets.QWebSocketHandshakeOptions) -> None: ...
+    @overload
     def open(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    @overload
+    def open(self, url: Union[PySide6.QtCore.QUrl, str], options: PySide6.QtWebSockets.QWebSocketHandshakeOptions) -> None: ...
     def origin(self) -> str: ...
     def outgoingFrameSize(self) -> int: ...
-    def pauseMode(self) -> PySide6.QtNetwork.QAbstractSocket.PauseModes: ...
+    def pauseMode(self) -> PySide6.QtNetwork.QAbstractSocket.PauseMode: ...
     def peerAddress(self) -> PySide6.QtNetwork.QHostAddress: ...
     def peerName(self) -> str: ...
     def peerPort(self) -> int: ...
@@ -116,12 +85,13 @@ class QWebSocket(PySide6.QtCore.QObject):
     def setMaxAllowedIncomingFrameSize(self, maxAllowedIncomingFrameSize: int) -> None: ...
     def setMaxAllowedIncomingMessageSize(self, maxAllowedIncomingMessageSize: int) -> None: ...
     def setOutgoingFrameSize(self, outgoingFrameSize: int) -> None: ...
-    def setPauseMode(self, pauseMode: PySide6.QtNetwork.QAbstractSocket.PauseModes) -> None: ...
+    def setPauseMode(self, pauseMode: PySide6.QtNetwork.QAbstractSocket.PauseMode) -> None: ...
     def setProxy(self, networkProxy: Union[PySide6.QtNetwork.QNetworkProxy, PySide6.QtNetwork.QNetworkProxy.ProxyType]) -> None: ...
     def setReadBufferSize(self, size: int) -> None: ...
     def setSslConfiguration(self, sslConfiguration: PySide6.QtNetwork.QSslConfiguration) -> None: ...
     def sslConfiguration(self) -> PySide6.QtNetwork.QSslConfiguration: ...
     def state(self) -> PySide6.QtNetwork.QAbstractSocket.SocketState: ...
+    def subprotocol(self) -> str: ...
     def version(self) -> PySide6.QtWebSockets.QWebSocketProtocol.Version: ...
 
 
@@ -138,32 +108,23 @@ class QWebSocketCorsAuthenticator(Shiboken.Object):
     def swap(self, other: PySide6.QtWebSockets.QWebSocketCorsAuthenticator) -> None: ...
 
 
+class QWebSocketHandshakeOptions(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, other: PySide6.QtWebSockets.QWebSocketHandshakeOptions) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def setSubprotocols(self, protocols: Sequence[str]) -> None: ...
+    def subprotocols(self) -> List[str]: ...
+    def swap(self, other: PySide6.QtWebSockets.QWebSocketHandshakeOptions) -> None: ...
+
+
 class QWebSocketProtocol(Shiboken.Object):
 
-    CloseCodeNormal          : QWebSocketProtocol.CloseCode = ... # 0x3e8
-    CloseCodeGoingAway       : QWebSocketProtocol.CloseCode = ... # 0x3e9
-    CloseCodeProtocolError   : QWebSocketProtocol.CloseCode = ... # 0x3ea
-    CloseCodeDatatypeNotSupported: QWebSocketProtocol.CloseCode = ... # 0x3eb
-    CloseCodeReserved1004    : QWebSocketProtocol.CloseCode = ... # 0x3ec
-    CloseCodeMissingStatusCode: QWebSocketProtocol.CloseCode = ... # 0x3ed
-    CloseCodeAbnormalDisconnection: QWebSocketProtocol.CloseCode = ... # 0x3ee
-    CloseCodeWrongDatatype   : QWebSocketProtocol.CloseCode = ... # 0x3ef
-    CloseCodePolicyViolated  : QWebSocketProtocol.CloseCode = ... # 0x3f0
-    CloseCodeTooMuchData     : QWebSocketProtocol.CloseCode = ... # 0x3f1
-    CloseCodeMissingExtension: QWebSocketProtocol.CloseCode = ... # 0x3f2
-    CloseCodeBadOperation    : QWebSocketProtocol.CloseCode = ... # 0x3f3
-    CloseCodeTlsHandshakeFailed: QWebSocketProtocol.CloseCode = ... # 0x3f7
-    VersionUnknown           : QWebSocketProtocol.Version = ... # -0x1
-    Version0                 : QWebSocketProtocol.Version = ... # 0x0
-    Version4                 : QWebSocketProtocol.Version = ... # 0x4
-    Version5                 : QWebSocketProtocol.Version = ... # 0x5
-    Version6                 : QWebSocketProtocol.Version = ... # 0x6
-    Version7                 : QWebSocketProtocol.Version = ... # 0x7
-    Version8                 : QWebSocketProtocol.Version = ... # 0x8
-    Version13                : QWebSocketProtocol.Version = ... # 0xd
-    VersionLatest            : QWebSocketProtocol.Version = ... # 0xd
-
-    class CloseCode(Shiboken.Enum):
+    class CloseCode(shibokensupport.enum_310.Enum):
 
         CloseCodeNormal          : QWebSocketProtocol.CloseCode = ... # 0x3e8
         CloseCodeGoingAway       : QWebSocketProtocol.CloseCode = ... # 0x3e9
@@ -179,7 +140,8 @@ class QWebSocketProtocol(Shiboken.Object):
         CloseCodeBadOperation    : QWebSocketProtocol.CloseCode = ... # 0x3f3
         CloseCodeTlsHandshakeFailed: QWebSocketProtocol.CloseCode = ... # 0x3f7
 
-    class Version(Shiboken.Enum):
+
+    class Version(shibokensupport.enum_310.Enum):
 
         VersionUnknown           : QWebSocketProtocol.Version = ... # -0x1
         Version0                 : QWebSocketProtocol.Version = ... # 0x0
@@ -194,10 +156,7 @@ class QWebSocketProtocol(Shiboken.Object):
 
 class QWebSocketServer(PySide6.QtCore.QObject):
 
-    SecureMode               : QWebSocketServer.SslMode = ... # 0x0
-    NonSecureMode            : QWebSocketServer.SslMode = ... # 0x1
-
-    class SslMode(Shiboken.Enum):
+    class SslMode(shibokensupport.enum_310.Enum):
 
         SecureMode               : QWebSocketServer.SslMode = ... # 0x0
         NonSecureMode            : QWebSocketServer.SslMode = ... # 0x1
@@ -231,8 +190,10 @@ class QWebSocketServer(PySide6.QtCore.QObject):
     def setServerName(self, serverName: str) -> None: ...
     def setSocketDescriptor(self, socketDescriptor: int) -> bool: ...
     def setSslConfiguration(self, sslConfiguration: PySide6.QtNetwork.QSslConfiguration) -> None: ...
+    def setSupportedSubprotocols(self, protocols: Sequence[str]) -> None: ...
     def socketDescriptor(self) -> int: ...
     def sslConfiguration(self) -> PySide6.QtNetwork.QSslConfiguration: ...
+    def supportedSubprotocols(self) -> List[str]: ...
     def supportedVersions(self) -> List[PySide6.QtWebSockets.QWebSocketProtocol.Version]: ...
 
 

@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -54,11 +18,7 @@ from shiboken6 import Shiboken
 
 class QAccelerometer(PySide6.QtSensors.QSensor):
 
-    Combined                 : QAccelerometer.AccelerationMode = ... # 0x0
-    Gravity                  : QAccelerometer.AccelerationMode = ... # 0x1
-    User                     : QAccelerometer.AccelerationMode = ... # 0x2
-
-    class AccelerationMode(Shiboken.Enum):
+    class AccelerationMode(shibokensupport.enum_310.Enum):
 
         Combined                 : QAccelerometer.AccelerationMode = ... # 0x0
         Gravity                  : QAccelerometer.AccelerationMode = ... # 0x1
@@ -101,14 +61,7 @@ class QAmbientLightFilter(PySide6.QtSensors.QSensorFilter):
 
 class QAmbientLightReading(PySide6.QtSensors.QSensorReading):
 
-    Undefined                : QAmbientLightReading.LightLevel = ... # 0x0
-    Dark                     : QAmbientLightReading.LightLevel = ... # 0x1
-    Twilight                 : QAmbientLightReading.LightLevel = ... # 0x2
-    Light                    : QAmbientLightReading.LightLevel = ... # 0x3
-    Bright                   : QAmbientLightReading.LightLevel = ... # 0x4
-    Sunny                    : QAmbientLightReading.LightLevel = ... # 0x5
-
-    class LightLevel(Shiboken.Enum):
+    class LightLevel(shibokensupport.enum_310.Enum):
 
         Undefined                : QAmbientLightReading.LightLevel = ... # 0x0
         Dark                     : QAmbientLightReading.LightLevel = ... # 0x1
@@ -348,15 +301,7 @@ class QOrientationFilter(PySide6.QtSensors.QSensorFilter):
 
 class QOrientationReading(PySide6.QtSensors.QSensorReading):
 
-    Undefined                : QOrientationReading.Orientation = ... # 0x0
-    TopUp                    : QOrientationReading.Orientation = ... # 0x1
-    TopDown                  : QOrientationReading.Orientation = ... # 0x2
-    LeftUp                   : QOrientationReading.Orientation = ... # 0x3
-    RightUp                  : QOrientationReading.Orientation = ... # 0x4
-    FaceUp                   : QOrientationReading.Orientation = ... # 0x5
-    FaceDown                 : QOrientationReading.Orientation = ... # 0x6
-
-    class Orientation(Shiboken.Enum):
+    class Orientation(shibokensupport.enum_310.Enum):
 
         Undefined                : QOrientationReading.Orientation = ... # 0x0
         TopUp                    : QOrientationReading.Orientation = ... # 0x1
@@ -458,26 +403,14 @@ class QRotationSensor(PySide6.QtSensors.QSensor):
 
 class QSensor(PySide6.QtCore.QObject):
 
-    FixedOrientation         : QSensor.AxesOrientationMode = ... # 0x0
-    AutomaticOrientation     : QSensor.AxesOrientationMode = ... # 0x1
-    UserOrientation          : QSensor.AxesOrientationMode = ... # 0x2
-    Buffering                : QSensor.Feature = ... # 0x0
-    AlwaysOn                 : QSensor.Feature = ... # 0x1
-    GeoValues                : QSensor.Feature = ... # 0x2
-    FieldOfView              : QSensor.Feature = ... # 0x3
-    AccelerationMode         : QSensor.Feature = ... # 0x4
-    SkipDuplicates           : QSensor.Feature = ... # 0x5
-    AxesOrientation          : QSensor.Feature = ... # 0x6
-    PressureSensorTemperature: QSensor.Feature = ... # 0x7
-    Reserved                 : QSensor.Feature = ... # 0x101
-
-    class AxesOrientationMode(Shiboken.Enum):
+    class AxesOrientationMode(shibokensupport.enum_310.Enum):
 
         FixedOrientation         : QSensor.AxesOrientationMode = ... # 0x0
         AutomaticOrientation     : QSensor.AxesOrientationMode = ... # 0x1
         UserOrientation          : QSensor.AxesOrientationMode = ... # 0x2
 
-    class Feature(Shiboken.Enum):
+
+    class Feature(shibokensupport.enum_310.Enum):
 
         Buffering                : QSensor.Feature = ... # 0x0
         AlwaysOn                 : QSensor.Feature = ... # 0x1
@@ -621,21 +554,7 @@ class QTapFilter(PySide6.QtSensors.QSensorFilter):
 
 class QTapReading(PySide6.QtSensors.QSensorReading):
 
-    Undefined                : QTapReading.TapDirection = ... # 0x0
-    X                        : QTapReading.TapDirection = ... # 0x1
-    Y                        : QTapReading.TapDirection = ... # 0x2
-    Z                        : QTapReading.TapDirection = ... # 0x4
-    X_Pos                    : QTapReading.TapDirection = ... # 0x11
-    Y_Pos                    : QTapReading.TapDirection = ... # 0x22
-    Z_Pos                    : QTapReading.TapDirection = ... # 0x44
-    X_Neg                    : QTapReading.TapDirection = ... # 0x101
-    X_Both                   : QTapReading.TapDirection = ... # 0x111
-    Y_Neg                    : QTapReading.TapDirection = ... # 0x202
-    Y_Both                   : QTapReading.TapDirection = ... # 0x222
-    Z_Neg                    : QTapReading.TapDirection = ... # 0x404
-    Z_Both                   : QTapReading.TapDirection = ... # 0x444
-
-    class TapDirection(Shiboken.Enum):
+    class TapDirection(shibokensupport.enum_310.Enum):
 
         Undefined                : QTapReading.TapDirection = ... # 0x0
         X                        : QTapReading.TapDirection = ... # 0x1

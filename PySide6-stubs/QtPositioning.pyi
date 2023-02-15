@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -115,21 +79,13 @@ class QGeoAreaMonitorInfo(Shiboken.Object):
 
 class QGeoAreaMonitorSource(PySide6.QtCore.QObject):
 
-    PersistentAreaMonitorFeature: QGeoAreaMonitorSource.AreaMonitorFeature = ... # 0x1
-    AnyAreaMonitorFeature    : QGeoAreaMonitorSource.AreaMonitorFeature = ... # -0x1
-    AccessError              : QGeoAreaMonitorSource.Error = ... # 0x0
-    InsufficientPositionInfo : QGeoAreaMonitorSource.Error = ... # 0x1
-    UnknownSourceError       : QGeoAreaMonitorSource.Error = ... # 0x2
-    NoError                  : QGeoAreaMonitorSource.Error = ... # 0x3
-
-    class AreaMonitorFeature(Shiboken.Enum):
+    class AreaMonitorFeature(shibokensupport.enum_310.Flag):
 
         PersistentAreaMonitorFeature: QGeoAreaMonitorSource.AreaMonitorFeature = ... # 0x1
-        AnyAreaMonitorFeature    : QGeoAreaMonitorSource.AreaMonitorFeature = ... # -0x1
+        AnyAreaMonitorFeature    : QGeoAreaMonitorSource.AreaMonitorFeature = ... # 0xffffffff
 
-    class AreaMonitorFeatures(object): ...
 
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         AccessError              : QGeoAreaMonitorSource.Error = ... # 0x0
         InsufficientPositionInfo : QGeoAreaMonitorSource.Error = ... # 0x1
@@ -158,7 +114,7 @@ class QGeoAreaMonitorSource(PySide6.QtCore.QObject):
     def sourceName(self) -> str: ...
     def startMonitoring(self, monitor: Union[PySide6.QtPositioning.QGeoAreaMonitorInfo, str]) -> bool: ...
     def stopMonitoring(self, monitor: Union[PySide6.QtPositioning.QGeoAreaMonitorInfo, str]) -> bool: ...
-    def supportedAreaMonitorFeatures(self) -> PySide6.QtPositioning.QGeoAreaMonitorSource.AreaMonitorFeatures: ...
+    def supportedAreaMonitorFeatures(self) -> PySide6.QtPositioning.QGeoAreaMonitorSource.AreaMonitorFeature: ...
 
 
 class QGeoCircle(PySide6.QtPositioning.QGeoShape):
@@ -186,17 +142,7 @@ class QGeoCircle(PySide6.QtPositioning.QGeoShape):
 
 class QGeoCoordinate(Shiboken.Object):
 
-    Degrees                  : QGeoCoordinate.CoordinateFormat = ... # 0x0
-    DegreesWithHemisphere    : QGeoCoordinate.CoordinateFormat = ... # 0x1
-    DegreesMinutes           : QGeoCoordinate.CoordinateFormat = ... # 0x2
-    DegreesMinutesWithHemisphere: QGeoCoordinate.CoordinateFormat = ... # 0x3
-    DegreesMinutesSeconds    : QGeoCoordinate.CoordinateFormat = ... # 0x4
-    DegreesMinutesSecondsWithHemisphere: QGeoCoordinate.CoordinateFormat = ... # 0x5
-    InvalidCoordinate        : QGeoCoordinate.CoordinateType = ... # 0x0
-    Coordinate2D             : QGeoCoordinate.CoordinateType = ... # 0x1
-    Coordinate3D             : QGeoCoordinate.CoordinateType = ... # 0x2
-
-    class CoordinateFormat(Shiboken.Enum):
+    class CoordinateFormat(shibokensupport.enum_310.Enum):
 
         Degrees                  : QGeoCoordinate.CoordinateFormat = ... # 0x0
         DegreesWithHemisphere    : QGeoCoordinate.CoordinateFormat = ... # 0x1
@@ -205,7 +151,8 @@ class QGeoCoordinate(Shiboken.Object):
         DegreesMinutesSeconds    : QGeoCoordinate.CoordinateFormat = ... # 0x4
         DegreesMinutesSecondsWithHemisphere: QGeoCoordinate.CoordinateFormat = ... # 0x5
 
-    class CoordinateType(Shiboken.Enum):
+
+    class CoordinateType(shibokensupport.enum_310.Enum):
 
         InvalidCoordinate        : QGeoCoordinate.CoordinateType = ... # 0x0
         Coordinate2D             : QGeoCoordinate.CoordinateType = ... # 0x1
@@ -338,15 +285,7 @@ class QGeoPolygon(PySide6.QtPositioning.QGeoShape):
 
 class QGeoPositionInfo(Shiboken.Object):
 
-    Direction                : QGeoPositionInfo.Attribute = ... # 0x0
-    GroundSpeed              : QGeoPositionInfo.Attribute = ... # 0x1
-    VerticalSpeed            : QGeoPositionInfo.Attribute = ... # 0x2
-    MagneticVariation        : QGeoPositionInfo.Attribute = ... # 0x3
-    HorizontalAccuracy       : QGeoPositionInfo.Attribute = ... # 0x4
-    VerticalAccuracy         : QGeoPositionInfo.Attribute = ... # 0x5
-    DirectionAccuracy        : QGeoPositionInfo.Attribute = ... # 0x6
-
-    class Attribute(Shiboken.Enum):
+    class Attribute(shibokensupport.enum_310.Enum):
 
         Direction                : QGeoPositionInfo.Attribute = ... # 0x0
         GroundSpeed              : QGeoPositionInfo.Attribute = ... # 0x1
@@ -382,17 +321,7 @@ class QGeoPositionInfo(Shiboken.Object):
 
 class QGeoPositionInfoSource(PySide6.QtCore.QObject):
 
-    AccessError              : QGeoPositionInfoSource.Error = ... # 0x0
-    ClosedError              : QGeoPositionInfoSource.Error = ... # 0x1
-    UnknownSourceError       : QGeoPositionInfoSource.Error = ... # 0x2
-    NoError                  : QGeoPositionInfoSource.Error = ... # 0x3
-    UpdateTimeoutError       : QGeoPositionInfoSource.Error = ... # 0x4
-    NoPositioningMethods     : QGeoPositionInfoSource.PositioningMethod = ... # 0x0
-    SatellitePositioningMethods: QGeoPositionInfoSource.PositioningMethod = ... # 0xff
-    NonSatellitePositioningMethods: QGeoPositionInfoSource.PositioningMethod = ... # -0x100
-    AllPositioningMethods    : QGeoPositionInfoSource.PositioningMethod = ... # -0x1
-
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         AccessError              : QGeoPositionInfoSource.Error = ... # 0x0
         ClosedError              : QGeoPositionInfoSource.Error = ... # 0x1
@@ -400,14 +329,13 @@ class QGeoPositionInfoSource(PySide6.QtCore.QObject):
         NoError                  : QGeoPositionInfoSource.Error = ... # 0x3
         UpdateTimeoutError       : QGeoPositionInfoSource.Error = ... # 0x4
 
-    class PositioningMethod(Shiboken.Enum):
+
+    class PositioningMethod(shibokensupport.enum_310.Flag):
 
         NoPositioningMethods     : QGeoPositionInfoSource.PositioningMethod = ... # 0x0
         SatellitePositioningMethods: QGeoPositionInfoSource.PositioningMethod = ... # 0xff
-        NonSatellitePositioningMethods: QGeoPositionInfoSource.PositioningMethod = ... # -0x100
-        AllPositioningMethods    : QGeoPositionInfoSource.PositioningMethod = ... # -0x1
-
-    class PositioningMethods(object): ...
+        NonSatellitePositioningMethods: QGeoPositionInfoSource.PositioningMethod = ... # 0xffffff00
+        AllPositioningMethods    : QGeoPositionInfoSource.PositioningMethod = ... # 0xffffffff
 
 
     def __init__(self, parent: PySide6.QtCore.QObject) -> None: ...
@@ -430,15 +358,15 @@ class QGeoPositionInfoSource(PySide6.QtCore.QObject):
     def error(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.Error: ...
     def lastKnownPosition(self, fromSatellitePositioningMethodsOnly: bool = ...) -> PySide6.QtPositioning.QGeoPositionInfo: ...
     def minimumUpdateInterval(self) -> int: ...
-    def preferredPositioningMethods(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethods: ...
+    def preferredPositioningMethods(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethod: ...
     def requestUpdate(self, timeout: int = ...) -> None: ...
     def setBackendProperty(self, name: str, value: Any) -> bool: ...
-    def setPreferredPositioningMethods(self, methods: PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethods) -> None: ...
+    def setPreferredPositioningMethods(self, methods: PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethod) -> None: ...
     def setUpdateInterval(self, msec: int) -> None: ...
     def sourceName(self) -> str: ...
     def startUpdates(self) -> None: ...
     def stopUpdates(self) -> None: ...
-    def supportedPositioningMethods(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethods: ...
+    def supportedPositioningMethods(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethod: ...
     def updateInterval(self) -> int: ...
 
 
@@ -498,23 +426,13 @@ class QGeoRectangle(PySide6.QtPositioning.QGeoShape):
 
 class QGeoSatelliteInfo(Shiboken.Object):
 
-    Elevation                : QGeoSatelliteInfo.Attribute = ... # 0x0
-    Azimuth                  : QGeoSatelliteInfo.Attribute = ... # 0x1
-    Undefined                : QGeoSatelliteInfo.SatelliteSystem = ... # 0x0
-    GPS                      : QGeoSatelliteInfo.SatelliteSystem = ... # 0x1
-    GLONASS                  : QGeoSatelliteInfo.SatelliteSystem = ... # 0x2
-    GALILEO                  : QGeoSatelliteInfo.SatelliteSystem = ... # 0x3
-    BEIDOU                   : QGeoSatelliteInfo.SatelliteSystem = ... # 0x4
-    QZSS                     : QGeoSatelliteInfo.SatelliteSystem = ... # 0x5
-    Multiple                 : QGeoSatelliteInfo.SatelliteSystem = ... # 0xff
-    CustomType               : QGeoSatelliteInfo.SatelliteSystem = ... # 0x100
-
-    class Attribute(Shiboken.Enum):
+    class Attribute(shibokensupport.enum_310.Enum):
 
         Elevation                : QGeoSatelliteInfo.Attribute = ... # 0x0
         Azimuth                  : QGeoSatelliteInfo.Attribute = ... # 0x1
 
-    class SatelliteSystem(Shiboken.Enum):
+
+    class SatelliteSystem(shibokensupport.enum_310.Enum):
 
         Undefined                : QGeoSatelliteInfo.SatelliteSystem = ... # 0x0
         GPS                      : QGeoSatelliteInfo.SatelliteSystem = ... # 0x1
@@ -550,13 +468,7 @@ class QGeoSatelliteInfo(Shiboken.Object):
 
 class QGeoSatelliteInfoSource(PySide6.QtCore.QObject):
 
-    UnknownSourceError       : QGeoSatelliteInfoSource.Error = ... # -0x1
-    AccessError              : QGeoSatelliteInfoSource.Error = ... # 0x0
-    ClosedError              : QGeoSatelliteInfoSource.Error = ... # 0x1
-    NoError                  : QGeoSatelliteInfoSource.Error = ... # 0x2
-    UpdateTimeoutError       : QGeoSatelliteInfoSource.Error = ... # 0x3
-
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         UnknownSourceError       : QGeoSatelliteInfoSource.Error = ... # -0x1
         AccessError              : QGeoSatelliteInfoSource.Error = ... # 0x0
@@ -595,13 +507,7 @@ class QGeoSatelliteInfoSource(PySide6.QtCore.QObject):
 
 class QGeoShape(Shiboken.Object):
 
-    UnknownType              : QGeoShape.ShapeType = ... # 0x0
-    RectangleType            : QGeoShape.ShapeType = ... # 0x1
-    CircleType               : QGeoShape.ShapeType = ... # 0x2
-    PathType                 : QGeoShape.ShapeType = ... # 0x3
-    PolygonType              : QGeoShape.ShapeType = ... # 0x4
-
-    class ShapeType(Shiboken.Enum):
+    class ShapeType(shibokensupport.enum_310.Enum):
 
         UnknownType              : QGeoShape.ShapeType = ... # 0x0
         RectangleType            : QGeoShape.ShapeType = ... # 0x1
@@ -633,10 +539,7 @@ class QIntList(object): ...
 
 class QNmeaPositionInfoSource(PySide6.QtPositioning.QGeoPositionInfoSource):
 
-    RealTimeMode             : QNmeaPositionInfoSource.UpdateMode = ... # 0x1
-    SimulationMode           : QNmeaPositionInfoSource.UpdateMode = ... # 0x2
-
-    class UpdateMode(Shiboken.Enum):
+    class UpdateMode(shibokensupport.enum_310.Enum):
 
         RealTimeMode             : QNmeaPositionInfoSource.UpdateMode = ... # 0x1
         SimulationMode           : QNmeaPositionInfoSource.UpdateMode = ... # 0x2
@@ -656,7 +559,7 @@ class QNmeaPositionInfoSource(PySide6.QtPositioning.QGeoPositionInfoSource):
     def setUserEquivalentRangeError(self, uere: float) -> None: ...
     def startUpdates(self) -> None: ...
     def stopUpdates(self) -> None: ...
-    def supportedPositioningMethods(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethods: ...
+    def supportedPositioningMethods(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.PositioningMethod: ...
     def updateMode(self) -> PySide6.QtPositioning.QNmeaPositionInfoSource.UpdateMode: ...
     def userEquivalentRangeError(self) -> float: ...
 

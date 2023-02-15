@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -51,20 +15,11 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 from typing import Any, Optional, Tuple, Type, Union, Sequence, Dict, List, overload
-from shiboken6 import Shiboken
 
 
 class QAbstractAxis(PySide6.QtCore.QObject):
 
-    AxisTypeNoAxis           : QAbstractAxis.AxisType = ... # 0x0
-    AxisTypeValue            : QAbstractAxis.AxisType = ... # 0x1
-    AxisTypeBarCategory      : QAbstractAxis.AxisType = ... # 0x2
-    AxisTypeCategory         : QAbstractAxis.AxisType = ... # 0x4
-    AxisTypeDateTime         : QAbstractAxis.AxisType = ... # 0x8
-    AxisTypeLogValue         : QAbstractAxis.AxisType = ... # 0x10
-    AxisTypeColor            : QAbstractAxis.AxisType = ... # 0x20
-
-    class AxisType(Shiboken.Enum):
+    class AxisType(shibokensupport.enum_310.Enum):
 
         AxisTypeNoAxis           : QAbstractAxis.AxisType = ... # 0x0
         AxisTypeValue            : QAbstractAxis.AxisType = ... # 0x1
@@ -75,7 +30,7 @@ class QAbstractAxis(PySide6.QtCore.QObject):
         AxisTypeColor            : QAbstractAxis.AxisType = ... # 0x20
 
 
-    def alignment(self) -> PySide6.QtCore.Qt.Alignment: ...
+    def alignment(self) -> PySide6.QtCore.Qt.AlignmentFlag: ...
     def gridLineColor(self) -> PySide6.QtGui.QColor: ...
     def gridLinePen(self) -> PySide6.QtGui.QPen: ...
     def hide(self) -> None: ...
@@ -142,12 +97,7 @@ class QAbstractAxis(PySide6.QtCore.QObject):
 
 class QAbstractBarSeries(PySide6.QtCharts.QAbstractSeries):
 
-    LabelsCenter             : QAbstractBarSeries.LabelsPosition = ... # 0x0
-    LabelsInsideEnd          : QAbstractBarSeries.LabelsPosition = ... # 0x1
-    LabelsInsideBase         : QAbstractBarSeries.LabelsPosition = ... # 0x2
-    LabelsOutsideEnd         : QAbstractBarSeries.LabelsPosition = ... # 0x3
-
-    class LabelsPosition(Shiboken.Enum):
+    class LabelsPosition(shibokensupport.enum_310.Enum):
 
         LabelsCenter             : QAbstractBarSeries.LabelsPosition = ... # 0x0
         LabelsInsideEnd          : QAbstractBarSeries.LabelsPosition = ... # 0x1
@@ -181,21 +131,7 @@ class QAbstractBarSeries(PySide6.QtCharts.QAbstractSeries):
 
 class QAbstractSeries(PySide6.QtCore.QObject):
 
-    SeriesTypeLine           : QAbstractSeries.SeriesType = ... # 0x0
-    SeriesTypeArea           : QAbstractSeries.SeriesType = ... # 0x1
-    SeriesTypeBar            : QAbstractSeries.SeriesType = ... # 0x2
-    SeriesTypeStackedBar     : QAbstractSeries.SeriesType = ... # 0x3
-    SeriesTypePercentBar     : QAbstractSeries.SeriesType = ... # 0x4
-    SeriesTypePie            : QAbstractSeries.SeriesType = ... # 0x5
-    SeriesTypeScatter        : QAbstractSeries.SeriesType = ... # 0x6
-    SeriesTypeSpline         : QAbstractSeries.SeriesType = ... # 0x7
-    SeriesTypeHorizontalBar  : QAbstractSeries.SeriesType = ... # 0x8
-    SeriesTypeHorizontalStackedBar: QAbstractSeries.SeriesType = ... # 0x9
-    SeriesTypeHorizontalPercentBar: QAbstractSeries.SeriesType = ... # 0xa
-    SeriesTypeBoxPlot        : QAbstractSeries.SeriesType = ... # 0xb
-    SeriesTypeCandlestick    : QAbstractSeries.SeriesType = ... # 0xc
-
-    class SeriesType(Shiboken.Enum):
+    class SeriesType(shibokensupport.enum_310.Enum):
 
         SeriesTypeLine           : QAbstractSeries.SeriesType = ... # 0x0
         SeriesTypeArea           : QAbstractSeries.SeriesType = ... # 0x1
@@ -431,13 +367,7 @@ class QBoxPlotSeries(PySide6.QtCharts.QAbstractSeries):
 
 class QBoxSet(PySide6.QtCore.QObject):
 
-    LowerExtreme             : QBoxSet.ValuePositions = ... # 0x0
-    LowerQuartile            : QBoxSet.ValuePositions = ... # 0x1
-    Median                   : QBoxSet.ValuePositions = ... # 0x2
-    UpperQuartile            : QBoxSet.ValuePositions = ... # 0x3
-    UpperExtreme             : QBoxSet.ValuePositions = ... # 0x4
-
-    class ValuePositions(Shiboken.Enum):
+    class ValuePositions(shibokensupport.enum_310.Enum):
 
         LowerExtreme             : QBoxSet.ValuePositions = ... # 0x0
         LowerQuartile            : QBoxSet.ValuePositions = ... # 0x1
@@ -566,10 +496,7 @@ class QCandlestickSet(PySide6.QtCore.QObject):
 
 class QCategoryAxis(PySide6.QtCharts.QValueAxis):
 
-    AxisLabelsPositionCenter : QCategoryAxis.AxisLabelsPosition = ... # 0x0
-    AxisLabelsPositionOnValue: QCategoryAxis.AxisLabelsPosition = ... # 0x1
-
-    class AxisLabelsPosition(Shiboken.Enum):
+    class AxisLabelsPosition(shibokensupport.enum_310.Enum):
 
         AxisLabelsPositionCenter : QCategoryAxis.AxisLabelsPosition = ... # 0x0
         AxisLabelsPositionOnValue: QCategoryAxis.AxisLabelsPosition = ... # 0x1
@@ -592,32 +519,15 @@ class QCategoryAxis(PySide6.QtCharts.QValueAxis):
 
 class QChart(PySide6.QtWidgets.QGraphicsWidget):
 
-    NoAnimation              : QChart.AnimationOption = ... # 0x0
-    GridAxisAnimations       : QChart.AnimationOption = ... # 0x1
-    SeriesAnimations         : QChart.AnimationOption = ... # 0x2
-    AllAnimations            : QChart.AnimationOption = ... # 0x3
-    ChartThemeLight          : QChart.ChartTheme = ... # 0x0
-    ChartThemeBlueCerulean   : QChart.ChartTheme = ... # 0x1
-    ChartThemeDark           : QChart.ChartTheme = ... # 0x2
-    ChartThemeBrownSand      : QChart.ChartTheme = ... # 0x3
-    ChartThemeBlueNcs        : QChart.ChartTheme = ... # 0x4
-    ChartThemeHighContrast   : QChart.ChartTheme = ... # 0x5
-    ChartThemeBlueIcy        : QChart.ChartTheme = ... # 0x6
-    ChartThemeQt             : QChart.ChartTheme = ... # 0x7
-    ChartTypeUndefined       : QChart.ChartType = ... # 0x0
-    ChartTypeCartesian       : QChart.ChartType = ... # 0x1
-    ChartTypePolar           : QChart.ChartType = ... # 0x2
-
-    class AnimationOption(Shiboken.Enum):
+    class AnimationOption(shibokensupport.enum_310.Flag):
 
         NoAnimation              : QChart.AnimationOption = ... # 0x0
         GridAxisAnimations       : QChart.AnimationOption = ... # 0x1
         SeriesAnimations         : QChart.AnimationOption = ... # 0x2
         AllAnimations            : QChart.AnimationOption = ... # 0x3
 
-    class AnimationOptions(object): ...
 
-    class ChartTheme(Shiboken.Enum):
+    class ChartTheme(shibokensupport.enum_310.Enum):
 
         ChartThemeLight          : QChart.ChartTheme = ... # 0x0
         ChartThemeBlueCerulean   : QChart.ChartTheme = ... # 0x1
@@ -628,7 +538,8 @@ class QChart(PySide6.QtWidgets.QGraphicsWidget):
         ChartThemeBlueIcy        : QChart.ChartTheme = ... # 0x6
         ChartThemeQt             : QChart.ChartTheme = ... # 0x7
 
-    class ChartType(Shiboken.Enum):
+
+    class ChartType(shibokensupport.enum_310.Enum):
 
         ChartTypeUndefined       : QChart.ChartType = ... # 0x0
         ChartTypeCartesian       : QChart.ChartType = ... # 0x1
@@ -636,16 +547,16 @@ class QChart(PySide6.QtWidgets.QGraphicsWidget):
 
 
     @overload
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ..., wFlags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ..., wFlags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
     @overload
-    def __init__(self, type: PySide6.QtCharts.QChart.ChartType, parent: PySide6.QtWidgets.QGraphicsItem, wFlags: PySide6.QtCore.Qt.WindowFlags) -> None: ...
+    def __init__(self, type: PySide6.QtCharts.QChart.ChartType, parent: PySide6.QtWidgets.QGraphicsItem, wFlags: PySide6.QtCore.Qt.WindowType) -> None: ...
 
-    def addAxis(self, axis: PySide6.QtCharts.QAbstractAxis, alignment: PySide6.QtCore.Qt.Alignment) -> None: ...
+    def addAxis(self, axis: PySide6.QtCharts.QAbstractAxis, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     def addSeries(self, series: PySide6.QtCharts.QAbstractSeries) -> None: ...
     def animationDuration(self) -> int: ...
     def animationEasingCurve(self) -> PySide6.QtCore.QEasingCurve: ...
-    def animationOptions(self) -> PySide6.QtCharts.QChart.AnimationOptions: ...
-    def axes(self, orientation: PySide6.QtCore.Qt.Orientations = ..., series: Optional[PySide6.QtCharts.QAbstractSeries] = ...) -> List[PySide6.QtCharts.QAbstractAxis]: ...
+    def animationOptions(self) -> PySide6.QtCharts.QChart.AnimationOption: ...
+    def axes(self, orientation: PySide6.QtCore.Qt.Orientation = ..., series: Optional[PySide6.QtCharts.QAbstractSeries] = ...) -> List[PySide6.QtCharts.QAbstractAxis]: ...
     def axisX(self, series: Optional[PySide6.QtCharts.QAbstractSeries] = ...) -> PySide6.QtCharts.QAbstractAxis: ...
     def axisY(self, series: Optional[PySide6.QtCharts.QAbstractSeries] = ...) -> PySide6.QtCharts.QAbstractAxis: ...
     def backgroundBrush(self) -> PySide6.QtGui.QBrush: ...
@@ -673,7 +584,7 @@ class QChart(PySide6.QtWidgets.QGraphicsWidget):
     def series(self) -> List[PySide6.QtCharts.QAbstractSeries]: ...
     def setAnimationDuration(self, msecs: int) -> None: ...
     def setAnimationEasingCurve(self, curve: Union[PySide6.QtCore.QEasingCurve, PySide6.QtCore.QEasingCurve.Type]) -> None: ...
-    def setAnimationOptions(self, options: PySide6.QtCharts.QChart.AnimationOptions) -> None: ...
+    def setAnimationOptions(self, options: PySide6.QtCharts.QChart.AnimationOption) -> None: ...
     def setAxisX(self, axis: PySide6.QtCharts.QAbstractAxis, series: Optional[PySide6.QtCharts.QAbstractSeries] = ...) -> None: ...
     def setAxisY(self, axis: PySide6.QtCharts.QAbstractAxis, series: Optional[PySide6.QtCharts.QAbstractSeries] = ...) -> None: ...
     def setBackgroundBrush(self, brush: Union[PySide6.QtGui.QBrush, PySide6.QtCore.Qt.BrushStyle, PySide6.QtCore.Qt.GlobalColor, PySide6.QtGui.QColor, PySide6.QtGui.QGradient, PySide6.QtGui.QImage, PySide6.QtGui.QPixmap]) -> None: ...
@@ -707,21 +618,13 @@ class QChart(PySide6.QtWidgets.QGraphicsWidget):
 
 class QChartView(PySide6.QtWidgets.QGraphicsView):
 
-    NoRubberBand             : QChartView.RubberBand = ... # 0x0
-    VerticalRubberBand       : QChartView.RubberBand = ... # 0x1
-    HorizontalRubberBand     : QChartView.RubberBand = ... # 0x2
-    RectangleRubberBand      : QChartView.RubberBand = ... # 0x3
-    ClickThroughRubberBand   : QChartView.RubberBand = ... # 0x80
-
-    class RubberBand(Shiboken.Enum):
+    class RubberBand(shibokensupport.enum_310.Flag):
 
         NoRubberBand             : QChartView.RubberBand = ... # 0x0
         VerticalRubberBand       : QChartView.RubberBand = ... # 0x1
         HorizontalRubberBand     : QChartView.RubberBand = ... # 0x2
         RectangleRubberBand      : QChartView.RubberBand = ... # 0x3
         ClickThroughRubberBand   : QChartView.RubberBand = ... # 0x80
-
-    class RubberBands(object): ...
 
 
     @overload
@@ -734,9 +637,10 @@ class QChartView(PySide6.QtWidgets.QGraphicsView):
     def mousePressEvent(self, event: PySide6.QtGui.QMouseEvent) -> None: ...
     def mouseReleaseEvent(self, event: PySide6.QtGui.QMouseEvent) -> None: ...
     def resizeEvent(self, event: PySide6.QtGui.QResizeEvent) -> None: ...
-    def rubberBand(self) -> PySide6.QtCharts.QChartView.RubberBands: ...
+    def rubberBand(self) -> PySide6.QtCharts.QChartView.RubberBand: ...
     def setChart(self, chart: PySide6.QtCharts.QChart) -> None: ...
-    def setRubberBand(self, rubberBands: PySide6.QtCharts.QChartView.RubberBands) -> None: ...
+    def setRubberBand(self, rubberBands: PySide6.QtCharts.QChartView.RubberBand) -> None: ...
+    def wheelEvent(self, event: PySide6.QtGui.QWheelEvent) -> None: ...
 
 
 class QDateTimeAxis(PySide6.QtCharts.QAbstractAxis):
@@ -874,16 +778,7 @@ class QIntList(object): ...
 
 class QLegend(PySide6.QtWidgets.QGraphicsWidget):
 
-    MarkerShapeDefault       : QLegend.MarkerShape = ... # 0x0
-    MarkerShapeRectangle     : QLegend.MarkerShape = ... # 0x1
-    MarkerShapeCircle        : QLegend.MarkerShape = ... # 0x2
-    MarkerShapeFromSeries    : QLegend.MarkerShape = ... # 0x3
-    MarkerShapeRotatedRectangle: QLegend.MarkerShape = ... # 0x4
-    MarkerShapeTriangle      : QLegend.MarkerShape = ... # 0x5
-    MarkerShapeStar          : QLegend.MarkerShape = ... # 0x6
-    MarkerShapePentagon      : QLegend.MarkerShape = ... # 0x7
-
-    class MarkerShape(Shiboken.Enum):
+    class MarkerShape(shibokensupport.enum_310.Enum):
 
         MarkerShapeDefault       : QLegend.MarkerShape = ... # 0x0
         MarkerShapeRectangle     : QLegend.MarkerShape = ... # 0x1
@@ -895,7 +790,7 @@ class QLegend(PySide6.QtWidgets.QGraphicsWidget):
         MarkerShapePentagon      : QLegend.MarkerShape = ... # 0x7
 
 
-    def alignment(self) -> PySide6.QtCore.Qt.Alignment: ...
+    def alignment(self) -> PySide6.QtCore.Qt.AlignmentFlag: ...
     def attachToChart(self) -> None: ...
     def borderColor(self) -> PySide6.QtGui.QColor: ...
     def brush(self) -> PySide6.QtGui.QBrush: ...
@@ -913,7 +808,7 @@ class QLegend(PySide6.QtWidgets.QGraphicsWidget):
     def paint(self, painter: PySide6.QtGui.QPainter, option: PySide6.QtWidgets.QStyleOptionGraphicsItem, widget: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     def pen(self) -> PySide6.QtGui.QPen: ...
     def reverseMarkers(self) -> bool: ...
-    def setAlignment(self, alignment: PySide6.QtCore.Qt.Alignment) -> None: ...
+    def setAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     def setBackgroundVisible(self, visible: bool = ...) -> None: ...
     def setBorderColor(self, color: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int]) -> None: ...
     def setBrush(self, brush: Union[PySide6.QtGui.QBrush, PySide6.QtCore.Qt.BrushStyle, PySide6.QtCore.Qt.GlobalColor, PySide6.QtGui.QColor, PySide6.QtGui.QGradient, PySide6.QtGui.QImage, PySide6.QtGui.QPixmap]) -> None: ...
@@ -932,14 +827,7 @@ class QLegend(PySide6.QtWidgets.QGraphicsWidget):
 
 class QLegendMarker(PySide6.QtCore.QObject):
 
-    LegendMarkerTypeArea     : QLegendMarker.LegendMarkerType = ... # 0x0
-    LegendMarkerTypeBar      : QLegendMarker.LegendMarkerType = ... # 0x1
-    LegendMarkerTypePie      : QLegendMarker.LegendMarkerType = ... # 0x2
-    LegendMarkerTypeXY       : QLegendMarker.LegendMarkerType = ... # 0x3
-    LegendMarkerTypeBoxPlot  : QLegendMarker.LegendMarkerType = ... # 0x4
-    LegendMarkerTypeCandlestick: QLegendMarker.LegendMarkerType = ... # 0x5
-
-    class LegendMarkerType(Shiboken.Enum):
+    class LegendMarkerType(shibokensupport.enum_310.Enum):
 
         LegendMarkerTypeArea     : QLegendMarker.LegendMarkerType = ... # 0x0
         LegendMarkerTypeBar      : QLegendMarker.LegendMarkerType = ... # 0x1
@@ -1067,12 +955,7 @@ class QPieSeries(PySide6.QtCharts.QAbstractSeries):
 
 class QPieSlice(PySide6.QtCore.QObject):
 
-    LabelOutside             : QPieSlice.LabelPosition = ... # 0x0
-    LabelInsideHorizontal    : QPieSlice.LabelPosition = ... # 0x1
-    LabelInsideTangential    : QPieSlice.LabelPosition = ... # 0x2
-    LabelInsideNormal        : QPieSlice.LabelPosition = ... # 0x3
-
-    class LabelPosition(Shiboken.Enum):
+    class LabelPosition(shibokensupport.enum_310.Enum):
 
         LabelOutside             : QPieSlice.LabelPosition = ... # 0x0
         LabelInsideHorizontal    : QPieSlice.LabelPosition = ... # 0x1
@@ -1126,18 +1009,13 @@ class QPointFList(object): ...
 
 class QPolarChart(PySide6.QtCharts.QChart):
 
-    PolarOrientationRadial   : QPolarChart.PolarOrientation = ... # 0x1
-    PolarOrientationAngular  : QPolarChart.PolarOrientation = ... # 0x2
-
-    class PolarOrientation(Shiboken.Enum):
+    class PolarOrientation(shibokensupport.enum_310.Flag):
 
         PolarOrientationRadial   : QPolarChart.PolarOrientation = ... # 0x1
         PolarOrientationAngular  : QPolarChart.PolarOrientation = ... # 0x2
 
-    class PolarOrientations(object): ...
 
-
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ..., wFlags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ..., wFlags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def addAxis(self, axis: PySide6.QtCharts.QAbstractAxis, polarOrientation: PySide6.QtCharts.QPolarChart.PolarOrientation) -> None: ...
     @staticmethod
@@ -1146,14 +1024,7 @@ class QPolarChart(PySide6.QtCharts.QChart):
 
 class QScatterSeries(PySide6.QtCharts.QXYSeries):
 
-    MarkerShapeCircle        : QScatterSeries.MarkerShape = ... # 0x0
-    MarkerShapeRectangle     : QScatterSeries.MarkerShape = ... # 0x1
-    MarkerShapeRotatedRectangle: QScatterSeries.MarkerShape = ... # 0x2
-    MarkerShapeTriangle      : QScatterSeries.MarkerShape = ... # 0x3
-    MarkerShapeStar          : QScatterSeries.MarkerShape = ... # 0x4
-    MarkerShapePentagon      : QScatterSeries.MarkerShape = ... # 0x5
-
-    class MarkerShape(Shiboken.Enum):
+    class MarkerShape(shibokensupport.enum_310.Enum):
 
         MarkerShapeCircle        : QScatterSeries.MarkerShape = ... # 0x0
         MarkerShapeRectangle     : QScatterSeries.MarkerShape = ... # 0x1
@@ -1288,10 +1159,7 @@ class QVXYModelMapper(PySide6.QtCharts.QXYModelMapper):
 
 class QValueAxis(PySide6.QtCharts.QAbstractAxis):
 
-    TicksDynamic             : QValueAxis.TickType = ... # 0x0
-    TicksFixed               : QValueAxis.TickType = ... # 0x1
-
-    class TickType(Shiboken.Enum):
+    class TickType(shibokensupport.enum_310.Enum):
 
         TicksDynamic             : QValueAxis.TickType = ... # 0x0
         TicksFixed               : QValueAxis.TickType = ... # 0x1
@@ -1350,7 +1218,7 @@ class QXYModelMapper(PySide6.QtCore.QObject):
 
 class QXYSeries(PySide6.QtCharts.QAbstractSeries):
 
-    class PointConfiguration(Shiboken.Enum):
+    class PointConfiguration(shibokensupport.enum_310.Enum):
 
         Color                    : QXYSeries.PointConfiguration = ... # 0x0
         Size                     : QXYSeries.PointConfiguration = ... # 0x1

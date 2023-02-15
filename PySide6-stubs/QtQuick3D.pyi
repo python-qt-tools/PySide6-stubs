@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -69,34 +33,15 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
 
     class Attribute(Shiboken.Object):
 
-        U16Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x0
-        U32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x1
-        I32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x2
-        F32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x3
-        IndexSemantic            : QQuick3DGeometry.Attribute.Semantic = ... # 0x0
-        PositionSemantic         : QQuick3DGeometry.Attribute.Semantic = ... # 0x1
-        NormalSemantic           : QQuick3DGeometry.Attribute.Semantic = ... # 0x2
-        TexCoord0Semantic        : QQuick3DGeometry.Attribute.Semantic = ... # 0x3
-        TexCoordSemantic         : QQuick3DGeometry.Attribute.Semantic = ... # 0x3
-        TangentSemantic          : QQuick3DGeometry.Attribute.Semantic = ... # 0x4
-        BinormalSemantic         : QQuick3DGeometry.Attribute.Semantic = ... # 0x5
-        JointSemantic            : QQuick3DGeometry.Attribute.Semantic = ... # 0x6
-        WeightSemantic           : QQuick3DGeometry.Attribute.Semantic = ... # 0x7
-        ColorSemantic            : QQuick3DGeometry.Attribute.Semantic = ... # 0x8
-        TargetPositionSemantic   : QQuick3DGeometry.Attribute.Semantic = ... # 0x9
-        TargetNormalSemantic     : QQuick3DGeometry.Attribute.Semantic = ... # 0xa
-        TargetTangentSemantic    : QQuick3DGeometry.Attribute.Semantic = ... # 0xb
-        TargetBinormalSemantic   : QQuick3DGeometry.Attribute.Semantic = ... # 0xc
-        TexCoord1Semantic        : QQuick3DGeometry.Attribute.Semantic = ... # 0xd
-
-        class ComponentType(Shiboken.Enum):
+        class ComponentType(shibokensupport.enum_310.Enum):
 
             U16Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x0
             U32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x1
             I32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x2
             F32Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x3
 
-        class Semantic(Shiboken.Enum):
+
+        class Semantic(shibokensupport.enum_310.Enum):
 
             IndexSemantic            : QQuick3DGeometry.Attribute.Semantic = ... # 0x0
             PositionSemantic         : QQuick3DGeometry.Attribute.Semantic = ... # 0x1
@@ -123,7 +68,7 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
         @staticmethod
         def __copy__() -> None: ...
 
-    class PrimitiveType(Shiboken.Enum):
+    class PrimitiveType(shibokensupport.enum_310.Enum):
 
         Points                   : QQuick3DGeometry.PrimitiveType = ... # 0x0
         LineStrip                : QQuick3DGeometry.PrimitiveType = ... # 0x1
@@ -182,6 +127,10 @@ class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
         @staticmethod
         def __copy__() -> None: ...
+        def getColor(self) -> PySide6.QtGui.QColor: ...
+        def getPosition(self) -> PySide6.QtGui.QVector3D: ...
+        def getRotation(self) -> PySide6.QtGui.QQuaternion: ...
+        def getScale(self) -> PySide6.QtGui.QVector3D: ...
 
 
     def __init__(self, parent: Optional[PySide6.QtQuick3D.QQuick3DObject] = ...) -> None: ...
@@ -208,19 +157,7 @@ class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
 class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
-    ItemChildAddedChange     : QQuick3DObject.ItemChange = ... # 0x0
-    ItemChildRemovedChange   : QQuick3DObject.ItemChange = ... # 0x1
-    ItemSceneChange          : QQuick3DObject.ItemChange = ... # 0x2
-    ItemVisibleHasChanged    : QQuick3DObject.ItemChange = ... # 0x3
-    ItemParentHasChanged     : QQuick3DObject.ItemChange = ... # 0x4
-    ItemOpacityHasChanged    : QQuick3DObject.ItemChange = ... # 0x5
-    ItemActiveFocusHasChanged: QQuick3DObject.ItemChange = ... # 0x6
-    ItemRotationHasChanged   : QQuick3DObject.ItemChange = ... # 0x7
-    ItemAntialiasingHasChanged: QQuick3DObject.ItemChange = ... # 0x8
-    ItemDevicePixelRatioHasChanged: QQuick3DObject.ItemChange = ... # 0x9
-    ItemEnabledHasChanged    : QQuick3DObject.ItemChange = ... # 0xa
-
-    class ItemChange(Shiboken.Enum):
+    class ItemChange(shibokensupport.enum_310.Enum):
 
         ItemChildAddedChange     : QQuick3DObject.ItemChange = ... # 0x0
         ItemChildRemovedChange   : QQuick3DObject.ItemChange = ... # 0x1
@@ -250,45 +187,7 @@ class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
 class QQuick3DTextureData(PySide6.QtQuick3D.QQuick3DObject):
 
-    None_                    : QQuick3DTextureData.Format = ... # 0x0
-    RGBA8                    : QQuick3DTextureData.Format = ... # 0x1
-    RGBA16F                  : QQuick3DTextureData.Format = ... # 0x2
-    RGBA32F                  : QQuick3DTextureData.Format = ... # 0x3
-    RGBE8                    : QQuick3DTextureData.Format = ... # 0x4
-    R8                       : QQuick3DTextureData.Format = ... # 0x5
-    R16                      : QQuick3DTextureData.Format = ... # 0x6
-    R16F                     : QQuick3DTextureData.Format = ... # 0x7
-    R32F                     : QQuick3DTextureData.Format = ... # 0x8
-    BC1                      : QQuick3DTextureData.Format = ... # 0x9
-    BC2                      : QQuick3DTextureData.Format = ... # 0xa
-    BC3                      : QQuick3DTextureData.Format = ... # 0xb
-    BC4                      : QQuick3DTextureData.Format = ... # 0xc
-    BC5                      : QQuick3DTextureData.Format = ... # 0xd
-    BC6H                     : QQuick3DTextureData.Format = ... # 0xe
-    BC7                      : QQuick3DTextureData.Format = ... # 0xf
-    DXT1_RGBA                : QQuick3DTextureData.Format = ... # 0x10
-    DXT1_RGB                 : QQuick3DTextureData.Format = ... # 0x11
-    DXT3_RGBA                : QQuick3DTextureData.Format = ... # 0x12
-    DXT5_RGBA                : QQuick3DTextureData.Format = ... # 0x13
-    ETC2_RGB8                : QQuick3DTextureData.Format = ... # 0x14
-    ETC2_RGB8A1              : QQuick3DTextureData.Format = ... # 0x15
-    ETC2_RGBA8               : QQuick3DTextureData.Format = ... # 0x16
-    ASTC_4x4                 : QQuick3DTextureData.Format = ... # 0x17
-    ASTC_5x4                 : QQuick3DTextureData.Format = ... # 0x18
-    ASTC_5x5                 : QQuick3DTextureData.Format = ... # 0x19
-    ASTC_6x5                 : QQuick3DTextureData.Format = ... # 0x1a
-    ASTC_6x6                 : QQuick3DTextureData.Format = ... # 0x1b
-    ASTC_8x5                 : QQuick3DTextureData.Format = ... # 0x1c
-    ASTC_8x6                 : QQuick3DTextureData.Format = ... # 0x1d
-    ASTC_8x8                 : QQuick3DTextureData.Format = ... # 0x1e
-    ASTC_10x5                : QQuick3DTextureData.Format = ... # 0x1f
-    ASTC_10x6                : QQuick3DTextureData.Format = ... # 0x20
-    ASTC_10x8                : QQuick3DTextureData.Format = ... # 0x21
-    ASTC_10x10               : QQuick3DTextureData.Format = ... # 0x22
-    ASTC_12x10               : QQuick3DTextureData.Format = ... # 0x23
-    ASTC_12x12               : QQuick3DTextureData.Format = ... # 0x24
-
-    class Format(Shiboken.Enum):
+    class Format(shibokensupport.enum_310.Enum):
 
         None_                    : QQuick3DTextureData.Format = ... # 0x0
         RGBA8                    : QQuick3DTextureData.Format = ... # 0x1

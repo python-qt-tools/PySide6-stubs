@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -56,18 +20,7 @@ from shiboken6 import Shiboken
 
 class QAbstractPrintDialog(PySide6.QtWidgets.QDialog):
 
-    PrintToFile              : QAbstractPrintDialog.PrintDialogOption = ... # 0x1
-    PrintSelection           : QAbstractPrintDialog.PrintDialogOption = ... # 0x2
-    PrintPageRange           : QAbstractPrintDialog.PrintDialogOption = ... # 0x4
-    PrintShowPageSize        : QAbstractPrintDialog.PrintDialogOption = ... # 0x8
-    PrintCollateCopies       : QAbstractPrintDialog.PrintDialogOption = ... # 0x10
-    PrintCurrentPage         : QAbstractPrintDialog.PrintDialogOption = ... # 0x40
-    AllPages                 : QAbstractPrintDialog.PrintRange = ... # 0x0
-    Selection                : QAbstractPrintDialog.PrintRange = ... # 0x1
-    PageRange                : QAbstractPrintDialog.PrintRange = ... # 0x2
-    CurrentPage              : QAbstractPrintDialog.PrintRange = ... # 0x3
-
-    class PrintDialogOption(Shiboken.Enum):
+    class PrintDialogOption(shibokensupport.enum_310.Flag):
 
         PrintToFile              : QAbstractPrintDialog.PrintDialogOption = ... # 0x1
         PrintSelection           : QAbstractPrintDialog.PrintDialogOption = ... # 0x2
@@ -76,9 +29,8 @@ class QAbstractPrintDialog(PySide6.QtWidgets.QDialog):
         PrintCollateCopies       : QAbstractPrintDialog.PrintDialogOption = ... # 0x10
         PrintCurrentPage         : QAbstractPrintDialog.PrintDialogOption = ... # 0x40
 
-    class PrintDialogOptions(object): ...
 
-    class PrintRange(Shiboken.Enum):
+    class PrintRange(shibokensupport.enum_310.Enum):
 
         AllPages                 : QAbstractPrintDialog.PrintRange = ... # 0x0
         Selection                : QAbstractPrintDialog.PrintRange = ... # 0x1
@@ -132,49 +84,16 @@ class QPrintDialog(PySide6.QtPrintSupport.QAbstractPrintDialog):
     def exec(self) -> int: ...
     def exec_(self) -> int: ...
     def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
-    def options(self) -> PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOptions: ...
+    def options(self) -> PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption: ...
     def setOption(self, option: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption, on: bool = ...) -> None: ...
-    def setOptions(self, options: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOptions) -> None: ...
+    def setOptions(self, options: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption) -> None: ...
     def setVisible(self, visible: bool) -> None: ...
     def testOption(self, option: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption) -> bool: ...
 
 
 class QPrintEngine(Shiboken.Object):
 
-    PPK_CollateCopies        : QPrintEngine.PrintEnginePropertyKey = ... # 0x0
-    PPK_ColorMode            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1
-    PPK_Creator              : QPrintEngine.PrintEnginePropertyKey = ... # 0x2
-    PPK_DocumentName         : QPrintEngine.PrintEnginePropertyKey = ... # 0x3
-    PPK_FullPage             : QPrintEngine.PrintEnginePropertyKey = ... # 0x4
-    PPK_NumberOfCopies       : QPrintEngine.PrintEnginePropertyKey = ... # 0x5
-    PPK_Orientation          : QPrintEngine.PrintEnginePropertyKey = ... # 0x6
-    PPK_OutputFileName       : QPrintEngine.PrintEnginePropertyKey = ... # 0x7
-    PPK_PageOrder            : QPrintEngine.PrintEnginePropertyKey = ... # 0x8
-    PPK_PageRect             : QPrintEngine.PrintEnginePropertyKey = ... # 0x9
-    PPK_PageSize             : QPrintEngine.PrintEnginePropertyKey = ... # 0xa
-    PPK_PaperSize            : QPrintEngine.PrintEnginePropertyKey = ... # 0xa
-    PPK_PaperRect            : QPrintEngine.PrintEnginePropertyKey = ... # 0xb
-    PPK_PaperSource          : QPrintEngine.PrintEnginePropertyKey = ... # 0xc
-    PPK_PrinterName          : QPrintEngine.PrintEnginePropertyKey = ... # 0xd
-    PPK_PrinterProgram       : QPrintEngine.PrintEnginePropertyKey = ... # 0xe
-    PPK_Resolution           : QPrintEngine.PrintEnginePropertyKey = ... # 0xf
-    PPK_SelectionOption      : QPrintEngine.PrintEnginePropertyKey = ... # 0x10
-    PPK_SupportedResolutions : QPrintEngine.PrintEnginePropertyKey = ... # 0x11
-    PPK_WindowsPageSize      : QPrintEngine.PrintEnginePropertyKey = ... # 0x12
-    PPK_FontEmbedding        : QPrintEngine.PrintEnginePropertyKey = ... # 0x13
-    PPK_Duplex               : QPrintEngine.PrintEnginePropertyKey = ... # 0x14
-    PPK_PaperSources         : QPrintEngine.PrintEnginePropertyKey = ... # 0x15
-    PPK_CustomPaperSize      : QPrintEngine.PrintEnginePropertyKey = ... # 0x16
-    PPK_PageMargins          : QPrintEngine.PrintEnginePropertyKey = ... # 0x17
-    PPK_CopyCount            : QPrintEngine.PrintEnginePropertyKey = ... # 0x18
-    PPK_SupportsMultipleCopies: QPrintEngine.PrintEnginePropertyKey = ... # 0x19
-    PPK_PaperName            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1a
-    PPK_QPageSize            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1b
-    PPK_QPageMargins         : QPrintEngine.PrintEnginePropertyKey = ... # 0x1c
-    PPK_QPageLayout          : QPrintEngine.PrintEnginePropertyKey = ... # 0x1d
-    PPK_CustomBase           : QPrintEngine.PrintEnginePropertyKey = ... # 0xff00
-
-    class PrintEnginePropertyKey(Shiboken.Enum):
+    class PrintEnginePropertyKey(shibokensupport.enum_310.Enum):
 
         PPK_CollateCopies        : QPrintEngine.PrintEnginePropertyKey = ... # 0x0
         PPK_ColorMode            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1
@@ -223,9 +142,9 @@ class QPrintEngine(Shiboken.Object):
 class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
 
     @overload
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
     @overload
-    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def done(self, result: int) -> None: ...
     @overload
@@ -238,20 +157,14 @@ class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
 
 class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
 
-    SinglePageView           : QPrintPreviewWidget.ViewMode = ... # 0x0
-    FacingPagesView          : QPrintPreviewWidget.ViewMode = ... # 0x1
-    AllPagesView             : QPrintPreviewWidget.ViewMode = ... # 0x2
-    CustomZoom               : QPrintPreviewWidget.ZoomMode = ... # 0x0
-    FitToWidth               : QPrintPreviewWidget.ZoomMode = ... # 0x1
-    FitInView                : QPrintPreviewWidget.ZoomMode = ... # 0x2
-
-    class ViewMode(Shiboken.Enum):
+    class ViewMode(shibokensupport.enum_310.Enum):
 
         SinglePageView           : QPrintPreviewWidget.ViewMode = ... # 0x0
         FacingPagesView          : QPrintPreviewWidget.ViewMode = ... # 0x1
         AllPagesView             : QPrintPreviewWidget.ViewMode = ... # 0x2
 
-    class ZoomMode(Shiboken.Enum):
+
+    class ZoomMode(shibokensupport.enum_310.Enum):
 
         CustomZoom               : QPrintPreviewWidget.ZoomMode = ... # 0x0
         FitToWidth               : QPrintPreviewWidget.ZoomMode = ... # 0x1
@@ -259,9 +172,9 @@ class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
 
 
     @overload
-    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
     @overload
-    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def currentPage(self) -> int: ...
     def fitInView(self) -> None: ...
@@ -290,75 +203,33 @@ class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
 
 class QPrinter(PySide6.QtGui.QPagedPaintDevice):
 
-    GrayScale                : QPrinter.ColorMode = ... # 0x0
-    Color                    : QPrinter.ColorMode = ... # 0x1
-    DuplexNone               : QPrinter.DuplexMode = ... # 0x0
-    DuplexAuto               : QPrinter.DuplexMode = ... # 0x1
-    DuplexLongSide           : QPrinter.DuplexMode = ... # 0x2
-    DuplexShortSide          : QPrinter.DuplexMode = ... # 0x3
-    NativeFormat             : QPrinter.OutputFormat = ... # 0x0
-    PdfFormat                : QPrinter.OutputFormat = ... # 0x1
-    FirstPageFirst           : QPrinter.PageOrder = ... # 0x0
-    LastPageFirst            : QPrinter.PageOrder = ... # 0x1
-    OnlyOne                  : QPrinter.PaperSource = ... # 0x0
-    Upper                    : QPrinter.PaperSource = ... # 0x0
-    Lower                    : QPrinter.PaperSource = ... # 0x1
-    Middle                   : QPrinter.PaperSource = ... # 0x2
-    Manual                   : QPrinter.PaperSource = ... # 0x3
-    Envelope                 : QPrinter.PaperSource = ... # 0x4
-    EnvelopeManual           : QPrinter.PaperSource = ... # 0x5
-    Auto                     : QPrinter.PaperSource = ... # 0x6
-    Tractor                  : QPrinter.PaperSource = ... # 0x7
-    SmallFormat              : QPrinter.PaperSource = ... # 0x8
-    LargeFormat              : QPrinter.PaperSource = ... # 0x9
-    LargeCapacity            : QPrinter.PaperSource = ... # 0xa
-    Cassette                 : QPrinter.PaperSource = ... # 0xb
-    FormSource               : QPrinter.PaperSource = ... # 0xc
-    MaxPageSource            : QPrinter.PaperSource = ... # 0xd
-    CustomSource             : QPrinter.PaperSource = ... # 0xe
-    LastPaperSource          : QPrinter.PaperSource = ... # 0xe
-    AllPages                 : QPrinter.PrintRange = ... # 0x0
-    Selection                : QPrinter.PrintRange = ... # 0x1
-    PageRange                : QPrinter.PrintRange = ... # 0x2
-    CurrentPage              : QPrinter.PrintRange = ... # 0x3
-    ScreenResolution         : QPrinter.PrinterMode = ... # 0x0
-    PrinterResolution        : QPrinter.PrinterMode = ... # 0x1
-    HighResolution           : QPrinter.PrinterMode = ... # 0x2
-    Idle                     : QPrinter.PrinterState = ... # 0x0
-    Active                   : QPrinter.PrinterState = ... # 0x1
-    Aborted                  : QPrinter.PrinterState = ... # 0x2
-    Error                    : QPrinter.PrinterState = ... # 0x3
-    Millimeter               : QPrinter.Unit = ... # 0x0
-    Point                    : QPrinter.Unit = ... # 0x1
-    Inch                     : QPrinter.Unit = ... # 0x2
-    Pica                     : QPrinter.Unit = ... # 0x3
-    Didot                    : QPrinter.Unit = ... # 0x4
-    Cicero                   : QPrinter.Unit = ... # 0x5
-    DevicePixel              : QPrinter.Unit = ... # 0x6
-
-    class ColorMode(Shiboken.Enum):
+    class ColorMode(shibokensupport.enum_310.Enum):
 
         GrayScale                : QPrinter.ColorMode = ... # 0x0
         Color                    : QPrinter.ColorMode = ... # 0x1
 
-    class DuplexMode(Shiboken.Enum):
+
+    class DuplexMode(shibokensupport.enum_310.Enum):
 
         DuplexNone               : QPrinter.DuplexMode = ... # 0x0
         DuplexAuto               : QPrinter.DuplexMode = ... # 0x1
         DuplexLongSide           : QPrinter.DuplexMode = ... # 0x2
         DuplexShortSide          : QPrinter.DuplexMode = ... # 0x3
 
-    class OutputFormat(Shiboken.Enum):
+
+    class OutputFormat(shibokensupport.enum_310.Enum):
 
         NativeFormat             : QPrinter.OutputFormat = ... # 0x0
         PdfFormat                : QPrinter.OutputFormat = ... # 0x1
 
-    class PageOrder(Shiboken.Enum):
+
+    class PageOrder(shibokensupport.enum_310.Enum):
 
         FirstPageFirst           : QPrinter.PageOrder = ... # 0x0
         LastPageFirst            : QPrinter.PageOrder = ... # 0x1
 
-    class PaperSource(Shiboken.Enum):
+
+    class PaperSource(shibokensupport.enum_310.Enum):
 
         OnlyOne                  : QPrinter.PaperSource = ... # 0x0
         Upper                    : QPrinter.PaperSource = ... # 0x0
@@ -378,27 +249,31 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
         CustomSource             : QPrinter.PaperSource = ... # 0xe
         LastPaperSource          : QPrinter.PaperSource = ... # 0xe
 
-    class PrintRange(Shiboken.Enum):
+
+    class PrintRange(shibokensupport.enum_310.Enum):
 
         AllPages                 : QPrinter.PrintRange = ... # 0x0
         Selection                : QPrinter.PrintRange = ... # 0x1
         PageRange                : QPrinter.PrintRange = ... # 0x2
         CurrentPage              : QPrinter.PrintRange = ... # 0x3
 
-    class PrinterMode(Shiboken.Enum):
+
+    class PrinterMode(shibokensupport.enum_310.Enum):
 
         ScreenResolution         : QPrinter.PrinterMode = ... # 0x0
         PrinterResolution        : QPrinter.PrinterMode = ... # 0x1
         HighResolution           : QPrinter.PrinterMode = ... # 0x2
 
-    class PrinterState(Shiboken.Enum):
+
+    class PrinterState(shibokensupport.enum_310.Enum):
 
         Idle                     : QPrinter.PrinterState = ... # 0x0
         Active                   : QPrinter.PrinterState = ... # 0x1
         Aborted                  : QPrinter.PrinterState = ... # 0x2
         Error                    : QPrinter.PrinterState = ... # 0x3
 
-    class Unit(Shiboken.Enum):
+
+    class Unit(shibokensupport.enum_310.Enum):
 
         Millimeter               : QPrinter.Unit = ... # 0x0
         Point                    : QPrinter.Unit = ... # 0x1

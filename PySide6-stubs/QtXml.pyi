@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -145,19 +109,19 @@ class QDomDocument(PySide6.QtXml.QDomNode):
     def importNode(self, importedNode: PySide6.QtXml.QDomNode, deep: bool) -> PySide6.QtXml.QDomNode: ...
     def nodeType(self) -> PySide6.QtXml.QDomNode.NodeType: ...
     @overload
-    def setContent(self, dev: PySide6.QtCore.QIODevice) -> Tuple[Tuple, str, int, int]: ...
+    def setContent(self, dev: PySide6.QtCore.QIODevice) -> Tuple: ...
     @overload
-    def setContent(self, dev: PySide6.QtCore.QIODevice, namespaceProcessing: bool) -> Tuple[Tuple, str, int, int]: ...
+    def setContent(self, dev: PySide6.QtCore.QIODevice, namespaceProcessing: bool) -> Tuple: ...
     @overload
     def setContent(self, reader: PySide6.QtCore.QXmlStreamReader, namespaceProcessing: bool) -> Tuple[bool, str, int, int]: ...
     @overload
-    def setContent(self, text: str) -> Tuple[Tuple, str, int, int]: ...
+    def setContent(self, text: str) -> Tuple: ...
     @overload
-    def setContent(self, text: str, namespaceProcessing: bool) -> Tuple[Tuple, str, int, int]: ...
+    def setContent(self, text: str, namespaceProcessing: bool) -> Tuple: ...
     @overload
-    def setContent(self, text: Union[PySide6.QtCore.QByteArray, bytes]) -> Tuple[Tuple, str, int, int]: ...
+    def setContent(self, text: Union[PySide6.QtCore.QByteArray, bytes]) -> Tuple: ...
     @overload
-    def setContent(self, text: Union[PySide6.QtCore.QByteArray, bytes], namespaceProcessing: bool) -> Tuple[Tuple, str, int, int]: ...
+    def setContent(self, text: Union[PySide6.QtCore.QByteArray, bytes], namespaceProcessing: bool) -> Tuple: ...
     def toByteArray(self, arg__1: int = ...) -> PySide6.QtCore.QByteArray: ...
     def toString(self, arg__1: int = ...) -> str: ...
 
@@ -268,11 +232,7 @@ class QDomEntityReference(PySide6.QtXml.QDomNode):
 
 class QDomImplementation(Shiboken.Object):
 
-    AcceptInvalidChars       : QDomImplementation.InvalidDataPolicy = ... # 0x0
-    DropInvalidChars         : QDomImplementation.InvalidDataPolicy = ... # 0x1
-    ReturnNullNode           : QDomImplementation.InvalidDataPolicy = ... # 0x2
-
-    class InvalidDataPolicy(Shiboken.Enum):
+    class InvalidDataPolicy(shibokensupport.enum_310.Enum):
 
         AcceptInvalidChars       : QDomImplementation.InvalidDataPolicy = ... # 0x0
         DropInvalidChars         : QDomImplementation.InvalidDataPolicy = ... # 0x1
@@ -321,29 +281,13 @@ class QDomNamedNodeMap(Shiboken.Object):
 
 class QDomNode(Shiboken.Object):
 
-    EncodingFromDocument     : QDomNode.EncodingPolicy = ... # 0x1
-    EncodingFromTextStream   : QDomNode.EncodingPolicy = ... # 0x2
-    ElementNode              : QDomNode.NodeType = ... # 0x1
-    AttributeNode            : QDomNode.NodeType = ... # 0x2
-    TextNode                 : QDomNode.NodeType = ... # 0x3
-    CDATASectionNode         : QDomNode.NodeType = ... # 0x4
-    EntityReferenceNode      : QDomNode.NodeType = ... # 0x5
-    EntityNode               : QDomNode.NodeType = ... # 0x6
-    ProcessingInstructionNode: QDomNode.NodeType = ... # 0x7
-    CommentNode              : QDomNode.NodeType = ... # 0x8
-    DocumentNode             : QDomNode.NodeType = ... # 0x9
-    DocumentTypeNode         : QDomNode.NodeType = ... # 0xa
-    DocumentFragmentNode     : QDomNode.NodeType = ... # 0xb
-    NotationNode             : QDomNode.NodeType = ... # 0xc
-    BaseNode                 : QDomNode.NodeType = ... # 0x15
-    CharacterDataNode        : QDomNode.NodeType = ... # 0x16
-
-    class EncodingPolicy(Shiboken.Enum):
+    class EncodingPolicy(shibokensupport.enum_310.Enum):
 
         EncodingFromDocument     : QDomNode.EncodingPolicy = ... # 0x1
         EncodingFromTextStream   : QDomNode.EncodingPolicy = ... # 0x2
 
-    class NodeType(Shiboken.Enum):
+
+    class NodeType(shibokensupport.enum_310.Enum):
 
         ElementNode              : QDomNode.NodeType = ... # 0x1
         AttributeNode            : QDomNode.NodeType = ... # 0x2
