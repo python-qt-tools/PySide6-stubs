@@ -1,0 +1,512 @@
+#############################################################################
+##
+## Copyright (C) 2021 The Qt Company Ltd.
+## Contact: https://www.qt.io/licensing/
+##
+## This file is part of Qt for Python.
+##
+## $QT_BEGIN_LICENSE:LGPL$
+## Commercial License Usage
+## Licensees holding valid commercial Qt licenses may use this file in
+## accordance with the commercial license agreement provided with the
+## Software or, alternatively, in accordance with the terms contained in
+## a written agreement between you and The Qt Company. For licensing terms
+## and conditions see https://www.qt.io/terms-conditions. For further
+## information use the contact form at https://www.qt.io/contact-us.
+##
+## GNU Lesser General Public License Usage
+## Alternatively, this file may be used under the terms of the GNU Lesser
+## General Public License version 3 as published by the Free Software
+## Foundation and appearing in the file LICENSE.LGPL3 included in the
+## packaging of this file. Please review the following information to
+## ensure the GNU Lesser General Public License version 3 requirements
+## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
+##
+## GNU General Public License Usage
+## Alternatively, this file may be used under the terms of the GNU
+## General Public License version 2.0 or (at your option) the GNU General
+## Public license version 3 or any later version approved by the KDE Free
+## Qt Foundation. The licenses are as published by the Free Software
+## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
+## included in the packaging of this file. Please review the following
+## information to ensure the GNU General Public License requirements will
+## be met: https://www.gnu.org/licenses/gpl-2.0.html and
+## https://www.gnu.org/licenses/gpl-3.0.html.
+##
+## $QT_END_LICENSE$
+##
+#############################################################################
+from __future__ import annotations
+
+"""
+This file contains the exact signatures for all functions in module
+PySide6.QtPrintSupport, except for defaults which are replaced by "...".
+"""
+
+# Module `PySide6.QtPrintSupport`
+
+import PySide6.QtPrintSupport
+import PySide6.QtCore
+import PySide6.QtGui
+import PySide6.QtWidgets
+
+from enum import Enum
+from typing import Any, Optional, Union, Sequence, List, overload
+from shiboken6 import Shiboken
+
+
+class QAbstractPrintDialog(PySide6.QtWidgets.QDialog):
+
+    PrintToFile              : QAbstractPrintDialog.PrintDialogOption = ... # 0x1
+    PrintSelection           : QAbstractPrintDialog.PrintDialogOption = ... # 0x2
+    PrintPageRange           : QAbstractPrintDialog.PrintDialogOption = ... # 0x4
+    PrintShowPageSize        : QAbstractPrintDialog.PrintDialogOption = ... # 0x8
+    PrintCollateCopies       : QAbstractPrintDialog.PrintDialogOption = ... # 0x10
+    PrintCurrentPage         : QAbstractPrintDialog.PrintDialogOption = ... # 0x40
+    AllPages                 : QAbstractPrintDialog.PrintRange = ... # 0x0
+    Selection                : QAbstractPrintDialog.PrintRange = ... # 0x1
+    PageRange                : QAbstractPrintDialog.PrintRange = ... # 0x2
+    CurrentPage              : QAbstractPrintDialog.PrintRange = ... # 0x3
+
+    class PrintDialogOption(Enum):
+
+        PrintToFile              : QAbstractPrintDialog.PrintDialogOption = ... # 0x1
+        PrintSelection           : QAbstractPrintDialog.PrintDialogOption = ... # 0x2
+        PrintPageRange           : QAbstractPrintDialog.PrintDialogOption = ... # 0x4
+        PrintShowPageSize        : QAbstractPrintDialog.PrintDialogOption = ... # 0x8
+        PrintCollateCopies       : QAbstractPrintDialog.PrintDialogOption = ... # 0x10
+        PrintCurrentPage         : QAbstractPrintDialog.PrintDialogOption = ... # 0x40
+
+    class PrintDialogOptions(object): ...
+
+    class PrintRange(Enum):
+
+        AllPages                 : QAbstractPrintDialog.PrintRange = ... # 0x0
+        Selection                : QAbstractPrintDialog.PrintRange = ... # 0x1
+        PageRange                : QAbstractPrintDialog.PrintRange = ... # 0x2
+        CurrentPage              : QAbstractPrintDialog.PrintRange = ... # 0x3
+
+
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
+
+    def fromPage(self) -> int: ...
+    def maxPage(self) -> int: ...
+    def minPage(self) -> int: ...
+    def printRange(self) -> PySide6.QtPrintSupport.QAbstractPrintDialog.PrintRange: ...
+    def printer(self) -> PySide6.QtPrintSupport.QPrinter: ...
+    def setFromTo(self, fromPage: int, toPage: int) -> None: ...
+    def setMinMax(self, min: int, max: int) -> None: ...
+    def setOptionTabs(self, tabs: Sequence[PySide6.QtWidgets.QWidget]) -> None: ...
+    def setPrintRange(self, range: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintRange) -> None: ...
+    def toPage(self) -> int: ...
+
+
+class QIntList(object): ...
+
+
+class QPageSetupDialog(PySide6.QtWidgets.QDialog):
+
+    @overload
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
+    @overload
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
+
+    def done(self, result: int) -> None: ...
+    def exec(self) -> int: ...
+    def exec_(self) -> int: ...
+    @overload
+    def open(self) -> None: ...
+    @overload
+    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def printer(self) -> PySide6.QtPrintSupport.QPrinter: ...
+
+
+class QPrintDialog(PySide6.QtPrintSupport.QAbstractPrintDialog):
+
+    @overload
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
+    @overload
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
+
+    def accept(self) -> None: ...
+    def done(self, result: int) -> None: ...
+    def exec(self) -> int: ...
+    def exec_(self) -> int: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def options(self) -> PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOptions: ...
+    def setOption(self, option: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption, on: bool = ...) -> None: ...
+    def setOptions(self, options: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOptions) -> None: ...
+    def setVisible(self, visible: bool) -> None: ...
+    def testOption(self, option: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption) -> bool: ...
+
+
+class QPrintEngine(Shiboken.Object):
+
+    PPK_CollateCopies        : QPrintEngine.PrintEnginePropertyKey = ... # 0x0
+    PPK_ColorMode            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1
+    PPK_Creator              : QPrintEngine.PrintEnginePropertyKey = ... # 0x2
+    PPK_DocumentName         : QPrintEngine.PrintEnginePropertyKey = ... # 0x3
+    PPK_FullPage             : QPrintEngine.PrintEnginePropertyKey = ... # 0x4
+    PPK_NumberOfCopies       : QPrintEngine.PrintEnginePropertyKey = ... # 0x5
+    PPK_Orientation          : QPrintEngine.PrintEnginePropertyKey = ... # 0x6
+    PPK_OutputFileName       : QPrintEngine.PrintEnginePropertyKey = ... # 0x7
+    PPK_PageOrder            : QPrintEngine.PrintEnginePropertyKey = ... # 0x8
+    PPK_PageRect             : QPrintEngine.PrintEnginePropertyKey = ... # 0x9
+    PPK_PageSize             : QPrintEngine.PrintEnginePropertyKey = ... # 0xa
+    PPK_PaperSize            : QPrintEngine.PrintEnginePropertyKey = ... # 0xa
+    PPK_PaperRect            : QPrintEngine.PrintEnginePropertyKey = ... # 0xb
+    PPK_PaperSource          : QPrintEngine.PrintEnginePropertyKey = ... # 0xc
+    PPK_PrinterName          : QPrintEngine.PrintEnginePropertyKey = ... # 0xd
+    PPK_PrinterProgram       : QPrintEngine.PrintEnginePropertyKey = ... # 0xe
+    PPK_Resolution           : QPrintEngine.PrintEnginePropertyKey = ... # 0xf
+    PPK_SelectionOption      : QPrintEngine.PrintEnginePropertyKey = ... # 0x10
+    PPK_SupportedResolutions : QPrintEngine.PrintEnginePropertyKey = ... # 0x11
+    PPK_WindowsPageSize      : QPrintEngine.PrintEnginePropertyKey = ... # 0x12
+    PPK_FontEmbedding        : QPrintEngine.PrintEnginePropertyKey = ... # 0x13
+    PPK_Duplex               : QPrintEngine.PrintEnginePropertyKey = ... # 0x14
+    PPK_PaperSources         : QPrintEngine.PrintEnginePropertyKey = ... # 0x15
+    PPK_CustomPaperSize      : QPrintEngine.PrintEnginePropertyKey = ... # 0x16
+    PPK_PageMargins          : QPrintEngine.PrintEnginePropertyKey = ... # 0x17
+    PPK_CopyCount            : QPrintEngine.PrintEnginePropertyKey = ... # 0x18
+    PPK_SupportsMultipleCopies: QPrintEngine.PrintEnginePropertyKey = ... # 0x19
+    PPK_PaperName            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1a
+    PPK_QPageSize            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1b
+    PPK_QPageMargins         : QPrintEngine.PrintEnginePropertyKey = ... # 0x1c
+    PPK_QPageLayout          : QPrintEngine.PrintEnginePropertyKey = ... # 0x1d
+    PPK_CustomBase           : QPrintEngine.PrintEnginePropertyKey = ... # 0xff00
+
+    class PrintEnginePropertyKey(Enum):
+
+        PPK_CollateCopies        : QPrintEngine.PrintEnginePropertyKey = ... # 0x0
+        PPK_ColorMode            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1
+        PPK_Creator              : QPrintEngine.PrintEnginePropertyKey = ... # 0x2
+        PPK_DocumentName         : QPrintEngine.PrintEnginePropertyKey = ... # 0x3
+        PPK_FullPage             : QPrintEngine.PrintEnginePropertyKey = ... # 0x4
+        PPK_NumberOfCopies       : QPrintEngine.PrintEnginePropertyKey = ... # 0x5
+        PPK_Orientation          : QPrintEngine.PrintEnginePropertyKey = ... # 0x6
+        PPK_OutputFileName       : QPrintEngine.PrintEnginePropertyKey = ... # 0x7
+        PPK_PageOrder            : QPrintEngine.PrintEnginePropertyKey = ... # 0x8
+        PPK_PageRect             : QPrintEngine.PrintEnginePropertyKey = ... # 0x9
+        PPK_PageSize             : QPrintEngine.PrintEnginePropertyKey = ... # 0xa
+        PPK_PaperSize            : QPrintEngine.PrintEnginePropertyKey = ... # 0xa
+        PPK_PaperRect            : QPrintEngine.PrintEnginePropertyKey = ... # 0xb
+        PPK_PaperSource          : QPrintEngine.PrintEnginePropertyKey = ... # 0xc
+        PPK_PrinterName          : QPrintEngine.PrintEnginePropertyKey = ... # 0xd
+        PPK_PrinterProgram       : QPrintEngine.PrintEnginePropertyKey = ... # 0xe
+        PPK_Resolution           : QPrintEngine.PrintEnginePropertyKey = ... # 0xf
+        PPK_SelectionOption      : QPrintEngine.PrintEnginePropertyKey = ... # 0x10
+        PPK_SupportedResolutions : QPrintEngine.PrintEnginePropertyKey = ... # 0x11
+        PPK_WindowsPageSize      : QPrintEngine.PrintEnginePropertyKey = ... # 0x12
+        PPK_FontEmbedding        : QPrintEngine.PrintEnginePropertyKey = ... # 0x13
+        PPK_Duplex               : QPrintEngine.PrintEnginePropertyKey = ... # 0x14
+        PPK_PaperSources         : QPrintEngine.PrintEnginePropertyKey = ... # 0x15
+        PPK_CustomPaperSize      : QPrintEngine.PrintEnginePropertyKey = ... # 0x16
+        PPK_PageMargins          : QPrintEngine.PrintEnginePropertyKey = ... # 0x17
+        PPK_CopyCount            : QPrintEngine.PrintEnginePropertyKey = ... # 0x18
+        PPK_SupportsMultipleCopies: QPrintEngine.PrintEnginePropertyKey = ... # 0x19
+        PPK_PaperName            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1a
+        PPK_QPageSize            : QPrintEngine.PrintEnginePropertyKey = ... # 0x1b
+        PPK_QPageMargins         : QPrintEngine.PrintEnginePropertyKey = ... # 0x1c
+        PPK_QPageLayout          : QPrintEngine.PrintEnginePropertyKey = ... # 0x1d
+        PPK_CustomBase           : QPrintEngine.PrintEnginePropertyKey = ... # 0xff00
+
+
+    def __init__(self) -> None: ...
+
+    def abort(self) -> bool: ...
+    def metric(self, arg__1: PySide6.QtGui.QPaintDevice.PaintDeviceMetric) -> int: ...
+    def newPage(self) -> bool: ...
+    def printerState(self) -> PySide6.QtPrintSupport.QPrinter.PrinterState: ...
+    def property(self, key: PySide6.QtPrintSupport.QPrintEngine.PrintEnginePropertyKey) -> Any: ...
+    def setProperty(self, key: PySide6.QtPrintSupport.QPrintEngine.PrintEnginePropertyKey, value: Any) -> None: ...
+
+
+class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
+
+    @overload
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    @overload
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+
+    def done(self, result: int) -> None: ...
+    @overload
+    def open(self) -> None: ...
+    @overload
+    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def printer(self) -> PySide6.QtPrintSupport.QPrinter: ...
+    def setVisible(self, visible: bool) -> None: ...
+
+
+class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
+
+    SinglePageView           : QPrintPreviewWidget.ViewMode = ... # 0x0
+    FacingPagesView          : QPrintPreviewWidget.ViewMode = ... # 0x1
+    AllPagesView             : QPrintPreviewWidget.ViewMode = ... # 0x2
+    CustomZoom               : QPrintPreviewWidget.ZoomMode = ... # 0x0
+    FitToWidth               : QPrintPreviewWidget.ZoomMode = ... # 0x1
+    FitInView                : QPrintPreviewWidget.ZoomMode = ... # 0x2
+
+    class ViewMode(Enum):
+
+        SinglePageView           : QPrintPreviewWidget.ViewMode = ... # 0x0
+        FacingPagesView          : QPrintPreviewWidget.ViewMode = ... # 0x1
+        AllPagesView             : QPrintPreviewWidget.ViewMode = ... # 0x2
+
+    class ZoomMode(Enum):
+
+        CustomZoom               : QPrintPreviewWidget.ZoomMode = ... # 0x0
+        FitToWidth               : QPrintPreviewWidget.ZoomMode = ... # 0x1
+        FitInView                : QPrintPreviewWidget.ZoomMode = ... # 0x2
+
+
+    @overload
+    def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+    @overload
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowFlags = ...) -> None: ...
+
+    def currentPage(self) -> int: ...
+    def fitInView(self) -> None: ...
+    def fitToWidth(self) -> None: ...
+    def orientation(self) -> PySide6.QtGui.QPageLayout.Orientation: ...
+    def pageCount(self) -> int: ...
+    def print_(self) -> None: ...
+    def setAllPagesViewMode(self) -> None: ...
+    def setCurrentPage(self, pageNumber: int) -> None: ...
+    def setFacingPagesViewMode(self) -> None: ...
+    def setLandscapeOrientation(self) -> None: ...
+    def setOrientation(self, orientation: PySide6.QtGui.QPageLayout.Orientation) -> None: ...
+    def setPortraitOrientation(self) -> None: ...
+    def setSinglePageViewMode(self) -> None: ...
+    def setViewMode(self, viewMode: PySide6.QtPrintSupport.QPrintPreviewWidget.ViewMode) -> None: ...
+    def setVisible(self, visible: bool) -> None: ...
+    def setZoomFactor(self, zoomFactor: float) -> None: ...
+    def setZoomMode(self, zoomMode: PySide6.QtPrintSupport.QPrintPreviewWidget.ZoomMode) -> None: ...
+    def updatePreview(self) -> None: ...
+    def viewMode(self) -> PySide6.QtPrintSupport.QPrintPreviewWidget.ViewMode: ...
+    def zoomFactor(self) -> float: ...
+    def zoomIn(self, zoom: float = ...) -> None: ...
+    def zoomMode(self) -> PySide6.QtPrintSupport.QPrintPreviewWidget.ZoomMode: ...
+    def zoomOut(self, zoom: float = ...) -> None: ...
+
+
+class QPrinter(PySide6.QtGui.QPagedPaintDevice):
+
+    GrayScale                : QPrinter.ColorMode = ... # 0x0
+    Color                    : QPrinter.ColorMode = ... # 0x1
+    DuplexNone               : QPrinter.DuplexMode = ... # 0x0
+    DuplexAuto               : QPrinter.DuplexMode = ... # 0x1
+    DuplexLongSide           : QPrinter.DuplexMode = ... # 0x2
+    DuplexShortSide          : QPrinter.DuplexMode = ... # 0x3
+    NativeFormat             : QPrinter.OutputFormat = ... # 0x0
+    PdfFormat                : QPrinter.OutputFormat = ... # 0x1
+    FirstPageFirst           : QPrinter.PageOrder = ... # 0x0
+    LastPageFirst            : QPrinter.PageOrder = ... # 0x1
+    OnlyOne                  : QPrinter.PaperSource = ... # 0x0
+    Upper                    : QPrinter.PaperSource = ... # 0x0
+    Lower                    : QPrinter.PaperSource = ... # 0x1
+    Middle                   : QPrinter.PaperSource = ... # 0x2
+    Manual                   : QPrinter.PaperSource = ... # 0x3
+    Envelope                 : QPrinter.PaperSource = ... # 0x4
+    EnvelopeManual           : QPrinter.PaperSource = ... # 0x5
+    Auto                     : QPrinter.PaperSource = ... # 0x6
+    Tractor                  : QPrinter.PaperSource = ... # 0x7
+    SmallFormat              : QPrinter.PaperSource = ... # 0x8
+    LargeFormat              : QPrinter.PaperSource = ... # 0x9
+    LargeCapacity            : QPrinter.PaperSource = ... # 0xa
+    Cassette                 : QPrinter.PaperSource = ... # 0xb
+    FormSource               : QPrinter.PaperSource = ... # 0xc
+    MaxPageSource            : QPrinter.PaperSource = ... # 0xd
+    CustomSource             : QPrinter.PaperSource = ... # 0xe
+    LastPaperSource          : QPrinter.PaperSource = ... # 0xe
+    AllPages                 : QPrinter.PrintRange = ... # 0x0
+    Selection                : QPrinter.PrintRange = ... # 0x1
+    PageRange                : QPrinter.PrintRange = ... # 0x2
+    CurrentPage              : QPrinter.PrintRange = ... # 0x3
+    ScreenResolution         : QPrinter.PrinterMode = ... # 0x0
+    PrinterResolution        : QPrinter.PrinterMode = ... # 0x1
+    HighResolution           : QPrinter.PrinterMode = ... # 0x2
+    Idle                     : QPrinter.PrinterState = ... # 0x0
+    Active                   : QPrinter.PrinterState = ... # 0x1
+    Aborted                  : QPrinter.PrinterState = ... # 0x2
+    Error                    : QPrinter.PrinterState = ... # 0x3
+    Millimeter               : QPrinter.Unit = ... # 0x0
+    Point                    : QPrinter.Unit = ... # 0x1
+    Inch                     : QPrinter.Unit = ... # 0x2
+    Pica                     : QPrinter.Unit = ... # 0x3
+    Didot                    : QPrinter.Unit = ... # 0x4
+    Cicero                   : QPrinter.Unit = ... # 0x5
+    DevicePixel              : QPrinter.Unit = ... # 0x6
+
+    class ColorMode(Enum):
+
+        GrayScale                : QPrinter.ColorMode = ... # 0x0
+        Color                    : QPrinter.ColorMode = ... # 0x1
+
+    class DuplexMode(Enum):
+
+        DuplexNone               : QPrinter.DuplexMode = ... # 0x0
+        DuplexAuto               : QPrinter.DuplexMode = ... # 0x1
+        DuplexLongSide           : QPrinter.DuplexMode = ... # 0x2
+        DuplexShortSide          : QPrinter.DuplexMode = ... # 0x3
+
+    class OutputFormat(Enum):
+
+        NativeFormat             : QPrinter.OutputFormat = ... # 0x0
+        PdfFormat                : QPrinter.OutputFormat = ... # 0x1
+
+    class PageOrder(Enum):
+
+        FirstPageFirst           : QPrinter.PageOrder = ... # 0x0
+        LastPageFirst            : QPrinter.PageOrder = ... # 0x1
+
+    class PaperSource(Enum):
+
+        OnlyOne                  : QPrinter.PaperSource = ... # 0x0
+        Upper                    : QPrinter.PaperSource = ... # 0x0
+        Lower                    : QPrinter.PaperSource = ... # 0x1
+        Middle                   : QPrinter.PaperSource = ... # 0x2
+        Manual                   : QPrinter.PaperSource = ... # 0x3
+        Envelope                 : QPrinter.PaperSource = ... # 0x4
+        EnvelopeManual           : QPrinter.PaperSource = ... # 0x5
+        Auto                     : QPrinter.PaperSource = ... # 0x6
+        Tractor                  : QPrinter.PaperSource = ... # 0x7
+        SmallFormat              : QPrinter.PaperSource = ... # 0x8
+        LargeFormat              : QPrinter.PaperSource = ... # 0x9
+        LargeCapacity            : QPrinter.PaperSource = ... # 0xa
+        Cassette                 : QPrinter.PaperSource = ... # 0xb
+        FormSource               : QPrinter.PaperSource = ... # 0xc
+        MaxPageSource            : QPrinter.PaperSource = ... # 0xd
+        CustomSource             : QPrinter.PaperSource = ... # 0xe
+        LastPaperSource          : QPrinter.PaperSource = ... # 0xe
+
+    class PrintRange(Enum):
+
+        AllPages                 : QPrinter.PrintRange = ... # 0x0
+        Selection                : QPrinter.PrintRange = ... # 0x1
+        PageRange                : QPrinter.PrintRange = ... # 0x2
+        CurrentPage              : QPrinter.PrintRange = ... # 0x3
+
+    class PrinterMode(Enum):
+
+        ScreenResolution         : QPrinter.PrinterMode = ... # 0x0
+        PrinterResolution        : QPrinter.PrinterMode = ... # 0x1
+        HighResolution           : QPrinter.PrinterMode = ... # 0x2
+
+    class PrinterState(Enum):
+
+        Idle                     : QPrinter.PrinterState = ... # 0x0
+        Active                   : QPrinter.PrinterState = ... # 0x1
+        Aborted                  : QPrinter.PrinterState = ... # 0x2
+        Error                    : QPrinter.PrinterState = ... # 0x3
+
+    class Unit(Enum):
+
+        Millimeter               : QPrinter.Unit = ... # 0x0
+        Point                    : QPrinter.Unit = ... # 0x1
+        Inch                     : QPrinter.Unit = ... # 0x2
+        Pica                     : QPrinter.Unit = ... # 0x3
+        Didot                    : QPrinter.Unit = ... # 0x4
+        Cicero                   : QPrinter.Unit = ... # 0x5
+        DevicePixel              : QPrinter.Unit = ... # 0x6
+
+
+    @overload
+    def __init__(self, mode: PySide6.QtPrintSupport.QPrinter.PrinterMode = ...) -> None: ...
+    @overload
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinterInfo, mode: PySide6.QtPrintSupport.QPrinter.PrinterMode = ...) -> None: ...
+
+    def abort(self) -> bool: ...
+    def collateCopies(self) -> bool: ...
+    def colorMode(self) -> PySide6.QtPrintSupport.QPrinter.ColorMode: ...
+    def copyCount(self) -> int: ...
+    def creator(self) -> str: ...
+    def devType(self) -> int: ...
+    def docName(self) -> str: ...
+    def duplex(self) -> PySide6.QtPrintSupport.QPrinter.DuplexMode: ...
+    def fontEmbeddingEnabled(self) -> bool: ...
+    def fromPage(self) -> int: ...
+    def fullPage(self) -> bool: ...
+    def isValid(self) -> bool: ...
+    def metric(self, arg__1: PySide6.QtGui.QPaintDevice.PaintDeviceMetric) -> int: ...
+    def newPage(self) -> bool: ...
+    def outputFileName(self) -> str: ...
+    def outputFormat(self) -> PySide6.QtPrintSupport.QPrinter.OutputFormat: ...
+    def pageOrder(self) -> PySide6.QtPrintSupport.QPrinter.PageOrder: ...
+    def pageRect(self, arg__1: PySide6.QtPrintSupport.QPrinter.Unit) -> PySide6.QtCore.QRectF: ...
+    def paintEngine(self) -> PySide6.QtGui.QPaintEngine: ...
+    def paperRect(self, arg__1: PySide6.QtPrintSupport.QPrinter.Unit) -> PySide6.QtCore.QRectF: ...
+    def paperSource(self) -> PySide6.QtPrintSupport.QPrinter.PaperSource: ...
+    def pdfVersion(self) -> PySide6.QtGui.QPagedPaintDevice.PdfVersion: ...
+    def printEngine(self) -> PySide6.QtPrintSupport.QPrintEngine: ...
+    def printProgram(self) -> str: ...
+    def printRange(self) -> PySide6.QtPrintSupport.QPrinter.PrintRange: ...
+    def printerName(self) -> str: ...
+    def printerState(self) -> PySide6.QtPrintSupport.QPrinter.PrinterState: ...
+    def resolution(self) -> int: ...
+    def setCollateCopies(self, collate: bool) -> None: ...
+    def setColorMode(self, arg__1: PySide6.QtPrintSupport.QPrinter.ColorMode) -> None: ...
+    def setCopyCount(self, arg__1: int) -> None: ...
+    def setCreator(self, arg__1: str) -> None: ...
+    def setDocName(self, arg__1: str) -> None: ...
+    def setDuplex(self, duplex: PySide6.QtPrintSupport.QPrinter.DuplexMode) -> None: ...
+    def setEngines(self, printEngine: PySide6.QtPrintSupport.QPrintEngine, paintEngine: PySide6.QtGui.QPaintEngine) -> None: ...
+    def setFontEmbeddingEnabled(self, enable: bool) -> None: ...
+    def setFromTo(self, fromPage: int, toPage: int) -> None: ...
+    def setFullPage(self, arg__1: bool) -> None: ...
+    def setOutputFileName(self, arg__1: str) -> None: ...
+    def setOutputFormat(self, format: PySide6.QtPrintSupport.QPrinter.OutputFormat) -> None: ...
+    def setPageOrder(self, arg__1: PySide6.QtPrintSupport.QPrinter.PageOrder) -> None: ...
+    def setPageSize(self, arg__1: Union[PySide6.QtGui.QPageSize, PySide6.QtGui.QPageSize.PageSizeId, PySide6.QtCore.QSize]) -> bool: ...
+    def setPaperSource(self, arg__1: PySide6.QtPrintSupport.QPrinter.PaperSource) -> None: ...
+    def setPdfVersion(self, version: PySide6.QtGui.QPagedPaintDevice.PdfVersion) -> None: ...
+    def setPrintProgram(self, arg__1: str) -> None: ...
+    def setPrintRange(self, range: PySide6.QtPrintSupport.QPrinter.PrintRange) -> None: ...
+    def setPrinterName(self, arg__1: str) -> None: ...
+    def setResolution(self, arg__1: int) -> None: ...
+    def supportedResolutions(self) -> List[int]: ...
+    def supportsMultipleCopies(self) -> bool: ...
+    def toPage(self) -> int: ...
+
+
+class QPrinterInfo(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, other: PySide6.QtPrintSupport.QPrinterInfo) -> None: ...
+    @overload
+    def __init__(self, printer: PySide6.QtPrintSupport.QPrinter) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    @staticmethod
+    def availablePrinterNames() -> List[str]: ...
+    @staticmethod
+    def availablePrinters() -> List[PySide6.QtPrintSupport.QPrinterInfo]: ...
+    def defaultColorMode(self) -> PySide6.QtPrintSupport.QPrinter.ColorMode: ...
+    def defaultDuplexMode(self) -> PySide6.QtPrintSupport.QPrinter.DuplexMode: ...
+    def defaultPageSize(self) -> PySide6.QtGui.QPageSize: ...
+    @staticmethod
+    def defaultPrinter() -> PySide6.QtPrintSupport.QPrinterInfo: ...
+    @staticmethod
+    def defaultPrinterName() -> str: ...
+    def description(self) -> str: ...
+    def isDefault(self) -> bool: ...
+    def isNull(self) -> bool: ...
+    def isRemote(self) -> bool: ...
+    def location(self) -> str: ...
+    def makeAndModel(self) -> str: ...
+    def maximumPhysicalPageSize(self) -> PySide6.QtGui.QPageSize: ...
+    def minimumPhysicalPageSize(self) -> PySide6.QtGui.QPageSize: ...
+    @staticmethod
+    def printerInfo(printerName: str) -> PySide6.QtPrintSupport.QPrinterInfo: ...
+    def printerName(self) -> str: ...
+    def state(self) -> PySide6.QtPrintSupport.QPrinter.PrinterState: ...
+    def supportedColorModes(self) -> List[PySide6.QtPrintSupport.QPrinter.ColorMode]: ...
+    def supportedDuplexModes(self) -> List[PySide6.QtPrintSupport.QPrinter.DuplexMode]: ...
+    def supportedPageSizes(self) -> List[PySide6.QtGui.QPageSize]: ...
+    def supportedResolutions(self) -> List[int]: ...
+    def supportsCustomPageSizes(self) -> bool: ...
+
+
+# eof
