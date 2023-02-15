@@ -8038,6 +8038,9 @@ class QSettings(PySide6.QtCore.QObject):
 
     NativeFormat             : QSettings.Format = ... # 0x0
     IniFormat                : QSettings.Format = ... # 0x1
+    if sys.platform() == 'win32':
+        Registry32Format         : QSettings.Format = ... # 0x2
+        Registry64Format         : QSettings.Format = ... # 0x3
     InvalidFormat            : QSettings.Format = ... # 0x10
     CustomFormat1            : QSettings.Format = ... # 0x11
     CustomFormat2            : QSettings.Format = ... # 0x12
@@ -8065,6 +8068,9 @@ class QSettings(PySide6.QtCore.QObject):
 
         NativeFormat             : QSettings.Format = ... # 0x0
         IniFormat                : QSettings.Format = ... # 0x1
+        if sys.platform() == 'win32':
+            Registry32Format         : QSettings.Format = ... # 0x2
+            Registry64Format         : QSettings.Format = ... # 0x3
         InvalidFormat            : QSettings.Format = ... # 0x10
         CustomFormat1            : QSettings.Format = ... # 0x11
         CustomFormat2            : QSettings.Format = ... # 0x12
@@ -8333,6 +8339,8 @@ class QSocketDescriptor(Shiboken.Object):
     @staticmethod
     def __copy__() -> None: ...
     def isValid(self) -> bool: ...
+    if sys.platform() == 'win32':
+        def winHandle(self) -> int: ...
 
 
 class QSocketNotifier(PySide6.QtCore.QObject):
@@ -9687,6 +9695,20 @@ class QWaitCondition(Shiboken.Object):
     def wait(self, lockedReadWriteLock: PySide6.QtCore.QReadWriteLock, time: int) -> bool: ...
     def wakeAll(self) -> None: ...
     def wakeOne(self) -> None: ...
+
+
+class QWinEventNotifier(PySide6.QtCore.QObject):
+
+    @overload
+    def __init__(self, hEvent:int, parent:Optional[PySide6.QtCore.QObject]=...) -> None: ...
+    @overload
+    def __init__(self, parent:Optional[PySide6.QtCore.QObject]=...) -> None: ...
+
+    def event(self, e:PySide6.QtCore.QEvent) -> bool: ...
+    def handle(self) -> int: ...
+    def isEnabled(self) -> bool: ...
+    def setEnabled(self, enable:bool) -> None: ...
+    def setHandle(self, hEvent:int) -> None: ...
 
 
 class QWriteLocker(Shiboken.Object):
