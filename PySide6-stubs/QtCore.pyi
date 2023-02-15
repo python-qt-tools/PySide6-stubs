@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -84,25 +48,19 @@ class PyClassProperty(property):
 
 class QAbstractAnimation(PySide6.QtCore.QObject):
 
+    class DeletionPolicy(shibokensupport.enum_310.Enum):
+
     KeepWhenStopped          : QAbstractAnimation.DeletionPolicy = ... # 0x0
     DeleteWhenStopped        : QAbstractAnimation.DeletionPolicy = ... # 0x1
-    Forward                  : QAbstractAnimation.Direction = ... # 0x0
-    Backward                 : QAbstractAnimation.Direction = ... # 0x1
-    Stopped                  : QAbstractAnimation.State = ... # 0x0
-    Paused                   : QAbstractAnimation.State = ... # 0x1
-    Running                  : QAbstractAnimation.State = ... # 0x2
 
-    class DeletionPolicy(Shiboken.Enum):
 
-        KeepWhenStopped          : QAbstractAnimation.DeletionPolicy = ... # 0x0
-        DeleteWhenStopped        : QAbstractAnimation.DeletionPolicy = ... # 0x1
-
-    class Direction(Shiboken.Enum):
+    class Direction(shibokensupport.enum_310.Enum):
 
         Forward                  : QAbstractAnimation.Direction = ... # 0x0
         Backward                 : QAbstractAnimation.Direction = ... # 0x1
 
-    class State(Shiboken.Enum):
+
+    class State(shibokensupport.enum_310.Enum):
 
         Stopped                  : QAbstractAnimation.State = ... # 0x0
         Paused                   : QAbstractAnimation.State = ... # 0x1
@@ -155,7 +113,7 @@ class QAbstractEventDispatcher(PySide6.QtCore.QObject):
     @staticmethod
     def instance(thread: Optional[PySide6.QtCore.QThread] = ...) -> PySide6.QtCore.QAbstractEventDispatcher: ...
     def interrupt(self) -> None: ...
-    def processEvents(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlags) -> bool: ...
+    def processEvents(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlag) -> bool: ...
     def registerSocketNotifier(self, notifier: PySide6.QtCore.QSocketNotifier) -> None: ...
     @overload
     def registerTimer(self, interval: int, timerType: PySide6.QtCore.Qt.TimerType, object: PySide6.QtCore.QObject) -> int: ...
@@ -173,20 +131,15 @@ class QAbstractEventDispatcher(PySide6.QtCore.QObject):
 
 class QAbstractItemModel(PySide6.QtCore.QObject):
 
-    NoLayoutChangeHint       : QAbstractItemModel.LayoutChangeHint = ... # 0x0
-    VerticalSortHint         : QAbstractItemModel.LayoutChangeHint = ... # 0x1
-    HorizontalSortHint       : QAbstractItemModel.LayoutChangeHint = ... # 0x2
-
-    class CheckIndexOption(Shiboken.Enum):
+    class CheckIndexOption(shibokensupport.enum_310.Flag):
 
         NoOption                 : QAbstractItemModel.CheckIndexOption = ... # 0x0
         IndexIsValid             : QAbstractItemModel.CheckIndexOption = ... # 0x1
         DoNotUseParent           : QAbstractItemModel.CheckIndexOption = ... # 0x2
         ParentIsInvalid          : QAbstractItemModel.CheckIndexOption = ... # 0x4
 
-    class CheckIndexOptions(object): ...
 
-    class LayoutChangeHint(Shiboken.Enum):
+    class LayoutChangeHint(shibokensupport.enum_310.Enum):
 
         NoLayoutChangeHint       : QAbstractItemModel.LayoutChangeHint = ... # 0x0
         VerticalSortHint         : QAbstractItemModel.LayoutChangeHint = ... # 0x1
@@ -207,7 +160,7 @@ class QAbstractItemModel(PySide6.QtCore.QObject):
     def canFetchMore(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
     def changePersistentIndex(self, from_: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], to: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> None: ...
     def changePersistentIndexList(self, from_: Sequence[PySide6.QtCore.QModelIndex], to: Sequence[PySide6.QtCore.QModelIndex]) -> None: ...
-    def checkIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], options: PySide6.QtCore.QAbstractItemModel.CheckIndexOptions = ...) -> bool: ...
+    def checkIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], options: PySide6.QtCore.QAbstractItemModel.CheckIndexOption = ...) -> bool: ...
     def clearItemData(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
     @overload
@@ -226,7 +179,7 @@ class QAbstractItemModel(PySide6.QtCore.QObject):
     def endRemoveRows(self) -> None: ...
     def endResetModel(self) -> None: ...
     def fetchMore(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> None: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def hasChildren(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def hasIndex(self, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def headerData(self, section: int, orientation: PySide6.QtCore.Qt.Orientation, role: int = ...) -> Any: ...
@@ -236,7 +189,7 @@ class QAbstractItemModel(PySide6.QtCore.QObject):
     def insertRow(self, row: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def insertRows(self, row: int, count: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def itemData(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> Dict[int, Any]: ...
-    def match(self, start: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int, value: Any, hits: int = ..., flags: PySide6.QtCore.Qt.MatchFlags = ...) -> List[PySide6.QtCore.QModelIndex]: ...
+    def match(self, start: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int, value: Any, hits: int = ..., flags: PySide6.QtCore.Qt.MatchFlag = ...) -> List[PySide6.QtCore.QModelIndex]: ...
     def mimeData(self, indexes: Sequence[PySide6.QtCore.QModelIndex]) -> PySide6.QtCore.QMimeData: ...
     def mimeTypes(self) -> List[str]: ...
     def moveColumn(self, sourceParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], sourceColumn: int, destinationParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], destinationChild: int) -> bool: ...
@@ -263,8 +216,8 @@ class QAbstractItemModel(PySide6.QtCore.QObject):
     def sort(self, column: int, order: PySide6.QtCore.Qt.SortOrder = ...) -> None: ...
     def span(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QSize: ...
     def submit(self) -> bool: ...
-    def supportedDragActions(self) -> PySide6.QtCore.Qt.DropActions: ...
-    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropActions: ...
+    def supportedDragActions(self) -> PySide6.QtCore.Qt.DropAction: ...
+    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropAction: ...
 
 
 class QAbstractListModel(PySide6.QtCore.QAbstractItemModel):
@@ -273,7 +226,7 @@ class QAbstractListModel(PySide6.QtCore.QAbstractItemModel):
 
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> int: ...
     def dropMimeData(self, data: PySide6.QtCore.QMimeData, action: PySide6.QtCore.Qt.DropAction, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def hasChildren(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
     def index(self, row: int, column: int = ..., parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> PySide6.QtCore.QModelIndex: ...
     @overload
@@ -287,7 +240,7 @@ class QAbstractNativeEventFilter(Shiboken.Object):
 
     def __init__(self) -> None: ...
 
-    def nativeEventFilter(self, eventType: Union[PySide6.QtCore.QByteArray, bytes], message: int) -> Tuple[object, int]: ...
+    def nativeEventFilter(self, eventType: Union[PySide6.QtCore.QByteArray, bytes], message: int) -> object: ...
 
 
 class QAbstractProxyModel(PySide6.QtCore.QAbstractItemModel):
@@ -302,7 +255,7 @@ class QAbstractProxyModel(PySide6.QtCore.QAbstractItemModel):
     def data(self, proxyIndex: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
     def dropMimeData(self, data: PySide6.QtCore.QMimeData, action: PySide6.QtCore.Qt.DropAction, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
     def fetchMore(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> None: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def hasChildren(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def headerData(self, section: int, orientation: PySide6.QtCore.Qt.Orientation, role: int = ...) -> Any: ...
     def itemData(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> Dict[int, Any]: ...
@@ -323,8 +276,8 @@ class QAbstractProxyModel(PySide6.QtCore.QAbstractItemModel):
     def sourceModel(self) -> PySide6.QtCore.QAbstractItemModel: ...
     def span(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QSize: ...
     def submit(self) -> bool: ...
-    def supportedDragActions(self) -> PySide6.QtCore.Qt.DropActions: ...
-    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropActions: ...
+    def supportedDragActions(self) -> PySide6.QtCore.Qt.DropAction: ...
+    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropAction: ...
 
 
 class QAbstractTableModel(PySide6.QtCore.QAbstractItemModel):
@@ -332,7 +285,7 @@ class QAbstractTableModel(PySide6.QtCore.QAbstractItemModel):
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def dropMimeData(self, data: PySide6.QtCore.QMimeData, action: PySide6.QtCore.Qt.DropAction, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def hasChildren(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
     def index(self, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> PySide6.QtCore.QModelIndex: ...
     @overload
@@ -442,9 +395,9 @@ class QBuffer(PySide6.QtCore.QIODevice):
     def connectNotify(self, arg__1: PySide6.QtCore.QMetaMethod) -> None: ...
     def data(self) -> PySide6.QtCore.QByteArray: ...
     def disconnectNotify(self, arg__1: PySide6.QtCore.QMetaMethod) -> None: ...
-    def open(self, openMode: PySide6.QtCore.QIODeviceBase.OpenMode) -> bool: ...
+    def open(self, openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> bool: ...
     def pos(self) -> int: ...
-    def readData(self, data: bytes, maxlen: int) -> object: ...
+    def readData(self, maxlen: int) -> object: ...
     def seek(self, off: int) -> bool: ...
     def setBuffer(self, a: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
     def setData(self, data: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
@@ -454,21 +407,15 @@ class QBuffer(PySide6.QtCore.QIODevice):
 
 class QByteArray(Shiboken.Object):
 
-    Base64Encoding           : QByteArray.Base64Option = ... # 0x0
-    IgnoreBase64DecodingErrors: QByteArray.Base64Option = ... # 0x0
-    KeepTrailingEquals       : QByteArray.Base64Option = ... # 0x0
-    Base64UrlEncoding        : QByteArray.Base64Option = ... # 0x1
-    OmitTrailingEquals       : QByteArray.Base64Option = ... # 0x2
-    AbortOnBase64DecodingErrors: QByteArray.Base64Option = ... # 0x4
-
-    class Base64DecodingStatus(Shiboken.Enum):
+    class Base64DecodingStatus(shibokensupport.enum_310.Enum):
 
         Ok                       : QByteArray.Base64DecodingStatus = ... # 0x0
         IllegalInputLength       : QByteArray.Base64DecodingStatus = ... # 0x1
         IllegalCharacter         : QByteArray.Base64DecodingStatus = ... # 0x2
         IllegalPadding           : QByteArray.Base64DecodingStatus = ... # 0x3
 
-    class Base64Option(Shiboken.Enum):
+
+    class Base64Option(shibokensupport.enum_310.Flag):
 
         Base64Encoding           : QByteArray.Base64Option = ... # 0x0
         IgnoreBase64DecodingErrors: QByteArray.Base64Option = ... # 0x0
@@ -477,7 +424,6 @@ class QByteArray(Shiboken.Object):
         OmitTrailingEquals       : QByteArray.Base64Option = ... # 0x2
         AbortOnBase64DecodingErrors: QByteArray.Base64Option = ... # 0x4
 
-    class Base64Options(object): ...
 
     class FromBase64Result(Shiboken.Object):
 
@@ -561,9 +507,9 @@ class QByteArray(Shiboken.Object):
     def fill(self, c: int, size: int = ...) -> PySide6.QtCore.QByteArray: ...
     def first(self, n: int) -> PySide6.QtCore.QByteArray: ...
     @staticmethod
-    def fromBase64(base64: Union[PySide6.QtCore.QByteArray, bytes], options: PySide6.QtCore.QByteArray.Base64Options = ...) -> PySide6.QtCore.QByteArray: ...
+    def fromBase64(base64: Union[PySide6.QtCore.QByteArray, bytes], options: PySide6.QtCore.QByteArray.Base64Option = ...) -> PySide6.QtCore.QByteArray: ...
     @staticmethod
-    def fromBase64Encoding(base64: Union[PySide6.QtCore.QByteArray, bytes], options: PySide6.QtCore.QByteArray.Base64Options = ...) -> PySide6.QtCore.QByteArray.FromBase64Result: ...
+    def fromBase64Encoding(base64: Union[PySide6.QtCore.QByteArray, bytes], options: PySide6.QtCore.QByteArray.Base64Option = ...) -> PySide6.QtCore.QByteArray.FromBase64Result: ...
     @staticmethod
     def fromHex(hexEncoded: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtCore.QByteArray: ...
     @staticmethod
@@ -613,6 +559,7 @@ class QByteArray(Shiboken.Object):
     @overload
     @staticmethod
     def number(arg__1: int, base: int = ...) -> PySide6.QtCore.QByteArray: ...
+    def percentDecoded(self, percent: int = ...) -> PySide6.QtCore.QByteArray: ...
     @overload
     def prepend(self, a: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtCore.QByteArray: ...
     @overload
@@ -638,7 +585,10 @@ class QByteArray(Shiboken.Object):
     @overload
     def replace(self, index: int, len: int, s: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtCore.QByteArray: ...
     def reserve(self, size: int) -> None: ...
+    @overload
     def resize(self, size: int) -> None: ...
+    @overload
+    def resize(self, size: int, c: int) -> None: ...
     def right(self, len: int) -> PySide6.QtCore.QByteArray: ...
     def rightJustified(self, width: int, fill: int = ..., truncate: bool = ...) -> PySide6.QtCore.QByteArray: ...
     @overload
@@ -662,21 +612,21 @@ class QByteArray(Shiboken.Object):
     @overload
     def startsWith(self, c: int) -> bool: ...
     def swap(self, other: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
-    def toBase64(self, options: PySide6.QtCore.QByteArray.Base64Options = ...) -> PySide6.QtCore.QByteArray: ...
-    def toDouble(self) -> Tuple[float, bool]: ...
-    def toFloat(self) -> Tuple[float, bool]: ...
+    def toBase64(self, options: PySide6.QtCore.QByteArray.Base64Option = ...) -> PySide6.QtCore.QByteArray: ...
+    def toDouble(self) -> float: ...
+    def toFloat(self) -> float: ...
     def toHex(self, separator: int = ...) -> PySide6.QtCore.QByteArray: ...
-    def toInt(self, base: int = ...) -> Tuple[int, bool]: ...
-    def toLong(self, base: int = ...) -> Tuple[int, bool]: ...
-    def toLongLong(self, base: int = ...) -> Tuple[int, bool]: ...
+    def toInt(self, base: int = ...) -> int: ...
+    def toLong(self, base: int = ...) -> int: ...
+    def toLongLong(self, base: int = ...) -> int: ...
     def toLower(self) -> PySide6.QtCore.QByteArray: ...
     def toPercentEncoding(self, exclude: Union[PySide6.QtCore.QByteArray, bytes] = ..., include: Union[PySide6.QtCore.QByteArray, bytes] = ..., percent: int = ...) -> PySide6.QtCore.QByteArray: ...
-    def toShort(self, base: int = ...) -> Tuple[int, bool]: ...
+    def toShort(self, base: int = ...) -> int: ...
     def toStdString(self) -> str: ...
-    def toUInt(self, base: int = ...) -> Tuple[int, bool]: ...
-    def toULong(self, base: int = ...) -> Tuple[int, bool]: ...
-    def toULongLong(self, base: int = ...) -> Tuple[int, bool]: ...
-    def toUShort(self, base: int = ...) -> Tuple[int, bool]: ...
+    def toUInt(self, base: int = ...) -> int: ...
+    def toULong(self, base: int = ...) -> int: ...
+    def toULongLong(self, base: int = ...) -> int: ...
+    def toUShort(self, base: int = ...) -> int: ...
     def toUpper(self) -> PySide6.QtCore.QByteArray: ...
     def trimmed(self) -> PySide6.QtCore.QByteArray: ...
     def truncate(self, pos: int) -> None: ...
@@ -705,7 +655,7 @@ class QByteArrayMatcher(Shiboken.Object):
 
 class QCalendar(Shiboken.Object):
 
-    class System(Shiboken.Enum):
+    class System(shibokensupport.enum_310.Enum):
 
         User                     : QCalendar.System = ... # -0x1
         Gregorian                : QCalendar.System = ... # 0x0
@@ -714,6 +664,7 @@ class QCalendar(Shiboken.Object):
         Jalali                   : QCalendar.System = ... # 0xa
         IslamicCivil             : QCalendar.System = ... # 0xb
         Last                     : QCalendar.System = ... # 0xb
+
 
     class SystemId(Shiboken.Object):
 
@@ -738,6 +689,8 @@ class QCalendar(Shiboken.Object):
 
     @overload
     def __init__(self) -> None: ...
+    @overload
+    def __init__(self, QCalendar: PySide6.QtCore.QCalendar) -> None: ...
     @overload
     def __init__(self, id: PySide6.QtCore.QCalendar.SystemId) -> None: ...
     @overload
@@ -826,23 +779,7 @@ class QCborArray(Shiboken.Object):
 
 class QCborError(Shiboken.Object):
 
-    NoError                  : QCborError.Code = ... # 0x0
-    UnknownError             : QCborError.Code = ... # 0x1
-    AdvancePastEnd           : QCborError.Code = ... # 0x3
-    InputOutputError         : QCborError.Code = ... # 0x4
-    GarbageAtEnd             : QCborError.Code = ... # 0x100
-    EndOfFile                : QCborError.Code = ... # 0x101
-    UnexpectedBreak          : QCborError.Code = ... # 0x102
-    UnknownType              : QCborError.Code = ... # 0x103
-    IllegalType              : QCborError.Code = ... # 0x104
-    IllegalNumber            : QCborError.Code = ... # 0x105
-    IllegalSimpleType        : QCborError.Code = ... # 0x106
-    InvalidUtf8String        : QCborError.Code = ... # 0x204
-    DataTooLarge             : QCborError.Code = ... # 0x400
-    NestingTooDeep           : QCborError.Code = ... # 0x401
-    UnsupportedType          : QCborError.Code = ... # 0x402
-
-    class Code(Shiboken.Enum):
+    class Code(shibokensupport.enum_310.Enum):
 
         NoError                  : QCborError.Code = ... # 0x0
         UnknownError             : QCborError.Code = ... # 0x1
@@ -871,7 +808,7 @@ class QCborError(Shiboken.Object):
     def toString(self) -> str: ...
 
 
-class QCborKnownTags(Shiboken.Enum):
+class QCborKnownTags(shibokensupport.enum_310.Enum):
 
     DateTimeString           : QCborKnownTags = ... # 0x0
     UnixTime_t               : QCborKnownTags = ... # 0x1
@@ -962,7 +899,7 @@ class QCborParserError(Shiboken.Object):
     def errorString(self) -> str: ...
 
 
-class QCborSimpleType(Shiboken.Enum):
+class QCborSimpleType(shibokensupport.enum_310.Enum):
 
     False_                   : QCborSimpleType = ... # 0x14
     True_                    : QCborSimpleType = ... # 0x15
@@ -972,32 +909,14 @@ class QCborSimpleType(Shiboken.Enum):
 
 class QCborStreamReader(Shiboken.Object):
 
+    class StringResultCode(shibokensupport.enum_310.Enum):
+
     Error                    : QCborStreamReader.StringResultCode = ... # -0x1
     EndOfString              : QCborStreamReader.StringResultCode = ... # 0x0
     Ok                       : QCborStreamReader.StringResultCode = ... # 0x1
-    UnsignedInteger          : QCborStreamReader.Type = ... # 0x0
-    NegativeInteger          : QCborStreamReader.Type = ... # 0x20
-    ByteArray                : QCborStreamReader.Type = ... # 0x40
-    ByteString               : QCborStreamReader.Type = ... # 0x40
-    String                   : QCborStreamReader.Type = ... # 0x60
-    TextString               : QCborStreamReader.Type = ... # 0x60
-    Array                    : QCborStreamReader.Type = ... # 0x80
-    Map                      : QCborStreamReader.Type = ... # 0xa0
-    Tag                      : QCborStreamReader.Type = ... # 0xc0
-    SimpleType               : QCborStreamReader.Type = ... # 0xe0
-    Float16                  : QCborStreamReader.Type = ... # 0xf9
-    HalfFloat                : QCborStreamReader.Type = ... # 0xf9
-    Float                    : QCborStreamReader.Type = ... # 0xfa
-    Double                   : QCborStreamReader.Type = ... # 0xfb
-    Invalid                  : QCborStreamReader.Type = ... # 0xff
 
-    class StringResultCode(Shiboken.Enum):
 
-        Error                    : QCborStreamReader.StringResultCode = ... # -0x1
-        EndOfString              : QCborStreamReader.StringResultCode = ... # 0x0
-        Ok                       : QCborStreamReader.StringResultCode = ... # 0x1
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         UnsignedInteger          : QCborStreamReader.Type = ... # 0x0
         NegativeInteger          : QCborStreamReader.Type = ... # 0x20
@@ -1162,41 +1081,14 @@ class QCborTag(Shiboken.Enum): ...
 
 class QCborValue(Shiboken.Object):
 
-    Compact                  : QCborValue.DiagnosticNotationOption = ... # 0x0
-    LineWrapped              : QCborValue.DiagnosticNotationOption = ... # 0x1
-    ExtendedFormat           : QCborValue.DiagnosticNotationOption = ... # 0x2
-    NoTransformation         : QCborValue.EncodingOption = ... # 0x0
-    SortKeysInMaps           : QCborValue.EncodingOption = ... # 0x1
-    UseFloat                 : QCborValue.EncodingOption = ... # 0x2
-    UseFloat16               : QCborValue.EncodingOption = ... # 0x6
-    UseIntegers              : QCborValue.EncodingOption = ... # 0x8
-    Invalid                  : QCborValue.Type = ... # -0x1
-    Integer                  : QCborValue.Type = ... # 0x0
-    ByteArray                : QCborValue.Type = ... # 0x40
-    String                   : QCborValue.Type = ... # 0x60
-    Array                    : QCborValue.Type = ... # 0x80
-    Map                      : QCborValue.Type = ... # 0xa0
-    Tag                      : QCborValue.Type = ... # 0xc0
-    SimpleType               : QCborValue.Type = ... # 0x100
-    False_                   : QCborValue.Type = ... # 0x114
-    True_                    : QCborValue.Type = ... # 0x115
-    Null                     : QCborValue.Type = ... # 0x116
-    Undefined                : QCborValue.Type = ... # 0x117
-    Double                   : QCborValue.Type = ... # 0x202
-    DateTime                 : QCborValue.Type = ... # 0x10000
-    Url                      : QCborValue.Type = ... # 0x10020
-    RegularExpression        : QCborValue.Type = ... # 0x10023
-    Uuid                     : QCborValue.Type = ... # 0x10025
-
-    class DiagnosticNotationOption(Shiboken.Enum):
+    class DiagnosticNotationOption(shibokensupport.enum_310.Flag):
 
         Compact                  : QCborValue.DiagnosticNotationOption = ... # 0x0
         LineWrapped              : QCborValue.DiagnosticNotationOption = ... # 0x1
         ExtendedFormat           : QCborValue.DiagnosticNotationOption = ... # 0x2
 
-    class DiagnosticNotationOptions(object): ...
 
-    class EncodingOption(Shiboken.Enum):
+    class EncodingOption(shibokensupport.enum_310.Flag):
 
         NoTransformation         : QCborValue.EncodingOption = ... # 0x0
         SortKeysInMaps           : QCborValue.EncodingOption = ... # 0x1
@@ -1204,9 +1096,8 @@ class QCborValue(Shiboken.Object):
         UseFloat16               : QCborValue.EncodingOption = ... # 0x6
         UseIntegers              : QCborValue.EncodingOption = ... # 0x8
 
-    class EncodingOptions(object): ...
 
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         Invalid                  : QCborValue.Type = ... # -0x1
         Integer                  : QCborValue.Type = ... # 0x0
@@ -1319,11 +1210,11 @@ class QCborValue(Shiboken.Object):
     def toBool(self, defaultValue: bool = ...) -> bool: ...
     def toByteArray(self, defaultValue: Union[PySide6.QtCore.QByteArray, bytes] = ...) -> PySide6.QtCore.QByteArray: ...
     @overload
-    def toCbor(self, opt: PySide6.QtCore.QCborValue.EncodingOptions = ...) -> PySide6.QtCore.QByteArray: ...
+    def toCbor(self, opt: PySide6.QtCore.QCborValue.EncodingOption = ...) -> PySide6.QtCore.QByteArray: ...
     @overload
-    def toCbor(self, writer: PySide6.QtCore.QCborStreamWriter, opt: PySide6.QtCore.QCborValue.EncodingOptions = ...) -> None: ...
+    def toCbor(self, writer: PySide6.QtCore.QCborStreamWriter, opt: PySide6.QtCore.QCborValue.EncodingOption = ...) -> None: ...
     def toDateTime(self, defaultValue: PySide6.QtCore.QDateTime = ...) -> PySide6.QtCore.QDateTime: ...
-    def toDiagnosticNotation(self, opts: PySide6.QtCore.QCborValue.DiagnosticNotationOptions = ...) -> str: ...
+    def toDiagnosticNotation(self, opts: PySide6.QtCore.QCborValue.DiagnosticNotationOption = ...) -> str: ...
     def toDouble(self, defaultValue: float = ...) -> float: ...
     def toInteger(self, defaultValue: int = ...) -> int: ...
     def toJsonValue(self) -> PySide6.QtCore.QJsonValue: ...
@@ -1394,15 +1285,10 @@ class QCollatorSortKey(Shiboken.Object):
 
 class QCommandLineOption(Shiboken.Object):
 
-    HiddenFromHelp           : QCommandLineOption.Flag = ... # 0x1
-    ShortOptionStyle         : QCommandLineOption.Flag = ... # 0x2
-
-    class Flag(Shiboken.Enum):
+    class Flag(shibokensupport.enum_310.Flag):
 
         HiddenFromHelp           : QCommandLineOption.Flag = ... # 0x1
         ShortOptionStyle         : QCommandLineOption.Flag = ... # 0x2
-
-    class Flags(object): ...
 
 
     @overload
@@ -1418,12 +1304,12 @@ class QCommandLineOption(Shiboken.Object):
 
     def defaultValues(self) -> List[str]: ...
     def description(self) -> str: ...
-    def flags(self) -> PySide6.QtCore.QCommandLineOption.Flags: ...
+    def flags(self) -> PySide6.QtCore.QCommandLineOption.Flag: ...
     def names(self) -> List[str]: ...
     def setDefaultValue(self, defaultValue: str) -> None: ...
     def setDefaultValues(self, defaultValues: Sequence[str]) -> None: ...
     def setDescription(self, description: str) -> None: ...
-    def setFlags(self, aflags: PySide6.QtCore.QCommandLineOption.Flags) -> None: ...
+    def setFlags(self, aflags: PySide6.QtCore.QCommandLineOption.Flag) -> None: ...
     def setValueName(self, name: str) -> None: ...
     def swap(self, other: PySide6.QtCore.QCommandLineOption) -> None: ...
     def valueName(self) -> str: ...
@@ -1431,17 +1317,13 @@ class QCommandLineOption(Shiboken.Object):
 
 class QCommandLineParser(Shiboken.Object):
 
+    class OptionsAfterPositionalArgumentsMode(shibokensupport.enum_310.Enum):
+
     ParseAsOptions           : QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x0
     ParseAsPositionalArguments: QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x1
-    ParseAsCompactedShortOptions: QCommandLineParser.SingleDashWordOptionMode = ... # 0x0
-    ParseAsLongOptions       : QCommandLineParser.SingleDashWordOptionMode = ... # 0x1
 
-    class OptionsAfterPositionalArgumentsMode(Shiboken.Enum):
 
-        ParseAsOptions           : QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x0
-        ParseAsPositionalArguments: QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x1
-
-    class SingleDashWordOptionMode(Shiboken.Enum):
+    class SingleDashWordOptionMode(shibokensupport.enum_310.Enum):
 
         ParseAsCompactedShortOptions: QCommandLineParser.SingleDashWordOptionMode = ... # 0x0
         ParseAsLongOptions       : QCommandLineParser.SingleDashWordOptionMode = ... # 0x1
@@ -1494,7 +1376,7 @@ class QConcatenateTablesProxyModel(PySide6.QtCore.QAbstractItemModel):
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
     def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
     def dropMimeData(self, data: PySide6.QtCore.QMimeData, action: PySide6.QtCore.Qt.DropAction, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def headerData(self, section: int, orientation: PySide6.QtCore.Qt.Orientation, role: int = ...) -> Any: ...
     def index(self, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> PySide6.QtCore.QModelIndex: ...
     def itemData(self, proxyIndex: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> Dict[int, Any]: ...
@@ -1565,10 +1447,10 @@ class QCoreApplication(PySide6.QtCore.QObject):
     def postEvent(receiver: PySide6.QtCore.QObject, event: PySide6.QtCore.QEvent, priority: int = ...) -> None: ...
     @overload
     @staticmethod
-    def processEvents(flags: PySide6.QtCore.QEventLoop.ProcessEventsFlags, maxtime: int) -> None: ...
+    def processEvents(flags: PySide6.QtCore.QEventLoop.ProcessEventsFlag, maxtime: int) -> None: ...
     @overload
     @staticmethod
-    def processEvents(flags: PySide6.QtCore.QEventLoop.ProcessEventsFlags = ...) -> None: ...
+    def processEvents(flags: PySide6.QtCore.QEventLoop.ProcessEventsFlag = ...) -> None: ...
     @staticmethod
     def quit() -> None: ...
     @staticmethod
@@ -1612,35 +1494,7 @@ class QCoreApplication(PySide6.QtCore.QObject):
 
 class QCryptographicHash(Shiboken.Object):
 
-    Md4                      : QCryptographicHash.Algorithm = ... # 0x0
-    Md5                      : QCryptographicHash.Algorithm = ... # 0x1
-    Sha1                     : QCryptographicHash.Algorithm = ... # 0x2
-    Sha224                   : QCryptographicHash.Algorithm = ... # 0x3
-    Sha256                   : QCryptographicHash.Algorithm = ... # 0x4
-    Sha384                   : QCryptographicHash.Algorithm = ... # 0x5
-    Sha512                   : QCryptographicHash.Algorithm = ... # 0x6
-    Keccak_224               : QCryptographicHash.Algorithm = ... # 0x7
-    Keccak_256               : QCryptographicHash.Algorithm = ... # 0x8
-    Keccak_384               : QCryptographicHash.Algorithm = ... # 0x9
-    Keccak_512               : QCryptographicHash.Algorithm = ... # 0xa
-    RealSha3_224             : QCryptographicHash.Algorithm = ... # 0xb
-    Sha3_224                 : QCryptographicHash.Algorithm = ... # 0xb
-    RealSha3_256             : QCryptographicHash.Algorithm = ... # 0xc
-    Sha3_256                 : QCryptographicHash.Algorithm = ... # 0xc
-    RealSha3_384             : QCryptographicHash.Algorithm = ... # 0xd
-    Sha3_384                 : QCryptographicHash.Algorithm = ... # 0xd
-    RealSha3_512             : QCryptographicHash.Algorithm = ... # 0xe
-    Sha3_512                 : QCryptographicHash.Algorithm = ... # 0xe
-    Blake2b_160              : QCryptographicHash.Algorithm = ... # 0xf
-    Blake2b_256              : QCryptographicHash.Algorithm = ... # 0x10
-    Blake2b_384              : QCryptographicHash.Algorithm = ... # 0x11
-    Blake2b_512              : QCryptographicHash.Algorithm = ... # 0x12
-    Blake2s_128              : QCryptographicHash.Algorithm = ... # 0x13
-    Blake2s_160              : QCryptographicHash.Algorithm = ... # 0x14
-    Blake2s_224              : QCryptographicHash.Algorithm = ... # 0x15
-    Blake2s_256              : QCryptographicHash.Algorithm = ... # 0x16
-
-    class Algorithm(Shiboken.Enum):
+    class Algorithm(shibokensupport.enum_310.Enum):
 
         Md4                      : QCryptographicHash.Algorithm = ... # 0x0
         Md5                      : QCryptographicHash.Algorithm = ... # 0x1
@@ -1674,7 +1528,7 @@ class QCryptographicHash(Shiboken.Object):
     def __init__(self, method: PySide6.QtCore.QCryptographicHash.Algorithm) -> None: ...
 
     @overload
-    def addData(self, data: bytes, length: int) -> None: ...
+    def addData(self, data: bytes) -> None: ...
     @overload
     def addData(self, data: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
     @overload
@@ -1690,70 +1544,27 @@ class QCryptographicHash(Shiboken.Object):
 
 class QDataStream(PySide6.QtCore.QIODeviceBase):
 
+    class ByteOrder(shibokensupport.enum_310.Enum):
+
     BigEndian                : QDataStream.ByteOrder = ... # 0x0
     LittleEndian             : QDataStream.ByteOrder = ... # 0x1
-    SinglePrecision          : QDataStream.FloatingPointPrecision = ... # 0x0
-    DoublePrecision          : QDataStream.FloatingPointPrecision = ... # 0x1
-    Ok                       : QDataStream.Status = ... # 0x0
-    ReadPastEnd              : QDataStream.Status = ... # 0x1
-    ReadCorruptData          : QDataStream.Status = ... # 0x2
-    WriteFailed              : QDataStream.Status = ... # 0x3
-    Qt_1_0                   : QDataStream.Version = ... # 0x1
-    Qt_2_0                   : QDataStream.Version = ... # 0x2
-    Qt_2_1                   : QDataStream.Version = ... # 0x3
-    Qt_3_0                   : QDataStream.Version = ... # 0x4
-    Qt_3_1                   : QDataStream.Version = ... # 0x5
-    Qt_3_3                   : QDataStream.Version = ... # 0x6
-    Qt_4_0                   : QDataStream.Version = ... # 0x7
-    Qt_4_1                   : QDataStream.Version = ... # 0x7
-    Qt_4_2                   : QDataStream.Version = ... # 0x8
-    Qt_4_3                   : QDataStream.Version = ... # 0x9
-    Qt_4_4                   : QDataStream.Version = ... # 0xa
-    Qt_4_5                   : QDataStream.Version = ... # 0xb
-    Qt_4_6                   : QDataStream.Version = ... # 0xc
-    Qt_4_7                   : QDataStream.Version = ... # 0xc
-    Qt_4_8                   : QDataStream.Version = ... # 0xc
-    Qt_4_9                   : QDataStream.Version = ... # 0xc
-    Qt_5_0                   : QDataStream.Version = ... # 0xd
-    Qt_5_1                   : QDataStream.Version = ... # 0xe
-    Qt_5_2                   : QDataStream.Version = ... # 0xf
-    Qt_5_3                   : QDataStream.Version = ... # 0xf
-    Qt_5_4                   : QDataStream.Version = ... # 0x10
-    Qt_5_5                   : QDataStream.Version = ... # 0x10
-    Qt_5_10                  : QDataStream.Version = ... # 0x11
-    Qt_5_11                  : QDataStream.Version = ... # 0x11
-    Qt_5_6                   : QDataStream.Version = ... # 0x11
-    Qt_5_7                   : QDataStream.Version = ... # 0x11
-    Qt_5_8                   : QDataStream.Version = ... # 0x11
-    Qt_5_9                   : QDataStream.Version = ... # 0x11
-    Qt_5_12                  : QDataStream.Version = ... # 0x12
-    Qt_5_13                  : QDataStream.Version = ... # 0x13
-    Qt_5_14                  : QDataStream.Version = ... # 0x13
-    Qt_5_15                  : QDataStream.Version = ... # 0x13
-    Qt_6_0                   : QDataStream.Version = ... # 0x14
-    Qt_6_1                   : QDataStream.Version = ... # 0x14
-    Qt_6_2                   : QDataStream.Version = ... # 0x14
-    Qt_6_3                   : QDataStream.Version = ... # 0x14
-    Qt_DefaultCompiledVersion: QDataStream.Version = ... # 0x14
 
-    class ByteOrder(Shiboken.Enum):
 
-        BigEndian                : QDataStream.ByteOrder = ... # 0x0
-        LittleEndian             : QDataStream.ByteOrder = ... # 0x1
-
-    class FloatingPointPrecision(Shiboken.Enum):
+    class FloatingPointPrecision(shibokensupport.enum_310.Enum):
 
         SinglePrecision          : QDataStream.FloatingPointPrecision = ... # 0x0
         DoublePrecision          : QDataStream.FloatingPointPrecision = ... # 0x1
 
-    class Status(Shiboken.Enum):
+
+    class Status(shibokensupport.enum_310.Enum):
 
         Ok                       : QDataStream.Status = ... # 0x0
         ReadPastEnd              : QDataStream.Status = ... # 0x1
         ReadCorruptData          : QDataStream.Status = ... # 0x2
         WriteFailed              : QDataStream.Status = ... # 0x3
 
-    class Version(Shiboken.Enum):
+
+    class Version(shibokensupport.enum_310.IntEnum):
 
         Qt_1_0                   : QDataStream.Version = ... # 0x1
         Qt_2_0                   : QDataStream.Version = ... # 0x2
@@ -1791,6 +1602,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
         Qt_6_1                   : QDataStream.Version = ... # 0x14
         Qt_6_2                   : QDataStream.Version = ... # 0x14
         Qt_6_3                   : QDataStream.Version = ... # 0x14
+        Qt_6_4                   : QDataStream.Version = ... # 0x14
         Qt_DefaultCompiledVersion: QDataStream.Version = ... # 0x14
 
 
@@ -1801,7 +1613,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
     @overload
     def __init__(self, arg__1: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
     @overload
-    def __init__(self, arg__1: Union[PySide6.QtCore.QByteArray, bytes], flags: PySide6.QtCore.QIODeviceBase.OpenMode) -> None: ...
+    def __init__(self, arg__1: Union[PySide6.QtCore.QByteArray, bytes], flags: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> None: ...
 
     @overload
     def __lshift__(self, arg__1: str) -> None: ...
@@ -1862,7 +1674,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
     @overload
     def __lshift__(self, arg__2: Union[PySide6.QtCore.QUrl, str]) -> PySide6.QtCore.QDataStream: ...
     @overload
-    def __lshift__(self, combination: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifiers, PySide6.QtCore.Qt.Key]) -> PySide6.QtCore.QDataStream: ...
+    def __lshift__(self, combination: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifier, PySide6.QtCore.Qt.Key]) -> PySide6.QtCore.QDataStream: ...
     @overload
     def __lshift__(self, i: int) -> PySide6.QtCore.QDataStream: ...
     @overload
@@ -1932,7 +1744,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
     @overload
     def __rshift__(self, arg__2: Union[PySide6.QtCore.QUrl, str]) -> PySide6.QtCore.QDataStream: ...
     @overload
-    def __rshift__(self, combination: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifiers, PySide6.QtCore.Qt.Key]) -> PySide6.QtCore.QDataStream: ...
+    def __rshift__(self, combination: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifier, PySide6.QtCore.Qt.Key]) -> PySide6.QtCore.QDataStream: ...
     @overload
     def __rshift__(self, i: int) -> PySide6.QtCore.QDataStream: ...
     @overload
@@ -1953,7 +1765,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
     def floatingPointPrecision(self) -> PySide6.QtCore.QDataStream.FloatingPointPrecision: ...
     def isDeviceTransactionStarted(self) -> bool: ...
     def readBool(self) -> bool: ...
-    def readBytes(self, arg__1: bytes, len: int) -> Tuple: ...
+    def readBytes(self, len: int) -> Tuple: ...
     def readDouble(self) -> float: ...
     def readFloat(self) -> float: ...
     def readInt16(self) -> int: ...
@@ -1964,7 +1776,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
     def readQString(self) -> str: ...
     def readQStringList(self) -> List[str]: ...
     def readQVariant(self) -> Any: ...
-    def readRawData(self, arg__1: bytes, len: int) -> int: ...
+    def readRawData(self, len: int) -> int: ...
     def readString(self) -> str: ...
     def readUInt16(self) -> int: ...
     def readUInt32(self) -> int: ...
@@ -1982,7 +1794,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
     def status(self) -> PySide6.QtCore.QDataStream.Status: ...
     def version(self) -> int: ...
     def writeBool(self, arg__1: bool) -> None: ...
-    def writeBytes(self, arg__1: bytes, len: int) -> PySide6.QtCore.QDataStream: ...
+    def writeBytes(self, arg__1: bytes) -> PySide6.QtCore.QDataStream: ...
     def writeDouble(self, arg__1: float) -> None: ...
     def writeFloat(self, arg__1: float) -> None: ...
     def writeInt16(self, arg__1: int) -> None: ...
@@ -1993,7 +1805,7 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
     def writeQString(self, arg__1: str) -> None: ...
     def writeQStringList(self, arg__1: Sequence[str]) -> None: ...
     def writeQVariant(self, arg__1: Any) -> None: ...
-    def writeRawData(self, arg__1: bytes, len: int) -> int: ...
+    def writeRawData(self, arg__1: bytes) -> int: ...
     def writeString(self, arg__1: str) -> None: ...
     def writeUInt16(self, arg__1: int) -> None: ...
     def writeUInt32(self, arg__1: int) -> None: ...
@@ -2060,7 +1872,7 @@ class QDate(Shiboken.Object):
     @overload
     @staticmethod
     def fromString(string: str, format: str, cal: PySide6.QtCore.QCalendar = ...) -> PySide6.QtCore.QDate: ...
-    def getDate(self) -> Tuple[int, int, int]: ...
+    def getDate(self) -> Tuple: ...
     @staticmethod
     def isLeapYear(year: int) -> bool: ...
     def isNull(self) -> bool: ...
@@ -2087,7 +1899,7 @@ class QDate(Shiboken.Object):
     def toString(self, format: PySide6.QtCore.Qt.DateFormat = ...) -> str: ...
     @overload
     def toString(self, format: str, cal: PySide6.QtCore.QCalendar = ...) -> str: ...
-    def weekNumber(self) -> Tuple[Tuple, int]: ...
+    def weekNumber(self) -> Tuple: ...
     @overload
     def year(self) -> int: ...
     @overload
@@ -2096,7 +1908,7 @@ class QDate(Shiboken.Object):
 
 class QDateTime(Shiboken.Object):
 
-    class YearRange(Shiboken.Enum):
+    class YearRange(shibokensupport.enum_310.Enum):
 
         First                    : QDateTime.YearRange = ... # -0x116bc370
         Last                     : QDateTime.YearRange = ... # 0x116bd2d2
@@ -2188,9 +2000,7 @@ class QDateTime(Shiboken.Object):
 
 class QDeadlineTimer(Shiboken.Object):
 
-    Forever                  : QDeadlineTimer.ForeverConstant = ... # 0x0
-
-    class ForeverConstant(Shiboken.Enum):
+    class ForeverConstant(shibokensupport.enum_310.Enum):
 
         Forever                  : QDeadlineTimer.ForeverConstant = ... # 0x0
 
@@ -2235,40 +2045,7 @@ class QDeadlineTimer(Shiboken.Object):
 
 class QDir(Shiboken.Object):
 
-    NoFilter                 : QDir.Filter = ... # -0x1
-    Dirs                     : QDir.Filter = ... # 0x1
-    Files                    : QDir.Filter = ... # 0x2
-    Drives                   : QDir.Filter = ... # 0x4
-    AllEntries               : QDir.Filter = ... # 0x7
-    NoSymLinks               : QDir.Filter = ... # 0x8
-    TypeMask                 : QDir.Filter = ... # 0xf
-    Readable                 : QDir.Filter = ... # 0x10
-    Writable                 : QDir.Filter = ... # 0x20
-    Executable               : QDir.Filter = ... # 0x40
-    PermissionMask           : QDir.Filter = ... # 0x70
-    Modified                 : QDir.Filter = ... # 0x80
-    Hidden                   : QDir.Filter = ... # 0x100
-    System                   : QDir.Filter = ... # 0x200
-    AccessMask               : QDir.Filter = ... # 0x3f0
-    AllDirs                  : QDir.Filter = ... # 0x400
-    CaseSensitive            : QDir.Filter = ... # 0x800
-    NoDot                    : QDir.Filter = ... # 0x2000
-    NoDotDot                 : QDir.Filter = ... # 0x4000
-    NoDotAndDotDot           : QDir.Filter = ... # 0x6000
-    NoSort                   : QDir.SortFlag = ... # -0x1
-    Name                     : QDir.SortFlag = ... # 0x0
-    Time                     : QDir.SortFlag = ... # 0x1
-    Size                     : QDir.SortFlag = ... # 0x2
-    SortByMask               : QDir.SortFlag = ... # 0x3
-    Unsorted                 : QDir.SortFlag = ... # 0x3
-    DirsFirst                : QDir.SortFlag = ... # 0x4
-    Reversed                 : QDir.SortFlag = ... # 0x8
-    IgnoreCase               : QDir.SortFlag = ... # 0x10
-    DirsLast                 : QDir.SortFlag = ... # 0x20
-    LocaleAware              : QDir.SortFlag = ... # 0x40
-    Type                     : QDir.SortFlag = ... # 0x80
-
-    class Filter(Shiboken.Enum):
+    class Filter(shibokensupport.enum_310.Flag):
 
         NoFilter                 : QDir.Filter = ... # -0x1
         Dirs                     : QDir.Filter = ... # 0x1
@@ -2291,9 +2068,8 @@ class QDir(Shiboken.Object):
         NoDotDot                 : QDir.Filter = ... # 0x4000
         NoDotAndDotDot           : QDir.Filter = ... # 0x6000
 
-    class Filters(object): ...
 
-    class SortFlag(Shiboken.Enum):
+    class SortFlag(shibokensupport.enum_310.Flag):
 
         NoSort                   : QDir.SortFlag = ... # -0x1
         Name                     : QDir.SortFlag = ... # 0x0
@@ -2308,15 +2084,13 @@ class QDir(Shiboken.Object):
         LocaleAware              : QDir.SortFlag = ... # 0x40
         Type                     : QDir.SortFlag = ... # 0x80
 
-    class SortFlags(object): ...
-
 
     @overload
     def __init__(self, arg__1: Union[PySide6.QtCore.QDir, str]) -> None: ...
     @overload
     def __init__(self, path: Union[str, bytes, os.PathLike, NoneType]) -> None: ...
     @overload
-    def __init__(self, path: Union[str, bytes, os.PathLike], nameFilter: str, sort: PySide6.QtCore.QDir.SortFlags = ..., filter: PySide6.QtCore.QDir.Filters = ...) -> None: ...
+    def __init__(self, path: Union[str, bytes, os.PathLike], nameFilter: str, sort: PySide6.QtCore.QDir.SortFlag = ..., filter: PySide6.QtCore.QDir.Filter = ...) -> None: ...
 
     @staticmethod
     def __copy__() -> None: ...
@@ -2339,19 +2113,19 @@ class QDir(Shiboken.Object):
     @staticmethod
     def drives() -> List[PySide6.QtCore.QFileInfo]: ...
     @overload
-    def entryInfoList(self, filters: PySide6.QtCore.QDir.Filters = ..., sort: PySide6.QtCore.QDir.SortFlags = ...) -> List[PySide6.QtCore.QFileInfo]: ...
+    def entryInfoList(self, filters: PySide6.QtCore.QDir.Filter = ..., sort: PySide6.QtCore.QDir.SortFlag = ...) -> List[PySide6.QtCore.QFileInfo]: ...
     @overload
-    def entryInfoList(self, nameFilters: Sequence[str], filters: PySide6.QtCore.QDir.Filters = ..., sort: PySide6.QtCore.QDir.SortFlags = ...) -> List[PySide6.QtCore.QFileInfo]: ...
+    def entryInfoList(self, nameFilters: Sequence[str], filters: PySide6.QtCore.QDir.Filter = ..., sort: PySide6.QtCore.QDir.SortFlag = ...) -> List[PySide6.QtCore.QFileInfo]: ...
     @overload
-    def entryList(self, filters: PySide6.QtCore.QDir.Filters = ..., sort: PySide6.QtCore.QDir.SortFlags = ...) -> List[str]: ...
+    def entryList(self, filters: PySide6.QtCore.QDir.Filter = ..., sort: PySide6.QtCore.QDir.SortFlag = ...) -> List[str]: ...
     @overload
-    def entryList(self, nameFilters: Sequence[str], filters: PySide6.QtCore.QDir.Filters = ..., sort: PySide6.QtCore.QDir.SortFlags = ...) -> List[str]: ...
+    def entryList(self, nameFilters: Sequence[str], filters: PySide6.QtCore.QDir.Filter = ..., sort: PySide6.QtCore.QDir.SortFlag = ...) -> List[str]: ...
     @overload
     def exists(self) -> bool: ...
     @overload
     def exists(self, name: str) -> bool: ...
     def filePath(self, fileName: str) -> str: ...
-    def filter(self) -> PySide6.QtCore.QDir.Filters: ...
+    def filter(self) -> PySide6.QtCore.QDir.Filter: ...
     @staticmethod
     def fromNativeSeparators(pathName: str) -> str: ...
     @staticmethod
@@ -2361,7 +2135,7 @@ class QDir(Shiboken.Object):
     def isAbsolute(self) -> bool: ...
     @staticmethod
     def isAbsolutePath(path: str) -> bool: ...
-    def isEmpty(self, filters: PySide6.QtCore.QDir.Filters = ...) -> bool: ...
+    def isEmpty(self, filters: PySide6.QtCore.QDir.Filter = ...) -> bool: ...
     def isReadable(self) -> bool: ...
     def isRelative(self) -> bool: ...
     @staticmethod
@@ -2399,13 +2173,13 @@ class QDir(Shiboken.Object):
     def separator() -> str: ...
     @staticmethod
     def setCurrent(path: str) -> bool: ...
-    def setFilter(self, filter: PySide6.QtCore.QDir.Filters) -> None: ...
+    def setFilter(self, filter: PySide6.QtCore.QDir.Filter) -> None: ...
     def setNameFilters(self, nameFilters: Sequence[str]) -> None: ...
     def setPath(self, path: Union[str, bytes, os.PathLike]) -> None: ...
     @staticmethod
     def setSearchPaths(prefix: str, searchPaths: Sequence[str]) -> None: ...
-    def setSorting(self, sort: PySide6.QtCore.QDir.SortFlags) -> None: ...
-    def sorting(self) -> PySide6.QtCore.QDir.SortFlags: ...
+    def setSorting(self, sort: PySide6.QtCore.QDir.SortFlag) -> None: ...
+    def sorting(self) -> PySide6.QtCore.QDir.SortFlag: ...
     def swap(self, other: Union[PySide6.QtCore.QDir, str]) -> None: ...
     @staticmethod
     def temp() -> PySide6.QtCore.QDir: ...
@@ -2417,27 +2191,21 @@ class QDir(Shiboken.Object):
 
 class QDirIterator(Shiboken.Object):
 
-    NoIteratorFlags          : QDirIterator.IteratorFlag = ... # 0x0
-    FollowSymlinks           : QDirIterator.IteratorFlag = ... # 0x1
-    Subdirectories           : QDirIterator.IteratorFlag = ... # 0x2
-
-    class IteratorFlag(Shiboken.Enum):
+    class IteratorFlag(shibokensupport.enum_310.Flag):
 
         NoIteratorFlags          : QDirIterator.IteratorFlag = ... # 0x0
         FollowSymlinks           : QDirIterator.IteratorFlag = ... # 0x1
         Subdirectories           : QDirIterator.IteratorFlag = ... # 0x2
 
-    class IteratorFlags(object): ...
-
 
     @overload
-    def __init__(self, dir: Union[PySide6.QtCore.QDir, str], flags: PySide6.QtCore.QDirIterator.IteratorFlags = ...) -> None: ...
+    def __init__(self, dir: Union[PySide6.QtCore.QDir, str], flags: PySide6.QtCore.QDirIterator.IteratorFlag = ...) -> None: ...
     @overload
-    def __init__(self, path: str, filter: PySide6.QtCore.QDir.Filters, flags: PySide6.QtCore.QDirIterator.IteratorFlags = ...) -> None: ...
+    def __init__(self, path: str, filter: PySide6.QtCore.QDir.Filter, flags: PySide6.QtCore.QDirIterator.IteratorFlag = ...) -> None: ...
     @overload
-    def __init__(self, path: str, flags: PySide6.QtCore.QDirIterator.IteratorFlags = ...) -> None: ...
+    def __init__(self, path: str, flags: PySide6.QtCore.QDirIterator.IteratorFlag = ...) -> None: ...
     @overload
-    def __init__(self, path: str, nameFilters: Sequence[str], filters: PySide6.QtCore.QDir.Filters = ..., flags: PySide6.QtCore.QDirIterator.IteratorFlags = ...) -> None: ...
+    def __init__(self, path: str, nameFilters: Sequence[str], filters: PySide6.QtCore.QDir.Filter = ..., flags: PySide6.QtCore.QDirIterator.IteratorFlag = ...) -> None: ...
 
     def fileInfo(self) -> PySide6.QtCore.QFileInfo: ...
     def fileName(self) -> str: ...
@@ -2461,57 +2229,7 @@ class QDynamicPropertyChangeEvent(PySide6.QtCore.QEvent):
 
 class QEasingCurve(Shiboken.Object):
 
-    Linear                   : QEasingCurve.Type = ... # 0x0
-    InQuad                   : QEasingCurve.Type = ... # 0x1
-    OutQuad                  : QEasingCurve.Type = ... # 0x2
-    InOutQuad                : QEasingCurve.Type = ... # 0x3
-    OutInQuad                : QEasingCurve.Type = ... # 0x4
-    InCubic                  : QEasingCurve.Type = ... # 0x5
-    OutCubic                 : QEasingCurve.Type = ... # 0x6
-    InOutCubic               : QEasingCurve.Type = ... # 0x7
-    OutInCubic               : QEasingCurve.Type = ... # 0x8
-    InQuart                  : QEasingCurve.Type = ... # 0x9
-    OutQuart                 : QEasingCurve.Type = ... # 0xa
-    InOutQuart               : QEasingCurve.Type = ... # 0xb
-    OutInQuart               : QEasingCurve.Type = ... # 0xc
-    InQuint                  : QEasingCurve.Type = ... # 0xd
-    OutQuint                 : QEasingCurve.Type = ... # 0xe
-    InOutQuint               : QEasingCurve.Type = ... # 0xf
-    OutInQuint               : QEasingCurve.Type = ... # 0x10
-    InSine                   : QEasingCurve.Type = ... # 0x11
-    OutSine                  : QEasingCurve.Type = ... # 0x12
-    InOutSine                : QEasingCurve.Type = ... # 0x13
-    OutInSine                : QEasingCurve.Type = ... # 0x14
-    InExpo                   : QEasingCurve.Type = ... # 0x15
-    OutExpo                  : QEasingCurve.Type = ... # 0x16
-    InOutExpo                : QEasingCurve.Type = ... # 0x17
-    OutInExpo                : QEasingCurve.Type = ... # 0x18
-    InCirc                   : QEasingCurve.Type = ... # 0x19
-    OutCirc                  : QEasingCurve.Type = ... # 0x1a
-    InOutCirc                : QEasingCurve.Type = ... # 0x1b
-    OutInCirc                : QEasingCurve.Type = ... # 0x1c
-    InElastic                : QEasingCurve.Type = ... # 0x1d
-    OutElastic               : QEasingCurve.Type = ... # 0x1e
-    InOutElastic             : QEasingCurve.Type = ... # 0x1f
-    OutInElastic             : QEasingCurve.Type = ... # 0x20
-    InBack                   : QEasingCurve.Type = ... # 0x21
-    OutBack                  : QEasingCurve.Type = ... # 0x22
-    InOutBack                : QEasingCurve.Type = ... # 0x23
-    OutInBack                : QEasingCurve.Type = ... # 0x24
-    InBounce                 : QEasingCurve.Type = ... # 0x25
-    OutBounce                : QEasingCurve.Type = ... # 0x26
-    InOutBounce              : QEasingCurve.Type = ... # 0x27
-    OutInBounce              : QEasingCurve.Type = ... # 0x28
-    InCurve                  : QEasingCurve.Type = ... # 0x29
-    OutCurve                 : QEasingCurve.Type = ... # 0x2a
-    SineCurve                : QEasingCurve.Type = ... # 0x2b
-    CosineCurve              : QEasingCurve.Type = ... # 0x2c
-    BezierSpline             : QEasingCurve.Type = ... # 0x2d
-    TCBSpline                : QEasingCurve.Type = ... # 0x2e
-    Custom                   : QEasingCurve.Type = ... # 0x2f
-    NCurveTypes              : QEasingCurve.Type = ... # 0x30
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         Linear                   : QEasingCurve.Type = ... # 0x0
         InQuad                   : QEasingCurve.Type = ... # 0x1
@@ -2590,13 +2308,7 @@ class QEasingCurve(Shiboken.Object):
 
 class QElapsedTimer(Shiboken.Object):
 
-    SystemTime               : QElapsedTimer.ClockType = ... # 0x0
-    MonotonicClock           : QElapsedTimer.ClockType = ... # 0x1
-    TickCounter              : QElapsedTimer.ClockType = ... # 0x2
-    MachAbsoluteTime         : QElapsedTimer.ClockType = ... # 0x3
-    PerformanceCounter       : QElapsedTimer.ClockType = ... # 0x4
-
-    class ClockType(Shiboken.Enum):
+    class ClockType(shibokensupport.enum_310.Enum):
 
         SystemTime               : QElapsedTimer.ClockType = ... # 0x0
         MonotonicClock           : QElapsedTimer.ClockType = ... # 0x1
@@ -2630,180 +2342,7 @@ class QElapsedTimer(Shiboken.Object):
 
 class QEvent(Shiboken.Object):
 
-    None_                    : QEvent.Type = ... # 0x0
-    Timer                    : QEvent.Type = ... # 0x1
-    MouseButtonPress         : QEvent.Type = ... # 0x2
-    MouseButtonRelease       : QEvent.Type = ... # 0x3
-    MouseButtonDblClick      : QEvent.Type = ... # 0x4
-    MouseMove                : QEvent.Type = ... # 0x5
-    KeyPress                 : QEvent.Type = ... # 0x6
-    KeyRelease               : QEvent.Type = ... # 0x7
-    FocusIn                  : QEvent.Type = ... # 0x8
-    FocusOut                 : QEvent.Type = ... # 0x9
-    Enter                    : QEvent.Type = ... # 0xa
-    Leave                    : QEvent.Type = ... # 0xb
-    Paint                    : QEvent.Type = ... # 0xc
-    Move                     : QEvent.Type = ... # 0xd
-    Resize                   : QEvent.Type = ... # 0xe
-    Create                   : QEvent.Type = ... # 0xf
-    Destroy                  : QEvent.Type = ... # 0x10
-    Show                     : QEvent.Type = ... # 0x11
-    Hide                     : QEvent.Type = ... # 0x12
-    Close                    : QEvent.Type = ... # 0x13
-    Quit                     : QEvent.Type = ... # 0x14
-    ParentChange             : QEvent.Type = ... # 0x15
-    ThreadChange             : QEvent.Type = ... # 0x16
-    FocusAboutToChange       : QEvent.Type = ... # 0x17
-    WindowActivate           : QEvent.Type = ... # 0x18
-    WindowDeactivate         : QEvent.Type = ... # 0x19
-    ShowToParent             : QEvent.Type = ... # 0x1a
-    HideToParent             : QEvent.Type = ... # 0x1b
-    Wheel                    : QEvent.Type = ... # 0x1f
-    WindowTitleChange        : QEvent.Type = ... # 0x21
-    WindowIconChange         : QEvent.Type = ... # 0x22
-    ApplicationWindowIconChange: QEvent.Type = ... # 0x23
-    ApplicationFontChange    : QEvent.Type = ... # 0x24
-    ApplicationLayoutDirectionChange: QEvent.Type = ... # 0x25
-    ApplicationPaletteChange : QEvent.Type = ... # 0x26
-    PaletteChange            : QEvent.Type = ... # 0x27
-    Clipboard                : QEvent.Type = ... # 0x28
-    Speech                   : QEvent.Type = ... # 0x2a
-    MetaCall                 : QEvent.Type = ... # 0x2b
-    SockAct                  : QEvent.Type = ... # 0x32
-    ShortcutOverride         : QEvent.Type = ... # 0x33
-    DeferredDelete           : QEvent.Type = ... # 0x34
-    DragEnter                : QEvent.Type = ... # 0x3c
-    DragMove                 : QEvent.Type = ... # 0x3d
-    DragLeave                : QEvent.Type = ... # 0x3e
-    Drop                     : QEvent.Type = ... # 0x3f
-    DragResponse             : QEvent.Type = ... # 0x40
-    ChildAdded               : QEvent.Type = ... # 0x44
-    ChildPolished            : QEvent.Type = ... # 0x45
-    ChildRemoved             : QEvent.Type = ... # 0x47
-    ShowWindowRequest        : QEvent.Type = ... # 0x49
-    PolishRequest            : QEvent.Type = ... # 0x4a
-    Polish                   : QEvent.Type = ... # 0x4b
-    LayoutRequest            : QEvent.Type = ... # 0x4c
-    UpdateRequest            : QEvent.Type = ... # 0x4d
-    UpdateLater              : QEvent.Type = ... # 0x4e
-    EmbeddingControl         : QEvent.Type = ... # 0x4f
-    ActivateControl          : QEvent.Type = ... # 0x50
-    DeactivateControl        : QEvent.Type = ... # 0x51
-    ContextMenu              : QEvent.Type = ... # 0x52
-    InputMethod              : QEvent.Type = ... # 0x53
-    TabletMove               : QEvent.Type = ... # 0x57
-    LocaleChange             : QEvent.Type = ... # 0x58
-    LanguageChange           : QEvent.Type = ... # 0x59
-    LayoutDirectionChange    : QEvent.Type = ... # 0x5a
-    Style                    : QEvent.Type = ... # 0x5b
-    TabletPress              : QEvent.Type = ... # 0x5c
-    TabletRelease            : QEvent.Type = ... # 0x5d
-    OkRequest                : QEvent.Type = ... # 0x5e
-    HelpRequest              : QEvent.Type = ... # 0x5f
-    IconDrag                 : QEvent.Type = ... # 0x60
-    FontChange               : QEvent.Type = ... # 0x61
-    EnabledChange            : QEvent.Type = ... # 0x62
-    ActivationChange         : QEvent.Type = ... # 0x63
-    StyleChange              : QEvent.Type = ... # 0x64
-    IconTextChange           : QEvent.Type = ... # 0x65
-    ModifiedChange           : QEvent.Type = ... # 0x66
-    WindowBlocked            : QEvent.Type = ... # 0x67
-    WindowUnblocked          : QEvent.Type = ... # 0x68
-    WindowStateChange        : QEvent.Type = ... # 0x69
-    ReadOnlyChange           : QEvent.Type = ... # 0x6a
-    MouseTrackingChange      : QEvent.Type = ... # 0x6d
-    ToolTip                  : QEvent.Type = ... # 0x6e
-    WhatsThis                : QEvent.Type = ... # 0x6f
-    StatusTip                : QEvent.Type = ... # 0x70
-    ActionChanged            : QEvent.Type = ... # 0x71
-    ActionAdded              : QEvent.Type = ... # 0x72
-    ActionRemoved            : QEvent.Type = ... # 0x73
-    FileOpen                 : QEvent.Type = ... # 0x74
-    Shortcut                 : QEvent.Type = ... # 0x75
-    WhatsThisClicked         : QEvent.Type = ... # 0x76
-    ToolBarChange            : QEvent.Type = ... # 0x78
-    ApplicationActivate      : QEvent.Type = ... # 0x79
-    ApplicationActivated     : QEvent.Type = ... # 0x79
-    ApplicationDeactivate    : QEvent.Type = ... # 0x7a
-    ApplicationDeactivated   : QEvent.Type = ... # 0x7a
-    QueryWhatsThis           : QEvent.Type = ... # 0x7b
-    EnterWhatsThisMode       : QEvent.Type = ... # 0x7c
-    LeaveWhatsThisMode       : QEvent.Type = ... # 0x7d
-    ZOrderChange             : QEvent.Type = ... # 0x7e
-    HoverEnter               : QEvent.Type = ... # 0x7f
-    HoverLeave               : QEvent.Type = ... # 0x80
-    HoverMove                : QEvent.Type = ... # 0x81
-    ParentAboutToChange      : QEvent.Type = ... # 0x83
-    WinEventAct              : QEvent.Type = ... # 0x84
-    AcceptDropsChange        : QEvent.Type = ... # 0x98
-    ZeroTimerEvent           : QEvent.Type = ... # 0x9a
-    GraphicsSceneMouseMove   : QEvent.Type = ... # 0x9b
-    GraphicsSceneMousePress  : QEvent.Type = ... # 0x9c
-    GraphicsSceneMouseRelease: QEvent.Type = ... # 0x9d
-    GraphicsSceneMouseDoubleClick: QEvent.Type = ... # 0x9e
-    GraphicsSceneContextMenu : QEvent.Type = ... # 0x9f
-    GraphicsSceneHoverEnter  : QEvent.Type = ... # 0xa0
-    GraphicsSceneHoverMove   : QEvent.Type = ... # 0xa1
-    GraphicsSceneHoverLeave  : QEvent.Type = ... # 0xa2
-    GraphicsSceneHelp        : QEvent.Type = ... # 0xa3
-    GraphicsSceneDragEnter   : QEvent.Type = ... # 0xa4
-    GraphicsSceneDragMove    : QEvent.Type = ... # 0xa5
-    GraphicsSceneDragLeave   : QEvent.Type = ... # 0xa6
-    GraphicsSceneDrop        : QEvent.Type = ... # 0xa7
-    GraphicsSceneWheel       : QEvent.Type = ... # 0xa8
-    KeyboardLayoutChange     : QEvent.Type = ... # 0xa9
-    DynamicPropertyChange    : QEvent.Type = ... # 0xaa
-    TabletEnterProximity     : QEvent.Type = ... # 0xab
-    TabletLeaveProximity     : QEvent.Type = ... # 0xac
-    NonClientAreaMouseMove   : QEvent.Type = ... # 0xad
-    NonClientAreaMouseButtonPress: QEvent.Type = ... # 0xae
-    NonClientAreaMouseButtonRelease: QEvent.Type = ... # 0xaf
-    NonClientAreaMouseButtonDblClick: QEvent.Type = ... # 0xb0
-    MacSizeChange            : QEvent.Type = ... # 0xb1
-    ContentsRectChange       : QEvent.Type = ... # 0xb2
-    MacGLWindowChange        : QEvent.Type = ... # 0xb3
-    FutureCallOut            : QEvent.Type = ... # 0xb4
-    GraphicsSceneResize      : QEvent.Type = ... # 0xb5
-    GraphicsSceneMove        : QEvent.Type = ... # 0xb6
-    CursorChange             : QEvent.Type = ... # 0xb7
-    ToolTipChange            : QEvent.Type = ... # 0xb8
-    NetworkReplyUpdated      : QEvent.Type = ... # 0xb9
-    GrabMouse                : QEvent.Type = ... # 0xba
-    UngrabMouse              : QEvent.Type = ... # 0xbb
-    GrabKeyboard             : QEvent.Type = ... # 0xbc
-    UngrabKeyboard           : QEvent.Type = ... # 0xbd
-    StateMachineSignal       : QEvent.Type = ... # 0xc0
-    StateMachineWrapped      : QEvent.Type = ... # 0xc1
-    TouchBegin               : QEvent.Type = ... # 0xc2
-    TouchUpdate              : QEvent.Type = ... # 0xc3
-    TouchEnd                 : QEvent.Type = ... # 0xc4
-    NativeGesture            : QEvent.Type = ... # 0xc5
-    Gesture                  : QEvent.Type = ... # 0xc6
-    RequestSoftwareInputPanel: QEvent.Type = ... # 0xc7
-    CloseSoftwareInputPanel  : QEvent.Type = ... # 0xc8
-    GestureOverride          : QEvent.Type = ... # 0xca
-    WinIdChange              : QEvent.Type = ... # 0xcb
-    ScrollPrepare            : QEvent.Type = ... # 0xcc
-    Scroll                   : QEvent.Type = ... # 0xcd
-    Expose                   : QEvent.Type = ... # 0xce
-    InputMethodQuery         : QEvent.Type = ... # 0xcf
-    OrientationChange        : QEvent.Type = ... # 0xd0
-    TouchCancel              : QEvent.Type = ... # 0xd1
-    ThemeChange              : QEvent.Type = ... # 0xd2
-    SockClose                : QEvent.Type = ... # 0xd3
-    PlatformPanel            : QEvent.Type = ... # 0xd4
-    StyleAnimationUpdate     : QEvent.Type = ... # 0xd5
-    ApplicationStateChange   : QEvent.Type = ... # 0xd6
-    WindowChangeInternal     : QEvent.Type = ... # 0xd7
-    ScreenChangeInternal     : QEvent.Type = ... # 0xd8
-    PlatformSurface          : QEvent.Type = ... # 0xd9
-    Pointer                  : QEvent.Type = ... # 0xda
-    TabletTrackingChange     : QEvent.Type = ... # 0xdb
-    GraphicsSceneLeave       : QEvent.Type = ... # 0xdc
-    User                     : QEvent.Type = ... # 0x3e8
-    MaxUser                  : QEvent.Type = ... # 0xffff
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.IntEnum):
 
         None_                    : QEvent.Type = ... # 0x0
         Timer                    : QEvent.Type = ... # 0x1
@@ -2975,6 +2514,7 @@ class QEvent(Shiboken.Object):
         Pointer                  : QEvent.Type = ... # 0xda
         TabletTrackingChange     : QEvent.Type = ... # 0xdb
         GraphicsSceneLeave       : QEvent.Type = ... # 0xdc
+        WindowAboutToChangeInternal: QEvent.Type = ... # 0xdd
         User                     : QEvent.Type = ... # 0x3e8
         MaxUser                  : QEvent.Type = ... # 0xffff
 
@@ -3001,16 +2541,7 @@ class QEvent(Shiboken.Object):
 
 class QEventLoop(PySide6.QtCore.QObject):
 
-    AllEvents                : QEventLoop.ProcessEventsFlag = ... # 0x0
-    ExcludeUserInputEvents   : QEventLoop.ProcessEventsFlag = ... # 0x1
-    ExcludeSocketNotifiers   : QEventLoop.ProcessEventsFlag = ... # 0x2
-    WaitForMoreEvents        : QEventLoop.ProcessEventsFlag = ... # 0x4
-    X11ExcludeTimers         : QEventLoop.ProcessEventsFlag = ... # 0x8
-    EventLoopExec            : QEventLoop.ProcessEventsFlag = ... # 0x20
-    DialogExec               : QEventLoop.ProcessEventsFlag = ... # 0x40
-    ApplicationExec          : QEventLoop.ProcessEventsFlag = ... # 0x80
-
-    class ProcessEventsFlag(Shiboken.Enum):
+    class ProcessEventsFlag(shibokensupport.enum_310.Flag):
 
         AllEvents                : QEventLoop.ProcessEventsFlag = ... # 0x0
         ExcludeUserInputEvents   : QEventLoop.ProcessEventsFlag = ... # 0x1
@@ -3021,20 +2552,18 @@ class QEventLoop(PySide6.QtCore.QObject):
         DialogExec               : QEventLoop.ProcessEventsFlag = ... # 0x40
         ApplicationExec          : QEventLoop.ProcessEventsFlag = ... # 0x80
 
-    class ProcessEventsFlags(object): ...
-
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def event(self, event: PySide6.QtCore.QEvent) -> bool: ...
-    def exec(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlags = ...) -> int: ...
-    def exec_(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlags = ...) -> int: ...
+    def exec(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlag = ...) -> int: ...
+    def exec_(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlag = ...) -> int: ...
     def exit(self, returnCode: int = ...) -> None: ...
     def isRunning(self) -> bool: ...
     @overload
-    def processEvents(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlags, maximumTime: int) -> None: ...
+    def processEvents(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlag, maximumTime: int) -> None: ...
     @overload
-    def processEvents(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlags = ...) -> bool: ...
+    def processEvents(self, flags: PySide6.QtCore.QEventLoop.ProcessEventsFlag = ...) -> bool: ...
     def quit(self) -> None: ...
     def wakeUp(self) -> None: ...
 
@@ -3087,16 +2616,16 @@ class QFile(PySide6.QtCore.QFileDevice):
     @overload
     def moveToTrash(self) -> bool: ...
     @overload
-    def open(self, fd: int, ioFlags: PySide6.QtCore.QIODeviceBase.OpenMode, handleFlags: PySide6.QtCore.QFileDevice.FileHandleFlags = ...) -> bool: ...
+    def open(self, fd: int, ioFlags: PySide6.QtCore.QIODeviceBase.OpenModeFlag, handleFlags: PySide6.QtCore.QFileDevice.FileHandleFlag = ...) -> bool: ...
     @overload
-    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenMode) -> bool: ...
+    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> bool: ...
     @overload
-    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenMode, permissions: PySide6.QtCore.QFileDevice.Permissions) -> bool: ...
+    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenModeFlag, permissions: PySide6.QtCore.QFileDevice.Permission) -> bool: ...
     @overload
     @staticmethod
-    def permissions(filename: Union[str, bytes, os.PathLike]) -> PySide6.QtCore.QFileDevice.Permissions: ...
+    def permissions(filename: Union[str, bytes, os.PathLike]) -> PySide6.QtCore.QFileDevice.Permission: ...
     @overload
-    def permissions(self) -> PySide6.QtCore.QFileDevice.Permissions: ...
+    def permissions(self) -> PySide6.QtCore.QFileDevice.Permission: ...
     @overload
     @staticmethod
     def remove(fileName: str) -> bool: ...
@@ -3115,9 +2644,9 @@ class QFile(PySide6.QtCore.QFileDevice):
     def setFileName(self, name: Union[str, bytes, os.PathLike]) -> None: ...
     @overload
     @staticmethod
-    def setPermissions(filename: Union[str, bytes, os.PathLike], permissionSpec: PySide6.QtCore.QFileDevice.Permissions) -> bool: ...
+    def setPermissions(filename: Union[str, bytes, os.PathLike], permissionSpec: PySide6.QtCore.QFileDevice.Permission) -> bool: ...
     @overload
-    def setPermissions(self, permissionSpec: PySide6.QtCore.QFileDevice.Permissions) -> bool: ...
+    def setPermissions(self, permissionSpec: PySide6.QtCore.QFileDevice.Permission) -> bool: ...
     def size(self) -> int: ...
     @overload
     @staticmethod
@@ -3127,6 +2656,8 @@ class QFile(PySide6.QtCore.QFileDevice):
 
 
 class QFileDevice(PySide6.QtCore.QIODevice):
+
+    class FileError(shibokensupport.enum_310.Enum):
 
     NoError                  : QFileDevice.FileError = ... # 0x0
     ReadError                : QFileDevice.FileError = ... # 0x1
@@ -3143,67 +2674,29 @@ class QFileDevice(PySide6.QtCore.QIODevice):
     ResizeError              : QFileDevice.FileError = ... # 0xc
     PermissionsError         : QFileDevice.FileError = ... # 0xd
     CopyError                : QFileDevice.FileError = ... # 0xe
-    DontCloseHandle          : QFileDevice.FileHandleFlag = ... # 0x0
-    AutoCloseHandle          : QFileDevice.FileHandleFlag = ... # 0x1
-    FileAccessTime           : QFileDevice.FileTime = ... # 0x0
-    FileBirthTime            : QFileDevice.FileTime = ... # 0x1
-    FileMetadataChangeTime   : QFileDevice.FileTime = ... # 0x2
-    FileModificationTime     : QFileDevice.FileTime = ... # 0x3
-    NoOptions                : QFileDevice.MemoryMapFlag = ... # 0x0
-    MapPrivateOption         : QFileDevice.MemoryMapFlag = ... # 0x1
-    ExeOther                 : QFileDevice.Permission = ... # 0x1
-    WriteOther               : QFileDevice.Permission = ... # 0x2
-    ReadOther                : QFileDevice.Permission = ... # 0x4
-    ExeGroup                 : QFileDevice.Permission = ... # 0x10
-    WriteGroup               : QFileDevice.Permission = ... # 0x20
-    ReadGroup                : QFileDevice.Permission = ... # 0x40
-    ExeUser                  : QFileDevice.Permission = ... # 0x100
-    WriteUser                : QFileDevice.Permission = ... # 0x200
-    ReadUser                 : QFileDevice.Permission = ... # 0x400
-    ExeOwner                 : QFileDevice.Permission = ... # 0x1000
-    WriteOwner               : QFileDevice.Permission = ... # 0x2000
-    ReadOwner                : QFileDevice.Permission = ... # 0x4000
 
-    class FileError(Shiboken.Enum):
 
-        NoError                  : QFileDevice.FileError = ... # 0x0
-        ReadError                : QFileDevice.FileError = ... # 0x1
-        WriteError               : QFileDevice.FileError = ... # 0x2
-        FatalError               : QFileDevice.FileError = ... # 0x3
-        ResourceError            : QFileDevice.FileError = ... # 0x4
-        OpenError                : QFileDevice.FileError = ... # 0x5
-        AbortError               : QFileDevice.FileError = ... # 0x6
-        TimeOutError             : QFileDevice.FileError = ... # 0x7
-        UnspecifiedError         : QFileDevice.FileError = ... # 0x8
-        RemoveError              : QFileDevice.FileError = ... # 0x9
-        RenameError              : QFileDevice.FileError = ... # 0xa
-        PositionError            : QFileDevice.FileError = ... # 0xb
-        ResizeError              : QFileDevice.FileError = ... # 0xc
-        PermissionsError         : QFileDevice.FileError = ... # 0xd
-        CopyError                : QFileDevice.FileError = ... # 0xe
-
-    class FileHandleFlag(Shiboken.Enum):
+    class FileHandleFlag(shibokensupport.enum_310.Flag):
 
         DontCloseHandle          : QFileDevice.FileHandleFlag = ... # 0x0
         AutoCloseHandle          : QFileDevice.FileHandleFlag = ... # 0x1
 
-    class FileHandleFlags(object): ...
 
-    class FileTime(Shiboken.Enum):
+    class FileTime(shibokensupport.enum_310.Enum):
 
         FileAccessTime           : QFileDevice.FileTime = ... # 0x0
         FileBirthTime            : QFileDevice.FileTime = ... # 0x1
         FileMetadataChangeTime   : QFileDevice.FileTime = ... # 0x2
         FileModificationTime     : QFileDevice.FileTime = ... # 0x3
 
-    class MemoryMapFlag(Shiboken.Enum):
+
+    class MemoryMapFlag(shibokensupport.enum_310.Flag):
 
         NoOptions                : QFileDevice.MemoryMapFlag = ... # 0x0
         MapPrivateOption         : QFileDevice.MemoryMapFlag = ... # 0x1
 
-    class MemoryMapFlags(object): ...
 
-    class Permission(Shiboken.Enum):
+    class Permission(shibokensupport.enum_310.Flag):
 
         ExeOther                 : QFileDevice.Permission = ... # 0x1
         WriteOther               : QFileDevice.Permission = ... # 0x2
@@ -3217,8 +2710,6 @@ class QFileDevice(PySide6.QtCore.QIODevice):
         ExeOwner                 : QFileDevice.Permission = ... # 0x1000
         WriteOwner               : QFileDevice.Permission = ... # 0x2000
         ReadOwner                : QFileDevice.Permission = ... # 0x4000
-
-    class Permissions(object): ...
 
 
     @overload
@@ -3234,15 +2725,15 @@ class QFileDevice(PySide6.QtCore.QIODevice):
     def flush(self) -> bool: ...
     def handle(self) -> int: ...
     def isSequential(self) -> bool: ...
-    def map(self, offset: int, size: int, flags: PySide6.QtCore.QFileDevice.MemoryMapFlags = ...) -> object: ...
-    def permissions(self) -> PySide6.QtCore.QFileDevice.Permissions: ...
+    def map(self, offset: int, size: int, flags: PySide6.QtCore.QFileDevice.MemoryMapFlag = ...) -> object: ...
+    def permissions(self) -> PySide6.QtCore.QFileDevice.Permission: ...
     def pos(self) -> int: ...
-    def readData(self, data: bytes, maxlen: int) -> object: ...
-    def readLineData(self, data: bytes, maxlen: int) -> object: ...
+    def readData(self, maxlen: int) -> object: ...
+    def readLineData(self, maxlen: int) -> object: ...
     def resize(self, sz: int) -> bool: ...
     def seek(self, offset: int) -> bool: ...
     def setFileTime(self, newDate: PySide6.QtCore.QDateTime, fileTime: PySide6.QtCore.QFileDevice.FileTime) -> bool: ...
-    def setPermissions(self, permissionSpec: PySide6.QtCore.QFileDevice.Permissions) -> bool: ...
+    def setPermissions(self, permissionSpec: PySide6.QtCore.QFileDevice.Permission) -> bool: ...
     def size(self) -> int: ...
     def unmap(self, address: bytes) -> bool: ...
     def unsetError(self) -> None: ...
@@ -3287,6 +2778,7 @@ class QFileInfo(Shiboken.Object):
     def group(self) -> str: ...
     def groupId(self) -> int: ...
     def isAbsolute(self) -> bool: ...
+    def isAlias(self) -> bool: ...
     def isBundle(self) -> bool: ...
     def isDir(self) -> bool: ...
     def isExecutable(self) -> bool: ...
@@ -3354,22 +2846,13 @@ class QFileSystemWatcher(PySide6.QtCore.QObject):
 
 class QFutureInterfaceBase(Shiboken.Object):
 
-    NoState                  : QFutureInterfaceBase.State = ... # 0x0
-    Running                  : QFutureInterfaceBase.State = ... # 0x1
-    Started                  : QFutureInterfaceBase.State = ... # 0x2
-    Finished                 : QFutureInterfaceBase.State = ... # 0x4
-    Canceled                 : QFutureInterfaceBase.State = ... # 0x8
-    Suspending               : QFutureInterfaceBase.State = ... # 0x10
-    Suspended                : QFutureInterfaceBase.State = ... # 0x20
-    Throttled                : QFutureInterfaceBase.State = ... # 0x40
-    Pending                  : QFutureInterfaceBase.State = ... # 0x80
-
-    class CancelMode(Shiboken.Enum):
+    class CancelMode(shibokensupport.enum_310.Enum):
 
         CancelOnly               : QFutureInterfaceBase.CancelMode = ... # 0x0
         CancelAndFinish          : QFutureInterfaceBase.CancelMode = ... # 0x1
 
-    class State(Shiboken.Enum):
+
+    class State(shibokensupport.enum_310.Enum):
 
         NoState                  : QFutureInterfaceBase.State = ... # 0x0
         Running                  : QFutureInterfaceBase.State = ... # 0x1
@@ -3392,7 +2875,6 @@ class QFutureInterfaceBase(Shiboken.Object):
     @overload
     def cancel(self, mode: PySide6.QtCore.QFutureInterfaceBase.CancelMode) -> None: ...
     def cancelAndFinish(self) -> None: ...
-    def cleanContinuation(self) -> None: ...
     def derefT(self) -> bool: ...
     def expectedResultCount(self) -> int: ...
     def hasException(self) -> bool: ...
@@ -3452,7 +2934,7 @@ class QFutureInterfaceBase(Shiboken.Object):
 class QGenericArgument(Shiboken.Object):
 
     @overload
-    def __init__(self, QGenericArgument: PySide6.QtCore.QGenericArgument) -> None: ...
+    def __init__(self, QGenericArgument: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder]) -> None: ...
     @overload
     def __init__(self, aName: Optional[bytes] = ..., aData: Optional[int] = ...) -> None: ...
 
@@ -3462,15 +2944,43 @@ class QGenericArgument(Shiboken.Object):
     def name(self) -> bytes: ...
 
 
+class QGenericArgumentHolder(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, arg__1: PySide6.QtCore.QGenericArgumentHolder) -> None: ...
+    @overload
+    def __init__(self, type: Union[PySide6.QtCore.QMetaType, PySide6.QtCore.QMetaType.Type], aData: int) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def data(self) -> int: ...
+    def metaType(self) -> PySide6.QtCore.QMetaType: ...
+
+
 class QGenericReturnArgument(PySide6.QtCore.QGenericArgument):
 
     @overload
-    def __init__(self, QGenericReturnArgument: PySide6.QtCore.QGenericReturnArgument) -> None: ...
+    def __init__(self, QGenericReturnArgument: Union[PySide6.QtCore.QGenericReturnArgument, PySide6.QtCore.QGenericReturnArgumentHolder]) -> None: ...
     @overload
     def __init__(self, aName: Optional[bytes] = ..., aData: Optional[int] = ...) -> None: ...
 
     @staticmethod
     def __copy__() -> None: ...
+
+
+class QGenericReturnArgumentHolder(Shiboken.Object):
+
+    @overload
+    def __init__(self, arg__1: PySide6.QtCore.QGenericReturnArgumentHolder) -> None: ...
+    @overload
+    def __init__(self, type: Union[PySide6.QtCore.QMetaType, PySide6.QtCore.QMetaType.Type], aData: int) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def data(self) -> int: ...
+    def metaType(self) -> PySide6.QtCore.QMetaType: ...
 
 
 class QIODevice(PySide6.QtCore.QObject, PySide6.QtCore.QIODeviceBase):
@@ -3489,31 +2999,31 @@ class QIODevice(PySide6.QtCore.QObject, PySide6.QtCore.QIODeviceBase):
     def currentReadChannel(self) -> int: ...
     def currentWriteChannel(self) -> int: ...
     def errorString(self) -> str: ...
-    def getChar(self, c: bytes) -> bool: ...
+    def getChar(self) -> bool: ...
     def isOpen(self) -> bool: ...
     def isReadable(self) -> bool: ...
     def isSequential(self) -> bool: ...
     def isTextModeEnabled(self) -> bool: ...
     def isTransactionStarted(self) -> bool: ...
     def isWritable(self) -> bool: ...
-    def open(self, mode: PySide6.QtCore.QIODeviceBase.OpenMode) -> bool: ...
-    def openMode(self) -> PySide6.QtCore.QIODeviceBase.OpenMode: ...
+    def open(self, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> bool: ...
+    def openMode(self) -> PySide6.QtCore.QIODeviceBase.OpenModeFlag: ...
     def peek(self, maxlen: int) -> PySide6.QtCore.QByteArray: ...
     def pos(self) -> int: ...
     def putChar(self, c: int) -> bool: ...
     def read(self, maxlen: int) -> PySide6.QtCore.QByteArray: ...
     def readAll(self) -> PySide6.QtCore.QByteArray: ...
     def readChannelCount(self) -> int: ...
-    def readData(self, data: bytes, maxlen: int) -> object: ...
+    def readData(self, maxlen: int) -> object: ...
     def readLine(self, maxlen: int = ...) -> PySide6.QtCore.QByteArray: ...
-    def readLineData(self, data: bytes, maxlen: int) -> object: ...
+    def readLineData(self, maxlen: int) -> object: ...
     def reset(self) -> bool: ...
     def rollbackTransaction(self) -> None: ...
     def seek(self, pos: int) -> bool: ...
     def setCurrentReadChannel(self, channel: int) -> None: ...
     def setCurrentWriteChannel(self, channel: int) -> None: ...
     def setErrorString(self, errorString: str) -> None: ...
-    def setOpenMode(self, openMode: PySide6.QtCore.QIODeviceBase.OpenMode) -> None: ...
+    def setOpenMode(self, openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> None: ...
     def setTextModeEnabled(self, enabled: bool) -> None: ...
     def size(self) -> int: ...
     def skip(self, maxSize: int) -> int: ...
@@ -3529,20 +3039,7 @@ class QIODevice(PySide6.QtCore.QObject, PySide6.QtCore.QIODeviceBase):
 
 class QIODeviceBase(Shiboken.Object):
 
-    NotOpen                  : QIODeviceBase.OpenModeFlag = ... # 0x0
-    ReadOnly                 : QIODeviceBase.OpenModeFlag = ... # 0x1
-    WriteOnly                : QIODeviceBase.OpenModeFlag = ... # 0x2
-    ReadWrite                : QIODeviceBase.OpenModeFlag = ... # 0x3
-    Append                   : QIODeviceBase.OpenModeFlag = ... # 0x4
-    Truncate                 : QIODeviceBase.OpenModeFlag = ... # 0x8
-    Text                     : QIODeviceBase.OpenModeFlag = ... # 0x10
-    Unbuffered               : QIODeviceBase.OpenModeFlag = ... # 0x20
-    NewOnly                  : QIODeviceBase.OpenModeFlag = ... # 0x40
-    ExistingOnly             : QIODeviceBase.OpenModeFlag = ... # 0x80
-
-    class OpenMode(object): ...
-
-    class OpenModeFlag(Shiboken.Enum):
+    class OpenModeFlag(shibokensupport.enum_310.Flag):
 
         NotOpen                  : QIODeviceBase.OpenModeFlag = ... # 0x0
         ReadOnly                 : QIODeviceBase.OpenModeFlag = ... # 0x1
@@ -3573,7 +3070,7 @@ class QIdentityProxyModel(PySide6.QtCore.QAbstractProxyModel):
     def mapSelectionFromSource(self, selection: PySide6.QtCore.QItemSelection) -> PySide6.QtCore.QItemSelection: ...
     def mapSelectionToSource(self, selection: PySide6.QtCore.QItemSelection) -> PySide6.QtCore.QItemSelection: ...
     def mapToSource(self, proxyIndex: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QModelIndex: ...
-    def match(self, start: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int, value: Any, hits: int = ..., flags: PySide6.QtCore.Qt.MatchFlags = ...) -> List[PySide6.QtCore.QModelIndex]: ...
+    def match(self, start: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int, value: Any, hits: int = ..., flags: PySide6.QtCore.Qt.MatchFlag = ...) -> List[PySide6.QtCore.QModelIndex]: ...
     def moveColumns(self, sourceParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], sourceColumn: int, count: int, destinationParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], destinationChild: int) -> bool: ...
     def moveRows(self, sourceParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], sourceRow: int, count: int, destinationParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], destinationChild: int) -> bool: ...
     @overload
@@ -3637,7 +3134,7 @@ class QItemSelection(Shiboken.Object):
     @overload
     def last(self, n: int) -> List[PySide6.QtCore.QItemSelectionRange]: ...
     def length(self) -> int: ...
-    def merge(self, other: PySide6.QtCore.QItemSelection, command: PySide6.QtCore.QItemSelectionModel.SelectionFlags) -> None: ...
+    def merge(self, other: PySide6.QtCore.QItemSelection, command: PySide6.QtCore.QItemSelectionModel.SelectionFlag) -> None: ...
     def mid(self, pos: int, len: int = ...) -> List[PySide6.QtCore.QItemSelectionRange]: ...
     def move(self, from_: int, to: int) -> None: ...
     def pop_back(self) -> None: ...
@@ -3673,19 +3170,7 @@ class QItemSelection(Shiboken.Object):
 
 class QItemSelectionModel(PySide6.QtCore.QObject):
 
-    NoUpdate                 : QItemSelectionModel.SelectionFlag = ... # 0x0
-    Clear                    : QItemSelectionModel.SelectionFlag = ... # 0x1
-    Select                   : QItemSelectionModel.SelectionFlag = ... # 0x2
-    ClearAndSelect           : QItemSelectionModel.SelectionFlag = ... # 0x3
-    Deselect                 : QItemSelectionModel.SelectionFlag = ... # 0x4
-    Toggle                   : QItemSelectionModel.SelectionFlag = ... # 0x8
-    Current                  : QItemSelectionModel.SelectionFlag = ... # 0x10
-    SelectCurrent            : QItemSelectionModel.SelectionFlag = ... # 0x12
-    ToggleCurrent            : QItemSelectionModel.SelectionFlag = ... # 0x18
-    Rows                     : QItemSelectionModel.SelectionFlag = ... # 0x20
-    Columns                  : QItemSelectionModel.SelectionFlag = ... # 0x40
-
-    class SelectionFlag(Shiboken.Enum):
+    class SelectionFlag(shibokensupport.enum_310.Flag):
 
         NoUpdate                 : QItemSelectionModel.SelectionFlag = ... # 0x0
         Clear                    : QItemSelectionModel.SelectionFlag = ... # 0x1
@@ -3698,8 +3183,6 @@ class QItemSelectionModel(PySide6.QtCore.QObject):
         ToggleCurrent            : QItemSelectionModel.SelectionFlag = ... # 0x18
         Rows                     : QItemSelectionModel.SelectionFlag = ... # 0x20
         Columns                  : QItemSelectionModel.SelectionFlag = ... # 0x40
-
-    class SelectionFlags(object): ...
 
 
     @overload
@@ -3721,14 +3204,14 @@ class QItemSelectionModel(PySide6.QtCore.QObject):
     def reset(self) -> None: ...
     def rowIntersectsSelection(self, row: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     @overload
-    def select(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], command: PySide6.QtCore.QItemSelectionModel.SelectionFlags) -> None: ...
+    def select(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], command: PySide6.QtCore.QItemSelectionModel.SelectionFlag) -> None: ...
     @overload
-    def select(self, selection: PySide6.QtCore.QItemSelection, command: PySide6.QtCore.QItemSelectionModel.SelectionFlags) -> None: ...
+    def select(self, selection: PySide6.QtCore.QItemSelection, command: PySide6.QtCore.QItemSelectionModel.SelectionFlag) -> None: ...
     def selectedColumns(self, row: int = ...) -> List[PySide6.QtCore.QModelIndex]: ...
     def selectedIndexes(self) -> List[PySide6.QtCore.QModelIndex]: ...
     def selectedRows(self, column: int = ...) -> List[PySide6.QtCore.QModelIndex]: ...
     def selection(self) -> PySide6.QtCore.QItemSelection: ...
-    def setCurrentIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], command: PySide6.QtCore.QItemSelectionModel.SelectionFlags) -> None: ...
+    def setCurrentIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], command: PySide6.QtCore.QItemSelectionModel.SelectionFlag) -> None: ...
     def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
 
 
@@ -3809,10 +3292,7 @@ class QJsonArray(Shiboken.Object):
 
 class QJsonDocument(Shiboken.Object):
 
-    Indented                 : QJsonDocument.JsonFormat = ... # 0x0
-    Compact                  : QJsonDocument.JsonFormat = ... # 0x1
-
-    class JsonFormat(Shiboken.Enum):
+    class JsonFormat(shibokensupport.enum_310.Enum):
 
         Indented                 : QJsonDocument.JsonFormat = ... # 0x0
         Compact                  : QJsonDocument.JsonFormat = ... # 0x1
@@ -3848,23 +3328,7 @@ class QJsonDocument(Shiboken.Object):
 
 class QJsonParseError(Shiboken.Object):
 
-    NoError                  : QJsonParseError.ParseError = ... # 0x0
-    UnterminatedObject       : QJsonParseError.ParseError = ... # 0x1
-    MissingNameSeparator     : QJsonParseError.ParseError = ... # 0x2
-    UnterminatedArray        : QJsonParseError.ParseError = ... # 0x3
-    MissingValueSeparator    : QJsonParseError.ParseError = ... # 0x4
-    IllegalValue             : QJsonParseError.ParseError = ... # 0x5
-    TerminationByNumber      : QJsonParseError.ParseError = ... # 0x6
-    IllegalNumber            : QJsonParseError.ParseError = ... # 0x7
-    IllegalEscapeSequence    : QJsonParseError.ParseError = ... # 0x8
-    IllegalUTF8String        : QJsonParseError.ParseError = ... # 0x9
-    UnterminatedString       : QJsonParseError.ParseError = ... # 0xa
-    MissingObject            : QJsonParseError.ParseError = ... # 0xb
-    DeepNesting              : QJsonParseError.ParseError = ... # 0xc
-    DocumentTooLarge         : QJsonParseError.ParseError = ... # 0xd
-    GarbageAtEnd             : QJsonParseError.ParseError = ... # 0xe
-
-    class ParseError(Shiboken.Enum):
+    class ParseError(shibokensupport.enum_310.Enum):
 
         NoError                  : QJsonParseError.ParseError = ... # 0x0
         UnterminatedObject       : QJsonParseError.ParseError = ... # 0x1
@@ -3895,15 +3359,7 @@ class QJsonParseError(Shiboken.Object):
 
 class QJsonValue(Shiboken.Object):
 
-    Null                     : QJsonValue.Type = ... # 0x0
-    Bool                     : QJsonValue.Type = ... # 0x1
-    Double                   : QJsonValue.Type = ... # 0x2
-    String                   : QJsonValue.Type = ... # 0x3
-    Array                    : QJsonValue.Type = ... # 0x4
-    Object                   : QJsonValue.Type = ... # 0x5
-    Undefined                : QJsonValue.Type = ... # 0x80
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         Null                     : QJsonValue.Type = ... # 0x0
         Bool                     : QJsonValue.Type = ... # 0x1
@@ -3970,36 +3426,32 @@ class QJsonValue(Shiboken.Object):
 class QKeyCombination(Shiboken.Object):
 
     @overload
+    def __init__(self, arg__1: Union[PySide6.QtCore.QKeyCombination, PySide6.QtCore.Qt.KeyboardModifier, PySide6.QtCore.Qt.Key]) -> None: ...
+    @overload
     def __init__(self, key: PySide6.QtCore.Qt.Key = ...) -> None: ...
     @overload
-    def __init__(self, modifiers: PySide6.QtCore.Qt.KeyboardModifiers, key: PySide6.QtCore.Qt.Key = ...) -> None: ...
+    def __init__(self, modifiers: PySide6.QtCore.Qt.KeyboardModifier, key: PySide6.QtCore.Qt.Key = ...) -> None: ...
+    @overload
+    def __init__(self, modifiers: PySide6.QtCore.Qt.Modifier, key: PySide6.QtCore.Qt.Key) -> None: ...
 
     @staticmethod
     def __copy__() -> None: ...
     @staticmethod
     def fromCombined(combined: int) -> PySide6.QtCore.QKeyCombination: ...
     def key(self) -> PySide6.QtCore.Qt.Key: ...
-    def keyboardModifiers(self) -> PySide6.QtCore.Qt.KeyboardModifiers: ...
+    def keyboardModifiers(self) -> PySide6.QtCore.Qt.KeyboardModifier: ...
     def toCombined(self) -> int: ...
 
 
 class QLibrary(PySide6.QtCore.QObject):
 
-    ResolveAllSymbolsHint    : QLibrary.LoadHint = ... # 0x1
-    ExportExternalSymbolsHint: QLibrary.LoadHint = ... # 0x2
-    LoadArchiveMemberHint    : QLibrary.LoadHint = ... # 0x4
-    PreventUnloadHint        : QLibrary.LoadHint = ... # 0x8
-    DeepBindHint             : QLibrary.LoadHint = ... # 0x10
-
-    class LoadHint(Shiboken.Enum):
+    class LoadHint(shibokensupport.enum_310.Flag):
 
         ResolveAllSymbolsHint    : QLibrary.LoadHint = ... # 0x1
         ExportExternalSymbolsHint: QLibrary.LoadHint = ... # 0x2
         LoadArchiveMemberHint    : QLibrary.LoadHint = ... # 0x4
         PreventUnloadHint        : QLibrary.LoadHint = ... # 0x8
         DeepBindHint             : QLibrary.LoadHint = ... # 0x10
-
-    class LoadHints(object): ...
 
 
     @overload
@@ -4017,35 +3469,19 @@ class QLibrary(PySide6.QtCore.QObject):
     def isLibrary(fileName: str) -> bool: ...
     def isLoaded(self) -> bool: ...
     def load(self) -> bool: ...
-    def loadHints(self) -> PySide6.QtCore.QLibrary.LoadHints: ...
+    def loadHints(self) -> PySide6.QtCore.QLibrary.LoadHint: ...
     def setFileName(self, fileName: str) -> None: ...
     @overload
     def setFileNameAndVersion(self, fileName: str, verNum: int) -> None: ...
     @overload
     def setFileNameAndVersion(self, fileName: str, version: str) -> None: ...
-    def setLoadHints(self, hints: PySide6.QtCore.QLibrary.LoadHints) -> None: ...
+    def setLoadHints(self, hints: PySide6.QtCore.QLibrary.LoadHint) -> None: ...
     def unload(self) -> bool: ...
 
 
 class QLibraryInfo(Shiboken.Object):
 
-    PrefixPath               : QLibraryInfo.LibraryPath = ... # 0x0
-    DocumentationPath        : QLibraryInfo.LibraryPath = ... # 0x1
-    HeadersPath              : QLibraryInfo.LibraryPath = ... # 0x2
-    LibrariesPath            : QLibraryInfo.LibraryPath = ... # 0x3
-    LibraryExecutablesPath   : QLibraryInfo.LibraryPath = ... # 0x4
-    BinariesPath             : QLibraryInfo.LibraryPath = ... # 0x5
-    PluginsPath              : QLibraryInfo.LibraryPath = ... # 0x6
-    Qml2ImportsPath          : QLibraryInfo.LibraryPath = ... # 0x7
-    QmlImportsPath           : QLibraryInfo.LibraryPath = ... # 0x7
-    ArchDataPath             : QLibraryInfo.LibraryPath = ... # 0x8
-    DataPath                 : QLibraryInfo.LibraryPath = ... # 0x9
-    TranslationsPath         : QLibraryInfo.LibraryPath = ... # 0xa
-    ExamplesPath             : QLibraryInfo.LibraryPath = ... # 0xb
-    TestsPath                : QLibraryInfo.LibraryPath = ... # 0xc
-    SettingsPath             : QLibraryInfo.LibraryPath = ... # 0x64
-
-    class LibraryPath(Shiboken.Enum):
+    class LibraryPath(shibokensupport.enum_310.Enum):
 
         PrefixPath               : QLibraryInfo.LibraryPath = ... # 0x0
         DocumentationPath        : QLibraryInfo.LibraryPath = ... # 0x1
@@ -4103,6 +3539,7 @@ class QLine(Shiboken.Object):
     def setP1(self, p1: PySide6.QtCore.QPoint) -> None: ...
     def setP2(self, p2: PySide6.QtCore.QPoint) -> None: ...
     def setPoints(self, p1: PySide6.QtCore.QPoint, p2: PySide6.QtCore.QPoint) -> None: ...
+    def toLineF(self) -> PySide6.QtCore.QLineF: ...
     def toTuple(self) -> object: ...
     @overload
     def translate(self, dx: int, dy: int) -> None: ...
@@ -4120,11 +3557,7 @@ class QLine(Shiboken.Object):
 
 class QLineF(Shiboken.Object):
 
-    NoIntersection           : QLineF.IntersectionType = ... # 0x0
-    BoundedIntersection      : QLineF.IntersectionType = ... # 0x1
-    UnboundedIntersection    : QLineF.IntersectionType = ... # 0x2
-
-    class IntersectionType(Shiboken.Enum):
+    class IntersectionType(shibokensupport.enum_310.Enum):
 
         NoIntersection           : QLineF.IntersectionType = ... # 0x0
         BoundedIntersection      : QLineF.IntersectionType = ... # 0x1
@@ -4153,7 +3586,7 @@ class QLineF(Shiboken.Object):
     def dy(self) -> float: ...
     @staticmethod
     def fromPolar(length: float, angle: float) -> PySide6.QtCore.QLineF: ...
-    def intersects(self, l: Union[PySide6.QtCore.QLineF, PySide6.QtCore.QLine], intersectionPoint: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, NoneType] = ...) -> Tuple: ...
+    def intersects(self, l: Union[PySide6.QtCore.QLineF, PySide6.QtCore.QLine]) -> Tuple: ...
     def isNull(self) -> bool: ...
     def length(self) -> float: ...
     def normalVector(self) -> PySide6.QtCore.QLineF: ...
@@ -4184,6 +3617,8 @@ class QLineF(Shiboken.Object):
 
 
 class QLocale(Shiboken.Object):
+
+    class Country(shibokensupport.enum_310.Enum):
 
     AnyCountry               : QLocale.Country = ... # 0x0
     AnyTerritory             : QLocale.Country = ... # 0x0
@@ -4473,838 +3908,16 @@ class QLocale(Shiboken.Object):
     LastCountry              : QLocale.Country = ... # 0x105
     LastTerritory            : QLocale.Country = ... # 0x105
     Zimbabwe                 : QLocale.Country = ... # 0x105
-    CurrencyIsoCode          : QLocale.CurrencySymbolFormat = ... # 0x0
-    CurrencySymbol           : QLocale.CurrencySymbolFormat = ... # 0x1
-    CurrencyDisplayName      : QLocale.CurrencySymbolFormat = ... # 0x2
-    DataSizeIecFormat        : QLocale.DataSizeFormat = ... # 0x0
-    DataSizeBase1000         : QLocale.DataSizeFormat = ... # 0x1
-    DataSizeSIQuantifiers    : QLocale.DataSizeFormat = ... # 0x2
-    DataSizeTraditionalFormat: QLocale.DataSizeFormat = ... # 0x2
-    DataSizeSIFormat         : QLocale.DataSizeFormat = ... # 0x3
-    FloatingPointShortest    : QLocale.FloatingPointPrecisionOption = ... # -0x80
-    LongFormat               : QLocale.FormatType = ... # 0x0
-    ShortFormat              : QLocale.FormatType = ... # 0x1
-    NarrowFormat             : QLocale.FormatType = ... # 0x2
-    AnyLanguage              : QLocale.Language = ... # 0x0
-    C                        : QLocale.Language = ... # 0x1
-    Abkhazian                : QLocale.Language = ... # 0x2
-    Afar                     : QLocale.Language = ... # 0x3
-    Afrikaans                : QLocale.Language = ... # 0x4
-    Aghem                    : QLocale.Language = ... # 0x5
-    Akan                     : QLocale.Language = ... # 0x6
-    Akkadian                 : QLocale.Language = ... # 0x7
-    Akoose                   : QLocale.Language = ... # 0x8
-    Albanian                 : QLocale.Language = ... # 0x9
-    AmericanSignLanguage     : QLocale.Language = ... # 0xa
-    Amharic                  : QLocale.Language = ... # 0xb
-    AncientEgyptian          : QLocale.Language = ... # 0xc
-    AncientGreek             : QLocale.Language = ... # 0xd
-    Arabic                   : QLocale.Language = ... # 0xe
-    Aragonese                : QLocale.Language = ... # 0xf
-    Aramaic                  : QLocale.Language = ... # 0x10
-    Armenian                 : QLocale.Language = ... # 0x11
-    Assamese                 : QLocale.Language = ... # 0x12
-    Asturian                 : QLocale.Language = ... # 0x13
-    Asu                      : QLocale.Language = ... # 0x14
-    Atsam                    : QLocale.Language = ... # 0x15
-    Avaric                   : QLocale.Language = ... # 0x16
-    Avestan                  : QLocale.Language = ... # 0x17
-    Aymara                   : QLocale.Language = ... # 0x18
-    Azerbaijani              : QLocale.Language = ... # 0x19
-    Bafia                    : QLocale.Language = ... # 0x1a
-    Balinese                 : QLocale.Language = ... # 0x1b
-    Bambara                  : QLocale.Language = ... # 0x1c
-    Bamun                    : QLocale.Language = ... # 0x1d
-    Bangla                   : QLocale.Language = ... # 0x1e
-    Bengali                  : QLocale.Language = ... # 0x1e
-    Basaa                    : QLocale.Language = ... # 0x1f
-    Bashkir                  : QLocale.Language = ... # 0x20
-    Basque                   : QLocale.Language = ... # 0x21
-    BatakToba                : QLocale.Language = ... # 0x22
-    Belarusian               : QLocale.Language = ... # 0x23
-    Byelorussian             : QLocale.Language = ... # 0x23
-    Bemba                    : QLocale.Language = ... # 0x24
-    Bena                     : QLocale.Language = ... # 0x25
-    Bhojpuri                 : QLocale.Language = ... # 0x26
-    Bislama                  : QLocale.Language = ... # 0x27
-    Blin                     : QLocale.Language = ... # 0x28
-    Bodo                     : QLocale.Language = ... # 0x29
-    Bosnian                  : QLocale.Language = ... # 0x2a
-    Breton                   : QLocale.Language = ... # 0x2b
-    Buginese                 : QLocale.Language = ... # 0x2c
-    Bulgarian                : QLocale.Language = ... # 0x2d
-    Burmese                  : QLocale.Language = ... # 0x2e
-    Cantonese                : QLocale.Language = ... # 0x2f
-    Catalan                  : QLocale.Language = ... # 0x30
-    Cebuano                  : QLocale.Language = ... # 0x31
-    CentralAtlasTamazight    : QLocale.Language = ... # 0x32
-    CentralMoroccoTamazight  : QLocale.Language = ... # 0x32
-    CentralKurdish           : QLocale.Language = ... # 0x33
-    Chakma                   : QLocale.Language = ... # 0x34
-    Chamorro                 : QLocale.Language = ... # 0x35
-    Chechen                  : QLocale.Language = ... # 0x36
-    Cherokee                 : QLocale.Language = ... # 0x37
-    Chickasaw                : QLocale.Language = ... # 0x38
-    Chiga                    : QLocale.Language = ... # 0x39
-    Chinese                  : QLocale.Language = ... # 0x3a
-    Church                   : QLocale.Language = ... # 0x3b
-    Chuvash                  : QLocale.Language = ... # 0x3c
-    Colognian                : QLocale.Language = ... # 0x3d
-    Coptic                   : QLocale.Language = ... # 0x3e
-    Cornish                  : QLocale.Language = ... # 0x3f
-    Corsican                 : QLocale.Language = ... # 0x40
-    Cree                     : QLocale.Language = ... # 0x41
-    Croatian                 : QLocale.Language = ... # 0x42
-    Czech                    : QLocale.Language = ... # 0x43
-    Danish                   : QLocale.Language = ... # 0x44
-    Divehi                   : QLocale.Language = ... # 0x45
-    Dogri                    : QLocale.Language = ... # 0x46
-    Duala                    : QLocale.Language = ... # 0x47
-    Dutch                    : QLocale.Language = ... # 0x48
-    Bhutani                  : QLocale.Language = ... # 0x49
-    Dzongkha                 : QLocale.Language = ... # 0x49
-    Embu                     : QLocale.Language = ... # 0x4a
-    English                  : QLocale.Language = ... # 0x4b
-    Erzya                    : QLocale.Language = ... # 0x4c
-    Esperanto                : QLocale.Language = ... # 0x4d
-    Estonian                 : QLocale.Language = ... # 0x4e
-    Ewe                      : QLocale.Language = ... # 0x4f
-    Ewondo                   : QLocale.Language = ... # 0x50
-    Faroese                  : QLocale.Language = ... # 0x51
-    Fijian                   : QLocale.Language = ... # 0x52
-    Filipino                 : QLocale.Language = ... # 0x53
-    Finnish                  : QLocale.Language = ... # 0x54
-    French                   : QLocale.Language = ... # 0x55
-    Friulian                 : QLocale.Language = ... # 0x56
-    Fulah                    : QLocale.Language = ... # 0x57
-    Gaelic                   : QLocale.Language = ... # 0x58
-    Ga                       : QLocale.Language = ... # 0x59
-    Galician                 : QLocale.Language = ... # 0x5a
-    Ganda                    : QLocale.Language = ... # 0x5b
-    Geez                     : QLocale.Language = ... # 0x5c
-    Georgian                 : QLocale.Language = ... # 0x5d
-    German                   : QLocale.Language = ... # 0x5e
-    Gothic                   : QLocale.Language = ... # 0x5f
-    Greek                    : QLocale.Language = ... # 0x60
-    Guarani                  : QLocale.Language = ... # 0x61
-    Gujarati                 : QLocale.Language = ... # 0x62
-    Gusii                    : QLocale.Language = ... # 0x63
-    Haitian                  : QLocale.Language = ... # 0x64
-    Hausa                    : QLocale.Language = ... # 0x65
-    Hawaiian                 : QLocale.Language = ... # 0x66
-    Hebrew                   : QLocale.Language = ... # 0x67
-    Herero                   : QLocale.Language = ... # 0x68
-    Hindi                    : QLocale.Language = ... # 0x69
-    HiriMotu                 : QLocale.Language = ... # 0x6a
-    Hungarian                : QLocale.Language = ... # 0x6b
-    Icelandic                : QLocale.Language = ... # 0x6c
-    Ido                      : QLocale.Language = ... # 0x6d
-    Igbo                     : QLocale.Language = ... # 0x6e
-    InariSami                : QLocale.Language = ... # 0x6f
-    Indonesian               : QLocale.Language = ... # 0x70
-    Ingush                   : QLocale.Language = ... # 0x71
-    Interlingua              : QLocale.Language = ... # 0x72
-    Interlingue              : QLocale.Language = ... # 0x73
-    Inuktitut                : QLocale.Language = ... # 0x74
-    Inupiak                  : QLocale.Language = ... # 0x75
-    Inupiaq                  : QLocale.Language = ... # 0x75
-    Irish                    : QLocale.Language = ... # 0x76
-    Italian                  : QLocale.Language = ... # 0x77
-    Japanese                 : QLocale.Language = ... # 0x78
-    Javanese                 : QLocale.Language = ... # 0x79
-    Jju                      : QLocale.Language = ... # 0x7a
-    JolaFonyi                : QLocale.Language = ... # 0x7b
-    Kabuverdianu             : QLocale.Language = ... # 0x7c
-    Kabyle                   : QLocale.Language = ... # 0x7d
-    Kako                     : QLocale.Language = ... # 0x7e
-    Greenlandic              : QLocale.Language = ... # 0x7f
-    Kalaallisut              : QLocale.Language = ... # 0x7f
-    Kalenjin                 : QLocale.Language = ... # 0x80
-    Kamba                    : QLocale.Language = ... # 0x81
-    Kannada                  : QLocale.Language = ... # 0x82
-    Kanuri                   : QLocale.Language = ... # 0x83
-    Kashmiri                 : QLocale.Language = ... # 0x84
-    Kazakh                   : QLocale.Language = ... # 0x85
-    Kenyang                  : QLocale.Language = ... # 0x86
-    Cambodian                : QLocale.Language = ... # 0x87
-    Khmer                    : QLocale.Language = ... # 0x87
-    Kiche                    : QLocale.Language = ... # 0x88
-    Kikuyu                   : QLocale.Language = ... # 0x89
-    Kinyarwanda              : QLocale.Language = ... # 0x8a
-    Komi                     : QLocale.Language = ... # 0x8b
-    Kongo                    : QLocale.Language = ... # 0x8c
-    Konkani                  : QLocale.Language = ... # 0x8d
-    Korean                   : QLocale.Language = ... # 0x8e
-    Koro                     : QLocale.Language = ... # 0x8f
-    KoyraboroSenni           : QLocale.Language = ... # 0x90
-    KoyraChiini              : QLocale.Language = ... # 0x91
-    Kpelle                   : QLocale.Language = ... # 0x92
-    Kuanyama                 : QLocale.Language = ... # 0x93
-    Kwanyama                 : QLocale.Language = ... # 0x93
-    Kurdish                  : QLocale.Language = ... # 0x94
-    Kwasio                   : QLocale.Language = ... # 0x95
-    Kirghiz                  : QLocale.Language = ... # 0x96
-    Kyrgyz                   : QLocale.Language = ... # 0x96
-    Lakota                   : QLocale.Language = ... # 0x97
-    Langi                    : QLocale.Language = ... # 0x98
-    Lao                      : QLocale.Language = ... # 0x99
-    Latin                    : QLocale.Language = ... # 0x9a
-    Latvian                  : QLocale.Language = ... # 0x9b
-    Lezghian                 : QLocale.Language = ... # 0x9c
-    Limburgish               : QLocale.Language = ... # 0x9d
-    Lingala                  : QLocale.Language = ... # 0x9e
-    LiteraryChinese          : QLocale.Language = ... # 0x9f
-    Lithuanian               : QLocale.Language = ... # 0xa0
-    Lojban                   : QLocale.Language = ... # 0xa1
-    LowerSorbian             : QLocale.Language = ... # 0xa2
-    LowGerman                : QLocale.Language = ... # 0xa3
-    LubaKatanga              : QLocale.Language = ... # 0xa4
-    LuleSami                 : QLocale.Language = ... # 0xa5
-    Luo                      : QLocale.Language = ... # 0xa6
-    Luxembourgish            : QLocale.Language = ... # 0xa7
-    Luyia                    : QLocale.Language = ... # 0xa8
-    Macedonian               : QLocale.Language = ... # 0xa9
-    Machame                  : QLocale.Language = ... # 0xaa
-    Maithili                 : QLocale.Language = ... # 0xab
-    MakhuwaMeetto            : QLocale.Language = ... # 0xac
-    Makonde                  : QLocale.Language = ... # 0xad
-    Malagasy                 : QLocale.Language = ... # 0xae
-    Malayalam                : QLocale.Language = ... # 0xaf
-    Malay                    : QLocale.Language = ... # 0xb0
-    Maltese                  : QLocale.Language = ... # 0xb1
-    Mandingo                 : QLocale.Language = ... # 0xb2
-    Manipuri                 : QLocale.Language = ... # 0xb3
-    Manx                     : QLocale.Language = ... # 0xb4
-    Maori                    : QLocale.Language = ... # 0xb5
-    Mapuche                  : QLocale.Language = ... # 0xb6
-    Marathi                  : QLocale.Language = ... # 0xb7
-    Marshallese              : QLocale.Language = ... # 0xb8
-    Masai                    : QLocale.Language = ... # 0xb9
-    Mazanderani              : QLocale.Language = ... # 0xba
-    Mende                    : QLocale.Language = ... # 0xbb
-    Meru                     : QLocale.Language = ... # 0xbc
-    Meta                     : QLocale.Language = ... # 0xbd
-    Mohawk                   : QLocale.Language = ... # 0xbe
-    Mongolian                : QLocale.Language = ... # 0xbf
-    Morisyen                 : QLocale.Language = ... # 0xc0
-    Mundang                  : QLocale.Language = ... # 0xc1
-    Muscogee                 : QLocale.Language = ... # 0xc2
-    Nama                     : QLocale.Language = ... # 0xc3
-    NauruLanguage            : QLocale.Language = ... # 0xc4
-    Navaho                   : QLocale.Language = ... # 0xc5
-    Navajo                   : QLocale.Language = ... # 0xc5
-    Ndonga                   : QLocale.Language = ... # 0xc6
-    Nepali                   : QLocale.Language = ... # 0xc7
-    Newari                   : QLocale.Language = ... # 0xc8
-    Ngiemboon                : QLocale.Language = ... # 0xc9
-    Ngomba                   : QLocale.Language = ... # 0xca
-    NigerianPidgin           : QLocale.Language = ... # 0xcb
-    Nko                      : QLocale.Language = ... # 0xcc
-    NorthernLuri             : QLocale.Language = ... # 0xcd
-    NorthernSami             : QLocale.Language = ... # 0xce
-    NorthernSotho            : QLocale.Language = ... # 0xcf
-    NorthNdebele             : QLocale.Language = ... # 0xd0
-    NorwegianBokmal          : QLocale.Language = ... # 0xd1
-    NorwegianNynorsk         : QLocale.Language = ... # 0xd2
-    Nuer                     : QLocale.Language = ... # 0xd3
-    Chewa                    : QLocale.Language = ... # 0xd4
-    Nyanja                   : QLocale.Language = ... # 0xd4
-    Nyankole                 : QLocale.Language = ... # 0xd5
-    Occitan                  : QLocale.Language = ... # 0xd6
-    Odia                     : QLocale.Language = ... # 0xd7
-    Oriya                    : QLocale.Language = ... # 0xd7
-    Ojibwa                   : QLocale.Language = ... # 0xd8
-    OldIrish                 : QLocale.Language = ... # 0xd9
-    OldNorse                 : QLocale.Language = ... # 0xda
-    OldPersian               : QLocale.Language = ... # 0xdb
-    Afan                     : QLocale.Language = ... # 0xdc
-    Oromo                    : QLocale.Language = ... # 0xdc
-    Osage                    : QLocale.Language = ... # 0xdd
-    Ossetic                  : QLocale.Language = ... # 0xde
-    Pahlavi                  : QLocale.Language = ... # 0xdf
-    Palauan                  : QLocale.Language = ... # 0xe0
-    Pali                     : QLocale.Language = ... # 0xe1
-    Papiamento               : QLocale.Language = ... # 0xe2
-    Pashto                   : QLocale.Language = ... # 0xe3
-    Persian                  : QLocale.Language = ... # 0xe4
-    Phoenician               : QLocale.Language = ... # 0xe5
-    Polish                   : QLocale.Language = ... # 0xe6
-    Portuguese               : QLocale.Language = ... # 0xe7
-    Prussian                 : QLocale.Language = ... # 0xe8
-    Punjabi                  : QLocale.Language = ... # 0xe9
-    Quechua                  : QLocale.Language = ... # 0xea
-    Romanian                 : QLocale.Language = ... # 0xeb
-    RhaetoRomance            : QLocale.Language = ... # 0xec
-    Romansh                  : QLocale.Language = ... # 0xec
-    Rombo                    : QLocale.Language = ... # 0xed
-    Kurundi                  : QLocale.Language = ... # 0xee
-    Rundi                    : QLocale.Language = ... # 0xee
-    Russian                  : QLocale.Language = ... # 0xef
-    Rwa                      : QLocale.Language = ... # 0xf0
-    Saho                     : QLocale.Language = ... # 0xf1
-    Sakha                    : QLocale.Language = ... # 0xf2
-    Samburu                  : QLocale.Language = ... # 0xf3
-    Samoan                   : QLocale.Language = ... # 0xf4
-    Sango                    : QLocale.Language = ... # 0xf5
-    Sangu                    : QLocale.Language = ... # 0xf6
-    Sanskrit                 : QLocale.Language = ... # 0xf7
-    Santali                  : QLocale.Language = ... # 0xf8
-    Sardinian                : QLocale.Language = ... # 0xf9
-    Saurashtra               : QLocale.Language = ... # 0xfa
-    Sena                     : QLocale.Language = ... # 0xfb
-    Serbian                  : QLocale.Language = ... # 0xfc
-    Shambala                 : QLocale.Language = ... # 0xfd
-    Shona                    : QLocale.Language = ... # 0xfe
-    SichuanYi                : QLocale.Language = ... # 0xff
-    Sicilian                 : QLocale.Language = ... # 0x100
-    Sidamo                   : QLocale.Language = ... # 0x101
-    Silesian                 : QLocale.Language = ... # 0x102
-    Sindhi                   : QLocale.Language = ... # 0x103
-    Sinhala                  : QLocale.Language = ... # 0x104
-    SkoltSami                : QLocale.Language = ... # 0x105
-    Slovak                   : QLocale.Language = ... # 0x106
-    Slovenian                : QLocale.Language = ... # 0x107
-    Soga                     : QLocale.Language = ... # 0x108
-    Somali                   : QLocale.Language = ... # 0x109
-    SouthernKurdish          : QLocale.Language = ... # 0x10a
-    SouthernSami             : QLocale.Language = ... # 0x10b
-    SouthernSotho            : QLocale.Language = ... # 0x10c
-    SouthNdebele             : QLocale.Language = ... # 0x10d
-    Spanish                  : QLocale.Language = ... # 0x10e
-    StandardMoroccanTamazight: QLocale.Language = ... # 0x10f
-    Sundanese                : QLocale.Language = ... # 0x110
-    Swahili                  : QLocale.Language = ... # 0x111
-    Swati                    : QLocale.Language = ... # 0x112
-    Swedish                  : QLocale.Language = ... # 0x113
-    SwissGerman              : QLocale.Language = ... # 0x114
-    Syriac                   : QLocale.Language = ... # 0x115
-    Tachelhit                : QLocale.Language = ... # 0x116
-    Tahitian                 : QLocale.Language = ... # 0x117
-    TaiDam                   : QLocale.Language = ... # 0x118
-    Taita                    : QLocale.Language = ... # 0x119
-    Tajik                    : QLocale.Language = ... # 0x11a
-    Tamil                    : QLocale.Language = ... # 0x11b
-    Taroko                   : QLocale.Language = ... # 0x11c
-    Tasawaq                  : QLocale.Language = ... # 0x11d
-    Tatar                    : QLocale.Language = ... # 0x11e
-    Telugu                   : QLocale.Language = ... # 0x11f
-    Teso                     : QLocale.Language = ... # 0x120
-    Thai                     : QLocale.Language = ... # 0x121
-    Tibetan                  : QLocale.Language = ... # 0x122
-    Tigre                    : QLocale.Language = ... # 0x123
-    Tigrinya                 : QLocale.Language = ... # 0x124
-    TokelauLanguage          : QLocale.Language = ... # 0x125
-    TokPisin                 : QLocale.Language = ... # 0x126
-    Tongan                   : QLocale.Language = ... # 0x127
-    Tsonga                   : QLocale.Language = ... # 0x128
-    Tswana                   : QLocale.Language = ... # 0x129
-    Turkish                  : QLocale.Language = ... # 0x12a
-    Turkmen                  : QLocale.Language = ... # 0x12b
-    TuvaluLanguage           : QLocale.Language = ... # 0x12c
-    Tyap                     : QLocale.Language = ... # 0x12d
-    Ugaritic                 : QLocale.Language = ... # 0x12e
-    Ukrainian                : QLocale.Language = ... # 0x12f
-    UpperSorbian             : QLocale.Language = ... # 0x130
-    Urdu                     : QLocale.Language = ... # 0x131
-    Uighur                   : QLocale.Language = ... # 0x132
-    Uigur                    : QLocale.Language = ... # 0x132
-    Uyghur                   : QLocale.Language = ... # 0x132
-    Uzbek                    : QLocale.Language = ... # 0x133
-    Vai                      : QLocale.Language = ... # 0x134
-    Venda                    : QLocale.Language = ... # 0x135
-    Vietnamese               : QLocale.Language = ... # 0x136
-    Volapuk                  : QLocale.Language = ... # 0x137
-    Vunjo                    : QLocale.Language = ... # 0x138
-    Walloon                  : QLocale.Language = ... # 0x139
-    Walser                   : QLocale.Language = ... # 0x13a
-    Warlpiri                 : QLocale.Language = ... # 0x13b
-    Welsh                    : QLocale.Language = ... # 0x13c
-    WesternBalochi           : QLocale.Language = ... # 0x13d
-    Frisian                  : QLocale.Language = ... # 0x13e
-    WesternFrisian           : QLocale.Language = ... # 0x13e
-    Walamo                   : QLocale.Language = ... # 0x13f
-    Wolaytta                 : QLocale.Language = ... # 0x13f
-    Wolof                    : QLocale.Language = ... # 0x140
-    Xhosa                    : QLocale.Language = ... # 0x141
-    Yangben                  : QLocale.Language = ... # 0x142
-    Yiddish                  : QLocale.Language = ... # 0x143
-    Yoruba                   : QLocale.Language = ... # 0x144
-    Zarma                    : QLocale.Language = ... # 0x145
-    Zhuang                   : QLocale.Language = ... # 0x146
-    Zulu                     : QLocale.Language = ... # 0x147
-    Kaingang                 : QLocale.Language = ... # 0x148
-    LastLanguage             : QLocale.Language = ... # 0x149
-    Nheengatu                : QLocale.Language = ... # 0x149
-    AnyLanguageCode          : QLocale.LanguageCodeType = ... # -0x1
-    ISO639Alpha2             : QLocale.LanguageCodeType = ... # 0x1
-    ISO639Part1              : QLocale.LanguageCodeType = ... # 0x1
-    ISO639Part2B             : QLocale.LanguageCodeType = ... # 0x2
-    ISO639Part2T             : QLocale.LanguageCodeType = ... # 0x4
-    ISO639Part2              : QLocale.LanguageCodeType = ... # 0x6
-    ISO639Part3              : QLocale.LanguageCodeType = ... # 0x8
-    ISO639Alpha3             : QLocale.LanguageCodeType = ... # 0xe
-    ISO639                   : QLocale.LanguageCodeType = ... # 0xf
-    LegacyLanguageCode       : QLocale.LanguageCodeType = ... # 0x8000
-    MetricSystem             : QLocale.MeasurementSystem = ... # 0x0
-    ImperialSystem           : QLocale.MeasurementSystem = ... # 0x1
-    ImperialUSSystem         : QLocale.MeasurementSystem = ... # 0x1
-    ImperialUKSystem         : QLocale.MeasurementSystem = ... # 0x2
-    DefaultNumberOptions     : QLocale.NumberOption = ... # 0x0
-    OmitGroupSeparator       : QLocale.NumberOption = ... # 0x1
-    RejectGroupSeparator     : QLocale.NumberOption = ... # 0x2
-    OmitLeadingZeroInExponent: QLocale.NumberOption = ... # 0x4
-    RejectLeadingZeroInExponent: QLocale.NumberOption = ... # 0x8
-    IncludeTrailingZeroesAfterDot: QLocale.NumberOption = ... # 0x10
-    RejectTrailingZeroesAfterDot: QLocale.NumberOption = ... # 0x20
-    StandardQuotation        : QLocale.QuotationStyle = ... # 0x0
-    AlternateQuotation       : QLocale.QuotationStyle = ... # 0x1
-    AnyScript                : QLocale.Script = ... # 0x0
-    AdlamScript              : QLocale.Script = ... # 0x1
-    AhomScript               : QLocale.Script = ... # 0x2
-    AnatolianHieroglyphsScript: QLocale.Script = ... # 0x3
-    ArabicScript             : QLocale.Script = ... # 0x4
-    ArmenianScript           : QLocale.Script = ... # 0x5
-    AvestanScript            : QLocale.Script = ... # 0x6
-    BalineseScript           : QLocale.Script = ... # 0x7
-    BamumScript              : QLocale.Script = ... # 0x8
-    BanglaScript             : QLocale.Script = ... # 0x9
-    BengaliScript            : QLocale.Script = ... # 0x9
-    BassaVahScript           : QLocale.Script = ... # 0xa
-    BatakScript              : QLocale.Script = ... # 0xb
-    BhaiksukiScript          : QLocale.Script = ... # 0xc
-    BopomofoScript           : QLocale.Script = ... # 0xd
-    BrahmiScript             : QLocale.Script = ... # 0xe
-    BrailleScript            : QLocale.Script = ... # 0xf
-    BugineseScript           : QLocale.Script = ... # 0x10
-    BuhidScript              : QLocale.Script = ... # 0x11
-    CanadianAboriginalScript : QLocale.Script = ... # 0x12
-    CarianScript             : QLocale.Script = ... # 0x13
-    CaucasianAlbanianScript  : QLocale.Script = ... # 0x14
-    ChakmaScript             : QLocale.Script = ... # 0x15
-    ChamScript               : QLocale.Script = ... # 0x16
-    CherokeeScript           : QLocale.Script = ... # 0x17
-    CopticScript             : QLocale.Script = ... # 0x18
-    CuneiformScript          : QLocale.Script = ... # 0x19
-    CypriotScript            : QLocale.Script = ... # 0x1a
-    CyrillicScript           : QLocale.Script = ... # 0x1b
-    DeseretScript            : QLocale.Script = ... # 0x1c
-    DevanagariScript         : QLocale.Script = ... # 0x1d
-    DuployanScript           : QLocale.Script = ... # 0x1e
-    EgyptianHieroglyphsScript: QLocale.Script = ... # 0x1f
-    ElbasanScript            : QLocale.Script = ... # 0x20
-    EthiopicScript           : QLocale.Script = ... # 0x21
-    FraserScript             : QLocale.Script = ... # 0x22
-    GeorgianScript           : QLocale.Script = ... # 0x23
-    GlagoliticScript         : QLocale.Script = ... # 0x24
-    GothicScript             : QLocale.Script = ... # 0x25
-    GranthaScript            : QLocale.Script = ... # 0x26
-    GreekScript              : QLocale.Script = ... # 0x27
-    GujaratiScript           : QLocale.Script = ... # 0x28
-    GurmukhiScript           : QLocale.Script = ... # 0x29
-    HangulScript             : QLocale.Script = ... # 0x2a
-    HanScript                : QLocale.Script = ... # 0x2b
-    HanunooScript            : QLocale.Script = ... # 0x2c
-    HanWithBopomofoScript    : QLocale.Script = ... # 0x2d
-    HatranScript             : QLocale.Script = ... # 0x2e
-    HebrewScript             : QLocale.Script = ... # 0x2f
-    HiraganaScript           : QLocale.Script = ... # 0x30
-    ImperialAramaicScript    : QLocale.Script = ... # 0x31
-    InscriptionalPahlaviScript: QLocale.Script = ... # 0x32
-    InscriptionalParthianScript: QLocale.Script = ... # 0x33
-    JamoScript               : QLocale.Script = ... # 0x34
-    JapaneseScript           : QLocale.Script = ... # 0x35
-    JavaneseScript           : QLocale.Script = ... # 0x36
-    KaithiScript             : QLocale.Script = ... # 0x37
-    KannadaScript            : QLocale.Script = ... # 0x38
-    KatakanaScript           : QLocale.Script = ... # 0x39
-    KayahLiScript            : QLocale.Script = ... # 0x3a
-    KharoshthiScript         : QLocale.Script = ... # 0x3b
-    KhmerScript              : QLocale.Script = ... # 0x3c
-    KhojkiScript             : QLocale.Script = ... # 0x3d
-    KhudawadiScript          : QLocale.Script = ... # 0x3e
-    KoreanScript             : QLocale.Script = ... # 0x3f
-    LannaScript              : QLocale.Script = ... # 0x40
-    LaoScript                : QLocale.Script = ... # 0x41
-    LatinScript              : QLocale.Script = ... # 0x42
-    LepchaScript             : QLocale.Script = ... # 0x43
-    LimbuScript              : QLocale.Script = ... # 0x44
-    LinearAScript            : QLocale.Script = ... # 0x45
-    LinearBScript            : QLocale.Script = ... # 0x46
-    LycianScript             : QLocale.Script = ... # 0x47
-    LydianScript             : QLocale.Script = ... # 0x48
-    MahajaniScript           : QLocale.Script = ... # 0x49
-    MalayalamScript          : QLocale.Script = ... # 0x4a
-    MandaeanScript           : QLocale.Script = ... # 0x4b
-    ManichaeanScript         : QLocale.Script = ... # 0x4c
-    MarchenScript            : QLocale.Script = ... # 0x4d
-    MeiteiMayekScript        : QLocale.Script = ... # 0x4e
-    MendeKikakuiScript       : QLocale.Script = ... # 0x4f
-    MendeScript              : QLocale.Script = ... # 0x4f
-    MeroiticCursiveScript    : QLocale.Script = ... # 0x50
-    MeroiticScript           : QLocale.Script = ... # 0x51
-    ModiScript               : QLocale.Script = ... # 0x52
-    MongolianScript          : QLocale.Script = ... # 0x53
-    MroScript                : QLocale.Script = ... # 0x54
-    MultaniScript            : QLocale.Script = ... # 0x55
-    MyanmarScript            : QLocale.Script = ... # 0x56
-    NabataeanScript          : QLocale.Script = ... # 0x57
-    NewaScript               : QLocale.Script = ... # 0x58
-    NewTaiLueScript          : QLocale.Script = ... # 0x59
-    NkoScript                : QLocale.Script = ... # 0x5a
-    OdiaScript               : QLocale.Script = ... # 0x5b
-    OriyaScript              : QLocale.Script = ... # 0x5b
-    OghamScript              : QLocale.Script = ... # 0x5c
-    OlChikiScript            : QLocale.Script = ... # 0x5d
-    OldHungarianScript       : QLocale.Script = ... # 0x5e
-    OldItalicScript          : QLocale.Script = ... # 0x5f
-    OldNorthArabianScript    : QLocale.Script = ... # 0x60
-    OldPermicScript          : QLocale.Script = ... # 0x61
-    OldPersianScript         : QLocale.Script = ... # 0x62
-    OldSouthArabianScript    : QLocale.Script = ... # 0x63
-    OrkhonScript             : QLocale.Script = ... # 0x64
-    OsageScript              : QLocale.Script = ... # 0x65
-    OsmanyaScript            : QLocale.Script = ... # 0x66
-    PahawhHmongScript        : QLocale.Script = ... # 0x67
-    PalmyreneScript          : QLocale.Script = ... # 0x68
-    PauCinHauScript          : QLocale.Script = ... # 0x69
-    PhagsPaScript            : QLocale.Script = ... # 0x6a
-    PhoenicianScript         : QLocale.Script = ... # 0x6b
-    PollardPhoneticScript    : QLocale.Script = ... # 0x6c
-    PsalterPahlaviScript     : QLocale.Script = ... # 0x6d
-    RejangScript             : QLocale.Script = ... # 0x6e
-    RunicScript              : QLocale.Script = ... # 0x6f
-    SamaritanScript          : QLocale.Script = ... # 0x70
-    SaurashtraScript         : QLocale.Script = ... # 0x71
-    SharadaScript            : QLocale.Script = ... # 0x72
-    ShavianScript            : QLocale.Script = ... # 0x73
-    SiddhamScript            : QLocale.Script = ... # 0x74
-    SignWritingScript        : QLocale.Script = ... # 0x75
-    SimplifiedChineseScript  : QLocale.Script = ... # 0x76
-    SimplifiedHanScript      : QLocale.Script = ... # 0x76
-    SinhalaScript            : QLocale.Script = ... # 0x77
-    SoraSompengScript        : QLocale.Script = ... # 0x78
-    SundaneseScript          : QLocale.Script = ... # 0x79
-    SylotiNagriScript        : QLocale.Script = ... # 0x7a
-    SyriacScript             : QLocale.Script = ... # 0x7b
-    TagalogScript            : QLocale.Script = ... # 0x7c
-    TagbanwaScript           : QLocale.Script = ... # 0x7d
-    TaiLeScript              : QLocale.Script = ... # 0x7e
-    TaiVietScript            : QLocale.Script = ... # 0x7f
-    TakriScript              : QLocale.Script = ... # 0x80
-    TamilScript              : QLocale.Script = ... # 0x81
-    TangutScript             : QLocale.Script = ... # 0x82
-    TeluguScript             : QLocale.Script = ... # 0x83
-    ThaanaScript             : QLocale.Script = ... # 0x84
-    ThaiScript               : QLocale.Script = ... # 0x85
-    TibetanScript            : QLocale.Script = ... # 0x86
-    TifinaghScript           : QLocale.Script = ... # 0x87
-    TirhutaScript            : QLocale.Script = ... # 0x88
-    TraditionalChineseScript : QLocale.Script = ... # 0x89
-    TraditionalHanScript     : QLocale.Script = ... # 0x89
-    UgariticScript           : QLocale.Script = ... # 0x8a
-    VaiScript                : QLocale.Script = ... # 0x8b
-    VarangKshitiScript       : QLocale.Script = ... # 0x8c
-    LastScript               : QLocale.Script = ... # 0x8d
-    YiScript                 : QLocale.Script = ... # 0x8d
 
-    class Country(Shiboken.Enum):
 
-        AnyCountry               : QLocale.Country = ... # 0x0
-        AnyTerritory             : QLocale.Country = ... # 0x0
-        Afghanistan              : QLocale.Country = ... # 0x1
-        AlandIslands             : QLocale.Country = ... # 0x2
-        Albania                  : QLocale.Country = ... # 0x3
-        Algeria                  : QLocale.Country = ... # 0x4
-        AmericanSamoa            : QLocale.Country = ... # 0x5
-        Andorra                  : QLocale.Country = ... # 0x6
-        Angola                   : QLocale.Country = ... # 0x7
-        Anguilla                 : QLocale.Country = ... # 0x8
-        Antarctica               : QLocale.Country = ... # 0x9
-        AntiguaAndBarbuda        : QLocale.Country = ... # 0xa
-        Argentina                : QLocale.Country = ... # 0xb
-        Armenia                  : QLocale.Country = ... # 0xc
-        Aruba                    : QLocale.Country = ... # 0xd
-        AscensionIsland          : QLocale.Country = ... # 0xe
-        Australia                : QLocale.Country = ... # 0xf
-        Austria                  : QLocale.Country = ... # 0x10
-        Azerbaijan               : QLocale.Country = ... # 0x11
-        Bahamas                  : QLocale.Country = ... # 0x12
-        Bahrain                  : QLocale.Country = ... # 0x13
-        Bangladesh               : QLocale.Country = ... # 0x14
-        Barbados                 : QLocale.Country = ... # 0x15
-        Belarus                  : QLocale.Country = ... # 0x16
-        Belgium                  : QLocale.Country = ... # 0x17
-        Belize                   : QLocale.Country = ... # 0x18
-        Benin                    : QLocale.Country = ... # 0x19
-        Bermuda                  : QLocale.Country = ... # 0x1a
-        Bhutan                   : QLocale.Country = ... # 0x1b
-        Bolivia                  : QLocale.Country = ... # 0x1c
-        BosniaAndHerzegovina     : QLocale.Country = ... # 0x1d
-        BosniaAndHerzegowina     : QLocale.Country = ... # 0x1d
-        Botswana                 : QLocale.Country = ... # 0x1e
-        BouvetIsland             : QLocale.Country = ... # 0x1f
-        Brazil                   : QLocale.Country = ... # 0x20
-        BritishIndianOceanTerritory: QLocale.Country = ... # 0x21
-        BritishVirginIslands     : QLocale.Country = ... # 0x22
-        Brunei                   : QLocale.Country = ... # 0x23
-        Bulgaria                 : QLocale.Country = ... # 0x24
-        BurkinaFaso              : QLocale.Country = ... # 0x25
-        Burundi                  : QLocale.Country = ... # 0x26
-        Cambodia                 : QLocale.Country = ... # 0x27
-        Cameroon                 : QLocale.Country = ... # 0x28
-        Canada                   : QLocale.Country = ... # 0x29
-        CanaryIslands            : QLocale.Country = ... # 0x2a
-        CapeVerde                : QLocale.Country = ... # 0x2b
-        Bonaire                  : QLocale.Country = ... # 0x2c
-        CaribbeanNetherlands     : QLocale.Country = ... # 0x2c
-        CaymanIslands            : QLocale.Country = ... # 0x2d
-        CentralAfricanRepublic   : QLocale.Country = ... # 0x2e
-        CeutaAndMelilla          : QLocale.Country = ... # 0x2f
-        Chad                     : QLocale.Country = ... # 0x30
-        Chile                    : QLocale.Country = ... # 0x31
-        China                    : QLocale.Country = ... # 0x32
-        ChristmasIsland          : QLocale.Country = ... # 0x33
-        ClippertonIsland         : QLocale.Country = ... # 0x34
-        CocosIslands             : QLocale.Country = ... # 0x35
-        Colombia                 : QLocale.Country = ... # 0x36
-        Comoros                  : QLocale.Country = ... # 0x37
-        CongoBrazzaville         : QLocale.Country = ... # 0x38
-        PeoplesRepublicOfCongo   : QLocale.Country = ... # 0x38
-        CongoKinshasa            : QLocale.Country = ... # 0x39
-        DemocraticRepublicOfCongo: QLocale.Country = ... # 0x39
-        CookIslands              : QLocale.Country = ... # 0x3a
-        CostaRica                : QLocale.Country = ... # 0x3b
-        Croatia                  : QLocale.Country = ... # 0x3c
-        Cuba                     : QLocale.Country = ... # 0x3d
-        CuraSao                  : QLocale.Country = ... # 0x3e
-        Curacao                  : QLocale.Country = ... # 0x3e
-        Cyprus                   : QLocale.Country = ... # 0x3f
-        CzechRepublic            : QLocale.Country = ... # 0x40
-        Czechia                  : QLocale.Country = ... # 0x40
-        Denmark                  : QLocale.Country = ... # 0x41
-        DiegoGarcia              : QLocale.Country = ... # 0x42
-        Djibouti                 : QLocale.Country = ... # 0x43
-        Dominica                 : QLocale.Country = ... # 0x44
-        DominicanRepublic        : QLocale.Country = ... # 0x45
-        Ecuador                  : QLocale.Country = ... # 0x46
-        Egypt                    : QLocale.Country = ... # 0x47
-        ElSalvador               : QLocale.Country = ... # 0x48
-        EquatorialGuinea         : QLocale.Country = ... # 0x49
-        Eritrea                  : QLocale.Country = ... # 0x4a
-        Estonia                  : QLocale.Country = ... # 0x4b
-        Eswatini                 : QLocale.Country = ... # 0x4c
-        Swaziland                : QLocale.Country = ... # 0x4c
-        Ethiopia                 : QLocale.Country = ... # 0x4d
-        Europe                   : QLocale.Country = ... # 0x4e
-        EuropeanUnion            : QLocale.Country = ... # 0x4f
-        FalklandIslands          : QLocale.Country = ... # 0x50
-        FaroeIslands             : QLocale.Country = ... # 0x51
-        Fiji                     : QLocale.Country = ... # 0x52
-        Finland                  : QLocale.Country = ... # 0x53
-        France                   : QLocale.Country = ... # 0x54
-        FrenchGuiana             : QLocale.Country = ... # 0x55
-        FrenchPolynesia          : QLocale.Country = ... # 0x56
-        FrenchSouthernTerritories: QLocale.Country = ... # 0x57
-        Gabon                    : QLocale.Country = ... # 0x58
-        Gambia                   : QLocale.Country = ... # 0x59
-        Georgia                  : QLocale.Country = ... # 0x5a
-        Germany                  : QLocale.Country = ... # 0x5b
-        Ghana                    : QLocale.Country = ... # 0x5c
-        Gibraltar                : QLocale.Country = ... # 0x5d
-        Greece                   : QLocale.Country = ... # 0x5e
-        Greenland                : QLocale.Country = ... # 0x5f
-        Grenada                  : QLocale.Country = ... # 0x60
-        Guadeloupe               : QLocale.Country = ... # 0x61
-        Guam                     : QLocale.Country = ... # 0x62
-        Guatemala                : QLocale.Country = ... # 0x63
-        Guernsey                 : QLocale.Country = ... # 0x64
-        GuineaBissau             : QLocale.Country = ... # 0x65
-        Guinea                   : QLocale.Country = ... # 0x66
-        Guyana                   : QLocale.Country = ... # 0x67
-        Haiti                    : QLocale.Country = ... # 0x68
-        HeardAndMcDonaldIslands  : QLocale.Country = ... # 0x69
-        Honduras                 : QLocale.Country = ... # 0x6a
-        HongKong                 : QLocale.Country = ... # 0x6b
-        Hungary                  : QLocale.Country = ... # 0x6c
-        Iceland                  : QLocale.Country = ... # 0x6d
-        India                    : QLocale.Country = ... # 0x6e
-        Indonesia                : QLocale.Country = ... # 0x6f
-        Iran                     : QLocale.Country = ... # 0x70
-        Iraq                     : QLocale.Country = ... # 0x71
-        Ireland                  : QLocale.Country = ... # 0x72
-        IsleOfMan                : QLocale.Country = ... # 0x73
-        Israel                   : QLocale.Country = ... # 0x74
-        Italy                    : QLocale.Country = ... # 0x75
-        IvoryCoast               : QLocale.Country = ... # 0x76
-        Jamaica                  : QLocale.Country = ... # 0x77
-        Japan                    : QLocale.Country = ... # 0x78
-        Jersey                   : QLocale.Country = ... # 0x79
-        Jordan                   : QLocale.Country = ... # 0x7a
-        Kazakhstan               : QLocale.Country = ... # 0x7b
-        Kenya                    : QLocale.Country = ... # 0x7c
-        Kiribati                 : QLocale.Country = ... # 0x7d
-        Kosovo                   : QLocale.Country = ... # 0x7e
-        Kuwait                   : QLocale.Country = ... # 0x7f
-        Kyrgyzstan               : QLocale.Country = ... # 0x80
-        Laos                     : QLocale.Country = ... # 0x81
-        LatinAmerica             : QLocale.Country = ... # 0x82
-        LatinAmericaAndTheCaribbean: QLocale.Country = ... # 0x82
-        Latvia                   : QLocale.Country = ... # 0x83
-        Lebanon                  : QLocale.Country = ... # 0x84
-        Lesotho                  : QLocale.Country = ... # 0x85
-        Liberia                  : QLocale.Country = ... # 0x86
-        Libya                    : QLocale.Country = ... # 0x87
-        Liechtenstein            : QLocale.Country = ... # 0x88
-        Lithuania                : QLocale.Country = ... # 0x89
-        Luxembourg               : QLocale.Country = ... # 0x8a
-        Macao                    : QLocale.Country = ... # 0x8b
-        Macau                    : QLocale.Country = ... # 0x8b
-        Macedonia                : QLocale.Country = ... # 0x8c
-        Madagascar               : QLocale.Country = ... # 0x8d
-        Malawi                   : QLocale.Country = ... # 0x8e
-        Malaysia                 : QLocale.Country = ... # 0x8f
-        Maldives                 : QLocale.Country = ... # 0x90
-        Mali                     : QLocale.Country = ... # 0x91
-        Malta                    : QLocale.Country = ... # 0x92
-        MarshallIslands          : QLocale.Country = ... # 0x93
-        Martinique               : QLocale.Country = ... # 0x94
-        Mauritania               : QLocale.Country = ... # 0x95
-        Mauritius                : QLocale.Country = ... # 0x96
-        Mayotte                  : QLocale.Country = ... # 0x97
-        Mexico                   : QLocale.Country = ... # 0x98
-        Micronesia               : QLocale.Country = ... # 0x99
-        Moldova                  : QLocale.Country = ... # 0x9a
-        Monaco                   : QLocale.Country = ... # 0x9b
-        Mongolia                 : QLocale.Country = ... # 0x9c
-        Montenegro               : QLocale.Country = ... # 0x9d
-        Montserrat               : QLocale.Country = ... # 0x9e
-        Morocco                  : QLocale.Country = ... # 0x9f
-        Mozambique               : QLocale.Country = ... # 0xa0
-        Myanmar                  : QLocale.Country = ... # 0xa1
-        Namibia                  : QLocale.Country = ... # 0xa2
-        NauruCountry             : QLocale.Country = ... # 0xa3
-        NauruTerritory           : QLocale.Country = ... # 0xa3
-        Nepal                    : QLocale.Country = ... # 0xa4
-        Netherlands              : QLocale.Country = ... # 0xa5
-        NewCaledonia             : QLocale.Country = ... # 0xa6
-        NewZealand               : QLocale.Country = ... # 0xa7
-        Nicaragua                : QLocale.Country = ... # 0xa8
-        Nigeria                  : QLocale.Country = ... # 0xa9
-        Niger                    : QLocale.Country = ... # 0xaa
-        Niue                     : QLocale.Country = ... # 0xab
-        NorfolkIsland            : QLocale.Country = ... # 0xac
-        NorthernMarianaIslands   : QLocale.Country = ... # 0xad
-        DemocraticRepublicOfKorea: QLocale.Country = ... # 0xae
-        NorthKorea               : QLocale.Country = ... # 0xae
-        Norway                   : QLocale.Country = ... # 0xaf
-        Oman                     : QLocale.Country = ... # 0xb0
-        OutlyingOceania          : QLocale.Country = ... # 0xb1
-        Pakistan                 : QLocale.Country = ... # 0xb2
-        Palau                    : QLocale.Country = ... # 0xb3
-        PalestinianTerritories   : QLocale.Country = ... # 0xb4
-        Panama                   : QLocale.Country = ... # 0xb5
-        PapuaNewGuinea           : QLocale.Country = ... # 0xb6
-        Paraguay                 : QLocale.Country = ... # 0xb7
-        Peru                     : QLocale.Country = ... # 0xb8
-        Philippines              : QLocale.Country = ... # 0xb9
-        Pitcairn                 : QLocale.Country = ... # 0xba
-        Poland                   : QLocale.Country = ... # 0xbb
-        Portugal                 : QLocale.Country = ... # 0xbc
-        PuertoRico               : QLocale.Country = ... # 0xbd
-        Qatar                    : QLocale.Country = ... # 0xbe
-        Reunion                  : QLocale.Country = ... # 0xbf
-        Romania                  : QLocale.Country = ... # 0xc0
-        Russia                   : QLocale.Country = ... # 0xc1
-        RussianFederation        : QLocale.Country = ... # 0xc1
-        Rwanda                   : QLocale.Country = ... # 0xc2
-        SaintBarthelemy          : QLocale.Country = ... # 0xc3
-        SaintHelena              : QLocale.Country = ... # 0xc4
-        SaintKittsAndNevis       : QLocale.Country = ... # 0xc5
-        SaintLucia               : QLocale.Country = ... # 0xc6
-        SaintMartin              : QLocale.Country = ... # 0xc7
-        SaintPierreAndMiquelon   : QLocale.Country = ... # 0xc8
-        SaintVincentAndGrenadines: QLocale.Country = ... # 0xc9
-        SaintVincentAndTheGrenadines: QLocale.Country = ... # 0xc9
-        Samoa                    : QLocale.Country = ... # 0xca
-        SanMarino                : QLocale.Country = ... # 0xcb
-        SaoTomeAndPrincipe       : QLocale.Country = ... # 0xcc
-        SaudiArabia              : QLocale.Country = ... # 0xcd
-        Senegal                  : QLocale.Country = ... # 0xce
-        Serbia                   : QLocale.Country = ... # 0xcf
-        Seychelles               : QLocale.Country = ... # 0xd0
-        SierraLeone              : QLocale.Country = ... # 0xd1
-        Singapore                : QLocale.Country = ... # 0xd2
-        SintMaarten              : QLocale.Country = ... # 0xd3
-        Slovakia                 : QLocale.Country = ... # 0xd4
-        Slovenia                 : QLocale.Country = ... # 0xd5
-        SolomonIslands           : QLocale.Country = ... # 0xd6
-        Somalia                  : QLocale.Country = ... # 0xd7
-        SouthAfrica              : QLocale.Country = ... # 0xd8
-        SouthGeorgiaAndSouthSandwichIslands: QLocale.Country = ... # 0xd9
-        SouthGeorgiaAndTheSouthSandwichIslands: QLocale.Country = ... # 0xd9
-        RepublicOfKorea          : QLocale.Country = ... # 0xda
-        SouthKorea               : QLocale.Country = ... # 0xda
-        SouthSudan               : QLocale.Country = ... # 0xdb
-        Spain                    : QLocale.Country = ... # 0xdc
-        SriLanka                 : QLocale.Country = ... # 0xdd
-        Sudan                    : QLocale.Country = ... # 0xde
-        Suriname                 : QLocale.Country = ... # 0xdf
-        SvalbardAndJanMayen      : QLocale.Country = ... # 0xe0
-        SvalbardAndJanMayenIslands: QLocale.Country = ... # 0xe0
-        Sweden                   : QLocale.Country = ... # 0xe1
-        Switzerland              : QLocale.Country = ... # 0xe2
-        Syria                    : QLocale.Country = ... # 0xe3
-        SyrianArabRepublic       : QLocale.Country = ... # 0xe3
-        Taiwan                   : QLocale.Country = ... # 0xe4
-        Tajikistan               : QLocale.Country = ... # 0xe5
-        Tanzania                 : QLocale.Country = ... # 0xe6
-        Thailand                 : QLocale.Country = ... # 0xe7
-        EastTimor                : QLocale.Country = ... # 0xe8
-        TimorLeste               : QLocale.Country = ... # 0xe8
-        Togo                     : QLocale.Country = ... # 0xe9
-        TokelauCountry           : QLocale.Country = ... # 0xea
-        TokelauTerritory         : QLocale.Country = ... # 0xea
-        Tonga                    : QLocale.Country = ... # 0xeb
-        TrinidadAndTobago        : QLocale.Country = ... # 0xec
-        TristanDaCunha           : QLocale.Country = ... # 0xed
-        Tunisia                  : QLocale.Country = ... # 0xee
-        Turkey                   : QLocale.Country = ... # 0xef
-        Turkmenistan             : QLocale.Country = ... # 0xf0
-        TurksAndCaicosIslands    : QLocale.Country = ... # 0xf1
-        TuvaluCountry            : QLocale.Country = ... # 0xf2
-        TuvaluTerritory          : QLocale.Country = ... # 0xf2
-        Uganda                   : QLocale.Country = ... # 0xf3
-        Ukraine                  : QLocale.Country = ... # 0xf4
-        UnitedArabEmirates       : QLocale.Country = ... # 0xf5
-        UnitedKingdom            : QLocale.Country = ... # 0xf6
-        UnitedStatesMinorOutlyingIslands: QLocale.Country = ... # 0xf7
-        UnitedStatesOutlyingIslands: QLocale.Country = ... # 0xf7
-        UnitedStates             : QLocale.Country = ... # 0xf8
-        UnitedStatesVirginIslands: QLocale.Country = ... # 0xf9
-        Uruguay                  : QLocale.Country = ... # 0xfa
-        Uzbekistan               : QLocale.Country = ... # 0xfb
-        Vanuatu                  : QLocale.Country = ... # 0xfc
-        VaticanCity              : QLocale.Country = ... # 0xfd
-        VaticanCityState         : QLocale.Country = ... # 0xfd
-        Venezuela                : QLocale.Country = ... # 0xfe
-        Vietnam                  : QLocale.Country = ... # 0xff
-        WallisAndFutuna          : QLocale.Country = ... # 0x100
-        WallisAndFutunaIslands   : QLocale.Country = ... # 0x100
-        WesternSahara            : QLocale.Country = ... # 0x101
-        World                    : QLocale.Country = ... # 0x102
-        Yemen                    : QLocale.Country = ... # 0x103
-        Zambia                   : QLocale.Country = ... # 0x104
-        LastCountry              : QLocale.Country = ... # 0x105
-        LastTerritory            : QLocale.Country = ... # 0x105
-        Zimbabwe                 : QLocale.Country = ... # 0x105
-
-    class CurrencySymbolFormat(Shiboken.Enum):
+    class CurrencySymbolFormat(shibokensupport.enum_310.Enum):
 
         CurrencyIsoCode          : QLocale.CurrencySymbolFormat = ... # 0x0
         CurrencySymbol           : QLocale.CurrencySymbolFormat = ... # 0x1
         CurrencyDisplayName      : QLocale.CurrencySymbolFormat = ... # 0x2
 
-    class DataSizeFormat(Shiboken.Enum):
+
+    class DataSizeFormat(shibokensupport.enum_310.Flag):
 
         DataSizeIecFormat        : QLocale.DataSizeFormat = ... # 0x0
         DataSizeBase1000         : QLocale.DataSizeFormat = ... # 0x1
@@ -5312,19 +3925,20 @@ class QLocale(Shiboken.Object):
         DataSizeTraditionalFormat: QLocale.DataSizeFormat = ... # 0x2
         DataSizeSIFormat         : QLocale.DataSizeFormat = ... # 0x3
 
-    class DataSizeFormats(object): ...
 
-    class FloatingPointPrecisionOption(Shiboken.Enum):
+    class FloatingPointPrecisionOption(shibokensupport.enum_310.IntEnum):
 
         FloatingPointShortest    : QLocale.FloatingPointPrecisionOption = ... # -0x80
 
-    class FormatType(Shiboken.Enum):
+
+    class FormatType(shibokensupport.enum_310.Enum):
 
         LongFormat               : QLocale.FormatType = ... # 0x0
         ShortFormat              : QLocale.FormatType = ... # 0x1
         NarrowFormat             : QLocale.FormatType = ... # 0x2
 
-    class Language(Shiboken.Enum):
+
+    class Language(shibokensupport.enum_310.Enum):
 
         AnyLanguage              : QLocale.Language = ... # 0x0
         C                        : QLocale.Language = ... # 0x1
@@ -5677,7 +4291,8 @@ class QLocale(Shiboken.Object):
         LastLanguage             : QLocale.Language = ... # 0x149
         Nheengatu                : QLocale.Language = ... # 0x149
 
-    class LanguageCodeType(Shiboken.Enum):
+
+    class LanguageCodeType(shibokensupport.enum_310.IntFlag):
 
         AnyLanguageCode          : QLocale.LanguageCodeType = ... # -0x1
         ISO639Alpha2             : QLocale.LanguageCodeType = ... # 0x1
@@ -5690,16 +4305,16 @@ class QLocale(Shiboken.Object):
         ISO639                   : QLocale.LanguageCodeType = ... # 0xf
         LegacyLanguageCode       : QLocale.LanguageCodeType = ... # 0x8000
 
-    class LanguageCodeTypes(object): ...
 
-    class MeasurementSystem(Shiboken.Enum):
+    class MeasurementSystem(shibokensupport.enum_310.Enum):
 
         MetricSystem             : QLocale.MeasurementSystem = ... # 0x0
         ImperialSystem           : QLocale.MeasurementSystem = ... # 0x1
         ImperialUSSystem         : QLocale.MeasurementSystem = ... # 0x1
         ImperialUKSystem         : QLocale.MeasurementSystem = ... # 0x2
 
-    class NumberOption(Shiboken.Enum):
+
+    class NumberOption(shibokensupport.enum_310.Flag):
 
         DefaultNumberOptions     : QLocale.NumberOption = ... # 0x0
         OmitGroupSeparator       : QLocale.NumberOption = ... # 0x1
@@ -5709,14 +4324,14 @@ class QLocale(Shiboken.Object):
         IncludeTrailingZeroesAfterDot: QLocale.NumberOption = ... # 0x10
         RejectTrailingZeroesAfterDot: QLocale.NumberOption = ... # 0x20
 
-    class NumberOptions(object): ...
 
-    class QuotationStyle(Shiboken.Enum):
+    class QuotationStyle(shibokensupport.enum_310.Enum):
 
         StandardQuotation        : QLocale.QuotationStyle = ... # 0x0
         AlternateQuotation       : QLocale.QuotationStyle = ... # 0x1
 
-    class Script(Shiboken.Enum):
+
+    class Script(shibokensupport.enum_310.Enum):
 
         AnyScript                : QLocale.Script = ... # 0x0
         AdlamScript              : QLocale.Script = ... # 0x1
@@ -5888,7 +4503,7 @@ class QLocale(Shiboken.Object):
     @staticmethod
     def codeToCountry(countryCode: str) -> PySide6.QtCore.QLocale.Country: ...
     @staticmethod
-    def codeToLanguage(languageCode: str, codeTypes: PySide6.QtCore.QLocale.LanguageCodeTypes = ...) -> PySide6.QtCore.QLocale.Language: ...
+    def codeToLanguage(languageCode: str, codeTypes: PySide6.QtCore.QLocale.LanguageCodeType = ...) -> PySide6.QtCore.QLocale.Language: ...
     @staticmethod
     def codeToScript(scriptCode: str) -> PySide6.QtCore.QLocale.Script: ...
     @staticmethod
@@ -5909,11 +4524,11 @@ class QLocale(Shiboken.Object):
     def decimalPoint(self) -> str: ...
     def exponential(self) -> str: ...
     def firstDayOfWeek(self) -> PySide6.QtCore.Qt.DayOfWeek: ...
-    def formattedDataSize(self, bytes: int, precision: int = ..., format: PySide6.QtCore.QLocale.DataSizeFormats = ...) -> str: ...
+    def formattedDataSize(self, bytes: int, precision: int = ..., format: PySide6.QtCore.QLocale.DataSizeFormat = ...) -> str: ...
     def groupSeparator(self) -> str: ...
     def language(self) -> PySide6.QtCore.QLocale.Language: ...
     @staticmethod
-    def languageToCode(language: PySide6.QtCore.QLocale.Language, codeTypes: PySide6.QtCore.QLocale.LanguageCodeTypes = ...) -> str: ...
+    def languageToCode(language: PySide6.QtCore.QLocale.Language, codeTypes: PySide6.QtCore.QLocale.LanguageCodeType = ...) -> str: ...
     @staticmethod
     def languageToString(language: PySide6.QtCore.QLocale.Language) -> str: ...
     @staticmethod
@@ -5925,7 +4540,7 @@ class QLocale(Shiboken.Object):
     def nativeLanguageName(self) -> str: ...
     def nativeTerritoryName(self) -> str: ...
     def negativeSign(self) -> str: ...
-    def numberOptions(self) -> PySide6.QtCore.QLocale.NumberOptions: ...
+    def numberOptions(self) -> PySide6.QtCore.QLocale.NumberOption: ...
     def percent(self) -> str: ...
     def pmText(self) -> str: ...
     def positiveSign(self) -> str: ...
@@ -5937,7 +4552,7 @@ class QLocale(Shiboken.Object):
     def scriptToString(script: PySide6.QtCore.QLocale.Script) -> str: ...
     @staticmethod
     def setDefault(locale: Union[PySide6.QtCore.QLocale, PySide6.QtCore.QLocale.Language]) -> None: ...
-    def setNumberOptions(self, options: PySide6.QtCore.QLocale.NumberOptions) -> None: ...
+    def setNumberOptions(self, options: PySide6.QtCore.QLocale.NumberOption) -> None: ...
     def standaloneDayName(self, arg__1: int, format: PySide6.QtCore.QLocale.FormatType = ...) -> str: ...
     def standaloneMonthName(self, arg__1: int, format: PySide6.QtCore.QLocale.FormatType = ...) -> str: ...
     def swap(self, other: Union[PySide6.QtCore.QLocale, PySide6.QtCore.QLocale.Language]) -> None: ...
@@ -5983,25 +4598,25 @@ class QLocale(Shiboken.Object):
     @overload
     def toDateTime(self, string: str, format: str, cal: PySide6.QtCore.QCalendar) -> PySide6.QtCore.QDateTime: ...
     @overload
-    def toDouble(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toDouble(self, s: str) -> Tuple: ...
     @overload
     def toDouble(self, s: str) -> Tuple[float, bool]: ...
     @overload
-    def toFloat(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toFloat(self, s: str) -> Tuple: ...
     @overload
     def toFloat(self, s: str) -> Tuple[float, bool]: ...
     @overload
-    def toInt(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toInt(self, s: str) -> Tuple: ...
     @overload
     def toInt(self, s: str) -> Tuple[int, bool]: ...
     def toLong(self, s: str) -> Tuple[int, bool]: ...
     @overload
-    def toLongLong(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toLongLong(self, s: str) -> Tuple: ...
     @overload
     def toLongLong(self, s: str) -> Tuple[int, bool]: ...
     def toLower(self, str: str) -> str: ...
     @overload
-    def toShort(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toShort(self, s: str) -> Tuple: ...
     @overload
     def toShort(self, s: str) -> Tuple[int, bool]: ...
     @overload
@@ -6043,16 +4658,16 @@ class QLocale(Shiboken.Object):
     @overload
     def toTime(self, string: str, format: str) -> PySide6.QtCore.QTime: ...
     @overload
-    def toUInt(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toUInt(self, s: str) -> Tuple: ...
     @overload
     def toUInt(self, s: str) -> Tuple[int, bool]: ...
     def toULong(self, s: str) -> Tuple[int, bool]: ...
     @overload
-    def toULongLong(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toULongLong(self, s: str) -> Tuple: ...
     @overload
     def toULongLong(self, s: str) -> Tuple[int, bool]: ...
     @overload
-    def toUShort(self, s: str) -> Tuple[Tuple, bool]: ...
+    def toUShort(self, s: str) -> Tuple: ...
     @overload
     def toUShort(self, s: str) -> Tuple[int, bool]: ...
     def toUpper(self, str: str) -> str: ...
@@ -6063,12 +4678,7 @@ class QLocale(Shiboken.Object):
 
 class QLockFile(Shiboken.Object):
 
-    NoError                  : QLockFile.LockError = ... # 0x0
-    LockFailedError          : QLockFile.LockError = ... # 0x1
-    PermissionError          : QLockFile.LockError = ... # 0x2
-    UnknownError             : QLockFile.LockError = ... # 0x3
-
-    class LockError(Shiboken.Enum):
+    class LockError(shibokensupport.enum_310.Enum):
 
         NoError                  : QLockFile.LockError = ... # 0x0
         LockFailedError          : QLockFile.LockError = ... # 0x1
@@ -6156,6 +4766,7 @@ class QMargins(Shiboken.Object):
     def setLeft(self, left: int) -> None: ...
     def setRight(self, right: int) -> None: ...
     def setTop(self, top: int) -> None: ...
+    def toMarginsF(self) -> PySide6.QtCore.QMarginsF: ...
     def top(self) -> int: ...
 
 
@@ -6263,8 +4874,8 @@ class QMetaEnum(Shiboken.Object):
     def isValid(self) -> bool: ...
     def key(self, index: int) -> bytes: ...
     def keyCount(self) -> int: ...
-    def keyToValue(self, key: bytes) -> Tuple[Tuple, bool]: ...
-    def keysToValue(self, keys: bytes) -> Tuple[Tuple, bool]: ...
+    def keyToValue(self, key: bytes) -> Tuple: ...
+    def keysToValue(self, keys: bytes) -> Tuple: ...
     def name(self) -> bytes: ...
     def scope(self) -> bytes: ...
     def value(self, index: int) -> int: ...
@@ -6274,21 +4885,14 @@ class QMetaEnum(Shiboken.Object):
 
 class QMetaMethod(Shiboken.Object):
 
+    class Access(shibokensupport.enum_310.Enum):
+
     Private                  : QMetaMethod.Access = ... # 0x0
     Protected                : QMetaMethod.Access = ... # 0x1
     Public                   : QMetaMethod.Access = ... # 0x2
-    Method                   : QMetaMethod.MethodType = ... # 0x0
-    Signal                   : QMetaMethod.MethodType = ... # 0x1
-    Slot                     : QMetaMethod.MethodType = ... # 0x2
-    Constructor              : QMetaMethod.MethodType = ... # 0x3
 
-    class Access(Shiboken.Enum):
 
-        Private                  : QMetaMethod.Access = ... # 0x0
-        Protected                : QMetaMethod.Access = ... # 0x1
-        Public                   : QMetaMethod.Access = ... # 0x2
-
-    class MethodType(Shiboken.Enum):
+    class MethodType(shibokensupport.enum_310.Enum):
 
         Method                   : QMetaMethod.MethodType = ... # 0x0
         Signal                   : QMetaMethod.MethodType = ... # 0x1
@@ -6303,17 +4907,17 @@ class QMetaMethod(Shiboken.Object):
     def access(self) -> PySide6.QtCore.QMetaMethod.Access: ...
     def enclosingMetaObject(self) -> PySide6.QtCore.QMetaObject: ...
     @overload
-    def invoke(self, object: PySide6.QtCore.QObject, connectionType: PySide6.QtCore.Qt.ConnectionType, returnValue: PySide6.QtCore.QGenericReturnArgument, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invoke(self, object: PySide6.QtCore.QObject, connectionType: PySide6.QtCore.Qt.ConnectionType, returnValue: Union[PySide6.QtCore.QGenericReturnArgument, PySide6.QtCore.QGenericReturnArgumentHolder], val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
-    def invoke(self, object: PySide6.QtCore.QObject, connectionType: PySide6.QtCore.Qt.ConnectionType, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invoke(self, object: PySide6.QtCore.QObject, connectionType: PySide6.QtCore.Qt.ConnectionType, val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
-    def invoke(self, object: PySide6.QtCore.QObject, returnValue: PySide6.QtCore.QGenericReturnArgument, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invoke(self, object: PySide6.QtCore.QObject, returnValue: Union[PySide6.QtCore.QGenericReturnArgument, PySide6.QtCore.QGenericReturnArgumentHolder], val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
-    def invoke(self, object: PySide6.QtCore.QObject, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invoke(self, object: PySide6.QtCore.QObject, val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
-    def invokeOnGadget(self, gadget: int, returnValue: PySide6.QtCore.QGenericReturnArgument, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invokeOnGadget(self, gadget: int, returnValue: Union[PySide6.QtCore.QGenericReturnArgument, PySide6.QtCore.QGenericReturnArgumentHolder], val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
-    def invokeOnGadget(self, gadget: int, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invokeOnGadget(self, gadget: int, val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     def isConst(self) -> bool: ...
     def isValid(self) -> bool: ...
     def methodIndex(self) -> int: ...
@@ -6336,6 +4940,8 @@ class QMetaMethod(Shiboken.Object):
 
 class QMetaObject(Shiboken.Object):
 
+    class Call(shibokensupport.enum_310.Enum):
+
     InvokeMetaMethod         : QMetaObject.Call = ... # 0x0
     ReadProperty             : QMetaObject.Call = ... # 0x1
     WriteProperty            : QMetaObject.Call = ... # 0x2
@@ -6345,18 +4951,8 @@ class QMetaObject(Shiboken.Object):
     RegisterPropertyMetaType : QMetaObject.Call = ... # 0x6
     RegisterMethodArgumentMetaType: QMetaObject.Call = ... # 0x7
     BindableProperty         : QMetaObject.Call = ... # 0x8
+        CustomCall               : QMetaObject.Call = ... # 0x9
 
-    class Call(Shiboken.Enum):
-
-        InvokeMetaMethod         : QMetaObject.Call = ... # 0x0
-        ReadProperty             : QMetaObject.Call = ... # 0x1
-        WriteProperty            : QMetaObject.Call = ... # 0x2
-        ResetProperty            : QMetaObject.Call = ... # 0x3
-        CreateInstance           : QMetaObject.Call = ... # 0x4
-        IndexOfMethod            : QMetaObject.Call = ... # 0x5
-        RegisterPropertyMetaType : QMetaObject.Call = ... # 0x6
-        RegisterMethodArgumentMetaType: QMetaObject.Call = ... # 0x7
-        BindableProperty         : QMetaObject.Call = ... # 0x8
 
     class Connection(Shiboken.Object):
 
@@ -6405,21 +5001,33 @@ class QMetaObject(Shiboken.Object):
     def inherits(self, metaObject: PySide6.QtCore.QMetaObject) -> bool: ...
     @overload
     @staticmethod
-    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, arg__3: PySide6.QtCore.Qt.ConnectionType, ret: PySide6.QtCore.QGenericReturnArgument, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, arg__3: PySide6.QtCore.Qt.ConnectionType, ret: Union[PySide6.QtCore.QGenericReturnArgument, PySide6.QtCore.QGenericReturnArgumentHolder], val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
     @staticmethod
-    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, ret: PySide6.QtCore.QGenericReturnArgument, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, ret: Union[PySide6.QtCore.QGenericReturnArgument, PySide6.QtCore.QGenericReturnArgumentHolder], val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
     @staticmethod
-    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType, val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
     @overload
     @staticmethod
-    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> bool: ...
+    def invokeMethod(obj: PySide6.QtCore.QObject, member: bytes, val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> bool: ...
+    @overload
+    @staticmethod
+    def invokeMethod(object: PySide6.QtCore.QObject, member: bytes, ret: PySide6.QtCore.QGenericReturnArgumentHolder, val0: PySide6.QtCore.QGenericArgumentHolder = ..., val1: PySide6.QtCore.QGenericArgumentHolder = ..., val2: PySide6.QtCore.QGenericArgumentHolder = ...) -> object: ...
+    @overload
+    @staticmethod
+    def invokeMethod(object: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType, ret: PySide6.QtCore.QGenericReturnArgumentHolder, val0: PySide6.QtCore.QGenericArgumentHolder = ..., val1: PySide6.QtCore.QGenericArgumentHolder = ..., val2: PySide6.QtCore.QGenericArgumentHolder = ...) -> object: ...
+    @overload
+    @staticmethod
+    def invokeMethod(object: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType, val0: PySide6.QtCore.QGenericArgumentHolder = ..., val1: PySide6.QtCore.QGenericArgumentHolder = ..., val2: PySide6.QtCore.QGenericArgumentHolder = ...) -> bool: ...
+    @overload
+    @staticmethod
+    def invokeMethod(object: PySide6.QtCore.QObject, member: bytes, val0: PySide6.QtCore.QGenericArgumentHolder = ..., val1: PySide6.QtCore.QGenericArgumentHolder = ..., val2: PySide6.QtCore.QGenericArgumentHolder = ...) -> bool: ...
     def metaType(self) -> PySide6.QtCore.QMetaType: ...
     def method(self, index: int) -> PySide6.QtCore.QMetaMethod: ...
     def methodCount(self) -> int: ...
     def methodOffset(self) -> int: ...
-    def newInstance(self, val0: PySide6.QtCore.QGenericArgument = ..., val1: PySide6.QtCore.QGenericArgument = ..., val2: PySide6.QtCore.QGenericArgument = ..., val3: PySide6.QtCore.QGenericArgument = ..., val4: PySide6.QtCore.QGenericArgument = ..., val5: PySide6.QtCore.QGenericArgument = ..., val6: PySide6.QtCore.QGenericArgument = ..., val7: PySide6.QtCore.QGenericArgument = ..., val8: PySide6.QtCore.QGenericArgument = ..., val9: PySide6.QtCore.QGenericArgument = ...) -> PySide6.QtCore.QObject: ...
+    def newInstance(self, val0: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val1: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val2: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val3: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val4: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val5: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val6: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val7: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val8: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ..., val9: Union[PySide6.QtCore.QGenericArgument, PySide6.QtCore.QGenericArgumentHolder] = ...) -> PySide6.QtCore.QObject: ...
     @staticmethod
     def normalizedSignature(method: bytes) -> PySide6.QtCore.QByteArray: ...
     @staticmethod
@@ -6477,6 +5085,8 @@ class QMetaProperty(Shiboken.Object):
 
 
 class QMetaType(Shiboken.Object):
+
+    class Type(shibokensupport.enum_310.IntEnum):
 
     UnknownType              : QMetaType.Type = ... # 0x0
     Bool                     : QMetaType.Type = ... # 0x1
@@ -6569,117 +5179,9 @@ class QMetaType(Shiboken.Object):
     LastWidgetsType          : QMetaType.Type = ... # 0x2000
     QSizePolicy              : QMetaType.Type = ... # 0x2000
     User                     : QMetaType.Type = ... # 0x10000
-    NeedsConstruction        : QMetaType.TypeFlag = ... # 0x1
-    NeedsDestruction         : QMetaType.TypeFlag = ... # 0x2
-    MovableType              : QMetaType.TypeFlag = ... # 0x4
-    RelocatableType          : QMetaType.TypeFlag = ... # 0x4
-    PointerToQObject         : QMetaType.TypeFlag = ... # 0x8
-    IsEnumeration            : QMetaType.TypeFlag = ... # 0x10
-    SharedPointerToQObject   : QMetaType.TypeFlag = ... # 0x20
-    WeakPointerToQObject     : QMetaType.TypeFlag = ... # 0x40
-    TrackingPointerToQObject : QMetaType.TypeFlag = ... # 0x80
-    IsUnsignedEnumeration    : QMetaType.TypeFlag = ... # 0x100
-    IsGadget                 : QMetaType.TypeFlag = ... # 0x200
-    PointerToGadget          : QMetaType.TypeFlag = ... # 0x400
-    IsPointer                : QMetaType.TypeFlag = ... # 0x800
-    IsQmlList                : QMetaType.TypeFlag = ... # 0x1000
-    IsConst                  : QMetaType.TypeFlag = ... # 0x2000
 
-    class Type(Shiboken.Enum):
 
-        UnknownType              : QMetaType.Type = ... # 0x0
-        Bool                     : QMetaType.Type = ... # 0x1
-        FirstCoreType            : QMetaType.Type = ... # 0x1
-        Int                      : QMetaType.Type = ... # 0x2
-        UInt                     : QMetaType.Type = ... # 0x3
-        LongLong                 : QMetaType.Type = ... # 0x4
-        ULongLong                : QMetaType.Type = ... # 0x5
-        Double                   : QMetaType.Type = ... # 0x6
-        QReal                    : QMetaType.Type = ... # 0x6
-        QChar                    : QMetaType.Type = ... # 0x7
-        QVariantMap              : QMetaType.Type = ... # 0x8
-        QVariantList             : QMetaType.Type = ... # 0x9
-        QString                  : QMetaType.Type = ... # 0xa
-        QStringList              : QMetaType.Type = ... # 0xb
-        QByteArray               : QMetaType.Type = ... # 0xc
-        QBitArray                : QMetaType.Type = ... # 0xd
-        QDate                    : QMetaType.Type = ... # 0xe
-        QTime                    : QMetaType.Type = ... # 0xf
-        QDateTime                : QMetaType.Type = ... # 0x10
-        QUrl                     : QMetaType.Type = ... # 0x11
-        QLocale                  : QMetaType.Type = ... # 0x12
-        QRect                    : QMetaType.Type = ... # 0x13
-        QRectF                   : QMetaType.Type = ... # 0x14
-        QSize                    : QMetaType.Type = ... # 0x15
-        QSizeF                   : QMetaType.Type = ... # 0x16
-        QLine                    : QMetaType.Type = ... # 0x17
-        QLineF                   : QMetaType.Type = ... # 0x18
-        QPoint                   : QMetaType.Type = ... # 0x19
-        QPointF                  : QMetaType.Type = ... # 0x1a
-        QVariantHash             : QMetaType.Type = ... # 0x1c
-        QEasingCurve             : QMetaType.Type = ... # 0x1d
-        QUuid                    : QMetaType.Type = ... # 0x1e
-        VoidStar                 : QMetaType.Type = ... # 0x1f
-        Long                     : QMetaType.Type = ... # 0x20
-        Short                    : QMetaType.Type = ... # 0x21
-        Char                     : QMetaType.Type = ... # 0x22
-        ULong                    : QMetaType.Type = ... # 0x23
-        UShort                   : QMetaType.Type = ... # 0x24
-        UChar                    : QMetaType.Type = ... # 0x25
-        Float                    : QMetaType.Type = ... # 0x26
-        QObjectStar              : QMetaType.Type = ... # 0x27
-        SChar                    : QMetaType.Type = ... # 0x28
-        QVariant                 : QMetaType.Type = ... # 0x29
-        QModelIndex              : QMetaType.Type = ... # 0x2a
-        Void                     : QMetaType.Type = ... # 0x2b
-        QRegularExpression       : QMetaType.Type = ... # 0x2c
-        QJsonValue               : QMetaType.Type = ... # 0x2d
-        QJsonObject              : QMetaType.Type = ... # 0x2e
-        QJsonArray               : QMetaType.Type = ... # 0x2f
-        QJsonDocument            : QMetaType.Type = ... # 0x30
-        QByteArrayList           : QMetaType.Type = ... # 0x31
-        QPersistentModelIndex    : QMetaType.Type = ... # 0x32
-        Nullptr                  : QMetaType.Type = ... # 0x33
-        QCborSimpleType          : QMetaType.Type = ... # 0x34
-        QCborValue               : QMetaType.Type = ... # 0x35
-        QCborArray               : QMetaType.Type = ... # 0x36
-        QCborMap                 : QMetaType.Type = ... # 0x37
-        Char16                   : QMetaType.Type = ... # 0x38
-        Char32                   : QMetaType.Type = ... # 0x39
-        LastCoreType             : QMetaType.Type = ... # 0x3a
-        QVariantPair             : QMetaType.Type = ... # 0x3a
-        FirstGuiType             : QMetaType.Type = ... # 0x1000
-        QFont                    : QMetaType.Type = ... # 0x1000
-        QPixmap                  : QMetaType.Type = ... # 0x1001
-        QBrush                   : QMetaType.Type = ... # 0x1002
-        QColor                   : QMetaType.Type = ... # 0x1003
-        QPalette                 : QMetaType.Type = ... # 0x1004
-        QIcon                    : QMetaType.Type = ... # 0x1005
-        QImage                   : QMetaType.Type = ... # 0x1006
-        QPolygon                 : QMetaType.Type = ... # 0x1007
-        QRegion                  : QMetaType.Type = ... # 0x1008
-        QBitmap                  : QMetaType.Type = ... # 0x1009
-        QCursor                  : QMetaType.Type = ... # 0x100a
-        QKeySequence             : QMetaType.Type = ... # 0x100b
-        QPen                     : QMetaType.Type = ... # 0x100c
-        QTextLength              : QMetaType.Type = ... # 0x100d
-        QTextFormat              : QMetaType.Type = ... # 0x100e
-        QTransform               : QMetaType.Type = ... # 0x1010
-        QMatrix4x4               : QMetaType.Type = ... # 0x1011
-        QVector2D                : QMetaType.Type = ... # 0x1012
-        QVector3D                : QMetaType.Type = ... # 0x1013
-        QVector4D                : QMetaType.Type = ... # 0x1014
-        QQuaternion              : QMetaType.Type = ... # 0x1015
-        QPolygonF                : QMetaType.Type = ... # 0x1016
-        LastGuiType              : QMetaType.Type = ... # 0x1017
-        QColorSpace              : QMetaType.Type = ... # 0x1017
-        FirstWidgetsType         : QMetaType.Type = ... # 0x2000
-        HighestInternalId        : QMetaType.Type = ... # 0x2000
-        LastWidgetsType          : QMetaType.Type = ... # 0x2000
-        QSizePolicy              : QMetaType.Type = ... # 0x2000
-        User                     : QMetaType.Type = ... # 0x10000
-
-    class TypeFlag(Shiboken.Enum):
+    class TypeFlag(shibokensupport.enum_310.Flag):
 
         NeedsConstruction        : QMetaType.TypeFlag = ... # 0x1
         NeedsDestruction         : QMetaType.TypeFlag = ... # 0x2
@@ -6697,13 +5199,13 @@ class QMetaType(Shiboken.Object):
         IsQmlList                : QMetaType.TypeFlag = ... # 0x1000
         IsConst                  : QMetaType.TypeFlag = ... # 0x2000
 
-    class TypeFlags(object): ...
-
 
     @overload
     def __init__(self) -> None: ...
     @overload
     def __init__(self, arg__1: PySide6.QtCore.QMetaType.Type) -> None: ...
+    @overload
+    def __init__(self, arg__1: type) -> None: ...
     @overload
     def __init__(self, type: int) -> None: ...
 
@@ -6747,7 +5249,7 @@ class QMetaType(Shiboken.Object):
     def equals(lhs: int, rhs: int, typeId: int) -> Tuple[bool, int]: ...
     @overload
     def equals(self, lhs: int, rhs: int) -> bool: ...
-    def flags(self) -> PySide6.QtCore.QMetaType.TypeFlags: ...
+    def flags(self) -> PySide6.QtCore.QMetaType.TypeFlag: ...
     @staticmethod
     def fromName(name: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtCore.QMetaType: ...
     @staticmethod
@@ -6790,7 +5292,7 @@ class QMetaType(Shiboken.Object):
     @staticmethod
     def type(typeName: bytes) -> int: ...
     @staticmethod
-    def typeFlags(type: int) -> PySide6.QtCore.QMetaType.TypeFlags: ...
+    def typeFlags(type: int) -> PySide6.QtCore.QMetaType.TypeFlag: ...
     @staticmethod
     def typeName(type: int) -> bytes: ...
     @staticmethod
@@ -6833,11 +5335,7 @@ class QMimeData(PySide6.QtCore.QObject):
 
 class QMimeDatabase(Shiboken.Object):
 
-    MatchDefault             : QMimeDatabase.MatchMode = ... # 0x0
-    MatchExtension           : QMimeDatabase.MatchMode = ... # 0x1
-    MatchContent             : QMimeDatabase.MatchMode = ... # 0x2
-
-    class MatchMode(Shiboken.Enum):
+    class MatchMode(shibokensupport.enum_310.Enum):
 
         MatchDefault             : QMimeDatabase.MatchMode = ... # 0x0
         MatchExtension           : QMimeDatabase.MatchMode = ... # 0x1
@@ -6903,7 +5401,7 @@ class QModelIndex(Shiboken.Object):
     def column(self) -> int: ...
     def constInternalPointer(self) -> int: ...
     def data(self, role: int = ...) -> Any: ...
-    def flags(self) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self) -> PySide6.QtCore.Qt.ItemFlag: ...
     def internalId(self) -> int: ...
     def internalPointer(self) -> int: ...
     def isValid(self) -> bool: ...
@@ -7005,13 +5503,14 @@ class QObject(Shiboken.Object):
     def emit(self, arg__1: bytes, *args: None) -> bool: ...
     def event(self, event: PySide6.QtCore.QEvent) -> bool: ...
     def eventFilter(self, watched: PySide6.QtCore.QObject, event: PySide6.QtCore.QEvent) -> bool: ...
-    def findChild(self, type: type, name: str = ..., options: PySide6.QtCore.Qt.FindChildOptions = ...) -> object: ...
+    def findChild(self, type: type, name: str = ..., options: PySide6.QtCore.Qt.FindChildOption = ...) -> object: ...
     @overload
-    def findChildren(self, type: type, name: str = ..., options: PySide6.QtCore.Qt.FindChildOptions = ...) -> Iterable: ...
+    def findChildren(self, type: type, name: str = ..., options: PySide6.QtCore.Qt.FindChildOption = ...) -> Iterable: ...
     @overload
-    def findChildren(self, type: type, pattern: Union[PySide6.QtCore.QRegularExpression, str], options: PySide6.QtCore.Qt.FindChildOptions = ...) -> Iterable: ...
+    def findChildren(self, type: type, pattern: Union[PySide6.QtCore.QRegularExpression, str], options: PySide6.QtCore.Qt.FindChildOption = ...) -> Iterable: ...
     def inherits(self, classname: bytes) -> bool: ...
     def installEventFilter(self, filterObj: PySide6.QtCore.QObject) -> None: ...
+    def isQuickItemType(self) -> bool: ...
     def isSignalConnected(self, signal: PySide6.QtCore.QMetaMethod) -> bool: ...
     def isWidgetType(self) -> bool: ...
     def isWindowType(self) -> bool: ...
@@ -7036,15 +5535,7 @@ class QObject(Shiboken.Object):
 
 class QOperatingSystemVersion(PySide6.QtCore.QOperatingSystemVersionBase):
 
-    Unknown                  : QOperatingSystemVersion.OSType = ... # 0x0
-    Windows                  : QOperatingSystemVersion.OSType = ... # 0x1
-    MacOS                    : QOperatingSystemVersion.OSType = ... # 0x2
-    IOS                      : QOperatingSystemVersion.OSType = ... # 0x3
-    TvOS                     : QOperatingSystemVersion.OSType = ... # 0x4
-    WatchOS                  : QOperatingSystemVersion.OSType = ... # 0x5
-    Android                  : QOperatingSystemVersion.OSType = ... # 0x6
-
-    class OSType(Shiboken.Enum):
+    class OSType(shibokensupport.enum_310.Enum):
 
         Unknown                  : QOperatingSystemVersion.OSType = ... # 0x0
         Windows                  : QOperatingSystemVersion.OSType = ... # 0x1
@@ -7077,15 +5568,7 @@ class QOperatingSystemVersion(PySide6.QtCore.QOperatingSystemVersionBase):
 
 class QOperatingSystemVersionBase(Shiboken.Object):
 
-    Unknown                  : QOperatingSystemVersionBase.OSType = ... # 0x0
-    Windows                  : QOperatingSystemVersionBase.OSType = ... # 0x1
-    MacOS                    : QOperatingSystemVersionBase.OSType = ... # 0x2
-    IOS                      : QOperatingSystemVersionBase.OSType = ... # 0x3
-    TvOS                     : QOperatingSystemVersionBase.OSType = ... # 0x4
-    WatchOS                  : QOperatingSystemVersionBase.OSType = ... # 0x5
-    Android                  : QOperatingSystemVersionBase.OSType = ... # 0x6
-
-    class OSType(Shiboken.Enum):
+    class OSType(shibokensupport.enum_310.Enum):
 
         Unknown                  : QOperatingSystemVersionBase.OSType = ... # 0x0
         Windows                  : QOperatingSystemVersionBase.OSType = ... # 0x1
@@ -7162,7 +5645,7 @@ class QPersistentModelIndex(Shiboken.Object):
     def column(self) -> int: ...
     def constInternalPointer(self) -> int: ...
     def data(self, role: int = ...) -> Any: ...
-    def flags(self) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self) -> PySide6.QtCore.Qt.ItemFlag: ...
     def internalId(self) -> int: ...
     def internalPointer(self) -> int: ...
     def isValid(self) -> bool: ...
@@ -7185,10 +5668,10 @@ class QPluginLoader(PySide6.QtCore.QObject):
     def instance(self) -> PySide6.QtCore.QObject: ...
     def isLoaded(self) -> bool: ...
     def load(self) -> bool: ...
-    def loadHints(self) -> PySide6.QtCore.QLibrary.LoadHints: ...
+    def loadHints(self) -> PySide6.QtCore.QLibrary.LoadHint: ...
     def metaData(self) -> Dict[str, PySide6.QtCore.QJsonValue]: ...
     def setFileName(self, fileName: str) -> None: ...
-    def setLoadHints(self, loadHints: PySide6.QtCore.QLibrary.LoadHints) -> None: ...
+    def setLoadHints(self, loadHints: PySide6.QtCore.QLibrary.LoadHint) -> None: ...
     @staticmethod
     def staticInstances() -> List[PySide6.QtCore.QObject]: ...
     def unload(self) -> bool: ...
@@ -7231,6 +5714,7 @@ class QPoint(Shiboken.Object):
     def manhattanLength(self) -> int: ...
     def setX(self, x: int) -> None: ...
     def setY(self, y: int) -> None: ...
+    def toPointF(self) -> PySide6.QtCore.QPointF: ...
     def toTuple(self) -> object: ...
     def transposed(self) -> PySide6.QtCore.QPoint: ...
     def x(self) -> int: ...
@@ -7281,43 +5765,25 @@ class QPointList(object): ...
 
 class QProcess(PySide6.QtCore.QIODevice):
 
+    class ExitStatus(shibokensupport.enum_310.Enum):
+
     NormalExit               : QProcess.ExitStatus = ... # 0x0
     CrashExit                : QProcess.ExitStatus = ... # 0x1
-    ManagedInputChannel      : QProcess.InputChannelMode = ... # 0x0
-    ForwardedInputChannel    : QProcess.InputChannelMode = ... # 0x1
-    StandardOutput           : QProcess.ProcessChannel = ... # 0x0
-    StandardError            : QProcess.ProcessChannel = ... # 0x1
-    SeparateChannels         : QProcess.ProcessChannelMode = ... # 0x0
-    MergedChannels           : QProcess.ProcessChannelMode = ... # 0x1
-    ForwardedChannels        : QProcess.ProcessChannelMode = ... # 0x2
-    ForwardedOutputChannel   : QProcess.ProcessChannelMode = ... # 0x3
-    ForwardedErrorChannel    : QProcess.ProcessChannelMode = ... # 0x4
-    FailedToStart            : QProcess.ProcessError = ... # 0x0
-    Crashed                  : QProcess.ProcessError = ... # 0x1
-    Timedout                 : QProcess.ProcessError = ... # 0x2
-    ReadError                : QProcess.ProcessError = ... # 0x3
-    WriteError               : QProcess.ProcessError = ... # 0x4
-    UnknownError             : QProcess.ProcessError = ... # 0x5
-    NotRunning               : QProcess.ProcessState = ... # 0x0
-    Starting                 : QProcess.ProcessState = ... # 0x1
-    Running                  : QProcess.ProcessState = ... # 0x2
 
-    class ExitStatus(Shiboken.Enum):
 
-        NormalExit               : QProcess.ExitStatus = ... # 0x0
-        CrashExit                : QProcess.ExitStatus = ... # 0x1
-
-    class InputChannelMode(Shiboken.Enum):
+    class InputChannelMode(shibokensupport.enum_310.Enum):
 
         ManagedInputChannel      : QProcess.InputChannelMode = ... # 0x0
         ForwardedInputChannel    : QProcess.InputChannelMode = ... # 0x1
 
-    class ProcessChannel(Shiboken.Enum):
+
+    class ProcessChannel(shibokensupport.enum_310.Enum):
 
         StandardOutput           : QProcess.ProcessChannel = ... # 0x0
         StandardError            : QProcess.ProcessChannel = ... # 0x1
 
-    class ProcessChannelMode(Shiboken.Enum):
+
+    class ProcessChannelMode(shibokensupport.enum_310.Enum):
 
         SeparateChannels         : QProcess.ProcessChannelMode = ... # 0x0
         MergedChannels           : QProcess.ProcessChannelMode = ... # 0x1
@@ -7325,7 +5791,8 @@ class QProcess(PySide6.QtCore.QIODevice):
         ForwardedOutputChannel   : QProcess.ProcessChannelMode = ... # 0x3
         ForwardedErrorChannel    : QProcess.ProcessChannelMode = ... # 0x4
 
-    class ProcessError(Shiboken.Enum):
+
+    class ProcessError(shibokensupport.enum_310.Enum):
 
         FailedToStart            : QProcess.ProcessError = ... # 0x0
         Crashed                  : QProcess.ProcessError = ... # 0x1
@@ -7334,7 +5801,8 @@ class QProcess(PySide6.QtCore.QIODevice):
         WriteError               : QProcess.ProcessError = ... # 0x4
         UnknownError             : QProcess.ProcessError = ... # 0x5
 
-    class ProcessState(Shiboken.Enum):
+
+    class ProcessState(shibokensupport.enum_310.Enum):
 
         NotRunning               : QProcess.ProcessState = ... # 0x0
         Starting                 : QProcess.ProcessState = ... # 0x1
@@ -7359,7 +5827,7 @@ class QProcess(PySide6.QtCore.QIODevice):
     def kill(self) -> None: ...
     @staticmethod
     def nullDevice() -> str: ...
-    def open(self, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> bool: ...
+    def open(self, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> bool: ...
     def processChannelMode(self) -> PySide6.QtCore.QProcess.ProcessChannelMode: ...
     def processEnvironment(self) -> PySide6.QtCore.QProcessEnvironment: ...
     def processId(self) -> int: ...
@@ -7367,7 +5835,7 @@ class QProcess(PySide6.QtCore.QIODevice):
     def readAllStandardError(self) -> PySide6.QtCore.QByteArray: ...
     def readAllStandardOutput(self) -> PySide6.QtCore.QByteArray: ...
     def readChannel(self) -> PySide6.QtCore.QProcess.ProcessChannel: ...
-    def readData(self, data: bytes, maxlen: int) -> object: ...
+    def readData(self, maxlen: int) -> object: ...
     def setArguments(self, arguments: Sequence[str]) -> None: ...
     def setEnvironment(self, environment: Sequence[str]) -> None: ...
     def setInputChannelMode(self, mode: PySide6.QtCore.QProcess.InputChannelMode) -> None: ...
@@ -7377,21 +5845,21 @@ class QProcess(PySide6.QtCore.QIODevice):
     def setProcessState(self, state: PySide6.QtCore.QProcess.ProcessState) -> None: ...
     def setProgram(self, program: str) -> None: ...
     def setReadChannel(self, channel: PySide6.QtCore.QProcess.ProcessChannel) -> None: ...
-    def setStandardErrorFile(self, fileName: str, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def setStandardErrorFile(self, fileName: str, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     def setStandardInputFile(self, fileName: str) -> None: ...
-    def setStandardOutputFile(self, fileName: str, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def setStandardOutputFile(self, fileName: str, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     def setStandardOutputProcess(self, destination: PySide6.QtCore.QProcess) -> None: ...
     def setWorkingDirectory(self, dir: str) -> None: ...
     @staticmethod
     def splitCommand(command: str) -> List[str]: ...
     @overload
-    def start(self, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def start(self, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     @overload
-    def start(self, program: str, arguments: Sequence[str] = ..., mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
-    def startCommand(self, command: str, mode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def start(self, program: str, arguments: Sequence[str] = ..., mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
+    def startCommand(self, command: str, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     @overload
     @staticmethod
-    def startDetached(program: str, arguments: Sequence[str] = ..., workingDirectory: str = ...) -> Tuple[Tuple, int]: ...
+    def startDetached(program: str, arguments: Sequence[str] = ..., workingDirectory: str = ...) -> Tuple: ...
     @overload
     def startDetached(self) -> Tuple[bool, int]: ...
     def state(self) -> PySide6.QtCore.QProcess.ProcessState: ...
@@ -7408,9 +5876,7 @@ class QProcess(PySide6.QtCore.QIODevice):
 
 class QProcessEnvironment(Shiboken.Object):
 
-    InheritFromParent        : QProcessEnvironment.Initialization = ... # 0x0
-
-    class Initialization(Shiboken.Enum):
+    class Initialization(shibokensupport.enum_310.Enum):
 
         InheritFromParent        : QProcessEnvironment.Initialization = ... # 0x0
 
@@ -7549,10 +6015,7 @@ class QReadLocker(Shiboken.Object):
 
 class QReadWriteLock(Shiboken.Object):
 
-    NonRecursive             : QReadWriteLock.RecursionMode = ... # 0x0
-    Recursive                : QReadWriteLock.RecursionMode = ... # 0x1
-
-    class RecursionMode(Shiboken.Enum):
+    class RecursionMode(shibokensupport.enum_310.Enum):
 
         NonRecursive             : QReadWriteLock.RecursionMode = ... # 0x0
         Recursive                : QReadWriteLock.RecursionMode = ... # 0x1
@@ -7612,8 +6075,8 @@ class QRect(Shiboken.Object):
     def contains(self, x: int, y: int) -> bool: ...
     @overload
     def contains(self, x: int, y: int, proper: bool) -> bool: ...
-    def getCoords(self) -> Tuple[int, int, int, int]: ...
-    def getRect(self) -> Tuple[int, int, int, int]: ...
+    def getCoords(self) -> object: ...
+    def getRect(self) -> object: ...
     def height(self) -> int: ...
     def intersected(self, other: PySide6.QtCore.QRect) -> PySide6.QtCore.QRect: ...
     def intersects(self, r: PySide6.QtCore.QRect) -> bool: ...
@@ -7656,6 +6119,7 @@ class QRect(Shiboken.Object):
     def size(self) -> PySide6.QtCore.QSize: ...
     @staticmethod
     def span(p1: PySide6.QtCore.QPoint, p2: PySide6.QtCore.QPoint) -> PySide6.QtCore.QRect: ...
+    def toRectF(self) -> PySide6.QtCore.QRectF: ...
     def top(self) -> int: ...
     def topLeft(self) -> PySide6.QtCore.QPoint: ...
     def topRight(self) -> PySide6.QtCore.QPoint: ...
@@ -7716,8 +6180,8 @@ class QRectF(Shiboken.Object):
     def contains(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> bool: ...
     @overload
     def contains(self, x: float, y: float) -> bool: ...
-    def getCoords(self) -> Tuple[float, float, float, float]: ...
-    def getRect(self) -> Tuple[float, float, float, float]: ...
+    def getCoords(self) -> object: ...
+    def getRect(self) -> object: ...
     def height(self) -> float: ...
     def intersected(self, other: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> PySide6.QtCore.QRectF: ...
     def intersects(self, r: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> bool: ...
@@ -7790,42 +6254,23 @@ class QRecursiveMutex(Shiboken.Object):
 
 class QRegularExpression(Shiboken.Object):
 
-    NoMatchOption            : QRegularExpression.MatchOption = ... # 0x0
-    AnchorAtOffsetMatchOption: QRegularExpression.MatchOption = ... # 0x1
-    AnchoredMatchOption      : QRegularExpression.MatchOption = ... # 0x1
-    DontCheckSubjectStringMatchOption: QRegularExpression.MatchOption = ... # 0x2
-    NormalMatch              : QRegularExpression.MatchType = ... # 0x0
-    PartialPreferCompleteMatch: QRegularExpression.MatchType = ... # 0x1
-    PartialPreferFirstMatch  : QRegularExpression.MatchType = ... # 0x2
-    NoMatch                  : QRegularExpression.MatchType = ... # 0x3
-    NoPatternOption          : QRegularExpression.PatternOption = ... # 0x0
-    CaseInsensitiveOption    : QRegularExpression.PatternOption = ... # 0x1
-    DotMatchesEverythingOption: QRegularExpression.PatternOption = ... # 0x2
-    MultilineOption          : QRegularExpression.PatternOption = ... # 0x4
-    ExtendedPatternSyntaxOption: QRegularExpression.PatternOption = ... # 0x8
-    InvertedGreedinessOption : QRegularExpression.PatternOption = ... # 0x10
-    DontCaptureOption        : QRegularExpression.PatternOption = ... # 0x20
-    UseUnicodePropertiesOption: QRegularExpression.PatternOption = ... # 0x40
-    DefaultWildcardConversion: QRegularExpression.WildcardConversionOption = ... # 0x0
-    UnanchoredWildcardConversion: QRegularExpression.WildcardConversionOption = ... # 0x1
-
-    class MatchOption(Shiboken.Enum):
+    class MatchOption(shibokensupport.enum_310.Flag):
 
         NoMatchOption            : QRegularExpression.MatchOption = ... # 0x0
         AnchorAtOffsetMatchOption: QRegularExpression.MatchOption = ... # 0x1
         AnchoredMatchOption      : QRegularExpression.MatchOption = ... # 0x1
         DontCheckSubjectStringMatchOption: QRegularExpression.MatchOption = ... # 0x2
 
-    class MatchOptions(object): ...
 
-    class MatchType(Shiboken.Enum):
+    class MatchType(shibokensupport.enum_310.Enum):
 
         NormalMatch              : QRegularExpression.MatchType = ... # 0x0
         PartialPreferCompleteMatch: QRegularExpression.MatchType = ... # 0x1
         PartialPreferFirstMatch  : QRegularExpression.MatchType = ... # 0x2
         NoMatch                  : QRegularExpression.MatchType = ... # 0x3
 
-    class PatternOption(Shiboken.Enum):
+
+    class PatternOption(shibokensupport.enum_310.Flag):
 
         NoPatternOption          : QRegularExpression.PatternOption = ... # 0x0
         CaseInsensitiveOption    : QRegularExpression.PatternOption = ... # 0x1
@@ -7836,20 +6281,17 @@ class QRegularExpression(Shiboken.Object):
         DontCaptureOption        : QRegularExpression.PatternOption = ... # 0x20
         UseUnicodePropertiesOption: QRegularExpression.PatternOption = ... # 0x40
 
-    class PatternOptions(object): ...
 
-    class WildcardConversionOption(Shiboken.Enum):
+    class WildcardConversionOption(shibokensupport.enum_310.Flag):
 
         DefaultWildcardConversion: QRegularExpression.WildcardConversionOption = ... # 0x0
         UnanchoredWildcardConversion: QRegularExpression.WildcardConversionOption = ... # 0x1
-
-    class WildcardConversionOptions(object): ...
 
 
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, pattern: str, options: PySide6.QtCore.QRegularExpression.PatternOptions = ...) -> None: ...
+    def __init__(self, pattern: str, options: PySide6.QtCore.QRegularExpression.PatternOption = ...) -> None: ...
     @overload
     def __init__(self, re: Union[PySide6.QtCore.QRegularExpression, str]) -> None: ...
 
@@ -7862,26 +6304,26 @@ class QRegularExpression(Shiboken.Object):
     @staticmethod
     def escape(str: str) -> str: ...
     @staticmethod
-    def fromWildcard(pattern: str, cs: PySide6.QtCore.Qt.CaseSensitivity = ..., options: PySide6.QtCore.QRegularExpression.WildcardConversionOptions = ...) -> PySide6.QtCore.QRegularExpression: ...
+    def fromWildcard(pattern: str, cs: PySide6.QtCore.Qt.CaseSensitivity = ..., options: PySide6.QtCore.QRegularExpression.WildcardConversionOption = ...) -> PySide6.QtCore.QRegularExpression: ...
     @overload
-    def globalMatch(self, subject: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOptions = ...) -> PySide6.QtCore.QRegularExpressionMatchIterator: ...
+    def globalMatch(self, subject: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOption = ...) -> PySide6.QtCore.QRegularExpressionMatchIterator: ...
     @overload
-    def globalMatch(self, subjectView: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOptions = ...) -> PySide6.QtCore.QRegularExpressionMatchIterator: ...
+    def globalMatch(self, subjectView: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOption = ...) -> PySide6.QtCore.QRegularExpressionMatchIterator: ...
     def isValid(self) -> bool: ...
     @overload
-    def match(self, subject: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOptions = ...) -> PySide6.QtCore.QRegularExpressionMatch: ...
+    def match(self, subject: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOption = ...) -> PySide6.QtCore.QRegularExpressionMatch: ...
     @overload
-    def match(self, subjectView: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOptions = ...) -> PySide6.QtCore.QRegularExpressionMatch: ...
+    def match(self, subjectView: str, offset: int = ..., matchType: PySide6.QtCore.QRegularExpression.MatchType = ..., matchOptions: PySide6.QtCore.QRegularExpression.MatchOption = ...) -> PySide6.QtCore.QRegularExpressionMatch: ...
     def namedCaptureGroups(self) -> List[str]: ...
     def optimize(self) -> None: ...
     def pattern(self) -> str: ...
     def patternErrorOffset(self) -> int: ...
-    def patternOptions(self) -> PySide6.QtCore.QRegularExpression.PatternOptions: ...
+    def patternOptions(self) -> PySide6.QtCore.QRegularExpression.PatternOption: ...
     def setPattern(self, pattern: str) -> None: ...
-    def setPatternOptions(self, options: PySide6.QtCore.QRegularExpression.PatternOptions) -> None: ...
+    def setPatternOptions(self, options: PySide6.QtCore.QRegularExpression.PatternOption) -> None: ...
     def swap(self, other: Union[PySide6.QtCore.QRegularExpression, str]) -> None: ...
     @staticmethod
-    def wildcardToRegularExpression(str: str, options: PySide6.QtCore.QRegularExpression.WildcardConversionOptions = ...) -> str: ...
+    def wildcardToRegularExpression(str: str, options: PySide6.QtCore.QRegularExpression.WildcardConversionOption = ...) -> str: ...
 
 
 class QRegularExpressionMatch(Shiboken.Object):
@@ -7922,7 +6364,7 @@ class QRegularExpressionMatch(Shiboken.Object):
     def hasPartialMatch(self) -> bool: ...
     def isValid(self) -> bool: ...
     def lastCapturedIndex(self) -> int: ...
-    def matchOptions(self) -> PySide6.QtCore.QRegularExpression.MatchOptions: ...
+    def matchOptions(self) -> PySide6.QtCore.QRegularExpression.MatchOption: ...
     def matchType(self) -> PySide6.QtCore.QRegularExpression.MatchType: ...
     def regularExpression(self) -> PySide6.QtCore.QRegularExpression: ...
     def swap(self, other: PySide6.QtCore.QRegularExpressionMatch) -> None: ...
@@ -7939,7 +6381,7 @@ class QRegularExpressionMatchIterator(Shiboken.Object):
     def __copy__() -> None: ...
     def hasNext(self) -> bool: ...
     def isValid(self) -> bool: ...
-    def matchOptions(self) -> PySide6.QtCore.QRegularExpression.MatchOptions: ...
+    def matchOptions(self) -> PySide6.QtCore.QRegularExpression.MatchOption: ...
     def matchType(self) -> PySide6.QtCore.QRegularExpression.MatchType: ...
     def next(self) -> PySide6.QtCore.QRegularExpressionMatch: ...
     def peekNext(self) -> PySide6.QtCore.QRegularExpressionMatch: ...
@@ -7949,11 +6391,7 @@ class QRegularExpressionMatchIterator(Shiboken.Object):
 
 class QResource(Shiboken.Object):
 
-    NoCompression            : QResource.Compression = ... # 0x0
-    ZlibCompression          : QResource.Compression = ... # 0x1
-    ZstdCompression          : QResource.Compression = ... # 0x2
-
-    class Compression(Shiboken.Enum):
+    class Compression(shibokensupport.enum_310.Enum):
 
         NoCompression            : QResource.Compression = ... # 0x0
         ZlibCompression          : QResource.Compression = ... # 0x1
@@ -8010,7 +6448,7 @@ class QSaveFile(PySide6.QtCore.QFileDevice):
     def commit(self) -> bool: ...
     def directWriteFallback(self) -> bool: ...
     def fileName(self) -> str: ...
-    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenMode) -> bool: ...
+    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> bool: ...
     def setDirectWriteFallback(self, enabled: bool) -> None: ...
     def setFileName(self, name: str) -> None: ...
     def writeData(self, data: bytes, len: int) -> int: ...
@@ -8058,6 +6496,8 @@ class QSequentialAnimationGroup(PySide6.QtCore.QAnimationGroup):
 
 class QSettings(PySide6.QtCore.QObject):
 
+    class Format(shibokensupport.enum_310.Enum):
+
     NativeFormat             : QSettings.Format = ... # 0x0
     IniFormat                : QSettings.Format = ... # 0x1
     if sys.platform() == 'win32':
@@ -8080,43 +6520,20 @@ class QSettings(PySide6.QtCore.QObject):
     CustomFormat14           : QSettings.Format = ... # 0x1e
     CustomFormat15           : QSettings.Format = ... # 0x1f
     CustomFormat16           : QSettings.Format = ... # 0x20
-    UserScope                : QSettings.Scope = ... # 0x0
-    SystemScope              : QSettings.Scope = ... # 0x1
-    NoError                  : QSettings.Status = ... # 0x0
-    AccessError              : QSettings.Status = ... # 0x1
-    FormatError              : QSettings.Status = ... # 0x2
 
-    class Format(Shiboken.Enum):
 
-        NativeFormat             : QSettings.Format = ... # 0x0
-        IniFormat                : QSettings.Format = ... # 0x1
-        if sys.platform() == 'win32':
-            Registry32Format         : QSettings.Format = ... # 0x2
-            Registry64Format         : QSettings.Format = ... # 0x3
+        Registry32Format         : QSettings.Format = ... # 0x2
+        Registry64Format         : QSettings.Format = ... # 0x3
         InvalidFormat            : QSettings.Format = ... # 0x10
-        CustomFormat1            : QSettings.Format = ... # 0x11
-        CustomFormat2            : QSettings.Format = ... # 0x12
-        CustomFormat3            : QSettings.Format = ... # 0x13
-        CustomFormat4            : QSettings.Format = ... # 0x14
-        CustomFormat5            : QSettings.Format = ... # 0x15
-        CustomFormat6            : QSettings.Format = ... # 0x16
-        CustomFormat7            : QSettings.Format = ... # 0x17
-        CustomFormat8            : QSettings.Format = ... # 0x18
-        CustomFormat9            : QSettings.Format = ... # 0x19
-        CustomFormat10           : QSettings.Format = ... # 0x1a
-        CustomFormat11           : QSettings.Format = ... # 0x1b
-        CustomFormat12           : QSettings.Format = ... # 0x1c
-        CustomFormat13           : QSettings.Format = ... # 0x1d
-        CustomFormat14           : QSettings.Format = ... # 0x1e
-        CustomFormat15           : QSettings.Format = ... # 0x1f
-        CustomFormat16           : QSettings.Format = ... # 0x20
 
-    class Scope(Shiboken.Enum):
+
+    class Scope(shibokensupport.enum_310.Enum):
 
         UserScope                : QSettings.Scope = ... # 0x0
         SystemScope              : QSettings.Scope = ... # 0x1
 
-    class Status(Shiboken.Enum):
+
+    class Status(shibokensupport.enum_310.Enum):
 
         NoError                  : QSettings.Status = ... # 0x0
         AccessError              : QSettings.Status = ... # 0x1
@@ -8177,24 +6594,13 @@ class QSettings(PySide6.QtCore.QObject):
 
 class QSharedMemory(PySide6.QtCore.QObject):
 
+    class AccessMode(shibokensupport.enum_310.Enum):
+
     ReadOnly                 : QSharedMemory.AccessMode = ... # 0x0
     ReadWrite                : QSharedMemory.AccessMode = ... # 0x1
-    NoError                  : QSharedMemory.SharedMemoryError = ... # 0x0
-    PermissionDenied         : QSharedMemory.SharedMemoryError = ... # 0x1
-    InvalidSize              : QSharedMemory.SharedMemoryError = ... # 0x2
-    KeyError                 : QSharedMemory.SharedMemoryError = ... # 0x3
-    AlreadyExists            : QSharedMemory.SharedMemoryError = ... # 0x4
-    NotFound                 : QSharedMemory.SharedMemoryError = ... # 0x5
-    LockError                : QSharedMemory.SharedMemoryError = ... # 0x6
-    OutOfResources           : QSharedMemory.SharedMemoryError = ... # 0x7
-    UnknownError             : QSharedMemory.SharedMemoryError = ... # 0x8
 
-    class AccessMode(Shiboken.Enum):
 
-        ReadOnly                 : QSharedMemory.AccessMode = ... # 0x0
-        ReadWrite                : QSharedMemory.AccessMode = ... # 0x1
-
-    class SharedMemoryError(Shiboken.Enum):
+    class SharedMemoryError(shibokensupport.enum_310.Enum):
 
         NoError                  : QSharedMemory.SharedMemoryError = ... # 0x0
         PermissionDenied         : QSharedMemory.SharedMemoryError = ... # 0x1
@@ -8299,6 +6705,7 @@ class QSize(Shiboken.Object):
     def setHeight(self, h: int) -> None: ...
     def setWidth(self, w: int) -> None: ...
     def shrunkBy(self, m: PySide6.QtCore.QMargins) -> PySide6.QtCore.QSize: ...
+    def toSizeF(self) -> PySide6.QtCore.QSizeF: ...
     def toTuple(self) -> object: ...
     def transpose(self) -> None: ...
     def transposed(self) -> PySide6.QtCore.QSize: ...
@@ -8369,11 +6776,7 @@ class QSocketDescriptor(Shiboken.Object):
 
 class QSocketNotifier(PySide6.QtCore.QObject):
 
-    Read                     : QSocketNotifier.Type = ... # 0x0
-    Write                    : QSocketNotifier.Type = ... # 0x1
-    Exception                : QSocketNotifier.Type = ... # 0x2
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         Read                     : QSocketNotifier.Type = ... # 0x0
         Write                    : QSocketNotifier.Type = ... # 0x1
@@ -8414,7 +6817,7 @@ class QSortFilterProxyModel(PySide6.QtCore.QAbstractProxyModel):
     def filterKeyColumn(self) -> int: ...
     def filterRegularExpression(self) -> PySide6.QtCore.QRegularExpression: ...
     def filterRole(self) -> int: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def hasChildren(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def headerData(self, section: int, orientation: PySide6.QtCore.Qt.Orientation, role: int = ...) -> Any: ...
     def index(self, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> PySide6.QtCore.QModelIndex: ...
@@ -8431,7 +6834,7 @@ class QSortFilterProxyModel(PySide6.QtCore.QAbstractProxyModel):
     def mapSelectionFromSource(self, sourceSelection: PySide6.QtCore.QItemSelection) -> PySide6.QtCore.QItemSelection: ...
     def mapSelectionToSource(self, proxySelection: PySide6.QtCore.QItemSelection) -> PySide6.QtCore.QItemSelection: ...
     def mapToSource(self, proxyIndex: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QModelIndex: ...
-    def match(self, start: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int, value: Any, hits: int = ..., flags: PySide6.QtCore.Qt.MatchFlags = ...) -> List[PySide6.QtCore.QModelIndex]: ...
+    def match(self, start: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int, value: Any, hits: int = ..., flags: PySide6.QtCore.Qt.MatchFlag = ...) -> List[PySide6.QtCore.QModelIndex]: ...
     def mimeData(self, indexes: Sequence[PySide6.QtCore.QModelIndex]) -> PySide6.QtCore.QMimeData: ...
     def mimeTypes(self) -> List[str]: ...
     @overload
@@ -8466,41 +6869,18 @@ class QSortFilterProxyModel(PySide6.QtCore.QAbstractProxyModel):
     def sortOrder(self) -> PySide6.QtCore.Qt.SortOrder: ...
     def sortRole(self) -> int: ...
     def span(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QSize: ...
-    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropActions: ...
+    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropAction: ...
 
 
 class QStandardPaths(Shiboken.Object):
 
-    LocateFile               : QStandardPaths.LocateOption = ... # 0x0
-    LocateDirectory          : QStandardPaths.LocateOption = ... # 0x1
-    DesktopLocation          : QStandardPaths.StandardLocation = ... # 0x0
-    DocumentsLocation        : QStandardPaths.StandardLocation = ... # 0x1
-    FontsLocation            : QStandardPaths.StandardLocation = ... # 0x2
-    ApplicationsLocation     : QStandardPaths.StandardLocation = ... # 0x3
-    MusicLocation            : QStandardPaths.StandardLocation = ... # 0x4
-    MoviesLocation           : QStandardPaths.StandardLocation = ... # 0x5
-    PicturesLocation         : QStandardPaths.StandardLocation = ... # 0x6
-    TempLocation             : QStandardPaths.StandardLocation = ... # 0x7
-    HomeLocation             : QStandardPaths.StandardLocation = ... # 0x8
-    AppLocalDataLocation     : QStandardPaths.StandardLocation = ... # 0x9
-    CacheLocation            : QStandardPaths.StandardLocation = ... # 0xa
-    GenericDataLocation      : QStandardPaths.StandardLocation = ... # 0xb
-    RuntimeLocation          : QStandardPaths.StandardLocation = ... # 0xc
-    ConfigLocation           : QStandardPaths.StandardLocation = ... # 0xd
-    DownloadLocation         : QStandardPaths.StandardLocation = ... # 0xe
-    GenericCacheLocation     : QStandardPaths.StandardLocation = ... # 0xf
-    GenericConfigLocation    : QStandardPaths.StandardLocation = ... # 0x10
-    AppDataLocation          : QStandardPaths.StandardLocation = ... # 0x11
-    AppConfigLocation        : QStandardPaths.StandardLocation = ... # 0x12
-
-    class LocateOption(Shiboken.Enum):
+    class LocateOption(shibokensupport.enum_310.Flag):
 
         LocateFile               : QStandardPaths.LocateOption = ... # 0x0
         LocateDirectory          : QStandardPaths.LocateOption = ... # 0x1
 
-    class LocateOptions(object): ...
 
-    class StandardLocation(Shiboken.Enum):
+    class StandardLocation(shibokensupport.enum_310.Enum):
 
         DesktopLocation          : QStandardPaths.StandardLocation = ... # 0x0
         DocumentsLocation        : QStandardPaths.StandardLocation = ... # 0x1
@@ -8521,6 +6901,8 @@ class QStandardPaths(Shiboken.Object):
         GenericConfigLocation    : QStandardPaths.StandardLocation = ... # 0x10
         AppDataLocation          : QStandardPaths.StandardLocation = ... # 0x11
         AppConfigLocation        : QStandardPaths.StandardLocation = ... # 0x12
+        PublicShareLocation      : QStandardPaths.StandardLocation = ... # 0x13
+        TemplatesLocation        : QStandardPaths.StandardLocation = ... # 0x14
 
 
     @staticmethod
@@ -8530,9 +6912,9 @@ class QStandardPaths(Shiboken.Object):
     @staticmethod
     def isTestModeEnabled() -> bool: ...
     @staticmethod
-    def locate(type: PySide6.QtCore.QStandardPaths.StandardLocation, fileName: str, options: PySide6.QtCore.QStandardPaths.LocateOptions = ...) -> str: ...
+    def locate(type: PySide6.QtCore.QStandardPaths.StandardLocation, fileName: str, options: PySide6.QtCore.QStandardPaths.LocateOption = ...) -> str: ...
     @staticmethod
-    def locateAll(type: PySide6.QtCore.QStandardPaths.StandardLocation, fileName: str, options: PySide6.QtCore.QStandardPaths.LocateOptions = ...) -> List[str]: ...
+    def locateAll(type: PySide6.QtCore.QStandardPaths.StandardLocation, fileName: str, options: PySide6.QtCore.QStandardPaths.LocateOption = ...) -> List[str]: ...
     @staticmethod
     def setTestModeEnabled(testMode: bool) -> None: ...
     @staticmethod
@@ -8579,18 +6961,7 @@ class QStorageInfo(Shiboken.Object):
 
 class QStringConverter(PySide6.QtCore.QStringConverterBase):
 
-    Utf8                     : QStringConverter.Encoding = ... # 0x0
-    Utf16                    : QStringConverter.Encoding = ... # 0x1
-    Utf16LE                  : QStringConverter.Encoding = ... # 0x2
-    Utf16BE                  : QStringConverter.Encoding = ... # 0x3
-    Utf32                    : QStringConverter.Encoding = ... # 0x4
-    Utf32LE                  : QStringConverter.Encoding = ... # 0x5
-    Utf32BE                  : QStringConverter.Encoding = ... # 0x6
-    Latin1                   : QStringConverter.Encoding = ... # 0x7
-    LastEncoding             : QStringConverter.Encoding = ... # 0x8
-    System                   : QStringConverter.Encoding = ... # 0x8
-
-    class Encoding(Shiboken.Enum):
+    class Encoding(shibokensupport.enum_310.Enum):
 
         Utf8                     : QStringConverter.Encoding = ... # 0x0
         Utf16                    : QStringConverter.Encoding = ... # 0x1
@@ -8607,9 +6978,9 @@ class QStringConverter(PySide6.QtCore.QStringConverterBase):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, encoding: PySide6.QtCore.QStringConverter.Encoding, f: PySide6.QtCore.QStringConverterBase.Flags) -> None: ...
+    def __init__(self, encoding: PySide6.QtCore.QStringConverter.Encoding, f: PySide6.QtCore.QStringConverterBase.Flag) -> None: ...
     @overload
-    def __init__(self, name: bytes, f: PySide6.QtCore.QStringConverterBase.Flags) -> None: ...
+    def __init__(self, name: bytes, f: PySide6.QtCore.QStringConverterBase.Flag) -> None: ...
 
     def hasError(self) -> bool: ...
     def isValid(self) -> bool: ...
@@ -8621,21 +6992,22 @@ class QStringConverter(PySide6.QtCore.QStringConverterBase):
 
 class QStringConverterBase(Shiboken.Object):
 
-    class Flag(Shiboken.Enum):
+    class Flag(shibokensupport.enum_310.Flag):
 
         Default                  : QStringConverterBase.Flag = ... # 0x0
         Stateless                : QStringConverterBase.Flag = ... # 0x1
         ConvertInvalidToNull     : QStringConverterBase.Flag = ... # 0x2
         WriteBom                 : QStringConverterBase.Flag = ... # 0x4
         ConvertInitialBom        : QStringConverterBase.Flag = ... # 0x8
+        UsesIcu                  : QStringConverterBase.Flag = ... # 0x10
 
-    class Flags(object): ...
 
     class State(Shiboken.Object):
 
-        def __init__(self, f: PySide6.QtCore.QStringConverterBase.Flags = ...) -> None: ...
+        def __init__(self, f: PySide6.QtCore.QStringConverterBase.Flag = ...) -> None: ...
 
         def clear(self) -> None: ...
+        def reset(self) -> None: ...
 
 
     def __init__(self) -> None: ...
@@ -8646,11 +7018,13 @@ class QStringDecoder(PySide6.QtCore.QStringConverter):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, encoding: PySide6.QtCore.QStringConverter.Encoding, flags: PySide6.QtCore.QStringConverterBase.Flags = ...) -> None: ...
+    def __init__(self, encoding: PySide6.QtCore.QStringConverter.Encoding, flags: PySide6.QtCore.QStringConverterBase.Flag = ...) -> None: ...
     @overload
-    def __init__(self, name: bytes, f: PySide6.QtCore.QStringConverterBase.Flags = ...) -> None: ...
+    def __init__(self, name: bytes, f: PySide6.QtCore.QStringConverterBase.Flag = ...) -> None: ...
 
     def appendToBuffer(self, out: bytes, ba: Union[PySide6.QtCore.QByteArray, bytes]) -> bytes: ...
+    @staticmethod
+    def decoderForHtml(data: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtCore.QStringDecoder: ...
     def requiredSpace(self, inputLength: int) -> int: ...
 
 
@@ -8659,9 +7033,9 @@ class QStringEncoder(PySide6.QtCore.QStringConverter):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, encoding: PySide6.QtCore.QStringConverter.Encoding, flags: PySide6.QtCore.QStringConverterBase.Flags = ...) -> None: ...
+    def __init__(self, encoding: PySide6.QtCore.QStringConverter.Encoding, flags: PySide6.QtCore.QStringConverterBase.Flag = ...) -> None: ...
     @overload
-    def __init__(self, name: bytes, flags: PySide6.QtCore.QStringConverterBase.Flags = ...) -> None: ...
+    def __init__(self, name: bytes, flags: PySide6.QtCore.QStringConverterBase.Flag = ...) -> None: ...
 
     def requiredSpace(self, inputLength: int) -> int: ...
 
@@ -8675,7 +7049,7 @@ class QStringListModel(PySide6.QtCore.QAbstractListModel):
 
     def clearItemData(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
     def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def insertRows(self, row: int, count: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def itemData(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> Dict[int, Any]: ...
     def moveRows(self, sourceParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], sourceRow: int, count: int, destinationParent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], destinationChild: int) -> bool: ...
@@ -8687,23 +7061,19 @@ class QStringListModel(PySide6.QtCore.QAbstractListModel):
     def sibling(self, row: int, column: int, idx: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QModelIndex: ...
     def sort(self, column: int, order: PySide6.QtCore.Qt.SortOrder = ...) -> None: ...
     def stringList(self) -> List[str]: ...
-    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropActions: ...
+    def supportedDropActions(self) -> PySide6.QtCore.Qt.DropAction: ...
 
 
 class QSysInfo(Shiboken.Object):
 
+    class Endian(shibokensupport.enum_310.Enum):
+
     BigEndian                : QSysInfo.Endian = ... # 0x0
     ByteOrder                : QSysInfo.Endian = ... # 0x1
     LittleEndian             : QSysInfo.Endian = ... # 0x1
-    WordSize                 : QSysInfo.Sizes = ... # 0x40
 
-    class Endian(Shiboken.Enum):
 
-        BigEndian                : QSysInfo.Endian = ... # 0x0
-        ByteOrder                : QSysInfo.Endian = ... # 0x1
-        LittleEndian             : QSysInfo.Endian = ... # 0x1
-
-    class Sizes(Shiboken.Enum):
+    class Sizes(shibokensupport.enum_310.Enum):
 
         WordSize                 : QSysInfo.Sizes = ... # 0x40
 
@@ -8736,22 +7106,13 @@ class QSysInfo(Shiboken.Object):
 
 class QSystemSemaphore(Shiboken.Object):
 
+    class AccessMode(shibokensupport.enum_310.Enum):
+
     Open                     : QSystemSemaphore.AccessMode = ... # 0x0
     Create                   : QSystemSemaphore.AccessMode = ... # 0x1
-    NoError                  : QSystemSemaphore.SystemSemaphoreError = ... # 0x0
-    PermissionDenied         : QSystemSemaphore.SystemSemaphoreError = ... # 0x1
-    KeyError                 : QSystemSemaphore.SystemSemaphoreError = ... # 0x2
-    AlreadyExists            : QSystemSemaphore.SystemSemaphoreError = ... # 0x3
-    NotFound                 : QSystemSemaphore.SystemSemaphoreError = ... # 0x4
-    OutOfResources           : QSystemSemaphore.SystemSemaphoreError = ... # 0x5
-    UnknownError             : QSystemSemaphore.SystemSemaphoreError = ... # 0x6
 
-    class AccessMode(Shiboken.Enum):
 
-        Open                     : QSystemSemaphore.AccessMode = ... # 0x0
-        Create                   : QSystemSemaphore.AccessMode = ... # 0x1
-
-    class SystemSemaphoreError(Shiboken.Enum):
+    class SystemSemaphoreError(shibokensupport.enum_310.Enum):
 
         NoError                  : QSystemSemaphore.SystemSemaphoreError = ... # 0x0
         PermissionDenied         : QSystemSemaphore.SystemSemaphoreError = ... # 0x1
@@ -8786,6 +7147,7 @@ class QTemporaryDir(Shiboken.Object):
     def path(self) -> str: ...
     def remove(self) -> bool: ...
     def setAutoRemove(self, b: bool) -> None: ...
+    def swap(self, other: PySide6.QtCore.QTemporaryDir) -> None: ...
 
 
 class QTemporaryFile(PySide6.QtCore.QFile):
@@ -8811,7 +7173,7 @@ class QTemporaryFile(PySide6.QtCore.QFile):
     @overload
     def open(self) -> bool: ...
     @overload
-    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenMode) -> bool: ...
+    def open(self, flags: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> bool: ...
     def rename(self, newName: Union[str, bytes, os.PathLike]) -> bool: ...
     def setAutoRemove(self, b: bool) -> None: ...
     def setFileTemplate(self, name: str) -> None: ...
@@ -8819,18 +7181,7 @@ class QTemporaryFile(PySide6.QtCore.QFile):
 
 class QTextBoundaryFinder(Shiboken.Object):
 
-    NotAtBoundary            : QTextBoundaryFinder.BoundaryReason = ... # 0x0
-    BreakOpportunity         : QTextBoundaryFinder.BoundaryReason = ... # 0x1f
-    StartOfItem              : QTextBoundaryFinder.BoundaryReason = ... # 0x20
-    EndOfItem                : QTextBoundaryFinder.BoundaryReason = ... # 0x40
-    MandatoryBreak           : QTextBoundaryFinder.BoundaryReason = ... # 0x80
-    SoftHyphen               : QTextBoundaryFinder.BoundaryReason = ... # 0x100
-    Grapheme                 : QTextBoundaryFinder.BoundaryType = ... # 0x0
-    Word                     : QTextBoundaryFinder.BoundaryType = ... # 0x1
-    Sentence                 : QTextBoundaryFinder.BoundaryType = ... # 0x2
-    Line                     : QTextBoundaryFinder.BoundaryType = ... # 0x3
-
-    class BoundaryReason(Shiboken.Enum):
+    class BoundaryReason(shibokensupport.enum_310.Flag):
 
         NotAtBoundary            : QTextBoundaryFinder.BoundaryReason = ... # 0x0
         BreakOpportunity         : QTextBoundaryFinder.BoundaryReason = ... # 0x1f
@@ -8839,9 +7190,8 @@ class QTextBoundaryFinder(Shiboken.Object):
         MandatoryBreak           : QTextBoundaryFinder.BoundaryReason = ... # 0x80
         SoftHyphen               : QTextBoundaryFinder.BoundaryReason = ... # 0x100
 
-    class BoundaryReasons(object): ...
 
-    class BoundaryType(Shiboken.Enum):
+    class BoundaryType(shibokensupport.enum_310.Enum):
 
         Grapheme                 : QTextBoundaryFinder.BoundaryType = ... # 0x0
         Word                     : QTextBoundaryFinder.BoundaryType = ... # 0x1
@@ -8860,7 +7210,7 @@ class QTextBoundaryFinder(Shiboken.Object):
 
     @staticmethod
     def __copy__() -> None: ...
-    def boundaryReasons(self) -> PySide6.QtCore.QTextBoundaryFinder.BoundaryReasons: ...
+    def boundaryReasons(self) -> PySide6.QtCore.QTextBoundaryFinder.BoundaryReason: ...
     def isAtBoundary(self) -> bool: ...
     def isValid(self) -> bool: ...
     def position(self) -> int: ...
@@ -8875,31 +7225,15 @@ class QTextBoundaryFinder(Shiboken.Object):
 
 class QTextStream(PySide6.QtCore.QIODeviceBase):
 
+    class FieldAlignment(shibokensupport.enum_310.Enum):
+
     AlignLeft                : QTextStream.FieldAlignment = ... # 0x0
     AlignRight               : QTextStream.FieldAlignment = ... # 0x1
     AlignCenter              : QTextStream.FieldAlignment = ... # 0x2
     AlignAccountingStyle     : QTextStream.FieldAlignment = ... # 0x3
-    ShowBase                 : QTextStream.NumberFlag = ... # 0x1
-    ForcePoint               : QTextStream.NumberFlag = ... # 0x2
-    ForceSign                : QTextStream.NumberFlag = ... # 0x4
-    UppercaseBase            : QTextStream.NumberFlag = ... # 0x8
-    UppercaseDigits          : QTextStream.NumberFlag = ... # 0x10
-    SmartNotation            : QTextStream.RealNumberNotation = ... # 0x0
-    FixedNotation            : QTextStream.RealNumberNotation = ... # 0x1
-    ScientificNotation       : QTextStream.RealNumberNotation = ... # 0x2
-    Ok                       : QTextStream.Status = ... # 0x0
-    ReadPastEnd              : QTextStream.Status = ... # 0x1
-    ReadCorruptData          : QTextStream.Status = ... # 0x2
-    WriteFailed              : QTextStream.Status = ... # 0x3
 
-    class FieldAlignment(Shiboken.Enum):
 
-        AlignLeft                : QTextStream.FieldAlignment = ... # 0x0
-        AlignRight               : QTextStream.FieldAlignment = ... # 0x1
-        AlignCenter              : QTextStream.FieldAlignment = ... # 0x2
-        AlignAccountingStyle     : QTextStream.FieldAlignment = ... # 0x3
-
-    class NumberFlag(Shiboken.Enum):
+    class NumberFlag(shibokensupport.enum_310.Flag):
 
         ShowBase                 : QTextStream.NumberFlag = ... # 0x1
         ForcePoint               : QTextStream.NumberFlag = ... # 0x2
@@ -8907,15 +7241,15 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
         UppercaseBase            : QTextStream.NumberFlag = ... # 0x8
         UppercaseDigits          : QTextStream.NumberFlag = ... # 0x10
 
-    class NumberFlags(object): ...
 
-    class RealNumberNotation(Shiboken.Enum):
+    class RealNumberNotation(shibokensupport.enum_310.Enum):
 
         SmartNotation            : QTextStream.RealNumberNotation = ... # 0x0
         FixedNotation            : QTextStream.RealNumberNotation = ... # 0x1
         ScientificNotation       : QTextStream.RealNumberNotation = ... # 0x2
 
-    class Status(Shiboken.Enum):
+
+    class Status(shibokensupport.enum_310.Enum):
 
         Ok                       : QTextStream.Status = ... # 0x0
         ReadPastEnd              : QTextStream.Status = ... # 0x1
@@ -8926,7 +7260,7 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, array: Union[PySide6.QtCore.QByteArray, bytes], openMode: PySide6.QtCore.QIODeviceBase.OpenMode = ...) -> None: ...
+    def __init__(self, array: Union[PySide6.QtCore.QByteArray, bytes], openMode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     @overload
     def __init__(self, device: PySide6.QtCore.QIODevice) -> None: ...
 
@@ -8957,7 +7291,7 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
     def generateByteOrderMark(self) -> bool: ...
     def integerBase(self) -> int: ...
     def locale(self) -> PySide6.QtCore.QLocale: ...
-    def numberFlags(self) -> PySide6.QtCore.QTextStream.NumberFlags: ...
+    def numberFlags(self) -> PySide6.QtCore.QTextStream.NumberFlag: ...
     def padChar(self) -> str: ...
     def pos(self) -> int: ...
     def read(self, maxlen: int) -> str: ...
@@ -8976,7 +7310,7 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
     def setGenerateByteOrderMark(self, generate: bool) -> None: ...
     def setIntegerBase(self, base: int) -> None: ...
     def setLocale(self, locale: Union[PySide6.QtCore.QLocale, PySide6.QtCore.QLocale.Language]) -> None: ...
-    def setNumberFlags(self, flags: PySide6.QtCore.QTextStream.NumberFlags) -> None: ...
+    def setNumberFlags(self, flags: PySide6.QtCore.QTextStream.NumberFlag) -> None: ...
     def setPadChar(self, ch: str) -> None: ...
     def setRealNumberNotation(self, notation: PySide6.QtCore.QTextStream.RealNumberNotation) -> None: ...
     def setRealNumberPrecision(self, precision: int) -> None: ...
@@ -8995,16 +7329,7 @@ class QTextStreamManipulator(Shiboken.Object):
 
 class QThread(PySide6.QtCore.QObject):
 
-    IdlePriority             : QThread.Priority = ... # 0x0
-    LowestPriority           : QThread.Priority = ... # 0x1
-    LowPriority              : QThread.Priority = ... # 0x2
-    NormalPriority           : QThread.Priority = ... # 0x3
-    HighPriority             : QThread.Priority = ... # 0x4
-    HighestPriority          : QThread.Priority = ... # 0x5
-    TimeCriticalPriority     : QThread.Priority = ... # 0x6
-    InheritPriority          : QThread.Priority = ... # 0x7
-
-    class Priority(Shiboken.Enum):
+    class Priority(shibokensupport.enum_310.Enum):
 
         IdlePriority             : QThread.Priority = ... # 0x0
         LowestPriority           : QThread.Priority = ... # 0x1
@@ -9137,18 +7462,13 @@ class QTime(Shiboken.Object):
 
 class QTimeLine(PySide6.QtCore.QObject):
 
+    class Direction(shibokensupport.enum_310.Enum):
+
     Forward                  : QTimeLine.Direction = ... # 0x0
     Backward                 : QTimeLine.Direction = ... # 0x1
-    NotRunning               : QTimeLine.State = ... # 0x0
-    Paused                   : QTimeLine.State = ... # 0x1
-    Running                  : QTimeLine.State = ... # 0x2
 
-    class Direction(Shiboken.Enum):
 
-        Forward                  : QTimeLine.Direction = ... # 0x0
-        Backward                 : QTimeLine.Direction = ... # 0x1
-
-    class State(Shiboken.Enum):
+    class State(shibokensupport.enum_310.Enum):
 
         NotRunning               : QTimeLine.State = ... # 0x0
         Paused                   : QTimeLine.State = ... # 0x1
@@ -9189,20 +7509,13 @@ class QTimeLine(PySide6.QtCore.QObject):
 
 class QTimeZone(Shiboken.Object):
 
+    class NameType(shibokensupport.enum_310.Enum):
+
     DefaultName              : QTimeZone.NameType = ... # 0x0
     LongName                 : QTimeZone.NameType = ... # 0x1
     ShortName                : QTimeZone.NameType = ... # 0x2
     OffsetName               : QTimeZone.NameType = ... # 0x3
-    StandardTime             : QTimeZone.TimeType = ... # 0x0
-    DaylightTime             : QTimeZone.TimeType = ... # 0x1
-    GenericTime              : QTimeZone.TimeType = ... # 0x2
 
-    class NameType(Shiboken.Enum):
-
-        DefaultName              : QTimeZone.NameType = ... # 0x0
-        LongName                 : QTimeZone.NameType = ... # 0x1
-        ShortName                : QTimeZone.NameType = ... # 0x2
-        OffsetName               : QTimeZone.NameType = ... # 0x3
 
     class OffsetData(Shiboken.Object):
 
@@ -9214,7 +7527,7 @@ class QTimeZone(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class TimeType(Shiboken.Enum):
+    class TimeType(shibokensupport.enum_310.Enum):
 
         StandardTime             : QTimeZone.TimeType = ... # 0x0
         DaylightTime             : QTimeZone.TimeType = ... # 0x1
@@ -9338,7 +7651,7 @@ class QTranslator(PySide6.QtCore.QObject):
     def isEmpty(self) -> bool: ...
     def language(self) -> str: ...
     @overload
-    def load(self, data: bytes, len: int, directory: str = ...) -> bool: ...
+    def load(self, data: bytes, directory: str = ...) -> bool: ...
     @overload
     def load(self, filename: str, directory: str = ..., search_delimiters: str = ..., suffix: str = ...) -> bool: ...
     @overload
@@ -9376,43 +7689,13 @@ class QTransposeProxyModel(PySide6.QtCore.QAbstractProxyModel):
 
 class QUrl(Shiboken.Object):
 
-    IgnoreIDNWhitelist       : QUrl.AceProcessingOption = ... # 0x1
-    AceTransitionalProcessing: QUrl.AceProcessingOption = ... # 0x2
-    PrettyDecoded            : QUrl.ComponentFormattingOption = ... # 0x0
-    EncodeSpaces             : QUrl.ComponentFormattingOption = ... # 0x100000
-    EncodeUnicode            : QUrl.ComponentFormattingOption = ... # 0x200000
-    EncodeDelimiters         : QUrl.ComponentFormattingOption = ... # 0xc00000
-    EncodeReserved           : QUrl.ComponentFormattingOption = ... # 0x1000000
-    FullyEncoded             : QUrl.ComponentFormattingOption = ... # 0x1f00000
-    DecodeReserved           : QUrl.ComponentFormattingOption = ... # 0x2000000
-    FullyDecoded             : QUrl.ComponentFormattingOption = ... # 0x7f00000
-    TolerantMode             : QUrl.ParsingMode = ... # 0x0
-    StrictMode               : QUrl.ParsingMode = ... # 0x1
-    DecodedMode              : QUrl.ParsingMode = ... # 0x2
-    None_                    : QUrl.UrlFormattingOption = ... # 0x0
-    RemoveScheme             : QUrl.UrlFormattingOption = ... # 0x1
-    RemovePassword           : QUrl.UrlFormattingOption = ... # 0x2
-    RemoveUserInfo           : QUrl.UrlFormattingOption = ... # 0x6
-    RemovePort               : QUrl.UrlFormattingOption = ... # 0x8
-    RemoveAuthority          : QUrl.UrlFormattingOption = ... # 0x1e
-    RemovePath               : QUrl.UrlFormattingOption = ... # 0x20
-    RemoveQuery              : QUrl.UrlFormattingOption = ... # 0x40
-    RemoveFragment           : QUrl.UrlFormattingOption = ... # 0x80
-    PreferLocalFile          : QUrl.UrlFormattingOption = ... # 0x200
-    StripTrailingSlash       : QUrl.UrlFormattingOption = ... # 0x400
-    RemoveFilename           : QUrl.UrlFormattingOption = ... # 0x800
-    NormalizePathSegments    : QUrl.UrlFormattingOption = ... # 0x1000
-    DefaultResolution        : QUrl.UserInputResolutionOption = ... # 0x0
-    AssumeLocalFile          : QUrl.UserInputResolutionOption = ... # 0x1
-
-    class AceProcessingOption(Shiboken.Enum):
+    class AceProcessingOption(shibokensupport.enum_310.Flag):
 
         IgnoreIDNWhitelist       : QUrl.AceProcessingOption = ... # 0x1
         AceTransitionalProcessing: QUrl.AceProcessingOption = ... # 0x2
 
-    class AceProcessingOptions(object): ...
 
-    class ComponentFormattingOption(Shiboken.Enum):
+    class ComponentFormattingOption(shibokensupport.enum_310.IntFlag):
 
         PrettyDecoded            : QUrl.ComponentFormattingOption = ... # 0x0
         EncodeSpaces             : QUrl.ComponentFormattingOption = ... # 0x100000
@@ -9423,15 +7706,15 @@ class QUrl(Shiboken.Object):
         DecodeReserved           : QUrl.ComponentFormattingOption = ... # 0x2000000
         FullyDecoded             : QUrl.ComponentFormattingOption = ... # 0x7f00000
 
-    class FormattingOptions(object): ...
 
-    class ParsingMode(Shiboken.Enum):
+    class ParsingMode(shibokensupport.enum_310.Enum):
 
         TolerantMode             : QUrl.ParsingMode = ... # 0x0
         StrictMode               : QUrl.ParsingMode = ... # 0x1
         DecodedMode              : QUrl.ParsingMode = ... # 0x2
 
-    class UrlFormattingOption(Shiboken.Enum):
+
+    class UrlFormattingOption(shibokensupport.enum_310.IntFlag):
 
         None_                    : QUrl.UrlFormattingOption = ... # 0x0
         RemoveScheme             : QUrl.UrlFormattingOption = ... # 0x1
@@ -9447,12 +7730,11 @@ class QUrl(Shiboken.Object):
         RemoveFilename           : QUrl.UrlFormattingOption = ... # 0x800
         NormalizePathSegments    : QUrl.UrlFormattingOption = ... # 0x1000
 
-    class UserInputResolutionOption(Shiboken.Enum):
+
+    class UserInputResolutionOption(shibokensupport.enum_310.Flag):
 
         DefaultResolution        : QUrl.UserInputResolutionOption = ... # 0x0
         AssumeLocalFile          : QUrl.UserInputResolutionOption = ... # 0x1
-
-    class UserInputResolutionOptions(object): ...
 
 
     @overload
@@ -9466,14 +7748,14 @@ class QUrl(Shiboken.Object):
     def __copy__() -> None: ...
     def __reduce__(self) -> object: ...
     def __repr__(self) -> object: ...
-    def adjusted(self, options: PySide6.QtCore.QUrl.FormattingOptions) -> PySide6.QtCore.QUrl: ...
+    def adjusted(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption) -> PySide6.QtCore.QUrl: ...
     def authority(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     def clear(self) -> None: ...
     def errorString(self) -> str: ...
     def fileName(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     def fragment(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     @staticmethod
-    def fromAce(domain: Union[PySide6.QtCore.QByteArray, bytes], options: PySide6.QtCore.QUrl.AceProcessingOptions = ...) -> str: ...
+    def fromAce(domain: Union[PySide6.QtCore.QByteArray, bytes], options: PySide6.QtCore.QUrl.AceProcessingOption = ...) -> str: ...
     @staticmethod
     def fromEncoded(url: Union[PySide6.QtCore.QByteArray, bytes], mode: PySide6.QtCore.QUrl.ParsingMode = ...) -> PySide6.QtCore.QUrl: ...
     @staticmethod
@@ -9483,7 +7765,7 @@ class QUrl(Shiboken.Object):
     @staticmethod
     def fromStringList(uris: Sequence[str], mode: PySide6.QtCore.QUrl.ParsingMode = ...) -> List[PySide6.QtCore.QUrl]: ...
     @staticmethod
-    def fromUserInput(userInput: str, workingDirectory: str = ..., options: PySide6.QtCore.QUrl.UserInputResolutionOptions = ...) -> PySide6.QtCore.QUrl: ...
+    def fromUserInput(userInput: str, workingDirectory: str = ..., options: PySide6.QtCore.QUrl.UserInputResolutionOption = ...) -> PySide6.QtCore.QUrl: ...
     def hasFragment(self) -> bool: ...
     def hasQuery(self) -> bool: ...
     def host(self, arg__1: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
@@ -9494,7 +7776,7 @@ class QUrl(Shiboken.Object):
     def isParentOf(self, url: Union[PySide6.QtCore.QUrl, str]) -> bool: ...
     def isRelative(self) -> bool: ...
     def isValid(self) -> bool: ...
-    def matches(self, url: Union[PySide6.QtCore.QUrl, str], options: PySide6.QtCore.QUrl.FormattingOptions) -> bool: ...
+    def matches(self, url: Union[PySide6.QtCore.QUrl, str], options: PySide6.QtCore.QUrl.ComponentFormattingOption) -> bool: ...
     def password(self, arg__1: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     def path(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     def port(self, defaultPort: int = ...) -> int: ...
@@ -9519,16 +7801,16 @@ class QUrl(Shiboken.Object):
     def setUserName(self, userName: str, mode: PySide6.QtCore.QUrl.ParsingMode = ...) -> None: ...
     def swap(self, other: Union[PySide6.QtCore.QUrl, str]) -> None: ...
     @staticmethod
-    def toAce(domain: str, options: PySide6.QtCore.QUrl.AceProcessingOptions = ...) -> PySide6.QtCore.QByteArray: ...
-    def toDisplayString(self, options: PySide6.QtCore.QUrl.FormattingOptions = ...) -> str: ...
-    def toEncoded(self, options: PySide6.QtCore.QUrl.FormattingOptions = ...) -> PySide6.QtCore.QByteArray: ...
+    def toAce(domain: str, options: PySide6.QtCore.QUrl.AceProcessingOption = ...) -> PySide6.QtCore.QByteArray: ...
+    def toDisplayString(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
+    def toEncoded(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> PySide6.QtCore.QByteArray: ...
     def toLocalFile(self) -> str: ...
     @staticmethod
     def toPercentEncoding(arg__1: str, exclude: Union[PySide6.QtCore.QByteArray, bytes] = ..., include: Union[PySide6.QtCore.QByteArray, bytes] = ...) -> PySide6.QtCore.QByteArray: ...
-    def toString(self, options: PySide6.QtCore.QUrl.FormattingOptions = ...) -> str: ...
+    def toString(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     @staticmethod
-    def toStringList(uris: Sequence[PySide6.QtCore.QUrl], options: PySide6.QtCore.QUrl.FormattingOptions = ...) -> List[str]: ...
-    def url(self, options: PySide6.QtCore.QUrl.FormattingOptions = ...) -> str: ...
+    def toStringList(uris: Sequence[PySide6.QtCore.QUrl], options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> List[str]: ...
+    def url(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     def userInfo(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
     def userName(self, options: PySide6.QtCore.QUrl.ComponentFormattingOption = ...) -> str: ...
 
@@ -9567,29 +7849,14 @@ class QUrlQuery(Shiboken.Object):
 
 class QUuid(Shiboken.Object):
 
+    class StringFormat(shibokensupport.enum_310.Enum):
+
     WithBraces               : QUuid.StringFormat = ... # 0x0
     WithoutBraces            : QUuid.StringFormat = ... # 0x1
     Id128                    : QUuid.StringFormat = ... # 0x3
-    VarUnknown               : QUuid.Variant = ... # -0x1
-    NCS                      : QUuid.Variant = ... # 0x0
-    DCE                      : QUuid.Variant = ... # 0x2
-    Microsoft                : QUuid.Variant = ... # 0x6
-    Reserved                 : QUuid.Variant = ... # 0x7
-    VerUnknown               : QUuid.Version = ... # -0x1
-    Time                     : QUuid.Version = ... # 0x1
-    EmbeddedPOSIX            : QUuid.Version = ... # 0x2
-    Md5                      : QUuid.Version = ... # 0x3
-    Name                     : QUuid.Version = ... # 0x3
-    Random                   : QUuid.Version = ... # 0x4
-    Sha1                     : QUuid.Version = ... # 0x5
 
-    class StringFormat(Shiboken.Enum):
 
-        WithBraces               : QUuid.StringFormat = ... # 0x0
-        WithoutBraces            : QUuid.StringFormat = ... # 0x1
-        Id128                    : QUuid.StringFormat = ... # 0x3
-
-    class Variant(Shiboken.Enum):
+    class Variant(shibokensupport.enum_310.Enum):
 
         VarUnknown               : QUuid.Variant = ... # -0x1
         NCS                      : QUuid.Variant = ... # 0x0
@@ -9597,7 +7864,8 @@ class QUuid(Shiboken.Object):
         Microsoft                : QUuid.Variant = ... # 0x6
         Reserved                 : QUuid.Variant = ... # 0x7
 
-    class Version(Shiboken.Enum):
+
+    class Version(shibokensupport.enum_310.Enum):
 
         VerUnknown               : QUuid.Version = ... # -0x1
         Time                     : QUuid.Version = ... # 0x1
@@ -9689,7 +7957,7 @@ class QVersionNumber(Shiboken.Object):
     @staticmethod
     def compare(v1: PySide6.QtCore.QVersionNumber, v2: PySide6.QtCore.QVersionNumber) -> int: ...
     @staticmethod
-    def fromString(string: str) -> Tuple[PySide6.QtCore.QVersionNumber, int]: ...
+    def fromString(string: str) -> PySide6.QtCore.QVersionNumber: ...
     def isNormalized(self) -> bool: ...
     def isNull(self) -> bool: ...
     def isPrefixOf(self, other: PySide6.QtCore.QVersionNumber) -> bool: ...
@@ -9900,41 +8168,23 @@ class QXmlStreamNotationDeclaration(Shiboken.Object):
 
 class QXmlStreamReader(Shiboken.Object):
 
+    class Error(shibokensupport.enum_310.Enum):
+
     NoError                  : QXmlStreamReader.Error = ... # 0x0
     UnexpectedElementError   : QXmlStreamReader.Error = ... # 0x1
     CustomError              : QXmlStreamReader.Error = ... # 0x2
     NotWellFormedError       : QXmlStreamReader.Error = ... # 0x3
     PrematureEndOfDocumentError: QXmlStreamReader.Error = ... # 0x4
-    ErrorOnUnexpectedElement : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x0
-    IncludeChildElements     : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x1
-    SkipChildElements        : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x2
-    NoToken                  : QXmlStreamReader.TokenType = ... # 0x0
-    Invalid                  : QXmlStreamReader.TokenType = ... # 0x1
-    StartDocument            : QXmlStreamReader.TokenType = ... # 0x2
-    EndDocument              : QXmlStreamReader.TokenType = ... # 0x3
-    StartElement             : QXmlStreamReader.TokenType = ... # 0x4
-    EndElement               : QXmlStreamReader.TokenType = ... # 0x5
-    Characters               : QXmlStreamReader.TokenType = ... # 0x6
-    Comment                  : QXmlStreamReader.TokenType = ... # 0x7
-    DTD                      : QXmlStreamReader.TokenType = ... # 0x8
-    EntityReference          : QXmlStreamReader.TokenType = ... # 0x9
-    ProcessingInstruction    : QXmlStreamReader.TokenType = ... # 0xa
 
-    class Error(Shiboken.Enum):
 
-        NoError                  : QXmlStreamReader.Error = ... # 0x0
-        UnexpectedElementError   : QXmlStreamReader.Error = ... # 0x1
-        CustomError              : QXmlStreamReader.Error = ... # 0x2
-        NotWellFormedError       : QXmlStreamReader.Error = ... # 0x3
-        PrematureEndOfDocumentError: QXmlStreamReader.Error = ... # 0x4
-
-    class ReadElementTextBehaviour(Shiboken.Enum):
+    class ReadElementTextBehaviour(shibokensupport.enum_310.Enum):
 
         ErrorOnUnexpectedElement : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x0
         IncludeChildElements     : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x1
         SkipChildElements        : QXmlStreamReader.ReadElementTextBehaviour = ... # 0x2
 
-    class TokenType(Shiboken.Enum):
+
+    class TokenType(shibokensupport.enum_310.Enum):
 
         NoToken                  : QXmlStreamReader.TokenType = ... # 0x0
         Invalid                  : QXmlStreamReader.TokenType = ... # 0x1
@@ -10077,6 +8327,8 @@ class QXmlStreamWriter(Shiboken.Object):
 
 class Qt(Shiboken.Object):
 
+    class AlignmentFlag(shibokensupport.enum_310.IntFlag):
+
     AlignLeading             : Qt.AlignmentFlag = ... # 0x1
     AlignLeft                : Qt.AlignmentFlag = ... # 0x1
     AlignRight               : Qt.AlignmentFlag = ... # 0x2
@@ -10091,1180 +8343,9 @@ class Qt(Shiboken.Object):
     AlignCenter              : Qt.AlignmentFlag = ... # 0x84
     AlignBaseline            : Qt.AlignmentFlag = ... # 0x100
     AlignVertical_Mask       : Qt.AlignmentFlag = ... # 0x1e0
-    AnchorLeft               : Qt.AnchorPoint = ... # 0x0
-    AnchorHorizontalCenter   : Qt.AnchorPoint = ... # 0x1
-    AnchorRight              : Qt.AnchorPoint = ... # 0x2
-    AnchorTop                : Qt.AnchorPoint = ... # 0x3
-    AnchorVerticalCenter     : Qt.AnchorPoint = ... # 0x4
-    AnchorBottom             : Qt.AnchorPoint = ... # 0x5
-    AA_DontShowIconsInMenus  : Qt.ApplicationAttribute = ... # 0x2
-    AA_NativeWindows         : Qt.ApplicationAttribute = ... # 0x3
-    AA_DontCreateNativeWidgetSiblings: Qt.ApplicationAttribute = ... # 0x4
-    AA_PluginApplication     : Qt.ApplicationAttribute = ... # 0x5
-    AA_DontUseNativeMenuBar  : Qt.ApplicationAttribute = ... # 0x6
-    AA_MacDontSwapCtrlAndMeta: Qt.ApplicationAttribute = ... # 0x7
-    AA_Use96Dpi              : Qt.ApplicationAttribute = ... # 0x8
-    AA_DisableNativeVirtualKeyboard: Qt.ApplicationAttribute = ... # 0x9
-    AA_SynthesizeTouchForUnhandledMouseEvents: Qt.ApplicationAttribute = ... # 0xb
-    AA_SynthesizeMouseForUnhandledTouchEvents: Qt.ApplicationAttribute = ... # 0xc
-    AA_UseHighDpiPixmaps     : Qt.ApplicationAttribute = ... # 0xd
-    AA_ForceRasterWidgets    : Qt.ApplicationAttribute = ... # 0xe
-    AA_UseDesktopOpenGL      : Qt.ApplicationAttribute = ... # 0xf
-    AA_UseOpenGLES           : Qt.ApplicationAttribute = ... # 0x10
-    AA_UseSoftwareOpenGL     : Qt.ApplicationAttribute = ... # 0x11
-    AA_ShareOpenGLContexts   : Qt.ApplicationAttribute = ... # 0x12
-    AA_SetPalette            : Qt.ApplicationAttribute = ... # 0x13
-    AA_EnableHighDpiScaling  : Qt.ApplicationAttribute = ... # 0x14
-    AA_DisableHighDpiScaling : Qt.ApplicationAttribute = ... # 0x15
-    AA_UseStyleSheetPropagationInWidgetStyles: Qt.ApplicationAttribute = ... # 0x16
-    AA_DontUseNativeDialogs  : Qt.ApplicationAttribute = ... # 0x17
-    AA_SynthesizeMouseForUnhandledTabletEvents: Qt.ApplicationAttribute = ... # 0x18
-    AA_CompressHighFrequencyEvents: Qt.ApplicationAttribute = ... # 0x19
-    AA_DontCheckOpenGLContextThreadAffinity: Qt.ApplicationAttribute = ... # 0x1a
-    AA_DisableShaderDiskCache: Qt.ApplicationAttribute = ... # 0x1b
-    AA_DontShowShortcutsInContextMenus: Qt.ApplicationAttribute = ... # 0x1c
-    AA_CompressTabletEvents  : Qt.ApplicationAttribute = ... # 0x1d
-    AA_DisableSessionManager : Qt.ApplicationAttribute = ... # 0x1f
-    AA_AttributeCount        : Qt.ApplicationAttribute = ... # 0x20
-    ApplicationSuspended     : Qt.ApplicationState = ... # 0x0
-    ApplicationHidden        : Qt.ApplicationState = ... # 0x1
-    ApplicationInactive      : Qt.ApplicationState = ... # 0x2
-    ApplicationActive        : Qt.ApplicationState = ... # 0x4
-    NoArrow                  : Qt.ArrowType = ... # 0x0
-    UpArrow                  : Qt.ArrowType = ... # 0x1
-    DownArrow                : Qt.ArrowType = ... # 0x2
-    LeftArrow                : Qt.ArrowType = ... # 0x3
-    RightArrow               : Qt.ArrowType = ... # 0x4
-    IgnoreAspectRatio        : Qt.AspectRatioMode = ... # 0x0
-    KeepAspectRatio          : Qt.AspectRatioMode = ... # 0x1
-    KeepAspectRatioByExpanding: Qt.AspectRatioMode = ... # 0x2
-    XAxis                    : Qt.Axis = ... # 0x0
-    YAxis                    : Qt.Axis = ... # 0x1
-    ZAxis                    : Qt.Axis = ... # 0x2
-    TransparentMode          : Qt.BGMode = ... # 0x0
-    OpaqueMode               : Qt.BGMode = ... # 0x1
-    NoBrush                  : Qt.BrushStyle = ... # 0x0
-    SolidPattern             : Qt.BrushStyle = ... # 0x1
-    Dense1Pattern            : Qt.BrushStyle = ... # 0x2
-    Dense2Pattern            : Qt.BrushStyle = ... # 0x3
-    Dense3Pattern            : Qt.BrushStyle = ... # 0x4
-    Dense4Pattern            : Qt.BrushStyle = ... # 0x5
-    Dense5Pattern            : Qt.BrushStyle = ... # 0x6
-    Dense6Pattern            : Qt.BrushStyle = ... # 0x7
-    Dense7Pattern            : Qt.BrushStyle = ... # 0x8
-    HorPattern               : Qt.BrushStyle = ... # 0x9
-    VerPattern               : Qt.BrushStyle = ... # 0xa
-    CrossPattern             : Qt.BrushStyle = ... # 0xb
-    BDiagPattern             : Qt.BrushStyle = ... # 0xc
-    FDiagPattern             : Qt.BrushStyle = ... # 0xd
-    DiagCrossPattern         : Qt.BrushStyle = ... # 0xe
-    LinearGradientPattern    : Qt.BrushStyle = ... # 0xf
-    RadialGradientPattern    : Qt.BrushStyle = ... # 0x10
-    ConicalGradientPattern   : Qt.BrushStyle = ... # 0x11
-    TexturePattern           : Qt.BrushStyle = ... # 0x18
-    CaseInsensitive          : Qt.CaseSensitivity = ... # 0x0
-    CaseSensitive            : Qt.CaseSensitivity = ... # 0x1
-    Unchecked                : Qt.CheckState = ... # 0x0
-    PartiallyChecked         : Qt.CheckState = ... # 0x1
-    Checked                  : Qt.CheckState = ... # 0x2
-    ChecksumIso3309          : Qt.ChecksumType = ... # 0x0
-    ChecksumItuV41           : Qt.ChecksumType = ... # 0x1
-    NoClip                   : Qt.ClipOperation = ... # 0x0
-    ReplaceClip              : Qt.ClipOperation = ... # 0x1
-    IntersectClip            : Qt.ClipOperation = ... # 0x2
-    AutoConnection           : Qt.ConnectionType = ... # 0x0
-    DirectConnection         : Qt.ConnectionType = ... # 0x1
-    QueuedConnection         : Qt.ConnectionType = ... # 0x2
-    BlockingQueuedConnection : Qt.ConnectionType = ... # 0x3
-    UniqueConnection         : Qt.ConnectionType = ... # 0x80
-    SingleShotConnection     : Qt.ConnectionType = ... # 0x100
-    NoContextMenu            : Qt.ContextMenuPolicy = ... # 0x0
-    DefaultContextMenu       : Qt.ContextMenuPolicy = ... # 0x1
-    ActionsContextMenu       : Qt.ContextMenuPolicy = ... # 0x2
-    CustomContextMenu        : Qt.ContextMenuPolicy = ... # 0x3
-    PreventContextMenu       : Qt.ContextMenuPolicy = ... # 0x4
-    DeviceCoordinates        : Qt.CoordinateSystem = ... # 0x0
-    LogicalCoordinates       : Qt.CoordinateSystem = ... # 0x1
-    TopLeftCorner            : Qt.Corner = ... # 0x0
-    TopRightCorner           : Qt.Corner = ... # 0x1
-    BottomLeftCorner         : Qt.Corner = ... # 0x2
-    BottomRightCorner        : Qt.Corner = ... # 0x3
-    LogicalMoveStyle         : Qt.CursorMoveStyle = ... # 0x0
-    VisualMoveStyle          : Qt.CursorMoveStyle = ... # 0x1
-    ArrowCursor              : Qt.CursorShape = ... # 0x0
-    UpArrowCursor            : Qt.CursorShape = ... # 0x1
-    CrossCursor              : Qt.CursorShape = ... # 0x2
-    WaitCursor               : Qt.CursorShape = ... # 0x3
-    IBeamCursor              : Qt.CursorShape = ... # 0x4
-    SizeVerCursor            : Qt.CursorShape = ... # 0x5
-    SizeHorCursor            : Qt.CursorShape = ... # 0x6
-    SizeBDiagCursor          : Qt.CursorShape = ... # 0x7
-    SizeFDiagCursor          : Qt.CursorShape = ... # 0x8
-    SizeAllCursor            : Qt.CursorShape = ... # 0x9
-    BlankCursor              : Qt.CursorShape = ... # 0xa
-    SplitVCursor             : Qt.CursorShape = ... # 0xb
-    SplitHCursor             : Qt.CursorShape = ... # 0xc
-    PointingHandCursor       : Qt.CursorShape = ... # 0xd
-    ForbiddenCursor          : Qt.CursorShape = ... # 0xe
-    WhatsThisCursor          : Qt.CursorShape = ... # 0xf
-    BusyCursor               : Qt.CursorShape = ... # 0x10
-    OpenHandCursor           : Qt.CursorShape = ... # 0x11
-    ClosedHandCursor         : Qt.CursorShape = ... # 0x12
-    DragCopyCursor           : Qt.CursorShape = ... # 0x13
-    DragMoveCursor           : Qt.CursorShape = ... # 0x14
-    DragLinkCursor           : Qt.CursorShape = ... # 0x15
-    LastCursor               : Qt.CursorShape = ... # 0x15
-    BitmapCursor             : Qt.CursorShape = ... # 0x18
-    CustomCursor             : Qt.CursorShape = ... # 0x19
-    TextDate                 : Qt.DateFormat = ... # 0x0
-    ISODate                  : Qt.DateFormat = ... # 0x1
-    RFC2822Date              : Qt.DateFormat = ... # 0x8
-    ISODateWithMs            : Qt.DateFormat = ... # 0x9
-    Monday                   : Qt.DayOfWeek = ... # 0x1
-    Tuesday                  : Qt.DayOfWeek = ... # 0x2
-    Wednesday                : Qt.DayOfWeek = ... # 0x3
-    Thursday                 : Qt.DayOfWeek = ... # 0x4
-    Friday                   : Qt.DayOfWeek = ... # 0x5
-    Saturday                 : Qt.DayOfWeek = ... # 0x6
-    Sunday                   : Qt.DayOfWeek = ... # 0x7
-    NoDockWidgetArea         : Qt.DockWidgetArea = ... # 0x0
-    LeftDockWidgetArea       : Qt.DockWidgetArea = ... # 0x1
-    RightDockWidgetArea      : Qt.DockWidgetArea = ... # 0x2
-    TopDockWidgetArea        : Qt.DockWidgetArea = ... # 0x4
-    BottomDockWidgetArea     : Qt.DockWidgetArea = ... # 0x8
-    AllDockWidgetAreas       : Qt.DockWidgetArea = ... # 0xf
-    DockWidgetArea_Mask      : Qt.DockWidgetArea = ... # 0xf
-    NDockWidgetAreas         : Qt.DockWidgetAreaSizes = ... # 0x4
-    IgnoreAction             : Qt.DropAction = ... # 0x0
-    CopyAction               : Qt.DropAction = ... # 0x1
-    MoveAction               : Qt.DropAction = ... # 0x2
-    LinkAction               : Qt.DropAction = ... # 0x4
-    ActionMask               : Qt.DropAction = ... # 0xff
-    TargetMoveAction         : Qt.DropAction = ... # 0x8002
-    TopEdge                  : Qt.Edge = ... # 0x1
-    LeftEdge                 : Qt.Edge = ... # 0x2
-    RightEdge                : Qt.Edge = ... # 0x4
-    BottomEdge               : Qt.Edge = ... # 0x8
-    EnterKeyDefault          : Qt.EnterKeyType = ... # 0x0
-    EnterKeyReturn           : Qt.EnterKeyType = ... # 0x1
-    EnterKeyDone             : Qt.EnterKeyType = ... # 0x2
-    EnterKeyGo               : Qt.EnterKeyType = ... # 0x3
-    EnterKeySend             : Qt.EnterKeyType = ... # 0x4
-    EnterKeySearch           : Qt.EnterKeyType = ... # 0x5
-    EnterKeyNext             : Qt.EnterKeyType = ... # 0x6
-    EnterKeyPrevious         : Qt.EnterKeyType = ... # 0x7
-    LowEventPriority         : Qt.EventPriority = ... # -0x1
-    NormalEventPriority      : Qt.EventPriority = ... # 0x0
-    HighEventPriority        : Qt.EventPriority = ... # 0x1
-    OddEvenFill              : Qt.FillRule = ... # 0x0
-    WindingFill              : Qt.FillRule = ... # 0x1
-    FindDirectChildrenOnly   : Qt.FindChildOption = ... # 0x0
-    FindChildrenRecursively  : Qt.FindChildOption = ... # 0x1
-    NoFocus                  : Qt.FocusPolicy = ... # 0x0
-    TabFocus                 : Qt.FocusPolicy = ... # 0x1
-    ClickFocus               : Qt.FocusPolicy = ... # 0x2
-    StrongFocus              : Qt.FocusPolicy = ... # 0xb
-    WheelFocus               : Qt.FocusPolicy = ... # 0xf
-    MouseFocusReason         : Qt.FocusReason = ... # 0x0
-    TabFocusReason           : Qt.FocusReason = ... # 0x1
-    BacktabFocusReason       : Qt.FocusReason = ... # 0x2
-    ActiveWindowFocusReason  : Qt.FocusReason = ... # 0x3
-    PopupFocusReason         : Qt.FocusReason = ... # 0x4
-    ShortcutFocusReason      : Qt.FocusReason = ... # 0x5
-    MenuBarFocusReason       : Qt.FocusReason = ... # 0x6
-    OtherFocusReason         : Qt.FocusReason = ... # 0x7
-    NoFocusReason            : Qt.FocusReason = ... # 0x8
-    DontStartGestureOnChildren: Qt.GestureFlag = ... # 0x1
-    ReceivePartialGestures   : Qt.GestureFlag = ... # 0x2
-    IgnoredGesturesPropagateToParent: Qt.GestureFlag = ... # 0x4
-    NoGesture                : Qt.GestureState = ... # 0x0
-    GestureStarted           : Qt.GestureState = ... # 0x1
-    GestureUpdated           : Qt.GestureState = ... # 0x2
-    GestureFinished          : Qt.GestureState = ... # 0x3
-    GestureCanceled          : Qt.GestureState = ... # 0x4
-    TapGesture               : Qt.GestureType = ... # 0x1
-    TapAndHoldGesture        : Qt.GestureType = ... # 0x2
-    PanGesture               : Qt.GestureType = ... # 0x3
-    PinchGesture             : Qt.GestureType = ... # 0x4
-    SwipeGesture             : Qt.GestureType = ... # 0x5
-    CustomGesture            : Qt.GestureType = ... # 0x100
-    LastGestureType          : Qt.GestureType = ... # 0xffffffff
-    color0                   : Qt.GlobalColor = ... # 0x0
-    color1                   : Qt.GlobalColor = ... # 0x1
-    black                    : Qt.GlobalColor = ... # 0x2
-    white                    : Qt.GlobalColor = ... # 0x3
-    darkGray                 : Qt.GlobalColor = ... # 0x4
-    gray                     : Qt.GlobalColor = ... # 0x5
-    lightGray                : Qt.GlobalColor = ... # 0x6
-    red                      : Qt.GlobalColor = ... # 0x7
-    green                    : Qt.GlobalColor = ... # 0x8
-    blue                     : Qt.GlobalColor = ... # 0x9
-    cyan                     : Qt.GlobalColor = ... # 0xa
-    magenta                  : Qt.GlobalColor = ... # 0xb
-    yellow                   : Qt.GlobalColor = ... # 0xc
-    darkRed                  : Qt.GlobalColor = ... # 0xd
-    darkGreen                : Qt.GlobalColor = ... # 0xe
-    darkBlue                 : Qt.GlobalColor = ... # 0xf
-    darkCyan                 : Qt.GlobalColor = ... # 0x10
-    darkMagenta              : Qt.GlobalColor = ... # 0x11
-    darkYellow               : Qt.GlobalColor = ... # 0x12
-    transparent              : Qt.GlobalColor = ... # 0x13
-    ExactHit                 : Qt.HitTestAccuracy = ... # 0x0
-    FuzzyHit                 : Qt.HitTestAccuracy = ... # 0x1
-    AutoColor                : Qt.ImageConversionFlag = ... # 0x0
-    AutoDither               : Qt.ImageConversionFlag = ... # 0x0
-    DiffuseDither            : Qt.ImageConversionFlag = ... # 0x0
-    ThresholdAlphaDither     : Qt.ImageConversionFlag = ... # 0x0
-    MonoOnly                 : Qt.ImageConversionFlag = ... # 0x2
-    ColorMode_Mask           : Qt.ImageConversionFlag = ... # 0x3
-    ColorOnly                : Qt.ImageConversionFlag = ... # 0x3
-    OrderedAlphaDither       : Qt.ImageConversionFlag = ... # 0x4
-    DiffuseAlphaDither       : Qt.ImageConversionFlag = ... # 0x8
-    AlphaDither_Mask         : Qt.ImageConversionFlag = ... # 0xc
-    NoAlpha                  : Qt.ImageConversionFlag = ... # 0xc
-    OrderedDither            : Qt.ImageConversionFlag = ... # 0x10
-    ThresholdDither          : Qt.ImageConversionFlag = ... # 0x20
-    Dither_Mask              : Qt.ImageConversionFlag = ... # 0x30
-    PreferDither             : Qt.ImageConversionFlag = ... # 0x40
-    AvoidDither              : Qt.ImageConversionFlag = ... # 0x80
-    DitherMode_Mask          : Qt.ImageConversionFlag = ... # 0xc0
-    NoOpaqueDetection        : Qt.ImageConversionFlag = ... # 0x100
-    NoFormatConversion       : Qt.ImageConversionFlag = ... # 0x200
-    ImhNone                  : Qt.InputMethodHint = ... # 0x0
-    ImhHiddenText            : Qt.InputMethodHint = ... # 0x1
-    ImhSensitiveData         : Qt.InputMethodHint = ... # 0x2
-    ImhNoAutoUppercase       : Qt.InputMethodHint = ... # 0x4
-    ImhPreferNumbers         : Qt.InputMethodHint = ... # 0x8
-    ImhPreferUppercase       : Qt.InputMethodHint = ... # 0x10
-    ImhPreferLowercase       : Qt.InputMethodHint = ... # 0x20
-    ImhNoPredictiveText      : Qt.InputMethodHint = ... # 0x40
-    ImhDate                  : Qt.InputMethodHint = ... # 0x80
-    ImhTime                  : Qt.InputMethodHint = ... # 0x100
-    ImhPreferLatin           : Qt.InputMethodHint = ... # 0x200
-    ImhMultiLine             : Qt.InputMethodHint = ... # 0x400
-    ImhNoEditMenu            : Qt.InputMethodHint = ... # 0x800
-    ImhNoTextHandles         : Qt.InputMethodHint = ... # 0x1000
-    ImhDigitsOnly            : Qt.InputMethodHint = ... # 0x10000
-    ImhFormattedNumbersOnly  : Qt.InputMethodHint = ... # 0x20000
-    ImhUppercaseOnly         : Qt.InputMethodHint = ... # 0x40000
-    ImhLowercaseOnly         : Qt.InputMethodHint = ... # 0x80000
-    ImhDialableCharactersOnly: Qt.InputMethodHint = ... # 0x100000
-    ImhEmailCharactersOnly   : Qt.InputMethodHint = ... # 0x200000
-    ImhUrlCharactersOnly     : Qt.InputMethodHint = ... # 0x400000
-    ImhLatinOnly             : Qt.InputMethodHint = ... # 0x800000
-    ImhExclusiveInputMask    : Qt.InputMethodHint = ... # -0x10000
-    ImEnabled                : Qt.InputMethodQuery = ... # 0x1
-    ImCursorRectangle        : Qt.InputMethodQuery = ... # 0x2
-    ImFont                   : Qt.InputMethodQuery = ... # 0x4
-    ImCursorPosition         : Qt.InputMethodQuery = ... # 0x8
-    ImSurroundingText        : Qt.InputMethodQuery = ... # 0x10
-    ImCurrentSelection       : Qt.InputMethodQuery = ... # 0x20
-    ImMaximumTextLength      : Qt.InputMethodQuery = ... # 0x40
-    ImAnchorPosition         : Qt.InputMethodQuery = ... # 0x80
-    ImHints                  : Qt.InputMethodQuery = ... # 0x100
-    ImPreferredLanguage      : Qt.InputMethodQuery = ... # 0x200
-    ImAbsolutePosition       : Qt.InputMethodQuery = ... # 0x400
-    ImTextBeforeCursor       : Qt.InputMethodQuery = ... # 0x800
-    ImTextAfterCursor        : Qt.InputMethodQuery = ... # 0x1000
-    ImEnterKeyType           : Qt.InputMethodQuery = ... # 0x2000
-    ImAnchorRectangle        : Qt.InputMethodQuery = ... # 0x4000
-    ImQueryInput             : Qt.InputMethodQuery = ... # 0x40ba
-    ImInputItemClipRectangle : Qt.InputMethodQuery = ... # 0x8000
-    ImReadOnly               : Qt.InputMethodQuery = ... # 0x10000
-    ImPlatformData           : Qt.InputMethodQuery = ... # -0x80000000
-    ImQueryAll               : Qt.InputMethodQuery = ... # -0x1
-    DisplayRole              : Qt.ItemDataRole = ... # 0x0
-    DecorationRole           : Qt.ItemDataRole = ... # 0x1
-    EditRole                 : Qt.ItemDataRole = ... # 0x2
-    ToolTipRole              : Qt.ItemDataRole = ... # 0x3
-    StatusTipRole            : Qt.ItemDataRole = ... # 0x4
-    WhatsThisRole            : Qt.ItemDataRole = ... # 0x5
-    FontRole                 : Qt.ItemDataRole = ... # 0x6
-    TextAlignmentRole        : Qt.ItemDataRole = ... # 0x7
-    BackgroundRole           : Qt.ItemDataRole = ... # 0x8
-    ForegroundRole           : Qt.ItemDataRole = ... # 0x9
-    CheckStateRole           : Qt.ItemDataRole = ... # 0xa
-    AccessibleTextRole       : Qt.ItemDataRole = ... # 0xb
-    AccessibleDescriptionRole: Qt.ItemDataRole = ... # 0xc
-    SizeHintRole             : Qt.ItemDataRole = ... # 0xd
-    InitialSortOrderRole     : Qt.ItemDataRole = ... # 0xe
-    DisplayPropertyRole      : Qt.ItemDataRole = ... # 0x1b
-    DecorationPropertyRole   : Qt.ItemDataRole = ... # 0x1c
-    ToolTipPropertyRole      : Qt.ItemDataRole = ... # 0x1d
-    StatusTipPropertyRole    : Qt.ItemDataRole = ... # 0x1e
-    WhatsThisPropertyRole    : Qt.ItemDataRole = ... # 0x1f
-    UserRole                 : Qt.ItemDataRole = ... # 0x100
-    NoItemFlags              : Qt.ItemFlag = ... # 0x0
-    ItemIsSelectable         : Qt.ItemFlag = ... # 0x1
-    ItemIsEditable           : Qt.ItemFlag = ... # 0x2
-    ItemIsDragEnabled        : Qt.ItemFlag = ... # 0x4
-    ItemIsDropEnabled        : Qt.ItemFlag = ... # 0x8
-    ItemIsUserCheckable      : Qt.ItemFlag = ... # 0x10
-    ItemIsEnabled            : Qt.ItemFlag = ... # 0x20
-    ItemIsAutoTristate       : Qt.ItemFlag = ... # 0x40
-    ItemNeverHasChildren     : Qt.ItemFlag = ... # 0x80
-    ItemIsUserTristate       : Qt.ItemFlag = ... # 0x100
-    ContainsItemShape        : Qt.ItemSelectionMode = ... # 0x0
-    IntersectsItemShape      : Qt.ItemSelectionMode = ... # 0x1
-    ContainsItemBoundingRect : Qt.ItemSelectionMode = ... # 0x2
-    IntersectsItemBoundingRect: Qt.ItemSelectionMode = ... # 0x3
-    ReplaceSelection         : Qt.ItemSelectionOperation = ... # 0x0
-    AddToSelection           : Qt.ItemSelectionOperation = ... # 0x1
-    Key_Any                  : Qt.Key = ... # 0x20
-    Key_Space                : Qt.Key = ... # 0x20
-    Key_Exclam               : Qt.Key = ... # 0x21
-    Key_QuoteDbl             : Qt.Key = ... # 0x22
-    Key_NumberSign           : Qt.Key = ... # 0x23
-    Key_Dollar               : Qt.Key = ... # 0x24
-    Key_Percent              : Qt.Key = ... # 0x25
-    Key_Ampersand            : Qt.Key = ... # 0x26
-    Key_Apostrophe           : Qt.Key = ... # 0x27
-    Key_ParenLeft            : Qt.Key = ... # 0x28
-    Key_ParenRight           : Qt.Key = ... # 0x29
-    Key_Asterisk             : Qt.Key = ... # 0x2a
-    Key_Plus                 : Qt.Key = ... # 0x2b
-    Key_Comma                : Qt.Key = ... # 0x2c
-    Key_Minus                : Qt.Key = ... # 0x2d
-    Key_Period               : Qt.Key = ... # 0x2e
-    Key_Slash                : Qt.Key = ... # 0x2f
-    Key_0                    : Qt.Key = ... # 0x30
-    Key_1                    : Qt.Key = ... # 0x31
-    Key_2                    : Qt.Key = ... # 0x32
-    Key_3                    : Qt.Key = ... # 0x33
-    Key_4                    : Qt.Key = ... # 0x34
-    Key_5                    : Qt.Key = ... # 0x35
-    Key_6                    : Qt.Key = ... # 0x36
-    Key_7                    : Qt.Key = ... # 0x37
-    Key_8                    : Qt.Key = ... # 0x38
-    Key_9                    : Qt.Key = ... # 0x39
-    Key_Colon                : Qt.Key = ... # 0x3a
-    Key_Semicolon            : Qt.Key = ... # 0x3b
-    Key_Less                 : Qt.Key = ... # 0x3c
-    Key_Equal                : Qt.Key = ... # 0x3d
-    Key_Greater              : Qt.Key = ... # 0x3e
-    Key_Question             : Qt.Key = ... # 0x3f
-    Key_At                   : Qt.Key = ... # 0x40
-    Key_A                    : Qt.Key = ... # 0x41
-    Key_B                    : Qt.Key = ... # 0x42
-    Key_C                    : Qt.Key = ... # 0x43
-    Key_D                    : Qt.Key = ... # 0x44
-    Key_E                    : Qt.Key = ... # 0x45
-    Key_F                    : Qt.Key = ... # 0x46
-    Key_G                    : Qt.Key = ... # 0x47
-    Key_H                    : Qt.Key = ... # 0x48
-    Key_I                    : Qt.Key = ... # 0x49
-    Key_J                    : Qt.Key = ... # 0x4a
-    Key_K                    : Qt.Key = ... # 0x4b
-    Key_L                    : Qt.Key = ... # 0x4c
-    Key_M                    : Qt.Key = ... # 0x4d
-    Key_N                    : Qt.Key = ... # 0x4e
-    Key_O                    : Qt.Key = ... # 0x4f
-    Key_P                    : Qt.Key = ... # 0x50
-    Key_Q                    : Qt.Key = ... # 0x51
-    Key_R                    : Qt.Key = ... # 0x52
-    Key_S                    : Qt.Key = ... # 0x53
-    Key_T                    : Qt.Key = ... # 0x54
-    Key_U                    : Qt.Key = ... # 0x55
-    Key_V                    : Qt.Key = ... # 0x56
-    Key_W                    : Qt.Key = ... # 0x57
-    Key_X                    : Qt.Key = ... # 0x58
-    Key_Y                    : Qt.Key = ... # 0x59
-    Key_Z                    : Qt.Key = ... # 0x5a
-    Key_BracketLeft          : Qt.Key = ... # 0x5b
-    Key_Backslash            : Qt.Key = ... # 0x5c
-    Key_BracketRight         : Qt.Key = ... # 0x5d
-    Key_AsciiCircum          : Qt.Key = ... # 0x5e
-    Key_Underscore           : Qt.Key = ... # 0x5f
-    Key_QuoteLeft            : Qt.Key = ... # 0x60
-    Key_BraceLeft            : Qt.Key = ... # 0x7b
-    Key_Bar                  : Qt.Key = ... # 0x7c
-    Key_BraceRight           : Qt.Key = ... # 0x7d
-    Key_AsciiTilde           : Qt.Key = ... # 0x7e
-    Key_nobreakspace         : Qt.Key = ... # 0xa0
-    Key_exclamdown           : Qt.Key = ... # 0xa1
-    Key_cent                 : Qt.Key = ... # 0xa2
-    Key_sterling             : Qt.Key = ... # 0xa3
-    Key_currency             : Qt.Key = ... # 0xa4
-    Key_yen                  : Qt.Key = ... # 0xa5
-    Key_brokenbar            : Qt.Key = ... # 0xa6
-    Key_section              : Qt.Key = ... # 0xa7
-    Key_diaeresis            : Qt.Key = ... # 0xa8
-    Key_copyright            : Qt.Key = ... # 0xa9
-    Key_ordfeminine          : Qt.Key = ... # 0xaa
-    Key_guillemotleft        : Qt.Key = ... # 0xab
-    Key_notsign              : Qt.Key = ... # 0xac
-    Key_hyphen               : Qt.Key = ... # 0xad
-    Key_registered           : Qt.Key = ... # 0xae
-    Key_macron               : Qt.Key = ... # 0xaf
-    Key_degree               : Qt.Key = ... # 0xb0
-    Key_plusminus            : Qt.Key = ... # 0xb1
-    Key_twosuperior          : Qt.Key = ... # 0xb2
-    Key_threesuperior        : Qt.Key = ... # 0xb3
-    Key_acute                : Qt.Key = ... # 0xb4
-    Key_mu                   : Qt.Key = ... # 0xb5
-    Key_paragraph            : Qt.Key = ... # 0xb6
-    Key_periodcentered       : Qt.Key = ... # 0xb7
-    Key_cedilla              : Qt.Key = ... # 0xb8
-    Key_onesuperior          : Qt.Key = ... # 0xb9
-    Key_masculine            : Qt.Key = ... # 0xba
-    Key_guillemotright       : Qt.Key = ... # 0xbb
-    Key_onequarter           : Qt.Key = ... # 0xbc
-    Key_onehalf              : Qt.Key = ... # 0xbd
-    Key_threequarters        : Qt.Key = ... # 0xbe
-    Key_questiondown         : Qt.Key = ... # 0xbf
-    Key_Agrave               : Qt.Key = ... # 0xc0
-    Key_Aacute               : Qt.Key = ... # 0xc1
-    Key_Acircumflex          : Qt.Key = ... # 0xc2
-    Key_Atilde               : Qt.Key = ... # 0xc3
-    Key_Adiaeresis           : Qt.Key = ... # 0xc4
-    Key_Aring                : Qt.Key = ... # 0xc5
-    Key_AE                   : Qt.Key = ... # 0xc6
-    Key_Ccedilla             : Qt.Key = ... # 0xc7
-    Key_Egrave               : Qt.Key = ... # 0xc8
-    Key_Eacute               : Qt.Key = ... # 0xc9
-    Key_Ecircumflex          : Qt.Key = ... # 0xca
-    Key_Ediaeresis           : Qt.Key = ... # 0xcb
-    Key_Igrave               : Qt.Key = ... # 0xcc
-    Key_Iacute               : Qt.Key = ... # 0xcd
-    Key_Icircumflex          : Qt.Key = ... # 0xce
-    Key_Idiaeresis           : Qt.Key = ... # 0xcf
-    Key_ETH                  : Qt.Key = ... # 0xd0
-    Key_Ntilde               : Qt.Key = ... # 0xd1
-    Key_Ograve               : Qt.Key = ... # 0xd2
-    Key_Oacute               : Qt.Key = ... # 0xd3
-    Key_Ocircumflex          : Qt.Key = ... # 0xd4
-    Key_Otilde               : Qt.Key = ... # 0xd5
-    Key_Odiaeresis           : Qt.Key = ... # 0xd6
-    Key_multiply             : Qt.Key = ... # 0xd7
-    Key_Ooblique             : Qt.Key = ... # 0xd8
-    Key_Ugrave               : Qt.Key = ... # 0xd9
-    Key_Uacute               : Qt.Key = ... # 0xda
-    Key_Ucircumflex          : Qt.Key = ... # 0xdb
-    Key_Udiaeresis           : Qt.Key = ... # 0xdc
-    Key_Yacute               : Qt.Key = ... # 0xdd
-    Key_THORN                : Qt.Key = ... # 0xde
-    Key_ssharp               : Qt.Key = ... # 0xdf
-    Key_division             : Qt.Key = ... # 0xf7
-    Key_ydiaeresis           : Qt.Key = ... # 0xff
-    Key_Escape               : Qt.Key = ... # 0x1000000
-    Key_Tab                  : Qt.Key = ... # 0x1000001
-    Key_Backtab              : Qt.Key = ... # 0x1000002
-    Key_Backspace            : Qt.Key = ... # 0x1000003
-    Key_Return               : Qt.Key = ... # 0x1000004
-    Key_Enter                : Qt.Key = ... # 0x1000005
-    Key_Insert               : Qt.Key = ... # 0x1000006
-    Key_Delete               : Qt.Key = ... # 0x1000007
-    Key_Pause                : Qt.Key = ... # 0x1000008
-    Key_Print                : Qt.Key = ... # 0x1000009
-    Key_SysReq               : Qt.Key = ... # 0x100000a
-    Key_Clear                : Qt.Key = ... # 0x100000b
-    Key_Home                 : Qt.Key = ... # 0x1000010
-    Key_End                  : Qt.Key = ... # 0x1000011
-    Key_Left                 : Qt.Key = ... # 0x1000012
-    Key_Up                   : Qt.Key = ... # 0x1000013
-    Key_Right                : Qt.Key = ... # 0x1000014
-    Key_Down                 : Qt.Key = ... # 0x1000015
-    Key_PageUp               : Qt.Key = ... # 0x1000016
-    Key_PageDown             : Qt.Key = ... # 0x1000017
-    Key_Shift                : Qt.Key = ... # 0x1000020
-    Key_Control              : Qt.Key = ... # 0x1000021
-    Key_Meta                 : Qt.Key = ... # 0x1000022
-    Key_Alt                  : Qt.Key = ... # 0x1000023
-    Key_CapsLock             : Qt.Key = ... # 0x1000024
-    Key_NumLock              : Qt.Key = ... # 0x1000025
-    Key_ScrollLock           : Qt.Key = ... # 0x1000026
-    Key_F1                   : Qt.Key = ... # 0x1000030
-    Key_F2                   : Qt.Key = ... # 0x1000031
-    Key_F3                   : Qt.Key = ... # 0x1000032
-    Key_F4                   : Qt.Key = ... # 0x1000033
-    Key_F5                   : Qt.Key = ... # 0x1000034
-    Key_F6                   : Qt.Key = ... # 0x1000035
-    Key_F7                   : Qt.Key = ... # 0x1000036
-    Key_F8                   : Qt.Key = ... # 0x1000037
-    Key_F9                   : Qt.Key = ... # 0x1000038
-    Key_F10                  : Qt.Key = ... # 0x1000039
-    Key_F11                  : Qt.Key = ... # 0x100003a
-    Key_F12                  : Qt.Key = ... # 0x100003b
-    Key_F13                  : Qt.Key = ... # 0x100003c
-    Key_F14                  : Qt.Key = ... # 0x100003d
-    Key_F15                  : Qt.Key = ... # 0x100003e
-    Key_F16                  : Qt.Key = ... # 0x100003f
-    Key_F17                  : Qt.Key = ... # 0x1000040
-    Key_F18                  : Qt.Key = ... # 0x1000041
-    Key_F19                  : Qt.Key = ... # 0x1000042
-    Key_F20                  : Qt.Key = ... # 0x1000043
-    Key_F21                  : Qt.Key = ... # 0x1000044
-    Key_F22                  : Qt.Key = ... # 0x1000045
-    Key_F23                  : Qt.Key = ... # 0x1000046
-    Key_F24                  : Qt.Key = ... # 0x1000047
-    Key_F25                  : Qt.Key = ... # 0x1000048
-    Key_F26                  : Qt.Key = ... # 0x1000049
-    Key_F27                  : Qt.Key = ... # 0x100004a
-    Key_F28                  : Qt.Key = ... # 0x100004b
-    Key_F29                  : Qt.Key = ... # 0x100004c
-    Key_F30                  : Qt.Key = ... # 0x100004d
-    Key_F31                  : Qt.Key = ... # 0x100004e
-    Key_F32                  : Qt.Key = ... # 0x100004f
-    Key_F33                  : Qt.Key = ... # 0x1000050
-    Key_F34                  : Qt.Key = ... # 0x1000051
-    Key_F35                  : Qt.Key = ... # 0x1000052
-    Key_Super_L              : Qt.Key = ... # 0x1000053
-    Key_Super_R              : Qt.Key = ... # 0x1000054
-    Key_Menu                 : Qt.Key = ... # 0x1000055
-    Key_Hyper_L              : Qt.Key = ... # 0x1000056
-    Key_Hyper_R              : Qt.Key = ... # 0x1000057
-    Key_Help                 : Qt.Key = ... # 0x1000058
-    Key_Direction_L          : Qt.Key = ... # 0x1000059
-    Key_Direction_R          : Qt.Key = ... # 0x1000060
-    Key_Back                 : Qt.Key = ... # 0x1000061
-    Key_Forward              : Qt.Key = ... # 0x1000062
-    Key_Stop                 : Qt.Key = ... # 0x1000063
-    Key_Refresh              : Qt.Key = ... # 0x1000064
-    Key_VolumeDown           : Qt.Key = ... # 0x1000070
-    Key_VolumeMute           : Qt.Key = ... # 0x1000071
-    Key_VolumeUp             : Qt.Key = ... # 0x1000072
-    Key_BassBoost            : Qt.Key = ... # 0x1000073
-    Key_BassUp               : Qt.Key = ... # 0x1000074
-    Key_BassDown             : Qt.Key = ... # 0x1000075
-    Key_TrebleUp             : Qt.Key = ... # 0x1000076
-    Key_TrebleDown           : Qt.Key = ... # 0x1000077
-    Key_MediaPlay            : Qt.Key = ... # 0x1000080
-    Key_MediaStop            : Qt.Key = ... # 0x1000081
-    Key_MediaPrevious        : Qt.Key = ... # 0x1000082
-    Key_MediaNext            : Qt.Key = ... # 0x1000083
-    Key_MediaRecord          : Qt.Key = ... # 0x1000084
-    Key_MediaPause           : Qt.Key = ... # 0x1000085
-    Key_MediaTogglePlayPause : Qt.Key = ... # 0x1000086
-    Key_HomePage             : Qt.Key = ... # 0x1000090
-    Key_Favorites            : Qt.Key = ... # 0x1000091
-    Key_Search               : Qt.Key = ... # 0x1000092
-    Key_Standby              : Qt.Key = ... # 0x1000093
-    Key_OpenUrl              : Qt.Key = ... # 0x1000094
-    Key_LaunchMail           : Qt.Key = ... # 0x10000a0
-    Key_LaunchMedia          : Qt.Key = ... # 0x10000a1
-    Key_Launch0              : Qt.Key = ... # 0x10000a2
-    Key_Launch1              : Qt.Key = ... # 0x10000a3
-    Key_Launch2              : Qt.Key = ... # 0x10000a4
-    Key_Launch3              : Qt.Key = ... # 0x10000a5
-    Key_Launch4              : Qt.Key = ... # 0x10000a6
-    Key_Launch5              : Qt.Key = ... # 0x10000a7
-    Key_Launch6              : Qt.Key = ... # 0x10000a8
-    Key_Launch7              : Qt.Key = ... # 0x10000a9
-    Key_Launch8              : Qt.Key = ... # 0x10000aa
-    Key_Launch9              : Qt.Key = ... # 0x10000ab
-    Key_LaunchA              : Qt.Key = ... # 0x10000ac
-    Key_LaunchB              : Qt.Key = ... # 0x10000ad
-    Key_LaunchC              : Qt.Key = ... # 0x10000ae
-    Key_LaunchD              : Qt.Key = ... # 0x10000af
-    Key_LaunchE              : Qt.Key = ... # 0x10000b0
-    Key_LaunchF              : Qt.Key = ... # 0x10000b1
-    Key_MonBrightnessUp      : Qt.Key = ... # 0x10000b2
-    Key_MonBrightnessDown    : Qt.Key = ... # 0x10000b3
-    Key_KeyboardLightOnOff   : Qt.Key = ... # 0x10000b4
-    Key_KeyboardBrightnessUp : Qt.Key = ... # 0x10000b5
-    Key_KeyboardBrightnessDown: Qt.Key = ... # 0x10000b6
-    Key_PowerOff             : Qt.Key = ... # 0x10000b7
-    Key_WakeUp               : Qt.Key = ... # 0x10000b8
-    Key_Eject                : Qt.Key = ... # 0x10000b9
-    Key_ScreenSaver          : Qt.Key = ... # 0x10000ba
-    Key_WWW                  : Qt.Key = ... # 0x10000bb
-    Key_Memo                 : Qt.Key = ... # 0x10000bc
-    Key_LightBulb            : Qt.Key = ... # 0x10000bd
-    Key_Shop                 : Qt.Key = ... # 0x10000be
-    Key_History              : Qt.Key = ... # 0x10000bf
-    Key_AddFavorite          : Qt.Key = ... # 0x10000c0
-    Key_HotLinks             : Qt.Key = ... # 0x10000c1
-    Key_BrightnessAdjust     : Qt.Key = ... # 0x10000c2
-    Key_Finance              : Qt.Key = ... # 0x10000c3
-    Key_Community            : Qt.Key = ... # 0x10000c4
-    Key_AudioRewind          : Qt.Key = ... # 0x10000c5
-    Key_BackForward          : Qt.Key = ... # 0x10000c6
-    Key_ApplicationLeft      : Qt.Key = ... # 0x10000c7
-    Key_ApplicationRight     : Qt.Key = ... # 0x10000c8
-    Key_Book                 : Qt.Key = ... # 0x10000c9
-    Key_CD                   : Qt.Key = ... # 0x10000ca
-    Key_Calculator           : Qt.Key = ... # 0x10000cb
-    Key_ToDoList             : Qt.Key = ... # 0x10000cc
-    Key_ClearGrab            : Qt.Key = ... # 0x10000cd
-    Key_Close                : Qt.Key = ... # 0x10000ce
-    Key_Copy                 : Qt.Key = ... # 0x10000cf
-    Key_Cut                  : Qt.Key = ... # 0x10000d0
-    Key_Display              : Qt.Key = ... # 0x10000d1
-    Key_DOS                  : Qt.Key = ... # 0x10000d2
-    Key_Documents            : Qt.Key = ... # 0x10000d3
-    Key_Excel                : Qt.Key = ... # 0x10000d4
-    Key_Explorer             : Qt.Key = ... # 0x10000d5
-    Key_Game                 : Qt.Key = ... # 0x10000d6
-    Key_Go                   : Qt.Key = ... # 0x10000d7
-    Key_iTouch               : Qt.Key = ... # 0x10000d8
-    Key_LogOff               : Qt.Key = ... # 0x10000d9
-    Key_Market               : Qt.Key = ... # 0x10000da
-    Key_Meeting              : Qt.Key = ... # 0x10000db
-    Key_MenuKB               : Qt.Key = ... # 0x10000dc
-    Key_MenuPB               : Qt.Key = ... # 0x10000dd
-    Key_MySites              : Qt.Key = ... # 0x10000de
-    Key_News                 : Qt.Key = ... # 0x10000df
-    Key_OfficeHome           : Qt.Key = ... # 0x10000e0
-    Key_Option               : Qt.Key = ... # 0x10000e1
-    Key_Paste                : Qt.Key = ... # 0x10000e2
-    Key_Phone                : Qt.Key = ... # 0x10000e3
-    Key_Calendar             : Qt.Key = ... # 0x10000e4
-    Key_Reply                : Qt.Key = ... # 0x10000e5
-    Key_Reload               : Qt.Key = ... # 0x10000e6
-    Key_RotateWindows        : Qt.Key = ... # 0x10000e7
-    Key_RotationPB           : Qt.Key = ... # 0x10000e8
-    Key_RotationKB           : Qt.Key = ... # 0x10000e9
-    Key_Save                 : Qt.Key = ... # 0x10000ea
-    Key_Send                 : Qt.Key = ... # 0x10000eb
-    Key_Spell                : Qt.Key = ... # 0x10000ec
-    Key_SplitScreen          : Qt.Key = ... # 0x10000ed
-    Key_Support              : Qt.Key = ... # 0x10000ee
-    Key_TaskPane             : Qt.Key = ... # 0x10000ef
-    Key_Terminal             : Qt.Key = ... # 0x10000f0
-    Key_Tools                : Qt.Key = ... # 0x10000f1
-    Key_Travel               : Qt.Key = ... # 0x10000f2
-    Key_Video                : Qt.Key = ... # 0x10000f3
-    Key_Word                 : Qt.Key = ... # 0x10000f4
-    Key_Xfer                 : Qt.Key = ... # 0x10000f5
-    Key_ZoomIn               : Qt.Key = ... # 0x10000f6
-    Key_ZoomOut              : Qt.Key = ... # 0x10000f7
-    Key_Away                 : Qt.Key = ... # 0x10000f8
-    Key_Messenger            : Qt.Key = ... # 0x10000f9
-    Key_WebCam               : Qt.Key = ... # 0x10000fa
-    Key_MailForward          : Qt.Key = ... # 0x10000fb
-    Key_Pictures             : Qt.Key = ... # 0x10000fc
-    Key_Music                : Qt.Key = ... # 0x10000fd
-    Key_Battery              : Qt.Key = ... # 0x10000fe
-    Key_Bluetooth            : Qt.Key = ... # 0x10000ff
-    Key_WLAN                 : Qt.Key = ... # 0x1000100
-    Key_UWB                  : Qt.Key = ... # 0x1000101
-    Key_AudioForward         : Qt.Key = ... # 0x1000102
-    Key_AudioRepeat          : Qt.Key = ... # 0x1000103
-    Key_AudioRandomPlay      : Qt.Key = ... # 0x1000104
-    Key_Subtitle             : Qt.Key = ... # 0x1000105
-    Key_AudioCycleTrack      : Qt.Key = ... # 0x1000106
-    Key_Time                 : Qt.Key = ... # 0x1000107
-    Key_Hibernate            : Qt.Key = ... # 0x1000108
-    Key_View                 : Qt.Key = ... # 0x1000109
-    Key_TopMenu              : Qt.Key = ... # 0x100010a
-    Key_PowerDown            : Qt.Key = ... # 0x100010b
-    Key_Suspend              : Qt.Key = ... # 0x100010c
-    Key_ContrastAdjust       : Qt.Key = ... # 0x100010d
-    Key_LaunchG              : Qt.Key = ... # 0x100010e
-    Key_LaunchH              : Qt.Key = ... # 0x100010f
-    Key_TouchpadToggle       : Qt.Key = ... # 0x1000110
-    Key_TouchpadOn           : Qt.Key = ... # 0x1000111
-    Key_TouchpadOff          : Qt.Key = ... # 0x1000112
-    Key_MicMute              : Qt.Key = ... # 0x1000113
-    Key_Red                  : Qt.Key = ... # 0x1000114
-    Key_Green                : Qt.Key = ... # 0x1000115
-    Key_Yellow               : Qt.Key = ... # 0x1000116
-    Key_Blue                 : Qt.Key = ... # 0x1000117
-    Key_ChannelUp            : Qt.Key = ... # 0x1000118
-    Key_ChannelDown          : Qt.Key = ... # 0x1000119
-    Key_Guide                : Qt.Key = ... # 0x100011a
-    Key_Info                 : Qt.Key = ... # 0x100011b
-    Key_Settings             : Qt.Key = ... # 0x100011c
-    Key_MicVolumeUp          : Qt.Key = ... # 0x100011d
-    Key_MicVolumeDown        : Qt.Key = ... # 0x100011e
-    Key_New                  : Qt.Key = ... # 0x1000120
-    Key_Open                 : Qt.Key = ... # 0x1000121
-    Key_Find                 : Qt.Key = ... # 0x1000122
-    Key_Undo                 : Qt.Key = ... # 0x1000123
-    Key_Redo                 : Qt.Key = ... # 0x1000124
-    Key_AltGr                : Qt.Key = ... # 0x1001103
-    Key_Multi_key            : Qt.Key = ... # 0x1001120
-    Key_Kanji                : Qt.Key = ... # 0x1001121
-    Key_Muhenkan             : Qt.Key = ... # 0x1001122
-    Key_Henkan               : Qt.Key = ... # 0x1001123
-    Key_Romaji               : Qt.Key = ... # 0x1001124
-    Key_Hiragana             : Qt.Key = ... # 0x1001125
-    Key_Katakana             : Qt.Key = ... # 0x1001126
-    Key_Hiragana_Katakana    : Qt.Key = ... # 0x1001127
-    Key_Zenkaku              : Qt.Key = ... # 0x1001128
-    Key_Hankaku              : Qt.Key = ... # 0x1001129
-    Key_Zenkaku_Hankaku      : Qt.Key = ... # 0x100112a
-    Key_Touroku              : Qt.Key = ... # 0x100112b
-    Key_Massyo               : Qt.Key = ... # 0x100112c
-    Key_Kana_Lock            : Qt.Key = ... # 0x100112d
-    Key_Kana_Shift           : Qt.Key = ... # 0x100112e
-    Key_Eisu_Shift           : Qt.Key = ... # 0x100112f
-    Key_Eisu_toggle          : Qt.Key = ... # 0x1001130
-    Key_Hangul               : Qt.Key = ... # 0x1001131
-    Key_Hangul_Start         : Qt.Key = ... # 0x1001132
-    Key_Hangul_End           : Qt.Key = ... # 0x1001133
-    Key_Hangul_Hanja         : Qt.Key = ... # 0x1001134
-    Key_Hangul_Jamo          : Qt.Key = ... # 0x1001135
-    Key_Hangul_Romaja        : Qt.Key = ... # 0x1001136
-    Key_Codeinput            : Qt.Key = ... # 0x1001137
-    Key_Hangul_Jeonja        : Qt.Key = ... # 0x1001138
-    Key_Hangul_Banja         : Qt.Key = ... # 0x1001139
-    Key_Hangul_PreHanja      : Qt.Key = ... # 0x100113a
-    Key_Hangul_PostHanja     : Qt.Key = ... # 0x100113b
-    Key_SingleCandidate      : Qt.Key = ... # 0x100113c
-    Key_MultipleCandidate    : Qt.Key = ... # 0x100113d
-    Key_PreviousCandidate    : Qt.Key = ... # 0x100113e
-    Key_Hangul_Special       : Qt.Key = ... # 0x100113f
-    Key_Mode_switch          : Qt.Key = ... # 0x100117e
-    Key_Dead_Grave           : Qt.Key = ... # 0x1001250
-    Key_Dead_Acute           : Qt.Key = ... # 0x1001251
-    Key_Dead_Circumflex      : Qt.Key = ... # 0x1001252
-    Key_Dead_Tilde           : Qt.Key = ... # 0x1001253
-    Key_Dead_Macron          : Qt.Key = ... # 0x1001254
-    Key_Dead_Breve           : Qt.Key = ... # 0x1001255
-    Key_Dead_Abovedot        : Qt.Key = ... # 0x1001256
-    Key_Dead_Diaeresis       : Qt.Key = ... # 0x1001257
-    Key_Dead_Abovering       : Qt.Key = ... # 0x1001258
-    Key_Dead_Doubleacute     : Qt.Key = ... # 0x1001259
-    Key_Dead_Caron           : Qt.Key = ... # 0x100125a
-    Key_Dead_Cedilla         : Qt.Key = ... # 0x100125b
-    Key_Dead_Ogonek          : Qt.Key = ... # 0x100125c
-    Key_Dead_Iota            : Qt.Key = ... # 0x100125d
-    Key_Dead_Voiced_Sound    : Qt.Key = ... # 0x100125e
-    Key_Dead_Semivoiced_Sound: Qt.Key = ... # 0x100125f
-    Key_Dead_Belowdot        : Qt.Key = ... # 0x1001260
-    Key_Dead_Hook            : Qt.Key = ... # 0x1001261
-    Key_Dead_Horn            : Qt.Key = ... # 0x1001262
-    Key_Dead_Stroke          : Qt.Key = ... # 0x1001263
-    Key_Dead_Abovecomma      : Qt.Key = ... # 0x1001264
-    Key_Dead_Abovereversedcomma: Qt.Key = ... # 0x1001265
-    Key_Dead_Doublegrave     : Qt.Key = ... # 0x1001266
-    Key_Dead_Belowring       : Qt.Key = ... # 0x1001267
-    Key_Dead_Belowmacron     : Qt.Key = ... # 0x1001268
-    Key_Dead_Belowcircumflex : Qt.Key = ... # 0x1001269
-    Key_Dead_Belowtilde      : Qt.Key = ... # 0x100126a
-    Key_Dead_Belowbreve      : Qt.Key = ... # 0x100126b
-    Key_Dead_Belowdiaeresis  : Qt.Key = ... # 0x100126c
-    Key_Dead_Invertedbreve   : Qt.Key = ... # 0x100126d
-    Key_Dead_Belowcomma      : Qt.Key = ... # 0x100126e
-    Key_Dead_Currency        : Qt.Key = ... # 0x100126f
-    Key_Dead_a               : Qt.Key = ... # 0x1001280
-    Key_Dead_A               : Qt.Key = ... # 0x1001281
-    Key_Dead_e               : Qt.Key = ... # 0x1001282
-    Key_Dead_E               : Qt.Key = ... # 0x1001283
-    Key_Dead_i               : Qt.Key = ... # 0x1001284
-    Key_Dead_I               : Qt.Key = ... # 0x1001285
-    Key_Dead_o               : Qt.Key = ... # 0x1001286
-    Key_Dead_O               : Qt.Key = ... # 0x1001287
-    Key_Dead_u               : Qt.Key = ... # 0x1001288
-    Key_Dead_U               : Qt.Key = ... # 0x1001289
-    Key_Dead_Small_Schwa     : Qt.Key = ... # 0x100128a
-    Key_Dead_Capital_Schwa   : Qt.Key = ... # 0x100128b
-    Key_Dead_Greek           : Qt.Key = ... # 0x100128c
-    Key_Dead_Lowline         : Qt.Key = ... # 0x1001290
-    Key_Dead_Aboveverticalline: Qt.Key = ... # 0x1001291
-    Key_Dead_Belowverticalline: Qt.Key = ... # 0x1001292
-    Key_Dead_Longsolidusoverlay: Qt.Key = ... # 0x1001293
-    Key_MediaLast            : Qt.Key = ... # 0x100ffff
-    Key_Select               : Qt.Key = ... # 0x1010000
-    Key_Yes                  : Qt.Key = ... # 0x1010001
-    Key_No                   : Qt.Key = ... # 0x1010002
-    Key_Cancel               : Qt.Key = ... # 0x1020001
-    Key_Printer              : Qt.Key = ... # 0x1020002
-    Key_Execute              : Qt.Key = ... # 0x1020003
-    Key_Sleep                : Qt.Key = ... # 0x1020004
-    Key_Play                 : Qt.Key = ... # 0x1020005
-    Key_Zoom                 : Qt.Key = ... # 0x1020006
-    Key_Exit                 : Qt.Key = ... # 0x102000a
-    Key_Context1             : Qt.Key = ... # 0x1100000
-    Key_Context2             : Qt.Key = ... # 0x1100001
-    Key_Context3             : Qt.Key = ... # 0x1100002
-    Key_Context4             : Qt.Key = ... # 0x1100003
-    Key_Call                 : Qt.Key = ... # 0x1100004
-    Key_Hangup               : Qt.Key = ... # 0x1100005
-    Key_Flip                 : Qt.Key = ... # 0x1100006
-    Key_ToggleCallHangup     : Qt.Key = ... # 0x1100007
-    Key_VoiceDial            : Qt.Key = ... # 0x1100008
-    Key_LastNumberRedial     : Qt.Key = ... # 0x1100009
-    Key_Camera               : Qt.Key = ... # 0x1100020
-    Key_CameraFocus          : Qt.Key = ... # 0x1100021
-    Key_unknown              : Qt.Key = ... # 0x1ffffff
-    NoModifier               : Qt.KeyboardModifier = ... # 0x0
-    ShiftModifier            : Qt.KeyboardModifier = ... # 0x2000000
-    ControlModifier          : Qt.KeyboardModifier = ... # 0x4000000
-    AltModifier              : Qt.KeyboardModifier = ... # 0x8000000
-    MetaModifier             : Qt.KeyboardModifier = ... # 0x10000000
-    KeypadModifier           : Qt.KeyboardModifier = ... # 0x20000000
-    GroupSwitchModifier      : Qt.KeyboardModifier = ... # 0x40000000
-    KeyboardModifierMask     : Qt.KeyboardModifier = ... # -0x2000000
-    LeftToRight              : Qt.LayoutDirection = ... # 0x0
-    RightToLeft              : Qt.LayoutDirection = ... # 0x1
-    LayoutDirectionAuto      : Qt.LayoutDirection = ... # 0x2
-    MaskInColor              : Qt.MaskMode = ... # 0x0
-    MaskOutColor             : Qt.MaskMode = ... # 0x1
-    MatchExactly             : Qt.MatchFlag = ... # 0x0
-    MatchContains            : Qt.MatchFlag = ... # 0x1
-    MatchStartsWith          : Qt.MatchFlag = ... # 0x2
-    MatchEndsWith            : Qt.MatchFlag = ... # 0x3
-    MatchRegularExpression   : Qt.MatchFlag = ... # 0x4
-    MatchWildcard            : Qt.MatchFlag = ... # 0x5
-    MatchFixedString         : Qt.MatchFlag = ... # 0x8
-    MatchTypeMask            : Qt.MatchFlag = ... # 0xf
-    MatchCaseSensitive       : Qt.MatchFlag = ... # 0x10
-    MatchWrap                : Qt.MatchFlag = ... # 0x20
-    MatchRecursive           : Qt.MatchFlag = ... # 0x40
-    SHIFT                    : Qt.Modifier = ... # 0x2000000
-    CTRL                     : Qt.Modifier = ... # 0x4000000
-    ALT                      : Qt.Modifier = ... # 0x8000000
-    META                     : Qt.Modifier = ... # 0x10000000
-    MODIFIER_MASK            : Qt.Modifier = ... # 0xfe000000
-    NoButton                 : Qt.MouseButton = ... # 0x0
-    LeftButton               : Qt.MouseButton = ... # 0x1
-    RightButton              : Qt.MouseButton = ... # 0x2
-    MiddleButton             : Qt.MouseButton = ... # 0x4
-    BackButton               : Qt.MouseButton = ... # 0x8
-    ExtraButton1             : Qt.MouseButton = ... # 0x8
-    XButton1                 : Qt.MouseButton = ... # 0x8
-    ExtraButton2             : Qt.MouseButton = ... # 0x10
-    ForwardButton            : Qt.MouseButton = ... # 0x10
-    XButton2                 : Qt.MouseButton = ... # 0x10
-    ExtraButton3             : Qt.MouseButton = ... # 0x20
-    TaskButton               : Qt.MouseButton = ... # 0x20
-    ExtraButton4             : Qt.MouseButton = ... # 0x40
-    ExtraButton5             : Qt.MouseButton = ... # 0x80
-    ExtraButton6             : Qt.MouseButton = ... # 0x100
-    ExtraButton7             : Qt.MouseButton = ... # 0x200
-    ExtraButton8             : Qt.MouseButton = ... # 0x400
-    ExtraButton9             : Qt.MouseButton = ... # 0x800
-    ExtraButton10            : Qt.MouseButton = ... # 0x1000
-    ExtraButton11            : Qt.MouseButton = ... # 0x2000
-    ExtraButton12            : Qt.MouseButton = ... # 0x4000
-    ExtraButton13            : Qt.MouseButton = ... # 0x8000
-    ExtraButton14            : Qt.MouseButton = ... # 0x10000
-    ExtraButton15            : Qt.MouseButton = ... # 0x20000
-    ExtraButton16            : Qt.MouseButton = ... # 0x40000
-    ExtraButton17            : Qt.MouseButton = ... # 0x80000
-    ExtraButton18            : Qt.MouseButton = ... # 0x100000
-    ExtraButton19            : Qt.MouseButton = ... # 0x200000
-    ExtraButton20            : Qt.MouseButton = ... # 0x400000
-    ExtraButton21            : Qt.MouseButton = ... # 0x800000
-    ExtraButton22            : Qt.MouseButton = ... # 0x1000000
-    ExtraButton23            : Qt.MouseButton = ... # 0x2000000
-    ExtraButton24            : Qt.MouseButton = ... # 0x4000000
-    MaxMouseButton           : Qt.MouseButton = ... # 0x4000000
-    AllButtons               : Qt.MouseButton = ... # 0x7ffffff
-    MouseButtonMask          : Qt.MouseButton = ... # -0x1
-    NoMouseEventFlag         : Qt.MouseEventFlag = ... # 0x0
-    MouseEventCreatedDoubleClick: Qt.MouseEventFlag = ... # 0x1
-    MouseEventFlagMask       : Qt.MouseEventFlag = ... # 0xff
-    MouseEventNotSynthesized : Qt.MouseEventSource = ... # 0x0
-    MouseEventSynthesizedBySystem: Qt.MouseEventSource = ... # 0x1
-    MouseEventSynthesizedByQt: Qt.MouseEventSource = ... # 0x2
-    MouseEventSynthesizedByApplication: Qt.MouseEventSource = ... # 0x3
-    BeginNativeGesture       : Qt.NativeGestureType = ... # 0x0
-    EndNativeGesture         : Qt.NativeGestureType = ... # 0x1
-    PanNativeGesture         : Qt.NativeGestureType = ... # 0x2
-    ZoomNativeGesture        : Qt.NativeGestureType = ... # 0x3
-    SmartZoomNativeGesture   : Qt.NativeGestureType = ... # 0x4
-    RotateNativeGesture      : Qt.NativeGestureType = ... # 0x5
-    SwipeNativeGesture       : Qt.NativeGestureType = ... # 0x6
-    NavigationModeNone       : Qt.NavigationMode = ... # 0x0
-    NavigationModeKeypadTabOrder: Qt.NavigationMode = ... # 0x1
-    NavigationModeKeypadDirectional: Qt.NavigationMode = ... # 0x2
-    NavigationModeCursorAuto : Qt.NavigationMode = ... # 0x3
-    NavigationModeCursorForceVisible: Qt.NavigationMode = ... # 0x4
-    Horizontal               : Qt.Orientation = ... # 0x1
-    Vertical                 : Qt.Orientation = ... # 0x2
-    FlatCap                  : Qt.PenCapStyle = ... # 0x0
-    SquareCap                : Qt.PenCapStyle = ... # 0x10
-    RoundCap                 : Qt.PenCapStyle = ... # 0x20
-    MPenCapStyle             : Qt.PenCapStyle = ... # 0x30
-    MiterJoin                : Qt.PenJoinStyle = ... # 0x0
-    BevelJoin                : Qt.PenJoinStyle = ... # 0x40
-    RoundJoin                : Qt.PenJoinStyle = ... # 0x80
-    SvgMiterJoin             : Qt.PenJoinStyle = ... # 0x100
-    MPenJoinStyle            : Qt.PenJoinStyle = ... # 0x1c0
-    NoPen                    : Qt.PenStyle = ... # 0x0
-    SolidLine                : Qt.PenStyle = ... # 0x1
-    DashLine                 : Qt.PenStyle = ... # 0x2
-    DotLine                  : Qt.PenStyle = ... # 0x3
-    DashDotLine              : Qt.PenStyle = ... # 0x4
-    DashDotDotLine           : Qt.PenStyle = ... # 0x5
-    CustomDashLine           : Qt.PenStyle = ... # 0x6
-    MPenStyle                : Qt.PenStyle = ... # 0xf
-    ReturnByValue            : Qt.ReturnByValueConstant = ... # 0x0
-    PrimaryOrientation       : Qt.ScreenOrientation = ... # 0x0
-    PortraitOrientation      : Qt.ScreenOrientation = ... # 0x1
-    LandscapeOrientation     : Qt.ScreenOrientation = ... # 0x2
-    InvertedPortraitOrientation: Qt.ScreenOrientation = ... # 0x4
-    InvertedLandscapeOrientation: Qt.ScreenOrientation = ... # 0x8
-    ScrollBarAsNeeded        : Qt.ScrollBarPolicy = ... # 0x0
-    ScrollBarAlwaysOff       : Qt.ScrollBarPolicy = ... # 0x1
-    ScrollBarAlwaysOn        : Qt.ScrollBarPolicy = ... # 0x2
-    NoScrollPhase            : Qt.ScrollPhase = ... # 0x0
-    ScrollBegin              : Qt.ScrollPhase = ... # 0x1
-    ScrollUpdate             : Qt.ScrollPhase = ... # 0x2
-    ScrollEnd                : Qt.ScrollPhase = ... # 0x3
-    ScrollMomentum           : Qt.ScrollPhase = ... # 0x4
-    WidgetShortcut           : Qt.ShortcutContext = ... # 0x0
-    WindowShortcut           : Qt.ShortcutContext = ... # 0x1
-    ApplicationShortcut      : Qt.ShortcutContext = ... # 0x2
-    WidgetWithChildrenShortcut: Qt.ShortcutContext = ... # 0x3
-    MinimumSize              : Qt.SizeHint = ... # 0x0
-    PreferredSize            : Qt.SizeHint = ... # 0x1
-    MaximumSize              : Qt.SizeHint = ... # 0x2
-    MinimumDescent           : Qt.SizeHint = ... # 0x3
-    NSizeHints               : Qt.SizeHint = ... # 0x4
-    AbsoluteSize             : Qt.SizeMode = ... # 0x0
-    RelativeSize             : Qt.SizeMode = ... # 0x1
-    AscendingOrder           : Qt.SortOrder = ... # 0x0
-    DescendingOrder          : Qt.SortOrder = ... # 0x1
-    KeepEmptyParts           : Qt.SplitBehaviorFlags = ... # 0x0
-    SkipEmptyParts           : Qt.SplitBehaviorFlags = ... # 0x1
-    NoTabFocus               : Qt.TabFocusBehavior = ... # 0x0
-    TabFocusTextControls     : Qt.TabFocusBehavior = ... # 0x1
-    TabFocusListControls     : Qt.TabFocusBehavior = ... # 0x2
-    TabFocusAllControls      : Qt.TabFocusBehavior = ... # 0xff
-    ElideLeft                : Qt.TextElideMode = ... # 0x0
-    ElideRight               : Qt.TextElideMode = ... # 0x1
-    ElideMiddle              : Qt.TextElideMode = ... # 0x2
-    ElideNone                : Qt.TextElideMode = ... # 0x3
-    TextSingleLine           : Qt.TextFlag = ... # 0x100
-    TextDontClip             : Qt.TextFlag = ... # 0x200
-    TextExpandTabs           : Qt.TextFlag = ... # 0x400
-    TextShowMnemonic         : Qt.TextFlag = ... # 0x800
-    TextWordWrap             : Qt.TextFlag = ... # 0x1000
-    TextWrapAnywhere         : Qt.TextFlag = ... # 0x2000
-    TextDontPrint            : Qt.TextFlag = ... # 0x4000
-    TextHideMnemonic         : Qt.TextFlag = ... # 0x8000
-    TextJustificationForced  : Qt.TextFlag = ... # 0x10000
-    TextForceLeftToRight     : Qt.TextFlag = ... # 0x20000
-    TextForceRightToLeft     : Qt.TextFlag = ... # 0x40000
-    TextLongestVariant       : Qt.TextFlag = ... # 0x80000
-    TextIncludeTrailingSpaces: Qt.TextFlag = ... # 0x8000000
-    PlainText                : Qt.TextFormat = ... # 0x0
-    RichText                 : Qt.TextFormat = ... # 0x1
-    AutoText                 : Qt.TextFormat = ... # 0x2
-    MarkdownText             : Qt.TextFormat = ... # 0x3
-    NoTextInteraction        : Qt.TextInteractionFlag = ... # 0x0
-    TextSelectableByMouse    : Qt.TextInteractionFlag = ... # 0x1
-    TextSelectableByKeyboard : Qt.TextInteractionFlag = ... # 0x2
-    LinksAccessibleByMouse   : Qt.TextInteractionFlag = ... # 0x4
-    LinksAccessibleByKeyboard: Qt.TextInteractionFlag = ... # 0x8
-    TextBrowserInteraction   : Qt.TextInteractionFlag = ... # 0xd
-    TextEditable             : Qt.TextInteractionFlag = ... # 0x10
-    TextEditorInteraction    : Qt.TextInteractionFlag = ... # 0x13
-    StretchTile              : Qt.TileRule = ... # 0x0
-    RepeatTile               : Qt.TileRule = ... # 0x1
-    RoundTile                : Qt.TileRule = ... # 0x2
-    LocalTime                : Qt.TimeSpec = ... # 0x0
-    UTC                      : Qt.TimeSpec = ... # 0x1
-    OffsetFromUTC            : Qt.TimeSpec = ... # 0x2
-    TimeZone                 : Qt.TimeSpec = ... # 0x3
-    PreciseTimer             : Qt.TimerType = ... # 0x0
-    CoarseTimer              : Qt.TimerType = ... # 0x1
-    VeryCoarseTimer          : Qt.TimerType = ... # 0x2
-    NoToolBarArea            : Qt.ToolBarArea = ... # 0x0
-    LeftToolBarArea          : Qt.ToolBarArea = ... # 0x1
-    RightToolBarArea         : Qt.ToolBarArea = ... # 0x2
-    TopToolBarArea           : Qt.ToolBarArea = ... # 0x4
-    BottomToolBarArea        : Qt.ToolBarArea = ... # 0x8
-    AllToolBarAreas          : Qt.ToolBarArea = ... # 0xf
-    ToolBarArea_Mask         : Qt.ToolBarArea = ... # 0xf
-    NToolBarAreas            : Qt.ToolBarAreaSizes = ... # 0x4
-    ToolButtonIconOnly       : Qt.ToolButtonStyle = ... # 0x0
-    ToolButtonTextOnly       : Qt.ToolButtonStyle = ... # 0x1
-    ToolButtonTextBesideIcon : Qt.ToolButtonStyle = ... # 0x2
-    ToolButtonTextUnderIcon  : Qt.ToolButtonStyle = ... # 0x3
-    ToolButtonFollowStyle    : Qt.ToolButtonStyle = ... # 0x4
-    TouchPointUnknownState   : Qt.TouchPointState = ... # 0x0
-    TouchPointPressed        : Qt.TouchPointState = ... # 0x1
-    TouchPointMoved          : Qt.TouchPointState = ... # 0x2
-    TouchPointStationary     : Qt.TouchPointState = ... # 0x4
-    TouchPointReleased       : Qt.TouchPointState = ... # 0x8
-    FastTransformation       : Qt.TransformationMode = ... # 0x0
-    SmoothTransformation     : Qt.TransformationMode = ... # 0x1
-    UI_General               : Qt.UIEffect = ... # 0x0
-    UI_AnimateMenu           : Qt.UIEffect = ... # 0x1
-    UI_FadeMenu              : Qt.UIEffect = ... # 0x2
-    UI_AnimateCombo          : Qt.UIEffect = ... # 0x3
-    UI_AnimateTooltip        : Qt.UIEffect = ... # 0x4
-    UI_FadeTooltip           : Qt.UIEffect = ... # 0x5
-    UI_AnimateToolBox        : Qt.UIEffect = ... # 0x6
-    WhiteSpaceModeUndefined  : Qt.WhiteSpaceMode = ... # -0x1
-    WhiteSpaceNormal         : Qt.WhiteSpaceMode = ... # 0x0
-    WhiteSpacePre            : Qt.WhiteSpaceMode = ... # 0x1
-    WhiteSpaceNoWrap         : Qt.WhiteSpaceMode = ... # 0x2
-    WA_Disabled              : Qt.WidgetAttribute = ... # 0x0
-    WA_UnderMouse            : Qt.WidgetAttribute = ... # 0x1
-    WA_MouseTracking         : Qt.WidgetAttribute = ... # 0x2
-    WA_OpaquePaintEvent      : Qt.WidgetAttribute = ... # 0x4
-    WA_StaticContents        : Qt.WidgetAttribute = ... # 0x5
-    WA_LaidOut               : Qt.WidgetAttribute = ... # 0x7
-    WA_PaintOnScreen         : Qt.WidgetAttribute = ... # 0x8
-    WA_NoSystemBackground    : Qt.WidgetAttribute = ... # 0x9
-    WA_UpdatesDisabled       : Qt.WidgetAttribute = ... # 0xa
-    WA_Mapped                : Qt.WidgetAttribute = ... # 0xb
-    WA_InputMethodEnabled    : Qt.WidgetAttribute = ... # 0xe
-    WA_WState_Visible        : Qt.WidgetAttribute = ... # 0xf
-    WA_WState_Hidden         : Qt.WidgetAttribute = ... # 0x10
-    WA_ForceDisabled         : Qt.WidgetAttribute = ... # 0x20
-    WA_KeyCompression        : Qt.WidgetAttribute = ... # 0x21
-    WA_PendingMoveEvent      : Qt.WidgetAttribute = ... # 0x22
-    WA_PendingResizeEvent    : Qt.WidgetAttribute = ... # 0x23
-    WA_SetPalette            : Qt.WidgetAttribute = ... # 0x24
-    WA_SetFont               : Qt.WidgetAttribute = ... # 0x25
-    WA_SetCursor             : Qt.WidgetAttribute = ... # 0x26
-    WA_NoChildEventsFromChildren: Qt.WidgetAttribute = ... # 0x27
-    WA_WindowModified        : Qt.WidgetAttribute = ... # 0x29
-    WA_Resized               : Qt.WidgetAttribute = ... # 0x2a
-    WA_Moved                 : Qt.WidgetAttribute = ... # 0x2b
-    WA_PendingUpdate         : Qt.WidgetAttribute = ... # 0x2c
-    WA_InvalidSize           : Qt.WidgetAttribute = ... # 0x2d
-    WA_CustomWhatsThis       : Qt.WidgetAttribute = ... # 0x2f
-    WA_LayoutOnEntireRect    : Qt.WidgetAttribute = ... # 0x30
-    WA_OutsideWSRange        : Qt.WidgetAttribute = ... # 0x31
-    WA_GrabbedShortcut       : Qt.WidgetAttribute = ... # 0x32
-    WA_TransparentForMouseEvents: Qt.WidgetAttribute = ... # 0x33
-    WA_PaintUnclipped        : Qt.WidgetAttribute = ... # 0x34
-    WA_SetWindowIcon         : Qt.WidgetAttribute = ... # 0x35
-    WA_NoMouseReplay         : Qt.WidgetAttribute = ... # 0x36
-    WA_DeleteOnClose         : Qt.WidgetAttribute = ... # 0x37
-    WA_RightToLeft           : Qt.WidgetAttribute = ... # 0x38
-    WA_SetLayoutDirection    : Qt.WidgetAttribute = ... # 0x39
-    WA_NoChildEventsForParent: Qt.WidgetAttribute = ... # 0x3a
-    WA_ForceUpdatesDisabled  : Qt.WidgetAttribute = ... # 0x3b
-    WA_WState_Created        : Qt.WidgetAttribute = ... # 0x3c
-    WA_WState_CompressKeys   : Qt.WidgetAttribute = ... # 0x3d
-    WA_WState_InPaintEvent   : Qt.WidgetAttribute = ... # 0x3e
-    WA_WState_Reparented     : Qt.WidgetAttribute = ... # 0x3f
-    WA_WState_ConfigPending  : Qt.WidgetAttribute = ... # 0x40
-    WA_WState_Polished       : Qt.WidgetAttribute = ... # 0x42
-    WA_WState_OwnSizePolicy  : Qt.WidgetAttribute = ... # 0x44
-    WA_WState_ExplicitShowHide: Qt.WidgetAttribute = ... # 0x45
-    WA_ShowModal             : Qt.WidgetAttribute = ... # 0x46
-    WA_MouseNoMask           : Qt.WidgetAttribute = ... # 0x47
-    WA_NoMousePropagation    : Qt.WidgetAttribute = ... # 0x49
-    WA_Hover                 : Qt.WidgetAttribute = ... # 0x4a
-    WA_InputMethodTransparent: Qt.WidgetAttribute = ... # 0x4b
-    WA_QuitOnClose           : Qt.WidgetAttribute = ... # 0x4c
-    WA_KeyboardFocusChange   : Qt.WidgetAttribute = ... # 0x4d
-    WA_AcceptDrops           : Qt.WidgetAttribute = ... # 0x4e
-    WA_DropSiteRegistered    : Qt.WidgetAttribute = ... # 0x4f
-    WA_WindowPropagation     : Qt.WidgetAttribute = ... # 0x50
-    WA_NoX11EventCompression : Qt.WidgetAttribute = ... # 0x51
-    WA_TintedBackground      : Qt.WidgetAttribute = ... # 0x52
-    WA_X11OpenGLOverlay      : Qt.WidgetAttribute = ... # 0x53
-    WA_AlwaysShowToolTips    : Qt.WidgetAttribute = ... # 0x54
-    WA_MacOpaqueSizeGrip     : Qt.WidgetAttribute = ... # 0x55
-    WA_SetStyle              : Qt.WidgetAttribute = ... # 0x56
-    WA_SetLocale             : Qt.WidgetAttribute = ... # 0x57
-    WA_MacShowFocusRect      : Qt.WidgetAttribute = ... # 0x58
-    WA_MacNormalSize         : Qt.WidgetAttribute = ... # 0x59
-    WA_MacSmallSize          : Qt.WidgetAttribute = ... # 0x5a
-    WA_MacMiniSize           : Qt.WidgetAttribute = ... # 0x5b
-    WA_LayoutUsesWidgetRect  : Qt.WidgetAttribute = ... # 0x5c
-    WA_StyledBackground      : Qt.WidgetAttribute = ... # 0x5d
-    WA_CanHostQMdiSubWindowTitleBar: Qt.WidgetAttribute = ... # 0x5f
-    WA_MacAlwaysShowToolWindow: Qt.WidgetAttribute = ... # 0x60
-    WA_StyleSheet            : Qt.WidgetAttribute = ... # 0x61
-    WA_ShowWithoutActivating : Qt.WidgetAttribute = ... # 0x62
-    WA_X11BypassTransientForHint: Qt.WidgetAttribute = ... # 0x63
-    WA_NativeWindow          : Qt.WidgetAttribute = ... # 0x64
-    WA_DontCreateNativeAncestors: Qt.WidgetAttribute = ... # 0x65
-    WA_DontShowOnScreen      : Qt.WidgetAttribute = ... # 0x67
-    WA_X11NetWmWindowTypeDesktop: Qt.WidgetAttribute = ... # 0x68
-    WA_X11NetWmWindowTypeDock: Qt.WidgetAttribute = ... # 0x69
-    WA_X11NetWmWindowTypeToolBar: Qt.WidgetAttribute = ... # 0x6a
-    WA_X11NetWmWindowTypeMenu: Qt.WidgetAttribute = ... # 0x6b
-    WA_X11NetWmWindowTypeUtility: Qt.WidgetAttribute = ... # 0x6c
-    WA_X11NetWmWindowTypeSplash: Qt.WidgetAttribute = ... # 0x6d
-    WA_X11NetWmWindowTypeDialog: Qt.WidgetAttribute = ... # 0x6e
-    WA_X11NetWmWindowTypeDropDownMenu: Qt.WidgetAttribute = ... # 0x6f
-    WA_X11NetWmWindowTypePopupMenu: Qt.WidgetAttribute = ... # 0x70
-    WA_X11NetWmWindowTypeToolTip: Qt.WidgetAttribute = ... # 0x71
-    WA_X11NetWmWindowTypeNotification: Qt.WidgetAttribute = ... # 0x72
-    WA_X11NetWmWindowTypeCombo: Qt.WidgetAttribute = ... # 0x73
-    WA_X11NetWmWindowTypeDND : Qt.WidgetAttribute = ... # 0x74
-    WA_SetWindowModality     : Qt.WidgetAttribute = ... # 0x76
-    WA_WState_WindowOpacitySet: Qt.WidgetAttribute = ... # 0x77
-    WA_TranslucentBackground : Qt.WidgetAttribute = ... # 0x78
-    WA_AcceptTouchEvents     : Qt.WidgetAttribute = ... # 0x79
-    WA_WState_AcceptedTouchBeginEvent: Qt.WidgetAttribute = ... # 0x7a
-    WA_TouchPadAcceptSingleTouchEvents: Qt.WidgetAttribute = ... # 0x7b
-    WA_X11DoNotAcceptFocus   : Qt.WidgetAttribute = ... # 0x7e
-    WA_AlwaysStackOnTop      : Qt.WidgetAttribute = ... # 0x80
-    WA_TabletTracking        : Qt.WidgetAttribute = ... # 0x81
-    WA_ContentsMarginsRespectsSafeArea: Qt.WidgetAttribute = ... # 0x82
-    WA_StyleSheetTarget      : Qt.WidgetAttribute = ... # 0x83
-    WA_AttributeCount        : Qt.WidgetAttribute = ... # 0x84
-    NoSection                : Qt.WindowFrameSection = ... # 0x0
-    LeftSection              : Qt.WindowFrameSection = ... # 0x1
-    TopLeftSection           : Qt.WindowFrameSection = ... # 0x2
-    TopSection               : Qt.WindowFrameSection = ... # 0x3
-    TopRightSection          : Qt.WindowFrameSection = ... # 0x4
-    RightSection             : Qt.WindowFrameSection = ... # 0x5
-    BottomRightSection       : Qt.WindowFrameSection = ... # 0x6
-    BottomSection            : Qt.WindowFrameSection = ... # 0x7
-    BottomLeftSection        : Qt.WindowFrameSection = ... # 0x8
-    TitleBarArea             : Qt.WindowFrameSection = ... # 0x9
-    NonModal                 : Qt.WindowModality = ... # 0x0
-    WindowModal              : Qt.WindowModality = ... # 0x1
-    ApplicationModal         : Qt.WindowModality = ... # 0x2
-    WindowNoState            : Qt.WindowState = ... # 0x0
-    WindowMinimized          : Qt.WindowState = ... # 0x1
-    WindowMaximized          : Qt.WindowState = ... # 0x2
-    WindowFullScreen         : Qt.WindowState = ... # 0x4
-    WindowActive             : Qt.WindowState = ... # 0x8
-    Widget                   : Qt.WindowType = ... # 0x0
-    Window                   : Qt.WindowType = ... # 0x1
-    Dialog                   : Qt.WindowType = ... # 0x3
-    Sheet                    : Qt.WindowType = ... # 0x5
-    Drawer                   : Qt.WindowType = ... # 0x7
-    Popup                    : Qt.WindowType = ... # 0x9
-    Tool                     : Qt.WindowType = ... # 0xb
-    ToolTip                  : Qt.WindowType = ... # 0xd
-    SplashScreen             : Qt.WindowType = ... # 0xf
-    Desktop                  : Qt.WindowType = ... # 0x11
-    SubWindow                : Qt.WindowType = ... # 0x12
-    ForeignWindow            : Qt.WindowType = ... # 0x21
-    CoverWindow              : Qt.WindowType = ... # 0x41
-    WindowType_Mask          : Qt.WindowType = ... # 0xff
-    MSWindowsFixedSizeDialogHint: Qt.WindowType = ... # 0x100
-    MSWindowsOwnDC           : Qt.WindowType = ... # 0x200
-    BypassWindowManagerHint  : Qt.WindowType = ... # 0x400
-    X11BypassWindowManagerHint: Qt.WindowType = ... # 0x400
-    FramelessWindowHint      : Qt.WindowType = ... # 0x800
-    WindowTitleHint          : Qt.WindowType = ... # 0x1000
-    WindowSystemMenuHint     : Qt.WindowType = ... # 0x2000
-    WindowMinimizeButtonHint : Qt.WindowType = ... # 0x4000
-    WindowMaximizeButtonHint : Qt.WindowType = ... # 0x8000
-    WindowMinMaxButtonsHint  : Qt.WindowType = ... # 0xc000
-    WindowContextHelpButtonHint: Qt.WindowType = ... # 0x10000
-    WindowShadeButtonHint    : Qt.WindowType = ... # 0x20000
-    WindowStaysOnTopHint     : Qt.WindowType = ... # 0x40000
-    WindowTransparentForInput: Qt.WindowType = ... # 0x80000
-    WindowOverridesSystemGestures: Qt.WindowType = ... # 0x100000
-    WindowDoesNotAcceptFocus : Qt.WindowType = ... # 0x200000
-    MaximizeUsingFullscreenGeometryHint: Qt.WindowType = ... # 0x400000
-    CustomizeWindowHint      : Qt.WindowType = ... # 0x2000000
-    WindowStaysOnBottomHint  : Qt.WindowType = ... # 0x4000000
-    WindowCloseButtonHint    : Qt.WindowType = ... # 0x8000000
-    MacWindowToolBarButtonHint: Qt.WindowType = ... # 0x10000000
-    BypassGraphicsProxyWidget: Qt.WindowType = ... # 0x20000000
-    NoDropShadowWindowHint   : Qt.WindowType = ... # 0x40000000
-    WindowFullscreenButtonHint: Qt.WindowType = ... # -0x80000000
 
-    class Alignment(object): ...
 
-    class AlignmentFlag(Shiboken.Enum):
-
-        AlignLeading             : Qt.AlignmentFlag = ... # 0x1
-        AlignLeft                : Qt.AlignmentFlag = ... # 0x1
-        AlignRight               : Qt.AlignmentFlag = ... # 0x2
-        AlignTrailing            : Qt.AlignmentFlag = ... # 0x2
-        AlignHCenter             : Qt.AlignmentFlag = ... # 0x4
-        AlignJustify             : Qt.AlignmentFlag = ... # 0x8
-        AlignAbsolute            : Qt.AlignmentFlag = ... # 0x10
-        AlignHorizontal_Mask     : Qt.AlignmentFlag = ... # 0x1f
-        AlignTop                 : Qt.AlignmentFlag = ... # 0x20
-        AlignBottom              : Qt.AlignmentFlag = ... # 0x40
-        AlignVCenter             : Qt.AlignmentFlag = ... # 0x80
-        AlignCenter              : Qt.AlignmentFlag = ... # 0x84
-        AlignBaseline            : Qt.AlignmentFlag = ... # 0x100
-        AlignVertical_Mask       : Qt.AlignmentFlag = ... # 0x1e0
-
-    class AnchorPoint(Shiboken.Enum):
+    class AnchorPoint(shibokensupport.enum_310.Enum):
 
         AnchorLeft               : Qt.AnchorPoint = ... # 0x0
         AnchorHorizontalCenter   : Qt.AnchorPoint = ... # 0x1
@@ -11273,7 +8354,8 @@ class Qt(Shiboken.Object):
         AnchorVerticalCenter     : Qt.AnchorPoint = ... # 0x4
         AnchorBottom             : Qt.AnchorPoint = ... # 0x5
 
-    class ApplicationAttribute(Shiboken.Enum):
+
+    class ApplicationAttribute(shibokensupport.enum_310.Enum):
 
         AA_DontShowIconsInMenus  : Qt.ApplicationAttribute = ... # 0x2
         AA_NativeWindows         : Qt.ApplicationAttribute = ... # 0x3
@@ -11305,16 +8387,16 @@ class Qt(Shiboken.Object):
         AA_DisableSessionManager : Qt.ApplicationAttribute = ... # 0x1f
         AA_AttributeCount        : Qt.ApplicationAttribute = ... # 0x20
 
-    class ApplicationState(Shiboken.Enum):
+
+    class ApplicationState(shibokensupport.enum_310.Flag):
 
         ApplicationSuspended     : Qt.ApplicationState = ... # 0x0
         ApplicationHidden        : Qt.ApplicationState = ... # 0x1
         ApplicationInactive      : Qt.ApplicationState = ... # 0x2
         ApplicationActive        : Qt.ApplicationState = ... # 0x4
 
-    class ApplicationStates(object): ...
 
-    class ArrowType(Shiboken.Enum):
+    class ArrowType(shibokensupport.enum_310.Enum):
 
         NoArrow                  : Qt.ArrowType = ... # 0x0
         UpArrow                  : Qt.ArrowType = ... # 0x1
@@ -11322,24 +8404,28 @@ class Qt(Shiboken.Object):
         LeftArrow                : Qt.ArrowType = ... # 0x3
         RightArrow               : Qt.ArrowType = ... # 0x4
 
-    class AspectRatioMode(Shiboken.Enum):
+
+    class AspectRatioMode(shibokensupport.enum_310.Enum):
 
         IgnoreAspectRatio        : Qt.AspectRatioMode = ... # 0x0
         KeepAspectRatio          : Qt.AspectRatioMode = ... # 0x1
         KeepAspectRatioByExpanding: Qt.AspectRatioMode = ... # 0x2
 
-    class Axis(Shiboken.Enum):
+
+    class Axis(shibokensupport.enum_310.Enum):
 
         XAxis                    : Qt.Axis = ... # 0x0
         YAxis                    : Qt.Axis = ... # 0x1
         ZAxis                    : Qt.Axis = ... # 0x2
 
-    class BGMode(Shiboken.Enum):
+
+    class BGMode(shibokensupport.enum_310.Enum):
 
         TransparentMode          : Qt.BGMode = ... # 0x0
         OpaqueMode               : Qt.BGMode = ... # 0x1
 
-    class BrushStyle(Shiboken.Enum):
+
+    class BrushStyle(shibokensupport.enum_310.Enum):
 
         NoBrush                  : Qt.BrushStyle = ... # 0x0
         SolidPattern             : Qt.BrushStyle = ... # 0x1
@@ -11361,29 +8447,34 @@ class Qt(Shiboken.Object):
         ConicalGradientPattern   : Qt.BrushStyle = ... # 0x11
         TexturePattern           : Qt.BrushStyle = ... # 0x18
 
-    class CaseSensitivity(Shiboken.Enum):
+
+    class CaseSensitivity(shibokensupport.enum_310.Enum):
 
         CaseInsensitive          : Qt.CaseSensitivity = ... # 0x0
         CaseSensitive            : Qt.CaseSensitivity = ... # 0x1
 
-    class CheckState(Shiboken.Enum):
+
+    class CheckState(shibokensupport.enum_310.Enum):
 
         Unchecked                : Qt.CheckState = ... # 0x0
         PartiallyChecked         : Qt.CheckState = ... # 0x1
         Checked                  : Qt.CheckState = ... # 0x2
 
-    class ChecksumType(Shiboken.Enum):
+
+    class ChecksumType(shibokensupport.enum_310.Enum):
 
         ChecksumIso3309          : Qt.ChecksumType = ... # 0x0
         ChecksumItuV41           : Qt.ChecksumType = ... # 0x1
 
-    class ClipOperation(Shiboken.Enum):
+
+    class ClipOperation(shibokensupport.enum_310.Enum):
 
         NoClip                   : Qt.ClipOperation = ... # 0x0
         ReplaceClip              : Qt.ClipOperation = ... # 0x1
         IntersectClip            : Qt.ClipOperation = ... # 0x2
 
-    class ConnectionType(Shiboken.Enum):
+
+    class ConnectionType(shibokensupport.enum_310.Enum):
 
         AutoConnection           : Qt.ConnectionType = ... # 0x0
         DirectConnection         : Qt.ConnectionType = ... # 0x1
@@ -11392,7 +8483,8 @@ class Qt(Shiboken.Object):
         UniqueConnection         : Qt.ConnectionType = ... # 0x80
         SingleShotConnection     : Qt.ConnectionType = ... # 0x100
 
-    class ContextMenuPolicy(Shiboken.Enum):
+
+    class ContextMenuPolicy(shibokensupport.enum_310.Enum):
 
         NoContextMenu            : Qt.ContextMenuPolicy = ... # 0x0
         DefaultContextMenu       : Qt.ContextMenuPolicy = ... # 0x1
@@ -11400,24 +8492,28 @@ class Qt(Shiboken.Object):
         CustomContextMenu        : Qt.ContextMenuPolicy = ... # 0x3
         PreventContextMenu       : Qt.ContextMenuPolicy = ... # 0x4
 
-    class CoordinateSystem(Shiboken.Enum):
+
+    class CoordinateSystem(shibokensupport.enum_310.Enum):
 
         DeviceCoordinates        : Qt.CoordinateSystem = ... # 0x0
         LogicalCoordinates       : Qt.CoordinateSystem = ... # 0x1
 
-    class Corner(Shiboken.Enum):
+
+    class Corner(shibokensupport.enum_310.Enum):
 
         TopLeftCorner            : Qt.Corner = ... # 0x0
         TopRightCorner           : Qt.Corner = ... # 0x1
         BottomLeftCorner         : Qt.Corner = ... # 0x2
         BottomRightCorner        : Qt.Corner = ... # 0x3
 
-    class CursorMoveStyle(Shiboken.Enum):
+
+    class CursorMoveStyle(shibokensupport.enum_310.Enum):
 
         LogicalMoveStyle         : Qt.CursorMoveStyle = ... # 0x0
         VisualMoveStyle          : Qt.CursorMoveStyle = ... # 0x1
 
-    class CursorShape(Shiboken.Enum):
+
+    class CursorShape(shibokensupport.enum_310.Enum):
 
         ArrowCursor              : Qt.CursorShape = ... # 0x0
         UpArrowCursor            : Qt.CursorShape = ... # 0x1
@@ -11445,14 +8541,16 @@ class Qt(Shiboken.Object):
         BitmapCursor             : Qt.CursorShape = ... # 0x18
         CustomCursor             : Qt.CursorShape = ... # 0x19
 
-    class DateFormat(Shiboken.Enum):
+
+    class DateFormat(shibokensupport.enum_310.Enum):
 
         TextDate                 : Qt.DateFormat = ... # 0x0
         ISODate                  : Qt.DateFormat = ... # 0x1
         RFC2822Date              : Qt.DateFormat = ... # 0x8
         ISODateWithMs            : Qt.DateFormat = ... # 0x9
 
-    class DayOfWeek(Shiboken.Enum):
+
+    class DayOfWeek(shibokensupport.enum_310.Enum):
 
         Monday                   : Qt.DayOfWeek = ... # 0x1
         Tuesday                  : Qt.DayOfWeek = ... # 0x2
@@ -11462,7 +8560,8 @@ class Qt(Shiboken.Object):
         Saturday                 : Qt.DayOfWeek = ... # 0x6
         Sunday                   : Qt.DayOfWeek = ... # 0x7
 
-    class DockWidgetArea(Shiboken.Enum):
+
+    class DockWidgetArea(shibokensupport.enum_310.Flag):
 
         NoDockWidgetArea         : Qt.DockWidgetArea = ... # 0x0
         LeftDockWidgetArea       : Qt.DockWidgetArea = ... # 0x1
@@ -11472,13 +8571,13 @@ class Qt(Shiboken.Object):
         AllDockWidgetAreas       : Qt.DockWidgetArea = ... # 0xf
         DockWidgetArea_Mask      : Qt.DockWidgetArea = ... # 0xf
 
-    class DockWidgetAreaSizes(Shiboken.Enum):
+
+    class DockWidgetAreaSizes(shibokensupport.enum_310.Enum):
 
         NDockWidgetAreas         : Qt.DockWidgetAreaSizes = ... # 0x4
 
-    class DockWidgetAreas(object): ...
 
-    class DropAction(Shiboken.Enum):
+    class DropAction(shibokensupport.enum_310.Flag):
 
         IgnoreAction             : Qt.DropAction = ... # 0x0
         CopyAction               : Qt.DropAction = ... # 0x1
@@ -11487,18 +8586,16 @@ class Qt(Shiboken.Object):
         ActionMask               : Qt.DropAction = ... # 0xff
         TargetMoveAction         : Qt.DropAction = ... # 0x8002
 
-    class DropActions(object): ...
 
-    class Edge(Shiboken.Enum):
+    class Edge(shibokensupport.enum_310.Flag):
 
         TopEdge                  : Qt.Edge = ... # 0x1
         LeftEdge                 : Qt.Edge = ... # 0x2
         RightEdge                : Qt.Edge = ... # 0x4
         BottomEdge               : Qt.Edge = ... # 0x8
 
-    class Edges(object): ...
 
-    class EnterKeyType(Shiboken.Enum):
+    class EnterKeyType(shibokensupport.enum_310.Enum):
 
         EnterKeyDefault          : Qt.EnterKeyType = ... # 0x0
         EnterKeyReturn           : Qt.EnterKeyType = ... # 0x1
@@ -11509,25 +8606,27 @@ class Qt(Shiboken.Object):
         EnterKeyNext             : Qt.EnterKeyType = ... # 0x6
         EnterKeyPrevious         : Qt.EnterKeyType = ... # 0x7
 
-    class EventPriority(Shiboken.Enum):
+
+    class EventPriority(shibokensupport.enum_310.Enum):
 
         LowEventPriority         : Qt.EventPriority = ... # -0x1
         NormalEventPriority      : Qt.EventPriority = ... # 0x0
         HighEventPriority        : Qt.EventPriority = ... # 0x1
 
-    class FillRule(Shiboken.Enum):
+
+    class FillRule(shibokensupport.enum_310.Enum):
 
         OddEvenFill              : Qt.FillRule = ... # 0x0
         WindingFill              : Qt.FillRule = ... # 0x1
 
-    class FindChildOption(Shiboken.Enum):
+
+    class FindChildOption(shibokensupport.enum_310.Flag):
 
         FindDirectChildrenOnly   : Qt.FindChildOption = ... # 0x0
         FindChildrenRecursively  : Qt.FindChildOption = ... # 0x1
 
-    class FindChildOptions(object): ...
 
-    class FocusPolicy(Shiboken.Enum):
+    class FocusPolicy(shibokensupport.enum_310.Enum):
 
         NoFocus                  : Qt.FocusPolicy = ... # 0x0
         TabFocus                 : Qt.FocusPolicy = ... # 0x1
@@ -11535,7 +8634,8 @@ class Qt(Shiboken.Object):
         StrongFocus              : Qt.FocusPolicy = ... # 0xb
         WheelFocus               : Qt.FocusPolicy = ... # 0xf
 
-    class FocusReason(Shiboken.Enum):
+
+    class FocusReason(shibokensupport.enum_310.Enum):
 
         MouseFocusReason         : Qt.FocusReason = ... # 0x0
         TabFocusReason           : Qt.FocusReason = ... # 0x1
@@ -11547,15 +8647,15 @@ class Qt(Shiboken.Object):
         OtherFocusReason         : Qt.FocusReason = ... # 0x7
         NoFocusReason            : Qt.FocusReason = ... # 0x8
 
-    class GestureFlag(Shiboken.Enum):
+
+    class GestureFlag(shibokensupport.enum_310.Flag):
 
         DontStartGestureOnChildren: Qt.GestureFlag = ... # 0x1
         ReceivePartialGestures   : Qt.GestureFlag = ... # 0x2
         IgnoredGesturesPropagateToParent: Qt.GestureFlag = ... # 0x4
 
-    class GestureFlags(object): ...
 
-    class GestureState(Shiboken.Enum):
+    class GestureState(shibokensupport.enum_310.Enum):
 
         NoGesture                : Qt.GestureState = ... # 0x0
         GestureStarted           : Qt.GestureState = ... # 0x1
@@ -11563,7 +8663,8 @@ class Qt(Shiboken.Object):
         GestureFinished          : Qt.GestureState = ... # 0x3
         GestureCanceled          : Qt.GestureState = ... # 0x4
 
-    class GestureType(Shiboken.Enum):
+
+    class GestureType(shibokensupport.enum_310.IntEnum):
 
         TapGesture               : Qt.GestureType = ... # 0x1
         TapAndHoldGesture        : Qt.GestureType = ... # 0x2
@@ -11573,7 +8674,8 @@ class Qt(Shiboken.Object):
         CustomGesture            : Qt.GestureType = ... # 0x100
         LastGestureType          : Qt.GestureType = ... # 0xffffffff
 
-    class GlobalColor(Shiboken.Enum):
+
+    class GlobalColor(shibokensupport.enum_310.Enum):
 
         color0                   : Qt.GlobalColor = ... # 0x0
         color1                   : Qt.GlobalColor = ... # 0x1
@@ -11596,7 +8698,8 @@ class Qt(Shiboken.Object):
         darkYellow               : Qt.GlobalColor = ... # 0x12
         transparent              : Qt.GlobalColor = ... # 0x13
 
-    class HighDpiScaleFactorRoundingPolicy(Shiboken.Enum):
+
+    class HighDpiScaleFactorRoundingPolicy(shibokensupport.enum_310.Enum):
 
         Unset                    : Qt.HighDpiScaleFactorRoundingPolicy = ... # 0x0
         Round                    : Qt.HighDpiScaleFactorRoundingPolicy = ... # 0x1
@@ -11605,12 +8708,14 @@ class Qt(Shiboken.Object):
         RoundPreferFloor         : Qt.HighDpiScaleFactorRoundingPolicy = ... # 0x4
         PassThrough              : Qt.HighDpiScaleFactorRoundingPolicy = ... # 0x5
 
-    class HitTestAccuracy(Shiboken.Enum):
+
+    class HitTestAccuracy(shibokensupport.enum_310.Enum):
 
         ExactHit                 : Qt.HitTestAccuracy = ... # 0x0
         FuzzyHit                 : Qt.HitTestAccuracy = ... # 0x1
 
-    class ImageConversionFlag(Shiboken.Enum):
+
+    class ImageConversionFlag(shibokensupport.enum_310.Flag):
 
         AutoColor                : Qt.ImageConversionFlag = ... # 0x0
         AutoDither               : Qt.ImageConversionFlag = ... # 0x0
@@ -11632,9 +8737,8 @@ class Qt(Shiboken.Object):
         NoOpaqueDetection        : Qt.ImageConversionFlag = ... # 0x100
         NoFormatConversion       : Qt.ImageConversionFlag = ... # 0x200
 
-    class ImageConversionFlags(object): ...
 
-    class InputMethodHint(Shiboken.Enum):
+    class InputMethodHint(shibokensupport.enum_310.Flag):
 
         ImhNone                  : Qt.InputMethodHint = ... # 0x0
         ImhHiddenText            : Qt.InputMethodHint = ... # 0x1
@@ -11658,13 +8762,10 @@ class Qt(Shiboken.Object):
         ImhEmailCharactersOnly   : Qt.InputMethodHint = ... # 0x200000
         ImhUrlCharactersOnly     : Qt.InputMethodHint = ... # 0x400000
         ImhLatinOnly             : Qt.InputMethodHint = ... # 0x800000
-        ImhExclusiveInputMask    : Qt.InputMethodHint = ... # -0x10000
+        ImhExclusiveInputMask    : Qt.InputMethodHint = ... # 0xffff0000
 
-    class InputMethodHints(object): ...
 
-    class InputMethodQueries(object): ...
-
-    class InputMethodQuery(Shiboken.Enum):
+    class InputMethodQuery(shibokensupport.enum_310.Flag):
 
         ImEnabled                : Qt.InputMethodQuery = ... # 0x1
         ImCursorRectangle        : Qt.InputMethodQuery = ... # 0x2
@@ -11684,10 +8785,11 @@ class Qt(Shiboken.Object):
         ImQueryInput             : Qt.InputMethodQuery = ... # 0x40ba
         ImInputItemClipRectangle : Qt.InputMethodQuery = ... # 0x8000
         ImReadOnly               : Qt.InputMethodQuery = ... # 0x10000
-        ImPlatformData           : Qt.InputMethodQuery = ... # -0x80000000
-        ImQueryAll               : Qt.InputMethodQuery = ... # -0x1
+        ImPlatformData           : Qt.InputMethodQuery = ... # 0x80000000
+        ImQueryAll               : Qt.InputMethodQuery = ... # 0xffffffff
 
-    class ItemDataRole(Shiboken.Enum):
+
+    class ItemDataRole(shibokensupport.enum_310.IntEnum):
 
         DisplayRole              : Qt.ItemDataRole = ... # 0x0
         DecorationRole           : Qt.ItemDataRole = ... # 0x1
@@ -11711,7 +8813,8 @@ class Qt(Shiboken.Object):
         WhatsThisPropertyRole    : Qt.ItemDataRole = ... # 0x1f
         UserRole                 : Qt.ItemDataRole = ... # 0x100
 
-    class ItemFlag(Shiboken.Enum):
+
+    class ItemFlag(shibokensupport.enum_310.Flag):
 
         NoItemFlags              : Qt.ItemFlag = ... # 0x0
         ItemIsSelectable         : Qt.ItemFlag = ... # 0x1
@@ -11724,21 +8827,22 @@ class Qt(Shiboken.Object):
         ItemNeverHasChildren     : Qt.ItemFlag = ... # 0x80
         ItemIsUserTristate       : Qt.ItemFlag = ... # 0x100
 
-    class ItemFlags(object): ...
 
-    class ItemSelectionMode(Shiboken.Enum):
+    class ItemSelectionMode(shibokensupport.enum_310.Enum):
 
         ContainsItemShape        : Qt.ItemSelectionMode = ... # 0x0
         IntersectsItemShape      : Qt.ItemSelectionMode = ... # 0x1
         ContainsItemBoundingRect : Qt.ItemSelectionMode = ... # 0x2
         IntersectsItemBoundingRect: Qt.ItemSelectionMode = ... # 0x3
 
-    class ItemSelectionOperation(Shiboken.Enum):
+
+    class ItemSelectionOperation(shibokensupport.enum_310.Enum):
 
         ReplaceSelection         : Qt.ItemSelectionOperation = ... # 0x0
         AddToSelection           : Qt.ItemSelectionOperation = ... # 0x1
 
-    class Key(Shiboken.Enum):
+
+    class Key(shibokensupport.enum_310.IntEnum):
 
         Key_Any                  : Qt.Key = ... # 0x20
         Key_Space                : Qt.Key = ... # 0x20
@@ -12210,7 +9314,8 @@ class Qt(Shiboken.Object):
         Key_CameraFocus          : Qt.Key = ... # 0x1100021
         Key_unknown              : Qt.Key = ... # 0x1ffffff
 
-    class KeyboardModifier(Shiboken.Enum):
+
+    class KeyboardModifier(shibokensupport.enum_310.Flag):
 
         NoModifier               : Qt.KeyboardModifier = ... # 0x0
         ShiftModifier            : Qt.KeyboardModifier = ... # 0x2000000
@@ -12219,22 +9324,23 @@ class Qt(Shiboken.Object):
         MetaModifier             : Qt.KeyboardModifier = ... # 0x10000000
         KeypadModifier           : Qt.KeyboardModifier = ... # 0x20000000
         GroupSwitchModifier      : Qt.KeyboardModifier = ... # 0x40000000
-        KeyboardModifierMask     : Qt.KeyboardModifier = ... # -0x2000000
+        KeyboardModifierMask     : Qt.KeyboardModifier = ... # 0xfe000000
 
-    class KeyboardModifiers(object): ...
 
-    class LayoutDirection(Shiboken.Enum):
+    class LayoutDirection(shibokensupport.enum_310.Enum):
 
         LeftToRight              : Qt.LayoutDirection = ... # 0x0
         RightToLeft              : Qt.LayoutDirection = ... # 0x1
         LayoutDirectionAuto      : Qt.LayoutDirection = ... # 0x2
 
-    class MaskMode(Shiboken.Enum):
+
+    class MaskMode(shibokensupport.enum_310.Enum):
 
         MaskInColor              : Qt.MaskMode = ... # 0x0
         MaskOutColor             : Qt.MaskMode = ... # 0x1
 
-    class MatchFlag(Shiboken.Enum):
+
+    class MatchFlag(shibokensupport.enum_310.Flag):
 
         MatchExactly             : Qt.MatchFlag = ... # 0x0
         MatchContains            : Qt.MatchFlag = ... # 0x1
@@ -12248,9 +9354,8 @@ class Qt(Shiboken.Object):
         MatchWrap                : Qt.MatchFlag = ... # 0x20
         MatchRecursive           : Qt.MatchFlag = ... # 0x40
 
-    class MatchFlags(object): ...
 
-    class Modifier(Shiboken.Enum):
+    class Modifier(shibokensupport.enum_310.Flag):
 
         SHIFT                    : Qt.Modifier = ... # 0x2000000
         CTRL                     : Qt.Modifier = ... # 0x4000000
@@ -12258,7 +9363,8 @@ class Qt(Shiboken.Object):
         META                     : Qt.Modifier = ... # 0x10000000
         MODIFIER_MASK            : Qt.Modifier = ... # 0xfe000000
 
-    class MouseButton(Shiboken.Enum):
+
+    class MouseButton(shibokensupport.enum_310.Flag):
 
         NoButton                 : Qt.MouseButton = ... # 0x0
         LeftButton               : Qt.MouseButton = ... # 0x1
@@ -12295,26 +9401,25 @@ class Qt(Shiboken.Object):
         ExtraButton24            : Qt.MouseButton = ... # 0x4000000
         MaxMouseButton           : Qt.MouseButton = ... # 0x4000000
         AllButtons               : Qt.MouseButton = ... # 0x7ffffff
-        MouseButtonMask          : Qt.MouseButton = ... # -0x1
+        MouseButtonMask          : Qt.MouseButton = ... # 0xffffffff
 
-    class MouseButtons(object): ...
 
-    class MouseEventFlag(Shiboken.Enum):
+    class MouseEventFlag(shibokensupport.enum_310.Flag):
 
         NoMouseEventFlag         : Qt.MouseEventFlag = ... # 0x0
         MouseEventCreatedDoubleClick: Qt.MouseEventFlag = ... # 0x1
         MouseEventFlagMask       : Qt.MouseEventFlag = ... # 0xff
 
-    class MouseEventFlags(object): ...
 
-    class MouseEventSource(Shiboken.Enum):
+    class MouseEventSource(shibokensupport.enum_310.Enum):
 
         MouseEventNotSynthesized : Qt.MouseEventSource = ... # 0x0
         MouseEventSynthesizedBySystem: Qt.MouseEventSource = ... # 0x1
         MouseEventSynthesizedByQt: Qt.MouseEventSource = ... # 0x2
         MouseEventSynthesizedByApplication: Qt.MouseEventSource = ... # 0x3
 
-    class NativeGestureType(Shiboken.Enum):
+
+    class NativeGestureType(shibokensupport.enum_310.Enum):
 
         BeginNativeGesture       : Qt.NativeGestureType = ... # 0x0
         EndNativeGesture         : Qt.NativeGestureType = ... # 0x1
@@ -12324,7 +9429,8 @@ class Qt(Shiboken.Object):
         RotateNativeGesture      : Qt.NativeGestureType = ... # 0x5
         SwipeNativeGesture       : Qt.NativeGestureType = ... # 0x6
 
-    class NavigationMode(Shiboken.Enum):
+
+    class NavigationMode(shibokensupport.enum_310.Enum):
 
         NavigationModeNone       : Qt.NavigationMode = ... # 0x0
         NavigationModeKeypadTabOrder: Qt.NavigationMode = ... # 0x1
@@ -12332,21 +9438,22 @@ class Qt(Shiboken.Object):
         NavigationModeCursorAuto : Qt.NavigationMode = ... # 0x3
         NavigationModeCursorForceVisible: Qt.NavigationMode = ... # 0x4
 
-    class Orientation(Shiboken.Enum):
+
+    class Orientation(shibokensupport.enum_310.Flag):
 
         Horizontal               : Qt.Orientation = ... # 0x1
         Vertical                 : Qt.Orientation = ... # 0x2
 
-    class Orientations(object): ...
 
-    class PenCapStyle(Shiboken.Enum):
+    class PenCapStyle(shibokensupport.enum_310.Enum):
 
         FlatCap                  : Qt.PenCapStyle = ... # 0x0
         SquareCap                : Qt.PenCapStyle = ... # 0x10
         RoundCap                 : Qt.PenCapStyle = ... # 0x20
         MPenCapStyle             : Qt.PenCapStyle = ... # 0x30
 
-    class PenJoinStyle(Shiboken.Enum):
+
+    class PenJoinStyle(shibokensupport.enum_310.Enum):
 
         MiterJoin                : Qt.PenJoinStyle = ... # 0x0
         BevelJoin                : Qt.PenJoinStyle = ... # 0x40
@@ -12354,7 +9461,8 @@ class Qt(Shiboken.Object):
         SvgMiterJoin             : Qt.PenJoinStyle = ... # 0x100
         MPenJoinStyle            : Qt.PenJoinStyle = ... # 0x1c0
 
-    class PenStyle(Shiboken.Enum):
+
+    class PenStyle(shibokensupport.enum_310.Enum):
 
         NoPen                    : Qt.PenStyle = ... # 0x0
         SolidLine                : Qt.PenStyle = ... # 0x1
@@ -12365,11 +9473,13 @@ class Qt(Shiboken.Object):
         CustomDashLine           : Qt.PenStyle = ... # 0x6
         MPenStyle                : Qt.PenStyle = ... # 0xf
 
-    class ReturnByValueConstant(Shiboken.Enum):
+
+    class ReturnByValueConstant(shibokensupport.enum_310.Enum):
 
         ReturnByValue            : Qt.ReturnByValueConstant = ... # 0x0
 
-    class ScreenOrientation(Shiboken.Enum):
+
+    class ScreenOrientation(shibokensupport.enum_310.Flag):
 
         PrimaryOrientation       : Qt.ScreenOrientation = ... # 0x0
         PortraitOrientation      : Qt.ScreenOrientation = ... # 0x1
@@ -12377,15 +9487,15 @@ class Qt(Shiboken.Object):
         InvertedPortraitOrientation: Qt.ScreenOrientation = ... # 0x4
         InvertedLandscapeOrientation: Qt.ScreenOrientation = ... # 0x8
 
-    class ScreenOrientations(object): ...
 
-    class ScrollBarPolicy(Shiboken.Enum):
+    class ScrollBarPolicy(shibokensupport.enum_310.Enum):
 
         ScrollBarAsNeeded        : Qt.ScrollBarPolicy = ... # 0x0
         ScrollBarAlwaysOff       : Qt.ScrollBarPolicy = ... # 0x1
         ScrollBarAlwaysOn        : Qt.ScrollBarPolicy = ... # 0x2
 
-    class ScrollPhase(Shiboken.Enum):
+
+    class ScrollPhase(shibokensupport.enum_310.Enum):
 
         NoScrollPhase            : Qt.ScrollPhase = ... # 0x0
         ScrollBegin              : Qt.ScrollPhase = ... # 0x1
@@ -12393,14 +9503,16 @@ class Qt(Shiboken.Object):
         ScrollEnd                : Qt.ScrollPhase = ... # 0x3
         ScrollMomentum           : Qt.ScrollPhase = ... # 0x4
 
-    class ShortcutContext(Shiboken.Enum):
+
+    class ShortcutContext(shibokensupport.enum_310.Enum):
 
         WidgetShortcut           : Qt.ShortcutContext = ... # 0x0
         WindowShortcut           : Qt.ShortcutContext = ... # 0x1
         ApplicationShortcut      : Qt.ShortcutContext = ... # 0x2
         WidgetWithChildrenShortcut: Qt.ShortcutContext = ... # 0x3
 
-    class SizeHint(Shiboken.Enum):
+
+    class SizeHint(shibokensupport.enum_310.Enum):
 
         MinimumSize              : Qt.SizeHint = ... # 0x0
         PreferredSize            : Qt.SizeHint = ... # 0x1
@@ -12408,38 +9520,42 @@ class Qt(Shiboken.Object):
         MinimumDescent           : Qt.SizeHint = ... # 0x3
         NSizeHints               : Qt.SizeHint = ... # 0x4
 
-    class SizeMode(Shiboken.Enum):
+
+    class SizeMode(shibokensupport.enum_310.Enum):
 
         AbsoluteSize             : Qt.SizeMode = ... # 0x0
         RelativeSize             : Qt.SizeMode = ... # 0x1
 
-    class SortOrder(Shiboken.Enum):
+
+    class SortOrder(shibokensupport.enum_310.Enum):
 
         AscendingOrder           : Qt.SortOrder = ... # 0x0
         DescendingOrder          : Qt.SortOrder = ... # 0x1
 
-    class SplitBehavior(object): ...
 
-    class SplitBehaviorFlags(Shiboken.Enum):
+    class SplitBehaviorFlags(shibokensupport.enum_310.Flag):
 
         KeepEmptyParts           : Qt.SplitBehaviorFlags = ... # 0x0
         SkipEmptyParts           : Qt.SplitBehaviorFlags = ... # 0x1
 
-    class TabFocusBehavior(Shiboken.Enum):
+
+    class TabFocusBehavior(shibokensupport.enum_310.Enum):
 
         NoTabFocus               : Qt.TabFocusBehavior = ... # 0x0
         TabFocusTextControls     : Qt.TabFocusBehavior = ... # 0x1
         TabFocusListControls     : Qt.TabFocusBehavior = ... # 0x2
         TabFocusAllControls      : Qt.TabFocusBehavior = ... # 0xff
 
-    class TextElideMode(Shiboken.Enum):
+
+    class TextElideMode(shibokensupport.enum_310.Enum):
 
         ElideLeft                : Qt.TextElideMode = ... # 0x0
         ElideRight               : Qt.TextElideMode = ... # 0x1
         ElideMiddle              : Qt.TextElideMode = ... # 0x2
         ElideNone                : Qt.TextElideMode = ... # 0x3
 
-    class TextFlag(Shiboken.Enum):
+
+    class TextFlag(shibokensupport.enum_310.IntFlag):
 
         TextSingleLine           : Qt.TextFlag = ... # 0x100
         TextDontClip             : Qt.TextFlag = ... # 0x200
@@ -12455,14 +9571,16 @@ class Qt(Shiboken.Object):
         TextLongestVariant       : Qt.TextFlag = ... # 0x80000
         TextIncludeTrailingSpaces: Qt.TextFlag = ... # 0x8000000
 
-    class TextFormat(Shiboken.Enum):
+
+    class TextFormat(shibokensupport.enum_310.Enum):
 
         PlainText                : Qt.TextFormat = ... # 0x0
         RichText                 : Qt.TextFormat = ... # 0x1
         AutoText                 : Qt.TextFormat = ... # 0x2
         MarkdownText             : Qt.TextFormat = ... # 0x3
 
-    class TextInteractionFlag(Shiboken.Enum):
+
+    class TextInteractionFlag(shibokensupport.enum_310.Flag):
 
         NoTextInteraction        : Qt.TextInteractionFlag = ... # 0x0
         TextSelectableByMouse    : Qt.TextInteractionFlag = ... # 0x1
@@ -12473,28 +9591,30 @@ class Qt(Shiboken.Object):
         TextEditable             : Qt.TextInteractionFlag = ... # 0x10
         TextEditorInteraction    : Qt.TextInteractionFlag = ... # 0x13
 
-    class TextInteractionFlags(object): ...
 
-    class TileRule(Shiboken.Enum):
+    class TileRule(shibokensupport.enum_310.Enum):
 
         StretchTile              : Qt.TileRule = ... # 0x0
         RepeatTile               : Qt.TileRule = ... # 0x1
         RoundTile                : Qt.TileRule = ... # 0x2
 
-    class TimeSpec(Shiboken.Enum):
+
+    class TimeSpec(shibokensupport.enum_310.Enum):
 
         LocalTime                : Qt.TimeSpec = ... # 0x0
         UTC                      : Qt.TimeSpec = ... # 0x1
         OffsetFromUTC            : Qt.TimeSpec = ... # 0x2
         TimeZone                 : Qt.TimeSpec = ... # 0x3
 
-    class TimerType(Shiboken.Enum):
+
+    class TimerType(shibokensupport.enum_310.Enum):
 
         PreciseTimer             : Qt.TimerType = ... # 0x0
         CoarseTimer              : Qt.TimerType = ... # 0x1
         VeryCoarseTimer          : Qt.TimerType = ... # 0x2
 
-    class ToolBarArea(Shiboken.Enum):
+
+    class ToolBarArea(shibokensupport.enum_310.Flag):
 
         NoToolBarArea            : Qt.ToolBarArea = ... # 0x0
         LeftToolBarArea          : Qt.ToolBarArea = ... # 0x1
@@ -12504,13 +9624,13 @@ class Qt(Shiboken.Object):
         AllToolBarAreas          : Qt.ToolBarArea = ... # 0xf
         ToolBarArea_Mask         : Qt.ToolBarArea = ... # 0xf
 
-    class ToolBarAreaSizes(Shiboken.Enum):
+
+    class ToolBarAreaSizes(shibokensupport.enum_310.Enum):
 
         NToolBarAreas            : Qt.ToolBarAreaSizes = ... # 0x4
 
-    class ToolBarAreas(object): ...
 
-    class ToolButtonStyle(Shiboken.Enum):
+    class ToolButtonStyle(shibokensupport.enum_310.Enum):
 
         ToolButtonIconOnly       : Qt.ToolButtonStyle = ... # 0x0
         ToolButtonTextOnly       : Qt.ToolButtonStyle = ... # 0x1
@@ -12518,7 +9638,8 @@ class Qt(Shiboken.Object):
         ToolButtonTextUnderIcon  : Qt.ToolButtonStyle = ... # 0x3
         ToolButtonFollowStyle    : Qt.ToolButtonStyle = ... # 0x4
 
-    class TouchPointState(Shiboken.Enum):
+
+    class TouchPointState(shibokensupport.enum_310.Flag):
 
         TouchPointUnknownState   : Qt.TouchPointState = ... # 0x0
         TouchPointPressed        : Qt.TouchPointState = ... # 0x1
@@ -12526,14 +9647,14 @@ class Qt(Shiboken.Object):
         TouchPointStationary     : Qt.TouchPointState = ... # 0x4
         TouchPointReleased       : Qt.TouchPointState = ... # 0x8
 
-    class TouchPointStates(object): ...
 
-    class TransformationMode(Shiboken.Enum):
+    class TransformationMode(shibokensupport.enum_310.Enum):
 
         FastTransformation       : Qt.TransformationMode = ... # 0x0
         SmoothTransformation     : Qt.TransformationMode = ... # 0x1
 
-    class UIEffect(Shiboken.Enum):
+
+    class UIEffect(shibokensupport.enum_310.Enum):
 
         UI_General               : Qt.UIEffect = ... # 0x0
         UI_AnimateMenu           : Qt.UIEffect = ... # 0x1
@@ -12543,14 +9664,16 @@ class Qt(Shiboken.Object):
         UI_FadeTooltip           : Qt.UIEffect = ... # 0x5
         UI_AnimateToolBox        : Qt.UIEffect = ... # 0x6
 
-    class WhiteSpaceMode(Shiboken.Enum):
+
+    class WhiteSpaceMode(shibokensupport.enum_310.Enum):
 
         WhiteSpaceModeUndefined  : Qt.WhiteSpaceMode = ... # -0x1
         WhiteSpaceNormal         : Qt.WhiteSpaceMode = ... # 0x0
         WhiteSpacePre            : Qt.WhiteSpaceMode = ... # 0x1
         WhiteSpaceNoWrap         : Qt.WhiteSpaceMode = ... # 0x2
 
-    class WidgetAttribute(Shiboken.Enum):
+
+    class WidgetAttribute(shibokensupport.enum_310.Enum):
 
         WA_Disabled              : Qt.WidgetAttribute = ... # 0x0
         WA_UnderMouse            : Qt.WidgetAttribute = ... # 0x1
@@ -12656,9 +9779,8 @@ class Qt(Shiboken.Object):
         WA_StyleSheetTarget      : Qt.WidgetAttribute = ... # 0x83
         WA_AttributeCount        : Qt.WidgetAttribute = ... # 0x84
 
-    class WindowFlags(object): ...
 
-    class WindowFrameSection(Shiboken.Enum):
+    class WindowFrameSection(shibokensupport.enum_310.Enum):
 
         NoSection                : Qt.WindowFrameSection = ... # 0x0
         LeftSection              : Qt.WindowFrameSection = ... # 0x1
@@ -12671,13 +9793,15 @@ class Qt(Shiboken.Object):
         BottomLeftSection        : Qt.WindowFrameSection = ... # 0x8
         TitleBarArea             : Qt.WindowFrameSection = ... # 0x9
 
-    class WindowModality(Shiboken.Enum):
+
+    class WindowModality(shibokensupport.enum_310.Enum):
 
         NonModal                 : Qt.WindowModality = ... # 0x0
         WindowModal              : Qt.WindowModality = ... # 0x1
         ApplicationModal         : Qt.WindowModality = ... # 0x2
 
-    class WindowState(Shiboken.Enum):
+
+    class WindowState(shibokensupport.enum_310.Flag):
 
         WindowNoState            : Qt.WindowState = ... # 0x0
         WindowMinimized          : Qt.WindowState = ... # 0x1
@@ -12685,9 +9809,8 @@ class Qt(Shiboken.Object):
         WindowFullScreen         : Qt.WindowState = ... # 0x4
         WindowActive             : Qt.WindowState = ... # 0x8
 
-    class WindowStates(object): ...
 
-    class WindowType(Shiboken.Enum):
+    class WindowType(shibokensupport.enum_310.IntFlag):
 
         Widget                   : Qt.WindowType = ... # 0x0
         Window                   : Qt.WindowType = ... # 0x1
@@ -12726,7 +9849,7 @@ class Qt(Shiboken.Object):
         MacWindowToolBarButtonHint: Qt.WindowType = ... # 0x10000000
         BypassGraphicsProxyWidget: Qt.WindowType = ... # 0x20000000
         NoDropShadowWindowHint   : Qt.WindowType = ... # 0x40000000
-        WindowFullscreenButtonHint: Qt.WindowType = ... # -0x80000000
+        WindowFullscreenButtonHint: Qt.WindowType = ... # 0x80000000
 
 
     @staticmethod
@@ -12783,7 +9906,7 @@ class Qt(Shiboken.Object):
     def ws(s: PySide6.QtCore.QTextStream) -> PySide6.QtCore.QTextStream: ...
 
 
-class QtMsgType(Shiboken.Enum):
+class QtMsgType(shibokensupport.enum_310.Enum):
 
     QtDebugMsg               : QtMsgType = ... # 0x0
     QtWarningMsg             : QtMsgType = ... # 0x1
@@ -12823,6 +9946,8 @@ def QT_TRANSLATE_NOOP3(arg__1: object, arg__2: object, arg__3: object) -> object
 def QT_TRANSLATE_NOOP_UTF8(arg__1: object) -> object: ...
 def QT_TR_NOOP(arg__1: object) -> object: ...
 def QT_TR_NOOP_UTF8(arg__1: object) -> object: ...
+def Q_ARG(type: object, value: object) -> PySide6.QtCore.QGenericArgumentHolder: ...
+def Q_RETURN_ARG(type: object) -> PySide6.QtCore.QGenericReturnArgumentHolder: ...
 def SIGNAL(arg__1: bytes) -> str: ...
 def SLOT(arg__1: bytes) -> str: ...
 def __init_feature__() -> None: ...

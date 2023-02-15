@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -56,7 +20,7 @@ class QAbstractItemModelReplica(PySide6.QtCore.QAbstractItemModel):
     def availableRoles(self) -> List[int]: ...
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
     def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
-    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlags: ...
+    def flags(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.Qt.ItemFlag: ...
     def hasChildren(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> bool: ...
     def hasData(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int) -> bool: ...
     def headerData(self, section: int, orientation: PySide6.QtCore.Qt.Orientation, role: int) -> Any: ...
@@ -103,10 +67,7 @@ class QRemoteObjectHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
 
 class QRemoteObjectHostBase(PySide6.QtRemoteObjects.QRemoteObjectNode):
 
-    BuiltInSchemasOnly       : QRemoteObjectHostBase.AllowedSchemas = ... # 0x0
-    AllowExternalRegistration: QRemoteObjectHostBase.AllowedSchemas = ... # 0x1
-
-    class AllowedSchemas(Shiboken.Enum):
+    class AllowedSchemas(shibokensupport.enum_310.Enum):
 
         BuiltInSchemasOnly       : QRemoteObjectHostBase.AllowedSchemas = ... # 0x0
         AllowExternalRegistration: QRemoteObjectHostBase.AllowedSchemas = ... # 0x1
@@ -127,20 +88,7 @@ class QRemoteObjectHostBase(PySide6.QtRemoteObjects.QRemoteObjectNode):
 
 class QRemoteObjectNode(PySide6.QtCore.QObject):
 
-    NoError                  : QRemoteObjectNode.ErrorCode = ... # 0x0
-    RegistryNotAcquired      : QRemoteObjectNode.ErrorCode = ... # 0x1
-    RegistryAlreadyHosted    : QRemoteObjectNode.ErrorCode = ... # 0x2
-    NodeIsNoServer           : QRemoteObjectNode.ErrorCode = ... # 0x3
-    ServerAlreadyCreated     : QRemoteObjectNode.ErrorCode = ... # 0x4
-    UnintendedRegistryHosting: QRemoteObjectNode.ErrorCode = ... # 0x5
-    OperationNotValidOnClientNode: QRemoteObjectNode.ErrorCode = ... # 0x6
-    SourceNotRegistered      : QRemoteObjectNode.ErrorCode = ... # 0x7
-    MissingObjectName        : QRemoteObjectNode.ErrorCode = ... # 0x8
-    HostUrlInvalid           : QRemoteObjectNode.ErrorCode = ... # 0x9
-    ProtocolMismatch         : QRemoteObjectNode.ErrorCode = ... # 0xa
-    ListenFailed             : QRemoteObjectNode.ErrorCode = ... # 0xb
-
-    class ErrorCode(Shiboken.Enum):
+    class ErrorCode(shibokensupport.enum_310.Enum):
 
         NoError                  : QRemoteObjectNode.ErrorCode = ... # 0x0
         RegistryNotAcquired      : QRemoteObjectNode.ErrorCode = ... # 0x1
@@ -181,10 +129,7 @@ class QRemoteObjectNode(PySide6.QtCore.QObject):
 
 class QRemoteObjectPendingCall(Shiboken.Object):
 
-    NoError                  : QRemoteObjectPendingCall.Error = ... # 0x0
-    InvalidMessage           : QRemoteObjectPendingCall.Error = ... # 0x1
-
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         NoError                  : QRemoteObjectPendingCall.Error = ... # 0x0
         InvalidMessage           : QRemoteObjectPendingCall.Error = ... # 0x1
@@ -230,13 +175,7 @@ class QRemoteObjectRegistryHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
 
 class QRemoteObjectReplica(PySide6.QtCore.QObject):
 
-    Uninitialized            : QRemoteObjectReplica.State = ... # 0x0
-    Default                  : QRemoteObjectReplica.State = ... # 0x1
-    Valid                    : QRemoteObjectReplica.State = ... # 0x2
-    Suspect                  : QRemoteObjectReplica.State = ... # 0x3
-    SignatureMismatch        : QRemoteObjectReplica.State = ... # 0x4
-
-    class State(Shiboken.Enum):
+    class State(shibokensupport.enum_310.Enum):
 
         Uninitialized            : QRemoteObjectReplica.State = ... # 0x0
         Default                  : QRemoteObjectReplica.State = ... # 0x1

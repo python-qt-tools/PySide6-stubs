@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -50,7 +14,7 @@ import PySide6.QtCore
 import PySide6.QtNetwork
 
 import os
-from typing import Any, Callable, Optional, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, Callable, Optional, Tuple, Type, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
 
@@ -64,23 +28,15 @@ class QIntList(object): ...
 
 class QJSEngine(PySide6.QtCore.QObject):
 
-    TranslationExtension     : QJSEngine.Extension = ... # 0x1
-    ConsoleExtension         : QJSEngine.Extension = ... # 0x2
-    GarbageCollectionExtension: QJSEngine.Extension = ... # 0x4
-    AllExtensions            : QJSEngine.Extension = ... # -0x1
-    CppOwnership             : QJSEngine.ObjectOwnership = ... # 0x0
-    JavaScriptOwnership      : QJSEngine.ObjectOwnership = ... # 0x1
-
-    class Extension(Shiboken.Enum):
+    class Extension(shibokensupport.enum_310.Flag):
 
         TranslationExtension     : QJSEngine.Extension = ... # 0x1
         ConsoleExtension         : QJSEngine.Extension = ... # 0x2
         GarbageCollectionExtension: QJSEngine.Extension = ... # 0x4
-        AllExtensions            : QJSEngine.Extension = ... # -0x1
+        AllExtensions            : QJSEngine.Extension = ... # 0xffffffff
 
-    class Extensions(object): ...
 
-    class ObjectOwnership(Shiboken.Enum):
+    class ObjectOwnership(shibokensupport.enum_310.Enum):
 
         CppOwnership             : QJSEngine.ObjectOwnership = ... # 0x0
         JavaScriptOwnership      : QJSEngine.ObjectOwnership = ... # 0x1
@@ -97,7 +53,7 @@ class QJSEngine(PySide6.QtCore.QObject):
     def globalObject(self) -> PySide6.QtQml.QJSValue: ...
     def hasError(self) -> bool: ...
     def importModule(self, fileName: str) -> PySide6.QtQml.QJSValue: ...
-    def installExtensions(self, extensions: PySide6.QtQml.QJSEngine.Extensions, object: Union[PySide6.QtQml.QJSValue, PySide6.QtQml.QJSValue.SpecialValue, bool, str, bytes, float, int] = ...) -> None: ...
+    def installExtensions(self, extensions: PySide6.QtQml.QJSEngine.Extension, object: Union[PySide6.QtQml.QJSValue, PySide6.QtQml.QJSValue.SpecialValue, bool, str, bytes, float, int] = ...) -> None: ...
     def isInterrupted(self) -> bool: ...
     def newArray(self, length: int = ...) -> PySide6.QtQml.QJSValue: ...
     def newErrorObject(self, errorType: PySide6.QtQml.QJSValue.ErrorType, message: str = ...) -> PySide6.QtQml.QJSValue: ...
@@ -124,15 +80,7 @@ class QJSEngine(PySide6.QtCore.QObject):
 
 class QJSManagedValue(Shiboken.Object):
 
-    Undefined                : QJSManagedValue.Type = ... # 0x0
-    Boolean                  : QJSManagedValue.Type = ... # 0x1
-    Number                   : QJSManagedValue.Type = ... # 0x2
-    String                   : QJSManagedValue.Type = ... # 0x3
-    Object                   : QJSManagedValue.Type = ... # 0x4
-    Symbol                   : QJSManagedValue.Type = ... # 0x5
-    Function                 : QJSManagedValue.Type = ... # 0x6
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         Undefined                : QJSManagedValue.Type = ... # 0x0
         Boolean                  : QJSManagedValue.Type = ... # 0x1
@@ -220,14 +168,7 @@ class QJSManagedValue(Shiboken.Object):
 
 class QJSPrimitiveValue(Shiboken.Object):
 
-    Undefined                : QJSPrimitiveValue.Type = ... # 0x0
-    Null                     : QJSPrimitiveValue.Type = ... # 0x1
-    Boolean                  : QJSPrimitiveValue.Type = ... # 0x2
-    Integer                  : QJSPrimitiveValue.Type = ... # 0x3
-    Double                   : QJSPrimitiveValue.Type = ... # 0x4
-    String                   : QJSPrimitiveValue.Type = ... # 0x5
-
-    class Type(Shiboken.Enum):
+    class Type(shibokensupport.enum_310.Enum):
 
         Undefined                : QJSPrimitiveValue.Type = ... # 0x0
         Null                     : QJSPrimitiveValue.Type = ... # 0x1
@@ -241,6 +182,8 @@ class QJSPrimitiveValue(Shiboken.Object):
     def __init__(self) -> None: ...
     @overload
     def __init__(self, string: str) -> None: ...
+    @overload
+    def __init__(self, type: Union[PySide6.QtCore.QMetaType, PySide6.QtCore.QMetaType.Type], value: int) -> None: ...
     @overload
     def __init__(self, value: bool) -> None: ...
     @overload
@@ -272,20 +215,7 @@ class QJSPrimitiveValue(Shiboken.Object):
 
 class QJSValue(Shiboken.Object):
 
-    NoError                  : QJSValue.ErrorType = ... # 0x0
-    GenericError             : QJSValue.ErrorType = ... # 0x1
-    EvalError                : QJSValue.ErrorType = ... # 0x2
-    RangeError               : QJSValue.ErrorType = ... # 0x3
-    ReferenceError           : QJSValue.ErrorType = ... # 0x4
-    SyntaxError              : QJSValue.ErrorType = ... # 0x5
-    TypeError                : QJSValue.ErrorType = ... # 0x6
-    URIError                 : QJSValue.ErrorType = ... # 0x7
-    ConvertJSObjects         : QJSValue.ObjectConversionBehavior = ... # 0x0
-    RetainJSObjects          : QJSValue.ObjectConversionBehavior = ... # 0x1
-    NullValue                : QJSValue.SpecialValue = ... # 0x0
-    UndefinedValue           : QJSValue.SpecialValue = ... # 0x1
-
-    class ErrorType(Shiboken.Enum):
+    class ErrorType(shibokensupport.enum_310.Enum):
 
         NoError                  : QJSValue.ErrorType = ... # 0x0
         GenericError             : QJSValue.ErrorType = ... # 0x1
@@ -296,12 +226,14 @@ class QJSValue(Shiboken.Object):
         TypeError                : QJSValue.ErrorType = ... # 0x6
         URIError                 : QJSValue.ErrorType = ... # 0x7
 
-    class ObjectConversionBehavior(Shiboken.Enum):
+
+    class ObjectConversionBehavior(shibokensupport.enum_310.Enum):
 
         ConvertJSObjects         : QJSValue.ObjectConversionBehavior = ... # 0x0
         RetainJSObjects          : QJSValue.ObjectConversionBehavior = ... # 0x1
 
-    class SpecialValue(Shiboken.Enum):
+
+    class SpecialValue(shibokensupport.enum_310.Enum):
 
         NullValue                : QJSValue.SpecialValue = ... # 0x0
         UndefinedValue           : QJSValue.SpecialValue = ... # 0x1
@@ -399,12 +331,7 @@ class QPyQmlPropertyValueSource(PySide6.QtCore.QObject, PySide6.QtQml.QQmlProper
 
 class QQmlAbstractUrlInterceptor(Shiboken.Object):
 
-    QmlFile                  : QQmlAbstractUrlInterceptor.DataType = ... # 0x0
-    JavaScriptFile           : QQmlAbstractUrlInterceptor.DataType = ... # 0x1
-    QmldirFile               : QQmlAbstractUrlInterceptor.DataType = ... # 0x2
-    UrlString                : QQmlAbstractUrlInterceptor.DataType = ... # 0x1000
-
-    class DataType(Shiboken.Enum):
+    class DataType(shibokensupport.enum_310.Enum):
 
         QmlFile                  : QQmlAbstractUrlInterceptor.DataType = ... # 0x0
         JavaScriptFile           : QQmlAbstractUrlInterceptor.DataType = ... # 0x1
@@ -438,19 +365,13 @@ class QQmlApplicationEngine(PySide6.QtQml.QQmlEngine):
 
 class QQmlComponent(PySide6.QtCore.QObject):
 
-    PreferSynchronous        : QQmlComponent.CompilationMode = ... # 0x0
-    Asynchronous             : QQmlComponent.CompilationMode = ... # 0x1
-    Null                     : QQmlComponent.Status = ... # 0x0
-    Ready                    : QQmlComponent.Status = ... # 0x1
-    Loading                  : QQmlComponent.Status = ... # 0x2
-    Error                    : QQmlComponent.Status = ... # 0x3
-
-    class CompilationMode(Shiboken.Enum):
+    class CompilationMode(shibokensupport.enum_310.Enum):
 
         PreferSynchronous        : QQmlComponent.CompilationMode = ... # 0x0
         Asynchronous             : QQmlComponent.CompilationMode = ... # 0x1
 
-    class Status(Shiboken.Enum):
+
+    class Status(shibokensupport.enum_310.Enum):
 
         Null                     : QQmlComponent.Status = ... # 0x0
         Ready                    : QQmlComponent.Status = ... # 0x1
@@ -546,10 +467,7 @@ class QQmlContext(PySide6.QtCore.QObject):
 
 class QQmlDebuggingEnabler(Shiboken.Object):
 
-    DoNotWaitForClient       : QQmlDebuggingEnabler.StartMode = ... # 0x0
-    WaitForClient            : QQmlDebuggingEnabler.StartMode = ... # 0x1
-
-    class StartMode(Shiboken.Enum):
+    class StartMode(shibokensupport.enum_310.Enum):
 
         DoNotWaitForClient       : QQmlDebuggingEnabler.StartMode = ... # 0x0
         WaitForClient            : QQmlDebuggingEnabler.StartMode = ... # 0x1
@@ -561,6 +479,8 @@ class QQmlDebuggingEnabler(Shiboken.Object):
     def connectToLocalDebugger(socketFileName: str, mode: PySide6.QtQml.QQmlDebuggingEnabler.StartMode = ...) -> bool: ...
     @staticmethod
     def debuggerServices() -> List[str]: ...
+    @staticmethod
+    def enableDebugging(printWarning: bool) -> None: ...
     @staticmethod
     def inspectorServices() -> List[str]: ...
     @staticmethod
@@ -643,6 +563,7 @@ class QQmlError(Shiboken.Object):
     def setMessageType(self, messageType: PySide6.QtCore.QtMsgType) -> None: ...
     def setObject(self, arg__1: PySide6.QtCore.QObject) -> None: ...
     def setUrl(self, arg__1: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def swap(self, other: PySide6.QtQml.QQmlError) -> None: ...
     def toString(self) -> str: ...
     def url(self) -> PySide6.QtCore.QUrl: ...
 
@@ -661,7 +582,7 @@ class QQmlExpression(PySide6.QtCore.QObject):
     def context(self) -> PySide6.QtQml.QQmlContext: ...
     def engine(self) -> PySide6.QtQml.QQmlEngine: ...
     def error(self) -> PySide6.QtQml.QQmlError: ...
-    def evaluate(self) -> Tuple[Tuple, bool]: ...
+    def evaluate(self) -> Tuple: ...
     def expression(self) -> str: ...
     def hasError(self) -> bool: ...
     def lineNumber(self) -> int: ...
@@ -692,12 +613,7 @@ class QQmlExtensionPlugin(PySide6.QtCore.QObject, PySide6.QtQml.QQmlExtensionInt
 
 class QQmlFile(Shiboken.Object):
 
-    Null                     : QQmlFile.Status = ... # 0x0
-    Ready                    : QQmlFile.Status = ... # 0x1
-    Error                    : QQmlFile.Status = ... # 0x2
-    Loading                  : QQmlFile.Status = ... # 0x3
-
-    class Status(Shiboken.Enum):
+    class Status(shibokensupport.enum_310.Enum):
 
         Null                     : QQmlFile.Status = ... # 0x0
         Ready                    : QQmlFile.Status = ... # 0x1
@@ -771,20 +687,12 @@ class QQmlFileSelector(PySide6.QtCore.QObject):
 
 class QQmlImageProviderBase(PySide6.QtCore.QObject):
 
-    ForceAsynchronousImageLoading: QQmlImageProviderBase.Flag = ... # 0x1
-    Invalid                  : QQmlImageProviderBase.ImageType = ... # 0x0
-    Image                    : QQmlImageProviderBase.ImageType = ... # 0x1
-    Pixmap                   : QQmlImageProviderBase.ImageType = ... # 0x2
-    Texture                  : QQmlImageProviderBase.ImageType = ... # 0x3
-    ImageResponse            : QQmlImageProviderBase.ImageType = ... # 0x4
-
-    class Flag(Shiboken.Enum):
+    class Flag(shibokensupport.enum_310.Flag):
 
         ForceAsynchronousImageLoading: QQmlImageProviderBase.Flag = ... # 0x1
 
-    class Flags(object): ...
 
-    class ImageType(Shiboken.Enum):
+    class ImageType(shibokensupport.enum_310.Enum):
 
         Invalid                  : QQmlImageProviderBase.ImageType = ... # 0x0
         Image                    : QQmlImageProviderBase.ImageType = ... # 0x1
@@ -793,7 +701,7 @@ class QQmlImageProviderBase(PySide6.QtCore.QObject):
         ImageResponse            : QQmlImageProviderBase.ImageType = ... # 0x4
 
 
-    def flags(self) -> PySide6.QtQml.QQmlImageProviderBase.Flags: ...
+    def flags(self) -> PySide6.QtQml.QQmlImageProviderBase.Flag: ...
     def imageType(self) -> PySide6.QtQml.QQmlImageProviderBase.ImageType: ...
 
 
@@ -810,21 +718,14 @@ class QQmlIncubationController(Shiboken.Object):
 
 class QQmlIncubator(Shiboken.Object):
 
-    Asynchronous             : QQmlIncubator.IncubationMode = ... # 0x0
-    AsynchronousIfNested     : QQmlIncubator.IncubationMode = ... # 0x1
-    Synchronous              : QQmlIncubator.IncubationMode = ... # 0x2
-    Null                     : QQmlIncubator.Status = ... # 0x0
-    Ready                    : QQmlIncubator.Status = ... # 0x1
-    Loading                  : QQmlIncubator.Status = ... # 0x2
-    Error                    : QQmlIncubator.Status = ... # 0x3
-
-    class IncubationMode(Shiboken.Enum):
+    class IncubationMode(shibokensupport.enum_310.Enum):
 
         Asynchronous             : QQmlIncubator.IncubationMode = ... # 0x0
         AsynchronousIfNested     : QQmlIncubator.IncubationMode = ... # 0x1
         Synchronous              : QQmlIncubator.IncubationMode = ... # 0x2
 
-    class Status(Shiboken.Enum):
+
+    class Status(shibokensupport.enum_310.Enum):
 
         Null                     : QQmlIncubator.Status = ... # 0x0
         Ready                    : QQmlIncubator.Status = ... # 0x1
@@ -854,11 +755,15 @@ class QQmlListReference(Shiboken.Object):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, arg__1: PySide6.QtCore.QObject, property: bytes, arg__3: Optional[PySide6.QtQml.QQmlEngine] = ...) -> None: ...
+    def __init__(self, arg__1: PySide6.QtQml.QQmlListReference) -> None: ...
     @overload
-    def __init__(self, arg__1: Union[PySide6.QtQml.QQmlListReference, Any]) -> None: ...
+    def __init__(self, o: PySide6.QtCore.QObject, property: bytes) -> None: ...
     @overload
-    def __init__(self, variant: Any, engine: Optional[PySide6.QtQml.QQmlEngine] = ...) -> None: ...
+    def __init__(self, o: PySide6.QtCore.QObject, property: bytes, engine: PySide6.QtQml.QQmlEngine) -> None: ...
+    @overload
+    def __init__(self, variant: Any) -> None: ...
+    @overload
+    def __init__(self, variant: Any, engine: PySide6.QtQml.QQmlEngine) -> None: ...
 
     @staticmethod
     def __copy__() -> None: ...
@@ -882,7 +787,7 @@ class QQmlListReference(Shiboken.Object):
     def size(self) -> int: ...
 
 
-class QQmlModuleImportSpecialVersions(Shiboken.Enum):
+class QQmlModuleImportSpecialVersions(shibokensupport.enum_310.Flag):
 
     QQmlModuleImportAuto     : QQmlModuleImportSpecialVersions = ... # -0x2
     QQmlModuleImportLatest   : QQmlModuleImportSpecialVersions = ... # -0x1
@@ -906,22 +811,15 @@ class QQmlParserStatus(Shiboken.Object):
 
 class QQmlProperty(Shiboken.Object):
 
-    InvalidCategory          : QQmlProperty.PropertyTypeCategory = ... # 0x0
-    List                     : QQmlProperty.PropertyTypeCategory = ... # 0x1
-    Object                   : QQmlProperty.PropertyTypeCategory = ... # 0x2
-    Normal                   : QQmlProperty.PropertyTypeCategory = ... # 0x3
-    Invalid                  : QQmlProperty.Type = ... # 0x0
-    Property                 : QQmlProperty.Type = ... # 0x1
-    SignalProperty           : QQmlProperty.Type = ... # 0x2
-
-    class PropertyTypeCategory(Shiboken.Enum):
+    class PropertyTypeCategory(shibokensupport.enum_310.Enum):
 
         InvalidCategory          : QQmlProperty.PropertyTypeCategory = ... # 0x0
         List                     : QQmlProperty.PropertyTypeCategory = ... # 0x1
         Object                   : QQmlProperty.PropertyTypeCategory = ... # 0x2
         Normal                   : QQmlProperty.PropertyTypeCategory = ... # 0x3
 
-    class Type(Shiboken.Enum):
+
+    class Type(shibokensupport.enum_310.Enum):
 
         Invalid                  : QQmlProperty.Type = ... # 0x0
         Property                 : QQmlProperty.Type = ... # 0x1
@@ -1031,11 +929,11 @@ class QQmlScriptString(Shiboken.Object):
 
     @staticmethod
     def __copy__() -> None: ...
-    def booleanLiteral(self) -> Tuple[Tuple, bool]: ...
+    def booleanLiteral(self) -> Tuple: ...
     def isEmpty(self) -> bool: ...
     def isNullLiteral(self) -> bool: ...
     def isUndefinedLiteral(self) -> bool: ...
-    def numberLiteral(self) -> Tuple[Tuple, bool]: ...
+    def numberLiteral(self) -> Tuple: ...
     def stringLiteral(self) -> str: ...
 
 

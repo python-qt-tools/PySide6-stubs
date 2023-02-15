@@ -1,41 +1,5 @@
-#############################################################################
-##
-## Copyright (C) 2021 The Qt Company Ltd.
-## Contact: https://www.qt.io/licensing/
-##
-## This file is part of Qt for Python.
-##
-## $QT_BEGIN_LICENSE:LGPL$
-## Commercial License Usage
-## Licensees holding valid commercial Qt licenses may use this file in
-## accordance with the commercial license agreement provided with the
-## Software or, alternatively, in accordance with the terms contained in
-## a written agreement between you and The Qt Company. For licensing terms
-## and conditions see https://www.qt.io/terms-conditions. For further
-## information use the contact form at https://www.qt.io/contact-us.
-##
-## GNU Lesser General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU Lesser
-## General Public License version 3 as published by the Free Software
-## Foundation and appearing in the file LICENSE.LGPL3 included in the
-## packaging of this file. Please review the following information to
-## ensure the GNU Lesser General Public License version 3 requirements
-## will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-##
-## GNU General Public License Usage
-## Alternatively, this file may be used under the terms of the GNU
-## General Public License version 2.0 or (at your option) the GNU General
-## Public license version 3 or any later version approved by the KDE Free
-## Qt Foundation. The licenses are as published by the Free Software
-## Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-## included in the packaging of this file. Please review the following
-## information to ensure the GNU General Public License requirements will
-## be met: https://www.gnu.org/licenses/gpl-2.0.html and
-## https://www.gnu.org/licenses/gpl-3.0.html.
-##
-## $QT_END_LICENSE$
-##
-#############################################################################
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 from __future__ import annotations
 
 """
@@ -184,12 +148,7 @@ class QNdefNfcIconRecord(PySide6.QtNfc.QNdefRecord):
 
 class QNdefNfcSmartPosterRecord(PySide6.QtNfc.QNdefRecord):
 
-    UnspecifiedAction        : QNdefNfcSmartPosterRecord.Action = ... # -0x1
-    DoAction                 : QNdefNfcSmartPosterRecord.Action = ... # 0x0
-    SaveAction               : QNdefNfcSmartPosterRecord.Action = ... # 0x1
-    EditAction               : QNdefNfcSmartPosterRecord.Action = ... # 0x2
-
-    class Action(Shiboken.Enum):
+    class Action(shibokensupport.enum_310.Enum):
 
         UnspecifiedAction        : QNdefNfcSmartPosterRecord.Action = ... # -0x1
         DoAction                 : QNdefNfcSmartPosterRecord.Action = ... # 0x0
@@ -254,10 +213,7 @@ class QNdefNfcSmartPosterRecord(PySide6.QtNfc.QNdefRecord):
 
 class QNdefNfcTextRecord(PySide6.QtNfc.QNdefRecord):
 
-    Utf8                     : QNdefNfcTextRecord.Encoding = ... # 0x0
-    Utf16                    : QNdefNfcTextRecord.Encoding = ... # 0x1
-
-    class Encoding(Shiboken.Enum):
+    class Encoding(shibokensupport.enum_310.Enum):
 
         Utf8                     : QNdefNfcTextRecord.Encoding = ... # 0x0
         Utf16                    : QNdefNfcTextRecord.Encoding = ... # 0x1
@@ -297,14 +253,7 @@ class QNdefNfcUriRecord(PySide6.QtNfc.QNdefRecord):
 
 class QNdefRecord(Shiboken.Object):
 
-    Empty                    : QNdefRecord.TypeNameFormat = ... # 0x0
-    NfcRtd                   : QNdefRecord.TypeNameFormat = ... # 0x1
-    Mime                     : QNdefRecord.TypeNameFormat = ... # 0x2
-    Uri                      : QNdefRecord.TypeNameFormat = ... # 0x3
-    ExternalRtd              : QNdefRecord.TypeNameFormat = ... # 0x4
-    Unknown                  : QNdefRecord.TypeNameFormat = ... # 0x5
-
-    class TypeNameFormat(Shiboken.Enum):
+    class TypeNameFormat(shibokensupport.enum_310.Enum):
 
         Empty                    : QNdefRecord.TypeNameFormat = ... # 0x0
         NfcRtd                   : QNdefRecord.TypeNameFormat = ... # 0x1
@@ -341,7 +290,7 @@ class QNdefRecord(Shiboken.Object):
 
 class QNearFieldManager(PySide6.QtCore.QObject):
 
-    class AdapterState(Shiboken.Enum):
+    class AdapterState(shibokensupport.enum_310.Enum):
 
         Offline                  : QNearFieldManager.AdapterState = ... # 0x1
         TurningOn                : QNearFieldManager.AdapterState = ... # 0x2
@@ -360,41 +309,15 @@ class QNearFieldManager(PySide6.QtCore.QObject):
 
 class QNearFieldTarget(PySide6.QtCore.QObject):
 
-    UnknownAccess            : QNearFieldTarget.AccessMethod = ... # 0x0
-    NdefAccess               : QNearFieldTarget.AccessMethod = ... # 0x1
-    TagTypeSpecificAccess    : QNearFieldTarget.AccessMethod = ... # 0x2
-    AnyAccess                : QNearFieldTarget.AccessMethod = ... # 0xff
-    NoError                  : QNearFieldTarget.Error = ... # 0x0
-    UnknownError             : QNearFieldTarget.Error = ... # 0x1
-    UnsupportedError         : QNearFieldTarget.Error = ... # 0x2
-    TargetOutOfRangeError    : QNearFieldTarget.Error = ... # 0x3
-    NoResponseError          : QNearFieldTarget.Error = ... # 0x4
-    ChecksumMismatchError    : QNearFieldTarget.Error = ... # 0x5
-    InvalidParametersError   : QNearFieldTarget.Error = ... # 0x6
-    ConnectionError          : QNearFieldTarget.Error = ... # 0x7
-    NdefReadError            : QNearFieldTarget.Error = ... # 0x8
-    NdefWriteError           : QNearFieldTarget.Error = ... # 0x9
-    CommandError             : QNearFieldTarget.Error = ... # 0xa
-    TimeoutError             : QNearFieldTarget.Error = ... # 0xb
-    ProprietaryTag           : QNearFieldTarget.Type = ... # 0x0
-    NfcTagType1              : QNearFieldTarget.Type = ... # 0x1
-    NfcTagType2              : QNearFieldTarget.Type = ... # 0x2
-    NfcTagType3              : QNearFieldTarget.Type = ... # 0x3
-    NfcTagType4              : QNearFieldTarget.Type = ... # 0x4
-    NfcTagType4A             : QNearFieldTarget.Type = ... # 0x5
-    NfcTagType4B             : QNearFieldTarget.Type = ... # 0x6
-    MifareTag                : QNearFieldTarget.Type = ... # 0x7
-
-    class AccessMethod(Shiboken.Enum):
+    class AccessMethod(shibokensupport.enum_310.Flag):
 
         UnknownAccess            : QNearFieldTarget.AccessMethod = ... # 0x0
         NdefAccess               : QNearFieldTarget.AccessMethod = ... # 0x1
         TagTypeSpecificAccess    : QNearFieldTarget.AccessMethod = ... # 0x2
         AnyAccess                : QNearFieldTarget.AccessMethod = ... # 0xff
 
-    class AccessMethods(object): ...
 
-    class Error(Shiboken.Enum):
+    class Error(shibokensupport.enum_310.Enum):
 
         NoError                  : QNearFieldTarget.Error = ... # 0x0
         UnknownError             : QNearFieldTarget.Error = ... # 0x1
@@ -409,7 +332,8 @@ class QNearFieldTarget(PySide6.QtCore.QObject):
         CommandError             : QNearFieldTarget.Error = ... # 0xa
         TimeoutError             : QNearFieldTarget.Error = ... # 0xb
 
-    class Type(Shiboken.Enum):
+
+    class Type(shibokensupport.enum_310.Enum):
 
         ProprietaryTag           : QNearFieldTarget.Type = ... # 0x0
         NfcTagType1              : QNearFieldTarget.Type = ... # 0x1
@@ -423,7 +347,7 @@ class QNearFieldTarget(PySide6.QtCore.QObject):
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
-    def accessMethods(self) -> PySide6.QtNfc.QNearFieldTarget.AccessMethods: ...
+    def accessMethods(self) -> PySide6.QtNfc.QNearFieldTarget.AccessMethod: ...
     def disconnect(self) -> bool: ...
     def hasNdefMessage(self) -> bool: ...
     def maxCommandLength(self) -> int: ...
