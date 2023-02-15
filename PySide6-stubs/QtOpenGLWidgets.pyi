@@ -14,6 +14,7 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
+import enum
 from typing import Optional, Union
 
 
@@ -22,7 +23,7 @@ class QIntList(object): ...
 
 class QOpenGLWidget(PySide6.QtWidgets.QWidget):
 
-    class UpdateBehavior(shibokensupport.enum_310.Enum):
+    class UpdateBehavior(enum.Enum):
 
         NoPartialUpdate          : QOpenGLWidget.UpdateBehavior = ... # 0x0
         PartialUpdate            : QOpenGLWidget.UpdateBehavior = ... # 0x1

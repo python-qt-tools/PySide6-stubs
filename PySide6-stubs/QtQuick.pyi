@@ -15,6 +15,7 @@ import PySide6.QtGui
 import PySide6.QtOpenGL
 import PySide6.QtQml
 
+import enum
 from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -114,7 +115,7 @@ class QQuickImageResponse(PySide6.QtCore.QObject):
 
 class QQuickItem(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
-    class Flag(shibokensupport.enum_310.Flag):
+    class Flag(enum.Flag):
 
         ItemClipsChildrenToShape : QQuickItem.Flag = ... # 0x1
         ItemAcceptsInputMethod   : QQuickItem.Flag = ... # 0x2
@@ -125,7 +126,7 @@ class QQuickItem(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
         ItemObservesViewport     : QQuickItem.Flag = ... # 0x40
 
 
-    class ItemChange(shibokensupport.enum_310.Enum):
+    class ItemChange(enum.Enum):
 
         ItemChildAddedChange     : QQuickItem.ItemChange = ... # 0x0
         ItemChildRemovedChange   : QQuickItem.ItemChange = ... # 0x1
@@ -140,7 +141,7 @@ class QQuickItem(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
         ItemEnabledHasChanged    : QQuickItem.ItemChange = ... # 0xa
 
 
-    class TransformOrigin(shibokensupport.enum_310.Enum):
+    class TransformOrigin(enum.Enum):
 
         TopLeft                  : QQuickItem.TransformOrigin = ... # 0x0
         Top                      : QQuickItem.TransformOrigin = ... # 0x1
@@ -330,12 +331,12 @@ class QQuickItemGrabResult(PySide6.QtCore.QObject):
 
 class QQuickPaintedItem(PySide6.QtQuick.QQuickItem):
 
-    class PerformanceHint(shibokensupport.enum_310.Flag):
+    class PerformanceHint(enum.Flag):
 
         FastFBOResizing          : QQuickPaintedItem.PerformanceHint = ... # 0x1
 
 
-    class RenderTarget(shibokensupport.enum_310.Enum):
+    class RenderTarget(enum.Enum):
 
         Image                    : QQuickPaintedItem.RenderTarget = ... # 0x0
         FramebufferObject        : QQuickPaintedItem.RenderTarget = ... # 0x1
@@ -452,13 +453,13 @@ class QQuickTransform(PySide6.QtCore.QObject):
 
 class QQuickView(PySide6.QtQuick.QQuickWindow):
 
-    class ResizeMode(shibokensupport.enum_310.Enum):
+    class ResizeMode(enum.Enum):
 
         SizeViewToRootObject     : QQuickView.ResizeMode = ... # 0x0
         SizeRootObjectToView     : QQuickView.ResizeMode = ... # 0x1
 
 
-    class Status(shibokensupport.enum_310.Enum):
+    class Status(enum.Enum):
 
         Null                     : QQuickView.Status = ... # 0x0
         Ready                    : QQuickView.Status = ... # 0x1
@@ -499,7 +500,7 @@ class QQuickView(PySide6.QtQuick.QQuickWindow):
 
 class QQuickWindow(PySide6.QtGui.QWindow):
 
-    class CreateTextureOption(shibokensupport.enum_310.Flag):
+    class CreateTextureOption(enum.Flag):
 
         TextureHasAlphaChannel   : QQuickWindow.CreateTextureOption = ... # 0x1
         TextureHasMipmaps        : QQuickWindow.CreateTextureOption = ... # 0x2
@@ -508,7 +509,7 @@ class QQuickWindow(PySide6.QtGui.QWindow):
         TextureIsOpaque          : QQuickWindow.CreateTextureOption = ... # 0x10
 
 
-    class RenderStage(shibokensupport.enum_310.Enum):
+    class RenderStage(enum.Enum):
 
         BeforeSynchronizingStage : QQuickWindow.RenderStage = ... # 0x0
         AfterSynchronizingStage  : QQuickWindow.RenderStage = ... # 0x1
@@ -518,12 +519,12 @@ class QQuickWindow(PySide6.QtGui.QWindow):
         NoStage                  : QQuickWindow.RenderStage = ... # 0x5
 
 
-    class SceneGraphError(shibokensupport.enum_310.Enum):
+    class SceneGraphError(enum.Enum):
 
         ContextNotAvailable      : QQuickWindow.SceneGraphError = ... # 0x1
 
 
-    class TextRenderType(shibokensupport.enum_310.Enum):
+    class TextRenderType(enum.Enum):
 
         QtTextRendering          : QQuickWindow.TextRenderType = ... # 0x0
         NativeTextRendering      : QQuickWindow.TextRenderType = ... # 0x1
@@ -666,7 +667,7 @@ class QSGGeometry(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
-    class AttributeType(shibokensupport.enum_310.Enum):
+    class AttributeType(enum.Enum):
 
         UnknownAttribute         : QSGGeometry.AttributeType = ... # 0x0
         PositionAttribute        : QSGGeometry.AttributeType = ... # 0x1
@@ -687,7 +688,7 @@ class QSGGeometry(Shiboken.Object):
         def __copy__() -> None: ...
         def set(self, nx: float, ny: float, nr: int, ng: int, nb: int, na: int) -> None: ...
 
-    class DataPattern(shibokensupport.enum_310.Enum):
+    class DataPattern(enum.Enum):
 
         AlwaysUploadPattern      : QSGGeometry.DataPattern = ... # 0x0
         StreamPattern            : QSGGeometry.DataPattern = ... # 0x1
@@ -695,7 +696,7 @@ class QSGGeometry(Shiboken.Object):
         StaticPattern            : QSGGeometry.DataPattern = ... # 0x3
 
 
-    class DrawingMode(shibokensupport.enum_310.IntEnum):
+    class DrawingMode(enum.IntEnum):
 
         DrawPoints               : QSGGeometry.DrawingMode = ... # 0x0
         DrawLines                : QSGGeometry.DrawingMode = ... # 0x1
@@ -728,7 +729,7 @@ class QSGGeometry(Shiboken.Object):
         def __copy__() -> None: ...
         def set(self, nx: float, ny: float, ntx: float, nty: float) -> None: ...
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         ByteType                 : QSGGeometry.Type = ... # 0x1400
         UnsignedByteType         : QSGGeometry.Type = ... # 0x1401
@@ -801,7 +802,7 @@ class QSGGeometryNode(PySide6.QtQuick.QSGBasicGeometryNode):
 
 class QSGMaterial(Shiboken.Object):
 
-    class Flag(shibokensupport.enum_310.Flag):
+    class Flag(enum.Flag):
 
         Blending                 : QSGMaterial.Flag = ... # 0x1
         RequiresDeterminant      : QSGMaterial.Flag = ... # 0x2
@@ -822,14 +823,14 @@ class QSGMaterial(Shiboken.Object):
 
 class QSGMaterialShader(Shiboken.Object):
 
-    class Flag(shibokensupport.enum_310.Flag):
+    class Flag(enum.Flag):
 
         UpdatesGraphicsPipelineState: QSGMaterialShader.Flag = ... # 0x1
 
 
     class RenderState(Shiboken.Object):
 
-        class DirtyState(shibokensupport.enum_310.Flag):
+        class DirtyState(enum.Flag):
 
             DirtyMatrix              : QSGMaterialShader.RenderState.DirtyState = ... # 0x1
             DirtyOpacity             : QSGMaterialShader.RenderState.DirtyState = ... # 0x2
@@ -857,7 +858,7 @@ class QSGMaterialShader(Shiboken.Object):
         def uniformData(self) -> PySide6.QtCore.QByteArray: ...
         def viewportRect(self) -> PySide6.QtCore.QRect: ...
 
-    class Stage(shibokensupport.enum_310.Enum):
+    class Stage(enum.Enum):
 
         VertexStage              : QSGMaterialShader.Stage = ... # 0x0
         FragmentStage            : QSGMaterialShader.Stage = ... # 0x1
@@ -880,7 +881,7 @@ class QSGMaterialType(Shiboken.Object):
 
 class QSGNode(Shiboken.Object):
 
-    class DirtyStateBit(shibokensupport.enum_310.Flag):
+    class DirtyStateBit(enum.Flag):
 
         DirtyUsePreprocess       : QSGNode.DirtyStateBit = ... # 0x2
         DirtySubtreeBlocked      : QSGNode.DirtyStateBit = ... # 0x80
@@ -894,7 +895,7 @@ class QSGNode(Shiboken.Object):
         DirtyPropagationMask     : QSGNode.DirtyStateBit = ... # 0xc500
 
 
-    class Flag(shibokensupport.enum_310.Flag):
+    class Flag(enum.Flag):
 
         OwnedByParent            : QSGNode.Flag = ... # 0x1
         UsePreprocess            : QSGNode.Flag = ... # 0x2
@@ -904,7 +905,7 @@ class QSGNode(Shiboken.Object):
         IsVisitableNode          : QSGNode.Flag = ... # 0x1000000
 
 
-    class NodeType(shibokensupport.enum_310.Enum):
+    class NodeType(enum.Enum):
 
         BasicNodeType            : QSGNode.NodeType = ... # 0x0
         GeometryNodeType         : QSGNode.NodeType = ... # 0x1
@@ -1004,7 +1005,7 @@ class QSGRenderNode(PySide6.QtQuick.QSGNode):
         def stencilEnabled(self) -> bool: ...
         def stencilValue(self) -> int: ...
 
-    class RenderingFlag(shibokensupport.enum_310.Flag):
+    class RenderingFlag(enum.Flag):
 
         BoundedRectRendering     : QSGRenderNode.RenderingFlag = ... # 0x1
         DepthAwareRendering      : QSGRenderNode.RenderingFlag = ... # 0x2
@@ -1012,7 +1013,7 @@ class QSGRenderNode(PySide6.QtQuick.QSGNode):
         NoExternalRendering      : QSGRenderNode.RenderingFlag = ... # 0x8
 
 
-    class StateFlag(shibokensupport.enum_310.Flag):
+    class StateFlag(enum.Flag):
 
         DepthState               : QSGRenderNode.StateFlag = ... # 0x1
         StencilState             : QSGRenderNode.StateFlag = ... # 0x2
@@ -1039,7 +1040,7 @@ class QSGRenderNode(PySide6.QtQuick.QSGNode):
 
 class QSGRendererInterface(Shiboken.Object):
 
-    class GraphicsApi(shibokensupport.enum_310.Enum):
+    class GraphicsApi(enum.Enum):
 
         Unknown                  : QSGRendererInterface.GraphicsApi = ... # 0x0
         Software                 : QSGRendererInterface.GraphicsApi = ... # 0x1
@@ -1056,14 +1057,14 @@ class QSGRendererInterface(Shiboken.Object):
         NullRhi                  : QSGRendererInterface.GraphicsApi = ... # 0x7
 
 
-    class RenderMode(shibokensupport.enum_310.Enum):
+    class RenderMode(enum.Enum):
 
         RenderMode2D             : QSGRendererInterface.RenderMode = ... # 0x0
         RenderMode2DNoDepthBuffer: QSGRendererInterface.RenderMode = ... # 0x1
         RenderMode3D             : QSGRendererInterface.RenderMode = ... # 0x2
 
 
-    class Resource(shibokensupport.enum_310.Enum):
+    class Resource(enum.Enum):
 
         DeviceResource           : QSGRendererInterface.Resource = ... # 0x0
         CommandQueueResource     : QSGRendererInterface.Resource = ... # 0x1
@@ -1082,20 +1083,20 @@ class QSGRendererInterface(Shiboken.Object):
         RedirectPaintDevice      : QSGRendererInterface.Resource = ... # 0xe
 
 
-    class ShaderCompilationType(shibokensupport.enum_310.Flag):
+    class ShaderCompilationType(enum.Flag):
 
         RuntimeCompilation       : QSGRendererInterface.ShaderCompilationType = ... # 0x1
         OfflineCompilation       : QSGRendererInterface.ShaderCompilationType = ... # 0x2
 
 
-    class ShaderSourceType(shibokensupport.enum_310.Flag):
+    class ShaderSourceType(enum.Flag):
 
         ShaderSourceString       : QSGRendererInterface.ShaderSourceType = ... # 0x1
         ShaderSourceFile         : QSGRendererInterface.ShaderSourceType = ... # 0x2
         ShaderByteCode           : QSGRendererInterface.ShaderSourceType = ... # 0x4
 
 
-    class ShaderType(shibokensupport.enum_310.Enum):
+    class ShaderType(enum.Enum):
 
         UnknownShadingLanguage   : QSGRendererInterface.ShaderType = ... # 0x0
         GLSL                     : QSGRendererInterface.ShaderType = ... # 0x1
@@ -1135,7 +1136,7 @@ class QSGSimpleRectNode(PySide6.QtQuick.QSGGeometryNode):
 
 class QSGSimpleTextureNode(PySide6.QtQuick.QSGGeometryNode):
 
-    class TextureCoordinatesTransformFlag(shibokensupport.enum_310.Flag):
+    class TextureCoordinatesTransformFlag(enum.Flag):
 
         NoTransform              : QSGSimpleTextureNode.TextureCoordinatesTransformFlag = ... # 0x0
         MirrorHorizontally       : QSGSimpleTextureNode.TextureCoordinatesTransformFlag = ... # 0x1
@@ -1166,7 +1167,7 @@ class QSGSimpleTextureNode(PySide6.QtQuick.QSGGeometryNode):
 
 class QSGTexture(PySide6.QtCore.QObject):
 
-    class AnisotropyLevel(shibokensupport.enum_310.Enum):
+    class AnisotropyLevel(enum.Enum):
 
         AnisotropyNone           : QSGTexture.AnisotropyLevel = ... # 0x0
         Anisotropy2x             : QSGTexture.AnisotropyLevel = ... # 0x1
@@ -1175,14 +1176,14 @@ class QSGTexture(PySide6.QtCore.QObject):
         Anisotropy16x            : QSGTexture.AnisotropyLevel = ... # 0x4
 
 
-    class Filtering(shibokensupport.enum_310.Enum):
+    class Filtering(enum.Enum):
 
         None_                    : QSGTexture.Filtering = ... # 0x0
         Nearest                  : QSGTexture.Filtering = ... # 0x1
         Linear                   : QSGTexture.Filtering = ... # 0x2
 
 
-    class WrapMode(shibokensupport.enum_310.Enum):
+    class WrapMode(enum.Enum):
 
         Repeat                   : QSGTexture.WrapMode = ... # 0x0
         ClampToEdge              : QSGTexture.WrapMode = ... # 0x1

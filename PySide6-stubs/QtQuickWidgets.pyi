@@ -16,6 +16,7 @@ import PySide6.QtWidgets
 import PySide6.QtQml
 import PySide6.QtQuick
 
+import enum
 from typing import Any, Optional, Union, List, overload
 
 
@@ -24,13 +25,13 @@ class QIntList(object): ...
 
 class QQuickWidget(PySide6.QtWidgets.QWidget):
 
-    class ResizeMode(shibokensupport.enum_310.Enum):
+    class ResizeMode(enum.Enum):
 
         SizeViewToRootObject     : QQuickWidget.ResizeMode = ... # 0x0
         SizeRootObjectToView     : QQuickWidget.ResizeMode = ... # 0x1
 
 
-    class Status(shibokensupport.enum_310.Enum):
+    class Status(enum.Enum):
 
         Null                     : QQuickWidget.Status = ... # 0x0
         Ready                    : QQuickWidget.Status = ... # 0x1
