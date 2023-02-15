@@ -6627,9 +6627,9 @@ class QPixmap(PySide6.QtGui.QPaintDevice):
     def paintEngine(self) -> PySide6.QtGui.QPaintEngine: ...
     def rect(self) -> PySide6.QtCore.QRect: ...
     @overload
-    def save(self, device: PySide6.QtCore.QIODevice, format: Optional[bytes] = ..., quality: int = ...) -> bool: ...
+    def save(self, device: PySide6.QtCore.QIODevice, format: Optional[str] = ..., quality: int = ...) -> bool: ...
     @overload
-    def save(self, fileName: str, format: Optional[bytes] = ..., quality: int = ...) -> bool: ...
+    def save(self, fileName: str, format: Optional[str] = ..., quality: int = ...) -> bool: ...
     @overload
     def scaled(self, s: PySide6.QtCore.QSize, aspectMode: PySide6.QtCore.Qt.AspectRatioMode = ..., mode: PySide6.QtCore.Qt.TransformationMode = ...) -> PySide6.QtGui.QPixmap: ...
     @overload
@@ -8735,6 +8735,7 @@ class QTextFormat(Shiboken.Object):
     FontLetterSpacingType    : QTextFormat.Property = ... # 0x1fe9
     FontStretch              : QTextFormat.Property = ... # 0x1fea
     FontFamily               : QTextFormat.Property = ... # 0x2000
+    OldFontFamily            : QTextFormat.Property = ... # 0x2000
     FontPointSize            : QTextFormat.Property = ... # 0x2001
     FontSizeAdjustment       : QTextFormat.Property = ... # 0x2002
     FontSizeIncrement        : QTextFormat.Property = ... # 0x2002
@@ -8874,6 +8875,7 @@ class QTextFormat(Shiboken.Object):
         FontLetterSpacingType    : QTextFormat.Property = ... # 0x1fe9
         FontStretch              : QTextFormat.Property = ... # 0x1fea
         FontFamily               : QTextFormat.Property = ... # 0x2000
+        OldFontFamily            : QTextFormat.Property = ... # 0x2000
         FontPointSize            : QTextFormat.Property = ... # 0x2001
         FontSizeAdjustment       : QTextFormat.Property = ... # 0x2002
         FontSizeIncrement        : QTextFormat.Property = ... # 0x2002
