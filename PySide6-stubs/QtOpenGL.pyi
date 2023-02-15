@@ -13,6 +13,7 @@ import PySide6.QtOpenGL
 import PySide6.QtCore
 import PySide6.QtGui
 
+import enum
 from typing import Any, Optional, Tuple, Type, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -32,14 +33,14 @@ class QIntList(object): ...
 
 class QOpenGLBuffer(Shiboken.Object):
 
-    class Access(shibokensupport.enum_310.Enum):
+    class Access(enum.Enum):
 
         ReadOnly                 : QOpenGLBuffer.Access = ... # 0x88b8
         WriteOnly                : QOpenGLBuffer.Access = ... # 0x88b9
         ReadWrite                : QOpenGLBuffer.Access = ... # 0x88ba
 
 
-    class RangeAccessFlag(shibokensupport.enum_310.Flag):
+    class RangeAccessFlag(enum.Flag):
 
         RangeRead                : QOpenGLBuffer.RangeAccessFlag = ... # 0x1
         RangeWrite               : QOpenGLBuffer.RangeAccessFlag = ... # 0x2
@@ -49,7 +50,7 @@ class QOpenGLBuffer(Shiboken.Object):
         RangeUnsynchronized      : QOpenGLBuffer.RangeAccessFlag = ... # 0x20
 
 
-    class Type(shibokensupport.enum_310.Enum):
+    class Type(enum.Enum):
 
         VertexBuffer             : QOpenGLBuffer.Type = ... # 0x8892
         IndexBuffer              : QOpenGLBuffer.Type = ... # 0x8893
@@ -57,7 +58,7 @@ class QOpenGLBuffer(Shiboken.Object):
         PixelUnpackBuffer        : QOpenGLBuffer.Type = ... # 0x88ec
 
 
-    class UsagePattern(shibokensupport.enum_310.Enum):
+    class UsagePattern(enum.Enum):
 
         StreamDraw               : QOpenGLBuffer.UsagePattern = ... # 0x88e0
         StreamRead               : QOpenGLBuffer.UsagePattern = ... # 0x88e1
@@ -104,7 +105,7 @@ class QOpenGLBuffer(Shiboken.Object):
 
 class QOpenGLDebugLogger(PySide6.QtCore.QObject):
 
-    class LoggingMode(shibokensupport.enum_310.Enum):
+    class LoggingMode(enum.Enum):
 
         AsynchronousLogging      : QOpenGLDebugLogger.LoggingMode = ... # 0x0
         SynchronousLogging       : QOpenGLDebugLogger.LoggingMode = ... # 0x1
@@ -134,7 +135,7 @@ class QOpenGLDebugLogger(PySide6.QtCore.QObject):
 
 class QOpenGLDebugMessage(Shiboken.Object):
 
-    class Severity(shibokensupport.enum_310.Flag):
+    class Severity(enum.Flag):
 
         InvalidSeverity          : QOpenGLDebugMessage.Severity = ... # 0x0
         HighSeverity             : QOpenGLDebugMessage.Severity = ... # 0x1
@@ -145,7 +146,7 @@ class QOpenGLDebugMessage(Shiboken.Object):
         AnySeverity              : QOpenGLDebugMessage.Severity = ... # 0xffffffff
 
 
-    class Source(shibokensupport.enum_310.Flag):
+    class Source(enum.Flag):
 
         InvalidSource            : QOpenGLDebugMessage.Source = ... # 0x0
         APISource                : QOpenGLDebugMessage.Source = ... # 0x1
@@ -158,7 +159,7 @@ class QOpenGLDebugMessage(Shiboken.Object):
         AnySource                : QOpenGLDebugMessage.Source = ... # 0xffffffff
 
 
-    class Type(shibokensupport.enum_310.Flag):
+    class Type(enum.Flag):
 
         InvalidType              : QOpenGLDebugMessage.Type = ... # 0x0
         ErrorType                : QOpenGLDebugMessage.Type = ... # 0x1
@@ -195,14 +196,14 @@ class QOpenGLDebugMessage(Shiboken.Object):
 
 class QOpenGLFramebufferObject(Shiboken.Object):
 
-    class Attachment(shibokensupport.enum_310.Enum):
+    class Attachment(enum.Enum):
 
         NoAttachment             : QOpenGLFramebufferObject.Attachment = ... # 0x0
         CombinedDepthStencil     : QOpenGLFramebufferObject.Attachment = ... # 0x1
         Depth                    : QOpenGLFramebufferObject.Attachment = ... # 0x2
 
 
-    class FramebufferRestorePolicy(shibokensupport.enum_310.Enum):
+    class FramebufferRestorePolicy(enum.Enum):
 
         DontRestoreFramebufferBinding: QOpenGLFramebufferObject.FramebufferRestorePolicy = ... # 0x0
         RestoreFramebufferBindingToDefault: QOpenGLFramebufferObject.FramebufferRestorePolicy = ... # 0x1
@@ -13195,7 +13196,7 @@ class QOpenGLPixelTransferOptions(Shiboken.Object):
 
 class QOpenGLShader(PySide6.QtCore.QObject):
 
-    class ShaderTypeBit(shibokensupport.enum_310.Flag):
+    class ShaderTypeBit(enum.Flag):
 
         Vertex                   : QOpenGLShader.ShaderTypeBit = ... # 0x1
         Fragment                 : QOpenGLShader.ShaderTypeBit = ... # 0x2
@@ -13461,7 +13462,7 @@ class QOpenGLShaderProgram(PySide6.QtCore.QObject):
 
 class QOpenGLTexture(Shiboken.Object):
 
-    class BindingTarget(shibokensupport.enum_310.Enum):
+    class BindingTarget(enum.Enum):
 
         BindingTarget1D          : QOpenGLTexture.BindingTarget = ... # 0x8068
         BindingTarget2D          : QOpenGLTexture.BindingTarget = ... # 0x8069
@@ -13476,7 +13477,7 @@ class QOpenGLTexture(Shiboken.Object):
         BindingTarget2DMultisampleArray: QOpenGLTexture.BindingTarget = ... # 0x9105
 
 
-    class ComparisonFunction(shibokensupport.enum_310.Enum):
+    class ComparisonFunction(enum.Enum):
 
         CompareNever             : QOpenGLTexture.ComparisonFunction = ... # 0x200
         CompareLess              : QOpenGLTexture.ComparisonFunction = ... # 0x201
@@ -13489,20 +13490,20 @@ class QOpenGLTexture(Shiboken.Object):
         CompareAlways            : QOpenGLTexture.ComparisonFunction = ... # 0x207
 
 
-    class ComparisonMode(shibokensupport.enum_310.Enum):
+    class ComparisonMode(enum.Enum):
 
         CompareNone              : QOpenGLTexture.ComparisonMode = ... # 0x0
         CompareRefToTexture      : QOpenGLTexture.ComparisonMode = ... # 0x884e
 
 
-    class CoordinateDirection(shibokensupport.enum_310.Enum):
+    class CoordinateDirection(enum.Enum):
 
         DirectionS               : QOpenGLTexture.CoordinateDirection = ... # 0x2802
         DirectionT               : QOpenGLTexture.CoordinateDirection = ... # 0x2803
         DirectionR               : QOpenGLTexture.CoordinateDirection = ... # 0x8072
 
 
-    class CubeMapFace(shibokensupport.enum_310.Enum):
+    class CubeMapFace(enum.Enum):
 
         CubeMapPositiveX         : QOpenGLTexture.CubeMapFace = ... # 0x8515
         CubeMapNegativeX         : QOpenGLTexture.CubeMapFace = ... # 0x8516
@@ -13512,13 +13513,13 @@ class QOpenGLTexture(Shiboken.Object):
         CubeMapNegativeZ         : QOpenGLTexture.CubeMapFace = ... # 0x851a
 
 
-    class DepthStencilMode(shibokensupport.enum_310.Enum):
+    class DepthStencilMode(enum.Enum):
 
         StencilMode              : QOpenGLTexture.DepthStencilMode = ... # 0x1901
         DepthMode                : QOpenGLTexture.DepthStencilMode = ... # 0x1902
 
 
-    class Feature(shibokensupport.enum_310.Flag):
+    class Feature(enum.Flag):
 
         ImmutableStorage         : QOpenGLTexture.Feature = ... # 0x1
         ImmutableMultisampleStorage: QOpenGLTexture.Feature = ... # 0x2
@@ -13539,7 +13540,7 @@ class QOpenGLTexture(Shiboken.Object):
         MaxFeatureFlag           : QOpenGLTexture.Feature = ... # 0x10000
 
 
-    class Filter(shibokensupport.enum_310.Enum):
+    class Filter(enum.Enum):
 
         Nearest                  : QOpenGLTexture.Filter = ... # 0x2600
         Linear                   : QOpenGLTexture.Filter = ... # 0x2601
@@ -13549,13 +13550,13 @@ class QOpenGLTexture(Shiboken.Object):
         LinearMipMapLinear       : QOpenGLTexture.Filter = ... # 0x2703
 
 
-    class MipMapGeneration(shibokensupport.enum_310.Enum):
+    class MipMapGeneration(enum.Enum):
 
         GenerateMipMaps          : QOpenGLTexture.MipMapGeneration = ... # 0x0
         DontGenerateMipMaps      : QOpenGLTexture.MipMapGeneration = ... # 0x1
 
 
-    class PixelFormat(shibokensupport.enum_310.Enum):
+    class PixelFormat(enum.Enum):
 
         NoSourceFormat           : QOpenGLTexture.PixelFormat = ... # 0x0
         Stencil                  : QOpenGLTexture.PixelFormat = ... # 0x1901
@@ -13578,7 +13579,7 @@ class QOpenGLTexture(Shiboken.Object):
         BGRA_Integer             : QOpenGLTexture.PixelFormat = ... # 0x8d9b
 
 
-    class PixelType(shibokensupport.enum_310.Enum):
+    class PixelType(enum.Enum):
 
         NoPixelType              : QOpenGLTexture.PixelType = ... # 0x0
         Int8                     : QOpenGLTexture.PixelType = ... # 0x1400
@@ -13608,7 +13609,7 @@ class QOpenGLTexture(Shiboken.Object):
         Float32_D32_UInt32_S8_X24: QOpenGLTexture.PixelType = ... # 0x8dad
 
 
-    class SwizzleComponent(shibokensupport.enum_310.Enum):
+    class SwizzleComponent(enum.Enum):
 
         SwizzleRed               : QOpenGLTexture.SwizzleComponent = ... # 0x8e42
         SwizzleGreen             : QOpenGLTexture.SwizzleComponent = ... # 0x8e43
@@ -13616,7 +13617,7 @@ class QOpenGLTexture(Shiboken.Object):
         SwizzleAlpha             : QOpenGLTexture.SwizzleComponent = ... # 0x8e45
 
 
-    class SwizzleValue(shibokensupport.enum_310.Enum):
+    class SwizzleValue(enum.Enum):
 
         ZeroValue                : QOpenGLTexture.SwizzleValue = ... # 0x0
         OneValue                 : QOpenGLTexture.SwizzleValue = ... # 0x1
@@ -13626,7 +13627,7 @@ class QOpenGLTexture(Shiboken.Object):
         AlphaValue               : QOpenGLTexture.SwizzleValue = ... # 0x1906
 
 
-    class Target(shibokensupport.enum_310.Enum):
+    class Target(enum.Enum):
 
         Target1D                 : QOpenGLTexture.Target = ... # 0xde0
         Target2D                 : QOpenGLTexture.Target = ... # 0xde1
@@ -13641,7 +13642,7 @@ class QOpenGLTexture(Shiboken.Object):
         Target2DMultisampleArray : QOpenGLTexture.Target = ... # 0x9102
 
 
-    class TextureFormat(shibokensupport.enum_310.Enum):
+    class TextureFormat(enum.Enum):
 
         NoFormat                 : QOpenGLTexture.TextureFormat = ... # 0x0
         DepthFormat              : QOpenGLTexture.TextureFormat = ... # 0x1902
@@ -13771,7 +13772,7 @@ class QOpenGLTexture(Shiboken.Object):
         SRGB8_Alpha8_ASTC_12x12  : QOpenGLTexture.TextureFormat = ... # 0x93dd
 
 
-    class TextureFormatClass(shibokensupport.enum_310.Enum):
+    class TextureFormatClass(enum.Enum):
 
         NoFormatClass            : QOpenGLTexture.TextureFormatClass = ... # 0x0
         FormatClass_128Bit       : QOpenGLTexture.TextureFormatClass = ... # 0x1
@@ -13793,13 +13794,13 @@ class QOpenGLTexture(Shiboken.Object):
         FormatClass_Unique       : QOpenGLTexture.TextureFormatClass = ... # 0x11
 
 
-    class TextureUnitReset(shibokensupport.enum_310.Enum):
+    class TextureUnitReset(enum.Enum):
 
         ResetTextureUnit         : QOpenGLTexture.TextureUnitReset = ... # 0x0
         DontResetTextureUnit     : QOpenGLTexture.TextureUnitReset = ... # 0x1
 
 
-    class WrapMode(shibokensupport.enum_310.Enum):
+    class WrapMode(enum.Enum):
 
         Repeat                   : QOpenGLTexture.WrapMode = ... # 0x2901
         ClampToBorder            : QOpenGLTexture.WrapMode = ... # 0x812d
@@ -13949,7 +13950,7 @@ class QOpenGLTexture(Shiboken.Object):
 
 class QOpenGLTextureBlitter(Shiboken.Object):
 
-    class Origin(shibokensupport.enum_310.Enum):
+    class Origin(enum.Enum):
 
         OriginBottomLeft         : QOpenGLTextureBlitter.Origin = ... # 0x0
         OriginTopLeft            : QOpenGLTextureBlitter.Origin = ... # 0x1
@@ -14043,6 +14044,8 @@ class QOpenGLVertexArrayObject(PySide6.QtCore.QObject):
 
         def __init__(self, v: PySide6.QtOpenGL.QOpenGLVertexArrayObject) -> None: ...
 
+        def __enter__(self) -> PySide6.QtOpenGL.QOpenGLVertexArrayObject.Binder: ...
+        def __exit__(self, arg__1: object, arg__2: object, arg__3: object) -> None: ...
         def rebind(self) -> None: ...
         def release(self) -> None: ...
 
@@ -14059,7 +14062,7 @@ class QOpenGLVertexArrayObject(PySide6.QtCore.QObject):
 
 class QOpenGLWindow(PySide6.QtGui.QPaintDeviceWindow):
 
-    class UpdateBehavior(shibokensupport.enum_310.Enum):
+    class UpdateBehavior(enum.Enum):
 
         NoPartialUpdate          : QOpenGLWindow.UpdateBehavior = ... # 0x0
         PartialUpdateBlit        : QOpenGLWindow.UpdateBehavior = ... # 0x1

@@ -12,13 +12,14 @@ PySide6.QtDBus, except for defaults which are replaced by "...".
 import PySide6.QtDBus
 import PySide6.QtCore
 
+import enum
 from typing import Any, Optional, Type, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
 
 class QDBus(Shiboken.Object):
 
-    class CallMode(shibokensupport.enum_310.Enum):
+    class CallMode(enum.Enum):
 
         NoBlock                  : QDBus.CallMode = ... # 0x0
         Block                    : QDBus.CallMode = ... # 0x1
@@ -93,7 +94,7 @@ class QDBusAbstractInterfaceBase(PySide6.QtCore.QObject): ...
 
 class QDBusArgument(Shiboken.Object):
 
-    class ElementType(shibokensupport.enum_310.Enum):
+    class ElementType(enum.Enum):
 
         UnknownType              : QDBusArgument.ElementType = ... # -0x1
         BasicType                : QDBusArgument.ElementType = ... # 0x0
@@ -255,19 +256,19 @@ class QDBusArgument(Shiboken.Object):
 
 class QDBusConnection(Shiboken.Object):
 
-    class BusType(shibokensupport.enum_310.Enum):
+    class BusType(enum.Enum):
 
         SessionBus               : QDBusConnection.BusType = ... # 0x0
         SystemBus                : QDBusConnection.BusType = ... # 0x1
         ActivationBus            : QDBusConnection.BusType = ... # 0x2
 
 
-    class ConnectionCapability(shibokensupport.enum_310.Flag):
+    class ConnectionCapability(enum.Flag):
 
         UnixFileDescriptorPassing: QDBusConnection.ConnectionCapability = ... # 0x1
 
 
-    class RegisterOption(shibokensupport.enum_310.Flag):
+    class RegisterOption(enum.Flag):
 
         ExportAdaptors           : QDBusConnection.RegisterOption = ... # 0x1
         ExportScriptableSlots    : QDBusConnection.RegisterOption = ... # 0x10
@@ -289,13 +290,13 @@ class QDBusConnection(Shiboken.Object):
         ExportChildObjects       : QDBusConnection.RegisterOption = ... # 0x1000
 
 
-    class UnregisterMode(shibokensupport.enum_310.Enum):
+    class UnregisterMode(enum.Enum):
 
         UnregisterNode           : QDBusConnection.UnregisterMode = ... # 0x0
         UnregisterTree           : QDBusConnection.UnregisterMode = ... # 0x1
 
 
-    class VirtualObjectRegisterOption(shibokensupport.enum_310.Flag):
+    class VirtualObjectRegisterOption(enum.Flag):
 
         SingleNode               : QDBusConnection.VirtualObjectRegisterOption = ... # 0x0
         SubPath                  : QDBusConnection.VirtualObjectRegisterOption = ... # 0x1
@@ -366,21 +367,21 @@ class QDBusConnection(Shiboken.Object):
 
 class QDBusConnectionInterface(PySide6.QtDBus.QDBusAbstractInterface):
 
-    class RegisterServiceReply(shibokensupport.enum_310.Enum):
+    class RegisterServiceReply(enum.Enum):
 
         ServiceNotRegistered     : QDBusConnectionInterface.RegisterServiceReply = ... # 0x0
         ServiceRegistered        : QDBusConnectionInterface.RegisterServiceReply = ... # 0x1
         ServiceQueued            : QDBusConnectionInterface.RegisterServiceReply = ... # 0x2
 
 
-    class ServiceQueueOptions(shibokensupport.enum_310.Enum):
+    class ServiceQueueOptions(enum.Enum):
 
         DontQueueService         : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x0
         QueueService             : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x1
         ReplaceExistingService   : QDBusConnectionInterface.ServiceQueueOptions = ... # 0x2
 
 
-    class ServiceReplacementOptions(shibokensupport.enum_310.Enum):
+    class ServiceReplacementOptions(enum.Enum):
 
         DontAllowReplacement     : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x0
         AllowReplacement         : QDBusConnectionInterface.ServiceReplacementOptions = ... # 0x1
@@ -421,7 +422,7 @@ class QDBusContext(Shiboken.Object):
 
 class QDBusError(Shiboken.Object):
 
-    class ErrorType(shibokensupport.enum_310.Enum):
+    class ErrorType(enum.Enum):
 
         NoError                  : QDBusError.ErrorType = ... # 0x0
         Other                    : QDBusError.ErrorType = ... # 0x1
@@ -481,7 +482,7 @@ class QDBusInterface(PySide6.QtDBus.QDBusAbstractInterface):
 
 class QDBusMessage(Shiboken.Object):
 
-    class MessageType(shibokensupport.enum_310.Enum):
+    class MessageType(enum.Enum):
 
         InvalidMessage           : QDBusMessage.MessageType = ... # 0x0
         MethodCallMessage        : QDBusMessage.MessageType = ... # 0x1
@@ -611,7 +612,7 @@ class QDBusServer(PySide6.QtCore.QObject):
 
 class QDBusServiceWatcher(PySide6.QtCore.QObject):
 
-    class WatchModeFlag(shibokensupport.enum_310.Flag):
+    class WatchModeFlag(enum.Flag):
 
         WatchForRegistration     : QDBusServiceWatcher.WatchModeFlag = ... # 0x1
         WatchForUnregistration   : QDBusServiceWatcher.WatchModeFlag = ... # 0x2

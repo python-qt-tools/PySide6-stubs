@@ -12,6 +12,7 @@ PySide6.QtRemoteObjects, except for defaults which are replaced by "...".
 import PySide6.QtRemoteObjects
 import PySide6.QtCore
 
+import enum
 from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -67,7 +68,7 @@ class QRemoteObjectHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
 
 class QRemoteObjectHostBase(PySide6.QtRemoteObjects.QRemoteObjectNode):
 
-    class AllowedSchemas(shibokensupport.enum_310.Enum):
+    class AllowedSchemas(enum.Enum):
 
         BuiltInSchemasOnly       : QRemoteObjectHostBase.AllowedSchemas = ... # 0x0
         AllowExternalRegistration: QRemoteObjectHostBase.AllowedSchemas = ... # 0x1
@@ -88,7 +89,7 @@ class QRemoteObjectHostBase(PySide6.QtRemoteObjects.QRemoteObjectNode):
 
 class QRemoteObjectNode(PySide6.QtCore.QObject):
 
-    class ErrorCode(shibokensupport.enum_310.Enum):
+    class ErrorCode(enum.Enum):
 
         NoError                  : QRemoteObjectNode.ErrorCode = ... # 0x0
         RegistryNotAcquired      : QRemoteObjectNode.ErrorCode = ... # 0x1
@@ -129,7 +130,7 @@ class QRemoteObjectNode(PySide6.QtCore.QObject):
 
 class QRemoteObjectPendingCall(Shiboken.Object):
 
-    class Error(shibokensupport.enum_310.Enum):
+    class Error(enum.Enum):
 
         NoError                  : QRemoteObjectPendingCall.Error = ... # 0x0
         InvalidMessage           : QRemoteObjectPendingCall.Error = ... # 0x1
@@ -175,7 +176,7 @@ class QRemoteObjectRegistryHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
 
 class QRemoteObjectReplica(PySide6.QtCore.QObject):
 
-    class State(shibokensupport.enum_310.Enum):
+    class State(enum.Enum):
 
         Uninitialized            : QRemoteObjectReplica.State = ... # 0x0
         Default                  : QRemoteObjectReplica.State = ... # 0x1

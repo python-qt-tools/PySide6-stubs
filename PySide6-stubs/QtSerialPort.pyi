@@ -12,6 +12,7 @@ PySide6.QtSerialPort, except for defaults which are replaced by "...".
 import PySide6.QtSerialPort
 import PySide6.QtCore
 
+import enum
 from typing import Optional, List, overload
 from shiboken6 import Shiboken
 
@@ -21,7 +22,7 @@ class QIntList(object): ...
 
 class QSerialPort(PySide6.QtCore.QIODevice):
 
-    class BaudRate(shibokensupport.enum_310.IntEnum):
+    class BaudRate(enum.IntEnum):
 
         Baud1200                 : QSerialPort.BaudRate = ... # 0x4b0
         Baud2400                 : QSerialPort.BaudRate = ... # 0x960
@@ -33,7 +34,7 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         Baud115200               : QSerialPort.BaudRate = ... # 0x1c200
 
 
-    class DataBits(shibokensupport.enum_310.Enum):
+    class DataBits(enum.Enum):
 
         Data5                    : QSerialPort.DataBits = ... # 0x5
         Data6                    : QSerialPort.DataBits = ... # 0x6
@@ -41,21 +42,21 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         Data8                    : QSerialPort.DataBits = ... # 0x8
 
 
-    class Direction(shibokensupport.enum_310.Flag):
+    class Direction(enum.Flag):
 
         Input                    : QSerialPort.Direction = ... # 0x1
         Output                   : QSerialPort.Direction = ... # 0x2
         AllDirections            : QSerialPort.Direction = ... # 0x3
 
 
-    class FlowControl(shibokensupport.enum_310.Enum):
+    class FlowControl(enum.Enum):
 
         NoFlowControl            : QSerialPort.FlowControl = ... # 0x0
         HardwareControl          : QSerialPort.FlowControl = ... # 0x1
         SoftwareControl          : QSerialPort.FlowControl = ... # 0x2
 
 
-    class Parity(shibokensupport.enum_310.Enum):
+    class Parity(enum.Enum):
 
         NoParity                 : QSerialPort.Parity = ... # 0x0
         EvenParity               : QSerialPort.Parity = ... # 0x2
@@ -64,7 +65,7 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         MarkParity               : QSerialPort.Parity = ... # 0x5
 
 
-    class PinoutSignal(shibokensupport.enum_310.Flag):
+    class PinoutSignal(enum.Flag):
 
         NoSignal                 : QSerialPort.PinoutSignal = ... # 0x0
         DataTerminalReadySignal  : QSerialPort.PinoutSignal = ... # 0x4
@@ -77,7 +78,7 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         SecondaryReceivedDataSignal: QSerialPort.PinoutSignal = ... # 0x200
 
 
-    class SerialPortError(shibokensupport.enum_310.Enum):
+    class SerialPortError(enum.Enum):
 
         NoError                  : QSerialPort.SerialPortError = ... # 0x0
         DeviceNotFoundError      : QSerialPort.SerialPortError = ... # 0x1
@@ -92,7 +93,7 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         NotOpenError             : QSerialPort.SerialPortError = ... # 0xa
 
 
-    class StopBits(shibokensupport.enum_310.Enum):
+    class StopBits(enum.Enum):
 
         OneStop                  : QSerialPort.StopBits = ... # 0x1
         TwoStop                  : QSerialPort.StopBits = ... # 0x2

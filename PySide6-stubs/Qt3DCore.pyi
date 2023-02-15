@@ -13,6 +13,7 @@ import PySide6.Qt3DCore
 import PySide6.QtCore
 import PySide6.QtGui
 
+import enum
 from typing import Optional, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -48,7 +49,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QAspectEngine(PySide6.QtCore.QObject):
 
-        class RunMode(shibokensupport.enum_310.Enum):
+        class RunMode(enum.Enum):
 
             Manual                   : Qt3DCore.QAspectEngine.RunMode = ... # 0x0
             Automatic                : Qt3DCore.QAspectEngine.RunMode = ... # 0x1
@@ -83,14 +84,14 @@ class Qt3DCore(Shiboken.Object):
 
     class QAttribute(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        class AttributeType(shibokensupport.enum_310.Enum):
+        class AttributeType(enum.Enum):
 
             VertexAttribute          : Qt3DCore.QAttribute.AttributeType = ... # 0x0
             IndexAttribute           : Qt3DCore.QAttribute.AttributeType = ... # 0x1
             DrawIndirectAttribute    : Qt3DCore.QAttribute.AttributeType = ... # 0x2
 
 
-        class VertexBaseType(shibokensupport.enum_310.Enum):
+        class VertexBaseType(enum.Enum):
 
             Byte                     : Qt3DCore.QAttribute.VertexBaseType = ... # 0x0
             UnsignedByte             : Qt3DCore.QAttribute.VertexBaseType = ... # 0x1
@@ -149,7 +150,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QBackendNode(Shiboken.Object):
 
-        class Mode(shibokensupport.enum_310.Enum):
+        class Mode(enum.Enum):
 
             ReadOnly                 : Qt3DCore.QBackendNode.Mode = ... # 0x0
             ReadWrite                : Qt3DCore.QBackendNode.Mode = ... # 0x1
@@ -188,14 +189,14 @@ class Qt3DCore(Shiboken.Object):
 
     class QBuffer(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        class AccessType(shibokensupport.enum_310.Enum):
+        class AccessType(enum.Enum):
 
             Write                    : Qt3DCore.QBuffer.AccessType = ... # 0x1
             Read                     : Qt3DCore.QBuffer.AccessType = ... # 0x2
             ReadWrite                : Qt3DCore.QBuffer.AccessType = ... # 0x3
 
 
-        class UsageType(shibokensupport.enum_310.Enum):
+        class UsageType(enum.Enum):
 
             StreamDraw               : Qt3DCore.QBuffer.UsageType = ... # 0x88e0
             StreamRead               : Qt3DCore.QBuffer.UsageType = ... # 0x88e1
@@ -256,7 +257,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QGeometryView(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        class PrimitiveType(shibokensupport.enum_310.Enum):
+        class PrimitiveType(enum.Enum):
 
             Points                   : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x0
             Lines                    : Qt3DCore.QGeometryView.PrimitiveType = ... # 0x1
@@ -370,7 +371,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QSkeletonLoader(PySide6.Qt3DCore.Qt3DCore.QAbstractSkeleton):
 
-        class Status(shibokensupport.enum_310.Enum):
+        class Status(enum.Enum):
 
             NotReady                 : Qt3DCore.QSkeletonLoader.Status = ... # 0x0
             Ready                    : Qt3DCore.QSkeletonLoader.Status = ... # 0x1

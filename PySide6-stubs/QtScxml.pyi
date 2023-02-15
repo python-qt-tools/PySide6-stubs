@@ -12,6 +12,7 @@ PySide6.QtScxml, except for defaults which are replaced by "...".
 import PySide6.QtScxml
 import PySide6.QtCore
 
+import enum
 from typing import Any, Optional, Tuple, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -111,7 +112,7 @@ class QScxmlError(Shiboken.Object):
 
 class QScxmlEvent(Shiboken.Object):
 
-    class EventType(shibokensupport.enum_310.Enum):
+    class EventType(enum.Enum):
 
         PlatformEvent            : QScxmlEvent.EventType = ... # 0x0
         InternalEvent            : QScxmlEvent.EventType = ... # 0x1

@@ -13,6 +13,7 @@ import PySide6.QtWebSockets
 import PySide6.QtCore
 import PySide6.QtNetwork
 
+import enum
 from typing import Optional, Union, Sequence, List, overload
 from shiboken6 import Shiboken
 
@@ -124,7 +125,7 @@ class QWebSocketHandshakeOptions(Shiboken.Object):
 
 class QWebSocketProtocol(Shiboken.Object):
 
-    class CloseCode(shibokensupport.enum_310.Enum):
+    class CloseCode(enum.Enum):
 
         CloseCodeNormal          : QWebSocketProtocol.CloseCode = ... # 0x3e8
         CloseCodeGoingAway       : QWebSocketProtocol.CloseCode = ... # 0x3e9
@@ -141,7 +142,7 @@ class QWebSocketProtocol(Shiboken.Object):
         CloseCodeTlsHandshakeFailed: QWebSocketProtocol.CloseCode = ... # 0x3f7
 
 
-    class Version(shibokensupport.enum_310.Enum):
+    class Version(enum.Enum):
 
         VersionUnknown           : QWebSocketProtocol.Version = ... # -0x1
         Version0                 : QWebSocketProtocol.Version = ... # 0x0
@@ -156,7 +157,7 @@ class QWebSocketProtocol(Shiboken.Object):
 
 class QWebSocketServer(PySide6.QtCore.QObject):
 
-    class SslMode(shibokensupport.enum_310.Enum):
+    class SslMode(enum.Enum):
 
         SecureMode               : QWebSocketServer.SslMode = ... # 0x0
         NonSecureMode            : QWebSocketServer.SslMode = ... # 0x1

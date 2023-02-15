@@ -14,12 +14,13 @@ import PySide6.QtCore
 import PySide6.QtGui
 import PySide6.QtWidgets
 
+import enum
 from typing import Any, Optional, Tuple, Type, Union, Sequence, Dict, List, overload
 
 
 class QAbstractAxis(PySide6.QtCore.QObject):
 
-    class AxisType(shibokensupport.enum_310.Enum):
+    class AxisType(enum.Enum):
 
         AxisTypeNoAxis           : QAbstractAxis.AxisType = ... # 0x0
         AxisTypeValue            : QAbstractAxis.AxisType = ... # 0x1
@@ -97,7 +98,7 @@ class QAbstractAxis(PySide6.QtCore.QObject):
 
 class QAbstractBarSeries(PySide6.QtCharts.QAbstractSeries):
 
-    class LabelsPosition(shibokensupport.enum_310.Enum):
+    class LabelsPosition(enum.Enum):
 
         LabelsCenter             : QAbstractBarSeries.LabelsPosition = ... # 0x0
         LabelsInsideEnd          : QAbstractBarSeries.LabelsPosition = ... # 0x1
@@ -131,7 +132,7 @@ class QAbstractBarSeries(PySide6.QtCharts.QAbstractSeries):
 
 class QAbstractSeries(PySide6.QtCore.QObject):
 
-    class SeriesType(shibokensupport.enum_310.Enum):
+    class SeriesType(enum.Enum):
 
         SeriesTypeLine           : QAbstractSeries.SeriesType = ... # 0x0
         SeriesTypeArea           : QAbstractSeries.SeriesType = ... # 0x1
@@ -367,7 +368,7 @@ class QBoxPlotSeries(PySide6.QtCharts.QAbstractSeries):
 
 class QBoxSet(PySide6.QtCore.QObject):
 
-    class ValuePositions(shibokensupport.enum_310.Enum):
+    class ValuePositions(enum.IntEnum):
 
         LowerExtreme             : QBoxSet.ValuePositions = ... # 0x0
         LowerQuartile            : QBoxSet.ValuePositions = ... # 0x1
@@ -496,7 +497,7 @@ class QCandlestickSet(PySide6.QtCore.QObject):
 
 class QCategoryAxis(PySide6.QtCharts.QValueAxis):
 
-    class AxisLabelsPosition(shibokensupport.enum_310.Enum):
+    class AxisLabelsPosition(enum.Enum):
 
         AxisLabelsPositionCenter : QCategoryAxis.AxisLabelsPosition = ... # 0x0
         AxisLabelsPositionOnValue: QCategoryAxis.AxisLabelsPosition = ... # 0x1
@@ -519,7 +520,7 @@ class QCategoryAxis(PySide6.QtCharts.QValueAxis):
 
 class QChart(PySide6.QtWidgets.QGraphicsWidget):
 
-    class AnimationOption(shibokensupport.enum_310.Flag):
+    class AnimationOption(enum.Flag):
 
         NoAnimation              : QChart.AnimationOption = ... # 0x0
         GridAxisAnimations       : QChart.AnimationOption = ... # 0x1
@@ -527,7 +528,7 @@ class QChart(PySide6.QtWidgets.QGraphicsWidget):
         AllAnimations            : QChart.AnimationOption = ... # 0x3
 
 
-    class ChartTheme(shibokensupport.enum_310.Enum):
+    class ChartTheme(enum.Enum):
 
         ChartThemeLight          : QChart.ChartTheme = ... # 0x0
         ChartThemeBlueCerulean   : QChart.ChartTheme = ... # 0x1
@@ -539,7 +540,7 @@ class QChart(PySide6.QtWidgets.QGraphicsWidget):
         ChartThemeQt             : QChart.ChartTheme = ... # 0x7
 
 
-    class ChartType(shibokensupport.enum_310.Enum):
+    class ChartType(enum.Enum):
 
         ChartTypeUndefined       : QChart.ChartType = ... # 0x0
         ChartTypeCartesian       : QChart.ChartType = ... # 0x1
@@ -618,7 +619,7 @@ class QChart(PySide6.QtWidgets.QGraphicsWidget):
 
 class QChartView(PySide6.QtWidgets.QGraphicsView):
 
-    class RubberBand(shibokensupport.enum_310.Flag):
+    class RubberBand(enum.Flag):
 
         NoRubberBand             : QChartView.RubberBand = ... # 0x0
         VerticalRubberBand       : QChartView.RubberBand = ... # 0x1
@@ -777,7 +778,7 @@ class QIntList(object): ...
 
 class QLegend(PySide6.QtWidgets.QGraphicsWidget):
 
-    class MarkerShape(shibokensupport.enum_310.Enum):
+    class MarkerShape(enum.Enum):
 
         MarkerShapeDefault       : QLegend.MarkerShape = ... # 0x0
         MarkerShapeRectangle     : QLegend.MarkerShape = ... # 0x1
@@ -826,7 +827,7 @@ class QLegend(PySide6.QtWidgets.QGraphicsWidget):
 
 class QLegendMarker(PySide6.QtCore.QObject):
 
-    class LegendMarkerType(shibokensupport.enum_310.Enum):
+    class LegendMarkerType(enum.Enum):
 
         LegendMarkerTypeArea     : QLegendMarker.LegendMarkerType = ... # 0x0
         LegendMarkerTypeBar      : QLegendMarker.LegendMarkerType = ... # 0x1
@@ -954,7 +955,7 @@ class QPieSeries(PySide6.QtCharts.QAbstractSeries):
 
 class QPieSlice(PySide6.QtCore.QObject):
 
-    class LabelPosition(shibokensupport.enum_310.Enum):
+    class LabelPosition(enum.Enum):
 
         LabelOutside             : QPieSlice.LabelPosition = ... # 0x0
         LabelInsideHorizontal    : QPieSlice.LabelPosition = ... # 0x1
@@ -1008,7 +1009,7 @@ class QPointFList(object): ...
 
 class QPolarChart(PySide6.QtCharts.QChart):
 
-    class PolarOrientation(shibokensupport.enum_310.Flag):
+    class PolarOrientation(enum.Flag):
 
         PolarOrientationRadial   : QPolarChart.PolarOrientation = ... # 0x1
         PolarOrientationAngular  : QPolarChart.PolarOrientation = ... # 0x2
@@ -1023,7 +1024,7 @@ class QPolarChart(PySide6.QtCharts.QChart):
 
 class QScatterSeries(PySide6.QtCharts.QXYSeries):
 
-    class MarkerShape(shibokensupport.enum_310.Enum):
+    class MarkerShape(enum.Enum):
 
         MarkerShapeCircle        : QScatterSeries.MarkerShape = ... # 0x0
         MarkerShapeRectangle     : QScatterSeries.MarkerShape = ... # 0x1
@@ -1158,7 +1159,7 @@ class QVXYModelMapper(PySide6.QtCharts.QXYModelMapper):
 
 class QValueAxis(PySide6.QtCharts.QAbstractAxis):
 
-    class TickType(shibokensupport.enum_310.Enum):
+    class TickType(enum.Enum):
 
         TicksDynamic             : QValueAxis.TickType = ... # 0x0
         TicksFixed               : QValueAxis.TickType = ... # 0x1
@@ -1217,7 +1218,7 @@ class QXYModelMapper(PySide6.QtCore.QObject):
 
 class QXYSeries(PySide6.QtCharts.QAbstractSeries):
 
-    class PointConfiguration(shibokensupport.enum_310.Enum):
+    class PointConfiguration(enum.Enum):
 
         Color                    : QXYSeries.PointConfiguration = ... # 0x0
         Size                     : QXYSeries.PointConfiguration = ... # 0x1

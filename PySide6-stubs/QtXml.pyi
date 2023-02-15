@@ -12,6 +12,7 @@ PySide6.QtXml, except for defaults which are replaced by "...".
 import PySide6.QtXml
 import PySide6.QtCore
 
+import enum
 from typing import Tuple, Union, overload
 from shiboken6 import Shiboken
 
@@ -232,7 +233,7 @@ class QDomEntityReference(PySide6.QtXml.QDomNode):
 
 class QDomImplementation(Shiboken.Object):
 
-    class InvalidDataPolicy(shibokensupport.enum_310.Enum):
+    class InvalidDataPolicy(enum.Enum):
 
         AcceptInvalidChars       : QDomImplementation.InvalidDataPolicy = ... # 0x0
         DropInvalidChars         : QDomImplementation.InvalidDataPolicy = ... # 0x1
@@ -281,13 +282,13 @@ class QDomNamedNodeMap(Shiboken.Object):
 
 class QDomNode(Shiboken.Object):
 
-    class EncodingPolicy(shibokensupport.enum_310.Enum):
+    class EncodingPolicy(enum.Enum):
 
         EncodingFromDocument     : QDomNode.EncodingPolicy = ... # 0x1
         EncodingFromTextStream   : QDomNode.EncodingPolicy = ... # 0x2
 
 
-    class NodeType(shibokensupport.enum_310.Enum):
+    class NodeType(enum.Enum):
 
         ElementNode              : QDomNode.NodeType = ... # 0x1
         AttributeNode            : QDomNode.NodeType = ... # 0x2
