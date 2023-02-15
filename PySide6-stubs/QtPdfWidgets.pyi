@@ -1,0 +1,63 @@
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+from __future__ import annotations
+
+"""
+This file contains the exact signatures for all functions in module
+PySide6.QtPdfWidgets, except for defaults which are replaced by "...".
+"""
+
+# Module `PySide6.QtPdfWidgets`
+
+import PySide6.QtPdfWidgets
+import PySide6.QtCore
+import PySide6.QtGui
+import PySide6.QtWidgets
+import PySide6.QtPdf
+
+import enum
+from typing import overload
+
+
+class QIntList(object): ...
+
+
+class QPdfView(PySide6.QtWidgets.QAbstractScrollArea):
+
+    class PageMode(enum.Enum):
+
+        SinglePage               : QPdfView.PageMode = ... # 0x0
+        MultiPage                : QPdfView.PageMode = ... # 0x1
+
+
+    class ZoomMode(enum.Enum):
+
+        Custom                   : QPdfView.ZoomMode = ... # 0x0
+        FitToWidth               : QPdfView.ZoomMode = ... # 0x1
+        FitInView                : QPdfView.ZoomMode = ... # 0x2
+
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, parent: PySide6.QtWidgets.QWidget) -> None: ...
+
+    def document(self) -> PySide6.QtPdf.QPdfDocument: ...
+    def documentMargins(self) -> PySide6.QtCore.QMargins: ...
+    def pageMode(self) -> PySide6.QtPdfWidgets.QPdfView.PageMode: ...
+    def pageNavigator(self) -> PySide6.QtPdf.QPdfPageNavigator: ...
+    def pageSpacing(self) -> int: ...
+    def paintEvent(self, event: PySide6.QtGui.QPaintEvent) -> None: ...
+    def resizeEvent(self, event: PySide6.QtGui.QResizeEvent) -> None: ...
+    def scrollContentsBy(self, dx: int, dy: int) -> None: ...
+    def setDocument(self, document: PySide6.QtPdf.QPdfDocument) -> None: ...
+    def setDocumentMargins(self, margins: PySide6.QtCore.QMargins) -> None: ...
+    def setPageMode(self, mode: PySide6.QtPdfWidgets.QPdfView.PageMode) -> None: ...
+    def setPageSpacing(self, spacing: int) -> None: ...
+    def setZoomFactor(self, factor: float) -> None: ...
+    def setZoomMode(self, mode: PySide6.QtPdfWidgets.QPdfView.ZoomMode) -> None: ...
+    def zoomFactor(self) -> float: ...
+    def zoomMode(self) -> PySide6.QtPdfWidgets.QPdfView.ZoomMode: ...
+
+
+# eof

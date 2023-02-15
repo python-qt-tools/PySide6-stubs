@@ -13,6 +13,7 @@ import PySide6.QtSql
 import PySide6.QtCore
 import PySide6.QtWidgets
 
+import enum
 from typing import Any, Optional, Type, Union, Dict, List, overload
 from shiboken6 import Shiboken
 
@@ -22,13 +23,13 @@ class QIntList(object): ...
 
 class QSql(Shiboken.Object):
 
-    class Location(shibokensupport.enum_310.Enum):
+    class Location(enum.Enum):
 
         AfterLastRow             : QSql.Location = ... # -0x2
         BeforeFirstRow           : QSql.Location = ... # -0x1
 
 
-    class NumericalPrecisionPolicy(shibokensupport.enum_310.Enum):
+    class NumericalPrecisionPolicy(enum.Enum):
 
         HighPrecision            : QSql.NumericalPrecisionPolicy = ... # 0x0
         LowPrecisionInt32        : QSql.NumericalPrecisionPolicy = ... # 0x1
@@ -36,7 +37,7 @@ class QSql(Shiboken.Object):
         LowPrecisionDouble       : QSql.NumericalPrecisionPolicy = ... # 0x4
 
 
-    class ParamTypeFlag(shibokensupport.enum_310.Flag):
+    class ParamTypeFlag(enum.Flag):
 
         In                       : QSql.ParamTypeFlag = ... # 0x1
         Out                      : QSql.ParamTypeFlag = ... # 0x2
@@ -44,7 +45,7 @@ class QSql(Shiboken.Object):
         Binary                   : QSql.ParamTypeFlag = ... # 0x4
 
 
-    class TableType(shibokensupport.enum_310.Enum):
+    class TableType(enum.Enum):
 
         Tables                   : QSql.TableType = ... # 0x1
         SystemTables             : QSql.TableType = ... # 0x2
@@ -129,7 +130,7 @@ class QSqlDatabase(Shiboken.Object):
 
 class QSqlDriver(PySide6.QtCore.QObject):
 
-    class DbmsType(shibokensupport.enum_310.Enum):
+    class DbmsType(enum.Enum):
 
         UnknownDbms              : QSqlDriver.DbmsType = ... # 0x0
         MSSqlServer              : QSqlDriver.DbmsType = ... # 0x1
@@ -142,7 +143,7 @@ class QSqlDriver(PySide6.QtCore.QObject):
         DB2                      : QSqlDriver.DbmsType = ... # 0x8
 
 
-    class DriverFeature(shibokensupport.enum_310.Enum):
+    class DriverFeature(enum.Enum):
 
         Transactions             : QSqlDriver.DriverFeature = ... # 0x0
         QuerySize                : QSqlDriver.DriverFeature = ... # 0x1
@@ -161,20 +162,20 @@ class QSqlDriver(PySide6.QtCore.QObject):
         CancelQuery              : QSqlDriver.DriverFeature = ... # 0xe
 
 
-    class IdentifierType(shibokensupport.enum_310.Enum):
+    class IdentifierType(enum.Enum):
 
         FieldName                : QSqlDriver.IdentifierType = ... # 0x0
         TableName                : QSqlDriver.IdentifierType = ... # 0x1
 
 
-    class NotificationSource(shibokensupport.enum_310.Enum):
+    class NotificationSource(enum.Enum):
 
         UnknownSource            : QSqlDriver.NotificationSource = ... # 0x0
         SelfSource               : QSqlDriver.NotificationSource = ... # 0x1
         OtherSource              : QSqlDriver.NotificationSource = ... # 0x2
 
 
-    class StatementType(shibokensupport.enum_310.Enum):
+    class StatementType(enum.Enum):
 
         WhereStatement           : QSqlDriver.StatementType = ... # 0x0
         SelectStatement          : QSqlDriver.StatementType = ... # 0x1
@@ -225,7 +226,7 @@ class QSqlDriverCreatorBase(Shiboken.Object):
 
 class QSqlError(Shiboken.Object):
 
-    class ErrorType(shibokensupport.enum_310.Enum):
+    class ErrorType(enum.Enum):
 
         NoError                  : QSqlError.ErrorType = ... # 0x0
         ConnectionError          : QSqlError.ErrorType = ... # 0x1
@@ -252,7 +253,7 @@ class QSqlError(Shiboken.Object):
 
 class QSqlField(Shiboken.Object):
 
-    class RequiredStatus(shibokensupport.enum_310.Enum):
+    class RequiredStatus(enum.Enum):
 
         Unknown                  : QSqlField.RequiredStatus = ... # -0x1
         Optional                 : QSqlField.RequiredStatus = ... # 0x0
@@ -319,7 +320,7 @@ class QSqlIndex(PySide6.QtSql.QSqlRecord):
 
 class QSqlQuery(Shiboken.Object):
 
-    class BatchExecutionMode(shibokensupport.enum_310.Enum):
+    class BatchExecutionMode(enum.Enum):
 
         ValuesAsRows             : QSqlQuery.BatchExecutionMode = ... # 0x0
         ValuesAsColumns          : QSqlQuery.BatchExecutionMode = ... # 0x1
@@ -512,7 +513,7 @@ class QSqlRelationalDelegate(PySide6.QtWidgets.QStyledItemDelegate):
 
 class QSqlRelationalTableModel(PySide6.QtSql.QSqlTableModel):
 
-    class JoinMode(shibokensupport.enum_310.Enum):
+    class JoinMode(enum.Enum):
 
         InnerJoin                : QSqlRelationalTableModel.JoinMode = ... # 0x0
         LeftJoin                 : QSqlRelationalTableModel.JoinMode = ... # 0x1
@@ -539,7 +540,7 @@ class QSqlRelationalTableModel(PySide6.QtSql.QSqlTableModel):
 
 class QSqlResult(Shiboken.Object):
 
-    class BindingSyntax(shibokensupport.enum_310.Enum):
+    class BindingSyntax(enum.Enum):
 
         PositionalBinding        : QSqlResult.BindingSyntax = ... # 0x0
         NamedBinding             : QSqlResult.BindingSyntax = ... # 0x1
@@ -611,7 +612,7 @@ class QSqlResult(Shiboken.Object):
 
 class QSqlTableModel(PySide6.QtSql.QSqlQueryModel):
 
-    class EditStrategy(shibokensupport.enum_310.Enum):
+    class EditStrategy(enum.Enum):
 
         OnFieldChange            : QSqlTableModel.EditStrategy = ... # 0x0
         OnRowChange              : QSqlTableModel.EditStrategy = ... # 0x1

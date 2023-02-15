@@ -13,6 +13,7 @@ import PySide6.QtStateMachine
 import PySide6.QtCore
 import PySide6.QtGui
 
+import enum
 from typing import Any, Optional, Type, Union, Sequence, List, Set, overload
 
 
@@ -30,7 +31,7 @@ class QAbstractState(PySide6.QtCore.QObject):
 
 class QAbstractTransition(PySide6.QtCore.QObject):
 
-    class TransitionType(shibokensupport.enum_310.Enum):
+    class TransitionType(enum.Enum):
 
         ExternalTransition       : QAbstractTransition.TransitionType = ... # 0x0
         InternalTransition       : QAbstractTransition.TransitionType = ... # 0x1
@@ -81,7 +82,7 @@ class QFinalState(PySide6.QtStateMachine.QAbstractState):
 
 class QHistoryState(PySide6.QtStateMachine.QAbstractState):
 
-    class HistoryType(shibokensupport.enum_310.Enum):
+    class HistoryType(enum.Enum):
 
         ShallowHistory           : QHistoryState.HistoryType = ... # 0x0
         DeepHistory              : QHistoryState.HistoryType = ... # 0x1
@@ -158,13 +159,13 @@ class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
 
 class QState(PySide6.QtStateMachine.QAbstractState):
 
-    class ChildMode(shibokensupport.enum_310.Enum):
+    class ChildMode(enum.Enum):
 
         ExclusiveStates          : QState.ChildMode = ... # 0x0
         ParallelStates           : QState.ChildMode = ... # 0x1
 
 
-    class RestorePolicy(shibokensupport.enum_310.Enum):
+    class RestorePolicy(enum.Enum):
 
         DontRestoreProperties    : QState.RestorePolicy = ... # 0x0
         RestoreProperties        : QState.RestorePolicy = ... # 0x1
@@ -199,7 +200,7 @@ class QState(PySide6.QtStateMachine.QAbstractState):
 
 class QStateMachine(PySide6.QtStateMachine.QState):
 
-    class Error(shibokensupport.enum_310.Enum):
+    class Error(enum.Enum):
 
         NoError                  : QStateMachine.Error = ... # 0x0
         NoInitialStateError      : QStateMachine.Error = ... # 0x1
@@ -208,7 +209,7 @@ class QStateMachine(PySide6.QtStateMachine.QState):
         StateMachineChildModeSetToParallelError: QStateMachine.Error = ... # 0x4
 
 
-    class EventPriority(shibokensupport.enum_310.Enum):
+    class EventPriority(enum.Enum):
 
         NormalPriority           : QStateMachine.EventPriority = ... # 0x0
         HighPriority             : QStateMachine.EventPriority = ... # 0x1
