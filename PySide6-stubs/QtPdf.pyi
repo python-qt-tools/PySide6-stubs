@@ -14,7 +14,7 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Union, Dict, List, overload
+from typing import Union, Dict, List, overload, Any
 from shiboken6 import Shiboken
 
 

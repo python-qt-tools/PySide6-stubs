@@ -13,7 +13,7 @@ import PySide6.QtCore
 
 import os
 import enum
-from typing import Any, Callable, Optional, Tuple, Type, Union, Sequence, Dict, List, overload
+from typing import Any, Callable, Optional, Tuple, Union, Sequence, Dict, List, overload
 from shiboken6 import Shiboken
 
 
@@ -51,8 +51,8 @@ class QAbstractAnimation(PySide6.QtCore.QObject):
 
     class DeletionPolicy(enum.Enum):
 
-    KeepWhenStopped          : QAbstractAnimation.DeletionPolicy = ... # 0x0
-    DeleteWhenStopped        : QAbstractAnimation.DeletionPolicy = ... # 0x1
+        KeepWhenStopped          : QAbstractAnimation.DeletionPolicy = ... # 0x0
+        DeleteWhenStopped        : QAbstractAnimation.DeletionPolicy = ... # 0x1
 
 
     class Direction(enum.Enum):
@@ -912,9 +912,9 @@ class QCborStreamReader(Shiboken.Object):
 
     class StringResultCode(enum.Enum):
 
-    Error                    : QCborStreamReader.StringResultCode = ... # -0x1
-    EndOfString              : QCborStreamReader.StringResultCode = ... # 0x0
-    Ok                       : QCborStreamReader.StringResultCode = ... # 0x1
+        Error                    : QCborStreamReader.StringResultCode = ... # -0x1
+        EndOfString              : QCborStreamReader.StringResultCode = ... # 0x0
+        Ok                       : QCborStreamReader.StringResultCode = ... # 0x1
 
 
     class Type(enum.Enum):
@@ -1320,8 +1320,8 @@ class QCommandLineParser(Shiboken.Object):
 
     class OptionsAfterPositionalArgumentsMode(enum.Enum):
 
-    ParseAsOptions           : QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x0
-    ParseAsPositionalArguments: QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x1
+        ParseAsOptions           : QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x0
+        ParseAsPositionalArguments: QCommandLineParser.OptionsAfterPositionalArgumentsMode = ... # 0x1
 
 
     class SingleDashWordOptionMode(enum.Enum):
@@ -1547,8 +1547,8 @@ class QDataStream(PySide6.QtCore.QIODeviceBase):
 
     class ByteOrder(enum.Enum):
 
-    BigEndian                : QDataStream.ByteOrder = ... # 0x0
-    LittleEndian             : QDataStream.ByteOrder = ... # 0x1
+        BigEndian                : QDataStream.ByteOrder = ... # 0x0
+        LittleEndian             : QDataStream.ByteOrder = ... # 0x1
 
 
     class FloatingPointPrecision(enum.Enum):
@@ -2660,21 +2660,21 @@ class QFileDevice(PySide6.QtCore.QIODevice):
 
     class FileError(enum.Enum):
 
-    NoError                  : QFileDevice.FileError = ... # 0x0
-    ReadError                : QFileDevice.FileError = ... # 0x1
-    WriteError               : QFileDevice.FileError = ... # 0x2
-    FatalError               : QFileDevice.FileError = ... # 0x3
-    ResourceError            : QFileDevice.FileError = ... # 0x4
-    OpenError                : QFileDevice.FileError = ... # 0x5
-    AbortError               : QFileDevice.FileError = ... # 0x6
-    TimeOutError             : QFileDevice.FileError = ... # 0x7
-    UnspecifiedError         : QFileDevice.FileError = ... # 0x8
-    RemoveError              : QFileDevice.FileError = ... # 0x9
-    RenameError              : QFileDevice.FileError = ... # 0xa
-    PositionError            : QFileDevice.FileError = ... # 0xb
-    ResizeError              : QFileDevice.FileError = ... # 0xc
-    PermissionsError         : QFileDevice.FileError = ... # 0xd
-    CopyError                : QFileDevice.FileError = ... # 0xe
+        NoError                  : QFileDevice.FileError = ... # 0x0
+        ReadError                : QFileDevice.FileError = ... # 0x1
+        WriteError               : QFileDevice.FileError = ... # 0x2
+        FatalError               : QFileDevice.FileError = ... # 0x3
+        ResourceError            : QFileDevice.FileError = ... # 0x4
+        OpenError                : QFileDevice.FileError = ... # 0x5
+        AbortError               : QFileDevice.FileError = ... # 0x6
+        TimeOutError             : QFileDevice.FileError = ... # 0x7
+        UnspecifiedError         : QFileDevice.FileError = ... # 0x8
+        RemoveError              : QFileDevice.FileError = ... # 0x9
+        RenameError              : QFileDevice.FileError = ... # 0xa
+        PositionError            : QFileDevice.FileError = ... # 0xb
+        ResizeError              : QFileDevice.FileError = ... # 0xc
+        PermissionsError         : QFileDevice.FileError = ... # 0xd
+        CopyError                : QFileDevice.FileError = ... # 0xe
 
 
     class FileHandleFlag(enum.Flag):
@@ -3622,294 +3622,294 @@ class QLocale(Shiboken.Object):
 
     class Country(enum.Enum):
 
-    AnyCountry               : QLocale.Country = ... # 0x0
-    AnyTerritory             : QLocale.Country = ... # 0x0
-    Afghanistan              : QLocale.Country = ... # 0x1
-    AlandIslands             : QLocale.Country = ... # 0x2
-    Albania                  : QLocale.Country = ... # 0x3
-    Algeria                  : QLocale.Country = ... # 0x4
-    AmericanSamoa            : QLocale.Country = ... # 0x5
-    Andorra                  : QLocale.Country = ... # 0x6
-    Angola                   : QLocale.Country = ... # 0x7
-    Anguilla                 : QLocale.Country = ... # 0x8
-    Antarctica               : QLocale.Country = ... # 0x9
-    AntiguaAndBarbuda        : QLocale.Country = ... # 0xa
-    Argentina                : QLocale.Country = ... # 0xb
-    Armenia                  : QLocale.Country = ... # 0xc
-    Aruba                    : QLocale.Country = ... # 0xd
-    AscensionIsland          : QLocale.Country = ... # 0xe
-    Australia                : QLocale.Country = ... # 0xf
-    Austria                  : QLocale.Country = ... # 0x10
-    Azerbaijan               : QLocale.Country = ... # 0x11
-    Bahamas                  : QLocale.Country = ... # 0x12
-    Bahrain                  : QLocale.Country = ... # 0x13
-    Bangladesh               : QLocale.Country = ... # 0x14
-    Barbados                 : QLocale.Country = ... # 0x15
-    Belarus                  : QLocale.Country = ... # 0x16
-    Belgium                  : QLocale.Country = ... # 0x17
-    Belize                   : QLocale.Country = ... # 0x18
-    Benin                    : QLocale.Country = ... # 0x19
-    Bermuda                  : QLocale.Country = ... # 0x1a
-    Bhutan                   : QLocale.Country = ... # 0x1b
-    Bolivia                  : QLocale.Country = ... # 0x1c
-    BosniaAndHerzegovina     : QLocale.Country = ... # 0x1d
-    BosniaAndHerzegowina     : QLocale.Country = ... # 0x1d
-    Botswana                 : QLocale.Country = ... # 0x1e
-    BouvetIsland             : QLocale.Country = ... # 0x1f
-    Brazil                   : QLocale.Country = ... # 0x20
-    BritishIndianOceanTerritory: QLocale.Country = ... # 0x21
-    BritishVirginIslands     : QLocale.Country = ... # 0x22
-    Brunei                   : QLocale.Country = ... # 0x23
-    Bulgaria                 : QLocale.Country = ... # 0x24
-    BurkinaFaso              : QLocale.Country = ... # 0x25
-    Burundi                  : QLocale.Country = ... # 0x26
-    Cambodia                 : QLocale.Country = ... # 0x27
-    Cameroon                 : QLocale.Country = ... # 0x28
-    Canada                   : QLocale.Country = ... # 0x29
-    CanaryIslands            : QLocale.Country = ... # 0x2a
-    CapeVerde                : QLocale.Country = ... # 0x2b
-    Bonaire                  : QLocale.Country = ... # 0x2c
-    CaribbeanNetherlands     : QLocale.Country = ... # 0x2c
-    CaymanIslands            : QLocale.Country = ... # 0x2d
-    CentralAfricanRepublic   : QLocale.Country = ... # 0x2e
-    CeutaAndMelilla          : QLocale.Country = ... # 0x2f
-    Chad                     : QLocale.Country = ... # 0x30
-    Chile                    : QLocale.Country = ... # 0x31
-    China                    : QLocale.Country = ... # 0x32
-    ChristmasIsland          : QLocale.Country = ... # 0x33
-    ClippertonIsland         : QLocale.Country = ... # 0x34
-    CocosIslands             : QLocale.Country = ... # 0x35
-    Colombia                 : QLocale.Country = ... # 0x36
-    Comoros                  : QLocale.Country = ... # 0x37
-    CongoBrazzaville         : QLocale.Country = ... # 0x38
-    PeoplesRepublicOfCongo   : QLocale.Country = ... # 0x38
-    CongoKinshasa            : QLocale.Country = ... # 0x39
-    DemocraticRepublicOfCongo: QLocale.Country = ... # 0x39
-    CookIslands              : QLocale.Country = ... # 0x3a
-    CostaRica                : QLocale.Country = ... # 0x3b
-    Croatia                  : QLocale.Country = ... # 0x3c
-    Cuba                     : QLocale.Country = ... # 0x3d
-    CuraSao                  : QLocale.Country = ... # 0x3e
-    Curacao                  : QLocale.Country = ... # 0x3e
-    Cyprus                   : QLocale.Country = ... # 0x3f
-    CzechRepublic            : QLocale.Country = ... # 0x40
-    Czechia                  : QLocale.Country = ... # 0x40
-    Denmark                  : QLocale.Country = ... # 0x41
-    DiegoGarcia              : QLocale.Country = ... # 0x42
-    Djibouti                 : QLocale.Country = ... # 0x43
-    Dominica                 : QLocale.Country = ... # 0x44
-    DominicanRepublic        : QLocale.Country = ... # 0x45
-    Ecuador                  : QLocale.Country = ... # 0x46
-    Egypt                    : QLocale.Country = ... # 0x47
-    ElSalvador               : QLocale.Country = ... # 0x48
-    EquatorialGuinea         : QLocale.Country = ... # 0x49
-    Eritrea                  : QLocale.Country = ... # 0x4a
-    Estonia                  : QLocale.Country = ... # 0x4b
-    Eswatini                 : QLocale.Country = ... # 0x4c
-    Swaziland                : QLocale.Country = ... # 0x4c
-    Ethiopia                 : QLocale.Country = ... # 0x4d
-    Europe                   : QLocale.Country = ... # 0x4e
-    EuropeanUnion            : QLocale.Country = ... # 0x4f
-    FalklandIslands          : QLocale.Country = ... # 0x50
-    FaroeIslands             : QLocale.Country = ... # 0x51
-    Fiji                     : QLocale.Country = ... # 0x52
-    Finland                  : QLocale.Country = ... # 0x53
-    France                   : QLocale.Country = ... # 0x54
-    FrenchGuiana             : QLocale.Country = ... # 0x55
-    FrenchPolynesia          : QLocale.Country = ... # 0x56
-    FrenchSouthernTerritories: QLocale.Country = ... # 0x57
-    Gabon                    : QLocale.Country = ... # 0x58
-    Gambia                   : QLocale.Country = ... # 0x59
-    Georgia                  : QLocale.Country = ... # 0x5a
-    Germany                  : QLocale.Country = ... # 0x5b
-    Ghana                    : QLocale.Country = ... # 0x5c
-    Gibraltar                : QLocale.Country = ... # 0x5d
-    Greece                   : QLocale.Country = ... # 0x5e
-    Greenland                : QLocale.Country = ... # 0x5f
-    Grenada                  : QLocale.Country = ... # 0x60
-    Guadeloupe               : QLocale.Country = ... # 0x61
-    Guam                     : QLocale.Country = ... # 0x62
-    Guatemala                : QLocale.Country = ... # 0x63
-    Guernsey                 : QLocale.Country = ... # 0x64
-    GuineaBissau             : QLocale.Country = ... # 0x65
-    Guinea                   : QLocale.Country = ... # 0x66
-    Guyana                   : QLocale.Country = ... # 0x67
-    Haiti                    : QLocale.Country = ... # 0x68
-    HeardAndMcDonaldIslands  : QLocale.Country = ... # 0x69
-    Honduras                 : QLocale.Country = ... # 0x6a
-    HongKong                 : QLocale.Country = ... # 0x6b
-    Hungary                  : QLocale.Country = ... # 0x6c
-    Iceland                  : QLocale.Country = ... # 0x6d
-    India                    : QLocale.Country = ... # 0x6e
-    Indonesia                : QLocale.Country = ... # 0x6f
-    Iran                     : QLocale.Country = ... # 0x70
-    Iraq                     : QLocale.Country = ... # 0x71
-    Ireland                  : QLocale.Country = ... # 0x72
-    IsleOfMan                : QLocale.Country = ... # 0x73
-    Israel                   : QLocale.Country = ... # 0x74
-    Italy                    : QLocale.Country = ... # 0x75
-    IvoryCoast               : QLocale.Country = ... # 0x76
-    Jamaica                  : QLocale.Country = ... # 0x77
-    Japan                    : QLocale.Country = ... # 0x78
-    Jersey                   : QLocale.Country = ... # 0x79
-    Jordan                   : QLocale.Country = ... # 0x7a
-    Kazakhstan               : QLocale.Country = ... # 0x7b
-    Kenya                    : QLocale.Country = ... # 0x7c
-    Kiribati                 : QLocale.Country = ... # 0x7d
-    Kosovo                   : QLocale.Country = ... # 0x7e
-    Kuwait                   : QLocale.Country = ... # 0x7f
-    Kyrgyzstan               : QLocale.Country = ... # 0x80
-    Laos                     : QLocale.Country = ... # 0x81
-    LatinAmerica             : QLocale.Country = ... # 0x82
-    LatinAmericaAndTheCaribbean: QLocale.Country = ... # 0x82
-    Latvia                   : QLocale.Country = ... # 0x83
-    Lebanon                  : QLocale.Country = ... # 0x84
-    Lesotho                  : QLocale.Country = ... # 0x85
-    Liberia                  : QLocale.Country = ... # 0x86
-    Libya                    : QLocale.Country = ... # 0x87
-    Liechtenstein            : QLocale.Country = ... # 0x88
-    Lithuania                : QLocale.Country = ... # 0x89
-    Luxembourg               : QLocale.Country = ... # 0x8a
-    Macao                    : QLocale.Country = ... # 0x8b
-    Macau                    : QLocale.Country = ... # 0x8b
-    Macedonia                : QLocale.Country = ... # 0x8c
-    Madagascar               : QLocale.Country = ... # 0x8d
-    Malawi                   : QLocale.Country = ... # 0x8e
-    Malaysia                 : QLocale.Country = ... # 0x8f
-    Maldives                 : QLocale.Country = ... # 0x90
-    Mali                     : QLocale.Country = ... # 0x91
-    Malta                    : QLocale.Country = ... # 0x92
-    MarshallIslands          : QLocale.Country = ... # 0x93
-    Martinique               : QLocale.Country = ... # 0x94
-    Mauritania               : QLocale.Country = ... # 0x95
-    Mauritius                : QLocale.Country = ... # 0x96
-    Mayotte                  : QLocale.Country = ... # 0x97
-    Mexico                   : QLocale.Country = ... # 0x98
-    Micronesia               : QLocale.Country = ... # 0x99
-    Moldova                  : QLocale.Country = ... # 0x9a
-    Monaco                   : QLocale.Country = ... # 0x9b
-    Mongolia                 : QLocale.Country = ... # 0x9c
-    Montenegro               : QLocale.Country = ... # 0x9d
-    Montserrat               : QLocale.Country = ... # 0x9e
-    Morocco                  : QLocale.Country = ... # 0x9f
-    Mozambique               : QLocale.Country = ... # 0xa0
-    Myanmar                  : QLocale.Country = ... # 0xa1
-    Namibia                  : QLocale.Country = ... # 0xa2
-    NauruCountry             : QLocale.Country = ... # 0xa3
-    NauruTerritory           : QLocale.Country = ... # 0xa3
-    Nepal                    : QLocale.Country = ... # 0xa4
-    Netherlands              : QLocale.Country = ... # 0xa5
-    NewCaledonia             : QLocale.Country = ... # 0xa6
-    NewZealand               : QLocale.Country = ... # 0xa7
-    Nicaragua                : QLocale.Country = ... # 0xa8
-    Nigeria                  : QLocale.Country = ... # 0xa9
-    Niger                    : QLocale.Country = ... # 0xaa
-    Niue                     : QLocale.Country = ... # 0xab
-    NorfolkIsland            : QLocale.Country = ... # 0xac
-    NorthernMarianaIslands   : QLocale.Country = ... # 0xad
-    DemocraticRepublicOfKorea: QLocale.Country = ... # 0xae
-    NorthKorea               : QLocale.Country = ... # 0xae
-    Norway                   : QLocale.Country = ... # 0xaf
-    Oman                     : QLocale.Country = ... # 0xb0
-    OutlyingOceania          : QLocale.Country = ... # 0xb1
-    Pakistan                 : QLocale.Country = ... # 0xb2
-    Palau                    : QLocale.Country = ... # 0xb3
-    PalestinianTerritories   : QLocale.Country = ... # 0xb4
-    Panama                   : QLocale.Country = ... # 0xb5
-    PapuaNewGuinea           : QLocale.Country = ... # 0xb6
-    Paraguay                 : QLocale.Country = ... # 0xb7
-    Peru                     : QLocale.Country = ... # 0xb8
-    Philippines              : QLocale.Country = ... # 0xb9
-    Pitcairn                 : QLocale.Country = ... # 0xba
-    Poland                   : QLocale.Country = ... # 0xbb
-    Portugal                 : QLocale.Country = ... # 0xbc
-    PuertoRico               : QLocale.Country = ... # 0xbd
-    Qatar                    : QLocale.Country = ... # 0xbe
-    Reunion                  : QLocale.Country = ... # 0xbf
-    Romania                  : QLocale.Country = ... # 0xc0
-    Russia                   : QLocale.Country = ... # 0xc1
-    RussianFederation        : QLocale.Country = ... # 0xc1
-    Rwanda                   : QLocale.Country = ... # 0xc2
-    SaintBarthelemy          : QLocale.Country = ... # 0xc3
-    SaintHelena              : QLocale.Country = ... # 0xc4
-    SaintKittsAndNevis       : QLocale.Country = ... # 0xc5
-    SaintLucia               : QLocale.Country = ... # 0xc6
-    SaintMartin              : QLocale.Country = ... # 0xc7
-    SaintPierreAndMiquelon   : QLocale.Country = ... # 0xc8
-    SaintVincentAndGrenadines: QLocale.Country = ... # 0xc9
-    SaintVincentAndTheGrenadines: QLocale.Country = ... # 0xc9
-    Samoa                    : QLocale.Country = ... # 0xca
-    SanMarino                : QLocale.Country = ... # 0xcb
-    SaoTomeAndPrincipe       : QLocale.Country = ... # 0xcc
-    SaudiArabia              : QLocale.Country = ... # 0xcd
-    Senegal                  : QLocale.Country = ... # 0xce
-    Serbia                   : QLocale.Country = ... # 0xcf
-    Seychelles               : QLocale.Country = ... # 0xd0
-    SierraLeone              : QLocale.Country = ... # 0xd1
-    Singapore                : QLocale.Country = ... # 0xd2
-    SintMaarten              : QLocale.Country = ... # 0xd3
-    Slovakia                 : QLocale.Country = ... # 0xd4
-    Slovenia                 : QLocale.Country = ... # 0xd5
-    SolomonIslands           : QLocale.Country = ... # 0xd6
-    Somalia                  : QLocale.Country = ... # 0xd7
-    SouthAfrica              : QLocale.Country = ... # 0xd8
-    SouthGeorgiaAndSouthSandwichIslands: QLocale.Country = ... # 0xd9
-    SouthGeorgiaAndTheSouthSandwichIslands: QLocale.Country = ... # 0xd9
-    RepublicOfKorea          : QLocale.Country = ... # 0xda
-    SouthKorea               : QLocale.Country = ... # 0xda
-    SouthSudan               : QLocale.Country = ... # 0xdb
-    Spain                    : QLocale.Country = ... # 0xdc
-    SriLanka                 : QLocale.Country = ... # 0xdd
-    Sudan                    : QLocale.Country = ... # 0xde
-    Suriname                 : QLocale.Country = ... # 0xdf
-    SvalbardAndJanMayen      : QLocale.Country = ... # 0xe0
-    SvalbardAndJanMayenIslands: QLocale.Country = ... # 0xe0
-    Sweden                   : QLocale.Country = ... # 0xe1
-    Switzerland              : QLocale.Country = ... # 0xe2
-    Syria                    : QLocale.Country = ... # 0xe3
-    SyrianArabRepublic       : QLocale.Country = ... # 0xe3
-    Taiwan                   : QLocale.Country = ... # 0xe4
-    Tajikistan               : QLocale.Country = ... # 0xe5
-    Tanzania                 : QLocale.Country = ... # 0xe6
-    Thailand                 : QLocale.Country = ... # 0xe7
-    EastTimor                : QLocale.Country = ... # 0xe8
-    TimorLeste               : QLocale.Country = ... # 0xe8
-    Togo                     : QLocale.Country = ... # 0xe9
-    TokelauCountry           : QLocale.Country = ... # 0xea
-    TokelauTerritory         : QLocale.Country = ... # 0xea
-    Tonga                    : QLocale.Country = ... # 0xeb
-    TrinidadAndTobago        : QLocale.Country = ... # 0xec
-    TristanDaCunha           : QLocale.Country = ... # 0xed
-    Tunisia                  : QLocale.Country = ... # 0xee
-    Turkey                   : QLocale.Country = ... # 0xef
-    Turkmenistan             : QLocale.Country = ... # 0xf0
-    TurksAndCaicosIslands    : QLocale.Country = ... # 0xf1
-    TuvaluCountry            : QLocale.Country = ... # 0xf2
-    TuvaluTerritory          : QLocale.Country = ... # 0xf2
-    Uganda                   : QLocale.Country = ... # 0xf3
-    Ukraine                  : QLocale.Country = ... # 0xf4
-    UnitedArabEmirates       : QLocale.Country = ... # 0xf5
-    UnitedKingdom            : QLocale.Country = ... # 0xf6
-    UnitedStatesMinorOutlyingIslands: QLocale.Country = ... # 0xf7
-    UnitedStatesOutlyingIslands: QLocale.Country = ... # 0xf7
-    UnitedStates             : QLocale.Country = ... # 0xf8
-    UnitedStatesVirginIslands: QLocale.Country = ... # 0xf9
-    Uruguay                  : QLocale.Country = ... # 0xfa
-    Uzbekistan               : QLocale.Country = ... # 0xfb
-    Vanuatu                  : QLocale.Country = ... # 0xfc
-    VaticanCity              : QLocale.Country = ... # 0xfd
-    VaticanCityState         : QLocale.Country = ... # 0xfd
-    Venezuela                : QLocale.Country = ... # 0xfe
-    Vietnam                  : QLocale.Country = ... # 0xff
-    WallisAndFutuna          : QLocale.Country = ... # 0x100
-    WallisAndFutunaIslands   : QLocale.Country = ... # 0x100
-    WesternSahara            : QLocale.Country = ... # 0x101
-    World                    : QLocale.Country = ... # 0x102
-    Yemen                    : QLocale.Country = ... # 0x103
-    Zambia                   : QLocale.Country = ... # 0x104
-    LastCountry              : QLocale.Country = ... # 0x105
-    LastTerritory            : QLocale.Country = ... # 0x105
-    Zimbabwe                 : QLocale.Country = ... # 0x105
+        AnyCountry               : QLocale.Country = ... # 0x0
+        AnyTerritory             : QLocale.Country = ... # 0x0
+        Afghanistan              : QLocale.Country = ... # 0x1
+        AlandIslands             : QLocale.Country = ... # 0x2
+        Albania                  : QLocale.Country = ... # 0x3
+        Algeria                  : QLocale.Country = ... # 0x4
+        AmericanSamoa            : QLocale.Country = ... # 0x5
+        Andorra                  : QLocale.Country = ... # 0x6
+        Angola                   : QLocale.Country = ... # 0x7
+        Anguilla                 : QLocale.Country = ... # 0x8
+        Antarctica               : QLocale.Country = ... # 0x9
+        AntiguaAndBarbuda        : QLocale.Country = ... # 0xa
+        Argentina                : QLocale.Country = ... # 0xb
+        Armenia                  : QLocale.Country = ... # 0xc
+        Aruba                    : QLocale.Country = ... # 0xd
+        AscensionIsland          : QLocale.Country = ... # 0xe
+        Australia                : QLocale.Country = ... # 0xf
+        Austria                  : QLocale.Country = ... # 0x10
+        Azerbaijan               : QLocale.Country = ... # 0x11
+        Bahamas                  : QLocale.Country = ... # 0x12
+        Bahrain                  : QLocale.Country = ... # 0x13
+        Bangladesh               : QLocale.Country = ... # 0x14
+        Barbados                 : QLocale.Country = ... # 0x15
+        Belarus                  : QLocale.Country = ... # 0x16
+        Belgium                  : QLocale.Country = ... # 0x17
+        Belize                   : QLocale.Country = ... # 0x18
+        Benin                    : QLocale.Country = ... # 0x19
+        Bermuda                  : QLocale.Country = ... # 0x1a
+        Bhutan                   : QLocale.Country = ... # 0x1b
+        Bolivia                  : QLocale.Country = ... # 0x1c
+        BosniaAndHerzegovina     : QLocale.Country = ... # 0x1d
+        BosniaAndHerzegowina     : QLocale.Country = ... # 0x1d
+        Botswana                 : QLocale.Country = ... # 0x1e
+        BouvetIsland             : QLocale.Country = ... # 0x1f
+        Brazil                   : QLocale.Country = ... # 0x20
+        BritishIndianOceanTerritory: QLocale.Country = ... # 0x21
+        BritishVirginIslands     : QLocale.Country = ... # 0x22
+        Brunei                   : QLocale.Country = ... # 0x23
+        Bulgaria                 : QLocale.Country = ... # 0x24
+        BurkinaFaso              : QLocale.Country = ... # 0x25
+        Burundi                  : QLocale.Country = ... # 0x26
+        Cambodia                 : QLocale.Country = ... # 0x27
+        Cameroon                 : QLocale.Country = ... # 0x28
+        Canada                   : QLocale.Country = ... # 0x29
+        CanaryIslands            : QLocale.Country = ... # 0x2a
+        CapeVerde                : QLocale.Country = ... # 0x2b
+        Bonaire                  : QLocale.Country = ... # 0x2c
+        CaribbeanNetherlands     : QLocale.Country = ... # 0x2c
+        CaymanIslands            : QLocale.Country = ... # 0x2d
+        CentralAfricanRepublic   : QLocale.Country = ... # 0x2e
+        CeutaAndMelilla          : QLocale.Country = ... # 0x2f
+        Chad                     : QLocale.Country = ... # 0x30
+        Chile                    : QLocale.Country = ... # 0x31
+        China                    : QLocale.Country = ... # 0x32
+        ChristmasIsland          : QLocale.Country = ... # 0x33
+        ClippertonIsland         : QLocale.Country = ... # 0x34
+        CocosIslands             : QLocale.Country = ... # 0x35
+        Colombia                 : QLocale.Country = ... # 0x36
+        Comoros                  : QLocale.Country = ... # 0x37
+        CongoBrazzaville         : QLocale.Country = ... # 0x38
+        PeoplesRepublicOfCongo   : QLocale.Country = ... # 0x38
+        CongoKinshasa            : QLocale.Country = ... # 0x39
+        DemocraticRepublicOfCongo: QLocale.Country = ... # 0x39
+        CookIslands              : QLocale.Country = ... # 0x3a
+        CostaRica                : QLocale.Country = ... # 0x3b
+        Croatia                  : QLocale.Country = ... # 0x3c
+        Cuba                     : QLocale.Country = ... # 0x3d
+        CuraSao                  : QLocale.Country = ... # 0x3e
+        Curacao                  : QLocale.Country = ... # 0x3e
+        Cyprus                   : QLocale.Country = ... # 0x3f
+        CzechRepublic            : QLocale.Country = ... # 0x40
+        Czechia                  : QLocale.Country = ... # 0x40
+        Denmark                  : QLocale.Country = ... # 0x41
+        DiegoGarcia              : QLocale.Country = ... # 0x42
+        Djibouti                 : QLocale.Country = ... # 0x43
+        Dominica                 : QLocale.Country = ... # 0x44
+        DominicanRepublic        : QLocale.Country = ... # 0x45
+        Ecuador                  : QLocale.Country = ... # 0x46
+        Egypt                    : QLocale.Country = ... # 0x47
+        ElSalvador               : QLocale.Country = ... # 0x48
+        EquatorialGuinea         : QLocale.Country = ... # 0x49
+        Eritrea                  : QLocale.Country = ... # 0x4a
+        Estonia                  : QLocale.Country = ... # 0x4b
+        Eswatini                 : QLocale.Country = ... # 0x4c
+        Swaziland                : QLocale.Country = ... # 0x4c
+        Ethiopia                 : QLocale.Country = ... # 0x4d
+        Europe                   : QLocale.Country = ... # 0x4e
+        EuropeanUnion            : QLocale.Country = ... # 0x4f
+        FalklandIslands          : QLocale.Country = ... # 0x50
+        FaroeIslands             : QLocale.Country = ... # 0x51
+        Fiji                     : QLocale.Country = ... # 0x52
+        Finland                  : QLocale.Country = ... # 0x53
+        France                   : QLocale.Country = ... # 0x54
+        FrenchGuiana             : QLocale.Country = ... # 0x55
+        FrenchPolynesia          : QLocale.Country = ... # 0x56
+        FrenchSouthernTerritories: QLocale.Country = ... # 0x57
+        Gabon                    : QLocale.Country = ... # 0x58
+        Gambia                   : QLocale.Country = ... # 0x59
+        Georgia                  : QLocale.Country = ... # 0x5a
+        Germany                  : QLocale.Country = ... # 0x5b
+        Ghana                    : QLocale.Country = ... # 0x5c
+        Gibraltar                : QLocale.Country = ... # 0x5d
+        Greece                   : QLocale.Country = ... # 0x5e
+        Greenland                : QLocale.Country = ... # 0x5f
+        Grenada                  : QLocale.Country = ... # 0x60
+        Guadeloupe               : QLocale.Country = ... # 0x61
+        Guam                     : QLocale.Country = ... # 0x62
+        Guatemala                : QLocale.Country = ... # 0x63
+        Guernsey                 : QLocale.Country = ... # 0x64
+        GuineaBissau             : QLocale.Country = ... # 0x65
+        Guinea                   : QLocale.Country = ... # 0x66
+        Guyana                   : QLocale.Country = ... # 0x67
+        Haiti                    : QLocale.Country = ... # 0x68
+        HeardAndMcDonaldIslands  : QLocale.Country = ... # 0x69
+        Honduras                 : QLocale.Country = ... # 0x6a
+        HongKong                 : QLocale.Country = ... # 0x6b
+        Hungary                  : QLocale.Country = ... # 0x6c
+        Iceland                  : QLocale.Country = ... # 0x6d
+        India                    : QLocale.Country = ... # 0x6e
+        Indonesia                : QLocale.Country = ... # 0x6f
+        Iran                     : QLocale.Country = ... # 0x70
+        Iraq                     : QLocale.Country = ... # 0x71
+        Ireland                  : QLocale.Country = ... # 0x72
+        IsleOfMan                : QLocale.Country = ... # 0x73
+        Israel                   : QLocale.Country = ... # 0x74
+        Italy                    : QLocale.Country = ... # 0x75
+        IvoryCoast               : QLocale.Country = ... # 0x76
+        Jamaica                  : QLocale.Country = ... # 0x77
+        Japan                    : QLocale.Country = ... # 0x78
+        Jersey                   : QLocale.Country = ... # 0x79
+        Jordan                   : QLocale.Country = ... # 0x7a
+        Kazakhstan               : QLocale.Country = ... # 0x7b
+        Kenya                    : QLocale.Country = ... # 0x7c
+        Kiribati                 : QLocale.Country = ... # 0x7d
+        Kosovo                   : QLocale.Country = ... # 0x7e
+        Kuwait                   : QLocale.Country = ... # 0x7f
+        Kyrgyzstan               : QLocale.Country = ... # 0x80
+        Laos                     : QLocale.Country = ... # 0x81
+        LatinAmerica             : QLocale.Country = ... # 0x82
+        LatinAmericaAndTheCaribbean: QLocale.Country = ... # 0x82
+        Latvia                   : QLocale.Country = ... # 0x83
+        Lebanon                  : QLocale.Country = ... # 0x84
+        Lesotho                  : QLocale.Country = ... # 0x85
+        Liberia                  : QLocale.Country = ... # 0x86
+        Libya                    : QLocale.Country = ... # 0x87
+        Liechtenstein            : QLocale.Country = ... # 0x88
+        Lithuania                : QLocale.Country = ... # 0x89
+        Luxembourg               : QLocale.Country = ... # 0x8a
+        Macao                    : QLocale.Country = ... # 0x8b
+        Macau                    : QLocale.Country = ... # 0x8b
+        Macedonia                : QLocale.Country = ... # 0x8c
+        Madagascar               : QLocale.Country = ... # 0x8d
+        Malawi                   : QLocale.Country = ... # 0x8e
+        Malaysia                 : QLocale.Country = ... # 0x8f
+        Maldives                 : QLocale.Country = ... # 0x90
+        Mali                     : QLocale.Country = ... # 0x91
+        Malta                    : QLocale.Country = ... # 0x92
+        MarshallIslands          : QLocale.Country = ... # 0x93
+        Martinique               : QLocale.Country = ... # 0x94
+        Mauritania               : QLocale.Country = ... # 0x95
+        Mauritius                : QLocale.Country = ... # 0x96
+        Mayotte                  : QLocale.Country = ... # 0x97
+        Mexico                   : QLocale.Country = ... # 0x98
+        Micronesia               : QLocale.Country = ... # 0x99
+        Moldova                  : QLocale.Country = ... # 0x9a
+        Monaco                   : QLocale.Country = ... # 0x9b
+        Mongolia                 : QLocale.Country = ... # 0x9c
+        Montenegro               : QLocale.Country = ... # 0x9d
+        Montserrat               : QLocale.Country = ... # 0x9e
+        Morocco                  : QLocale.Country = ... # 0x9f
+        Mozambique               : QLocale.Country = ... # 0xa0
+        Myanmar                  : QLocale.Country = ... # 0xa1
+        Namibia                  : QLocale.Country = ... # 0xa2
+        NauruCountry             : QLocale.Country = ... # 0xa3
+        NauruTerritory           : QLocale.Country = ... # 0xa3
+        Nepal                    : QLocale.Country = ... # 0xa4
+        Netherlands              : QLocale.Country = ... # 0xa5
+        NewCaledonia             : QLocale.Country = ... # 0xa6
+        NewZealand               : QLocale.Country = ... # 0xa7
+        Nicaragua                : QLocale.Country = ... # 0xa8
+        Nigeria                  : QLocale.Country = ... # 0xa9
+        Niger                    : QLocale.Country = ... # 0xaa
+        Niue                     : QLocale.Country = ... # 0xab
+        NorfolkIsland            : QLocale.Country = ... # 0xac
+        NorthernMarianaIslands   : QLocale.Country = ... # 0xad
+        DemocraticRepublicOfKorea: QLocale.Country = ... # 0xae
+        NorthKorea               : QLocale.Country = ... # 0xae
+        Norway                   : QLocale.Country = ... # 0xaf
+        Oman                     : QLocale.Country = ... # 0xb0
+        OutlyingOceania          : QLocale.Country = ... # 0xb1
+        Pakistan                 : QLocale.Country = ... # 0xb2
+        Palau                    : QLocale.Country = ... # 0xb3
+        PalestinianTerritories   : QLocale.Country = ... # 0xb4
+        Panama                   : QLocale.Country = ... # 0xb5
+        PapuaNewGuinea           : QLocale.Country = ... # 0xb6
+        Paraguay                 : QLocale.Country = ... # 0xb7
+        Peru                     : QLocale.Country = ... # 0xb8
+        Philippines              : QLocale.Country = ... # 0xb9
+        Pitcairn                 : QLocale.Country = ... # 0xba
+        Poland                   : QLocale.Country = ... # 0xbb
+        Portugal                 : QLocale.Country = ... # 0xbc
+        PuertoRico               : QLocale.Country = ... # 0xbd
+        Qatar                    : QLocale.Country = ... # 0xbe
+        Reunion                  : QLocale.Country = ... # 0xbf
+        Romania                  : QLocale.Country = ... # 0xc0
+        Russia                   : QLocale.Country = ... # 0xc1
+        RussianFederation        : QLocale.Country = ... # 0xc1
+        Rwanda                   : QLocale.Country = ... # 0xc2
+        SaintBarthelemy          : QLocale.Country = ... # 0xc3
+        SaintHelena              : QLocale.Country = ... # 0xc4
+        SaintKittsAndNevis       : QLocale.Country = ... # 0xc5
+        SaintLucia               : QLocale.Country = ... # 0xc6
+        SaintMartin              : QLocale.Country = ... # 0xc7
+        SaintPierreAndMiquelon   : QLocale.Country = ... # 0xc8
+        SaintVincentAndGrenadines: QLocale.Country = ... # 0xc9
+        SaintVincentAndTheGrenadines: QLocale.Country = ... # 0xc9
+        Samoa                    : QLocale.Country = ... # 0xca
+        SanMarino                : QLocale.Country = ... # 0xcb
+        SaoTomeAndPrincipe       : QLocale.Country = ... # 0xcc
+        SaudiArabia              : QLocale.Country = ... # 0xcd
+        Senegal                  : QLocale.Country = ... # 0xce
+        Serbia                   : QLocale.Country = ... # 0xcf
+        Seychelles               : QLocale.Country = ... # 0xd0
+        SierraLeone              : QLocale.Country = ... # 0xd1
+        Singapore                : QLocale.Country = ... # 0xd2
+        SintMaarten              : QLocale.Country = ... # 0xd3
+        Slovakia                 : QLocale.Country = ... # 0xd4
+        Slovenia                 : QLocale.Country = ... # 0xd5
+        SolomonIslands           : QLocale.Country = ... # 0xd6
+        Somalia                  : QLocale.Country = ... # 0xd7
+        SouthAfrica              : QLocale.Country = ... # 0xd8
+        SouthGeorgiaAndSouthSandwichIslands: QLocale.Country = ... # 0xd9
+        SouthGeorgiaAndTheSouthSandwichIslands: QLocale.Country = ... # 0xd9
+        RepublicOfKorea          : QLocale.Country = ... # 0xda
+        SouthKorea               : QLocale.Country = ... # 0xda
+        SouthSudan               : QLocale.Country = ... # 0xdb
+        Spain                    : QLocale.Country = ... # 0xdc
+        SriLanka                 : QLocale.Country = ... # 0xdd
+        Sudan                    : QLocale.Country = ... # 0xde
+        Suriname                 : QLocale.Country = ... # 0xdf
+        SvalbardAndJanMayen      : QLocale.Country = ... # 0xe0
+        SvalbardAndJanMayenIslands: QLocale.Country = ... # 0xe0
+        Sweden                   : QLocale.Country = ... # 0xe1
+        Switzerland              : QLocale.Country = ... # 0xe2
+        Syria                    : QLocale.Country = ... # 0xe3
+        SyrianArabRepublic       : QLocale.Country = ... # 0xe3
+        Taiwan                   : QLocale.Country = ... # 0xe4
+        Tajikistan               : QLocale.Country = ... # 0xe5
+        Tanzania                 : QLocale.Country = ... # 0xe6
+        Thailand                 : QLocale.Country = ... # 0xe7
+        EastTimor                : QLocale.Country = ... # 0xe8
+        TimorLeste               : QLocale.Country = ... # 0xe8
+        Togo                     : QLocale.Country = ... # 0xe9
+        TokelauCountry           : QLocale.Country = ... # 0xea
+        TokelauTerritory         : QLocale.Country = ... # 0xea
+        Tonga                    : QLocale.Country = ... # 0xeb
+        TrinidadAndTobago        : QLocale.Country = ... # 0xec
+        TristanDaCunha           : QLocale.Country = ... # 0xed
+        Tunisia                  : QLocale.Country = ... # 0xee
+        Turkey                   : QLocale.Country = ... # 0xef
+        Turkmenistan             : QLocale.Country = ... # 0xf0
+        TurksAndCaicosIslands    : QLocale.Country = ... # 0xf1
+        TuvaluCountry            : QLocale.Country = ... # 0xf2
+        TuvaluTerritory          : QLocale.Country = ... # 0xf2
+        Uganda                   : QLocale.Country = ... # 0xf3
+        Ukraine                  : QLocale.Country = ... # 0xf4
+        UnitedArabEmirates       : QLocale.Country = ... # 0xf5
+        UnitedKingdom            : QLocale.Country = ... # 0xf6
+        UnitedStatesMinorOutlyingIslands: QLocale.Country = ... # 0xf7
+        UnitedStatesOutlyingIslands: QLocale.Country = ... # 0xf7
+        UnitedStates             : QLocale.Country = ... # 0xf8
+        UnitedStatesVirginIslands: QLocale.Country = ... # 0xf9
+        Uruguay                  : QLocale.Country = ... # 0xfa
+        Uzbekistan               : QLocale.Country = ... # 0xfb
+        Vanuatu                  : QLocale.Country = ... # 0xfc
+        VaticanCity              : QLocale.Country = ... # 0xfd
+        VaticanCityState         : QLocale.Country = ... # 0xfd
+        Venezuela                : QLocale.Country = ... # 0xfe
+        Vietnam                  : QLocale.Country = ... # 0xff
+        WallisAndFutuna          : QLocale.Country = ... # 0x100
+        WallisAndFutunaIslands   : QLocale.Country = ... # 0x100
+        WesternSahara            : QLocale.Country = ... # 0x101
+        World                    : QLocale.Country = ... # 0x102
+        Yemen                    : QLocale.Country = ... # 0x103
+        Zambia                   : QLocale.Country = ... # 0x104
+        LastCountry              : QLocale.Country = ... # 0x105
+        LastTerritory            : QLocale.Country = ... # 0x105
+        Zimbabwe                 : QLocale.Country = ... # 0x105
 
 
     class CurrencySymbolFormat(enum.Enum):
@@ -4881,9 +4881,9 @@ class QMetaMethod(Shiboken.Object):
 
     class Access(enum.Enum):
 
-    Private                  : QMetaMethod.Access = ... # 0x0
-    Protected                : QMetaMethod.Access = ... # 0x1
-    Public                   : QMetaMethod.Access = ... # 0x2
+        Private                  : QMetaMethod.Access = ... # 0x0
+        Protected                : QMetaMethod.Access = ... # 0x1
+        Public                   : QMetaMethod.Access = ... # 0x2
 
 
     class MethodType(enum.Enum):
@@ -4936,15 +4936,15 @@ class QMetaObject(Shiboken.Object):
 
     class Call(enum.Enum):
 
-    InvokeMetaMethod         : QMetaObject.Call = ... # 0x0
-    ReadProperty             : QMetaObject.Call = ... # 0x1
-    WriteProperty            : QMetaObject.Call = ... # 0x2
-    ResetProperty            : QMetaObject.Call = ... # 0x3
-    CreateInstance           : QMetaObject.Call = ... # 0x4
-    IndexOfMethod            : QMetaObject.Call = ... # 0x5
-    RegisterPropertyMetaType : QMetaObject.Call = ... # 0x6
-    RegisterMethodArgumentMetaType: QMetaObject.Call = ... # 0x7
-    BindableProperty         : QMetaObject.Call = ... # 0x8
+        InvokeMetaMethod         : QMetaObject.Call = ... # 0x0
+        ReadProperty             : QMetaObject.Call = ... # 0x1
+        WriteProperty            : QMetaObject.Call = ... # 0x2
+        ResetProperty            : QMetaObject.Call = ... # 0x3
+        CreateInstance           : QMetaObject.Call = ... # 0x4
+        IndexOfMethod            : QMetaObject.Call = ... # 0x5
+        RegisterPropertyMetaType : QMetaObject.Call = ... # 0x6
+        RegisterMethodArgumentMetaType: QMetaObject.Call = ... # 0x7
+        BindableProperty         : QMetaObject.Call = ... # 0x8
         CustomCall               : QMetaObject.Call = ... # 0x9
 
 
@@ -5082,97 +5082,97 @@ class QMetaType(Shiboken.Object):
 
     class Type(enum.IntEnum):
 
-    UnknownType              : QMetaType.Type = ... # 0x0
-    Bool                     : QMetaType.Type = ... # 0x1
-    FirstCoreType            : QMetaType.Type = ... # 0x1
-    Int                      : QMetaType.Type = ... # 0x2
-    UInt                     : QMetaType.Type = ... # 0x3
-    LongLong                 : QMetaType.Type = ... # 0x4
-    ULongLong                : QMetaType.Type = ... # 0x5
-    Double                   : QMetaType.Type = ... # 0x6
-    QReal                    : QMetaType.Type = ... # 0x6
-    QChar                    : QMetaType.Type = ... # 0x7
-    QVariantMap              : QMetaType.Type = ... # 0x8
-    QVariantList             : QMetaType.Type = ... # 0x9
-    QString                  : QMetaType.Type = ... # 0xa
-    QStringList              : QMetaType.Type = ... # 0xb
-    QByteArray               : QMetaType.Type = ... # 0xc
-    QBitArray                : QMetaType.Type = ... # 0xd
-    QDate                    : QMetaType.Type = ... # 0xe
-    QTime                    : QMetaType.Type = ... # 0xf
-    QDateTime                : QMetaType.Type = ... # 0x10
-    QUrl                     : QMetaType.Type = ... # 0x11
-    QLocale                  : QMetaType.Type = ... # 0x12
-    QRect                    : QMetaType.Type = ... # 0x13
-    QRectF                   : QMetaType.Type = ... # 0x14
-    QSize                    : QMetaType.Type = ... # 0x15
-    QSizeF                   : QMetaType.Type = ... # 0x16
-    QLine                    : QMetaType.Type = ... # 0x17
-    QLineF                   : QMetaType.Type = ... # 0x18
-    QPoint                   : QMetaType.Type = ... # 0x19
-    QPointF                  : QMetaType.Type = ... # 0x1a
-    QVariantHash             : QMetaType.Type = ... # 0x1c
-    QEasingCurve             : QMetaType.Type = ... # 0x1d
-    QUuid                    : QMetaType.Type = ... # 0x1e
-    VoidStar                 : QMetaType.Type = ... # 0x1f
-    Long                     : QMetaType.Type = ... # 0x20
-    Short                    : QMetaType.Type = ... # 0x21
-    Char                     : QMetaType.Type = ... # 0x22
-    ULong                    : QMetaType.Type = ... # 0x23
-    UShort                   : QMetaType.Type = ... # 0x24
-    UChar                    : QMetaType.Type = ... # 0x25
-    Float                    : QMetaType.Type = ... # 0x26
-    QObjectStar              : QMetaType.Type = ... # 0x27
-    SChar                    : QMetaType.Type = ... # 0x28
-    QVariant                 : QMetaType.Type = ... # 0x29
-    QModelIndex              : QMetaType.Type = ... # 0x2a
-    Void                     : QMetaType.Type = ... # 0x2b
-    QRegularExpression       : QMetaType.Type = ... # 0x2c
-    QJsonValue               : QMetaType.Type = ... # 0x2d
-    QJsonObject              : QMetaType.Type = ... # 0x2e
-    QJsonArray               : QMetaType.Type = ... # 0x2f
-    QJsonDocument            : QMetaType.Type = ... # 0x30
-    QByteArrayList           : QMetaType.Type = ... # 0x31
-    QPersistentModelIndex    : QMetaType.Type = ... # 0x32
-    Nullptr                  : QMetaType.Type = ... # 0x33
-    QCborSimpleType          : QMetaType.Type = ... # 0x34
-    QCborValue               : QMetaType.Type = ... # 0x35
-    QCborArray               : QMetaType.Type = ... # 0x36
-    QCborMap                 : QMetaType.Type = ... # 0x37
-    Char16                   : QMetaType.Type = ... # 0x38
-    Char32                   : QMetaType.Type = ... # 0x39
-    LastCoreType             : QMetaType.Type = ... # 0x3a
-    QVariantPair             : QMetaType.Type = ... # 0x3a
-    FirstGuiType             : QMetaType.Type = ... # 0x1000
-    QFont                    : QMetaType.Type = ... # 0x1000
-    QPixmap                  : QMetaType.Type = ... # 0x1001
-    QBrush                   : QMetaType.Type = ... # 0x1002
-    QColor                   : QMetaType.Type = ... # 0x1003
-    QPalette                 : QMetaType.Type = ... # 0x1004
-    QIcon                    : QMetaType.Type = ... # 0x1005
-    QImage                   : QMetaType.Type = ... # 0x1006
-    QPolygon                 : QMetaType.Type = ... # 0x1007
-    QRegion                  : QMetaType.Type = ... # 0x1008
-    QBitmap                  : QMetaType.Type = ... # 0x1009
-    QCursor                  : QMetaType.Type = ... # 0x100a
-    QKeySequence             : QMetaType.Type = ... # 0x100b
-    QPen                     : QMetaType.Type = ... # 0x100c
-    QTextLength              : QMetaType.Type = ... # 0x100d
-    QTextFormat              : QMetaType.Type = ... # 0x100e
-    QTransform               : QMetaType.Type = ... # 0x1010
-    QMatrix4x4               : QMetaType.Type = ... # 0x1011
-    QVector2D                : QMetaType.Type = ... # 0x1012
-    QVector3D                : QMetaType.Type = ... # 0x1013
-    QVector4D                : QMetaType.Type = ... # 0x1014
-    QQuaternion              : QMetaType.Type = ... # 0x1015
-    QPolygonF                : QMetaType.Type = ... # 0x1016
-    LastGuiType              : QMetaType.Type = ... # 0x1017
-    QColorSpace              : QMetaType.Type = ... # 0x1017
-    FirstWidgetsType         : QMetaType.Type = ... # 0x2000
-    HighestInternalId        : QMetaType.Type = ... # 0x2000
-    LastWidgetsType          : QMetaType.Type = ... # 0x2000
-    QSizePolicy              : QMetaType.Type = ... # 0x2000
-    User                     : QMetaType.Type = ... # 0x10000
+        UnknownType              : QMetaType.Type = ... # 0x0
+        Bool                     : QMetaType.Type = ... # 0x1
+        FirstCoreType            : QMetaType.Type = ... # 0x1
+        Int                      : QMetaType.Type = ... # 0x2
+        UInt                     : QMetaType.Type = ... # 0x3
+        LongLong                 : QMetaType.Type = ... # 0x4
+        ULongLong                : QMetaType.Type = ... # 0x5
+        Double                   : QMetaType.Type = ... # 0x6
+        QReal                    : QMetaType.Type = ... # 0x6
+        QChar                    : QMetaType.Type = ... # 0x7
+        QVariantMap              : QMetaType.Type = ... # 0x8
+        QVariantList             : QMetaType.Type = ... # 0x9
+        QString                  : QMetaType.Type = ... # 0xa
+        QStringList              : QMetaType.Type = ... # 0xb
+        QByteArray               : QMetaType.Type = ... # 0xc
+        QBitArray                : QMetaType.Type = ... # 0xd
+        QDate                    : QMetaType.Type = ... # 0xe
+        QTime                    : QMetaType.Type = ... # 0xf
+        QDateTime                : QMetaType.Type = ... # 0x10
+        QUrl                     : QMetaType.Type = ... # 0x11
+        QLocale                  : QMetaType.Type = ... # 0x12
+        QRect                    : QMetaType.Type = ... # 0x13
+        QRectF                   : QMetaType.Type = ... # 0x14
+        QSize                    : QMetaType.Type = ... # 0x15
+        QSizeF                   : QMetaType.Type = ... # 0x16
+        QLine                    : QMetaType.Type = ... # 0x17
+        QLineF                   : QMetaType.Type = ... # 0x18
+        QPoint                   : QMetaType.Type = ... # 0x19
+        QPointF                  : QMetaType.Type = ... # 0x1a
+        QVariantHash             : QMetaType.Type = ... # 0x1c
+        QEasingCurve             : QMetaType.Type = ... # 0x1d
+        QUuid                    : QMetaType.Type = ... # 0x1e
+        VoidStar                 : QMetaType.Type = ... # 0x1f
+        Long                     : QMetaType.Type = ... # 0x20
+        Short                    : QMetaType.Type = ... # 0x21
+        Char                     : QMetaType.Type = ... # 0x22
+        ULong                    : QMetaType.Type = ... # 0x23
+        UShort                   : QMetaType.Type = ... # 0x24
+        UChar                    : QMetaType.Type = ... # 0x25
+        Float                    : QMetaType.Type = ... # 0x26
+        QObjectStar              : QMetaType.Type = ... # 0x27
+        SChar                    : QMetaType.Type = ... # 0x28
+        QVariant                 : QMetaType.Type = ... # 0x29
+        QModelIndex              : QMetaType.Type = ... # 0x2a
+        Void                     : QMetaType.Type = ... # 0x2b
+        QRegularExpression       : QMetaType.Type = ... # 0x2c
+        QJsonValue               : QMetaType.Type = ... # 0x2d
+        QJsonObject              : QMetaType.Type = ... # 0x2e
+        QJsonArray               : QMetaType.Type = ... # 0x2f
+        QJsonDocument            : QMetaType.Type = ... # 0x30
+        QByteArrayList           : QMetaType.Type = ... # 0x31
+        QPersistentModelIndex    : QMetaType.Type = ... # 0x32
+        Nullptr                  : QMetaType.Type = ... # 0x33
+        QCborSimpleType          : QMetaType.Type = ... # 0x34
+        QCborValue               : QMetaType.Type = ... # 0x35
+        QCborArray               : QMetaType.Type = ... # 0x36
+        QCborMap                 : QMetaType.Type = ... # 0x37
+        Char16                   : QMetaType.Type = ... # 0x38
+        Char32                   : QMetaType.Type = ... # 0x39
+        LastCoreType             : QMetaType.Type = ... # 0x3a
+        QVariantPair             : QMetaType.Type = ... # 0x3a
+        FirstGuiType             : QMetaType.Type = ... # 0x1000
+        QFont                    : QMetaType.Type = ... # 0x1000
+        QPixmap                  : QMetaType.Type = ... # 0x1001
+        QBrush                   : QMetaType.Type = ... # 0x1002
+        QColor                   : QMetaType.Type = ... # 0x1003
+        QPalette                 : QMetaType.Type = ... # 0x1004
+        QIcon                    : QMetaType.Type = ... # 0x1005
+        QImage                   : QMetaType.Type = ... # 0x1006
+        QPolygon                 : QMetaType.Type = ... # 0x1007
+        QRegion                  : QMetaType.Type = ... # 0x1008
+        QBitmap                  : QMetaType.Type = ... # 0x1009
+        QCursor                  : QMetaType.Type = ... # 0x100a
+        QKeySequence             : QMetaType.Type = ... # 0x100b
+        QPen                     : QMetaType.Type = ... # 0x100c
+        QTextLength              : QMetaType.Type = ... # 0x100d
+        QTextFormat              : QMetaType.Type = ... # 0x100e
+        QTransform               : QMetaType.Type = ... # 0x1010
+        QMatrix4x4               : QMetaType.Type = ... # 0x1011
+        QVector2D                : QMetaType.Type = ... # 0x1012
+        QVector3D                : QMetaType.Type = ... # 0x1013
+        QVector4D                : QMetaType.Type = ... # 0x1014
+        QQuaternion              : QMetaType.Type = ... # 0x1015
+        QPolygonF                : QMetaType.Type = ... # 0x1016
+        LastGuiType              : QMetaType.Type = ... # 0x1017
+        QColorSpace              : QMetaType.Type = ... # 0x1017
+        FirstWidgetsType         : QMetaType.Type = ... # 0x2000
+        HighestInternalId        : QMetaType.Type = ... # 0x2000
+        LastWidgetsType          : QMetaType.Type = ... # 0x2000
+        QSizePolicy              : QMetaType.Type = ... # 0x2000
+        User                     : QMetaType.Type = ... # 0x10000
 
 
     class TypeFlag(enum.Flag):
@@ -5761,8 +5761,8 @@ class QProcess(PySide6.QtCore.QIODevice):
 
     class ExitStatus(enum.Enum):
 
-    NormalExit               : QProcess.ExitStatus = ... # 0x0
-    CrashExit                : QProcess.ExitStatus = ... # 0x1
+        NormalExit               : QProcess.ExitStatus = ... # 0x0
+        CrashExit                : QProcess.ExitStatus = ... # 0x1
 
 
     class InputChannelMode(enum.Enum):
@@ -6492,27 +6492,27 @@ class QSettings(PySide6.QtCore.QObject):
 
     class Format(enum.Enum):
 
-    NativeFormat             : QSettings.Format = ... # 0x0
-    IniFormat                : QSettings.Format = ... # 0x1
-    Registry32Format         : QSettings.Format = ... # 0x2
-    Registry64Format         : QSettings.Format = ... # 0x3
-    InvalidFormat            : QSettings.Format = ... # 0x10
-    CustomFormat1            : QSettings.Format = ... # 0x11
-    CustomFormat2            : QSettings.Format = ... # 0x12
-    CustomFormat3            : QSettings.Format = ... # 0x13
-    CustomFormat4            : QSettings.Format = ... # 0x14
-    CustomFormat5            : QSettings.Format = ... # 0x15
-    CustomFormat6            : QSettings.Format = ... # 0x16
-    CustomFormat7            : QSettings.Format = ... # 0x17
-    CustomFormat8            : QSettings.Format = ... # 0x18
-    CustomFormat9            : QSettings.Format = ... # 0x19
-    CustomFormat10           : QSettings.Format = ... # 0x1a
-    CustomFormat11           : QSettings.Format = ... # 0x1b
-    CustomFormat12           : QSettings.Format = ... # 0x1c
-    CustomFormat13           : QSettings.Format = ... # 0x1d
-    CustomFormat14           : QSettings.Format = ... # 0x1e
-    CustomFormat15           : QSettings.Format = ... # 0x1f
-    CustomFormat16           : QSettings.Format = ... # 0x20
+        NativeFormat             : QSettings.Format = ... # 0x0
+        IniFormat                : QSettings.Format = ... # 0x1
+        Registry32Format         : QSettings.Format = ... # 0x2
+        Registry64Format         : QSettings.Format = ... # 0x3
+        InvalidFormat            : QSettings.Format = ... # 0x10
+        CustomFormat1            : QSettings.Format = ... # 0x11
+        CustomFormat2            : QSettings.Format = ... # 0x12
+        CustomFormat3            : QSettings.Format = ... # 0x13
+        CustomFormat4            : QSettings.Format = ... # 0x14
+        CustomFormat5            : QSettings.Format = ... # 0x15
+        CustomFormat6            : QSettings.Format = ... # 0x16
+        CustomFormat7            : QSettings.Format = ... # 0x17
+        CustomFormat8            : QSettings.Format = ... # 0x18
+        CustomFormat9            : QSettings.Format = ... # 0x19
+        CustomFormat10           : QSettings.Format = ... # 0x1a
+        CustomFormat11           : QSettings.Format = ... # 0x1b
+        CustomFormat12           : QSettings.Format = ... # 0x1c
+        CustomFormat13           : QSettings.Format = ... # 0x1d
+        CustomFormat14           : QSettings.Format = ... # 0x1e
+        CustomFormat15           : QSettings.Format = ... # 0x1f
+        CustomFormat16           : QSettings.Format = ... # 0x20
 
 
 
@@ -6586,8 +6586,8 @@ class QSharedMemory(PySide6.QtCore.QObject):
 
     class AccessMode(enum.Enum):
 
-    ReadOnly                 : QSharedMemory.AccessMode = ... # 0x0
-    ReadWrite                : QSharedMemory.AccessMode = ... # 0x1
+        ReadOnly                 : QSharedMemory.AccessMode = ... # 0x0
+        ReadWrite                : QSharedMemory.AccessMode = ... # 0x1
 
 
     class SharedMemoryError(enum.Enum):
@@ -7058,9 +7058,9 @@ class QSysInfo(Shiboken.Object):
 
     class Endian(enum.Enum):
 
-    BigEndian                : QSysInfo.Endian = ... # 0x0
-    ByteOrder                : QSysInfo.Endian = ... # 0x1
-    LittleEndian             : QSysInfo.Endian = ... # 0x1
+        BigEndian                : QSysInfo.Endian = ... # 0x0
+        ByteOrder                : QSysInfo.Endian = ... # 0x1
+        LittleEndian             : QSysInfo.Endian = ... # 0x1
 
 
     class Sizes(enum.Enum):
@@ -7098,8 +7098,8 @@ class QSystemSemaphore(Shiboken.Object):
 
     class AccessMode(enum.Enum):
 
-    Open                     : QSystemSemaphore.AccessMode = ... # 0x0
-    Create                   : QSystemSemaphore.AccessMode = ... # 0x1
+        Open                     : QSystemSemaphore.AccessMode = ... # 0x0
+        Create                   : QSystemSemaphore.AccessMode = ... # 0x1
 
 
     class SystemSemaphoreError(enum.Enum):
@@ -7217,10 +7217,10 @@ class QTextStream(PySide6.QtCore.QIODeviceBase):
 
     class FieldAlignment(enum.Enum):
 
-    AlignLeft                : QTextStream.FieldAlignment = ... # 0x0
-    AlignRight               : QTextStream.FieldAlignment = ... # 0x1
-    AlignCenter              : QTextStream.FieldAlignment = ... # 0x2
-    AlignAccountingStyle     : QTextStream.FieldAlignment = ... # 0x3
+        AlignLeft                : QTextStream.FieldAlignment = ... # 0x0
+        AlignRight               : QTextStream.FieldAlignment = ... # 0x1
+        AlignCenter              : QTextStream.FieldAlignment = ... # 0x2
+        AlignAccountingStyle     : QTextStream.FieldAlignment = ... # 0x3
 
 
     class NumberFlag(enum.Flag):
@@ -7455,8 +7455,8 @@ class QTimeLine(PySide6.QtCore.QObject):
 
     class Direction(enum.Enum):
 
-    Forward                  : QTimeLine.Direction = ... # 0x0
-    Backward                 : QTimeLine.Direction = ... # 0x1
+        Forward                  : QTimeLine.Direction = ... # 0x0
+        Backward                 : QTimeLine.Direction = ... # 0x1
 
 
     class State(enum.Enum):
@@ -7502,10 +7502,10 @@ class QTimeZone(Shiboken.Object):
 
     class NameType(enum.Enum):
 
-    DefaultName              : QTimeZone.NameType = ... # 0x0
-    LongName                 : QTimeZone.NameType = ... # 0x1
-    ShortName                : QTimeZone.NameType = ... # 0x2
-    OffsetName               : QTimeZone.NameType = ... # 0x3
+        DefaultName              : QTimeZone.NameType = ... # 0x0
+        LongName                 : QTimeZone.NameType = ... # 0x1
+        ShortName                : QTimeZone.NameType = ... # 0x2
+        OffsetName               : QTimeZone.NameType = ... # 0x3
 
 
     class OffsetData(Shiboken.Object):
@@ -7842,9 +7842,9 @@ class QUuid(Shiboken.Object):
 
     class StringFormat(enum.Enum):
 
-    WithBraces               : QUuid.StringFormat = ... # 0x0
-    WithoutBraces            : QUuid.StringFormat = ... # 0x1
-    Id128                    : QUuid.StringFormat = ... # 0x3
+        WithBraces               : QUuid.StringFormat = ... # 0x0
+        WithoutBraces            : QUuid.StringFormat = ... # 0x1
+        Id128                    : QUuid.StringFormat = ... # 0x3
 
 
     class Variant(enum.Enum):
@@ -8161,11 +8161,11 @@ class QXmlStreamReader(Shiboken.Object):
 
     class Error(enum.Enum):
 
-    NoError                  : QXmlStreamReader.Error = ... # 0x0
-    UnexpectedElementError   : QXmlStreamReader.Error = ... # 0x1
-    CustomError              : QXmlStreamReader.Error = ... # 0x2
-    NotWellFormedError       : QXmlStreamReader.Error = ... # 0x3
-    PrematureEndOfDocumentError: QXmlStreamReader.Error = ... # 0x4
+        NoError                  : QXmlStreamReader.Error = ... # 0x0
+        UnexpectedElementError   : QXmlStreamReader.Error = ... # 0x1
+        CustomError              : QXmlStreamReader.Error = ... # 0x2
+        NotWellFormedError       : QXmlStreamReader.Error = ... # 0x3
+        PrematureEndOfDocumentError: QXmlStreamReader.Error = ... # 0x4
 
 
     class ReadElementTextBehaviour(enum.Enum):
@@ -8320,20 +8320,20 @@ class Qt(Shiboken.Object):
 
     class AlignmentFlag(enum.IntFlag):
 
-    AlignLeading             : Qt.AlignmentFlag = ... # 0x1
-    AlignLeft                : Qt.AlignmentFlag = ... # 0x1
-    AlignRight               : Qt.AlignmentFlag = ... # 0x2
-    AlignTrailing            : Qt.AlignmentFlag = ... # 0x2
-    AlignHCenter             : Qt.AlignmentFlag = ... # 0x4
-    AlignJustify             : Qt.AlignmentFlag = ... # 0x8
-    AlignAbsolute            : Qt.AlignmentFlag = ... # 0x10
-    AlignHorizontal_Mask     : Qt.AlignmentFlag = ... # 0x1f
-    AlignTop                 : Qt.AlignmentFlag = ... # 0x20
-    AlignBottom              : Qt.AlignmentFlag = ... # 0x40
-    AlignVCenter             : Qt.AlignmentFlag = ... # 0x80
-    AlignCenter              : Qt.AlignmentFlag = ... # 0x84
-    AlignBaseline            : Qt.AlignmentFlag = ... # 0x100
-    AlignVertical_Mask       : Qt.AlignmentFlag = ... # 0x1e0
+        AlignLeading             : Qt.AlignmentFlag = ... # 0x1
+        AlignLeft                : Qt.AlignmentFlag = ... # 0x1
+        AlignRight               : Qt.AlignmentFlag = ... # 0x2
+        AlignTrailing            : Qt.AlignmentFlag = ... # 0x2
+        AlignHCenter             : Qt.AlignmentFlag = ... # 0x4
+        AlignJustify             : Qt.AlignmentFlag = ... # 0x8
+        AlignAbsolute            : Qt.AlignmentFlag = ... # 0x10
+        AlignHorizontal_Mask     : Qt.AlignmentFlag = ... # 0x1f
+        AlignTop                 : Qt.AlignmentFlag = ... # 0x20
+        AlignBottom              : Qt.AlignmentFlag = ... # 0x40
+        AlignVCenter             : Qt.AlignmentFlag = ... # 0x80
+        AlignCenter              : Qt.AlignmentFlag = ... # 0x84
+        AlignBaseline            : Qt.AlignmentFlag = ... # 0x100
+        AlignVertical_Mask       : Qt.AlignmentFlag = ... # 0x1e0
 
 
     class AnchorPoint(enum.Enum):

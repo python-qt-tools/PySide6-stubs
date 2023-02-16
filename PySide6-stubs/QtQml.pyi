@@ -436,11 +436,11 @@ class QQmlContext(PySide6.QtCore.QObject):
 
     @overload
     def __init__(self, parent: PySide6.QtQml.QQmlContext, objParent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
-        @overload
+    @overload
     def __init__(self, parent: PySide6.QtQml.QQmlEngine, objParent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
-        @staticmethod
-        def __copy__() -> None: ...
+    @staticmethod
+    def __copy__() -> None: ...
 
 
     @overload
