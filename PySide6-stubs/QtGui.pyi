@@ -1538,7 +1538,7 @@ class QFont(Shiboken.Object):
         Fantasy                  : QFont.StyleHint = ... # 0x8
 
 
-    class StyleStrategy(enum.Enum):
+    class StyleStrategy(enum.Flag):
 
         PreferDefault            : QFont.StyleStrategy = ... # 0x1
         PreferBitmap             : QFont.StyleStrategy = ... # 0x2
