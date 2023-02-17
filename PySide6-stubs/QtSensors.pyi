@@ -19,6 +19,9 @@ from shiboken6 import Shiboken
 
 class QAccelerometer(PySide6.QtSensors.QSensor):
 
+    accelerationModeChanged: PySide6.QtCore.Signal
+
+
     class AccelerationMode(enum.Enum):
 
         Combined                 : QAccelerometer.AccelerationMode = ... # 0x0
@@ -221,6 +224,10 @@ class QLidFilter(PySide6.QtSensors.QSensorFilter):
 
 class QLidReading(PySide6.QtSensors.QSensorReading):
 
+    backLidChanged: PySide6.QtCore.Signal
+    frontLidChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: PySide6.QtCore.QObject) -> None: ...
 
     def backLidClosed(self) -> bool: ...
@@ -255,6 +262,9 @@ class QLightReading(PySide6.QtSensors.QSensorReading):
 
 class QLightSensor(PySide6.QtSensors.QSensor):
 
+    fieldOfViewChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def fieldOfView(self) -> float: ...
@@ -263,6 +273,9 @@ class QLightSensor(PySide6.QtSensors.QSensor):
 
 
 class QMagnetometer(PySide6.QtSensors.QSensor):
+
+    returnGeoValuesChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -395,6 +408,9 @@ class QRotationReading(PySide6.QtSensors.QSensorReading):
 
 class QRotationSensor(PySide6.QtSensors.QSensor):
 
+    hasZChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def hasZ(self) -> bool: ...
@@ -403,6 +419,23 @@ class QRotationSensor(PySide6.QtSensors.QSensor):
 
 
 class QSensor(PySide6.QtCore.QObject):
+
+    activeChanged: PySide6.QtCore.Signal
+    alwaysOnChanged: PySide6.QtCore.Signal
+    availableSensorsChanged: PySide6.QtCore.Signal
+    axesOrientationModeChanged: PySide6.QtCore.Signal
+    bufferSizeChanged: PySide6.QtCore.Signal
+    busyChanged: PySide6.QtCore.Signal
+    currentOrientationChanged: PySide6.QtCore.Signal
+    dataRateChanged: PySide6.QtCore.Signal
+    efficientBufferSizeChanged: PySide6.QtCore.Signal
+    identifierChanged: PySide6.QtCore.Signal
+    maxBufferSizeChanged: PySide6.QtCore.Signal
+    readingChanged: PySide6.QtCore.Signal
+    sensorError: PySide6.QtCore.Signal
+    skipDuplicatesChanged: PySide6.QtCore.Signal
+    userOrientationChanged: PySide6.QtCore.Signal
+
 
     class AxesOrientationMode(enum.Enum):
 
@@ -582,6 +615,9 @@ class QTapReading(PySide6.QtSensors.QSensorReading):
 
 
 class QTapSensor(PySide6.QtSensors.QSensor):
+
+    returnDoubleTapEventsChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

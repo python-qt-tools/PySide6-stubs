@@ -23,6 +23,12 @@ class QIntList(object): ...
 
 class QOpenGLWidget(PySide6.QtWidgets.QWidget):
 
+    aboutToCompose: PySide6.QtCore.Signal
+    aboutToResize: PySide6.QtCore.Signal
+    frameSwapped: PySide6.QtCore.Signal
+    resized: PySide6.QtCore.Signal
+
+
     class UpdateBehavior(enum.Enum):
 
         NoPartialUpdate          : QOpenGLWidget.UpdateBehavior = ... # 0x0

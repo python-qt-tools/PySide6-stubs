@@ -24,6 +24,20 @@ class QIntList(object): ...
 
 class QWebEngineView(PySide6.QtWidgets.QWidget):
 
+    iconChanged: PySide6.QtCore.Signal
+    iconUrlChanged: PySide6.QtCore.Signal
+    loadFinished: PySide6.QtCore.Signal
+    loadProgress: PySide6.QtCore.Signal
+    loadStarted: PySide6.QtCore.Signal
+    pdfPrintingFinished: PySide6.QtCore.Signal
+    printFinished: PySide6.QtCore.Signal
+    printRequested: PySide6.QtCore.Signal
+    renderProcessTerminated: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+    titleChanged: PySide6.QtCore.Signal
+    urlChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, page: PySide6.QtWebEngineCore.QWebEnginePage, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     @overload

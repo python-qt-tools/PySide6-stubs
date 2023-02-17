@@ -47,6 +47,9 @@ class QSvgGenerator(PySide6.QtGui.QPaintDevice):
 
 class QSvgRenderer(PySide6.QtCore.QObject):
 
+    repaintNeeded: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, contents: PySide6.QtCore.QXmlStreamReader, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload

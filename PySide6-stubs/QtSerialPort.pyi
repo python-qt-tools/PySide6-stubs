@@ -22,6 +22,17 @@ class QIntList(object): ...
 
 class QSerialPort(PySide6.QtCore.QIODevice):
 
+    baudRateChanged: PySide6.QtCore.Signal
+    breakEnabledChanged: PySide6.QtCore.Signal
+    dataBitsChanged: PySide6.QtCore.Signal
+    dataTerminalReadyChanged: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    flowControlChanged: PySide6.QtCore.Signal
+    parityChanged: PySide6.QtCore.Signal
+    requestToSendChanged: PySide6.QtCore.Signal
+    stopBitsChanged: PySide6.QtCore.Signal
+
+
     class BaudRate(enum.IntEnum):
 
         Baud1200                 : QSerialPort.BaudRate = ... # 0x4b0

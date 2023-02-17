@@ -25,6 +25,10 @@ class QIntList(object): ...
 
 class QQuickWidget(PySide6.QtWidgets.QWidget):
 
+    sceneGraphError: PySide6.QtCore.Signal
+    statusChanged: PySide6.QtCore.Signal
+
+
     class ResizeMode(enum.Enum):
 
         SizeViewToRootObject     : QQuickWidget.ResizeMode = ... # 0x0

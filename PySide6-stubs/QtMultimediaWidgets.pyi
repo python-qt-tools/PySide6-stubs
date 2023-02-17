@@ -20,6 +20,9 @@ from typing import Any, Optional, Union
 
 class QGraphicsVideoItem(PySide6.QtWidgets.QGraphicsObject):
 
+    nativeSizeChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ...) -> None: ...
 
     def aspectRatioMode(self) -> PySide6.QtCore.Qt.AspectRatioMode: ...
@@ -41,6 +44,10 @@ class QIntList(object): ...
 
 
 class QVideoWidget(PySide6.QtWidgets.QWidget):
+
+    aspectRatioModeChanged: PySide6.QtCore.Signal
+    fullScreenChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 

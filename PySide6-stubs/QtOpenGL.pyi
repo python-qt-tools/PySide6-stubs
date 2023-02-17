@@ -105,6 +105,9 @@ class QOpenGLBuffer(Shiboken.Object):
 
 class QOpenGLDebugLogger(PySide6.QtCore.QObject):
 
+    messageLogged: PySide6.QtCore.Signal
+
+
     class LoggingMode(enum.Enum):
 
         AsynchronousLogging      : QOpenGLDebugLogger.LoggingMode = ... # 0x0
@@ -14052,6 +14055,9 @@ class QOpenGLVertexArrayObject(PySide6.QtCore.QObject):
 
 
 class QOpenGLWindow(PySide6.QtGui.QPaintDeviceWindow):
+
+    frameSwapped: PySide6.QtCore.Signal
+
 
     class UpdateBehavior(enum.Enum):
 

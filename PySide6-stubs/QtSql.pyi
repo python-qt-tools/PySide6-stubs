@@ -130,6 +130,9 @@ class QSqlDatabase(Shiboken.Object):
 
 class QSqlDriver(PySide6.QtCore.QObject):
 
+    notification: PySide6.QtCore.Signal
+
+
     class DbmsType(enum.Enum):
 
         UnknownDbms              : QSqlDriver.DbmsType = ... # 0x0
@@ -611,6 +614,12 @@ class QSqlResult(Shiboken.Object):
 
 
 class QSqlTableModel(PySide6.QtSql.QSqlQueryModel):
+
+    beforeDelete: PySide6.QtCore.Signal
+    beforeInsert: PySide6.QtCore.Signal
+    beforeUpdate: PySide6.QtCore.Signal
+    primeInsert: PySide6.QtCore.Signal
+
 
     class EditStrategy(enum.Enum):
 

@@ -49,6 +49,12 @@ class QAbstractFileIconProvider(Shiboken.Object):
 
 class QAbstractTextDocumentLayout(PySide6.QtCore.QObject):
 
+    documentSizeChanged: PySide6.QtCore.Signal
+    pageCountChanged: PySide6.QtCore.Signal
+    update: PySide6.QtCore.Signal
+    updateBlock: PySide6.QtCore.Signal
+
+
     class PaintContext(Shiboken.Object):
 
         @overload
@@ -590,6 +596,15 @@ class QAccessibleValueInterface(Shiboken.Object):
 
 class QAction(PySide6.QtCore.QObject):
 
+    changed: PySide6.QtCore.Signal
+    checkableChanged: PySide6.QtCore.Signal
+    enabledChanged: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    toggled: PySide6.QtCore.Signal
+    triggered: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+
+
     class ActionEvent(enum.Enum):
 
         Trigger                  : QAction.ActionEvent = ... # 0x0
@@ -697,6 +712,10 @@ class QActionEvent(PySide6.QtCore.QEvent):
 
 
 class QActionGroup(PySide6.QtCore.QObject):
+
+    hovered: PySide6.QtCore.Signal
+    triggered: PySide6.QtCore.Signal
+
 
     class ExclusionPolicy(enum.Enum):
 
@@ -818,6 +837,12 @@ class QBrush(Shiboken.Object):
 
 
 class QClipboard(PySide6.QtCore.QObject):
+
+    changed: PySide6.QtCore.Signal
+    dataChanged: PySide6.QtCore.Signal
+    findBufferChanged: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+
 
     class Mode(enum.Enum):
 
@@ -1233,6 +1258,12 @@ class QDesktopServices(Shiboken.Object):
 
 class QDoubleValidator(PySide6.QtGui.QValidator):
 
+    bottomChanged: PySide6.QtCore.Signal
+    decimalsChanged: PySide6.QtCore.Signal
+    notationChanged: PySide6.QtCore.Signal
+    topChanged: PySide6.QtCore.Signal
+
+
     class Notation(enum.Enum):
 
         StandardNotation         : QDoubleValidator.Notation = ... # 0x0
@@ -1261,6 +1292,10 @@ class QDoubleValidator(PySide6.QtGui.QValidator):
 
 
 class QDrag(PySide6.QtCore.QObject):
+
+    actionChanged: PySide6.QtCore.Signal
+    targetChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, dragSource: PySide6.QtCore.QObject) -> None: ...
 
@@ -2182,6 +2217,22 @@ class QGradient(Shiboken.Object):
 
 class QGuiApplication(PySide6.QtCore.QCoreApplication):
 
+    applicationDisplayNameChanged: PySide6.QtCore.Signal
+    applicationStateChanged: PySide6.QtCore.Signal
+    commitDataRequest: PySide6.QtCore.Signal
+    focusObjectChanged: PySide6.QtCore.Signal
+    focusWindowChanged: PySide6.QtCore.Signal
+    fontChanged: PySide6.QtCore.Signal
+    fontDatabaseChanged: PySide6.QtCore.Signal
+    lastWindowClosed: PySide6.QtCore.Signal
+    layoutDirectionChanged: PySide6.QtCore.Signal
+    paletteChanged: PySide6.QtCore.Signal
+    primaryScreenChanged: PySide6.QtCore.Signal
+    saveStateRequest: PySide6.QtCore.Signal
+    screenAdded: PySide6.QtCore.Signal
+    screenRemoved: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self) -> None: ...
     @overload
@@ -2859,6 +2910,9 @@ class QImageWriter(Shiboken.Object):
 
 class QInputDevice(PySide6.QtCore.QObject):
 
+    availableVirtualGeometryChanged: PySide6.QtCore.Signal
+
+
     class Capability(enum.Flag):
 
         None_                    : QInputDevice.Capability = ... # 0x0
@@ -2929,6 +2983,16 @@ class QInputEvent(PySide6.QtCore.QEvent):
 
 
 class QInputMethod(PySide6.QtCore.QObject):
+
+    anchorRectangleChanged: PySide6.QtCore.Signal
+    animatingChanged: PySide6.QtCore.Signal
+    cursorRectangleChanged: PySide6.QtCore.Signal
+    inputDirectionChanged: PySide6.QtCore.Signal
+    inputItemClipRectangleChanged: PySide6.QtCore.Signal
+    keyboardRectangleChanged: PySide6.QtCore.Signal
+    localeChanged: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+
 
     class Action(enum.Enum):
 
@@ -3016,6 +3080,10 @@ class QIntList(object): ...
 
 
 class QIntValidator(PySide6.QtGui.QValidator):
+
+    bottomChanged: PySide6.QtCore.Signal
+    topChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, bottom: int, top: int, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -3556,6 +3624,15 @@ class QMoveEvent(PySide6.QtCore.QEvent):
 
 class QMovie(PySide6.QtCore.QObject):
 
+    error: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    frameChanged: PySide6.QtCore.Signal
+    resized: PySide6.QtCore.Signal
+    started: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+    updated: PySide6.QtCore.Signal
+
+
     class CacheMode(enum.Enum):
 
         CacheNone                : QMovie.CacheMode = ... # 0x0
@@ -3633,6 +3710,9 @@ class QNativeGestureEvent(PySide6.QtGui.QSinglePointEvent):
 
 class QOffscreenSurface(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
 
+    screenChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, screen: Optional[PySide6.QtGui.QScreen] = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def create(self) -> None: ...
@@ -3650,6 +3730,9 @@ class QOffscreenSurface(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
 
 
 class QOpenGLContext(PySide6.QtCore.QObject):
+
+    aboutToBeDestroyed: PySide6.QtCore.Signal
+
 
     class OpenGLModuleType(enum.Enum):
 
@@ -5691,6 +5774,9 @@ class QPointerEvent(PySide6.QtGui.QInputEvent):
 
 class QPointingDevice(PySide6.QtGui.QInputDevice):
 
+    grabChanged: PySide6.QtCore.Signal
+
+
     class GrabTransition(enum.Enum):
 
         GrabPassive              : QPointingDevice.GrabTransition = ... # 0x1
@@ -6232,6 +6318,9 @@ class QRegion(Shiboken.Object):
 
 class QRegularExpressionValidator(PySide6.QtGui.QValidator):
 
+    regularExpressionChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -6295,6 +6384,17 @@ class QRgba64(Shiboken.Object):
 
 
 class QScreen(PySide6.QtCore.QObject):
+
+    availableGeometryChanged: PySide6.QtCore.Signal
+    geometryChanged: PySide6.QtCore.Signal
+    logicalDotsPerInchChanged: PySide6.QtCore.Signal
+    orientationChanged: PySide6.QtCore.Signal
+    physicalDotsPerInchChanged: PySide6.QtCore.Signal
+    physicalSizeChanged: PySide6.QtCore.Signal
+    primaryOrientationChanged: PySide6.QtCore.Signal
+    refreshRateChanged: PySide6.QtCore.Signal
+    virtualGeometryChanged: PySide6.QtCore.Signal
+
     def angleBetween(self, a: PySide6.QtCore.Qt.ScreenOrientation, b: PySide6.QtCore.Qt.ScreenOrientation) -> int: ...
     def availableGeometry(self) -> PySide6.QtCore.QRect: ...
     def availableSize(self) -> PySide6.QtCore.QSize: ...
@@ -6399,6 +6499,10 @@ class QSessionManager(PySide6.QtCore.QObject):
 
 
 class QShortcut(PySide6.QtCore.QObject):
+
+    activated: PySide6.QtCore.Signal
+    activatedAmbiguously: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QKeySequence.StandardKey, arg__2: PySide6.QtCore.QObject, arg__3: Callable, arg__4: PySide6.QtCore.Qt.ShortcutContext = ...) -> None: ...
@@ -6591,6 +6695,9 @@ class QStandardItem(Shiboken.Object):
 
 class QStandardItemModel(PySide6.QtCore.QAbstractItemModel):
 
+    itemChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -6711,6 +6818,19 @@ class QStatusTipEvent(PySide6.QtCore.QEvent):
 
 
 class QStyleHints(PySide6.QtCore.QObject):
+
+    cursorFlashTimeChanged: PySide6.QtCore.Signal
+    keyboardInputIntervalChanged: PySide6.QtCore.Signal
+    mouseDoubleClickIntervalChanged: PySide6.QtCore.Signal
+    mousePressAndHoldIntervalChanged: PySide6.QtCore.Signal
+    mouseQuickSelectionThresholdChanged: PySide6.QtCore.Signal
+    showShortcutsInContextMenusChanged: PySide6.QtCore.Signal
+    startDragDistanceChanged: PySide6.QtCore.Signal
+    startDragTimeChanged: PySide6.QtCore.Signal
+    tabFocusBehaviorChanged: PySide6.QtCore.Signal
+    useHoverEffectsChanged: PySide6.QtCore.Signal
+    wheelScrollLinesChanged: PySide6.QtCore.Signal
+
     def cursorFlashTime(self) -> int: ...
     def fontSmoothingGamma(self) -> float: ...
     def keyboardAutoRepeatRate(self) -> int: ...
@@ -7312,6 +7432,18 @@ class QTextCursor(Shiboken.Object):
 
 
 class QTextDocument(PySide6.QtCore.QObject):
+
+    baseUrlChanged: PySide6.QtCore.Signal
+    blockCountChanged: PySide6.QtCore.Signal
+    contentsChange: PySide6.QtCore.Signal
+    contentsChanged: PySide6.QtCore.Signal
+    cursorPositionChanged: PySide6.QtCore.Signal
+    documentLayoutChanged: PySide6.QtCore.Signal
+    modificationChanged: PySide6.QtCore.Signal
+    redoAvailable: PySide6.QtCore.Signal
+    undoAvailable: PySide6.QtCore.Signal
+    undoCommandAdded: PySide6.QtCore.Signal
+
 
     class FindFlag(enum.Flag):
 
@@ -8483,6 +8615,15 @@ class QUndoCommand(Shiboken.Object):
 
 class QUndoGroup(PySide6.QtCore.QObject):
 
+    activeStackChanged: PySide6.QtCore.Signal
+    canRedoChanged: PySide6.QtCore.Signal
+    canUndoChanged: PySide6.QtCore.Signal
+    cleanChanged: PySide6.QtCore.Signal
+    indexChanged: PySide6.QtCore.Signal
+    redoTextChanged: PySide6.QtCore.Signal
+    undoTextChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def activeStack(self) -> PySide6.QtGui.QUndoStack: ...
@@ -8502,6 +8643,14 @@ class QUndoGroup(PySide6.QtCore.QObject):
 
 
 class QUndoStack(PySide6.QtCore.QObject):
+
+    canRedoChanged: PySide6.QtCore.Signal
+    canUndoChanged: PySide6.QtCore.Signal
+    cleanChanged: PySide6.QtCore.Signal
+    indexChanged: PySide6.QtCore.Signal
+    redoTextChanged: PySide6.QtCore.Signal
+    undoTextChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -8533,6 +8682,9 @@ class QUndoStack(PySide6.QtCore.QObject):
 
 
 class QValidator(PySide6.QtCore.QObject):
+
+    changed: PySide6.QtCore.Signal
+
 
     class State(enum.Enum):
 
@@ -8785,6 +8937,27 @@ class QWheelEvent(PySide6.QtGui.QSinglePointEvent):
 
 
 class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
+
+    activeChanged: PySide6.QtCore.Signal
+    contentOrientationChanged: PySide6.QtCore.Signal
+    focusObjectChanged: PySide6.QtCore.Signal
+    heightChanged: PySide6.QtCore.Signal
+    maximumHeightChanged: PySide6.QtCore.Signal
+    maximumWidthChanged: PySide6.QtCore.Signal
+    minimumHeightChanged: PySide6.QtCore.Signal
+    minimumWidthChanged: PySide6.QtCore.Signal
+    modalityChanged: PySide6.QtCore.Signal
+    opacityChanged: PySide6.QtCore.Signal
+    screenChanged: PySide6.QtCore.Signal
+    transientParentChanged: PySide6.QtCore.Signal
+    visibilityChanged: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+    widthChanged: PySide6.QtCore.Signal
+    windowStateChanged: PySide6.QtCore.Signal
+    windowTitleChanged: PySide6.QtCore.Signal
+    xChanged: PySide6.QtCore.Signal
+    yChanged: PySide6.QtCore.Signal
+
 
     class AncestorMode(enum.Enum):
 

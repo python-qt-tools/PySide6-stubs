@@ -118,6 +118,10 @@ class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
 
 class QWebEngineCookieStore(PySide6.QtCore.QObject):
 
+    cookieAdded: PySide6.QtCore.Signal
+    cookieRemoved: PySide6.QtCore.Signal
+
+
     class FilterRequest(Shiboken.Object):
 
         @overload
@@ -138,6 +142,17 @@ class QWebEngineCookieStore(PySide6.QtCore.QObject):
 
 
 class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
+
+    downloadDirectoryChanged: PySide6.QtCore.Signal
+    downloadFileNameChanged: PySide6.QtCore.Signal
+    interruptReasonChanged: PySide6.QtCore.Signal
+    isFinishedChanged: PySide6.QtCore.Signal
+    isPausedChanged: PySide6.QtCore.Signal
+    receivedBytesChanged: PySide6.QtCore.Signal
+    savePageFormatChanged: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+    totalBytesChanged: PySide6.QtCore.Signal
+
 
     class DownloadInterruptReason(enum.Enum):
 
@@ -368,6 +383,9 @@ class QWebEngineNewWindowRequest(PySide6.QtCore.QObject):
 
 
 class QWebEngineNotification(PySide6.QtCore.QObject):
+
+    closed: PySide6.QtCore.Signal
+
     def click(self) -> None: ...
     def close(self) -> None: ...
     def direction(self) -> PySide6.QtCore.Qt.LayoutDirection: ...
@@ -382,6 +400,43 @@ class QWebEngineNotification(PySide6.QtCore.QObject):
 
 
 class QWebEnginePage(PySide6.QtCore.QObject):
+
+    audioMutedChanged: PySide6.QtCore.Signal
+    authenticationRequired: PySide6.QtCore.Signal
+    certificateError: PySide6.QtCore.Signal
+    contentsSizeChanged: PySide6.QtCore.Signal
+    featurePermissionRequestCanceled: PySide6.QtCore.Signal
+    featurePermissionRequested: PySide6.QtCore.Signal
+    findTextFinished: PySide6.QtCore.Signal
+    fullScreenRequested: PySide6.QtCore.Signal
+    geometryChangeRequested: PySide6.QtCore.Signal
+    iconChanged: PySide6.QtCore.Signal
+    iconUrlChanged: PySide6.QtCore.Signal
+    lifecycleStateChanged: PySide6.QtCore.Signal
+    linkHovered: PySide6.QtCore.Signal
+    loadFinished: PySide6.QtCore.Signal
+    loadProgress: PySide6.QtCore.Signal
+    loadStarted: PySide6.QtCore.Signal
+    loadingChanged: PySide6.QtCore.Signal
+    navigationRequested: PySide6.QtCore.Signal
+    newWindowRequested: PySide6.QtCore.Signal
+    pdfPrintingFinished: PySide6.QtCore.Signal
+    printRequested: PySide6.QtCore.Signal
+    proxyAuthenticationRequired: PySide6.QtCore.Signal
+    quotaRequested: PySide6.QtCore.Signal
+    recentlyAudibleChanged: PySide6.QtCore.Signal
+    recommendedStateChanged: PySide6.QtCore.Signal
+    registerProtocolHandlerRequested: PySide6.QtCore.Signal
+    renderProcessPidChanged: PySide6.QtCore.Signal
+    renderProcessTerminated: PySide6.QtCore.Signal
+    scrollPositionChanged: PySide6.QtCore.Signal
+    selectClientCertificate: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+    titleChanged: PySide6.QtCore.Signal
+    urlChanged: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+    windowCloseRequested: PySide6.QtCore.Signal
+
 
     class Feature(enum.Enum):
 
@@ -583,6 +638,9 @@ class QWebEnginePage(PySide6.QtCore.QObject):
 
 
 class QWebEngineProfile(PySide6.QtCore.QObject):
+
+    downloadRequested: PySide6.QtCore.Signal
+
 
     class HttpCacheType(enum.Enum):
 

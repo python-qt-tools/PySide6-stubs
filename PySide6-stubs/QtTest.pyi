@@ -43,6 +43,10 @@ class QIntList(object): ...
 
 class QSignalSpy(PySide6.QtCore.QObject):
 
+    destroyed: PySide6.QtCore.Signal
+    objectNameChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, obj: PySide6.QtCore.QObject, aSignal: bytes) -> None: ...
     @overload

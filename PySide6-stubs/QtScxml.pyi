@@ -57,6 +57,9 @@ class QScxmlCppDataModel(PySide6.QtScxml.QScxmlDataModel):
 
 class QScxmlDataModel(PySide6.QtCore.QObject):
 
+    stateMachineChanged: PySide6.QtCore.Signal
+
+
     class ForeachLoopBody(Shiboken.Object):
 
         def __init__(self) -> None: ...
@@ -240,6 +243,18 @@ class QScxmlNullDataModel(PySide6.QtScxml.QScxmlDataModel):
 
 
 class QScxmlStateMachine(PySide6.QtCore.QObject):
+
+    dataModelChanged: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    initialValuesChanged: PySide6.QtCore.Signal
+    initializedChanged: PySide6.QtCore.Signal
+    invokedServicesChanged: PySide6.QtCore.Signal
+    loaderChanged: PySide6.QtCore.Signal
+    log: PySide6.QtCore.Signal
+    reachedStableState: PySide6.QtCore.Signal
+    runningChanged: PySide6.QtCore.Signal
+    tableDataChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, metaObject: PySide6.QtCore.QMetaObject, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

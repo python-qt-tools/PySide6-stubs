@@ -76,6 +76,9 @@ class QPageSetupDialog(PySide6.QtWidgets.QDialog):
 
 class QPrintDialog(PySide6.QtPrintSupport.QAbstractPrintDialog):
 
+    accepted: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     @overload
@@ -142,6 +145,9 @@ class QPrintEngine(Shiboken.Object):
 
 class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
 
+    paintRequested: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
     @overload
@@ -157,6 +163,10 @@ class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
 
 
 class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
+
+    paintRequested: PySide6.QtCore.Signal
+    previewChanged: PySide6.QtCore.Signal
+
 
     class ViewMode(enum.Enum):
 

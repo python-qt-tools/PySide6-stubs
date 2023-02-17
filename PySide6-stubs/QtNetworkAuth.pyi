@@ -20,6 +20,19 @@ from shiboken6 import Shiboken
 
 class QAbstractOAuth(PySide6.QtCore.QObject):
 
+    authorizationUrlChanged: PySide6.QtCore.Signal
+    authorizeWithBrowser: PySide6.QtCore.Signal
+    clientIdentifierChanged: PySide6.QtCore.Signal
+    contentTypeChanged: PySide6.QtCore.Signal
+    extraTokensChanged: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    granted: PySide6.QtCore.Signal
+    replyDataReceived: PySide6.QtCore.Signal
+    requestFailed: PySide6.QtCore.Signal
+    statusChanged: PySide6.QtCore.Signal
+    tokenChanged: PySide6.QtCore.Signal
+
+
     class ContentType(enum.Enum):
 
         WwwFormUrlEncoded        : QAbstractOAuth.ContentType = ... # 0x0
@@ -83,6 +96,17 @@ class QAbstractOAuth(PySide6.QtCore.QObject):
 
 class QAbstractOAuth2(PySide6.QtNetworkAuth.QAbstractOAuth):
 
+    authorizationCallbackReceived: PySide6.QtCore.Signal
+    clientIdentifierSharedKeyChanged: PySide6.QtCore.Signal
+    error: PySide6.QtCore.Signal
+    expirationAtChanged: PySide6.QtCore.Signal
+    refreshTokenChanged: PySide6.QtCore.Signal
+    responseTypeChanged: PySide6.QtCore.Signal
+    scopeChanged: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+    userAgentChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, manager: PySide6.QtNetwork.QNetworkAccessManager, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -122,6 +146,12 @@ class QAbstractOAuth2(PySide6.QtNetworkAuth.QAbstractOAuth):
 
 class QAbstractOAuthReplyHandler(PySide6.QtCore.QObject):
 
+    callbackDataReceived: PySide6.QtCore.Signal
+    callbackReceived: PySide6.QtCore.Signal
+    replyDataReceived: PySide6.QtCore.Signal
+    tokensReceived: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def callback(self) -> str: ...
@@ -132,6 +162,13 @@ class QIntList(object): ...
 
 
 class QOAuth1(PySide6.QtNetworkAuth.QAbstractOAuth):
+
+    clientSharedSecretChanged: PySide6.QtCore.Signal
+    signatureMethodChanged: PySide6.QtCore.Signal
+    temporaryCredentialsUrlChanged: PySide6.QtCore.Signal
+    tokenCredentialsUrlChanged: PySide6.QtCore.Signal
+    tokenSecretChanged: PySide6.QtCore.Signal
+
 
     class SignatureMethod(enum.Enum):
 
@@ -237,6 +274,9 @@ class QOAuth1Signature(Shiboken.Object):
 
 
 class QOAuth2AuthorizationCodeFlow(PySide6.QtNetworkAuth.QAbstractOAuth2):
+
+    accessTokenUrlChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, authorizationUrl: Union[PySide6.QtCore.QUrl, str], accessTokenUrl: Union[PySide6.QtCore.QUrl, str], manager: PySide6.QtNetwork.QNetworkAccessManager, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...

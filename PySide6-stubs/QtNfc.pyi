@@ -291,6 +291,12 @@ class QNdefRecord(Shiboken.Object):
 
 class QNearFieldManager(PySide6.QtCore.QObject):
 
+    adapterStateChanged: PySide6.QtCore.Signal
+    targetDetected: PySide6.QtCore.Signal
+    targetDetectionStopped: PySide6.QtCore.Signal
+    targetLost: PySide6.QtCore.Signal
+
+
     class AdapterState(enum.Enum):
 
         Offline                  : QNearFieldManager.AdapterState = ... # 0x1
@@ -309,6 +315,12 @@ class QNearFieldManager(PySide6.QtCore.QObject):
 
 
 class QNearFieldTarget(PySide6.QtCore.QObject):
+
+    disconnected: PySide6.QtCore.Signal
+    error: PySide6.QtCore.Signal
+    ndefMessageRead: PySide6.QtCore.Signal
+    requestCompleted: PySide6.QtCore.Signal
+
 
     class AccessMethod(enum.Flag):
 

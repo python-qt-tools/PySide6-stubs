@@ -59,13 +59,28 @@ class QAxBase(Shiboken.Object):
     def verbs(self) -> List[str]: ...
 
 
-class QAxBaseObject(PySide6.QtCore.QObject, PySide6.QtAxContainer.QAxObjectInterface): ...
+class QAxBaseObject(PySide6.QtCore.QObject, PySide6.QtAxContainer.QAxObjectInterface):
+
+    exception: PySide6.QtCore.Signal
+    propertyChanged: PySide6.QtCore.Signal
+    signal: PySide6.QtCore.Signal
 
 
-class QAxBaseWidget(PySide6.QtWidgets.QWidget, PySide6.QtAxContainer.QAxObjectInterface): ...
+
+class QAxBaseWidget(PySide6.QtWidgets.QWidget, PySide6.QtAxContainer.QAxObjectInterface):
+
+    exception: PySide6.QtCore.Signal
+    propertyChanged: PySide6.QtCore.Signal
+    signal: PySide6.QtCore.Signal
+
 
 
 class QAxObject(PySide6.QtAxContainer.QAxBaseObject, PySide6.QtAxContainer.QAxBase):
+
+    exception: PySide6.QtCore.Signal
+    propertyChanged: PySide6.QtCore.Signal
+    signal: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, c: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -93,6 +108,12 @@ class QAxObjectInterface(Shiboken.Object):
 
 
 class QAxScript(PySide6.QtCore.QObject):
+
+    entered: PySide6.QtCore.Signal
+    error: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
 
     class FunctionFlags(enum.Enum):
 
@@ -137,6 +158,9 @@ class QAxScriptEngine(PySide6.QtAxContainer.QAxObject):
 
 class QAxScriptManager(PySide6.QtCore.QObject):
 
+    error: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addObject(self, object: PySide6.QtAxContainer.QAxBase) -> None: ...
@@ -173,6 +197,11 @@ class QAxSelect(PySide6.QtWidgets.QDialog):
 
 
 class QAxWidget(PySide6.QtAxContainer.QAxBaseWidget, PySide6.QtAxContainer.QAxBase):
+
+    exception: PySide6.QtCore.Signal
+    propertyChanged: PySide6.QtCore.Signal
+    signal: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, c: str, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowType = ...) -> None: ...

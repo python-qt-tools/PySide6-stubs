@@ -24,6 +24,9 @@ class Qt3DLogic(Shiboken.Object):
 
     class QFrameAction(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
+        triggered: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
 

@@ -29,6 +29,9 @@ class QIntList(object): ...
 
 class QJSEngine(PySide6.QtCore.QObject):
 
+    uiLanguageChanged: PySide6.QtCore.Signal
+
+
     class Extension(enum.Flag):
 
         TranslationExtension     : QJSEngine.Extension = ... # 0x1
@@ -347,6 +350,9 @@ class QQmlAbstractUrlInterceptor(Shiboken.Object):
 
 class QQmlApplicationEngine(PySide6.QtQml.QQmlEngine):
 
+    objectCreated: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, filePath: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -365,6 +371,10 @@ class QQmlApplicationEngine(PySide6.QtQml.QQmlEngine):
 
 
 class QQmlComponent(PySide6.QtCore.QObject):
+
+    progressChanged: PySide6.QtCore.Signal
+    statusChanged: PySide6.QtCore.Signal
+
 
     class CompilationMode(enum.Enum):
 
@@ -499,6 +509,11 @@ class QQmlDebuggingEnabler(Shiboken.Object):
 
 class QQmlEngine(PySide6.QtQml.QJSEngine):
 
+    exit: PySide6.QtCore.Signal
+    quit: PySide6.QtCore.Signal
+    warnings: PySide6.QtCore.Signal
+
+
     def __init__(self, p: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addImageProvider(self, id: str, arg__2: PySide6.QtQml.QQmlImageProviderBase) -> None: ...
@@ -571,6 +586,9 @@ class QQmlError(Shiboken.Object):
 
 
 class QQmlExpression(PySide6.QtCore.QObject):
+
+    valueChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self) -> None: ...
@@ -897,6 +915,9 @@ class QQmlProperty(Shiboken.Object):
 
 
 class QQmlPropertyMap(PySide6.QtCore.QObject):
+
+    valueChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

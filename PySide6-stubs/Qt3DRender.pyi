@@ -42,6 +42,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QAbstractLight(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
+        colorChanged: PySide6.QtCore.Signal
+        intensityChanged: PySide6.QtCore.Signal
+
+
         class Type(enum.Enum):
 
             PointLight               : Qt3DRender.QAbstractLight.Type = ... # 0x0
@@ -56,6 +60,11 @@ class Qt3DRender(Shiboken.Object):
         def type(self) -> PySide6.Qt3DRender.Qt3DRender.QAbstractLight.Type: ...
 
     class QAbstractRayCaster(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        filterModeChanged: PySide6.QtCore.Signal
+        hitsChanged: PySide6.QtCore.Signal
+        runModeChanged: PySide6.QtCore.Signal
+
 
         class FilterMode(enum.Enum):
 
@@ -83,6 +92,24 @@ class Qt3DRender(Shiboken.Object):
         def setRunMode(self, runMode: PySide6.Qt3DRender.Qt3DRender.QAbstractRayCaster.RunMode) -> None: ...
 
     class QAbstractTexture(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        comparisonFunctionChanged: PySide6.QtCore.Signal
+        comparisonModeChanged: PySide6.QtCore.Signal
+        depthChanged: PySide6.QtCore.Signal
+        formatChanged: PySide6.QtCore.Signal
+        generateMipMapsChanged: PySide6.QtCore.Signal
+        handleChanged: PySide6.QtCore.Signal
+        handleTypeChanged: PySide6.QtCore.Signal
+        heightChanged: PySide6.QtCore.Signal
+        layersChanged: PySide6.QtCore.Signal
+        magnificationFilterChanged: PySide6.QtCore.Signal
+        maximumAnisotropyChanged: PySide6.QtCore.Signal
+        minificationFilterChanged: PySide6.QtCore.Signal
+        mipLevelsChanged: PySide6.QtCore.Signal
+        samplesChanged: PySide6.QtCore.Signal
+        statusChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+
 
         class ComparisonFunction(enum.Enum):
 
@@ -304,6 +331,11 @@ class Qt3DRender(Shiboken.Object):
         def wrapMode(self) -> PySide6.Qt3DRender.Qt3DRender.QTextureWrapMode: ...
 
     class QAbstractTextureImage(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        faceChanged: PySide6.QtCore.Signal
+        layerChanged: PySide6.QtCore.Signal
+        mipLevelChanged: PySide6.QtCore.Signal
+
         def face(self) -> PySide6.Qt3DRender.Qt3DRender.QAbstractTexture.CubeMapFace: ...
         def layer(self) -> int: ...
         def mipLevel(self) -> int: ...
@@ -318,6 +350,10 @@ class Qt3DRender(Shiboken.Object):
 
 
     class QAlphaTest(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        alphaFunctionChanged: PySide6.QtCore.Signal
+        referenceValueChanged: PySide6.QtCore.Signal
+
 
         class AlphaFunction(enum.Enum):
 
@@ -340,6 +376,9 @@ class Qt3DRender(Shiboken.Object):
 
     class QBlendEquation(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
+        blendFunctionChanged: PySide6.QtCore.Signal
+
+
         class BlendFunction(enum.Enum):
 
             Add                      : Qt3DRender.QBlendEquation.BlendFunction = ... # 0x8006
@@ -355,6 +394,15 @@ class Qt3DRender(Shiboken.Object):
         def setBlendFunction(self, blendFunction: PySide6.Qt3DRender.Qt3DRender.QBlendEquation.BlendFunction) -> None: ...
 
     class QBlendEquationArguments(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        bufferIndexChanged: PySide6.QtCore.Signal
+        destinationAlphaChanged: PySide6.QtCore.Signal
+        destinationRgbChanged: PySide6.QtCore.Signal
+        destinationRgbaChanged: PySide6.QtCore.Signal
+        sourceAlphaChanged: PySide6.QtCore.Signal
+        sourceRgbChanged: PySide6.QtCore.Signal
+        sourceRgbaChanged: PySide6.QtCore.Signal
+
 
         class Blending(enum.Enum):
 
@@ -397,6 +445,15 @@ class Qt3DRender(Shiboken.Object):
 
     class QBlitFramebuffer(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
+        destinationAttachmentPointChanged: PySide6.QtCore.Signal
+        destinationChanged: PySide6.QtCore.Signal
+        destinationRectChanged: PySide6.QtCore.Signal
+        interpolationMethodChanged: PySide6.QtCore.Signal
+        sourceAttachmentPointChanged: PySide6.QtCore.Signal
+        sourceChanged: PySide6.QtCore.Signal
+        sourceRectChanged: PySide6.QtCore.Signal
+
+
         class InterpolationMethod(enum.Enum):
 
             Nearest                  : Qt3DRender.QBlitFramebuffer.InterpolationMethod = ... # 0x0
@@ -426,6 +483,24 @@ class Qt3DRender(Shiboken.Object):
 
 
     class QCamera(PySide6.Qt3DCore.Qt3DCore.QEntity):
+
+        aspectRatioChanged: PySide6.QtCore.Signal
+        bottomChanged: PySide6.QtCore.Signal
+        exposureChanged: PySide6.QtCore.Signal
+        farPlaneChanged: PySide6.QtCore.Signal
+        fieldOfViewChanged: PySide6.QtCore.Signal
+        leftChanged: PySide6.QtCore.Signal
+        nearPlaneChanged: PySide6.QtCore.Signal
+        positionChanged: PySide6.QtCore.Signal
+        projectionMatrixChanged: PySide6.QtCore.Signal
+        projectionTypeChanged: PySide6.QtCore.Signal
+        rightChanged: PySide6.QtCore.Signal
+        topChanged: PySide6.QtCore.Signal
+        upVectorChanged: PySide6.QtCore.Signal
+        viewCenterChanged: PySide6.QtCore.Signal
+        viewMatrixChanged: PySide6.QtCore.Signal
+        viewVectorChanged: PySide6.QtCore.Signal
+
 
         class CameraTranslationOption(enum.Enum):
 
@@ -493,6 +568,20 @@ class Qt3DRender(Shiboken.Object):
 
     class QCameraLens(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
+        aspectRatioChanged: PySide6.QtCore.Signal
+        bottomChanged: PySide6.QtCore.Signal
+        exposureChanged: PySide6.QtCore.Signal
+        farPlaneChanged: PySide6.QtCore.Signal
+        fieldOfViewChanged: PySide6.QtCore.Signal
+        leftChanged: PySide6.QtCore.Signal
+        nearPlaneChanged: PySide6.QtCore.Signal
+        projectionMatrixChanged: PySide6.QtCore.Signal
+        projectionTypeChanged: PySide6.QtCore.Signal
+        rightChanged: PySide6.QtCore.Signal
+        topChanged: PySide6.QtCore.Signal
+        viewSphere: PySide6.QtCore.Signal
+
+
         class ProjectionType(enum.Enum):
 
             OrthographicProjection   : Qt3DRender.QCameraLens.ProjectionType = ... # 0x0
@@ -533,12 +622,22 @@ class Qt3DRender(Shiboken.Object):
 
     class QCameraSelector(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
+        cameraChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def camera(self) -> PySide6.Qt3DCore.Qt3DCore.QEntity: ...
         def setCamera(self, camera: PySide6.Qt3DCore.Qt3DCore.QEntity) -> None: ...
 
     class QClearBuffers(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        buffersChanged: PySide6.QtCore.Signal
+        clearColorChanged: PySide6.QtCore.Signal
+        clearDepthValueChanged: PySide6.QtCore.Signal
+        clearStencilValueChanged: PySide6.QtCore.Signal
+        colorBufferChanged: PySide6.QtCore.Signal
+
 
         class BufferType(enum.Flag):
 
@@ -567,6 +666,11 @@ class Qt3DRender(Shiboken.Object):
 
     class QClipPlane(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
+        distanceChanged: PySide6.QtCore.Signal
+        normalChanged: PySide6.QtCore.Signal
+        planeIndexChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def distance(self) -> float: ...
@@ -577,6 +681,12 @@ class Qt3DRender(Shiboken.Object):
         def setPlaneIndex(self, arg__1: int) -> None: ...
 
     class QColorMask(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        alphaMaskedChanged: PySide6.QtCore.Signal
+        blueMaskedChanged: PySide6.QtCore.Signal
+        greenMaskedChanged: PySide6.QtCore.Signal
+        redMaskedChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -590,6 +700,12 @@ class Qt3DRender(Shiboken.Object):
         def setRedMasked(self, redMasked: bool) -> None: ...
 
     class QComputeCommand(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        runTypeChanged: PySide6.QtCore.Signal
+        workGroupXChanged: PySide6.QtCore.Signal
+        workGroupYChanged: PySide6.QtCore.Signal
+        workGroupZChanged: PySide6.QtCore.Signal
+
 
         class RunType(enum.Enum):
 
@@ -614,6 +730,9 @@ class Qt3DRender(Shiboken.Object):
 
     class QCullFace(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
+        modeChanged: PySide6.QtCore.Signal
+
+
         class CullingMode(enum.Enum):
 
             NoCulling                : Qt3DRender.QCullFace.CullingMode = ... # 0x0
@@ -629,6 +748,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QDepthRange(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
+        farValueChanged: PySide6.QtCore.Signal
+        nearValueChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def farValue(self) -> float: ...
@@ -637,6 +760,9 @@ class Qt3DRender(Shiboken.Object):
         def setNearValue(self, value: float) -> None: ...
 
     class QDepthTest(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        depthFunctionChanged: PySide6.QtCore.Signal
+
 
         class DepthFunction(enum.Enum):
 
@@ -657,12 +783,20 @@ class Qt3DRender(Shiboken.Object):
 
     class QDirectionalLight(PySide6.Qt3DRender.Qt3DRender.QAbstractLight):
 
+        worldDirectionChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setWorldDirection(self, worldDirection: PySide6.QtGui.QVector3D) -> None: ...
         def worldDirection(self) -> PySide6.QtGui.QVector3D: ...
 
     class QDispatchCompute(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        workGroupXChanged: PySide6.QtCore.Signal
+        workGroupYChanged: PySide6.QtCore.Signal
+        workGroupZChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -691,6 +825,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QEnvironmentLight(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
+        irradianceChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def irradiance(self) -> PySide6.Qt3DRender.Qt3DRender.QAbstractTexture: ...
@@ -699,6 +837,10 @@ class Qt3DRender(Shiboken.Object):
         def specular(self) -> PySide6.Qt3DRender.Qt3DRender.QAbstractTexture: ...
 
     class QFilterKey(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        nameChanged: PySide6.QtCore.Signal
+        valueChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -714,6 +856,9 @@ class Qt3DRender(Shiboken.Object):
         def parentFrameGraphNode(self) -> PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode: ...
 
     class QFrontFace(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        directionChanged: PySide6.QtCore.Signal
+
 
         class WindingDirection(enum.Enum):
 
@@ -732,6 +877,20 @@ class Qt3DRender(Shiboken.Object):
 
 
     class QGeometryRenderer(PySide6.Qt3DCore.Qt3DCore.QBoundingVolume):
+
+        firstInstanceChanged: PySide6.QtCore.Signal
+        firstVertexChanged: PySide6.QtCore.Signal
+        geometryChanged: PySide6.QtCore.Signal
+        indexBufferByteOffsetChanged: PySide6.QtCore.Signal
+        indexOffsetChanged: PySide6.QtCore.Signal
+        instanceCountChanged: PySide6.QtCore.Signal
+        primitiveRestartEnabledChanged: PySide6.QtCore.Signal
+        primitiveTypeChanged: PySide6.QtCore.Signal
+        restartIndexValueChanged: PySide6.QtCore.Signal
+        sortIndexChanged: PySide6.QtCore.Signal
+        vertexCountChanged: PySide6.QtCore.Signal
+        verticesPerPatchChanged: PySide6.QtCore.Signal
+
 
         class PrimitiveType(enum.Enum):
 
@@ -778,6 +937,15 @@ class Qt3DRender(Shiboken.Object):
 
     class QGraphicsApiFilter(PySide6.QtCore.QObject):
 
+        apiChanged: PySide6.QtCore.Signal
+        extensionsChanged: PySide6.QtCore.Signal
+        graphicsApiFilterChanged: PySide6.QtCore.Signal
+        majorVersionChanged: PySide6.QtCore.Signal
+        minorVersionChanged: PySide6.QtCore.Signal
+        profileChanged: PySide6.QtCore.Signal
+        vendorChanged: PySide6.QtCore.Signal
+
+
         class Api(enum.Enum):
 
             OpenGL                   : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x1
@@ -811,12 +979,18 @@ class Qt3DRender(Shiboken.Object):
 
     class QLayer(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
+        recursiveChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def recursive(self) -> bool: ...
         def setRecursive(self, recursive: bool) -> None: ...
 
     class QLayerFilter(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        filterModeChanged: PySide6.QtCore.Signal
+
 
         class FilterMode(enum.Enum):
 
@@ -835,6 +1009,13 @@ class Qt3DRender(Shiboken.Object):
         def setFilterMode(self, filterMode: PySide6.Qt3DRender.Qt3DRender.QLayerFilter.FilterMode) -> None: ...
 
     class QLevelOfDetail(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        cameraChanged: PySide6.QtCore.Signal
+        currentIndexChanged: PySide6.QtCore.Signal
+        thresholdTypeChanged: PySide6.QtCore.Signal
+        thresholdsChanged: PySide6.QtCore.Signal
+        volumeOverrideChanged: PySide6.QtCore.Signal
+
 
         class ThresholdType(enum.Enum):
 
@@ -874,6 +1055,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QLineWidth(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
+        smoothChanged: PySide6.QtCore.Signal
+        valueChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setSmooth(self, enabled: bool) -> None: ...
@@ -882,6 +1067,9 @@ class Qt3DRender(Shiboken.Object):
         def value(self) -> float: ...
 
     class QMaterial(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        effectChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -892,6 +1080,9 @@ class Qt3DRender(Shiboken.Object):
         def setEffect(self, effect: PySide6.Qt3DRender.Qt3DRender.QEffect) -> None: ...
 
     class QMemoryBarrier(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        waitOperationsChanged: PySide6.QtCore.Signal
+
 
         class Operation(enum.Flag):
 
@@ -919,6 +1110,11 @@ class Qt3DRender(Shiboken.Object):
         def waitOperations(self) -> PySide6.Qt3DRender.Qt3DRender.QMemoryBarrier.Operation: ...
 
     class QMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
+
+        meshNameChanged: PySide6.QtCore.Signal
+        sourceChanged: PySide6.QtCore.Signal
+        statusChanged: PySide6.QtCore.Signal
+
 
         class Status(enum.Enum):
 
@@ -958,6 +1154,19 @@ class Qt3DRender(Shiboken.Object):
 
     class QObjectPicker(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
+        clicked: PySide6.QtCore.Signal
+        containsMouseChanged: PySide6.QtCore.Signal
+        dragEnabledChanged: PySide6.QtCore.Signal
+        entered: PySide6.QtCore.Signal
+        exited: PySide6.QtCore.Signal
+        hoverEnabledChanged: PySide6.QtCore.Signal
+        moved: PySide6.QtCore.Signal
+        pressed: PySide6.QtCore.Signal
+        pressedChanged: PySide6.QtCore.Signal
+        priorityChanged: PySide6.QtCore.Signal
+        released: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def containsMouse(self) -> bool: ...
@@ -970,6 +1179,11 @@ class Qt3DRender(Shiboken.Object):
         def setPriority(self, priority: int) -> None: ...
 
     class QPaintedTextureImage(PySide6.Qt3DRender.Qt3DRender.QAbstractTextureImage):
+
+        heightChanged: PySide6.QtCore.Signal
+        sizeChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -984,6 +1198,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QParameter(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        nameChanged: PySide6.QtCore.Signal
+        valueChanged: PySide6.QtCore.Signal
+
+
         @overload
         def __init__(self, name: str, texture: PySide6.Qt3DRender.Qt3DRender.QAbstractTexture, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
         @overload
@@ -997,6 +1215,9 @@ class Qt3DRender(Shiboken.Object):
         def value(self) -> Any: ...
 
     class QPickEvent(PySide6.QtCore.QObject):
+
+        acceptedChanged: PySide6.QtCore.Signal
+
 
         class Buttons(enum.Enum):
 
@@ -1078,6 +1299,12 @@ class Qt3DRender(Shiboken.Object):
 
     class QPickingSettings(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        faceOrientationPickingModeChanged: PySide6.QtCore.Signal
+        pickMethodChanged: PySide6.QtCore.Signal
+        pickResultModeChanged: PySide6.QtCore.Signal
+        worldSpaceToleranceChanged: PySide6.QtCore.Signal
+
+
         class FaceOrientationPickingMode(enum.Enum):
 
             FrontFace                : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x1
@@ -1114,6 +1341,11 @@ class Qt3DRender(Shiboken.Object):
 
     class QPointLight(PySide6.Qt3DRender.Qt3DRender.QAbstractLight):
 
+        constantAttenuationChanged: PySide6.QtCore.Signal
+        linearAttenuationChanged: PySide6.QtCore.Signal
+        quadraticAttenuationChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def constantAttenuation(self) -> float: ...
@@ -1124,6 +1356,10 @@ class Qt3DRender(Shiboken.Object):
         def setQuadraticAttenuation(self, value: float) -> None: ...
 
     class QPointSize(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        sizeModeChanged: PySide6.QtCore.Signal
+        valueChanged: PySide6.QtCore.Signal
+
 
         class SizeMode(enum.Enum):
 
@@ -1140,6 +1376,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QPolygonOffset(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
+        depthStepsChanged: PySide6.QtCore.Signal
+        scaleFactorChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def depthSteps(self) -> float: ...
@@ -1149,6 +1389,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QProximityFilter(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
+        distanceThresholdChanged: PySide6.QtCore.Signal
+        entityChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def distanceThreshold(self) -> float: ...
@@ -1157,6 +1401,10 @@ class Qt3DRender(Shiboken.Object):
         def setEntity(self, entity: PySide6.Qt3DCore.Qt3DCore.QEntity) -> None: ...
 
     class QRasterMode(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        faceModeChanged: PySide6.QtCore.Signal
+        rasterModeChanged: PySide6.QtCore.Signal
+
 
         class FaceMode(enum.Enum):
 
@@ -1180,6 +1428,11 @@ class Qt3DRender(Shiboken.Object):
         def setRasterMode(self, rasterMode: PySide6.Qt3DRender.Qt3DRender.QRasterMode.RasterMode) -> None: ...
 
     class QRayCaster(PySide6.Qt3DRender.Qt3DRender.QAbstractRayCaster):
+
+        directionChanged: PySide6.QtCore.Signal
+        lengthChanged: PySide6.QtCore.Signal
+        originChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1305,12 +1558,18 @@ class Qt3DRender(Shiboken.Object):
         def requestCapture(self, rect: PySide6.QtCore.QRect) -> PySide6.Qt3DRender.Qt3DRender.QRenderCaptureReply: ...
 
     class QRenderCaptureReply(PySide6.QtCore.QObject):
+
+        completed: PySide6.QtCore.Signal
+
         def captureId(self) -> int: ...
         def image(self) -> PySide6.QtGui.QImage: ...
         def isComplete(self) -> bool: ...
         def saveImage(self, fileName: str) -> bool: ...
 
     class QRenderPass(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        shaderProgramChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1339,6 +1598,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QRenderSettings(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
+        activeFrameGraphChanged: PySide6.QtCore.Signal
+        renderPolicyChanged: PySide6.QtCore.Signal
+
+
         class RenderPolicy(enum.Enum):
 
             OnDemand                 : Qt3DRender.QRenderSettings.RenderPolicy = ... # 0x0
@@ -1366,6 +1629,11 @@ class Qt3DRender(Shiboken.Object):
 
     class QRenderSurfaceSelector(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
+        externalRenderTargetSizeChanged: PySide6.QtCore.Signal
+        surfaceChanged: PySide6.QtCore.Signal
+        surfacePixelRatioChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def externalRenderTargetSize(self) -> PySide6.QtCore.QSize: ...
@@ -1384,6 +1652,13 @@ class Qt3DRender(Shiboken.Object):
         def removeOutput(self, output: PySide6.Qt3DRender.Qt3DRender.QRenderTargetOutput) -> None: ...
 
     class QRenderTargetOutput(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        attachmentPointChanged: PySide6.QtCore.Signal
+        faceChanged: PySide6.QtCore.Signal
+        layerChanged: PySide6.QtCore.Signal
+        mipLevelChanged: PySide6.QtCore.Signal
+        textureChanged: PySide6.QtCore.Signal
+
 
         class AttachmentPoint(enum.Enum):
 
@@ -1423,12 +1698,19 @@ class Qt3DRender(Shiboken.Object):
 
     class QRenderTargetSelector(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
+        targetChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setTarget(self, target: PySide6.Qt3DRender.Qt3DRender.QRenderTarget) -> None: ...
         def target(self) -> PySide6.Qt3DRender.Qt3DRender.QRenderTarget: ...
 
     class QSceneLoader(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        sourceChanged: PySide6.QtCore.Signal
+        statusChanged: PySide6.QtCore.Signal
+
 
         class ComponentType(enum.Enum):
 
@@ -1459,6 +1741,12 @@ class Qt3DRender(Shiboken.Object):
 
     class QScissorTest(PySide6.Qt3DRender.Qt3DRender.QRenderState):
 
+        bottomChanged: PySide6.QtCore.Signal
+        heightChanged: PySide6.QtCore.Signal
+        leftChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def bottom(self) -> int: ...
@@ -1471,6 +1759,9 @@ class Qt3DRender(Shiboken.Object):
         def width(self) -> int: ...
 
     class QScreenRayCaster(PySide6.Qt3DRender.Qt3DRender.QAbstractRayCaster):
+
+        positionChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1488,6 +1779,10 @@ class Qt3DRender(Shiboken.Object):
 
 
     class QSetFence(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        handleChanged: PySide6.QtCore.Signal
+        handleTypeChanged: PySide6.QtCore.Signal
+
 
         class HandleType(enum.Enum):
 
@@ -1507,6 +1802,14 @@ class Qt3DRender(Shiboken.Object):
         def event(self, event: PySide6.QtCore.QEvent) -> bool: ...
 
     class QShaderImage(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        accessChanged: PySide6.QtCore.Signal
+        formatChanged: PySide6.QtCore.Signal
+        layerChanged: PySide6.QtCore.Signal
+        layeredChanged: PySide6.QtCore.Signal
+        mipLevelChanged: PySide6.QtCore.Signal
+        textureChanged: PySide6.QtCore.Signal
+
 
         class Access(enum.Enum):
 
@@ -1577,6 +1880,17 @@ class Qt3DRender(Shiboken.Object):
 
     class QShaderProgram(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        computeShaderCodeChanged: PySide6.QtCore.Signal
+        formatChanged: PySide6.QtCore.Signal
+        fragmentShaderCodeChanged: PySide6.QtCore.Signal
+        geometryShaderCodeChanged: PySide6.QtCore.Signal
+        logChanged: PySide6.QtCore.Signal
+        statusChanged: PySide6.QtCore.Signal
+        tessellationControlShaderCodeChanged: PySide6.QtCore.Signal
+        tessellationEvaluationShaderCodeChanged: PySide6.QtCore.Signal
+        vertexShaderCodeChanged: PySide6.QtCore.Signal
+
+
         class Format(enum.Enum):
 
             GLSL                     : Qt3DRender.QShaderProgram.Format = ... # 0x0
@@ -1625,6 +1939,22 @@ class Qt3DRender(Shiboken.Object):
 
     class QShaderProgramBuilder(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        computeShaderCodeChanged: PySide6.QtCore.Signal
+        computeShaderGraphChanged: PySide6.QtCore.Signal
+        enabledLayersChanged: PySide6.QtCore.Signal
+        fragmentShaderCodeChanged: PySide6.QtCore.Signal
+        fragmentShaderGraphChanged: PySide6.QtCore.Signal
+        geometryShaderCodeChanged: PySide6.QtCore.Signal
+        geometryShaderGraphChanged: PySide6.QtCore.Signal
+        shaderProgramChanged: PySide6.QtCore.Signal
+        tessellationControlShaderCodeChanged: PySide6.QtCore.Signal
+        tessellationControlShaderGraphChanged: PySide6.QtCore.Signal
+        tessellationEvaluationShaderCodeChanged: PySide6.QtCore.Signal
+        tessellationEvaluationShaderGraphChanged: PySide6.QtCore.Signal
+        vertexShaderCodeChanged: PySide6.QtCore.Signal
+        vertexShaderGraphChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def computeShaderCode(self) -> PySide6.QtCore.QByteArray: ...
@@ -1652,12 +1982,18 @@ class Qt3DRender(Shiboken.Object):
 
     class QSharedGLTexture(PySide6.Qt3DRender.Qt3DRender.QAbstractTexture):
 
+        textureIdChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setTextureId(self, id: int) -> None: ...
         def textureId(self) -> int: ...
 
     class QSortPolicy(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        sortTypesChanged: PySide6.QtCore.Signal
+
 
         class SortType(enum.Enum):
 
@@ -1680,6 +2016,13 @@ class Qt3DRender(Shiboken.Object):
 
     class QSpotLight(PySide6.Qt3DRender.Qt3DRender.QAbstractLight):
 
+        constantAttenuationChanged: PySide6.QtCore.Signal
+        cutOffAngleChanged: PySide6.QtCore.Signal
+        linearAttenuationChanged: PySide6.QtCore.Signal
+        localDirectionChanged: PySide6.QtCore.Signal
+        quadraticAttenuationChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def constantAttenuation(self) -> float: ...
@@ -1694,6 +2037,10 @@ class Qt3DRender(Shiboken.Object):
         def setQuadraticAttenuation(self, value: float) -> None: ...
 
     class QStencilMask(PySide6.Qt3DRender.Qt3DRender.QRenderState):
+
+        backOutputMaskChanged: PySide6.QtCore.Signal
+        frontOutputMaskChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1710,6 +2057,12 @@ class Qt3DRender(Shiboken.Object):
         def front(self) -> PySide6.Qt3DRender.Qt3DRender.QStencilOperationArguments: ...
 
     class QStencilOperationArguments(PySide6.QtCore.QObject):
+
+        allTestsPassOperationChanged: PySide6.QtCore.Signal
+        depthTestFailureOperationChanged: PySide6.QtCore.Signal
+        faceModeChanged: PySide6.QtCore.Signal
+        stencilTestFailureOperationChanged: PySide6.QtCore.Signal
+
 
         class FaceMode(enum.Enum):
 
@@ -1747,6 +2100,12 @@ class Qt3DRender(Shiboken.Object):
 
     class QStencilTestArguments(PySide6.QtCore.QObject):
 
+        comparisonMaskChanged: PySide6.QtCore.Signal
+        faceModeChanged: PySide6.QtCore.Signal
+        referenceValueChanged: PySide6.QtCore.Signal
+        stencilFunctionChanged: PySide6.QtCore.Signal
+
+
         class StencilFaceMode(enum.Enum):
 
             Front                    : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x404
@@ -1775,6 +2134,9 @@ class Qt3DRender(Shiboken.Object):
         def stencilFunction(self) -> PySide6.Qt3DRender.Qt3DRender.QStencilTestArguments.StencilFunction: ...
 
     class QSubtreeEnabler(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        enablementChanged: PySide6.QtCore.Signal
+
 
         class Enablement(enum.Enum):
 
@@ -1924,6 +2286,11 @@ class Qt3DRender(Shiboken.Object):
 
     class QTextureImage(PySide6.Qt3DRender.Qt3DRender.QAbstractTextureImage):
 
+        mirroredChanged: PySide6.QtCore.Signal
+        sourceChanged: PySide6.QtCore.Signal
+        statusChanged: PySide6.QtCore.Signal
+
+
         class Status(enum.Enum):
 
             None_                    : Qt3DRender.QTextureImage.Status = ... # 0x0
@@ -1969,6 +2336,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QTextureLoader(PySide6.Qt3DRender.Qt3DRender.QAbstractTexture):
 
+        mirroredChanged: PySide6.QtCore.Signal
+        sourceChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def isMirrored(self) -> bool: ...
@@ -1982,6 +2353,11 @@ class Qt3DRender(Shiboken.Object):
 
 
     class QTextureWrapMode(PySide6.QtCore.QObject):
+
+        xChanged: PySide6.QtCore.Signal
+        yChanged: PySide6.QtCore.Signal
+        zChanged: PySide6.QtCore.Signal
+
 
         class WrapMode(enum.Enum):
 
@@ -2005,6 +2381,10 @@ class Qt3DRender(Shiboken.Object):
 
     class QViewport(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
+        gammaChanged: PySide6.QtCore.Signal
+        normalizedRectChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def gamma(self) -> float: ...
@@ -2013,6 +2393,12 @@ class Qt3DRender(Shiboken.Object):
         def setNormalizedRect(self, normalizedRect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> None: ...
 
     class QWaitFence(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
+
+        handleChanged: PySide6.QtCore.Signal
+        handleTypeChanged: PySide6.QtCore.Signal
+        timeoutChanged: PySide6.QtCore.Signal
+        waitOnCPUChanged: PySide6.QtCore.Signal
+
 
         class HandleType(enum.Enum):
 

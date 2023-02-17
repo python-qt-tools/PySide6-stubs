@@ -20,6 +20,36 @@ from typing import Any, Optional, Tuple, Type, Union, Sequence, Dict, List, over
 
 class QAbstractAxis(PySide6.QtCore.QObject):
 
+    colorChanged: PySide6.QtCore.Signal
+    gridLineColorChanged: PySide6.QtCore.Signal
+    gridLinePenChanged: PySide6.QtCore.Signal
+    gridVisibleChanged: PySide6.QtCore.Signal
+    labelsAngleChanged: PySide6.QtCore.Signal
+    labelsBrushChanged: PySide6.QtCore.Signal
+    labelsColorChanged: PySide6.QtCore.Signal
+    labelsEditableChanged: PySide6.QtCore.Signal
+    labelsFontChanged: PySide6.QtCore.Signal
+    labelsTruncatedChanged: PySide6.QtCore.Signal
+    labelsVisibleChanged: PySide6.QtCore.Signal
+    linePenChanged: PySide6.QtCore.Signal
+    lineVisibleChanged: PySide6.QtCore.Signal
+    minorGridLineColorChanged: PySide6.QtCore.Signal
+    minorGridLinePenChanged: PySide6.QtCore.Signal
+    minorGridVisibleChanged: PySide6.QtCore.Signal
+    reverseChanged: PySide6.QtCore.Signal
+    shadesBorderColorChanged: PySide6.QtCore.Signal
+    shadesBrushChanged: PySide6.QtCore.Signal
+    shadesColorChanged: PySide6.QtCore.Signal
+    shadesPenChanged: PySide6.QtCore.Signal
+    shadesVisibleChanged: PySide6.QtCore.Signal
+    titleBrushChanged: PySide6.QtCore.Signal
+    titleFontChanged: PySide6.QtCore.Signal
+    titleTextChanged: PySide6.QtCore.Signal
+    titleVisibleChanged: PySide6.QtCore.Signal
+    truncateLabelsChanged: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+
+
     class AxisType(enum.Enum):
 
         AxisTypeNoAxis           : QAbstractAxis.AxisType = ... # 0x0
@@ -98,6 +128,21 @@ class QAbstractAxis(PySide6.QtCore.QObject):
 
 class QAbstractBarSeries(PySide6.QtCharts.QAbstractSeries):
 
+    barsetsAdded: PySide6.QtCore.Signal
+    barsetsRemoved: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    countChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    labelsAngleChanged: PySide6.QtCore.Signal
+    labelsFormatChanged: PySide6.QtCore.Signal
+    labelsPositionChanged: PySide6.QtCore.Signal
+    labelsPrecisionChanged: PySide6.QtCore.Signal
+    labelsVisibleChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+
+
     class LabelsPosition(enum.Enum):
 
         LabelsCenter             : QAbstractBarSeries.LabelsPosition = ... # 0x0
@@ -131,6 +176,12 @@ class QAbstractBarSeries(PySide6.QtCharts.QAbstractSeries):
 
 
 class QAbstractSeries(PySide6.QtCore.QObject):
+
+    nameChanged: PySide6.QtCore.Signal
+    opacityChanged: PySide6.QtCore.Signal
+    useOpenGLChanged: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+
 
     class SeriesType(enum.Enum):
 
@@ -176,6 +227,21 @@ class QAreaLegendMarker(PySide6.QtCharts.QLegendMarker):
 
 class QAreaSeries(PySide6.QtCharts.QAbstractSeries):
 
+    borderColorChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    colorChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    pointLabelsClippingChanged: PySide6.QtCore.Signal
+    pointLabelsColorChanged: PySide6.QtCore.Signal
+    pointLabelsFontChanged: PySide6.QtCore.Signal
+    pointLabelsFormatChanged: PySide6.QtCore.Signal
+    pointLabelsVisibilityChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    selected: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -209,6 +275,13 @@ class QAreaSeries(PySide6.QtCharts.QAbstractSeries):
 
 
 class QBarCategoryAxis(PySide6.QtCharts.QAbstractAxis):
+
+    categoriesChanged: PySide6.QtCore.Signal
+    countChanged: PySide6.QtCore.Signal
+    maxChanged: PySide6.QtCore.Signal
+    minChanged: PySide6.QtCore.Signal
+    rangeChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -269,6 +342,26 @@ class QBarSeries(PySide6.QtCharts.QAbstractBarSeries):
 
 
 class QBarSet(PySide6.QtCore.QObject):
+
+    borderColorChanged: PySide6.QtCore.Signal
+    brushChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    colorChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    labelBrushChanged: PySide6.QtCore.Signal
+    labelChanged: PySide6.QtCore.Signal
+    labelColorChanged: PySide6.QtCore.Signal
+    labelFontChanged: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    selectedBarsChanged: PySide6.QtCore.Signal
+    selectedColorChanged: PySide6.QtCore.Signal
+    valueChanged: PySide6.QtCore.Signal
+    valuesAdded: PySide6.QtCore.Signal
+    valuesRemoved: PySide6.QtCore.Signal
+
 
     def __init__(self, label: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -343,6 +436,20 @@ class QBoxPlotModelMapper(PySide6.QtCore.QObject):
 
 class QBoxPlotSeries(PySide6.QtCharts.QAbstractSeries):
 
+    boxOutlineVisibilityChanged: PySide6.QtCore.Signal
+    boxWidthChanged: PySide6.QtCore.Signal
+    boxsetsAdded: PySide6.QtCore.Signal
+    boxsetsRemoved: PySide6.QtCore.Signal
+    brushChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    countChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     @overload
@@ -367,6 +474,18 @@ class QBoxPlotSeries(PySide6.QtCharts.QAbstractSeries):
 
 
 class QBoxSet(PySide6.QtCore.QObject):
+
+    brushChanged: PySide6.QtCore.Signal
+    cleared: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    valueChanged: PySide6.QtCore.Signal
+    valuesChanged: PySide6.QtCore.Signal
+
 
     class ValuePositions(enum.IntEnum):
 
@@ -409,6 +528,10 @@ class QCandlestickLegendMarker(PySide6.QtCharts.QLegendMarker):
 
 class QCandlestickModelMapper(PySide6.QtCore.QObject):
 
+    modelReplaced: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def close(self) -> int: ...
@@ -433,6 +556,26 @@ class QCandlestickModelMapper(PySide6.QtCore.QObject):
 
 
 class QCandlestickSeries(PySide6.QtCharts.QAbstractSeries):
+
+    bodyOutlineVisibilityChanged: PySide6.QtCore.Signal
+    bodyWidthChanged: PySide6.QtCore.Signal
+    brushChanged: PySide6.QtCore.Signal
+    candlestickSetsAdded: PySide6.QtCore.Signal
+    candlestickSetsRemoved: PySide6.QtCore.Signal
+    capsVisibilityChanged: PySide6.QtCore.Signal
+    capsWidthChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    countChanged: PySide6.QtCore.Signal
+    decreasingColorChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    increasingColorChanged: PySide6.QtCore.Signal
+    maximumColumnWidthChanged: PySide6.QtCore.Signal
+    minimumColumnWidthChanged: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -474,6 +617,20 @@ class QCandlestickSeries(PySide6.QtCharts.QAbstractSeries):
 
 class QCandlestickSet(PySide6.QtCore.QObject):
 
+    brushChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    closeChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    highChanged: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    lowChanged: PySide6.QtCore.Signal
+    openChanged: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    timestampChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, open: float, high: float, low: float, close: float, timestamp: float = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -497,6 +654,10 @@ class QCandlestickSet(PySide6.QtCore.QObject):
 
 class QCategoryAxis(PySide6.QtCharts.QValueAxis):
 
+    categoriesChanged: PySide6.QtCore.Signal
+    labelsPositionChanged: PySide6.QtCore.Signal
+
+
     class AxisLabelsPosition(enum.Enum):
 
         AxisLabelsPositionCenter : QCategoryAxis.AxisLabelsPosition = ... # 0x0
@@ -519,6 +680,9 @@ class QCategoryAxis(PySide6.QtCharts.QValueAxis):
 
 
 class QChart(PySide6.QtWidgets.QGraphicsWidget):
+
+    plotAreaChanged: PySide6.QtCore.Signal
+
 
     class AnimationOption(enum.Flag):
 
@@ -646,6 +810,13 @@ class QChartView(PySide6.QtWidgets.QGraphicsView):
 
 class QDateTimeAxis(PySide6.QtCharts.QAbstractAxis):
 
+    formatChanged: PySide6.QtCore.Signal
+    maxChanged: PySide6.QtCore.Signal
+    minChanged: PySide6.QtCore.Signal
+    rangeChanged: PySide6.QtCore.Signal
+    tickCountChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def format(self) -> str: ...
@@ -661,6 +832,14 @@ class QDateTimeAxis(PySide6.QtCharts.QAbstractAxis):
 
 
 class QHBarModelMapper(PySide6.QtCharts.QBarModelMapper):
+
+    columnCountChanged: PySide6.QtCore.Signal
+    firstBarSetRowChanged: PySide6.QtCore.Signal
+    firstColumnChanged: PySide6.QtCore.Signal
+    lastBarSetRowChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -680,6 +859,14 @@ class QHBarModelMapper(PySide6.QtCharts.QBarModelMapper):
 
 class QHBoxPlotModelMapper(PySide6.QtCharts.QBoxPlotModelMapper):
 
+    columnCountChanged: PySide6.QtCore.Signal
+    firstBoxSetRowChanged: PySide6.QtCore.Signal
+    firstColumnChanged: PySide6.QtCore.Signal
+    lastBoxSetRowChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def columnCount(self) -> int: ...
@@ -697,6 +884,15 @@ class QHBoxPlotModelMapper(PySide6.QtCharts.QBoxPlotModelMapper):
 
 
 class QHCandlestickModelMapper(PySide6.QtCharts.QCandlestickModelMapper):
+
+    closeColumnChanged: PySide6.QtCore.Signal
+    firstSetRowChanged: PySide6.QtCore.Signal
+    highColumnChanged: PySide6.QtCore.Signal
+    lastSetRowChanged: PySide6.QtCore.Signal
+    lowColumnChanged: PySide6.QtCore.Signal
+    openColumnChanged: PySide6.QtCore.Signal
+    timestampColumnChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -719,6 +915,14 @@ class QHCandlestickModelMapper(PySide6.QtCharts.QCandlestickModelMapper):
 
 class QHPieModelMapper(PySide6.QtCharts.QPieModelMapper):
 
+    columnCountChanged: PySide6.QtCore.Signal
+    firstColumnChanged: PySide6.QtCore.Signal
+    labelsRowChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+    valuesRowChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def columnCount(self) -> int: ...
@@ -736,6 +940,14 @@ class QHPieModelMapper(PySide6.QtCharts.QPieModelMapper):
 
 
 class QHXYModelMapper(PySide6.QtCharts.QXYModelMapper):
+
+    columnCountChanged: PySide6.QtCore.Signal
+    firstColumnChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+    xRowChanged: PySide6.QtCore.Signal
+    yRowChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -778,6 +990,18 @@ class QIntList(object): ...
 
 
 class QLegend(PySide6.QtWidgets.QGraphicsWidget):
+
+    attachedToChartChanged: PySide6.QtCore.Signal
+    backgroundVisibleChanged: PySide6.QtCore.Signal
+    borderColorChanged: PySide6.QtCore.Signal
+    colorChanged: PySide6.QtCore.Signal
+    fontChanged: PySide6.QtCore.Signal
+    interactiveChanged: PySide6.QtCore.Signal
+    labelColorChanged: PySide6.QtCore.Signal
+    markerShapeChanged: PySide6.QtCore.Signal
+    reverseMarkersChanged: PySide6.QtCore.Signal
+    showToolTipsChanged: PySide6.QtCore.Signal
+
 
     class MarkerShape(enum.Enum):
 
@@ -828,6 +1052,17 @@ class QLegend(PySide6.QtWidgets.QGraphicsWidget):
 
 class QLegendMarker(PySide6.QtCore.QObject):
 
+    brushChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    fontChanged: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    labelBrushChanged: PySide6.QtCore.Signal
+    labelChanged: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    shapeChanged: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+
+
     class LegendMarkerType(enum.Enum):
 
         LegendMarkerTypeArea     : QLegendMarker.LegendMarkerType = ... # 0x0
@@ -864,6 +1099,15 @@ class QLineSeries(PySide6.QtCharts.QXYSeries):
 
 
 class QLogValueAxis(PySide6.QtCharts.QAbstractAxis):
+
+    baseChanged: PySide6.QtCore.Signal
+    labelFormatChanged: PySide6.QtCore.Signal
+    maxChanged: PySide6.QtCore.Signal
+    minChanged: PySide6.QtCore.Signal
+    minorTickCountChanged: PySide6.QtCore.Signal
+    rangeChanged: PySide6.QtCore.Signal
+    tickCountChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -920,6 +1164,17 @@ class QPieModelMapper(PySide6.QtCore.QObject):
 
 class QPieSeries(PySide6.QtCharts.QAbstractSeries):
 
+    added: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    countChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    removed: PySide6.QtCore.Signal
+    sumChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def __lshift__(self, slice: PySide6.QtCharts.QPieSlice) -> PySide6.QtCharts.QPieSeries: ...
@@ -955,6 +1210,27 @@ class QPieSeries(PySide6.QtCharts.QAbstractSeries):
 
 
 class QPieSlice(PySide6.QtCore.QObject):
+
+    angleSpanChanged: PySide6.QtCore.Signal
+    borderColorChanged: PySide6.QtCore.Signal
+    borderWidthChanged: PySide6.QtCore.Signal
+    brushChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    colorChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    labelBrushChanged: PySide6.QtCore.Signal
+    labelChanged: PySide6.QtCore.Signal
+    labelColorChanged: PySide6.QtCore.Signal
+    labelFontChanged: PySide6.QtCore.Signal
+    labelVisibleChanged: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    percentageChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    startAngleChanged: PySide6.QtCore.Signal
+    valueChanged: PySide6.QtCore.Signal
+
 
     class LabelPosition(enum.Enum):
 
@@ -1025,6 +1301,12 @@ class QPolarChart(PySide6.QtCharts.QChart):
 
 class QScatterSeries(PySide6.QtCharts.QXYSeries):
 
+    borderColorChanged: PySide6.QtCore.Signal
+    colorChanged: PySide6.QtCore.Signal
+    markerShapeChanged: PySide6.QtCore.Signal
+    markerSizeChanged: PySide6.QtCore.Signal
+
+
     class MarkerShape(enum.Enum):
 
         MarkerShapeCircle        : QScatterSeries.MarkerShape = ... # 0x0
@@ -1067,6 +1349,14 @@ class QStackedBarSeries(PySide6.QtCharts.QAbstractBarSeries):
 
 class QVBarModelMapper(PySide6.QtCharts.QBarModelMapper):
 
+    firstBarSetColumnChanged: PySide6.QtCore.Signal
+    firstRowChanged: PySide6.QtCore.Signal
+    lastBarSetColumnChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    rowCountChanged: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def firstBarSetColumn(self) -> int: ...
@@ -1085,6 +1375,14 @@ class QVBarModelMapper(PySide6.QtCharts.QBarModelMapper):
 
 class QVBoxPlotModelMapper(PySide6.QtCharts.QBoxPlotModelMapper):
 
+    firstBoxSetColumnChanged: PySide6.QtCore.Signal
+    firstRowChanged: PySide6.QtCore.Signal
+    lastBoxSetColumnChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    rowCountChanged: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def firstBoxSetColumn(self) -> int: ...
@@ -1102,6 +1400,15 @@ class QVBoxPlotModelMapper(PySide6.QtCharts.QBoxPlotModelMapper):
 
 
 class QVCandlestickModelMapper(PySide6.QtCharts.QCandlestickModelMapper):
+
+    closeRowChanged: PySide6.QtCore.Signal
+    firstSetColumnChanged: PySide6.QtCore.Signal
+    highRowChanged: PySide6.QtCore.Signal
+    lastSetColumnChanged: PySide6.QtCore.Signal
+    lowRowChanged: PySide6.QtCore.Signal
+    openRowChanged: PySide6.QtCore.Signal
+    timestampRowChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -1124,6 +1431,14 @@ class QVCandlestickModelMapper(PySide6.QtCharts.QCandlestickModelMapper):
 
 class QVPieModelMapper(PySide6.QtCharts.QPieModelMapper):
 
+    firstRowChanged: PySide6.QtCore.Signal
+    labelsColumnChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    rowCountChanged: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+    valuesColumnChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def firstRow(self) -> int: ...
@@ -1142,6 +1457,14 @@ class QVPieModelMapper(PySide6.QtCharts.QPieModelMapper):
 
 class QVXYModelMapper(PySide6.QtCharts.QXYModelMapper):
 
+    firstRowChanged: PySide6.QtCore.Signal
+    modelReplaced: PySide6.QtCore.Signal
+    rowCountChanged: PySide6.QtCore.Signal
+    seriesReplaced: PySide6.QtCore.Signal
+    xColumnChanged: PySide6.QtCore.Signal
+    yColumnChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def firstRow(self) -> int: ...
@@ -1159,6 +1482,17 @@ class QVXYModelMapper(PySide6.QtCharts.QXYModelMapper):
 
 
 class QValueAxis(PySide6.QtCharts.QAbstractAxis):
+
+    labelFormatChanged: PySide6.QtCore.Signal
+    maxChanged: PySide6.QtCore.Signal
+    minChanged: PySide6.QtCore.Signal
+    minorTickCountChanged: PySide6.QtCore.Signal
+    rangeChanged: PySide6.QtCore.Signal
+    tickAnchorChanged: PySide6.QtCore.Signal
+    tickCountChanged: PySide6.QtCore.Signal
+    tickIntervalChanged: PySide6.QtCore.Signal
+    tickTypeChanged: PySide6.QtCore.Signal
+
 
     class TickType(enum.Enum):
 
@@ -1218,6 +1552,34 @@ class QXYModelMapper(PySide6.QtCore.QObject):
 
 
 class QXYSeries(PySide6.QtCharts.QAbstractSeries):
+
+    bestFitLineColorChanged: PySide6.QtCore.Signal
+    bestFitLinePenChanged: PySide6.QtCore.Signal
+    bestFitLineVisibilityChanged: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    colorChanged: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    lightMarkerChanged: PySide6.QtCore.Signal
+    markerSizeChanged: PySide6.QtCore.Signal
+    penChanged: PySide6.QtCore.Signal
+    pointAdded: PySide6.QtCore.Signal
+    pointLabelsClippingChanged: PySide6.QtCore.Signal
+    pointLabelsColorChanged: PySide6.QtCore.Signal
+    pointLabelsFontChanged: PySide6.QtCore.Signal
+    pointLabelsFormatChanged: PySide6.QtCore.Signal
+    pointLabelsVisibilityChanged: PySide6.QtCore.Signal
+    pointRemoved: PySide6.QtCore.Signal
+    pointReplaced: PySide6.QtCore.Signal
+    pointsConfigurationChanged: PySide6.QtCore.Signal
+    pointsRemoved: PySide6.QtCore.Signal
+    pointsReplaced: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    selectedColorChanged: PySide6.QtCore.Signal
+    selectedLightMarkerChanged: PySide6.QtCore.Signal
+    selectedPointsChanged: PySide6.QtCore.Signal
+
 
     class PointConfiguration(enum.Enum):
 

@@ -19,6 +19,11 @@ from typing import Any, Optional, Type, Union, Sequence, List, Set, overload
 
 class QAbstractState(PySide6.QtCore.QObject):
 
+    activeChanged: PySide6.QtCore.Signal
+    entered: PySide6.QtCore.Signal
+    exited: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
 
     def active(self) -> bool: ...
@@ -30,6 +35,11 @@ class QAbstractState(PySide6.QtCore.QObject):
 
 
 class QAbstractTransition(PySide6.QtCore.QObject):
+
+    targetStateChanged: PySide6.QtCore.Signal
+    targetStatesChanged: PySide6.QtCore.Signal
+    triggered: PySide6.QtCore.Signal
+
 
     class TransitionType(enum.Enum):
 
@@ -81,6 +91,11 @@ class QFinalState(PySide6.QtStateMachine.QAbstractState):
 
 
 class QHistoryState(PySide6.QtStateMachine.QAbstractState):
+
+    defaultStateChanged: PySide6.QtCore.Signal
+    defaultTransitionChanged: PySide6.QtCore.Signal
+    historyTypeChanged: PySide6.QtCore.Signal
+
 
     class HistoryType(enum.Enum):
 
@@ -159,6 +174,13 @@ class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
 
 class QState(PySide6.QtStateMachine.QAbstractState):
 
+    childModeChanged: PySide6.QtCore.Signal
+    errorStateChanged: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    initialStateChanged: PySide6.QtCore.Signal
+    propertiesAssigned: PySide6.QtCore.Signal
+
+
     class ChildMode(enum.Enum):
 
         ExclusiveStates          : QState.ChildMode = ... # 0x0
@@ -199,6 +221,11 @@ class QState(PySide6.QtStateMachine.QAbstractState):
 
 
 class QStateMachine(PySide6.QtStateMachine.QState):
+
+    runningChanged: PySide6.QtCore.Signal
+    started: PySide6.QtCore.Signal
+    stopped: PySide6.QtCore.Signal
+
 
     class Error(enum.Enum):
 

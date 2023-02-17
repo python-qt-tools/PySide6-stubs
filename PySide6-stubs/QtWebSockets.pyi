@@ -23,6 +23,10 @@ class QIntList(object): ...
 
 class QMaskGenerator(PySide6.QtCore.QObject):
 
+    destroyed: PySide6.QtCore.Signal
+    objectNameChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def nextMask(self) -> int: ...
@@ -30,6 +34,27 @@ class QMaskGenerator(PySide6.QtCore.QObject):
 
 
 class QWebSocket(PySide6.QtCore.QObject):
+
+    aboutToClose: PySide6.QtCore.Signal
+    alertReceived: PySide6.QtCore.Signal
+    alertSent: PySide6.QtCore.Signal
+    binaryFrameReceived: PySide6.QtCore.Signal
+    binaryMessageReceived: PySide6.QtCore.Signal
+    bytesWritten: PySide6.QtCore.Signal
+    connected: PySide6.QtCore.Signal
+    disconnected: PySide6.QtCore.Signal
+    error: PySide6.QtCore.Signal
+    handshakeInterruptedOnError: PySide6.QtCore.Signal
+    peerVerifyError: PySide6.QtCore.Signal
+    pong: PySide6.QtCore.Signal
+    preSharedKeyAuthenticationRequired: PySide6.QtCore.Signal
+    proxyAuthenticationRequired: PySide6.QtCore.Signal
+    readChannelFinished: PySide6.QtCore.Signal
+    sslErrors: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+    textFrameReceived: PySide6.QtCore.Signal
+    textMessageReceived: PySide6.QtCore.Signal
+
 
     def __init__(self, origin: str = ..., version: PySide6.QtWebSockets.QWebSocketProtocol.Version = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -156,6 +181,19 @@ class QWebSocketProtocol(Shiboken.Object):
 
 
 class QWebSocketServer(PySide6.QtCore.QObject):
+
+    acceptError: PySide6.QtCore.Signal
+    alertReceived: PySide6.QtCore.Signal
+    alertSent: PySide6.QtCore.Signal
+    closed: PySide6.QtCore.Signal
+    handshakeInterruptedOnError: PySide6.QtCore.Signal
+    newConnection: PySide6.QtCore.Signal
+    originAuthenticationRequired: PySide6.QtCore.Signal
+    peerVerifyError: PySide6.QtCore.Signal
+    preSharedKeyAuthenticationRequired: PySide6.QtCore.Signal
+    serverError: PySide6.QtCore.Signal
+    sslErrors: PySide6.QtCore.Signal
+
 
     class SslMode(enum.Enum):
 

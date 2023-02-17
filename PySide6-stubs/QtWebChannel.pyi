@@ -20,6 +20,9 @@ class QIntList(object): ...
 
 class QWebChannel(PySide6.QtCore.QObject):
 
+    blockUpdatesChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def blockUpdates(self) -> bool: ...
@@ -35,6 +38,9 @@ class QWebChannel(PySide6.QtCore.QObject):
 
 
 class QWebChannelAbstractTransport(PySide6.QtCore.QObject):
+
+    messageReceived: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

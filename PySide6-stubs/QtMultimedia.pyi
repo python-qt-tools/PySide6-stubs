@@ -76,6 +76,17 @@ class QAudioBuffer(Shiboken.Object):
 
 class QAudioDecoder(PySide6.QtCore.QObject):
 
+    bufferAvailableChanged: PySide6.QtCore.Signal
+    bufferReady: PySide6.QtCore.Signal
+    durationChanged: PySide6.QtCore.Signal
+    error: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    formatChanged: PySide6.QtCore.Signal
+    isDecodingChanged: PySide6.QtCore.Signal
+    positionChanged: PySide6.QtCore.Signal
+    sourceChanged: PySide6.QtCore.Signal
+
+
     class Error(enum.Enum):
 
         NoError                  : QAudioDecoder.Error = ... # 0x0
@@ -224,6 +235,11 @@ class QAudioFormat(Shiboken.Object):
 
 class QAudioInput(PySide6.QtCore.QObject):
 
+    deviceChanged: PySide6.QtCore.Signal
+    mutedChanged: PySide6.QtCore.Signal
+    volumeChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, deviceInfo: PySide6.QtMultimedia.QAudioDevice, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -239,6 +255,11 @@ class QAudioInput(PySide6.QtCore.QObject):
 
 class QAudioOutput(PySide6.QtCore.QObject):
 
+    deviceChanged: PySide6.QtCore.Signal
+    mutedChanged: PySide6.QtCore.Signal
+    volumeChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, device: PySide6.QtMultimedia.QAudioDevice, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -253,6 +274,9 @@ class QAudioOutput(PySide6.QtCore.QObject):
 
 
 class QAudioSink(PySide6.QtCore.QObject):
+
+    stateChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, audioDeviceInfo: PySide6.QtMultimedia.QAudioDevice, format: PySide6.QtMultimedia.QAudioFormat = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -282,6 +306,9 @@ class QAudioSink(PySide6.QtCore.QObject):
 
 class QAudioSource(PySide6.QtCore.QObject):
 
+    stateChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, audioDeviceInfo: PySide6.QtMultimedia.QAudioDevice, format: PySide6.QtMultimedia.QAudioFormat = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -309,6 +336,36 @@ class QAudioSource(PySide6.QtCore.QObject):
 
 
 class QCamera(PySide6.QtCore.QObject):
+
+    activeChanged: PySide6.QtCore.Signal
+    brightnessChanged: PySide6.QtCore.Signal
+    cameraDeviceChanged: PySide6.QtCore.Signal
+    cameraFormatChanged: PySide6.QtCore.Signal
+    colorTemperatureChanged: PySide6.QtCore.Signal
+    contrastChanged: PySide6.QtCore.Signal
+    customFocusPointChanged: PySide6.QtCore.Signal
+    errorChanged: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    exposureCompensationChanged: PySide6.QtCore.Signal
+    exposureModeChanged: PySide6.QtCore.Signal
+    exposureTimeChanged: PySide6.QtCore.Signal
+    flashModeChanged: PySide6.QtCore.Signal
+    flashReady: PySide6.QtCore.Signal
+    focusDistanceChanged: PySide6.QtCore.Signal
+    focusModeChanged: PySide6.QtCore.Signal
+    focusPointChanged: PySide6.QtCore.Signal
+    hueChanged: PySide6.QtCore.Signal
+    isoSensitivityChanged: PySide6.QtCore.Signal
+    manualExposureTimeChanged: PySide6.QtCore.Signal
+    manualIsoSensitivityChanged: PySide6.QtCore.Signal
+    maximumZoomFactorChanged: PySide6.QtCore.Signal
+    minimumZoomFactorChanged: PySide6.QtCore.Signal
+    saturationChanged: PySide6.QtCore.Signal
+    supportedFeaturesChanged: PySide6.QtCore.Signal
+    torchModeChanged: PySide6.QtCore.Signal
+    whiteBalanceModeChanged: PySide6.QtCore.Signal
+    zoomFactorChanged: PySide6.QtCore.Signal
+
 
     class Error(enum.Enum):
 
@@ -491,6 +548,20 @@ class QCameraFormat(Shiboken.Object):
 
 class QImageCapture(PySide6.QtCore.QObject):
 
+    errorChanged: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    fileFormatChanged: PySide6.QtCore.Signal
+    imageAvailable: PySide6.QtCore.Signal
+    imageCaptured: PySide6.QtCore.Signal
+    imageExposed: PySide6.QtCore.Signal
+    imageMetadataAvailable: PySide6.QtCore.Signal
+    imageSaved: PySide6.QtCore.Signal
+    metaDataChanged: PySide6.QtCore.Signal
+    qualityChanged: PySide6.QtCore.Signal
+    readyForCaptureChanged: PySide6.QtCore.Signal
+    resolutionChanged: PySide6.QtCore.Signal
+
+
     class Error(enum.Enum):
 
         NoError                  : QImageCapture.Error = ... # 0x0
@@ -554,6 +625,14 @@ class QIntList(object): ...
 
 class QMediaCaptureSession(PySide6.QtCore.QObject):
 
+    audioInputChanged: PySide6.QtCore.Signal
+    audioOutputChanged: PySide6.QtCore.Signal
+    cameraChanged: PySide6.QtCore.Signal
+    imageCaptureChanged: PySide6.QtCore.Signal
+    recorderChanged: PySide6.QtCore.Signal
+    videoOutputChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def audioInput(self) -> PySide6.QtMultimedia.QAudioInput: ...
@@ -573,6 +652,11 @@ class QMediaCaptureSession(PySide6.QtCore.QObject):
 
 
 class QMediaDevices(PySide6.QtCore.QObject):
+
+    audioInputsChanged: PySide6.QtCore.Signal
+    audioOutputsChanged: PySide6.QtCore.Signal
+    videoInputsChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -747,6 +831,26 @@ class QMediaMetaData(Shiboken.Object):
 
 class QMediaPlayer(PySide6.QtCore.QObject):
 
+    activeTracksChanged: PySide6.QtCore.Signal
+    audioOutputChanged: PySide6.QtCore.Signal
+    bufferProgressChanged: PySide6.QtCore.Signal
+    durationChanged: PySide6.QtCore.Signal
+    errorChanged: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    hasAudioChanged: PySide6.QtCore.Signal
+    hasVideoChanged: PySide6.QtCore.Signal
+    loopsChanged: PySide6.QtCore.Signal
+    mediaStatusChanged: PySide6.QtCore.Signal
+    metaDataChanged: PySide6.QtCore.Signal
+    playbackRateChanged: PySide6.QtCore.Signal
+    playbackStateChanged: PySide6.QtCore.Signal
+    positionChanged: PySide6.QtCore.Signal
+    seekableChanged: PySide6.QtCore.Signal
+    sourceChanged: PySide6.QtCore.Signal
+    tracksChanged: PySide6.QtCore.Signal
+    videoOutputChanged: PySide6.QtCore.Signal
+
+
     class Error(enum.Enum):
 
         NoError                  : QMediaPlayer.Error = ... # 0x0
@@ -826,6 +930,24 @@ class QMediaPlayer(PySide6.QtCore.QObject):
 
 
 class QMediaRecorder(PySide6.QtCore.QObject):
+
+    actualLocationChanged: PySide6.QtCore.Signal
+    audioBitRateChanged: PySide6.QtCore.Signal
+    audioChannelCountChanged: PySide6.QtCore.Signal
+    audioSampleRateChanged: PySide6.QtCore.Signal
+    durationChanged: PySide6.QtCore.Signal
+    encoderSettingsChanged: PySide6.QtCore.Signal
+    encodingModeChanged: PySide6.QtCore.Signal
+    errorChanged: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    mediaFormatChanged: PySide6.QtCore.Signal
+    metaDataChanged: PySide6.QtCore.Signal
+    qualityChanged: PySide6.QtCore.Signal
+    recorderStateChanged: PySide6.QtCore.Signal
+    videoBitRateChanged: PySide6.QtCore.Signal
+    videoFrameRateChanged: PySide6.QtCore.Signal
+    videoResolutionChanged: PySide6.QtCore.Signal
+
 
     class EncodingMode(enum.Enum):
 
@@ -963,6 +1085,17 @@ class QMediaTimeRange(Shiboken.Object):
 
 
 class QSoundEffect(PySide6.QtCore.QObject):
+
+    audioDeviceChanged: PySide6.QtCore.Signal
+    loadedChanged: PySide6.QtCore.Signal
+    loopCountChanged: PySide6.QtCore.Signal
+    loopsRemainingChanged: PySide6.QtCore.Signal
+    mutedChanged: PySide6.QtCore.Signal
+    playingChanged: PySide6.QtCore.Signal
+    sourceChanged: PySide6.QtCore.Signal
+    statusChanged: PySide6.QtCore.Signal
+    volumeChanged: PySide6.QtCore.Signal
+
 
     class Loop(enum.Enum):
 
@@ -1199,6 +1332,11 @@ class QVideoFrameFormat(Shiboken.Object):
 
 
 class QVideoSink(PySide6.QtCore.QObject):
+
+    subtitleTextChanged: PySide6.QtCore.Signal
+    videoFrameChanged: PySide6.QtCore.Signal
+    videoSizeChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

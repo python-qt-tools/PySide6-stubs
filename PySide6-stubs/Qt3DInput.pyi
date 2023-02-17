@@ -27,6 +27,9 @@ class Qt3DInput(Shiboken.Object):
     class QAbstractActionInput(PySide6.Qt3DCore.Qt3DCore.QNode): ...
 
     class QAbstractAxisInput(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        sourceDeviceChanged: PySide6.QtCore.Signal
+
         def setSourceDevice(self, sourceDevice: PySide6.Qt3DInput.Qt3DInput.QAbstractPhysicalDevice) -> None: ...
         def sourceDevice(self) -> PySide6.Qt3DInput.Qt3DInput.QAbstractPhysicalDevice: ...
 
@@ -46,6 +49,9 @@ class Qt3DInput(Shiboken.Object):
 
     class QAction(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        activeChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def addInput(self, input: PySide6.Qt3DInput.Qt3DInput.QAbstractActionInput) -> None: ...
@@ -54,6 +60,10 @@ class Qt3DInput(Shiboken.Object):
         def removeInput(self, input: PySide6.Qt3DInput.Qt3DInput.QAbstractActionInput) -> None: ...
 
     class QActionInput(PySide6.Qt3DInput.Qt3DInput.QAbstractActionInput):
+
+        buttonsChanged: PySide6.QtCore.Signal
+        sourceDeviceChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -64,12 +74,18 @@ class Qt3DInput(Shiboken.Object):
 
     class QAnalogAxisInput(PySide6.Qt3DInput.Qt3DInput.QAbstractAxisInput):
 
+        axisChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def axis(self) -> int: ...
         def setAxis(self, axis: int) -> None: ...
 
     class QAxis(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        valueChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -79,6 +95,13 @@ class Qt3DInput(Shiboken.Object):
         def value(self) -> float: ...
 
     class QAxisAccumulator(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        scaleChanged: PySide6.QtCore.Signal
+        sourceAxisChanged: PySide6.QtCore.Signal
+        sourceAxisTypeChanged: PySide6.QtCore.Signal
+        valueChanged: PySide6.QtCore.Signal
+        velocityChanged: PySide6.QtCore.Signal
+
 
         class SourceAxisType(enum.Enum):
 
@@ -99,6 +122,11 @@ class Qt3DInput(Shiboken.Object):
 
     class QAxisSetting(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        axesChanged: PySide6.QtCore.Signal
+        deadZoneRadiusChanged: PySide6.QtCore.Signal
+        smoothChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def axes(self) -> List[int]: ...
@@ -109,6 +137,12 @@ class Qt3DInput(Shiboken.Object):
         def setSmoothEnabled(self, enabled: bool) -> None: ...
 
     class QButtonAxisInput(PySide6.Qt3DInput.Qt3DInput.QAbstractAxisInput):
+
+        accelerationChanged: PySide6.QtCore.Signal
+        buttonsChanged: PySide6.QtCore.Signal
+        decelerationChanged: PySide6.QtCore.Signal
+        scaleChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -130,6 +164,9 @@ class Qt3DInput(Shiboken.Object):
 
     class QInputChord(PySide6.Qt3DInput.Qt3DInput.QAbstractActionInput):
 
+        timeoutChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def addChord(self, input: PySide6.Qt3DInput.Qt3DInput.QAbstractActionInput) -> None: ...
@@ -139,6 +176,10 @@ class Qt3DInput(Shiboken.Object):
         def timeout(self) -> int: ...
 
     class QInputSequence(PySide6.Qt3DInput.Qt3DInput.QAbstractActionInput):
+
+        buttonIntervalChanged: PySide6.QtCore.Signal
+        timeoutChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -151,6 +192,9 @@ class Qt3DInput(Shiboken.Object):
         def timeout(self) -> int: ...
 
     class QInputSettings(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        eventSourceChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -174,6 +218,9 @@ class Qt3DInput(Shiboken.Object):
 
     class QKeyboardDevice(PySide6.Qt3DInput.Qt3DInput.QAbstractPhysicalDevice):
 
+        activeInputChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def activeInput(self) -> PySide6.Qt3DInput.Qt3DInput.QKeyboardHandler: ...
@@ -185,6 +232,50 @@ class Qt3DInput(Shiboken.Object):
         def buttonNames(self) -> List[str]: ...
 
     class QKeyboardHandler(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        asteriskPressed: PySide6.QtCore.Signal
+        backPressed: PySide6.QtCore.Signal
+        backtabPressed: PySide6.QtCore.Signal
+        callPressed: PySide6.QtCore.Signal
+        cancelPressed: PySide6.QtCore.Signal
+        context1Pressed: PySide6.QtCore.Signal
+        context2Pressed: PySide6.QtCore.Signal
+        context3Pressed: PySide6.QtCore.Signal
+        context4Pressed: PySide6.QtCore.Signal
+        deletePressed: PySide6.QtCore.Signal
+        digit0Pressed: PySide6.QtCore.Signal
+        digit1Pressed: PySide6.QtCore.Signal
+        digit2Pressed: PySide6.QtCore.Signal
+        digit3Pressed: PySide6.QtCore.Signal
+        digit4Pressed: PySide6.QtCore.Signal
+        digit5Pressed: PySide6.QtCore.Signal
+        digit6Pressed: PySide6.QtCore.Signal
+        digit7Pressed: PySide6.QtCore.Signal
+        digit8Pressed: PySide6.QtCore.Signal
+        digit9Pressed: PySide6.QtCore.Signal
+        downPressed: PySide6.QtCore.Signal
+        enterPressed: PySide6.QtCore.Signal
+        escapePressed: PySide6.QtCore.Signal
+        flipPressed: PySide6.QtCore.Signal
+        focusChanged: PySide6.QtCore.Signal
+        hangupPressed: PySide6.QtCore.Signal
+        leftPressed: PySide6.QtCore.Signal
+        menuPressed: PySide6.QtCore.Signal
+        noPressed: PySide6.QtCore.Signal
+        numberSignPressed: PySide6.QtCore.Signal
+        pressed: PySide6.QtCore.Signal
+        released: PySide6.QtCore.Signal
+        returnPressed: PySide6.QtCore.Signal
+        rightPressed: PySide6.QtCore.Signal
+        selectPressed: PySide6.QtCore.Signal
+        sourceDeviceChanged: PySide6.QtCore.Signal
+        spacePressed: PySide6.QtCore.Signal
+        tabPressed: PySide6.QtCore.Signal
+        upPressed: PySide6.QtCore.Signal
+        volumeDownPressed: PySide6.QtCore.Signal
+        volumeUpPressed: PySide6.QtCore.Signal
+        yesPressed: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -205,6 +296,10 @@ class Qt3DInput(Shiboken.Object):
         def removeAxis(self, axis: PySide6.Qt3DInput.Qt3DInput.QAxis) -> None: ...
 
     class QMouseDevice(PySide6.Qt3DInput.Qt3DInput.QAbstractPhysicalDevice):
+
+        sensitivityChanged: PySide6.QtCore.Signal
+        updateAxesContinuouslyChanged: PySide6.QtCore.Signal
+
 
         class Axis(enum.Enum):
 
@@ -259,6 +354,19 @@ class Qt3DInput(Shiboken.Object):
         def y(self) -> int: ...
 
     class QMouseHandler(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        clicked: PySide6.QtCore.Signal
+        containsMouseChanged: PySide6.QtCore.Signal
+        doubleClicked: PySide6.QtCore.Signal
+        entered: PySide6.QtCore.Signal
+        exited: PySide6.QtCore.Signal
+        positionChanged: PySide6.QtCore.Signal
+        pressAndHold: PySide6.QtCore.Signal
+        pressed: PySide6.QtCore.Signal
+        released: PySide6.QtCore.Signal
+        sourceDeviceChanged: PySide6.QtCore.Signal
+        wheel: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 

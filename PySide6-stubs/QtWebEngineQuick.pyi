@@ -22,6 +22,23 @@ class QIntList(object): ...
 
 class QQuickWebEngineProfile(PySide6.QtCore.QObject):
 
+    cachePathChanged: PySide6.QtCore.Signal
+    downloadFinished: PySide6.QtCore.Signal
+    downloadPathChanged: PySide6.QtCore.Signal
+    downloadRequested: PySide6.QtCore.Signal
+    httpAcceptLanguageChanged: PySide6.QtCore.Signal
+    httpCacheMaximumSizeChanged: PySide6.QtCore.Signal
+    httpCacheTypeChanged: PySide6.QtCore.Signal
+    httpUserAgentChanged: PySide6.QtCore.Signal
+    offTheRecordChanged: PySide6.QtCore.Signal
+    persistentCookiesPolicyChanged: PySide6.QtCore.Signal
+    persistentStoragePathChanged: PySide6.QtCore.Signal
+    presentNotification: PySide6.QtCore.Signal
+    spellCheckEnabledChanged: PySide6.QtCore.Signal
+    spellCheckLanguagesChanged: PySide6.QtCore.Signal
+    storageNameChanged: PySide6.QtCore.Signal
+
+
     class HttpCacheType(enum.Enum):
 
         MemoryHttpCache          : QQuickWebEngineProfile.HttpCacheType = ... # 0x0

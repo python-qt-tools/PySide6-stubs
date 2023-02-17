@@ -199,6 +199,22 @@ class QDesignerFormWindowCursorInterface(Shiboken.Object):
 
 class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
 
+    aboutToUnmanageWidget: PySide6.QtCore.Signal
+    activated: PySide6.QtCore.Signal
+    changed: PySide6.QtCore.Signal
+    featureChanged: PySide6.QtCore.Signal
+    fileNameChanged: PySide6.QtCore.Signal
+    geometryChanged: PySide6.QtCore.Signal
+    mainContainerChanged: PySide6.QtCore.Signal
+    objectRemoved: PySide6.QtCore.Signal
+    resourceFilesChanged: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+    toolChanged: PySide6.QtCore.Signal
+    widgetManaged: PySide6.QtCore.Signal
+    widgetRemoved: PySide6.QtCore.Signal
+    widgetUnmanaged: PySide6.QtCore.Signal
+
+
     class FeatureFlag(enum.Flag):
 
         EditFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x1
@@ -284,6 +300,12 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
 
 
 class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
+
+    activeFormWindowChanged: PySide6.QtCore.Signal
+    formWindowAdded: PySide6.QtCore.Signal
+    formWindowRemoved: PySide6.QtCore.Signal
+    formWindowSettingsChanged: PySide6.QtCore.Signal
+
 
     class Action(enum.Enum):
 
@@ -393,6 +415,9 @@ class QDesignerObjectInspectorInterface(PySide6.QtWidgets.QWidget):
 
 
 class QDesignerPropertyEditorInterface(PySide6.QtWidgets.QWidget):
+
+    propertyChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 

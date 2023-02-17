@@ -80,6 +80,12 @@ class QGeoAreaMonitorInfo(Shiboken.Object):
 
 class QGeoAreaMonitorSource(PySide6.QtCore.QObject):
 
+    areaEntered: PySide6.QtCore.Signal
+    areaExited: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    monitorExpired: PySide6.QtCore.Signal
+
+
     class AreaMonitorFeature(enum.Flag):
 
         PersistentAreaMonitorFeature: QGeoAreaMonitorSource.AreaMonitorFeature = ... # 0x1
@@ -322,6 +328,11 @@ class QGeoPositionInfo(Shiboken.Object):
 
 class QGeoPositionInfoSource(PySide6.QtCore.QObject):
 
+    errorOccurred: PySide6.QtCore.Signal
+    positionUpdated: PySide6.QtCore.Signal
+    supportedPositioningMethodsChanged: PySide6.QtCore.Signal
+
+
     class Error(enum.Enum):
 
         AccessError              : QGeoPositionInfoSource.Error = ... # 0x0
@@ -468,6 +479,11 @@ class QGeoSatelliteInfo(Shiboken.Object):
 
 
 class QGeoSatelliteInfoSource(PySide6.QtCore.QObject):
+
+    errorOccurred: PySide6.QtCore.Signal
+    satellitesInUseUpdated: PySide6.QtCore.Signal
+    satellitesInViewUpdated: PySide6.QtCore.Signal
+
 
     class Error(enum.Enum):
 

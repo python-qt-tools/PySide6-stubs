@@ -21,6 +21,12 @@ from shiboken6 import Shiboken
 
 class QAbstractButton(PySide6.QtWidgets.QWidget):
 
+    clicked: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    released: PySide6.QtCore.Signal
+    toggled: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def animateClick(self) -> None: ...
@@ -82,6 +88,11 @@ class QAbstractGraphicsShapeItem(PySide6.QtWidgets.QGraphicsItem):
 
 class QAbstractItemDelegate(PySide6.QtCore.QObject):
 
+    closeEditor: PySide6.QtCore.Signal
+    commitData: PySide6.QtCore.Signal
+    sizeHintChanged: PySide6.QtCore.Signal
+
+
     class EndEditHint(enum.Enum):
 
         NoHint                   : QAbstractItemDelegate.EndEditHint = ... # 0x0
@@ -106,6 +117,15 @@ class QAbstractItemDelegate(PySide6.QtCore.QObject):
 
 
 class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
+
+    activated: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    doubleClicked: PySide6.QtCore.Signal
+    entered: PySide6.QtCore.Signal
+    iconSizeChanged: PySide6.QtCore.Signal
+    pressed: PySide6.QtCore.Signal
+    viewportEntered: PySide6.QtCore.Signal
+
 
     class CursorAction(enum.Enum):
 
@@ -383,6 +403,14 @@ class QAbstractScrollArea(PySide6.QtWidgets.QFrame):
 
 class QAbstractSlider(PySide6.QtWidgets.QWidget):
 
+    actionTriggered: PySide6.QtCore.Signal
+    rangeChanged: PySide6.QtCore.Signal
+    sliderMoved: PySide6.QtCore.Signal
+    sliderPressed: PySide6.QtCore.Signal
+    sliderReleased: PySide6.QtCore.Signal
+    valueChanged: PySide6.QtCore.Signal
+
+
     class SliderAction(enum.Enum):
 
         SliderNoAction           : QAbstractSlider.SliderAction = ... # 0x0
@@ -440,6 +468,9 @@ class QAbstractSlider(PySide6.QtWidgets.QWidget):
 
 
 class QAbstractSpinBox(PySide6.QtWidgets.QWidget):
+
+    editingFinished: PySide6.QtCore.Signal
+
 
     class ButtonSymbols(enum.Enum):
 
@@ -553,6 +584,9 @@ class QAccessibleWidget(PySide6.QtGui.QAccessibleObject, PySide6.QtGui.QAccessib
 
 
 class QApplication(PySide6.QtGui.QGuiApplication):
+
+    focusChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self) -> None: ...
@@ -718,6 +752,16 @@ class QBoxLayout(PySide6.QtWidgets.QLayout):
 
 class QButtonGroup(PySide6.QtCore.QObject):
 
+    buttonClicked: PySide6.QtCore.Signal
+    buttonPressed: PySide6.QtCore.Signal
+    buttonReleased: PySide6.QtCore.Signal
+    buttonToggled: PySide6.QtCore.Signal
+    idClicked: PySide6.QtCore.Signal
+    idPressed: PySide6.QtCore.Signal
+    idReleased: PySide6.QtCore.Signal
+    idToggled: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addButton(self, arg__1: PySide6.QtWidgets.QAbstractButton, id: int = ...) -> None: ...
@@ -733,6 +777,12 @@ class QButtonGroup(PySide6.QtCore.QObject):
 
 
 class QCalendarWidget(PySide6.QtWidgets.QWidget):
+
+    activated: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    currentPageChanged: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+
 
     class HorizontalHeaderFormat(enum.Enum):
 
@@ -813,6 +863,9 @@ class QCalendarWidget(PySide6.QtWidgets.QWidget):
 
 class QCheckBox(PySide6.QtWidgets.QAbstractButton):
 
+    stateChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     @overload
@@ -834,6 +887,10 @@ class QCheckBox(PySide6.QtWidgets.QAbstractButton):
 
 
 class QColorDialog(PySide6.QtWidgets.QDialog):
+
+    colorSelected: PySide6.QtCore.Signal
+    currentColorChanged: PySide6.QtCore.Signal
+
 
     class ColorDialogOption(enum.Flag):
 
@@ -904,6 +961,9 @@ class QColormap(Shiboken.Object):
 
 class QColumnView(PySide6.QtWidgets.QAbstractItemView):
 
+    updatePreviewWidget: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def columnWidths(self) -> List[int]: ...
@@ -935,6 +995,15 @@ class QColumnView(PySide6.QtWidgets.QAbstractItemView):
 
 
 class QComboBox(PySide6.QtWidgets.QWidget):
+
+    activated: PySide6.QtCore.Signal
+    currentIndexChanged: PySide6.QtCore.Signal
+    currentTextChanged: PySide6.QtCore.Signal
+    editTextChanged: PySide6.QtCore.Signal
+    highlighted: PySide6.QtCore.Signal
+    textActivated: PySide6.QtCore.Signal
+    textHighlighted: PySide6.QtCore.Signal
+
 
     class InsertPolicy(enum.Enum):
 
@@ -1099,6 +1168,10 @@ class QCommonStyle(PySide6.QtWidgets.QStyle):
 
 class QCompleter(PySide6.QtCore.QObject):
 
+    activated: PySide6.QtCore.Signal
+    highlighted: PySide6.QtCore.Signal
+
+
     class CompletionMode(enum.Enum):
 
         PopupCompletion          : QCompleter.CompletionMode = ... # 0x0
@@ -1159,6 +1232,9 @@ class QCompleter(PySide6.QtCore.QObject):
 
 class QDataWidgetMapper(PySide6.QtCore.QObject):
 
+    currentIndexChanged: PySide6.QtCore.Signal
+
+
     class SubmitPolicy(enum.Enum):
 
         AutoSubmit               : QDataWidgetMapper.SubmitPolicy = ... # 0x0
@@ -1199,6 +1275,9 @@ class QDataWidgetMapper(PySide6.QtCore.QObject):
 
 class QDateEdit(PySide6.QtWidgets.QDateTimeEdit):
 
+    userDateChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, date: PySide6.QtCore.QDate, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     @overload
@@ -1206,6 +1285,11 @@ class QDateEdit(PySide6.QtWidgets.QDateTimeEdit):
 
 
 class QDateTimeEdit(PySide6.QtWidgets.QAbstractSpinBox):
+
+    dateChanged: PySide6.QtCore.Signal
+    dateTimeChanged: PySide6.QtCore.Signal
+    timeChanged: PySide6.QtCore.Signal
+
 
     class Section(enum.Flag):
 
@@ -1322,6 +1406,11 @@ class QDial(PySide6.QtWidgets.QAbstractSlider):
 
 class QDialog(PySide6.QtWidgets.QWidget):
 
+    accepted: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    rejected: PySide6.QtCore.Signal
+
+
     class DialogCode(enum.IntEnum):
 
         Rejected                 : QDialog.DialogCode = ... # 0x0
@@ -1354,6 +1443,12 @@ class QDialog(PySide6.QtWidgets.QWidget):
 
 
 class QDialogButtonBox(PySide6.QtWidgets.QWidget):
+
+    accepted: PySide6.QtCore.Signal
+    clicked: PySide6.QtCore.Signal
+    helpRequested: PySide6.QtCore.Signal
+    rejected: PySide6.QtCore.Signal
+
 
     class ButtonLayout(enum.Enum):
 
@@ -1437,6 +1532,13 @@ class QDialogButtonBox(PySide6.QtWidgets.QWidget):
 
 class QDockWidget(PySide6.QtWidgets.QWidget):
 
+    allowedAreasChanged: PySide6.QtCore.Signal
+    dockLocationChanged: PySide6.QtCore.Signal
+    featuresChanged: PySide6.QtCore.Signal
+    topLevelChanged: PySide6.QtCore.Signal
+    visibilityChanged: PySide6.QtCore.Signal
+
+
     class DockWidgetFeature(enum.Flag):
 
         NoDockWidgetFeatures     : QDockWidget.DockWidgetFeature = ... # 0x0
@@ -1473,6 +1575,10 @@ class QDockWidget(PySide6.QtWidgets.QWidget):
 
 
 class QDoubleSpinBox(PySide6.QtWidgets.QAbstractSpinBox):
+
+    textChanged: PySide6.QtCore.Signal
+    valueChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
@@ -1515,6 +1621,17 @@ class QErrorMessage(PySide6.QtWidgets.QDialog):
 
 
 class QFileDialog(PySide6.QtWidgets.QDialog):
+
+    currentChanged: PySide6.QtCore.Signal
+    currentUrlChanged: PySide6.QtCore.Signal
+    directoryEntered: PySide6.QtCore.Signal
+    directoryUrlEntered: PySide6.QtCore.Signal
+    fileSelected: PySide6.QtCore.Signal
+    filesSelected: PySide6.QtCore.Signal
+    filterSelected: PySide6.QtCore.Signal
+    urlSelected: PySide6.QtCore.Signal
+    urlsSelected: PySide6.QtCore.Signal
+
 
     class AcceptMode(enum.Enum):
 
@@ -1653,6 +1770,11 @@ class QFileIconProvider(PySide6.QtGui.QAbstractFileIconProvider):
 
 class QFileSystemModel(PySide6.QtCore.QAbstractItemModel):
 
+    directoryLoaded: PySide6.QtCore.Signal
+    fileRenamed: PySide6.QtCore.Signal
+    rootPathChanged: PySide6.QtCore.Signal
+
+
     class Option(enum.Flag):
 
         DontWatchForChanges      : QFileSystemModel.Option = ... # 0x1
@@ -1743,6 +1865,9 @@ class QFocusFrame(PySide6.QtWidgets.QWidget):
 
 class QFontComboBox(PySide6.QtWidgets.QComboBox):
 
+    currentFontChanged: PySide6.QtCore.Signal
+
+
     class FontFilter(enum.Flag):
 
         AllFonts                 : QFontComboBox.FontFilter = ... # 0x0
@@ -1770,6 +1895,10 @@ class QFontComboBox(PySide6.QtWidgets.QComboBox):
 
 
 class QFontDialog(PySide6.QtWidgets.QDialog):
+
+    currentFontChanged: PySide6.QtCore.Signal
+    fontSelected: PySide6.QtCore.Signal
+
 
     class FontDialogOption(enum.Flag):
 
@@ -2096,6 +2225,10 @@ class QGraphicsAnchorLayout(PySide6.QtWidgets.QGraphicsLayout):
 
 class QGraphicsBlurEffect(PySide6.QtWidgets.QGraphicsEffect):
 
+    blurHintsChanged: PySide6.QtCore.Signal
+    blurRadiusChanged: PySide6.QtCore.Signal
+
+
     class BlurHint(enum.Flag):
 
         PerformanceHint          : QGraphicsBlurEffect.BlurHint = ... # 0x0
@@ -2115,6 +2248,10 @@ class QGraphicsBlurEffect(PySide6.QtWidgets.QGraphicsEffect):
 
 class QGraphicsColorizeEffect(PySide6.QtWidgets.QGraphicsEffect):
 
+    colorChanged: PySide6.QtCore.Signal
+    strengthChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def color(self) -> PySide6.QtGui.QColor: ...
@@ -2125,6 +2262,11 @@ class QGraphicsColorizeEffect(PySide6.QtWidgets.QGraphicsEffect):
 
 
 class QGraphicsDropShadowEffect(PySide6.QtWidgets.QGraphicsEffect):
+
+    blurRadiusChanged: PySide6.QtCore.Signal
+    colorChanged: PySide6.QtCore.Signal
+    offsetChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -2148,6 +2290,9 @@ class QGraphicsDropShadowEffect(PySide6.QtWidgets.QGraphicsEffect):
 
 
 class QGraphicsEffect(PySide6.QtCore.QObject):
+
+    enabledChanged: PySide6.QtCore.Signal
+
 
     class ChangeFlag(enum.Flag):
 
@@ -2791,6 +2936,20 @@ class QGraphicsLinearLayout(PySide6.QtWidgets.QGraphicsLayout):
 
 class QGraphicsObject(PySide6.QtWidgets.QGraphicsItem, PySide6.QtCore.QObject):
 
+    childrenChanged: PySide6.QtCore.Signal
+    enabledChanged: PySide6.QtCore.Signal
+    heightChanged: PySide6.QtCore.Signal
+    opacityChanged: PySide6.QtCore.Signal
+    parentChanged: PySide6.QtCore.Signal
+    rotationChanged: PySide6.QtCore.Signal
+    scaleChanged: PySide6.QtCore.Signal
+    visibleChanged: PySide6.QtCore.Signal
+    widthChanged: PySide6.QtCore.Signal
+    xChanged: PySide6.QtCore.Signal
+    yChanged: PySide6.QtCore.Signal
+    zChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ...) -> None: ...
 
     def event(self, ev: PySide6.QtCore.QEvent) -> bool: ...
@@ -2800,6 +2959,10 @@ class QGraphicsObject(PySide6.QtWidgets.QGraphicsItem, PySide6.QtCore.QObject):
 
 
 class QGraphicsOpacityEffect(PySide6.QtWidgets.QGraphicsEffect):
+
+    opacityChanged: PySide6.QtCore.Signal
+    opacityMaskChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -2957,6 +3120,11 @@ class QGraphicsRectItem(PySide6.QtWidgets.QAbstractGraphicsShapeItem):
 
 class QGraphicsRotation(PySide6.QtWidgets.QGraphicsTransform):
 
+    angleChanged: PySide6.QtCore.Signal
+    axisChanged: PySide6.QtCore.Signal
+    originChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def angle(self) -> float: ...
@@ -2973,6 +3141,13 @@ class QGraphicsRotation(PySide6.QtWidgets.QGraphicsTransform):
 
 class QGraphicsScale(PySide6.QtWidgets.QGraphicsTransform):
 
+    originChanged: PySide6.QtCore.Signal
+    scaleChanged: PySide6.QtCore.Signal
+    xScaleChanged: PySide6.QtCore.Signal
+    yScaleChanged: PySide6.QtCore.Signal
+    zScaleChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def applyTo(self, matrix: Union[PySide6.QtGui.QMatrix4x4, PySide6.QtGui.QTransform]) -> None: ...
@@ -2987,6 +3162,12 @@ class QGraphicsScale(PySide6.QtWidgets.QGraphicsTransform):
 
 
 class QGraphicsScene(PySide6.QtCore.QObject):
+
+    changed: PySide6.QtCore.Signal
+    focusItemChanged: PySide6.QtCore.Signal
+    sceneRectChanged: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+
 
     class ItemIndexMethod(enum.Enum):
 
@@ -3321,6 +3502,10 @@ class QGraphicsSimpleTextItem(PySide6.QtWidgets.QAbstractGraphicsShapeItem):
 
 class QGraphicsTextItem(PySide6.QtWidgets.QGraphicsObject):
 
+    linkActivated: PySide6.QtCore.Signal
+    linkHovered: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ...) -> None: ...
     @overload
@@ -3387,6 +3572,9 @@ class QGraphicsTransform(PySide6.QtCore.QObject):
 
 
 class QGraphicsView(PySide6.QtWidgets.QAbstractScrollArea):
+
+    rubberBandChanged: PySide6.QtCore.Signal
+
 
     class CacheModeFlag(enum.Flag):
 
@@ -3569,6 +3757,10 @@ class QGraphicsView(PySide6.QtWidgets.QAbstractScrollArea):
 
 class QGraphicsWidget(PySide6.QtWidgets.QGraphicsObject, PySide6.QtWidgets.QGraphicsLayoutItem):
 
+    geometryChanged: PySide6.QtCore.Signal
+    layoutChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ..., wFlags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     def actions(self) -> List[PySide6.QtGui.QAction]: ...
@@ -3720,6 +3912,10 @@ class QGridLayout(PySide6.QtWidgets.QLayout):
 
 class QGroupBox(PySide6.QtWidgets.QWidget):
 
+    clicked: PySide6.QtCore.Signal
+    toggled: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     @overload
@@ -3757,6 +3953,19 @@ class QHBoxLayout(PySide6.QtWidgets.QBoxLayout):
 
 
 class QHeaderView(PySide6.QtWidgets.QAbstractItemView):
+
+    geometriesChanged: PySide6.QtCore.Signal
+    sectionClicked: PySide6.QtCore.Signal
+    sectionCountChanged: PySide6.QtCore.Signal
+    sectionDoubleClicked: PySide6.QtCore.Signal
+    sectionEntered: PySide6.QtCore.Signal
+    sectionHandleDoubleClicked: PySide6.QtCore.Signal
+    sectionMoved: PySide6.QtCore.Signal
+    sectionPressed: PySide6.QtCore.Signal
+    sectionResized: PySide6.QtCore.Signal
+    sortIndicatorChanged: PySide6.QtCore.Signal
+    sortIndicatorClearableChanged: PySide6.QtCore.Signal
+
 
     class ResizeMode(enum.Enum):
 
@@ -3886,6 +4095,14 @@ class QHeaderView(PySide6.QtWidgets.QAbstractItemView):
 
 
 class QInputDialog(PySide6.QtWidgets.QDialog):
+
+    doubleValueChanged: PySide6.QtCore.Signal
+    doubleValueSelected: PySide6.QtCore.Signal
+    intValueChanged: PySide6.QtCore.Signal
+    intValueSelected: PySide6.QtCore.Signal
+    textValueChanged: PySide6.QtCore.Signal
+    textValueSelected: PySide6.QtCore.Signal
+
 
     class InputDialogOption(enum.Enum):
 
@@ -4017,6 +4234,10 @@ class QItemEditorFactory(Shiboken.Object):
 
 class QKeySequenceEdit(PySide6.QtWidgets.QWidget):
 
+    editingFinished: PySide6.QtCore.Signal
+    keySequenceChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, keySequence: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     @overload
@@ -4035,6 +4256,9 @@ class QKeySequenceEdit(PySide6.QtWidgets.QWidget):
 
 
 class QLCDNumber(PySide6.QtWidgets.QFrame):
+
+    overflow: PySide6.QtCore.Signal
+
 
     class Mode(enum.Enum):
 
@@ -4086,6 +4310,10 @@ class QLCDNumber(PySide6.QtWidgets.QFrame):
 
 
 class QLabel(PySide6.QtWidgets.QFrame):
+
+    linkActivated: PySide6.QtCore.Signal
+    linkHovered: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
@@ -4243,6 +4471,15 @@ class QLayoutItem(Shiboken.Object):
 
 class QLineEdit(PySide6.QtWidgets.QWidget):
 
+    cursorPositionChanged: PySide6.QtCore.Signal
+    editingFinished: PySide6.QtCore.Signal
+    inputRejected: PySide6.QtCore.Signal
+    returnPressed: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+    textChanged: PySide6.QtCore.Signal
+    textEdited: PySide6.QtCore.Signal
+
+
     class ActionPosition(enum.Enum):
 
         LeadingPosition          : QLineEdit.ActionPosition = ... # 0x0
@@ -4388,6 +4625,9 @@ class QLineEdit(PySide6.QtWidgets.QWidget):
 
 class QListView(PySide6.QtWidgets.QAbstractItemView):
 
+    indexesMoved: PySide6.QtCore.Signal
+
+
     class Flow(enum.Enum):
 
         LeftToRight              : QListView.Flow = ... # 0x0
@@ -4492,6 +4732,18 @@ class QListView(PySide6.QtWidgets.QAbstractItemView):
 
 
 class QListWidget(PySide6.QtWidgets.QListView):
+
+    currentItemChanged: PySide6.QtCore.Signal
+    currentRowChanged: PySide6.QtCore.Signal
+    currentTextChanged: PySide6.QtCore.Signal
+    itemActivated: PySide6.QtCore.Signal
+    itemChanged: PySide6.QtCore.Signal
+    itemClicked: PySide6.QtCore.Signal
+    itemDoubleClicked: PySide6.QtCore.Signal
+    itemEntered: PySide6.QtCore.Signal
+    itemPressed: PySide6.QtCore.Signal
+    itemSelectionChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
@@ -4614,6 +4866,11 @@ class QListWidgetItem(Shiboken.Object):
 
 class QMainWindow(PySide6.QtWidgets.QWidget):
 
+    iconSizeChanged: PySide6.QtCore.Signal
+    tabifiedDockWidgetActivated: PySide6.QtCore.Signal
+    toolButtonStyleChanged: PySide6.QtCore.Signal
+
+
     class DockOption(enum.Flag):
 
         AnimatedDocks            : QMainWindow.DockOption = ... # 0x1
@@ -4689,6 +4946,9 @@ class QMainWindow(PySide6.QtWidgets.QWidget):
 
 class QMdiArea(PySide6.QtWidgets.QAbstractScrollArea):
 
+    subWindowActivated: PySide6.QtCore.Signal
+
+
     class AreaOption(enum.Flag):
 
         DontMaximizeSubWindowOnActivation: QMdiArea.AreaOption = ... # 0x1
@@ -4755,6 +5015,10 @@ class QMdiArea(PySide6.QtWidgets.QAbstractScrollArea):
 
 class QMdiSubWindow(PySide6.QtWidgets.QWidget):
 
+    aboutToActivate: PySide6.QtCore.Signal
+    windowStateChanged: PySide6.QtCore.Signal
+
+
     class SubWindowOption(enum.Flag):
 
         AllowOutsideAreaHorizontally: QMdiSubWindow.SubWindowOption = ... # 0x1
@@ -4806,6 +5070,12 @@ class QMdiSubWindow(PySide6.QtWidgets.QWidget):
 
 
 class QMenu(PySide6.QtWidgets.QWidget):
+
+    aboutToHide: PySide6.QtCore.Signal
+    aboutToShow: PySide6.QtCore.Signal
+    hovered: PySide6.QtCore.Signal
+    triggered: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
@@ -4927,6 +5197,10 @@ class QMenu(PySide6.QtWidgets.QWidget):
 
 class QMenuBar(PySide6.QtWidgets.QWidget):
 
+    hovered: PySide6.QtCore.Signal
+    triggered: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def actionAt(self, arg__1: PySide6.QtCore.QPoint) -> PySide6.QtGui.QAction: ...
@@ -4971,6 +5245,9 @@ class QMenuBar(PySide6.QtWidgets.QWidget):
 
 
 class QMessageBox(PySide6.QtWidgets.QDialog):
+
+    buttonClicked: PySide6.QtCore.Signal
+
 
     class ButtonRole(enum.Enum):
 
@@ -5185,6 +5462,17 @@ class QPlainTextDocumentLayout(PySide6.QtGui.QAbstractTextDocumentLayout):
 
 class QPlainTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
 
+    blockCountChanged: PySide6.QtCore.Signal
+    copyAvailable: PySide6.QtCore.Signal
+    cursorPositionChanged: PySide6.QtCore.Signal
+    modificationChanged: PySide6.QtCore.Signal
+    redoAvailable: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+    textChanged: PySide6.QtCore.Signal
+    undoAvailable: PySide6.QtCore.Signal
+    updateRequest: PySide6.QtCore.Signal
+
+
     class LineWrapMode(enum.Enum):
 
         NoWrap                   : QPlainTextEdit.LineWrapMode = ... # 0x0
@@ -5315,6 +5603,9 @@ class QPointList(object): ...
 
 class QProgressBar(PySide6.QtWidgets.QWidget):
 
+    valueChanged: PySide6.QtCore.Signal
+
+
     class Direction(enum.Enum):
 
         TopToBottom              : QProgressBar.Direction = ... # 0x0
@@ -5353,6 +5644,9 @@ class QProgressBar(PySide6.QtWidgets.QWidget):
 
 
 class QProgressDialog(PySide6.QtWidgets.QDialog):
+
+    canceled: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, labelText: str, cancelButtonText: str, minimum: int, maximum: int, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
@@ -5556,6 +5850,10 @@ class QScrollBar(PySide6.QtWidgets.QAbstractSlider):
 
 
 class QScroller(PySide6.QtCore.QObject):
+
+    scrollerPropertiesChanged: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
 
     class Input(enum.Enum):
 
@@ -5813,6 +6111,10 @@ class QSpacerItem(PySide6.QtWidgets.QLayoutItem):
 
 class QSpinBox(PySide6.QtWidgets.QAbstractSpinBox):
 
+    textChanged: PySide6.QtCore.Signal
+    valueChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def cleanText(self) -> str: ...
@@ -5842,6 +6144,9 @@ class QSpinBox(PySide6.QtWidgets.QAbstractSpinBox):
 
 class QSplashScreen(PySide6.QtWidgets.QWidget):
 
+    messageChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, pixmap: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str] = ..., f: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
     @overload
@@ -5859,6 +6164,9 @@ class QSplashScreen(PySide6.QtWidgets.QWidget):
 
 
 class QSplitter(PySide6.QtWidgets.QFrame):
+
+    splitterMoved: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, arg__1: PySide6.QtCore.Qt.Orientation, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
@@ -5922,6 +6230,10 @@ class QSplitterHandle(PySide6.QtWidgets.QWidget):
 
 class QStackedLayout(PySide6.QtWidgets.QLayout):
 
+    currentChanged: PySide6.QtCore.Signal
+    widgetRemoved: PySide6.QtCore.Signal
+
+
     class StackingMode(enum.Enum):
 
         StackOne                 : QStackedLayout.StackingMode = ... # 0x0
@@ -5960,6 +6272,10 @@ class QStackedLayout(PySide6.QtWidgets.QLayout):
 
 class QStackedWidget(PySide6.QtWidgets.QFrame):
 
+    currentChanged: PySide6.QtCore.Signal
+    widgetRemoved: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def addWidget(self, w: PySide6.QtWidgets.QWidget) -> int: ...
@@ -5976,6 +6292,9 @@ class QStackedWidget(PySide6.QtWidgets.QFrame):
 
 
 class QStatusBar(PySide6.QtWidgets.QWidget):
+
+    messageChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
@@ -7463,6 +7782,10 @@ class QSwipeGesture(PySide6.QtWidgets.QGesture):
 
 class QSystemTrayIcon(PySide6.QtCore.QObject):
 
+    activated: PySide6.QtCore.Signal
+    messageClicked: PySide6.QtCore.Signal
+
+
     class ActivationReason(enum.Enum):
 
         Unknown                  : QSystemTrayIcon.ActivationReason = ... # 0x0
@@ -7508,6 +7831,13 @@ class QSystemTrayIcon(PySide6.QtCore.QObject):
 
 
 class QTabBar(PySide6.QtWidgets.QWidget):
+
+    currentChanged: PySide6.QtCore.Signal
+    tabBarClicked: PySide6.QtCore.Signal
+    tabBarDoubleClicked: PySide6.QtCore.Signal
+    tabCloseRequested: PySide6.QtCore.Signal
+    tabMoved: PySide6.QtCore.Signal
+
 
     class ButtonPosition(enum.Enum):
 
@@ -7619,6 +7949,12 @@ class QTabBar(PySide6.QtWidgets.QWidget):
 
 
 class QTabWidget(PySide6.QtWidgets.QWidget):
+
+    currentChanged: PySide6.QtCore.Signal
+    tabBarClicked: PySide6.QtCore.Signal
+    tabBarDoubleClicked: PySide6.QtCore.Signal
+    tabCloseRequested: PySide6.QtCore.Signal
+
 
     class TabPosition(enum.Enum):
 
@@ -7782,6 +8118,23 @@ class QTableView(PySide6.QtWidgets.QAbstractItemView):
 
 
 class QTableWidget(PySide6.QtWidgets.QTableView):
+
+    cellActivated: PySide6.QtCore.Signal
+    cellChanged: PySide6.QtCore.Signal
+    cellClicked: PySide6.QtCore.Signal
+    cellDoubleClicked: PySide6.QtCore.Signal
+    cellEntered: PySide6.QtCore.Signal
+    cellPressed: PySide6.QtCore.Signal
+    currentCellChanged: PySide6.QtCore.Signal
+    currentItemChanged: PySide6.QtCore.Signal
+    itemActivated: PySide6.QtCore.Signal
+    itemChanged: PySide6.QtCore.Signal
+    itemClicked: PySide6.QtCore.Signal
+    itemDoubleClicked: PySide6.QtCore.Signal
+    itemEntered: PySide6.QtCore.Signal
+    itemPressed: PySide6.QtCore.Signal
+    itemSelectionChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
@@ -7960,6 +8313,14 @@ class QTapGesture(PySide6.QtWidgets.QGesture):
 
 class QTextBrowser(PySide6.QtWidgets.QTextEdit):
 
+    anchorClicked: PySide6.QtCore.Signal
+    backwardAvailable: PySide6.QtCore.Signal
+    forwardAvailable: PySide6.QtCore.Signal
+    highlighted: PySide6.QtCore.Signal
+    historyChanged: PySide6.QtCore.Signal
+    sourceChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def backward(self) -> None: ...
@@ -7995,6 +8356,15 @@ class QTextBrowser(PySide6.QtWidgets.QTextEdit):
 
 
 class QTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
+
+    copyAvailable: PySide6.QtCore.Signal
+    currentCharFormatChanged: PySide6.QtCore.Signal
+    cursorPositionChanged: PySide6.QtCore.Signal
+    redoAvailable: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+    textChanged: PySide6.QtCore.Signal
+    undoAvailable: PySide6.QtCore.Signal
+
 
     class AutoFormattingFlag(enum.Flag):
 
@@ -8169,6 +8539,9 @@ class QTileRules(Shiboken.Object):
 
 class QTimeEdit(PySide6.QtWidgets.QDateTimeEdit):
 
+    userTimeChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
     @overload
@@ -8176,6 +8549,16 @@ class QTimeEdit(PySide6.QtWidgets.QDateTimeEdit):
 
 
 class QToolBar(PySide6.QtWidgets.QWidget):
+
+    actionTriggered: PySide6.QtCore.Signal
+    allowedAreasChanged: PySide6.QtCore.Signal
+    iconSizeChanged: PySide6.QtCore.Signal
+    movableChanged: PySide6.QtCore.Signal
+    orientationChanged: PySide6.QtCore.Signal
+    toolButtonStyleChanged: PySide6.QtCore.Signal
+    topLevelChanged: PySide6.QtCore.Signal
+    visibilityChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
@@ -8217,6 +8600,9 @@ class QToolBar(PySide6.QtWidgets.QWidget):
 
 class QToolBox(PySide6.QtWidgets.QFrame):
 
+    currentChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 
     @overload
@@ -8251,6 +8637,9 @@ class QToolBox(PySide6.QtWidgets.QFrame):
 
 
 class QToolButton(PySide6.QtWidgets.QAbstractButton):
+
+    triggered: PySide6.QtCore.Signal
+
 
     class ToolButtonPopupMode(enum.Enum):
 
@@ -8311,6 +8700,10 @@ class QToolTip(Shiboken.Object):
 
 
 class QTreeView(PySide6.QtWidgets.QAbstractItemView):
+
+    collapsed: PySide6.QtCore.Signal
+    expanded: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
@@ -8416,6 +8809,18 @@ class QTreeView(PySide6.QtWidgets.QAbstractItemView):
 
 
 class QTreeWidget(PySide6.QtWidgets.QTreeView):
+
+    currentItemChanged: PySide6.QtCore.Signal
+    itemActivated: PySide6.QtCore.Signal
+    itemChanged: PySide6.QtCore.Signal
+    itemClicked: PySide6.QtCore.Signal
+    itemCollapsed: PySide6.QtCore.Signal
+    itemDoubleClicked: PySide6.QtCore.Signal
+    itemEntered: PySide6.QtCore.Signal
+    itemExpanded: PySide6.QtCore.Signal
+    itemPressed: PySide6.QtCore.Signal
+    itemSelectionChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
@@ -8661,6 +9066,12 @@ class QWhatsThis(Shiboken.Object):
 
 
 class QWidget(PySide6.QtCore.QObject, PySide6.QtGui.QPaintDevice):
+
+    customContextMenuRequested: PySide6.QtCore.Signal
+    windowIconChanged: PySide6.QtCore.Signal
+    windowIconTextChanged: PySide6.QtCore.Signal
+    windowTitleChanged: PySide6.QtCore.Signal
+
 
     class RenderFlag(enum.Flag):
 
@@ -9082,6 +9493,13 @@ class QWidgetItem(PySide6.QtWidgets.QLayoutItem):
 
 class QWizard(PySide6.QtWidgets.QDialog):
 
+    currentIdChanged: PySide6.QtCore.Signal
+    customButtonClicked: PySide6.QtCore.Signal
+    helpRequested: PySide6.QtCore.Signal
+    pageAdded: PySide6.QtCore.Signal
+    pageRemoved: PySide6.QtCore.Signal
+
+
     class WizardButton(enum.Enum):
 
         NoButton                 : QWizard.WizardButton = ... # -0x1
@@ -9191,6 +9609,9 @@ class QWizard(PySide6.QtWidgets.QDialog):
 
 
 class QWizardPage(PySide6.QtWidgets.QWidget):
+
+    completeChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 

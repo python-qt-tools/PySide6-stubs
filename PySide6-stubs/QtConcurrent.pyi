@@ -85,6 +85,20 @@ class QFutureVoid(Shiboken.Object):
 
 class QFutureWatcherQString(PySide6.QtCore.QObject):
 
+    canceled: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    paused: PySide6.QtCore.Signal
+    progressRangeChanged: PySide6.QtCore.Signal
+    progressTextChanged: PySide6.QtCore.Signal
+    progressValueChanged: PySide6.QtCore.Signal
+    resultReadyAt: PySide6.QtCore.Signal
+    resultsReadyAt: PySide6.QtCore.Signal
+    resumed: PySide6.QtCore.Signal
+    started: PySide6.QtCore.Signal
+    suspended: PySide6.QtCore.Signal
+    suspending: PySide6.QtCore.Signal
+
+
     def __init__(self, _parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def future(self) -> PySide6.QtConcurrent.QFutureQString: ...
@@ -92,6 +106,20 @@ class QFutureWatcherQString(PySide6.QtCore.QObject):
 
 
 class QFutureWatcherVoid(PySide6.QtCore.QObject):
+
+    canceled: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    paused: PySide6.QtCore.Signal
+    progressRangeChanged: PySide6.QtCore.Signal
+    progressTextChanged: PySide6.QtCore.Signal
+    progressValueChanged: PySide6.QtCore.Signal
+    resultReadyAt: PySide6.QtCore.Signal
+    resultsReadyAt: PySide6.QtCore.Signal
+    resumed: PySide6.QtCore.Signal
+    started: PySide6.QtCore.Signal
+    suspended: PySide6.QtCore.Signal
+    suspending: PySide6.QtCore.Signal
+
 
     def __init__(self, _parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

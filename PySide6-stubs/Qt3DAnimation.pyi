@@ -27,6 +27,11 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QAbstractAnimation(PySide6.QtCore.QObject):
 
+        animationNameChanged: PySide6.QtCore.Signal
+        durationChanged: PySide6.QtCore.Signal
+        positionChanged: PySide6.QtCore.Signal
+
+
         class AnimationType(enum.Enum):
 
             KeyframeAnimation        : Qt3DAnimation.QAbstractAnimation.AnimationType = ... # 0x1
@@ -43,11 +48,21 @@ class Qt3DAnimation(Shiboken.Object):
         def setPosition(self, position: float) -> None: ...
 
     class QAbstractAnimationClip(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        durationChanged: PySide6.QtCore.Signal
+
         def duration(self) -> float: ...
 
     class QAbstractChannelMapping(PySide6.Qt3DCore.Qt3DCore.QNode): ...
 
     class QAbstractClipAnimator(PySide6.Qt3DCore.Qt3DCore.QComponent):
+
+        channelMapperChanged: PySide6.QtCore.Signal
+        clockChanged: PySide6.QtCore.Signal
+        loopCountChanged: PySide6.QtCore.Signal
+        normalizedTimeChanged: PySide6.QtCore.Signal
+        runningChanged: PySide6.QtCore.Signal
+
 
         class Loops(enum.Enum):
 
@@ -76,6 +91,11 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QAdditiveClipBlend(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipBlendNode):
 
+        additiveClipChanged: PySide6.QtCore.Signal
+        additiveFactorChanged: PySide6.QtCore.Signal
+        baseClipChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def additiveClip(self) -> PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipBlendNode: ...
@@ -103,6 +123,9 @@ class Qt3DAnimation(Shiboken.Object):
         def valueChanged(self, value: Any) -> None: ...
 
     class QAnimationClip(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimationClip):
+
+        clipDataChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -133,6 +156,10 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QAnimationClipLoader(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimationClip):
 
+        sourceChanged: PySide6.QtCore.Signal
+        statusChanged: PySide6.QtCore.Signal
+
+
         class Status(enum.Enum):
 
             NotReady                 : Qt3DAnimation.QAnimationClipLoader.Status = ... # 0x0
@@ -150,6 +177,14 @@ class Qt3DAnimation(Shiboken.Object):
         def status(self) -> PySide6.Qt3DAnimation.Qt3DAnimation.QAnimationClipLoader.Status: ...
 
     class QAnimationController(PySide6.QtCore.QObject):
+
+        activeAnimationGroupChanged: PySide6.QtCore.Signal
+        entityChanged: PySide6.QtCore.Signal
+        positionChanged: PySide6.QtCore.Signal
+        positionOffsetChanged: PySide6.QtCore.Signal
+        positionScaleChanged: PySide6.QtCore.Signal
+        recursiveChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -174,6 +209,11 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QAnimationGroup(PySide6.QtCore.QObject):
 
+        durationChanged: PySide6.QtCore.Signal
+        nameChanged: PySide6.QtCore.Signal
+        positionChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
         def addAnimation(self, animation: PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimation) -> None: ...
@@ -187,6 +227,9 @@ class Qt3DAnimation(Shiboken.Object):
         def setPosition(self, position: float) -> None: ...
 
     class QBlendedClipAnimator(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipAnimator):
+
+        blendTreeChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -251,6 +294,11 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QChannelMapping(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractChannelMapping):
 
+        channelNameChanged: PySide6.QtCore.Signal
+        propertyChanged: PySide6.QtCore.Signal
+        targetChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def channelName(self) -> str: ...
@@ -262,12 +310,18 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QClipAnimator(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipAnimator):
 
+        clipChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def clip(self) -> PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimationClip: ...
         def setClip(self, clip: PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimationClip) -> None: ...
 
     class QClipBlendValue(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipBlendNode):
+
+        clipChanged: PySide6.QtCore.Signal
+
 
         @overload
         def __init__(self, clip: PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimationClip, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
@@ -278,6 +332,9 @@ class Qt3DAnimation(Shiboken.Object):
         def setClip(self, clip: PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimationClip) -> None: ...
 
     class QClock(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        playbackRateChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -311,6 +368,14 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QKeyframeAnimation(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimation):
 
+        easingChanged: PySide6.QtCore.Signal
+        endModeChanged: PySide6.QtCore.Signal
+        framePositionsChanged: PySide6.QtCore.Signal
+        startModeChanged: PySide6.QtCore.Signal
+        targetChanged: PySide6.QtCore.Signal
+        targetNameChanged: PySide6.QtCore.Signal
+
+
         class RepeatMode(enum.Enum):
 
             None_                    : Qt3DAnimation.QKeyframeAnimation.RepeatMode = ... # 0x0
@@ -339,6 +404,11 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QLerpClipBlend(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipBlendNode):
 
+        blendFactorChanged: PySide6.QtCore.Signal
+        endClipChanged: PySide6.QtCore.Signal
+        startClipChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def blendFactor(self) -> float: ...
@@ -349,6 +419,9 @@ class Qt3DAnimation(Shiboken.Object):
         def startClip(self) -> PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipBlendNode: ...
 
     class QMorphTarget(PySide6.QtCore.QObject):
+
+        attributeNamesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -361,6 +434,14 @@ class Qt3DAnimation(Shiboken.Object):
         def setAttributes(self, attributes: Sequence[PySide6.Qt3DCore.Qt3DCore.QAttribute]) -> None: ...
 
     class QMorphingAnimation(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimation):
+
+        easingChanged: PySide6.QtCore.Signal
+        interpolatorChanged: PySide6.QtCore.Signal
+        methodChanged: PySide6.QtCore.Signal
+        targetChanged: PySide6.QtCore.Signal
+        targetNameChanged: PySide6.QtCore.Signal
+        targetPositionsChanged: PySide6.QtCore.Signal
+
 
         class Method(enum.Enum):
 
@@ -390,12 +471,21 @@ class Qt3DAnimation(Shiboken.Object):
 
     class QSkeletonMapping(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractChannelMapping):
 
+        skeletonChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setSkeleton(self, skeleton: PySide6.Qt3DCore.Qt3DCore.QAbstractSkeleton) -> None: ...
         def skeleton(self) -> PySide6.Qt3DCore.Qt3DCore.QAbstractSkeleton: ...
 
     class QVertexBlendAnimation(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractAnimation):
+
+        interpolatorChanged: PySide6.QtCore.Signal
+        targetChanged: PySide6.QtCore.Signal
+        targetNameChanged: PySide6.QtCore.Signal
+        targetPositionsChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

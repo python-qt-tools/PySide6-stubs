@@ -26,6 +26,13 @@ class Qt3DExtras(Shiboken.Object):
 
     class QAbstractCameraController(PySide6.Qt3DCore.Qt3DCore.QEntity):
 
+        accelerationChanged: PySide6.QtCore.Signal
+        cameraChanged: PySide6.QtCore.Signal
+        decelerationChanged: PySide6.QtCore.Signal
+        linearSpeedChanged: PySide6.QtCore.Signal
+        lookSpeedChanged: PySide6.QtCore.Signal
+
+
         class InputState(Shiboken.Object):
 
             @overload
@@ -51,6 +58,11 @@ class Qt3DExtras(Shiboken.Object):
         def setLookSpeed(self, lookSpeed: float) -> None: ...
 
     class QAbstractSpriteSheet(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        currentIndexChanged: PySide6.QtCore.Signal
+        textureChanged: PySide6.QtCore.Signal
+        textureTransformChanged: PySide6.QtCore.Signal
+
         def currentIndex(self) -> int: ...
         def setCurrentIndex(self, currentIndex: int) -> None: ...
         def setTexture(self, texture: PySide6.Qt3DRender.Qt3DRender.QAbstractTexture) -> None: ...
@@ -58,6 +70,15 @@ class Qt3DExtras(Shiboken.Object):
         def textureTransform(self) -> PySide6.QtGui.QMatrix3x3: ...
 
     class QConeGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        bottomRadiusChanged: PySide6.QtCore.Signal
+        hasBottomEndcapChanged: PySide6.QtCore.Signal
+        hasTopEndcapChanged: PySide6.QtCore.Signal
+        lengthChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+        topRadiusChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -83,6 +104,15 @@ class Qt3DExtras(Shiboken.Object):
         def updateVertices(self) -> None: ...
 
     class QConeGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        bottomRadiusChanged: PySide6.QtCore.Signal
+        hasBottomEndcapChanged: PySide6.QtCore.Signal
+        hasTopEndcapChanged: PySide6.QtCore.Signal
+        lengthChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+        topRadiusChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -111,6 +141,15 @@ class Qt3DExtras(Shiboken.Object):
 
     class QConeMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        bottomRadiusChanged: PySide6.QtCore.Signal
+        hasBottomEndcapChanged: PySide6.QtCore.Signal
+        hasTopEndcapChanged: PySide6.QtCore.Signal
+        lengthChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+        topRadiusChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def bottomRadius(self) -> float: ...
@@ -138,6 +177,14 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCuboidGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
 
+        xExtentChanged: PySide6.QtCore.Signal
+        xyMeshResolutionChanged: PySide6.QtCore.Signal
+        xzMeshResolutionChanged: PySide6.QtCore.Signal
+        yExtentChanged: PySide6.QtCore.Signal
+        yzMeshResolutionChanged: PySide6.QtCore.Signal
+        zExtentChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def indexAttribute(self) -> PySide6.Qt3DCore.Qt3DCore.QAttribute: ...
@@ -161,6 +208,14 @@ class Qt3DExtras(Shiboken.Object):
         def zExtent(self) -> float: ...
 
     class QCuboidGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        xExtentChanged: PySide6.QtCore.Signal
+        xyMeshResolutionChanged: PySide6.QtCore.Signal
+        xzMeshResolutionChanged: PySide6.QtCore.Signal
+        yExtentChanged: PySide6.QtCore.Signal
+        yzMeshResolutionChanged: PySide6.QtCore.Signal
+        zExtentChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -187,6 +242,14 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCuboidMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        xExtentChanged: PySide6.QtCore.Signal
+        xyMeshResolutionChanged: PySide6.QtCore.Signal
+        xzMeshResolutionChanged: PySide6.QtCore.Signal
+        yExtentChanged: PySide6.QtCore.Signal
+        yzMeshResolutionChanged: PySide6.QtCore.Signal
+        zExtentChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setFirstInstance(self, firstInstance: int) -> None: ...
@@ -212,6 +275,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCylinderGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
 
+        lengthChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def indexAttribute(self) -> PySide6.Qt3DCore.Qt3DCore.QAttribute: ...
@@ -230,6 +299,12 @@ class Qt3DExtras(Shiboken.Object):
         def updateVertices(self) -> None: ...
 
     class QCylinderGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        lengthChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -252,6 +327,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCylinderMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        lengthChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def length(self) -> float: ...
@@ -273,6 +354,13 @@ class Qt3DExtras(Shiboken.Object):
 
     class QDiffuseMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+        textureScaleChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -288,6 +376,13 @@ class Qt3DExtras(Shiboken.Object):
 
     class QDiffuseSpecularMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+        textureScaleChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -302,6 +397,15 @@ class Qt3DExtras(Shiboken.Object):
         def textureScale(self) -> float: ...
 
     class QDiffuseSpecularMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        alphaBlendingEnabledChanged: PySide6.QtCore.Signal
+        ambientChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        normalChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+        textureScaleChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -322,6 +426,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QExtrudedTextGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
 
+        depthChanged: PySide6.QtCore.Signal
+        fontChanged: PySide6.QtCore.Signal
+        textChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def extrusionLength(self) -> float: ...
@@ -335,6 +444,11 @@ class Qt3DExtras(Shiboken.Object):
         def text(self) -> str: ...
 
     class QExtrudedTextMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
+
+        depthChanged: PySide6.QtCore.Signal
+        fontChanged: PySide6.QtCore.Signal
+        textChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -351,6 +465,17 @@ class Qt3DExtras(Shiboken.Object):
 
 
     class QForwardRenderer(PySide6.Qt3DRender.Qt3DRender.QTechniqueFilter):
+
+        buffersToClearChanged: PySide6.QtCore.Signal
+        cameraChanged: PySide6.QtCore.Signal
+        clearColorChanged: PySide6.QtCore.Signal
+        externalRenderTargetSizeChanged: PySide6.QtCore.Signal
+        frustumCullingEnabledChanged: PySide6.QtCore.Signal
+        gammaChanged: PySide6.QtCore.Signal
+        showDebugOverlayChanged: PySide6.QtCore.Signal
+        surfaceChanged: PySide6.QtCore.Signal
+        viewportRectChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -375,6 +500,15 @@ class Qt3DExtras(Shiboken.Object):
 
     class QGoochMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        alphaChanged: PySide6.QtCore.Signal
+        betaChanged: PySide6.QtCore.Signal
+        coolChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+        warmChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def alpha(self) -> float: ...
@@ -394,6 +528,14 @@ class Qt3DExtras(Shiboken.Object):
 
     class QMetalRoughMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientOcclusionChanged: PySide6.QtCore.Signal
+        baseColorChanged: PySide6.QtCore.Signal
+        metalnessChanged: PySide6.QtCore.Signal
+        normalChanged: PySide6.QtCore.Signal
+        roughnessChanged: PySide6.QtCore.Signal
+        textureScaleChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambientOcclusion(self) -> Any: ...
@@ -410,6 +552,13 @@ class Qt3DExtras(Shiboken.Object):
         def textureScale(self) -> float: ...
 
     class QMorphPhongMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        ambientChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        interpolatorChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -431,6 +580,14 @@ class Qt3DExtras(Shiboken.Object):
 
     class QNormalDiffuseMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        normalChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+        textureScaleChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -447,6 +604,14 @@ class Qt3DExtras(Shiboken.Object):
         def textureScale(self) -> float: ...
 
     class QNormalDiffuseSpecularMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        ambientChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        normalChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+        textureScaleChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -465,6 +630,9 @@ class Qt3DExtras(Shiboken.Object):
 
     class QOrbitCameraController(PySide6.Qt3DExtras.Qt3DExtras.QAbstractCameraController):
 
+        zoomInLimitChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setZoomInLimit(self, zoomInLimit: float) -> None: ...
@@ -476,6 +644,18 @@ class Qt3DExtras(Shiboken.Object):
 
 
     class QPhongAlphaMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        alphaChanged: PySide6.QtCore.Signal
+        ambientChanged: PySide6.QtCore.Signal
+        blendFunctionArgChanged: PySide6.QtCore.Signal
+        destinationAlphaArgChanged: PySide6.QtCore.Signal
+        destinationRgbArgChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        sourceAlphaArgChanged: PySide6.QtCore.Signal
+        sourceRgbArgChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -502,6 +682,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QPhongMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged: PySide6.QtCore.Signal
+        diffuseChanged: PySide6.QtCore.Signal
+        shininessChanged: PySide6.QtCore.Signal
+        specularChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -514,6 +700,12 @@ class Qt3DExtras(Shiboken.Object):
         def specular(self) -> PySide6.QtGui.QColor: ...
 
     class QPlaneGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        heightChanged: PySide6.QtCore.Signal
+        mirroredChanged: PySide6.QtCore.Signal
+        resolutionChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -534,6 +726,12 @@ class Qt3DExtras(Shiboken.Object):
         def width(self) -> float: ...
 
     class QPlaneGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        heightChanged: PySide6.QtCore.Signal
+        meshResolutionChanged: PySide6.QtCore.Signal
+        mirroredChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -556,6 +754,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QPlaneMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        heightChanged: PySide6.QtCore.Signal
+        meshResolutionChanged: PySide6.QtCore.Signal
+        mirroredChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def height(self) -> float: ...
@@ -577,6 +781,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSkyboxEntity(PySide6.Qt3DCore.Qt3DCore.QEntity):
 
+        baseNameChanged: PySide6.QtCore.Signal
+        extensionChanged: PySide6.QtCore.Signal
+        gammaCorrectEnabledChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def baseName(self) -> str: ...
@@ -587,6 +796,12 @@ class Qt3DExtras(Shiboken.Object):
         def setGammaCorrectEnabled(self, enabled: bool) -> None: ...
 
     class QSphereGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        generateTangentsChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -608,6 +823,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSphereGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
 
+        generateTangentsChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def generateTangents(self) -> bool: ...
@@ -627,6 +848,12 @@ class Qt3DExtras(Shiboken.Object):
         def slices(self) -> int: ...
 
     class QSphereMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
+
+        generateTangentsChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -648,6 +875,10 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSpriteGrid(PySide6.Qt3DExtras.Qt3DExtras.QAbstractSpriteSheet):
 
+        columnsChanged: PySide6.QtCore.Signal
+        rowsChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def columns(self) -> int: ...
@@ -656,6 +887,9 @@ class Qt3DExtras(Shiboken.Object):
         def setRows(self, rows: int) -> None: ...
 
     class QSpriteSheet(PySide6.Qt3DExtras.Qt3DExtras.QAbstractSpriteSheet):
+
+        spritesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -669,6 +903,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSpriteSheetItem(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        heightChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+        xChanged: PySide6.QtCore.Signal
+        yChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def height(self) -> int: ...
@@ -681,6 +921,13 @@ class Qt3DExtras(Shiboken.Object):
         def y(self) -> int: ...
 
     class QText2DEntity(PySide6.Qt3DCore.Qt3DCore.QEntity):
+
+        colorChanged: PySide6.QtCore.Signal
+        fontChanged: PySide6.QtCore.Signal
+        heightChanged: PySide6.QtCore.Signal
+        textChanged: PySide6.QtCore.Signal
+        widthChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -697,6 +944,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QTextureMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        alphaBlendingEnabledChanged: PySide6.QtCore.Signal
+        textureChanged: PySide6.QtCore.Signal
+        textureOffsetChanged: PySide6.QtCore.Signal
+        textureTransformChanged: PySide6.QtCore.Signal
+
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def isAlphaBlendingEnabled(self) -> bool: ...
@@ -709,6 +962,12 @@ class Qt3DExtras(Shiboken.Object):
         def textureTransform(self) -> PySide6.QtGui.QMatrix3x3: ...
 
     class QTorusGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        minorRadiusChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -728,6 +987,12 @@ class Qt3DExtras(Shiboken.Object):
         def updateVertices(self) -> None: ...
 
     class QTorusGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        minorRadiusChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -749,6 +1014,12 @@ class Qt3DExtras(Shiboken.Object):
         def slices(self) -> int: ...
 
     class QTorusMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
+
+        minorRadiusChanged: PySide6.QtCore.Signal
+        radiusChanged: PySide6.QtCore.Signal
+        ringsChanged: PySide6.QtCore.Signal
+        slicesChanged: PySide6.QtCore.Signal
+
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 

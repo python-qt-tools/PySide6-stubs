@@ -32,6 +32,9 @@ class QQuick3D(Shiboken.Object):
 
 class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
 
+    geometryNodeDirty: PySide6.QtCore.Signal
+
+
     class Attribute(Shiboken.Object):
 
         class ComponentType(enum.Enum):
@@ -119,6 +122,13 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
 
 class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
+    depthSortingEnabledChanged: PySide6.QtCore.Signal
+    hasTransparencyChanged: PySide6.QtCore.Signal
+    instanceCountOverrideChanged: PySide6.QtCore.Signal
+    instanceNodeDirty: PySide6.QtCore.Signal
+    instanceTableChanged: PySide6.QtCore.Signal
+
+
     class InstanceTableEntry(Shiboken.Object):
 
         @overload
@@ -158,6 +168,11 @@ class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
 class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
+    childrenChanged: PySide6.QtCore.Signal
+    parentChanged: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
+
     class ItemChange(enum.Enum):
 
         ItemChildAddedChange     : QQuick3DObject.ItemChange = ... # 0x0
@@ -187,6 +202,9 @@ class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
 
 class QQuick3DTextureData(PySide6.QtQuick3D.QQuick3DObject):
+
+    textureDataNodeDirty: PySide6.QtCore.Signal
+
 
     class Format(enum.Enum):
 

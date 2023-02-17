@@ -49,6 +49,12 @@ class PyClassProperty(property):
 
 class QAbstractAnimation(PySide6.QtCore.QObject):
 
+    currentLoopChanged: PySide6.QtCore.Signal
+    directionChanged: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
+
     class DeletionPolicy(enum.Enum):
 
         KeepWhenStopped          : QAbstractAnimation.DeletionPolicy = ... # 0x0
@@ -95,6 +101,10 @@ class QAbstractAnimation(PySide6.QtCore.QObject):
 
 class QAbstractEventDispatcher(PySide6.QtCore.QObject):
 
+    aboutToBlock: PySide6.QtCore.Signal
+    awake: PySide6.QtCore.Signal
+
+
     class TimerInfo(Shiboken.Object):
 
         @overload
@@ -131,6 +141,26 @@ class QAbstractEventDispatcher(PySide6.QtCore.QObject):
 
 
 class QAbstractItemModel(PySide6.QtCore.QObject):
+
+    columnsAboutToBeInserted: PySide6.QtCore.Signal
+    columnsAboutToBeMoved: PySide6.QtCore.Signal
+    columnsAboutToBeRemoved: PySide6.QtCore.Signal
+    columnsInserted: PySide6.QtCore.Signal
+    columnsMoved: PySide6.QtCore.Signal
+    columnsRemoved: PySide6.QtCore.Signal
+    dataChanged: PySide6.QtCore.Signal
+    headerDataChanged: PySide6.QtCore.Signal
+    layoutAboutToBeChanged: PySide6.QtCore.Signal
+    layoutChanged: PySide6.QtCore.Signal
+    modelAboutToBeReset: PySide6.QtCore.Signal
+    modelReset: PySide6.QtCore.Signal
+    rowsAboutToBeInserted: PySide6.QtCore.Signal
+    rowsAboutToBeMoved: PySide6.QtCore.Signal
+    rowsAboutToBeRemoved: PySide6.QtCore.Signal
+    rowsInserted: PySide6.QtCore.Signal
+    rowsMoved: PySide6.QtCore.Signal
+    rowsRemoved: PySide6.QtCore.Signal
+
 
     class CheckIndexOption(enum.Flag):
 
@@ -245,6 +275,9 @@ class QAbstractNativeEventFilter(Shiboken.Object):
 
 
 class QAbstractProxyModel(PySide6.QtCore.QAbstractItemModel):
+
+    sourceModelChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -1398,6 +1431,13 @@ class QConcatenateTablesProxyModel(PySide6.QtCore.QAbstractItemModel):
 
 
 class QCoreApplication(PySide6.QtCore.QObject):
+
+    aboutToQuit: PySide6.QtCore.Signal
+    applicationNameChanged: PySide6.QtCore.Signal
+    applicationVersionChanged: PySide6.QtCore.Signal
+    organizationDomainChanged: PySide6.QtCore.Signal
+    organizationNameChanged: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self) -> None: ...
@@ -2832,6 +2872,10 @@ class QFileSelector(PySide6.QtCore.QObject):
 
 class QFileSystemWatcher(PySide6.QtCore.QObject):
 
+    directoryChanged: PySide6.QtCore.Signal
+    fileChanged: PySide6.QtCore.Signal
+
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -2986,6 +3030,14 @@ class QGenericReturnArgumentHolder(Shiboken.Object):
 
 
 class QIODevice(PySide6.QtCore.QObject, PySide6.QtCore.QIODeviceBase):
+
+    aboutToClose: PySide6.QtCore.Signal
+    bytesWritten: PySide6.QtCore.Signal
+    channelBytesWritten: PySide6.QtCore.Signal
+    channelReadyRead: PySide6.QtCore.Signal
+    readChannelFinished: PySide6.QtCore.Signal
+    readyRead: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self) -> None: ...
@@ -3171,6 +3223,13 @@ class QItemSelection(Shiboken.Object):
 
 
 class QItemSelectionModel(PySide6.QtCore.QObject):
+
+    currentChanged: PySide6.QtCore.Signal
+    currentColumnChanged: PySide6.QtCore.Signal
+    currentRowChanged: PySide6.QtCore.Signal
+    modelChanged: PySide6.QtCore.Signal
+    selectionChanged: PySide6.QtCore.Signal
+
 
     class SelectionFlag(enum.Flag):
 
@@ -5449,6 +5508,10 @@ class QMutexLocker(Shiboken.Object):
 
 class QObject(Shiboken.Object):
 
+    destroyed: PySide6.QtCore.Signal
+    objectNameChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def blockSignals(self, b: bool) -> bool: ...
@@ -5758,6 +5821,14 @@ class QPointList(object): ...
 
 
 class QProcess(PySide6.QtCore.QIODevice):
+
+    errorOccurred: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    readyReadStandardError: PySide6.QtCore.Signal
+    readyReadStandardOutput: PySide6.QtCore.Signal
+    started: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
 
     class ExitStatus(enum.Enum):
 
@@ -6476,6 +6547,9 @@ class QSemaphoreReleaser(Shiboken.Object):
 
 class QSequentialAnimationGroup(PySide6.QtCore.QAnimationGroup):
 
+    currentAnimationChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addPause(self, msecs: int) -> PySide6.QtCore.QPauseAnimation: ...
@@ -6637,6 +6711,11 @@ class QSignalBlocker(Shiboken.Object):
 
 class QSignalMapper(PySide6.QtCore.QObject):
 
+    mappedInt: PySide6.QtCore.Signal
+    mappedObject: PySide6.QtCore.Signal
+    mappedString: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     @overload
@@ -6766,6 +6845,9 @@ class QSocketDescriptor(Shiboken.Object):
 
 class QSocketNotifier(PySide6.QtCore.QObject):
 
+    activated: PySide6.QtCore.Signal
+
+
     class Type(enum.Enum):
 
         Read                     : QSocketNotifier.Type = ... # 0x0
@@ -6790,6 +6872,16 @@ class QSocketNotifier(PySide6.QtCore.QObject):
 
 
 class QSortFilterProxyModel(PySide6.QtCore.QAbstractProxyModel):
+
+    autoAcceptChildRowsChanged: PySide6.QtCore.Signal
+    dynamicSortFilterChanged: PySide6.QtCore.Signal
+    filterCaseSensitivityChanged: PySide6.QtCore.Signal
+    filterRoleChanged: PySide6.QtCore.Signal
+    recursiveFilteringEnabledChanged: PySide6.QtCore.Signal
+    sortCaseSensitivityChanged: PySide6.QtCore.Signal
+    sortLocaleAwareChanged: PySide6.QtCore.Signal
+    sortRoleChanged: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -7320,6 +7412,10 @@ class QTextStreamManipulator(Shiboken.Object):
 
 class QThread(PySide6.QtCore.QObject):
 
+    finished: PySide6.QtCore.Signal
+    started: PySide6.QtCore.Signal
+
+
     class Priority(enum.Enum):
 
         IdlePriority             : QThread.Priority = ... # 0x0
@@ -7452,6 +7548,12 @@ class QTime(Shiboken.Object):
 
 
 class QTimeLine(PySide6.QtCore.QObject):
+
+    finished: PySide6.QtCore.Signal
+    frameChanged: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+    valueChanged: PySide6.QtCore.Signal
+
 
     class Direction(enum.Enum):
 
@@ -7593,6 +7695,9 @@ class QTimeZone(Shiboken.Object):
 
 
 class QTimer(PySide6.QtCore.QObject):
+
+    timeout: PySide6.QtCore.Signal
+
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -7906,6 +8011,9 @@ class QUuid(Shiboken.Object):
 
 class QVariantAnimation(PySide6.QtCore.QAbstractAnimation):
 
+    valueChanged: PySide6.QtCore.Signal
+
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def currentValue(self) -> Any: ...
@@ -7981,6 +8089,9 @@ class QWaitCondition(Shiboken.Object):
 
 
 class QWinEventNotifier(PySide6.QtCore.QObject):
+
+    activated: PySide6.QtCore.Signal
+
 
     @overload
     def __init__(self, hEvent: int, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...

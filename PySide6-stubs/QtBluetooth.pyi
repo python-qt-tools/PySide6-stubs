@@ -56,6 +56,13 @@ class QBluetoothAddress(Shiboken.Object):
 
 class QBluetoothDeviceDiscoveryAgent(PySide6.QtCore.QObject):
 
+    canceled: PySide6.QtCore.Signal
+    deviceDiscovered: PySide6.QtCore.Signal
+    deviceUpdated: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+
+
     class DiscoveryMethod(enum.Flag):
 
         NoMethod                 : QBluetoothDeviceDiscoveryAgent.DiscoveryMethod = ... # 0x0
@@ -317,6 +324,13 @@ class QBluetoothHostInfo(Shiboken.Object):
 
 class QBluetoothLocalDevice(PySide6.QtCore.QObject):
 
+    deviceConnected: PySide6.QtCore.Signal
+    deviceDisconnected: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    hostModeStateChanged: PySide6.QtCore.Signal
+    pairingFinished: PySide6.QtCore.Signal
+
+
     class Error(enum.Enum):
 
         NoError                  : QBluetoothLocalDevice.Error = ... # 0x0
@@ -360,6 +374,10 @@ class QBluetoothLocalDevice(PySide6.QtCore.QObject):
 
 class QBluetoothServer(PySide6.QtCore.QObject):
 
+    errorOccurred: PySide6.QtCore.Signal
+    newConnection: PySide6.QtCore.Signal
+
+
     class Error(enum.Enum):
 
         NoError                  : QBluetoothServer.Error = ... # 0x0
@@ -392,6 +410,12 @@ class QBluetoothServer(PySide6.QtCore.QObject):
 
 
 class QBluetoothServiceDiscoveryAgent(PySide6.QtCore.QObject):
+
+    canceled: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    finished: PySide6.QtCore.Signal
+    serviceDiscovered: PySide6.QtCore.Signal
+
 
     class DiscoveryMode(enum.Enum):
 
@@ -654,6 +678,12 @@ class QBluetoothServiceInfo(Shiboken.Object):
 
 
 class QBluetoothSocket(PySide6.QtCore.QIODevice):
+
+    connected: PySide6.QtCore.Signal
+    disconnected: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
 
     class SocketError(enum.Enum):
 
@@ -1208,6 +1238,16 @@ class QLowEnergyConnectionParameters(Shiboken.Object):
 
 class QLowEnergyController(PySide6.QtCore.QObject):
 
+    connected: PySide6.QtCore.Signal
+    connectionUpdated: PySide6.QtCore.Signal
+    disconnected: PySide6.QtCore.Signal
+    discoveryFinished: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    mtuChanged: PySide6.QtCore.Signal
+    serviceDiscovered: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
+
     class ControllerState(enum.Enum):
 
         UnconnectedState         : QLowEnergyController.ControllerState = ... # 0x0
@@ -1321,6 +1361,15 @@ class QLowEnergyDescriptorData(Shiboken.Object):
 
 
 class QLowEnergyService(PySide6.QtCore.QObject):
+
+    characteristicChanged: PySide6.QtCore.Signal
+    characteristicRead: PySide6.QtCore.Signal
+    characteristicWritten: PySide6.QtCore.Signal
+    descriptorRead: PySide6.QtCore.Signal
+    descriptorWritten: PySide6.QtCore.Signal
+    errorOccurred: PySide6.QtCore.Signal
+    stateChanged: PySide6.QtCore.Signal
+
 
     class DiscoveryMode(enum.Enum):
 
