@@ -14,8 +14,7 @@ class Toto(QTreeWidget):
 
     def toto(self) -> None:
         try:
-            # exec() is actually not available
-            self.m.exec()    # type: ignore[attr-defined]
+            self.m.exec()
             assert False, 'Should not reach here'
         except AttributeError:
             pass

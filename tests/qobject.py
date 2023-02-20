@@ -22,7 +22,7 @@ assert isinstance(b[0], QWidget)
 
 # incorrect here, correctly detected by mypy
 c: List[QWidget]
-c = o1.findChildren(QObject, '')        # type: ignore[arg-type]
+c = o1.findChildren(QObject, '')
 
 # cast works, List[QWidget] is a List[QObject]
 d: List[QObject]
