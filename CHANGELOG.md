@@ -5,6 +5,7 @@ Version 6.4.2.0 (to be released)
 * add all missing signals to the stubs (many were missing)
 * add conversion from `QByteArray` to bytes
 * add construction of `QByteArray` from length and string
+* fix signature of `QCoreApplication.translate()`
 
 
 
@@ -28,7 +29,6 @@ Many core improvements over previous version
 * fix `data()` and `setData()` to accept Qt.ItemDataRole
 * add all method for operations on QFlag: `__or__`, `__xor__`, ...
 * fix all method accepting a QColor to accept also a `Qt.GlobalColor`
-* fix signature of `QCoreApplication.translate()`
 * fix `QLabel.setAlignment()` to accept also Qt.AlignmentFlag
 
 
