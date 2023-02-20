@@ -9,6 +9,7 @@ Version 6.4.2.0 (to be released)
 * fix `QFileDialog.getOpen*()` methods to accept None
 * fix `QLineEdit.setText()` to accept None
 * fix `QTreeWidget.setItemWidget()` and `QListWidget.setItemWidget()` to accept `None` as a widget argument
+* improve signature of operations on `QPolygon`
 
 
 To be released
@@ -47,7 +48,6 @@ Initial release for PySide2 v5.15.2.1
 * fix `Signal.connect()` return value to bool instead of None
 * fix `QTimer.timeout` undeclared signal
 * support all `QSize` and `QSizeF` operations
-* improve signature of operations on `QPolygon`
 * improve `QPainter` methods which use lists of `QPoint` in entry
 * improve `QObject.findChildren()` type information
 * add `QDialogButtonBox.StandardButton` `__or__` operations
