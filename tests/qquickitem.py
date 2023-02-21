@@ -2,5 +2,5 @@ from PySide6.QtQuick import QQuickItem
 from PySide6.QtCore import Qt
 
 qi = QQuickItem()
-qi.setCursor( Qt.WaitCursor )
+qi.setCursor( Qt.CursorShape.WaitCursor )
 

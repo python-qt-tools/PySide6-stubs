@@ -12,6 +12,7 @@ Version 6.4.2.0 (to be released)
 * improve signature of operations on `QPolygon`
 * fix `QProcess.ExitStatus` enum conversion to int
 * fix `QProgressDialog.setCancelButton()` accepting None
+* support all `QSize` and `QSizeF` operations
 
 
 To be released
@@ -47,7 +48,6 @@ Initial release for PySide2 v5.15.2.1
 * fix `QTreeWidgetItem` comparison with `<` 
 * fix `Signal.connect()` return value to bool instead of None
 * fix `QTimer.timeout` undeclared signal
-* support all `QSize` and `QSizeF` operations
 * improve `QPainter` methods which use lists of `QPoint` in entry
 * improve `QObject.findChildren()` type information
 * add `QDialogButtonBox.StandardButton` `__or__` operations
