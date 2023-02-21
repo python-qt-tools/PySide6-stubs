@@ -16,4 +16,13 @@ one_button = QMessageBox.StandardButton.Ok   # type: QMessageBox.StandardButton
 one_button = QMessageBox.StandardButton(44)
 one_button = QMessageBox.StandardButton(QMessageBox.StandardButton.Ok)
 
-my_warning = QMessageBox.warning # type: Callable[[QWidget, str, str], QMessageBox.StandardButton]
+my_msgbox_function: Callable[[None, str, str], QMessageBox.StandardButton]
+my_msgbox_function = QMessageBox.warning
+my_msgbox_function = QMessageBox.information
+my_msgbox_function = QMessageBox.critical
+my_msgbox_function = QMessageBox.question
+
+my_about_qt: Callable[[None, str], None]
+my_about_qt = QMessageBox.aboutQt
+my_about: Callable[[None, str, str], None]
+my_about = QMessageBox.about

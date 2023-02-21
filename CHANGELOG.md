@@ -13,11 +13,11 @@ Version 6.4.2.0 (to be released)
 * fix `QProcess.ExitStatus` enum conversion to int
 * fix `QProgressDialog.setCancelButton()` accepting None
 * support all `QSize` and `QSizeF` operations
-
-
-To be released
-==============
 * fix `QTabBar.setButtonWidget()` to accept `None` as a widget argument
+* fix `QTreeWidget.topLevelItem()` returning possibly None
+* fix `QTreeWidgetItem` comparison with `<` 
+* fix `QMessageBox.warning`, information, critical, question, about, aboutQt to accept None as parent argument
+
 
 
 Version 5.15.2.1.2:
@@ -41,11 +41,8 @@ Initial release for PySide2 v5.15.2.1
 
 * fix `Signal` to make it accept method emit()
 * fix `qVersion()` returns string, not bytes
-* fix `QMessageBox.warning`, information, critical, question, about, aboutQt to accept None as parent argument
-* fix `QTreeWidget.topLevelItem()` returning possibly None
 * fix `QMessageBox.StandardButton` or combinations
 * fix `QAction.setShortcut()` to accept string as argument
-* fix `QTreeWidgetItem` comparison with `<` 
 * fix `Signal.connect()` return value to bool instead of None
 * fix `QTimer.timeout` undeclared signal
 * improve `QPainter` methods which use lists of `QPoint` in entry

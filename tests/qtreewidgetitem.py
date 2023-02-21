@@ -16,11 +16,11 @@ b = t < t
 b = t == t
 b = t != t
 
-t.setForeground(3, QColor(Qt.red))
-t.setBackground(3, QColor(Qt.red))
+t.setForeground(3, QColor(Qt.GlobalColor.red))
+t.setBackground(3, QColor(Qt.GlobalColor.red))
 
 t.setData(0, 33, 'bla')
-t.setData(0, Qt.ToolTipRole, 'bla')
+t.setData(0, Qt.ItemDataRole.ToolTipRole, 'bla')
 
 t.data(0, 33)
-t.data(0, Qt.ToolTipRole)
+t.data(0, Qt.ItemDataRole.ToolTipRole)
