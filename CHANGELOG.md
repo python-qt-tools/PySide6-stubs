@@ -17,6 +17,8 @@ Version 6.4.2.0 (to be released)
 * fix `QTreeWidget.topLevelItem()` returning possibly None
 * fix `QTreeWidgetItem` comparison with `<` 
 * fix `QMessageBox.warning`, information, critical, question, about, aboutQt to accept None as parent argument
+* fix `qVersion()` returns string, not bytes
+* fix `qDebug()`, `qWarning()`, `qCritical()`, `qFatal()`, `SIGNAL()`, `SLOT()` to accept string, not bytes
 
 
 
@@ -40,7 +42,6 @@ Version 5.15.2.1.0:
 Initial release for PySide2 v5.15.2.1
 
 * fix `Signal` to make it accept method emit()
-* fix `qVersion()` returns string, not bytes
 * fix `QMessageBox.StandardButton` or combinations
 * fix `QAction.setShortcut()` to accept string as argument
 * fix `Signal.connect()` return value to bool instead of None
