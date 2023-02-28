@@ -19,6 +19,8 @@ Version 6.4.2.0 (to be released)
 * fix `QMessageBox.warning`, information, critical, question, about, aboutQt to accept None as parent argument
 * fix `qVersion()` returns string, not bytes
 * fix `qDebug()`, `qWarning()`, `qCritical()`, `qFatal()`, `SIGNAL()`, `SLOT()` to accept string, not bytes
+* fix `Signal.connect()`, `Signal.disconnect()`, `QObject.connect()` and `QObject.disconnect()` to accept `str` instead
+  of `bool`, and to return `bool` on disconnect.
 
 
 
@@ -27,7 +29,6 @@ Version 5.15.2.1.2:
 Many core improvements over previous version
 
 * uses automatic code transforms from libcst to update all stubs at once
-* add all missing signals to the stubs (many were missing)
 * incorrect methods names are no longer silently ignored
 * fix all QFlags values incorrectly declared as the QFlag wrapping class
 * fix all method accepting a `QCursor` to accept also a `Qt.CursorShape`
@@ -44,7 +45,6 @@ Initial release for PySide2 v5.15.2.1
 * fix `Signal` to make it accept method emit()
 * fix `QMessageBox.StandardButton` or combinations
 * fix `QAction.setShortcut()` to accept string as argument
-* fix `Signal.connect()` return value to bool instead of None
 * fix `QTimer.timeout` undeclared signal
 * improve `QPainter` methods which use lists of `QPoint` in entry
 * improve `QObject.findChildren()` type information
