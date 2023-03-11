@@ -10,26 +10,24 @@ official stubs delivered along with PySide6 are insufficent
 for proper typing verification with `mypy`.
 
 ### Notable improvements:
-* fix `Signal` to make it accept method emit()
-* fix `qVersion()` returns string, not bytes
-* fix `QMessageBox.warning`, information, critical, question, about, aboutQt to accept None as parent argument
-* fix `QProgressDialog.setCancelButton()` accepting None
-* fix `QTreeWidgetItem` comparison with `<`
-* fix `Signal.connect()` return value to bool instead of None
-* fix `QTimer.timeout` undeclared signal
-* support all `QSize` and `QSizeF` operations
-* fix `QLineEdit.setText()` to accept None
-* add `QDialogButtonBox.StandardButton` `__or__` operations
-* fix missing methods being undetected for all Qt objects
 * add all missing signals to the stubs (many were missing)
-* fix all method accepting a `QCursor` to accept also a `Qt.CursorShape`
-* add conversion from `QByteArray` to bytes
-* add `exec()` to QDialog
-* fix `data()` and `setData()` to accept Qt.ItemDataRole
-* add all method for operations on QFlag derived classes: `__or__`, `__xor__`, ...
-* fix all method accepting a QColor to accept also a `Qt.GlobalColor`
-* fix signature of `QCoreApplication.translate()`
-* fix `QLabel.setAlignment()` to accept also Qt.AlignmentFlag
+* add conversion from `QByteArray` to `bytes`
+* add construction of `QByteArray` from length and string
+* fix `QFileDialog.getOpen*()` methods to accept `None` as parent argument
+* fix `QLineEdit.setText()` to accept `None`
+* fix `QTreeWidget.setItemWidget()` and `QListWidget.setItemWidget()` to accept `None` as a widget argument
+* fix `QProgressDialog.setCancelButton()` accepting `None`
+* support all `QSize` and `QSizeF` operations
+* fix `QTabBar.setButtonWidget()` to accept `None` as a widget argument
+* fix `QTreeWidget.topLevelItem()` returning possibly `None`
+* fix `QTreeWidgetItem` comparison with `<`
+* fix `QMessageBox.warning`, `information`, `critical`, `question`, `about`, `aboutQt` to accept `None` as parent argument
+* fix `qVersion()` returns string, not bytes
+* fix `qDebug()`, `qWarning()`, `qCritical()`, `qFatal()`, `SIGNAL()`, `SLOT()` to accept string, not bytes
+* fix `Signal.connect()`, `Signal.disconnect()`, `QObject.connect()` and `QObject.disconnect()` to accept `str` instead
+  of `bool`, and to return `bool` on disconnect.
+* fix incorrect signature of `QCoreApplication.translate()`
+* improve signature of operations on `QPolygon`
 
 
 See [CHANGELOG.md](CHANGELOG.md) for full details.
@@ -58,10 +56,6 @@ If you notice incorrect or missing typing information (mypy reports errors event
 here with the following steps:
 
 * create an issue showing your problem
-* even better, create a PR to fix the problem
-    * make sure to add a test showing what is mistyped. Just create a file under `tests/` , with a name
-      not starting with *test*. The test suite will run the file and type-check it.
-    * fix the stubs in the PySide2-stubs directory
-    * and open the PR
+* even better, create a PR to fix the problem. See CONTRIBUTING.md for details.
 
 
