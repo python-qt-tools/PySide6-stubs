@@ -1,0 +1,5 @@
+.env*
+/dist/
+/PySide6_stubs.egg-info
+.mypy_cache
+incoming 
