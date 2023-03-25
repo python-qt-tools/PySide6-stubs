@@ -1,6 +1,6 @@
 
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QWidget, QApplication, QPushButton, QDialog
+from PySide6.QtWidgets import QApplication, QDialog
 
 # I need to run this script manually to verify it works
 if __name__ == '__main__':
