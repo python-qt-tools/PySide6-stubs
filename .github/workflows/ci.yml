@@ -33,7 +33,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m pip install pip==21.1.2 # last version that works for editable install + mypy
+        python -m pip install --upgrade # pip==21.1.2 # last version that works for editable install + mypy
         python -m pip install pyside6 pytest mypy==${{ matrix.mypy-version }}
         pip install -e .
         pip list
