@@ -1,4 +1,4 @@
-<img src="http://mypy-lang.org/static/mypy_light.svg" alt="mypy logo" width="300px"/>
+<img src="http://mypy-lang.org/static/mypy_light.svg" alt="mypy logo" width="100px"/>  [![Continuous Integration](https://github.com/python-qt-tools/PySide6-stubs/actions/workflows/ci.yml/badge.svg)](https://github.com/python-qt-tools/PySide6-stubs/actions/workflows/ci.yml)
 
 
 # Mypy stubs for the PySide6 (Qt6 for Python)
