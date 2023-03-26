@@ -17,7 +17,7 @@ jobs:
         include:
           # oldest version of pyhon / mypy which works
           - python-version: "3.7"
-            mypy-version: "1.0.0"
+            mypy-version: "0.900"
 
           # latest version of everything
           - python-version: "3.11"
