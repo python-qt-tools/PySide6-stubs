@@ -16,8 +16,8 @@ jobs:
       matrix:
         include:
           # oldest version of pyhon / mypy which works
-          - python-version: "3.6"
-            mypy-version: "0.940"
+          - python-version: "3.7"
+            mypy-version: "1.0.0"
 
           # latest version of everything
           - python-version: "3.11"
@@ -33,7 +33,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade # pip==21.1.2 # last version that works for editable install + mypy
+        python -m pip install pip==21.1.4 # last version that works for editable install + mypy
         python -m pip install pyside6 pytest mypy==${{ matrix.mypy-version }}
         pip install -e .
         pip list
