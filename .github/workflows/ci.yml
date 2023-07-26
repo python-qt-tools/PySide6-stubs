@@ -1,6 +1,9 @@
 
 name: Continuous Integration
 
+env:
+  PYSIDE6_VERSION: 6.4.2
+
 on:
   push:
     branches: [ main ]
@@ -34,7 +37,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install pip==21.2.4 # last version that works for editable install + mypy
-        python -m pip install pyside6 pytest mypy==${{ matrix.mypy-version }}
+        python -m pip install pyside6==$PYSIDE6_VERSION pytest mypy==${{ matrix.mypy-version }}
         pip install -e .
         pip list
 
