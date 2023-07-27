@@ -43,11 +43,14 @@ As a derived work from PySide6, the stubs are delivered under the LGPL v2.1 . Se
 
 # Installation
 
-Today, this work exists only inside the Git repository. So the installation command is:
+Install from pypi:
+
+    $ pip install PySide6-stubs
+
+
+If you want to install the stable development version from the Git repository:
 
     $ pip install git+https://github.com/python-qt-tools/PySide6-stubs
-
-As soon as a Python pip package is created, this will be reflected in the recommendations here.
 
 
 # Help improve the stubs
