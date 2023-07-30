@@ -13,7 +13,7 @@ import PySide6.QtCore
 
 import os
 import enum
-from typing import Any, Callable, Optional, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, Callable, Optional, Tuple, Union, Sequence, Dict, List, overload, Type, TypeVar
 from shiboken6 import Shiboken
 
 
@@ -10050,11 +10050,89 @@ class SignalInstance(object):
     def emit(self, *args: Any) -> None: ...
 
 
-class Slot(object):
+RetT = TypeVar('RetT')
+T1 = TypeVar('T1')
+T2 = TypeVar('T2')
+T3 = TypeVar('T3')
+T4 = TypeVar('T4')
+T5 = TypeVar('T5')
+T6 = TypeVar('T6')
+Method_args_T1_return_RetT                 = Callable[[Any, T1], RetT]
+Method_args_T1_T2_returns_RetT             = Callable[[Any, T1, T2], RetT]
+Method_args_T1_T2_T3_returns_RetT          = Callable[[Any, T1, T2, T3], RetT]
+Method_args_T1_T2_T3_T4_returns_RetT       = Callable[[Any, T1, T2, T3, T4], RetT]
+Method_args_T1_T2_T3_T4_T5_returns_RetT    = Callable[[Any, T1, T2, T3, T4, T5], RetT]
+Method_args_T1_T2_T3_T4_T5_T6_returns_RetT = Callable[[Any, T1, T2, T3, T4, T5, T6], RetT]
 
-    def __init__(self, *types: type, name: Optional[str] = ..., result: Optional[str] = ...) -> None: ...
+### Note:  Order matters, put the defintions with 'result' after the defintions with multiple arguments
+### Note2: This will typecheck up to 5 arguments, with an optional result keyword argument
+###        For 6 arguments, it will typecheck correctly the argument if result is not provided.
+###        If result is provided, it falls back to f(*Any) -> result
+###        For 7 arguments, only the return value is typechecked if the result is provided.
 
-    def __call__(self, function: Callable) -> Any: ...
+@overload
+def Slot(t1: Type[T1]) \
+        -> Callable[ [Method_args_T1_return_RetT[T1, RetT]],
+                            Method_args_T1_return_RetT[T1, RetT]
+        ]:
+    return object
+@overload
+def Slot(t1: Type[T1], t2: Type[T2]) \
+        -> Callable[[Method_args_T1_T2_returns_RetT[T1, T2, RetT]],
+                            Method_args_T1_T2_returns_RetT[T1, T2, RetT]
+                        ]: ...
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], t3: Type[T3]) \
+        -> Callable[[Method_args_T1_T2_T3_returns_RetT[T1, T2, T3, RetT]],
+                            Method_args_T1_T2_T3_returns_RetT[T1, T2, T3, RetT]
+        ]: ...
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], t3: Type[T3], t4: Type[T4]) \
+        -> Callable[[Method_args_T1_T2_T3_T4_returns_RetT[T1, T2, T3, T4, RetT]],
+                            Method_args_T1_T2_T3_T4_returns_RetT[T1, T2, T3, T4, RetT]
+        ]: ...
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], t3: Type[T3], t4: Type[T4], t5: Type[T5]) \
+        -> Callable[[Method_args_T1_T2_T3_T4_T5_returns_RetT[T1, T2, T3, T4, T5, RetT]],
+                            Method_args_T1_T2_T3_T4_T5_returns_RetT[T1, T2, T3, T4, T5, RetT]
+        ]: ...
+### Note: we must declare a T6 version, so that the T5 version + result works correctly
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], t3: Type[T3], t4: Type[T4], t5: Type[T5], t6: Type[T6]) \
+        -> Callable[[Method_args_T1_T2_T3_T4_T5_T6_returns_RetT[T1, T2, T3, T4, T5, T6, RetT]],
+                            Method_args_T1_T2_T3_T4_T5_T6_returns_RetT[T1, T2, T3, T4, T5, T6, RetT]
+                        ]: ...
+@overload
+def Slot(t1: Type[T1], result: Type[RetT]) \
+        -> Callable[ [Method_args_T1_return_RetT[T1, RetT]],
+                             Method_args_T1_return_RetT[T1, RetT]
+        ]:
+    return object
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], result: Type[RetT]) \
+        -> Callable[[Method_args_T1_T2_returns_RetT[T1, T2, RetT]],
+                            Method_args_T1_T2_returns_RetT[T1, T2, RetT]
+        ]: ...
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], t3: Type[T3], result: Type[RetT]) \
+        -> Callable[[Method_args_T1_T2_T3_returns_RetT[T1, T2, T3, RetT]],
+                           Method_args_T1_T2_T3_returns_RetT[T1, T2, T3, RetT]
+        ]: ...
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], t3: Type[T3], t4: Type[T4], result: Type[RetT]) \
+        -> Callable[[Method_args_T1_T2_T3_T4_returns_RetT[T1, T2, T3, T4, RetT]],
+                           Method_args_T1_T2_T3_T4_returns_RetT[T1, T2, T3, T4, RetT]
+        ]: ...
+@overload
+def Slot(t1: Type[T1], t2: Type[T2], t3: Type[T3], t4: Type[T4], t5: Type[T5], result: Type[RetT]) \
+        -> Callable[[Method_args_T1_T2_T3_T4_T5_returns_RetT[T1, T2, T3, T4, T5, RetT]],
+                           Method_args_T1_T2_T3_T4_T5_returns_RetT[T1, T2, T3, T4, T5, RetT]
+        ]: ...
+@overload
+def Slot(*some_types: Type, result: Type = ...) \
+        -> Callable[[Callable[..., RetT]],
+                           Callable[..., RetT]]: ...
+
 
 
 def QEnum(arg__1: object) -> object: ...
