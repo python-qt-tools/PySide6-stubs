@@ -1,4 +1,4 @@
-from typing import Iterator
+from typing import Iterator, cast
 
 import os
 from pathlib import Path
@@ -24,7 +24,7 @@ def qapplication_fixture() -> QApplication:
     if application is None:
         application = QApplication(['-platform', 'minimal'])
 
-    return application
+    return cast(QApplication, application)
 
 @pytest.mark.parametrize(
     "filepath",
