@@ -2,4 +2,5 @@
 /dist/
 /PySide6_stubs.egg-info
 .mypy_cache
-incoming 
+incoming
+.idea
