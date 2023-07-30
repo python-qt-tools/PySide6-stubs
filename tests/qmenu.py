@@ -18,3 +18,8 @@ class Toto(QTreeWidget):
             assert False, 'Should not reach here'
         except AttributeError:
             pass
+        try:
+            self.m.exec_()
+            assert False, 'Should not reach here'
+        except AttributeError:
+            pass
