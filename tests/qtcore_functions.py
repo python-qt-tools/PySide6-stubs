@@ -1,6 +1,6 @@
 from typing import Callable, Union
 
-from PySide6.QtCore import qVersion, qWarning, qCritical, qDebug, qFatal, SIGNAL, SLOT
+from PySide6.QtCore import qVersion, qWarning, qCritical, qDebug, qFatal, SIGNAL, SLOT, qtTrId
 
 s = ''  # type: str
 s = qVersion()
@@ -22,4 +22,5 @@ check_func_accepts_str_not_bytes(qCritical)
 # check_func_accepts_str_not_bytes(qFatal)
 check_func_accepts_str_not_bytes(SIGNAL)
 check_func_accepts_str_not_bytes(SLOT)
+check_func_accepts_str_not_bytes(qtTrId)
 
