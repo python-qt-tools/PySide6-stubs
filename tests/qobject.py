@@ -28,3 +28,7 @@ c = o1.findChildren(QObject, '')
 d: List[QObject]
 d = o1.findChildren(QWidget, '')
 
+o1.inherits('toto')
+o1.property('toto')
+o1.setProperty('toto', True)
+o1.tr('abc', 'def')
