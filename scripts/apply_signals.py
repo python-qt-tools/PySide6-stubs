@@ -55,7 +55,7 @@ class TypingTransformer(cst.CSTTransformer):
         pre_body = []
         for signal in missingSignals:
             print(f'Class {fqn_class}: adding signal {signal}')
-            pre_body.append(libcst.parse_statement(f'{signal}: PySide6.QtCore.Signal'))
+            pre_body.append(libcst.parse_statement(f'{signal}: ClassVar[PySide6.QtCore.Signal]'))
         pre_body.insert(0, libcst.EmptyLine(indent=False, newline=libcst.Newline()))
         pre_body.append(libcst.EmptyLine(indent=False, newline=libcst.Newline()))
 
