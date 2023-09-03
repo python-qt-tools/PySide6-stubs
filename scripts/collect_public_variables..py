@@ -53,7 +53,12 @@ def collect_public_variables_for_class(class_fqn: str, class_type: Type, d: Dict
                 continue
             typename = attr_of_instance.__class__.__name__
 
-            d[f'{class_fqn}.{class_attr_name}'] = typename
+            try:
+                pub_var_dict = d[class_fqn]
+            except KeyError:
+                pub_var_dict = {}
+                d[class_fqn] = pub_var_dict
+            pub_var_dict[class_attr_name] = typename
         else:
             # try if it is a subclass
             collect_public_variables_for_class(f'{class_fqn}.{class_attr_name}', class_attr_value, d)
