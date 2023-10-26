@@ -14,7 +14,7 @@ def collect_public_variables_for_module(module_name: str, d: Dict[str, str]) -> 
     print('Processing %s' % module_name)
     try:
         m = importlib.import_module(f'PySide6.{module_name}')
-    except ModuleNotFoundError:
+    except (ModuleNotFoundError, ImportError):
         print('... Module not available!')
         # platform-specific modules can not be imported for example on other platforms
         return
@@ -51,7 +51,10 @@ def collect_public_variables_for_class(class_fqn: str, class_type: Type, d: Dict
             attr_of_instance = getattr(instance, class_attr_name)
             if attr_of_instance == None:
                 continue
-            typename = attr_of_instance.__class__.__name__
+            typename = attr_of_instance.__class__.__qualname__
+            modulename = attr_of_instance.__class__.__module__
+            if modulename != "builtins":
+                typename = f'{modulename}.{typename}'
 
             try:
                 pub_var_dict = d[class_fqn]

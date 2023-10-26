@@ -1,6 +1,224 @@
 {
-    "Qt3DCore.Qt3DCore.QNodeIdTypePair": {
-        "id": "QNodeId"
+    "QtWidgets.QStyleHintReturn": {
+        "version": "int",
+        "type": "int"
+    },
+    "QtWidgets.QStyleHintReturnMask": {
+        "region": "PySide6.QtGui.QRegion"
+    },
+    "QtWidgets.QTileRules": {
+        "horizontal": "PySide6.QtCore.Qt.TileRule",
+        "vertical": "PySide6.QtCore.Qt.TileRule"
+    },
+    "QtWidgets.QTextEdit.ExtraSelection": {
+        "cursor": "PySide6.QtGui.QTextCursor",
+        "format": "PySide6.QtGui.QTextCharFormat"
+    },
+    "QtWidgets.QStyleOption": {
+        "version": "int",
+        "type": "int",
+        "state": "PySide6.QtWidgets.QStyle.StateFlag",
+        "direction": "PySide6.QtCore.Qt.LayoutDirection",
+        "rect": "PySide6.QtCore.QRect",
+        "fontMetrics": "PySide6.QtGui.QFontMetrics",
+        "palette": "PySide6.QtGui.QPalette"
+    },
+    "QtWidgets.QStyleOptionViewItem": {
+        "displayAlignment": "PySide6.QtCore.Qt.AlignmentFlag",
+        "decorationAlignment": "PySide6.QtCore.Qt.AlignmentFlag",
+        "textElideMode": "PySide6.QtCore.Qt.TextElideMode",
+        "decorationPosition": "PySide6.QtWidgets.QStyleOptionViewItem.Position",
+        "decorationSize": "PySide6.QtCore.QSize",
+        "font": "PySide6.QtGui.QFont",
+        "showDecorationSelected": "bool",
+        "features": "PySide6.QtWidgets.QStyleOptionViewItem.ViewItemFeature",
+        "locale": "PySide6.QtCore.QLocale",
+        "index": "PySide6.QtCore.QModelIndex",
+        "checkState": "PySide6.QtCore.Qt.CheckState",
+        "icon": "PySide6.QtGui.QIcon",
+        "text": "str",
+        "viewItemPosition": "PySide6.QtWidgets.QStyleOptionViewItem.ViewItemPosition",
+        "backgroundBrush": "PySide6.QtGui.QBrush"
+    },
+    "QtWidgets.QStyleOptionToolBox": {
+        "text": "str",
+        "icon": "PySide6.QtGui.QIcon",
+        "position": "PySide6.QtWidgets.QStyleOptionToolBox.TabPosition",
+        "selectedPosition": "PySide6.QtWidgets.QStyleOptionToolBox.SelectedPosition"
+    },
+    "QtWidgets.QStyleOptionToolBar": {
+        "positionOfLine": "PySide6.QtWidgets.QStyleOptionToolBar.ToolBarPosition",
+        "positionWithinLine": "PySide6.QtWidgets.QStyleOptionToolBar.ToolBarPosition",
+        "toolBarArea": "PySide6.QtCore.Qt.ToolBarArea",
+        "features": "PySide6.QtWidgets.QStyleOptionToolBar.ToolBarFeature",
+        "lineWidth": "int",
+        "midLineWidth": "int"
+    },
+    "QtWidgets.QStyleOptionTabWidgetFrame": {
+        "lineWidth": "int",
+        "midLineWidth": "int",
+        "shape": "PySide6.QtWidgets.QTabBar.Shape",
+        "tabBarSize": "PySide6.QtCore.QSize",
+        "rightCornerWidgetSize": "PySide6.QtCore.QSize",
+        "leftCornerWidgetSize": "PySide6.QtCore.QSize",
+        "tabBarRect": "PySide6.QtCore.QRect",
+        "selectedTabRect": "PySide6.QtCore.QRect"
+    },
+    "QtWidgets.QStyleOptionTabBarBase": {
+        "shape": "PySide6.QtWidgets.QTabBar.Shape",
+        "tabBarRect": "PySide6.QtCore.QRect",
+        "selectedTabRect": "PySide6.QtCore.QRect",
+        "documentMode": "bool"
+    },
+    "QtWidgets.QStyleOptionTab": {
+        "shape": "PySide6.QtWidgets.QTabBar.Shape",
+        "text": "str",
+        "icon": "PySide6.QtGui.QIcon",
+        "row": "int",
+        "position": "PySide6.QtWidgets.QStyleOptionTab.TabPosition",
+        "selectedPosition": "PySide6.QtWidgets.QStyleOptionTab.SelectedPosition",
+        "cornerWidgets": "PySide6.QtWidgets.QStyleOptionTab.CornerWidget",
+        "iconSize": "PySide6.QtCore.QSize",
+        "documentMode": "bool",
+        "leftButtonSize": "PySide6.QtCore.QSize",
+        "rightButtonSize": "PySide6.QtCore.QSize",
+        "features": "PySide6.QtWidgets.QStyleOptionTab.TabFeature",
+        "tabIndex": "int"
+    },
+    "QtWidgets.QStyleOptionRubberBand": {
+        "shape": "PySide6.QtWidgets.QRubberBand.Shape",
+        "opaque": "bool"
+    },
+    "QtWidgets.QStyleOptionProgressBar": {
+        "minimum": "int",
+        "maximum": "int",
+        "progress": "int",
+        "text": "str",
+        "textAlignment": "PySide6.QtCore.Qt.AlignmentFlag",
+        "textVisible": "bool",
+        "invertedAppearance": "bool",
+        "bottomToTop": "bool"
+    },
+    "QtWidgets.QStyleOptionMenuItem": {
+        "menuItemType": "PySide6.QtWidgets.QStyleOptionMenuItem.MenuItemType",
+        "checkType": "PySide6.QtWidgets.QStyleOptionMenuItem.CheckType",
+        "checked": "bool",
+        "menuHasCheckableItems": "bool",
+        "menuRect": "PySide6.QtCore.QRect",
+        "text": "str",
+        "icon": "PySide6.QtGui.QIcon",
+        "maxIconWidth": "int",
+        "reservedShortcutWidth": "int",
+        "font": "PySide6.QtGui.QFont"
+    },
+    "QtWidgets.QStyleOptionHeader": {
+        "section": "int",
+        "text": "str",
+        "textAlignment": "PySide6.QtCore.Qt.AlignmentFlag",
+        "icon": "PySide6.QtGui.QIcon",
+        "iconAlignment": "PySide6.QtCore.Qt.AlignmentFlag",
+        "position": "PySide6.QtWidgets.QStyleOptionHeader.SectionPosition",
+        "selectedPosition": "PySide6.QtWidgets.QStyleOptionHeader.SelectedPosition",
+        "sortIndicator": "PySide6.QtWidgets.QStyleOptionHeader.SortIndicator",
+        "orientation": "PySide6.QtCore.Qt.Orientation"
+    },
+    "QtWidgets.QStyleOptionHeaderV2": {
+        "textElideMode": "PySide6.QtCore.Qt.TextElideMode",
+        "isSectionDragTarget": "bool",
+        "unused": "int"
+    },
+    "QtWidgets.QStyleOptionGraphicsItem": {
+        "exposedRect": "PySide6.QtCore.QRectF"
+    },
+    "QtWidgets.QStyleOptionFrame": {
+        "lineWidth": "int",
+        "midLineWidth": "int",
+        "features": "PySide6.QtWidgets.QStyleOptionFrame.FrameFeature",
+        "frameShape": "PySide6.QtWidgets.QFrame.Shape"
+    },
+    "QtWidgets.QStyleOptionFocusRect": {
+        "backgroundColor": "PySide6.QtGui.QColor"
+    },
+    "QtWidgets.QStyleOptionDockWidget": {
+        "title": "str",
+        "closable": "bool",
+        "movable": "bool",
+        "floatable": "bool",
+        "verticalTitleBar": "bool"
+    },
+    "QtWidgets.QStyleOptionComplex": {
+        "subControls": "PySide6.QtWidgets.QStyle.SubControl",
+        "activeSubControls": "PySide6.QtWidgets.QStyle.SubControl"
+    },
+    "QtWidgets.QStyleOptionToolButton": {
+        "features": "PySide6.QtWidgets.QStyleOptionToolButton.ToolButtonFeature",
+        "icon": "PySide6.QtGui.QIcon",
+        "iconSize": "PySide6.QtCore.QSize",
+        "text": "str",
+        "arrowType": "PySide6.QtCore.Qt.ArrowType",
+        "toolButtonStyle": "PySide6.QtCore.Qt.ToolButtonStyle",
+        "pos": "PySide6.QtCore.QPoint",
+        "font": "PySide6.QtGui.QFont"
+    },
+    "QtWidgets.QStyleOptionTitleBar": {
+        "text": "str",
+        "icon": "PySide6.QtGui.QIcon",
+        "titleBarState": "int",
+        "titleBarFlags": "PySide6.QtCore.Qt.WindowType"
+    },
+    "QtWidgets.QStyleOptionSpinBox": {
+        "buttonSymbols": "PySide6.QtWidgets.QAbstractSpinBox.ButtonSymbols",
+        "stepEnabled": "PySide6.QtWidgets.QAbstractSpinBox.StepEnabledFlag",
+        "frame": "bool"
+    },
+    "QtWidgets.QStyleOptionSlider": {
+        "orientation": "PySide6.QtCore.Qt.Orientation",
+        "minimum": "int",
+        "maximum": "int",
+        "tickPosition": "PySide6.QtWidgets.QSlider.TickPosition",
+        "tickInterval": "int",
+        "upsideDown": "bool",
+        "sliderPosition": "int",
+        "sliderValue": "int",
+        "singleStep": "int",
+        "pageStep": "int",
+        "notchTarget": "float",
+        "dialWrapping": "bool",
+        "keyboardModifiers": "PySide6.QtCore.Qt.KeyboardModifier"
+    },
+    "QtWidgets.QStyleOptionSizeGrip": {
+        "corner": "PySide6.QtCore.Qt.Corner"
+    },
+    "QtWidgets.QStyleOptionGroupBox": {
+        "features": "PySide6.QtWidgets.QStyleOptionFrame.FrameFeature",
+        "text": "str",
+        "textAlignment": "PySide6.QtCore.Qt.AlignmentFlag",
+        "textColor": "PySide6.QtGui.QColor",
+        "lineWidth": "int",
+        "midLineWidth": "int"
+    },
+    "QtWidgets.QStyleOptionComboBox": {
+        "editable": "bool",
+        "popupRect": "PySide6.QtCore.QRect",
+        "frame": "bool",
+        "currentText": "str",
+        "currentIcon": "PySide6.QtGui.QIcon",
+        "iconSize": "PySide6.QtCore.QSize",
+        "textAlignment": "PySide6.QtCore.Qt.AlignmentFlag"
+    },
+    "QtWidgets.QStyleOptionButton": {
+        "features": "PySide6.QtWidgets.QStyleOptionButton.ButtonFeature",
+        "text": "str",
+        "icon": "PySide6.QtGui.QIcon",
+        "iconSize": "PySide6.QtCore.QSize"
+    },
+    "QtQml.QQmlContext.PropertyPair": {
+        "name": "str"
+    },
+    "QtSensors.qoutputrange": {
+        "minimum": "float",
+        "maximum": "float",
+        "accuracy": "float"
     },
     "Qt3DExtras.Qt3DExtras.QAbstractCameraController.InputState": {
         "rxAxisValue": "float",
@@ -14,78 +232,97 @@
         "altKeyActive": "bool",
         "shiftKeyActive": "bool"
     },
-    "QtBluetooth.QLowEnergyAdvertisingParameters.AddressInfo": {
-        "address": "QBluetoothAddress",
-        "type": "RemoteAddressType"
+    "QtMultimedia.QMediaMetaData": {
+        "data": "dict"
     },
-    "QtCore.QStringConverterBase.State": {
-        "flags": "Flag",
-        "internalState": "int",
-        "remainingChars": "int",
-        "invalidChars": "int"
+    "QtMultimedia.QMediaFormat": {
+        "fmt": "PySide6.QtMultimedia.QMediaFormat.FileFormat",
+        "audio": "PySide6.QtMultimedia.QMediaFormat.AudioCodec",
+        "video": "PySide6.QtMultimedia.QMediaFormat.VideoCodec"
     },
-    "QtCore.QStringConverter": {
-        "state": "State"
+    "QtQuick3D.QQuick3DInstancing.InstanceTableEntry": {
+        "row0": "PySide6.QtGui.QVector4D",
+        "row1": "PySide6.QtGui.QVector4D",
+        "row2": "PySide6.QtGui.QVector4D",
+        "color": "PySide6.QtGui.QVector4D",
+        "instanceData": "PySide6.QtGui.QVector4D"
     },
-    "QtCore.QMessageLogContext": {
-        "version": "int",
-        "line": "int"
-    },
-    "QtCore.QTimeZone.OffsetData": {
-        "abbreviation": "str",
-        "offsetFromUtc": "int",
-        "standardTimeOffset": "int",
-        "daylightTimeOffset": "int"
-    },
-    "QtCore.QJsonParseError": {
+    "QtQuick3D.QQuick3DGeometry.Attribute": {
+        "semantic": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute.Semantic",
         "offset": "int",
-        "error": "ParseError"
+        "componentType": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute.ComponentType"
     },
-    "QtCore.QCborStringResultString": {
-        "data": "str",
-        "status": "StringResultCode"
+    "QtQuick3D.QQuick3DGeometry.TargetAttribute": {
+        "targetId": "int",
+        "attr": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute",
+        "stride": "int"
     },
-    "QtCore.QCborError": {
-        "c": "Code"
+    "QtQuick.QSGGeometry.TexturedPoint2D": {
+        "x": "float",
+        "y": "float",
+        "tx": "float",
+        "ty": "float"
     },
-    "QtCore.QCborParserError": {
-        "offset": "int",
-        "error": "QCborError"
+    "QtQuick.QSGGeometry.Point2D": {
+        "x": "float",
+        "y": "float"
     },
-    "QtCore.QCalendar.YearMonthDay": {
-        "year": "int",
-        "month": "int",
-        "day": "int"
+    "QtQuick.QSGGeometry.ColoredPoint2D": {
+        "x": "float",
+        "y": "float",
+        "r": "int",
+        "g": "int",
+        "b": "int",
+        "a": "int"
     },
-    "QtCore.QByteArray.FromBase64Result": {
-        "decodingStatus": "Base64DecodingStatus"
+    "QtQuick.QSGGeometry.Attribute": {
+        "position": "int",
+        "tupleSize": "int",
+        "type": "int",
+        "isVertexCoordinate": "int",
+        "attributeType": "PySide6.QtQuick.QSGGeometry.AttributeType",
+        "reserved": "int"
     },
-    "QtCore.QCborStringResultByteArray": {
-        "status": "StringResultCode"
+    "QtQuick.QSGGeometry.AttributeSet": {
+        "count": "int",
+        "stride": "int"
+    },
+    "QtQuick.QSGOpaqueTextureMaterial": {
+        "m_filtering": "int",
+        "m_mipmap_filtering": "int",
+        "m_horizontal_wrap": "int",
+        "m_vertical_wrap": "int",
+        "m_anisotropy_level": "int",
+        "m_reserved": "int"
+    },
+    "QtNfc.QNdefFilter.Record": {
+        "typeNameFormat": "PySide6.QtNfc.QNdefRecord.TypeNameFormat",
+        "minimum": "int",
+        "maximum": "int"
     },
     "QtGui.QTextOption.Tab": {
         "position": "float",
-        "type": "TabType",
+        "type": "PySide6.QtGui.QTextOption.TabType",
         "delimiter": "str"
     },
     "QtGui.QPainterPath.Element": {
         "x": "float",
         "y": "float",
-        "type": "ElementType"
+        "type": "PySide6.QtGui.QPainterPath.ElementType"
     },
     "QtGui.QPaintEngineState": {
-        "dirtyFlags": "DirtyFlag"
+        "dirtyFlags": "PySide6.QtGui.QPaintEngine.DirtyFlag"
     },
     "QtGui.QPageRanges.Range": {
-        "from": "int",
+        "from_": "int",
         "to": "int"
     },
     "QtGui.QIconEngine.ScaledPixmapArgument": {
-        "size": "QSize",
-        "mode": "Mode",
-        "state": "State",
+        "size": "PySide6.QtCore.QSize",
+        "mode": "PySide6.QtGui.QIcon.Mode",
+        "state": "PySide6.QtGui.QIcon.State",
         "scale": "float",
-        "pixmap": "QPixmap"
+        "pixmap": "PySide6.QtGui.QPixmap"
     },
     "QtGui.QAccessible.State": {
         "disabled": "int",
@@ -129,7 +366,7 @@
     "QtGui.QTextLayout.FormatRange": {
         "start": "int",
         "length": "int",
-        "format": "QTextCharFormat"
+        "format": "PySide6.QtGui.QTextCharFormat"
     },
     "QtGui.QPainter.PixmapFragment": {
         "x": "float",
@@ -144,91 +381,87 @@
         "opacity": "float"
     },
     "QtGui.QAbstractTextDocumentLayout.Selection": {
-        "cursor": "QTextCursor",
-        "format": "QTextCharFormat"
+        "cursor": "PySide6.QtGui.QTextCursor",
+        "format": "PySide6.QtGui.QTextCharFormat"
     },
     "QtGui.QAbstractTextDocumentLayout.PaintContext": {
         "cursorPosition": "int",
-        "palette": "QPalette",
-        "clip": "QRectF"
+        "palette": "PySide6.QtGui.QPalette",
+        "clip": "PySide6.QtCore.QRectF",
+        "selections": "list"
     },
     "QtHelp.QHelpSearchQuery": {
-        "fieldName": "FieldName",
+        "fieldName": "PySide6.QtHelp.QHelpSearchQuery.FieldName",
         "wordList": "list"
     },
     "QtHelp.QHelpLink": {
-        "url": "QUrl",
+        "url": "PySide6.QtCore.QUrl",
         "title": "str"
     },
-    "QtMultimedia.QMediaMetaData": {
-        "data": "dict"
-    },
-    "QtMultimedia.QMediaFormat": {
-        "fmt": "FileFormat",
-        "audio": "AudioCodec",
-        "video": "VideoCodec"
-    },
-    "QtNfc.QNdefFilter.Record": {
-        "typeNameFormat": "TypeNameFormat",
-        "minimum": "int",
-        "maximum": "int"
-    },
-    "QtQml.QQmlContext.PropertyPair": {
-        "name": "str"
-    },
-    "QtQuick.QSGGeometry.TexturedPoint2D": {
-        "x": "float",
-        "y": "float",
-        "tx": "float",
-        "ty": "float"
-    },
-    "QtQuick.QSGGeometry.Point2D": {
-        "x": "float",
-        "y": "float"
-    },
-    "QtQuick.QSGGeometry.ColoredPoint2D": {
-        "x": "float",
-        "y": "float",
-        "r": "int",
-        "g": "int",
-        "b": "int",
-        "a": "int"
-    },
-    "QtQuick.QSGGeometry.Attribute": {
-        "position": "int",
-        "tupleSize": "int",
-        "type": "int",
-        "isVertexCoordinate": "int",
-        "attributeType": "AttributeType",
-        "reserved": "int"
-    },
-    "QtQuick.QSGGeometry.AttributeSet": {
-        "count": "int",
-        "stride": "int"
-    },
-    "QtQuick.QSGOpaqueTextureMaterial": {
-        "m_filtering": "int",
-        "m_mipmap_filtering": "int",
-        "m_horizontal_wrap": "int",
-        "m_vertical_wrap": "int",
-        "m_anisotropy_level": "int",
-        "m_reserved": "int"
-    },
-    "QtQuick3D.QQuick3DInstancing.InstanceTableEntry": {
-        "row0": "QVector4D",
-        "row1": "QVector4D",
-        "row2": "QVector4D",
-        "color": "QVector4D",
-        "instanceData": "QVector4D"
-    },
-    "QtQuick3D.QQuick3DGeometry.Attribute": {
-        "semantic": "Semantic",
-        "offset": "int",
-        "componentType": "ComponentType"
+    "QtBluetooth.QLowEnergyAdvertisingParameters.AddressInfo": {
+        "address": "PySide6.QtBluetooth.QBluetoothAddress",
+        "type": "PySide6.QtBluetooth.QLowEnergyController.RemoteAddressType"
     },
     "QtRemoteObjects.QRemoteObjectSourceLocationInfo": {
         "typeName": "str",
-        "hostUrl": "QUrl"
+        "hostUrl": "PySide6.QtCore.QUrl"
+    },
+    "QtWebEngineCore.QWebEngineCookieStore.FilterRequest": {
+        "firstPartyUrl": "PySide6.QtCore.QUrl",
+        "origin": "PySide6.QtCore.QUrl",
+        "thirdParty": "bool"
+    },
+    "QtCore.QStringConverterBase.State": {
+        "flags": "PySide6.QtCore.QStringConverterBase.Flag",
+        "internalState": "int",
+        "remainingChars": "int",
+        "invalidChars": "int"
+    },
+    "QtCore.QStringConverter": {
+        "state": "PySide6.QtCore.QStringConverterBase.State"
+    },
+    "QtCore.QMessageLogContext": {
+        "version": "int",
+        "line": "int"
+    },
+    "QtCore.QTimeZone.OffsetData": {
+        "abbreviation": "str",
+        "offsetFromUtc": "int",
+        "standardTimeOffset": "int",
+        "daylightTimeOffset": "int"
+    },
+    "QtCore.QJsonParseError": {
+        "offset": "int",
+        "error": "PySide6.QtCore.QJsonParseError.ParseError"
+    },
+    "QtCore.QProcess.UnixProcessParameters": {
+        "flags": "PySide6.QtCore.QProcess.UnixProcessFlag",
+        "lowestFileDescriptorToClose": "int"
+    },
+    "QtCore.QCborStringResultString": {
+        "data": "str",
+        "status": "PySide6.QtCore.QCborStreamReader.StringResultCode"
+    },
+    "QtCore.QCborError": {
+        "c": "PySide6.QtCore.QCborError.Code"
+    },
+    "QtCore.QCborParserError": {
+        "offset": "int",
+        "error": "PySide6.QtCore.QCborError"
+    },
+    "QtCore.QCalendar.YearMonthDay": {
+        "year": "int",
+        "month": "int",
+        "day": "int"
+    },
+    "QtCore.QByteArray.FromBase64Result": {
+        "decodingStatus": "PySide6.QtCore.QByteArray.Base64DecodingStatus"
+    },
+    "QtCore.QCborStringResultByteArray": {
+        "status": "PySide6.QtCore.QCborStreamReader.StringResultCode"
+    },
+    "Qt3DCore.Qt3DCore.QNodeIdTypePair": {
+        "id": "PySide6.Qt3DCore.Qt3DCore.QNodeId"
     },
     "QtScxml.QScxmlExecutableContent.ParameterInfo": {
         "name": "int",
@@ -258,228 +491,5 @@
         "dest": "int",
         "expr": "int",
         "context": "int"
-    },
-    "QtSensors.qoutputrange": {
-        "minimum": "float",
-        "maximum": "float",
-        "accuracy": "float"
-    },
-    "QtWebEngineCore.QWebEngineCookieStore.FilterRequest": {
-        "firstPartyUrl": "QUrl",
-        "origin": "QUrl",
-        "thirdParty": "bool"
-    },
-    "QtWidgets.QStyleHintReturn": {
-        "version": "int",
-        "type": "int"
-    },
-    "QtWidgets.QStyleHintReturnMask": {
-        "region": "QRegion"
-    },
-    "QtWidgets.QTileRules": {
-        "horizontal": "TileRule",
-        "vertical": "TileRule"
-    },
-    "QtWidgets.QTextEdit.ExtraSelection": {
-        "cursor": "QTextCursor",
-        "format": "QTextCharFormat"
-    },
-    "QtWidgets.QStyleOption": {
-        "version": "int",
-        "type": "int",
-        "state": "StateFlag",
-        "direction": "LayoutDirection",
-        "rect": "QRect",
-        "fontMetrics": "QFontMetrics",
-        "palette": "QPalette"
-    },
-    "QtWidgets.QStyleOptionViewItem": {
-        "displayAlignment": "AlignmentFlag",
-        "decorationAlignment": "AlignmentFlag",
-        "textElideMode": "TextElideMode",
-        "decorationPosition": "Position",
-        "decorationSize": "QSize",
-        "font": "QFont",
-        "showDecorationSelected": "bool",
-        "features": "ViewItemFeature",
-        "locale": "QLocale",
-        "index": "QModelIndex",
-        "checkState": "CheckState",
-        "icon": "QIcon",
-        "text": "str",
-        "viewItemPosition": "ViewItemPosition",
-        "backgroundBrush": "QBrush"
-    },
-    "QtWidgets.QStyleOptionToolBox": {
-        "text": "str",
-        "icon": "QIcon",
-        "position": "TabPosition",
-        "selectedPosition": "SelectedPosition"
-    },
-    "QtWidgets.QStyleOptionToolBar": {
-        "positionOfLine": "ToolBarPosition",
-        "positionWithinLine": "ToolBarPosition",
-        "toolBarArea": "ToolBarArea",
-        "features": "ToolBarFeature",
-        "lineWidth": "int",
-        "midLineWidth": "int"
-    },
-    "QtWidgets.QStyleOptionTabWidgetFrame": {
-        "lineWidth": "int",
-        "midLineWidth": "int",
-        "shape": "Shape",
-        "tabBarSize": "QSize",
-        "rightCornerWidgetSize": "QSize",
-        "leftCornerWidgetSize": "QSize",
-        "tabBarRect": "QRect",
-        "selectedTabRect": "QRect"
-    },
-    "QtWidgets.QStyleOptionTabBarBase": {
-        "shape": "Shape",
-        "tabBarRect": "QRect",
-        "selectedTabRect": "QRect",
-        "documentMode": "bool"
-    },
-    "QtWidgets.QStyleOptionTab": {
-        "shape": "Shape",
-        "text": "str",
-        "icon": "QIcon",
-        "row": "int",
-        "position": "TabPosition",
-        "selectedPosition": "SelectedPosition",
-        "cornerWidgets": "CornerWidget",
-        "iconSize": "QSize",
-        "documentMode": "bool",
-        "leftButtonSize": "QSize",
-        "rightButtonSize": "QSize",
-        "features": "TabFeature",
-        "tabIndex": "int"
-    },
-    "QtWidgets.QStyleOptionRubberBand": {
-        "shape": "Shape",
-        "opaque": "bool"
-    },
-    "QtWidgets.QStyleOptionProgressBar": {
-        "minimum": "int",
-        "maximum": "int",
-        "progress": "int",
-        "text": "str",
-        "textAlignment": "AlignmentFlag",
-        "textVisible": "bool",
-        "invertedAppearance": "bool",
-        "bottomToTop": "bool"
-    },
-    "QtWidgets.QStyleOptionMenuItem": {
-        "menuItemType": "MenuItemType",
-        "checkType": "CheckType",
-        "checked": "bool",
-        "menuHasCheckableItems": "bool",
-        "menuRect": "QRect",
-        "text": "str",
-        "icon": "QIcon",
-        "maxIconWidth": "int",
-        "reservedShortcutWidth": "int",
-        "font": "QFont"
-    },
-    "QtWidgets.QStyleOptionHeader": {
-        "section": "int",
-        "text": "str",
-        "textAlignment": "AlignmentFlag",
-        "icon": "QIcon",
-        "iconAlignment": "AlignmentFlag",
-        "position": "SectionPosition",
-        "selectedPosition": "SelectedPosition",
-        "sortIndicator": "SortIndicator",
-        "orientation": "Orientation"
-    },
-    "QtWidgets.QStyleOptionHeaderV2": {
-        "textElideMode": "TextElideMode",
-        "isSectionDragTarget": "bool",
-        "unused": "int"
-    },
-    "QtWidgets.QStyleOptionGraphicsItem": {
-        "exposedRect": "QRectF"
-    },
-    "QtWidgets.QStyleOptionFrame": {
-        "lineWidth": "int",
-        "midLineWidth": "int",
-        "features": "FrameFeature",
-        "frameShape": "Shape"
-    },
-    "QtWidgets.QStyleOptionFocusRect": {
-        "backgroundColor": "QColor"
-    },
-    "QtWidgets.QStyleOptionDockWidget": {
-        "title": "str",
-        "closable": "bool",
-        "movable": "bool",
-        "floatable": "bool",
-        "verticalTitleBar": "bool"
-    },
-    "QtWidgets.QStyleOptionComplex": {
-        "subControls": "SubControl",
-        "activeSubControls": "SubControl"
-    },
-    "QtWidgets.QStyleOptionToolButton": {
-        "features": "ToolButtonFeature",
-        "icon": "QIcon",
-        "iconSize": "QSize",
-        "text": "str",
-        "arrowType": "ArrowType",
-        "toolButtonStyle": "ToolButtonStyle",
-        "pos": "QPoint",
-        "font": "QFont"
-    },
-    "QtWidgets.QStyleOptionTitleBar": {
-        "text": "str",
-        "icon": "QIcon",
-        "titleBarState": "int",
-        "titleBarFlags": "WindowType"
-    },
-    "QtWidgets.QStyleOptionSpinBox": {
-        "buttonSymbols": "ButtonSymbols",
-        "stepEnabled": "StepEnabledFlag",
-        "frame": "bool"
-    },
-    "QtWidgets.QStyleOptionSlider": {
-        "orientation": "Orientation",
-        "minimum": "int",
-        "maximum": "int",
-        "tickPosition": "TickPosition",
-        "tickInterval": "int",
-        "upsideDown": "bool",
-        "sliderPosition": "int",
-        "sliderValue": "int",
-        "singleStep": "int",
-        "pageStep": "int",
-        "notchTarget": "float",
-        "dialWrapping": "bool",
-        "keyboardModifiers": "KeyboardModifier"
-    },
-    "QtWidgets.QStyleOptionSizeGrip": {
-        "corner": "Corner"
-    },
-    "QtWidgets.QStyleOptionGroupBox": {
-        "features": "FrameFeature",
-        "text": "str",
-        "textAlignment": "AlignmentFlag",
-        "textColor": "QColor",
-        "lineWidth": "int",
-        "midLineWidth": "int"
-    },
-    "QtWidgets.QStyleOptionComboBox": {
-        "editable": "bool",
-        "popupRect": "QRect",
-        "frame": "bool",
-        "currentText": "str",
-        "currentIcon": "QIcon",
-        "iconSize": "QSize",
-        "textAlignment": "AlignmentFlag"
-    },
-    "QtWidgets.QStyleOptionButton": {
-        "features": "ButtonFeature",
-        "text": "str",
-        "icon": "QIcon",
-        "iconSize": "QSize"
     }
 }

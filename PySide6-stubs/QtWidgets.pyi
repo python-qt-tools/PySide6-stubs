@@ -7011,7 +7011,7 @@ class QStyleHintReturn(Shiboken.Object):
 
 class QStyleHintReturnMask(PySide6.QtWidgets.QStyleHintReturn):
 
-    region: QRegion
+    region: PySide6.QtGui.QRegion
 
 
     class StyleOptionType(enum.Enum):
@@ -7044,11 +7044,11 @@ class QStyleHintReturnVariant(PySide6.QtWidgets.QStyleHintReturn):
 
 class QStyleOption(Shiboken.Object):
 
-    direction: LayoutDirection
-    fontMetrics: QFontMetrics
-    palette: QPalette
-    rect: QRect
-    state: StateFlag
+    direction: PySide6.QtCore.Qt.LayoutDirection
+    fontMetrics: PySide6.QtGui.QFontMetrics
+    palette: PySide6.QtGui.QPalette
+    rect: PySide6.QtCore.QRect
+    state: PySide6.QtWidgets.QStyle.StateFlag
     type: int
 
 
@@ -7104,9 +7104,9 @@ class QStyleOption(Shiboken.Object):
 
 class QStyleOptionButton(PySide6.QtWidgets.QStyleOption):
 
-    features: ButtonFeature
-    icon: QIcon
-    iconSize: QSize
+    features: PySide6.QtWidgets.QStyleOptionButton.ButtonFeature
+    icon: PySide6.QtGui.QIcon
+    iconSize: PySide6.QtCore.QSize
     text: str
 
 
@@ -7140,13 +7140,13 @@ class QStyleOptionButton(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionComboBox(PySide6.QtWidgets.QStyleOptionComplex):
 
-    currentIcon: QIcon
+    currentIcon: PySide6.QtGui.QIcon
     currentText: str
     editable: bool
     frame: bool
-    iconSize: QSize
-    popupRect: QRect
-    textAlignment: AlignmentFlag
+    iconSize: PySide6.QtCore.QSize
+    popupRect: PySide6.QtCore.QRect
+    textAlignment: PySide6.QtCore.Qt.AlignmentFlag
 
 
     class StyleOptionType(enum.Enum):
@@ -7169,8 +7169,8 @@ class QStyleOptionComboBox(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionComplex(PySide6.QtWidgets.QStyleOption):
 
-    activeSubControls: SubControl
-    subControls: SubControl
+    activeSubControls: PySide6.QtWidgets.QStyle.SubControl
+    subControls: PySide6.QtWidgets.QStyle.SubControl
 
 
     class StyleOptionType(enum.Enum):
@@ -7218,7 +7218,7 @@ class QStyleOptionDockWidget(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionFocusRect(PySide6.QtWidgets.QStyleOption):
 
-    backgroundColor: QColor
+    backgroundColor: PySide6.QtGui.QColor
 
 
     class StyleOptionType(enum.Enum):
@@ -7241,8 +7241,8 @@ class QStyleOptionFocusRect(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionFrame(PySide6.QtWidgets.QStyleOption):
 
-    features: FrameFeature
-    frameShape: Shape
+    features: PySide6.QtWidgets.QStyleOptionFrame.FrameFeature
+    frameShape: PySide6.QtWidgets.QFrame.Shape
     lineWidth: int
     midLineWidth: int
 
@@ -7274,7 +7274,7 @@ class QStyleOptionFrame(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionGraphicsItem(PySide6.QtWidgets.QStyleOption):
 
-    exposedRect: QRectF
+    exposedRect: PySide6.QtCore.QRectF
 
 
     class StyleOptionType(enum.Enum):
@@ -7300,12 +7300,12 @@ class QStyleOptionGraphicsItem(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionGroupBox(PySide6.QtWidgets.QStyleOptionComplex):
 
-    features: FrameFeature
+    features: PySide6.QtWidgets.QStyleOptionFrame.FrameFeature
     lineWidth: int
     midLineWidth: int
     text: str
-    textAlignment: AlignmentFlag
-    textColor: QColor
+    textAlignment: PySide6.QtCore.Qt.AlignmentFlag
+    textColor: PySide6.QtGui.QColor
 
 
     class StyleOptionType(enum.Enum):
@@ -7328,15 +7328,15 @@ class QStyleOptionGroupBox(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
 
-    icon: QIcon
-    iconAlignment: AlignmentFlag
-    orientation: Orientation
-    position: SectionPosition
+    icon: PySide6.QtGui.QIcon
+    iconAlignment: PySide6.QtCore.Qt.AlignmentFlag
+    orientation: PySide6.QtCore.Qt.Orientation
+    position: PySide6.QtWidgets.QStyleOptionHeader.SectionPosition
     section: int
-    selectedPosition: SelectedPosition
-    sortIndicator: SortIndicator
+    selectedPosition: PySide6.QtWidgets.QStyleOptionHeader.SelectedPosition
+    sortIndicator: PySide6.QtWidgets.QStyleOptionHeader.SortIndicator
     text: str
-    textAlignment: AlignmentFlag
+    textAlignment: PySide6.QtCore.Qt.AlignmentFlag
 
 
     class SectionPosition(enum.Enum):
@@ -7383,7 +7383,7 @@ class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
 class QStyleOptionHeaderV2(PySide6.QtWidgets.QStyleOptionHeader):
 
     isSectionDragTarget: bool
-    textElideMode: TextElideMode
+    textElideMode: PySide6.QtCore.Qt.TextElideMode
     unused: int
 
 
@@ -7407,14 +7407,14 @@ class QStyleOptionHeaderV2(PySide6.QtWidgets.QStyleOptionHeader):
 
 class QStyleOptionMenuItem(PySide6.QtWidgets.QStyleOption):
 
-    checkType: CheckType
+    checkType: PySide6.QtWidgets.QStyleOptionMenuItem.CheckType
     checked: bool
-    font: QFont
-    icon: QIcon
+    font: PySide6.QtGui.QFont
+    icon: PySide6.QtGui.QIcon
     maxIconWidth: int
     menuHasCheckableItems: bool
-    menuItemType: MenuItemType
-    menuRect: QRect
+    menuItemType: PySide6.QtWidgets.QStyleOptionMenuItem.MenuItemType
+    menuRect: PySide6.QtCore.QRect
     reservedShortcutWidth: int
     text: str
 
@@ -7464,7 +7464,7 @@ class QStyleOptionProgressBar(PySide6.QtWidgets.QStyleOption):
     minimum: int
     progress: int
     text: str
-    textAlignment: AlignmentFlag
+    textAlignment: PySide6.QtCore.Qt.AlignmentFlag
     textVisible: bool
 
 
@@ -7489,7 +7489,7 @@ class QStyleOptionProgressBar(PySide6.QtWidgets.QStyleOption):
 class QStyleOptionRubberBand(PySide6.QtWidgets.QStyleOption):
 
     opaque: bool
-    shape: Shape
+    shape: PySide6.QtWidgets.QRubberBand.Shape
 
 
     class StyleOptionType(enum.Enum):
@@ -7512,7 +7512,7 @@ class QStyleOptionRubberBand(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionSizeGrip(PySide6.QtWidgets.QStyleOptionComplex):
 
-    corner: Corner
+    corner: PySide6.QtCore.Qt.Corner
 
 
     class StyleOptionType(enum.Enum):
@@ -7536,17 +7536,17 @@ class QStyleOptionSizeGrip(PySide6.QtWidgets.QStyleOptionComplex):
 class QStyleOptionSlider(PySide6.QtWidgets.QStyleOptionComplex):
 
     dialWrapping: bool
-    keyboardModifiers: KeyboardModifier
+    keyboardModifiers: PySide6.QtCore.Qt.KeyboardModifier
     maximum: int
     minimum: int
     notchTarget: float
-    orientation: Orientation
+    orientation: PySide6.QtCore.Qt.Orientation
     pageStep: int
     singleStep: int
     sliderPosition: int
     sliderValue: int
     tickInterval: int
-    tickPosition: TickPosition
+    tickPosition: PySide6.QtWidgets.QSlider.TickPosition
     upsideDown: bool
 
 
@@ -7570,9 +7570,9 @@ class QStyleOptionSlider(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionSpinBox(PySide6.QtWidgets.QStyleOptionComplex):
 
-    buttonSymbols: ButtonSymbols
+    buttonSymbols: PySide6.QtWidgets.QAbstractSpinBox.ButtonSymbols
     frame: bool
-    stepEnabled: StepEnabledFlag
+    stepEnabled: PySide6.QtWidgets.QAbstractSpinBox.StepEnabledFlag
 
 
     class StyleOptionType(enum.Enum):
@@ -7595,17 +7595,17 @@ class QStyleOptionSpinBox(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionTab(PySide6.QtWidgets.QStyleOption):
 
-    cornerWidgets: CornerWidget
+    cornerWidgets: PySide6.QtWidgets.QStyleOptionTab.CornerWidget
     documentMode: bool
-    features: TabFeature
-    icon: QIcon
-    iconSize: QSize
-    leftButtonSize: QSize
-    position: TabPosition
-    rightButtonSize: QSize
+    features: PySide6.QtWidgets.QStyleOptionTab.TabFeature
+    icon: PySide6.QtGui.QIcon
+    iconSize: PySide6.QtCore.QSize
+    leftButtonSize: PySide6.QtCore.QSize
+    position: PySide6.QtWidgets.QStyleOptionTab.TabPosition
+    rightButtonSize: PySide6.QtCore.QSize
     row: int
-    selectedPosition: SelectedPosition
-    shape: Shape
+    selectedPosition: PySide6.QtWidgets.QStyleOptionTab.SelectedPosition
+    shape: PySide6.QtWidgets.QTabBar.Shape
     tabIndex: int
     text: str
 
@@ -7659,9 +7659,9 @@ class QStyleOptionTab(PySide6.QtWidgets.QStyleOption):
 class QStyleOptionTabBarBase(PySide6.QtWidgets.QStyleOption):
 
     documentMode: bool
-    selectedTabRect: QRect
-    shape: Shape
-    tabBarRect: QRect
+    selectedTabRect: PySide6.QtCore.QRect
+    shape: PySide6.QtWidgets.QTabBar.Shape
+    tabBarRect: PySide6.QtCore.QRect
 
 
     class StyleOptionType(enum.Enum):
@@ -7684,14 +7684,14 @@ class QStyleOptionTabBarBase(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionTabWidgetFrame(PySide6.QtWidgets.QStyleOption):
 
-    leftCornerWidgetSize: QSize
+    leftCornerWidgetSize: PySide6.QtCore.QSize
     lineWidth: int
     midLineWidth: int
-    rightCornerWidgetSize: QSize
-    selectedTabRect: QRect
-    shape: Shape
-    tabBarRect: QRect
-    tabBarSize: QSize
+    rightCornerWidgetSize: PySide6.QtCore.QSize
+    selectedTabRect: PySide6.QtCore.QRect
+    shape: PySide6.QtWidgets.QTabBar.Shape
+    tabBarRect: PySide6.QtCore.QRect
+    tabBarSize: PySide6.QtCore.QSize
 
 
     class StyleOptionType(enum.Enum):
@@ -7714,9 +7714,9 @@ class QStyleOptionTabWidgetFrame(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionTitleBar(PySide6.QtWidgets.QStyleOptionComplex):
 
-    icon: QIcon
+    icon: PySide6.QtGui.QIcon
     text: str
-    titleBarFlags: WindowType
+    titleBarFlags: PySide6.QtCore.Qt.WindowType
     titleBarState: int
 
 
@@ -7740,12 +7740,12 @@ class QStyleOptionTitleBar(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionToolBar(PySide6.QtWidgets.QStyleOption):
 
-    features: ToolBarFeature
+    features: PySide6.QtWidgets.QStyleOptionToolBar.ToolBarFeature
     lineWidth: int
     midLineWidth: int
-    positionOfLine: ToolBarPosition
-    positionWithinLine: ToolBarPosition
-    toolBarArea: ToolBarArea
+    positionOfLine: PySide6.QtWidgets.QStyleOptionToolBar.ToolBarPosition
+    positionWithinLine: PySide6.QtWidgets.QStyleOptionToolBar.ToolBarPosition
+    toolBarArea: PySide6.QtCore.Qt.ToolBarArea
 
 
     class StyleOptionType(enum.Enum):
@@ -7782,9 +7782,9 @@ class QStyleOptionToolBar(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionToolBox(PySide6.QtWidgets.QStyleOption):
 
-    icon: QIcon
-    position: TabPosition
-    selectedPosition: SelectedPosition
+    icon: PySide6.QtGui.QIcon
+    position: PySide6.QtWidgets.QStyleOptionToolBox.TabPosition
+    selectedPosition: PySide6.QtWidgets.QStyleOptionToolBox.SelectedPosition
     text: str
 
 
@@ -7823,14 +7823,14 @@ class QStyleOptionToolBox(PySide6.QtWidgets.QStyleOption):
 
 class QStyleOptionToolButton(PySide6.QtWidgets.QStyleOptionComplex):
 
-    arrowType: ArrowType
-    features: ToolButtonFeature
-    font: QFont
-    icon: QIcon
-    iconSize: QSize
-    pos: QPoint
+    arrowType: PySide6.QtCore.Qt.ArrowType
+    features: PySide6.QtWidgets.QStyleOptionToolButton.ToolButtonFeature
+    font: PySide6.QtGui.QFont
+    icon: PySide6.QtGui.QIcon
+    iconSize: PySide6.QtCore.QSize
+    pos: PySide6.QtCore.QPoint
     text: str
-    toolButtonStyle: ToolButtonStyle
+    toolButtonStyle: PySide6.QtCore.Qt.ToolButtonStyle
 
 
     class StyleOptionType(enum.Enum):
@@ -7863,21 +7863,21 @@ class QStyleOptionToolButton(PySide6.QtWidgets.QStyleOptionComplex):
 
 class QStyleOptionViewItem(PySide6.QtWidgets.QStyleOption):
 
-    backgroundBrush: QBrush
-    checkState: CheckState
-    decorationAlignment: AlignmentFlag
-    decorationPosition: Position
-    decorationSize: QSize
-    displayAlignment: AlignmentFlag
-    features: ViewItemFeature
-    font: QFont
-    icon: QIcon
-    index: QModelIndex
-    locale: QLocale
+    backgroundBrush: PySide6.QtGui.QBrush
+    checkState: PySide6.QtCore.Qt.CheckState
+    decorationAlignment: PySide6.QtCore.Qt.AlignmentFlag
+    decorationPosition: PySide6.QtWidgets.QStyleOptionViewItem.Position
+    decorationSize: PySide6.QtCore.QSize
+    displayAlignment: PySide6.QtCore.Qt.AlignmentFlag
+    features: PySide6.QtWidgets.QStyleOptionViewItem.ViewItemFeature
+    font: PySide6.QtGui.QFont
+    icon: PySide6.QtGui.QIcon
+    index: PySide6.QtCore.QModelIndex
+    locale: PySide6.QtCore.QLocale
     showDecorationSelected: bool
     text: str
-    textElideMode: TextElideMode
-    viewItemPosition: ViewItemPosition
+    textElideMode: PySide6.QtCore.Qt.TextElideMode
+    viewItemPosition: PySide6.QtWidgets.QStyleOptionViewItem.ViewItemPosition
 
 
     class Position(enum.Enum):
@@ -8581,8 +8581,8 @@ class QTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
 
     class ExtraSelection(Shiboken.Object):
 
-        cursor: QTextCursor
-        format: QTextCharFormat
+        cursor: PySide6.QtGui.QTextCursor
+        format: PySide6.QtGui.QTextCharFormat
 
 
         @overload
@@ -8736,8 +8736,8 @@ class QTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
 
 class QTileRules(Shiboken.Object):
 
-    horizontal: TileRule
-    vertical: TileRule
+    horizontal: PySide6.QtCore.Qt.TileRule
+    vertical: PySide6.QtCore.Qt.TileRule
 
 
     @overload
