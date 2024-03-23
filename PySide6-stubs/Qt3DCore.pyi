@@ -426,6 +426,9 @@ class Qt3DCore(Shiboken.Object):
 
     class QNodeIdTypePair(Shiboken.Object):
 
+        id: PySide6.Qt3DCore.Qt3DCore.QNodeId
+
+
         @overload
         def __init__(self) -> None: ...
         @overload

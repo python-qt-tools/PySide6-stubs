@@ -35,6 +35,18 @@ class Qt3DExtras(Shiboken.Object):
 
         class InputState(Shiboken.Object):
 
+            altKeyActive: bool
+            leftMouseButtonActive: bool
+            middleMouseButtonActive: bool
+            rightMouseButtonActive: bool
+            rxAxisValue: float
+            ryAxisValue: float
+            shiftKeyActive: bool
+            txAxisValue: float
+            tyAxisValue: float
+            tzAxisValue: float
+
+
             @overload
             def __init__(self) -> None: ...
             @overload

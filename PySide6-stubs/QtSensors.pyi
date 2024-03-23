@@ -654,6 +654,11 @@ class QTiltSensor(PySide6.QtSensors.QSensor):
 
 class qoutputrange(Shiboken.Object):
 
+    accuracy: float
+    maximum: float
+    minimum: float
+
+
     @overload
     def __init__(self) -> None: ...
     @overload

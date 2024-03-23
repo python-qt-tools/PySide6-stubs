@@ -37,6 +37,11 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
 
     class Attribute(Shiboken.Object):
 
+        componentType: PySide6.QtQuick3D.QQuick3DGeometry.Attribute.ComponentType
+        offset: int
+        semantic: PySide6.QtQuick3D.QQuick3DGeometry.Attribute.Semantic
+
+
         class ComponentType(enum.Enum):
 
             U16Type                  : QQuick3DGeometry.Attribute.ComponentType = ... # 0x0
@@ -130,6 +135,13 @@ class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
 
     class InstanceTableEntry(Shiboken.Object):
+
+        color: PySide6.QtGui.QVector4D
+        instanceData: PySide6.QtGui.QVector4D
+        row0: PySide6.QtGui.QVector4D
+        row1: PySide6.QtGui.QVector4D
+        row2: PySide6.QtGui.QVector4D
+
 
         @overload
         def __init__(self) -> None: ...

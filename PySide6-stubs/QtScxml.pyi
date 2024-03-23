@@ -154,6 +154,11 @@ class QScxmlExecutableContent(Shiboken.Object):
 
     class AssignmentInfo(Shiboken.Object):
 
+        context: int
+        dest: int
+        expr: int
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -163,6 +168,10 @@ class QScxmlExecutableContent(Shiboken.Object):
         def __copy__() -> None: ...
 
     class EvaluatorInfo(Shiboken.Object):
+
+        context: int
+        expr: int
+
 
         @overload
         def __init__(self) -> None: ...
@@ -174,6 +183,12 @@ class QScxmlExecutableContent(Shiboken.Object):
 
     class ForeachInfo(Shiboken.Object):
 
+        array: int
+        context: int
+        index: int
+        item: int
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -184,6 +199,15 @@ class QScxmlExecutableContent(Shiboken.Object):
 
     class InvokeInfo(Shiboken.Object):
 
+        autoforward: bool
+        context: int
+        expr: int
+        finalize: int
+        id: int
+        location: int
+        prefix: int
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -193,6 +217,11 @@ class QScxmlExecutableContent(Shiboken.Object):
         def __copy__() -> None: ...
 
     class ParameterInfo(Shiboken.Object):
+
+        expr: int
+        location: int
+        name: int
+
 
         @overload
         def __init__(self) -> None: ...

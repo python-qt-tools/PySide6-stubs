@@ -461,6 +461,9 @@ class QByteArray(Shiboken.Object):
 
     class FromBase64Result(Shiboken.Object):
 
+        decodingStatus: PySide6.QtCore.QByteArray.Base64DecodingStatus
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -713,6 +716,11 @@ class QCalendar(Shiboken.Object):
 
     class YearMonthDay(Shiboken.Object):
 
+        day: int
+        month: int
+        year: int
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -816,6 +824,9 @@ class QCborArray(Shiboken.Object):
 
 
 class QCborError(Shiboken.Object):
+
+    c: PySide6.QtCore.QCborError.Code
+
 
     class Code(enum.Enum):
 
@@ -926,6 +937,10 @@ class QCborMap(Shiboken.Object):
 
 
 class QCborParserError(Shiboken.Object):
+
+    error: PySide6.QtCore.QCborError
+    offset: int
+
 
     @overload
     def __init__(self) -> None: ...
@@ -1094,6 +1109,9 @@ class QCborStreamWriter(Shiboken.Object):
 
 class QCborStringResultByteArray(Shiboken.Object):
 
+    status: PySide6.QtCore.QCborStreamReader.StringResultCode
+
+
     @overload
     def __init__(self) -> None: ...
     @overload
@@ -1104,6 +1122,10 @@ class QCborStringResultByteArray(Shiboken.Object):
 
 
 class QCborStringResultString(Shiboken.Object):
+
+    data: str
+    status: PySide6.QtCore.QCborStreamReader.StringResultCode
+
 
     @overload
     def __init__(self) -> None: ...
@@ -3393,6 +3415,10 @@ class QJsonDocument(Shiboken.Object):
 
 class QJsonParseError(Shiboken.Object):
 
+    error: PySide6.QtCore.QJsonParseError.ParseError
+    offset: int
+
+
     class ParseError(enum.Enum):
 
         NoError                  : QJsonParseError.ParseError = ... # 0x0
@@ -4896,6 +4922,10 @@ class QMessageAuthenticationCode(Shiboken.Object):
 
 
 class QMessageLogContext(Shiboken.Object):
+
+    line: int
+    version: int
+
 
     @overload
     def __init__(self) -> None: ...
@@ -7060,6 +7090,9 @@ class QStorageInfo(Shiboken.Object):
 
 class QStringConverter(PySide6.QtCore.QStringConverterBase):
 
+    state: PySide6.QtCore.QStringConverterBase.State
+
+
     class Encoding(enum.Enum):
 
         Utf8                     : QStringConverter.Encoding = ... # 0x0
@@ -7102,6 +7135,12 @@ class QStringConverterBase(Shiboken.Object):
 
 
     class State(Shiboken.Object):
+
+        flags: PySide6.QtCore.QStringConverterBase.Flag
+        internalState: int
+        invalidChars: int
+        remainingChars: int
+
 
         def __init__(self, f: PySide6.QtCore.QStringConverterBase.Flag = ...) -> None: ...
 
@@ -7628,6 +7667,12 @@ class QTimeZone(Shiboken.Object):
 
 
     class OffsetData(Shiboken.Object):
+
+        abbreviation: str
+        daylightTimeOffset: int
+        offsetFromUtc: int
+        standardTimeOffset: int
+
 
         @overload
         def __init__(self) -> None: ...

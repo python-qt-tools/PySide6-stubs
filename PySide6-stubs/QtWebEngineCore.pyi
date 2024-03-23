@@ -124,6 +124,11 @@ class QWebEngineCookieStore(PySide6.QtCore.QObject):
 
     class FilterRequest(Shiboken.Object):
 
+        firstPartyUrl: PySide6.QtCore.QUrl
+        origin: PySide6.QtCore.QUrl
+        thirdParty: bool
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
