@@ -242,6 +242,10 @@ class QRemoteObjectSettingsStore(PySide6.QtRemoteObjects.QRemoteObjectAbstractPe
 
 class QRemoteObjectSourceLocationInfo(Shiboken.Object):
 
+    hostUrl: PySide6.QtCore.QUrl
+    typeName: str
+
+
     @overload
     def __init__(self) -> None: ...
     @overload

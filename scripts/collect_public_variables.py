@@ -6,6 +6,8 @@ from PySide6.QtWidgets import QApplication
 
 JSON_OUTPUT_FNAME = pathlib.Path(__file__).parent / 'public-variables.json'
 
+RESERVED_KEYWORDS = ['from']
+
 def collect_public_variables_for_module(module_name: str, d: Dict[str, str]) -> None:
     '''Load module, inspect all attribute types and fill dict with information'''
     if module_name.startswith('_'):
@@ -23,7 +25,11 @@ def collect_public_variables_for_module(module_name: str, d: Dict[str, str]) -> 
         if class_name.startswith('_'):
             continue
 
+        if class_name in RESERVED_KEYWORDS:
+            continue
+
         collect_public_variables_for_class(f'{module_name}.{class_name}', class_type, d)
+
 
 def collect_public_variables_for_class(class_fqn: str, class_type: Type, d: Dict[str, str]) -> None:
     # we only care about classes
@@ -36,6 +42,9 @@ def collect_public_variables_for_class(class_fqn: str, class_type: Type, d: Dict
     instance = None
     for class_attr_name, class_attr_value in class_members:
         if class_attr_name.startswith('_'):
+            continue
+
+        if class_attr_name in RESERVED_KEYWORDS:
             continue
 
         if class_attr_value.__class__.__name__ == 'getset_descriptor':

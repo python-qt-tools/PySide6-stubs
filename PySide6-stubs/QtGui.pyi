@@ -57,6 +57,11 @@ class QAbstractTextDocumentLayout(PySide6.QtCore.QObject):
 
     class PaintContext(Shiboken.Object):
 
+        clip: PySide6.QtCore.QRectF
+        cursorPosition: int
+        palette: PySide6.QtGui.QPalette
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -66,6 +71,10 @@ class QAbstractTextDocumentLayout(PySide6.QtCore.QObject):
         def __copy__() -> None: ...
 
     class Selection(Shiboken.Object):
+
+        cursor: PySide6.QtGui.QTextCursor
+        format: PySide6.QtGui.QTextCharFormat
+
 
         @overload
         def __init__(self) -> None: ...
@@ -280,6 +289,45 @@ class QAccessible(Shiboken.Object):
 
 
     class State(Shiboken.Object):
+
+        active: int
+        animated: int
+        busy: int
+        checkStateMixed: int
+        checkable: int
+        checked: int
+        collapsed: int
+        defaultButton: int
+        disabled: int
+        editable: int
+        expandable: int
+        expanded: int
+        extSelectable: int
+        focusable: int
+        focused: int
+        hasPopup: int
+        hotTracked: int
+        invalid: int
+        invisible: int
+        linked: int
+        marqueed: int
+        modal: int
+        movable: int
+        multiLine: int
+        multiSelectable: int
+        offscreen: int
+        passwordEdit: int
+        pressed: int
+        readOnly: int
+        searchEdit: int
+        selectable: int
+        selectableText: int
+        selected: int
+        selfVoicing: int
+        sizeable: int
+        supportsAutoCompletion: int
+        traversed: int
+
 
         @overload
         def __init__(self) -> None: ...
@@ -2485,6 +2533,13 @@ class QIconEngine(Shiboken.Object):
 
     class ScaledPixmapArgument(Shiboken.Object):
 
+        mode: PySide6.QtGui.QIcon.Mode
+        pixmap: PySide6.QtGui.QPixmap
+        scale: float
+        size: PySide6.QtCore.QSize
+        state: PySide6.QtGui.QIcon.State
+
+
         def __init__(self) -> None: ...
 
 
@@ -4235,6 +4290,9 @@ class QPageRanges(Shiboken.Object):
 
     class Range(Shiboken.Object):
 
+        to: int
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -4691,6 +4749,9 @@ class QPaintEngine(Shiboken.Object):
 
 class QPaintEngineState(Shiboken.Object):
 
+    dirtyFlags: PySide6.QtGui.QPaintEngine.DirtyFlag
+
+
     def __init__(self) -> None: ...
 
     def backgroundBrush(self) -> PySide6.QtGui.QBrush: ...
@@ -4772,6 +4833,18 @@ class QPainter(Shiboken.Object):
 
 
     class PixmapFragment(Shiboken.Object):
+
+        height: float
+        opacity: float
+        rotation: float
+        scaleX: float
+        scaleY: float
+        sourceLeft: float
+        sourceTop: float
+        width: float
+        x: float
+        y: float
+
 
         @overload
         def __init__(self) -> None: ...
@@ -5127,6 +5200,11 @@ class QPainter(Shiboken.Object):
 class QPainterPath(Shiboken.Object):
 
     class Element(Shiboken.Object):
+
+        type: PySide6.QtGui.QPainterPath.ElementType
+        x: float
+        y: float
+
 
         @overload
         def __init__(self) -> None: ...
@@ -8041,6 +8119,11 @@ class QTextLayout(Shiboken.Object):
 
     class FormatRange(Shiboken.Object):
 
+        format: PySide6.QtGui.QTextCharFormat
+        length: int
+        start: int
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -8255,6 +8338,11 @@ class QTextOption(Shiboken.Object):
 
 
     class Tab(Shiboken.Object):
+
+        delimiter: str
+        position: float
+        type: PySide6.QtGui.QTextOption.TabType
+
 
         @overload
         def __init__(self) -> None: ...

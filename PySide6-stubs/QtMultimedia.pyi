@@ -676,6 +676,11 @@ class QMediaDevices(PySide6.QtCore.QObject):
 
 class QMediaFormat(Shiboken.Object):
 
+    audio: PySide6.QtMultimedia.QMediaFormat.AudioCodec
+    fmt: PySide6.QtMultimedia.QMediaFormat.FileFormat
+    video: PySide6.QtMultimedia.QMediaFormat.VideoCodec
+
+
     class AudioCodec(enum.Enum):
 
         Unspecified              : QMediaFormat.AudioCodec = ... # -0x1
@@ -776,6 +781,9 @@ class QMediaFormat(Shiboken.Object):
 
 
 class QMediaMetaData(Shiboken.Object):
+
+    data: dict
+
 
     class Key(enum.Enum):
 

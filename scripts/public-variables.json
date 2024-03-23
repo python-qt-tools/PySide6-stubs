@@ -77,7 +77,6 @@
         "dirtyFlags": "PySide6.QtGui.QPaintEngine.DirtyFlag"
     },
     "QtGui.QPageRanges.Range": {
-        "from": "int",
         "to": "int"
     },
     "QtGui.QIconEngine.ScaledPixmapArgument": {

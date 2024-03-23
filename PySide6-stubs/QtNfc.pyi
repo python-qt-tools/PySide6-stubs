@@ -24,6 +24,11 @@ class QNdefFilter(Shiboken.Object):
 
     class Record(Shiboken.Object):
 
+        maximum: int
+        minimum: int
+        typeNameFormat: PySide6.QtNfc.QNdefRecord.TypeNameFormat
+
+
         @overload
         def __init__(self) -> None: ...
         @overload

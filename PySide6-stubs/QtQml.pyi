@@ -435,6 +435,9 @@ class QQmlContext(PySide6.QtCore.QObject):
 
     class PropertyPair(Shiboken.Object):
 
+        name: str
+
+
         @overload
         def __init__(self) -> None: ...
         @overload

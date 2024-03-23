@@ -222,6 +222,10 @@ class QHelpIndexWidget(PySide6.QtWidgets.QListView):
 
 class QHelpLink(Shiboken.Object):
 
+    title: str
+    url: PySide6.QtCore.QUrl
+
+
     @overload
     def __init__(self) -> None: ...
     @overload
@@ -261,6 +265,10 @@ class QHelpSearchEngine(PySide6.QtCore.QObject):
 
 
 class QHelpSearchQuery(Shiboken.Object):
+
+    fieldName: PySide6.QtHelp.QHelpSearchQuery.FieldName
+    wordList: list
+
 
     class FieldName(enum.Enum):
 

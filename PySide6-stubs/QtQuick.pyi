@@ -725,6 +725,14 @@ class QSGGeometry(Shiboken.Object):
 
     class Attribute(Shiboken.Object):
 
+        attributeType: PySide6.QtQuick.QSGGeometry.AttributeType
+        isVertexCoordinate: int
+        position: int
+        reserved: int
+        tupleSize: int
+        type: int
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -738,6 +746,10 @@ class QSGGeometry(Shiboken.Object):
         def createWithAttributeType(pos: int, tupleSize: int, primitiveType: int, attributeType: PySide6.QtQuick.QSGGeometry.AttributeType) -> PySide6.QtQuick.QSGGeometry.Attribute: ...
 
     class AttributeSet(Shiboken.Object):
+
+        count: int
+        stride: int
+
 
         @overload
         def __init__(self) -> None: ...
@@ -758,6 +770,14 @@ class QSGGeometry(Shiboken.Object):
 
 
     class ColoredPoint2D(Shiboken.Object):
+
+        a: int
+        b: int
+        g: int
+        r: int
+        x: float
+        y: float
+
 
         @overload
         def __init__(self) -> None: ...
@@ -789,6 +809,10 @@ class QSGGeometry(Shiboken.Object):
 
     class Point2D(Shiboken.Object):
 
+        x: float
+        y: float
+
+
         @overload
         def __init__(self) -> None: ...
         @overload
@@ -799,6 +823,12 @@ class QSGGeometry(Shiboken.Object):
         def set(self, nx: float, ny: float) -> None: ...
 
     class TexturedPoint2D(Shiboken.Object):
+
+        tx: float
+        ty: float
+        x: float
+        y: float
+
 
         @overload
         def __init__(self) -> None: ...
@@ -1038,6 +1068,14 @@ class QSGOpacityNode(PySide6.QtQuick.QSGNode):
 
 
 class QSGOpaqueTextureMaterial(PySide6.QtQuick.QSGMaterial):
+
+    m_anisotropy_level: int
+    m_filtering: int
+    m_horizontal_wrap: int
+    m_mipmap_filtering: int
+    m_reserved: int
+    m_vertical_wrap: int
+
 
     def __init__(self) -> None: ...
 
