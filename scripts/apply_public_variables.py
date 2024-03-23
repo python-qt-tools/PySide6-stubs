@@ -1,12 +1,14 @@
 from typing import Dict, Optional, Union
 
-import pathlib, json
+import pathlib
+import json
 
 import libcst
 import libcst as cst
 import libcst.matchers as matchers
 
 JSON_INPUT_FNAME = pathlib.Path(__file__).parent / 'public-variables.json'
+
 
 class TypingTransformer(cst.CSTTransformer):
     """TypingTransformer that visits classes and methods."""
@@ -18,19 +20,16 @@ class TypingTransformer(cst.CSTTransformer):
         self.fqn_class_pub_var = d
         self.visited_attributes = []
 
-
     def visit_ClassDef(self, node: cst.ClassDef) -> Optional[bool]:
         """Put a class on top of the stack when visiting."""
-        self.full_name_stack.append( node.name.value )
+        self.full_name_stack.append(node.name.value)
         return True
 
-
-    def leave_AnnAssign(self, original_node: cst.AnnAssign, updated_node: cst.AnnAssign ) \
+    def leave_AnnAssign(self, original_node: cst.AnnAssign, updated_node: cst.AnnAssign) \
             -> cst.AnnAssign:
         fqn_class = '.'.join(self.full_name_stack)
-        if not fqn_class in self.fqn_class_pub_var:
+        if fqn_class not in self.fqn_class_pub_var:
             return updated_node
-
 
         attr_ann_type_dict = self.fqn_class_pub_var[fqn_class]
         attr_name = original_node.target.value
@@ -46,11 +45,10 @@ class TypingTransformer(cst.CSTTransformer):
 
         # let's update the annotation
         print(f'Fixing {fqn_class}.{attr_name} from annotation "{ann_value}" to "{attr_ann_type_dict[attr_name]}"')
-        return updated_node.with_changes(
-                annotation=updated_node.annotation.with_changes(
-                    annotation=updated_node.annotation.annotation.with_changes(
-                        value=attr_ann_type_dict[attr_name]
-                    ) ) )
+        annotation = updated_node.annotation.with_changes(
+            annotation=type_to_expression(attr_ann_type_dict[attr_name])
+        )
+        return updated_node.with_changes(annotation=annotation)
 
     def leave_ClassDef(self, original_node: cst.ClassDef, updated_node: cst.ClassDef) \
             -> Union[cst.BaseStatement, cst.FlattenSentinel[cst.BaseStatement], cst.RemovalSentinel, ]:
@@ -58,7 +56,7 @@ class TypingTransformer(cst.CSTTransformer):
         self.full_name_stack.pop()
 
         # no variables to adjust
-        if not fqn_class in self.fqn_class_pub_var:
+        if fqn_class not in self.fqn_class_pub_var:
             return updated_node
 
         attr_ann_type_dict = self.fqn_class_pub_var[fqn_class]
@@ -95,6 +93,15 @@ class TypingTransformer(cst.CSTTransformer):
                 body=tuple(pre_body) + updated_node.body.body
             )
         )
+
+
+def type_to_expression(typ: str) -> cst.BaseExpression:
+    if '.' not in typ:
+        return cst.Name(typ)
+    left, right = typ.rsplit('.', 1)
+    return cst.Attribute(
+        value=type_to_expression(left), attr=cst.Name(right)
+    )
 
 
 def apply_public_variables_for_module(module_path: str, d: Dict[str, str]) -> None:
