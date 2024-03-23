@@ -1,4 +1,274 @@
 {
+    "Qt3DCore.Qt3DCore.QNodeIdTypePair": {
+        "id": "PySide6.Qt3DCore.Qt3DCore.QNodeId"
+    },
+    "Qt3DExtras.Qt3DExtras.QAbstractCameraController.InputState": {
+        "rxAxisValue": "float",
+        "ryAxisValue": "float",
+        "txAxisValue": "float",
+        "tyAxisValue": "float",
+        "tzAxisValue": "float",
+        "leftMouseButtonActive": "bool",
+        "middleMouseButtonActive": "bool",
+        "rightMouseButtonActive": "bool",
+        "altKeyActive": "bool",
+        "shiftKeyActive": "bool"
+    },
+    "QtBluetooth.QLowEnergyAdvertisingParameters.AddressInfo": {
+        "address": "PySide6.QtBluetooth.QBluetoothAddress",
+        "type": "PySide6.QtBluetooth.QLowEnergyController.RemoteAddressType"
+    },
+    "QtCore.QStringConverterBase.State": {
+        "flags": "PySide6.QtCore.QStringConverterBase.Flag",
+        "internalState": "int",
+        "remainingChars": "int",
+        "invalidChars": "int"
+    },
+    "QtCore.QStringConverter": {
+        "state": "PySide6.QtCore.QStringConverterBase.State"
+    },
+    "QtCore.QMessageLogContext": {
+        "version": "int",
+        "line": "int"
+    },
+    "QtCore.QTimeZone.OffsetData": {
+        "abbreviation": "str",
+        "offsetFromUtc": "int",
+        "standardTimeOffset": "int",
+        "daylightTimeOffset": "int"
+    },
+    "QtCore.QJsonParseError": {
+        "offset": "int",
+        "error": "PySide6.QtCore.QJsonParseError.ParseError"
+    },
+    "QtCore.QCborStringResultString": {
+        "data": "str",
+        "status": "PySide6.QtCore.QCborStreamReader.StringResultCode"
+    },
+    "QtCore.QCborError": {
+        "c": "PySide6.QtCore.QCborError.Code"
+    },
+    "QtCore.QCborParserError": {
+        "offset": "int",
+        "error": "PySide6.QtCore.QCborError"
+    },
+    "QtCore.QCalendar.YearMonthDay": {
+        "year": "int",
+        "month": "int",
+        "day": "int"
+    },
+    "QtCore.QByteArray.FromBase64Result": {
+        "decodingStatus": "PySide6.QtCore.QByteArray.Base64DecodingStatus"
+    },
+    "QtCore.QCborStringResultByteArray": {
+        "status": "PySide6.QtCore.QCborStreamReader.StringResultCode"
+    },
+    "QtGui.QTextOption.Tab": {
+        "position": "float",
+        "type": "PySide6.QtGui.QTextOption.TabType",
+        "delimiter": "str"
+    },
+    "QtGui.QPainterPath.Element": {
+        "x": "float",
+        "y": "float",
+        "type": "PySide6.QtGui.QPainterPath.ElementType"
+    },
+    "QtGui.QPaintEngineState": {
+        "dirtyFlags": "PySide6.QtGui.QPaintEngine.DirtyFlag"
+    },
+    "QtGui.QPageRanges.Range": {
+        "from": "int",
+        "to": "int"
+    },
+    "QtGui.QIconEngine.ScaledPixmapArgument": {
+        "size": "PySide6.QtCore.QSize",
+        "mode": "PySide6.QtGui.QIcon.Mode",
+        "state": "PySide6.QtGui.QIcon.State",
+        "scale": "float",
+        "pixmap": "PySide6.QtGui.QPixmap"
+    },
+    "QtGui.QAccessible.State": {
+        "disabled": "int",
+        "selected": "int",
+        "focusable": "int",
+        "focused": "int",
+        "pressed": "int",
+        "checkable": "int",
+        "checked": "int",
+        "checkStateMixed": "int",
+        "readOnly": "int",
+        "hotTracked": "int",
+        "defaultButton": "int",
+        "expanded": "int",
+        "collapsed": "int",
+        "busy": "int",
+        "expandable": "int",
+        "marqueed": "int",
+        "animated": "int",
+        "invisible": "int",
+        "offscreen": "int",
+        "sizeable": "int",
+        "movable": "int",
+        "selfVoicing": "int",
+        "selectable": "int",
+        "linked": "int",
+        "traversed": "int",
+        "multiSelectable": "int",
+        "extSelectable": "int",
+        "passwordEdit": "int",
+        "hasPopup": "int",
+        "modal": "int",
+        "active": "int",
+        "invalid": "int",
+        "editable": "int",
+        "multiLine": "int",
+        "selectableText": "int",
+        "supportsAutoCompletion": "int",
+        "searchEdit": "int"
+    },
+    "QtGui.QTextLayout.FormatRange": {
+        "start": "int",
+        "length": "int",
+        "format": "PySide6.QtGui.QTextCharFormat"
+    },
+    "QtGui.QPainter.PixmapFragment": {
+        "x": "float",
+        "y": "float",
+        "sourceLeft": "float",
+        "sourceTop": "float",
+        "width": "float",
+        "height": "float",
+        "scaleX": "float",
+        "scaleY": "float",
+        "rotation": "float",
+        "opacity": "float"
+    },
+    "QtGui.QAbstractTextDocumentLayout.Selection": {
+        "cursor": "PySide6.QtGui.QTextCursor",
+        "format": "PySide6.QtGui.QTextCharFormat"
+    },
+    "QtGui.QAbstractTextDocumentLayout.PaintContext": {
+        "cursorPosition": "int",
+        "palette": "PySide6.QtGui.QPalette",
+        "clip": "PySide6.QtCore.QRectF"
+    },
+    "QtHelp.QHelpSearchQuery": {
+        "fieldName": "PySide6.QtHelp.QHelpSearchQuery.FieldName",
+        "wordList": "list"
+    },
+    "QtHelp.QHelpLink": {
+        "url": "PySide6.QtCore.QUrl",
+        "title": "str"
+    },
+    "QtMultimedia.QMediaMetaData": {
+        "data": "dict"
+    },
+    "QtMultimedia.QMediaFormat": {
+        "fmt": "PySide6.QtMultimedia.QMediaFormat.FileFormat",
+        "audio": "PySide6.QtMultimedia.QMediaFormat.AudioCodec",
+        "video": "PySide6.QtMultimedia.QMediaFormat.VideoCodec"
+    },
+    "QtNfc.QNdefFilter.Record": {
+        "typeNameFormat": "PySide6.QtNfc.QNdefRecord.TypeNameFormat",
+        "minimum": "int",
+        "maximum": "int"
+    },
+    "QtQml.QQmlContext.PropertyPair": {
+        "name": "str"
+    },
+    "QtQuick.QSGGeometry.TexturedPoint2D": {
+        "x": "float",
+        "y": "float",
+        "tx": "float",
+        "ty": "float"
+    },
+    "QtQuick.QSGGeometry.Point2D": {
+        "x": "float",
+        "y": "float"
+    },
+    "QtQuick.QSGGeometry.ColoredPoint2D": {
+        "x": "float",
+        "y": "float",
+        "r": "int",
+        "g": "int",
+        "b": "int",
+        "a": "int"
+    },
+    "QtQuick.QSGGeometry.Attribute": {
+        "position": "int",
+        "tupleSize": "int",
+        "type": "int",
+        "isVertexCoordinate": "int",
+        "attributeType": "PySide6.QtQuick.QSGGeometry.AttributeType",
+        "reserved": "int"
+    },
+    "QtQuick.QSGGeometry.AttributeSet": {
+        "count": "int",
+        "stride": "int"
+    },
+    "QtQuick.QSGOpaqueTextureMaterial": {
+        "m_filtering": "int",
+        "m_mipmap_filtering": "int",
+        "m_horizontal_wrap": "int",
+        "m_vertical_wrap": "int",
+        "m_anisotropy_level": "int",
+        "m_reserved": "int"
+    },
+    "QtQuick3D.QQuick3DInstancing.InstanceTableEntry": {
+        "row0": "PySide6.QtGui.QVector4D",
+        "row1": "PySide6.QtGui.QVector4D",
+        "row2": "PySide6.QtGui.QVector4D",
+        "color": "PySide6.QtGui.QVector4D",
+        "instanceData": "PySide6.QtGui.QVector4D"
+    },
+    "QtQuick3D.QQuick3DGeometry.Attribute": {
+        "semantic": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute.Semantic",
+        "offset": "int",
+        "componentType": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute.ComponentType"
+    },
+    "QtRemoteObjects.QRemoteObjectSourceLocationInfo": {
+        "typeName": "str",
+        "hostUrl": "PySide6.QtCore.QUrl"
+    },
+    "QtScxml.QScxmlExecutableContent.ParameterInfo": {
+        "name": "int",
+        "expr": "int",
+        "location": "int"
+    },
+    "QtScxml.QScxmlExecutableContent.InvokeInfo": {
+        "id": "int",
+        "prefix": "int",
+        "location": "int",
+        "context": "int",
+        "expr": "int",
+        "finalize": "int",
+        "autoforward": "bool"
+    },
+    "QtScxml.QScxmlExecutableContent.ForeachInfo": {
+        "array": "int",
+        "item": "int",
+        "index": "int",
+        "context": "int"
+    },
+    "QtScxml.QScxmlExecutableContent.EvaluatorInfo": {
+        "expr": "int",
+        "context": "int"
+    },
+    "QtScxml.QScxmlExecutableContent.AssignmentInfo": {
+        "dest": "int",
+        "expr": "int",
+        "context": "int"
+    },
+    "QtSensors.qoutputrange": {
+        "minimum": "float",
+        "maximum": "float",
+        "accuracy": "float"
+    },
+    "QtWebEngineCore.QWebEngineCookieStore.FilterRequest": {
+        "firstPartyUrl": "PySide6.QtCore.QUrl",
+        "origin": "PySide6.QtCore.QUrl",
+        "thirdParty": "bool"
+    },
     "QtWidgets.QStyleHintReturn": {
         "version": "int",
         "type": "int"
@@ -211,285 +481,5 @@
         "text": "str",
         "icon": "PySide6.QtGui.QIcon",
         "iconSize": "PySide6.QtCore.QSize"
-    },
-    "QtQml.QQmlContext.PropertyPair": {
-        "name": "str"
-    },
-    "QtSensors.qoutputrange": {
-        "minimum": "float",
-        "maximum": "float",
-        "accuracy": "float"
-    },
-    "Qt3DExtras.Qt3DExtras.QAbstractCameraController.InputState": {
-        "rxAxisValue": "float",
-        "ryAxisValue": "float",
-        "txAxisValue": "float",
-        "tyAxisValue": "float",
-        "tzAxisValue": "float",
-        "leftMouseButtonActive": "bool",
-        "middleMouseButtonActive": "bool",
-        "rightMouseButtonActive": "bool",
-        "altKeyActive": "bool",
-        "shiftKeyActive": "bool"
-    },
-    "QtMultimedia.QMediaMetaData": {
-        "data": "dict"
-    },
-    "QtMultimedia.QMediaFormat": {
-        "fmt": "PySide6.QtMultimedia.QMediaFormat.FileFormat",
-        "audio": "PySide6.QtMultimedia.QMediaFormat.AudioCodec",
-        "video": "PySide6.QtMultimedia.QMediaFormat.VideoCodec"
-    },
-    "QtQuick3D.QQuick3DInstancing.InstanceTableEntry": {
-        "row0": "PySide6.QtGui.QVector4D",
-        "row1": "PySide6.QtGui.QVector4D",
-        "row2": "PySide6.QtGui.QVector4D",
-        "color": "PySide6.QtGui.QVector4D",
-        "instanceData": "PySide6.QtGui.QVector4D"
-    },
-    "QtQuick3D.QQuick3DGeometry.Attribute": {
-        "semantic": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute.Semantic",
-        "offset": "int",
-        "componentType": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute.ComponentType"
-    },
-    "QtQuick3D.QQuick3DGeometry.TargetAttribute": {
-        "targetId": "int",
-        "attr": "PySide6.QtQuick3D.QQuick3DGeometry.Attribute",
-        "stride": "int"
-    },
-    "QtQuick.QSGGeometry.TexturedPoint2D": {
-        "x": "float",
-        "y": "float",
-        "tx": "float",
-        "ty": "float"
-    },
-    "QtQuick.QSGGeometry.Point2D": {
-        "x": "float",
-        "y": "float"
-    },
-    "QtQuick.QSGGeometry.ColoredPoint2D": {
-        "x": "float",
-        "y": "float",
-        "r": "int",
-        "g": "int",
-        "b": "int",
-        "a": "int"
-    },
-    "QtQuick.QSGGeometry.Attribute": {
-        "position": "int",
-        "tupleSize": "int",
-        "type": "int",
-        "isVertexCoordinate": "int",
-        "attributeType": "PySide6.QtQuick.QSGGeometry.AttributeType",
-        "reserved": "int"
-    },
-    "QtQuick.QSGGeometry.AttributeSet": {
-        "count": "int",
-        "stride": "int"
-    },
-    "QtQuick.QSGOpaqueTextureMaterial": {
-        "m_filtering": "int",
-        "m_mipmap_filtering": "int",
-        "m_horizontal_wrap": "int",
-        "m_vertical_wrap": "int",
-        "m_anisotropy_level": "int",
-        "m_reserved": "int"
-    },
-    "QtNfc.QNdefFilter.Record": {
-        "typeNameFormat": "PySide6.QtNfc.QNdefRecord.TypeNameFormat",
-        "minimum": "int",
-        "maximum": "int"
-    },
-    "QtGui.QTextOption.Tab": {
-        "position": "float",
-        "type": "PySide6.QtGui.QTextOption.TabType",
-        "delimiter": "str"
-    },
-    "QtGui.QPainterPath.Element": {
-        "x": "float",
-        "y": "float",
-        "type": "PySide6.QtGui.QPainterPath.ElementType"
-    },
-    "QtGui.QPaintEngineState": {
-        "dirtyFlags": "PySide6.QtGui.QPaintEngine.DirtyFlag"
-    },
-    "QtGui.QPageRanges.Range": {
-        "from_": "int",
-        "to": "int"
-    },
-    "QtGui.QIconEngine.ScaledPixmapArgument": {
-        "size": "PySide6.QtCore.QSize",
-        "mode": "PySide6.QtGui.QIcon.Mode",
-        "state": "PySide6.QtGui.QIcon.State",
-        "scale": "float",
-        "pixmap": "PySide6.QtGui.QPixmap"
-    },
-    "QtGui.QAccessible.State": {
-        "disabled": "int",
-        "selected": "int",
-        "focusable": "int",
-        "focused": "int",
-        "pressed": "int",
-        "checkable": "int",
-        "checked": "int",
-        "checkStateMixed": "int",
-        "readOnly": "int",
-        "hotTracked": "int",
-        "defaultButton": "int",
-        "expanded": "int",
-        "collapsed": "int",
-        "busy": "int",
-        "expandable": "int",
-        "marqueed": "int",
-        "animated": "int",
-        "invisible": "int",
-        "offscreen": "int",
-        "sizeable": "int",
-        "movable": "int",
-        "selfVoicing": "int",
-        "selectable": "int",
-        "linked": "int",
-        "traversed": "int",
-        "multiSelectable": "int",
-        "extSelectable": "int",
-        "passwordEdit": "int",
-        "hasPopup": "int",
-        "modal": "int",
-        "active": "int",
-        "invalid": "int",
-        "editable": "int",
-        "multiLine": "int",
-        "selectableText": "int",
-        "supportsAutoCompletion": "int",
-        "searchEdit": "int"
-    },
-    "QtGui.QTextLayout.FormatRange": {
-        "start": "int",
-        "length": "int",
-        "format": "PySide6.QtGui.QTextCharFormat"
-    },
-    "QtGui.QPainter.PixmapFragment": {
-        "x": "float",
-        "y": "float",
-        "sourceLeft": "float",
-        "sourceTop": "float",
-        "width": "float",
-        "height": "float",
-        "scaleX": "float",
-        "scaleY": "float",
-        "rotation": "float",
-        "opacity": "float"
-    },
-    "QtGui.QAbstractTextDocumentLayout.Selection": {
-        "cursor": "PySide6.QtGui.QTextCursor",
-        "format": "PySide6.QtGui.QTextCharFormat"
-    },
-    "QtGui.QAbstractTextDocumentLayout.PaintContext": {
-        "cursorPosition": "int",
-        "palette": "PySide6.QtGui.QPalette",
-        "clip": "PySide6.QtCore.QRectF",
-        "selections": "list"
-    },
-    "QtHelp.QHelpSearchQuery": {
-        "fieldName": "PySide6.QtHelp.QHelpSearchQuery.FieldName",
-        "wordList": "list"
-    },
-    "QtHelp.QHelpLink": {
-        "url": "PySide6.QtCore.QUrl",
-        "title": "str"
-    },
-    "QtBluetooth.QLowEnergyAdvertisingParameters.AddressInfo": {
-        "address": "PySide6.QtBluetooth.QBluetoothAddress",
-        "type": "PySide6.QtBluetooth.QLowEnergyController.RemoteAddressType"
-    },
-    "QtRemoteObjects.QRemoteObjectSourceLocationInfo": {
-        "typeName": "str",
-        "hostUrl": "PySide6.QtCore.QUrl"
-    },
-    "QtWebEngineCore.QWebEngineCookieStore.FilterRequest": {
-        "firstPartyUrl": "PySide6.QtCore.QUrl",
-        "origin": "PySide6.QtCore.QUrl",
-        "thirdParty": "bool"
-    },
-    "QtCore.QStringConverterBase.State": {
-        "flags": "PySide6.QtCore.QStringConverterBase.Flag",
-        "internalState": "int",
-        "remainingChars": "int",
-        "invalidChars": "int"
-    },
-    "QtCore.QStringConverter": {
-        "state": "PySide6.QtCore.QStringConverterBase.State"
-    },
-    "QtCore.QMessageLogContext": {
-        "version": "int",
-        "line": "int"
-    },
-    "QtCore.QTimeZone.OffsetData": {
-        "abbreviation": "str",
-        "offsetFromUtc": "int",
-        "standardTimeOffset": "int",
-        "daylightTimeOffset": "int"
-    },
-    "QtCore.QJsonParseError": {
-        "offset": "int",
-        "error": "PySide6.QtCore.QJsonParseError.ParseError"
-    },
-    "QtCore.QProcess.UnixProcessParameters": {
-        "flags": "PySide6.QtCore.QProcess.UnixProcessFlag",
-        "lowestFileDescriptorToClose": "int"
-    },
-    "QtCore.QCborStringResultString": {
-        "data": "str",
-        "status": "PySide6.QtCore.QCborStreamReader.StringResultCode"
-    },
-    "QtCore.QCborError": {
-        "c": "PySide6.QtCore.QCborError.Code"
-    },
-    "QtCore.QCborParserError": {
-        "offset": "int",
-        "error": "PySide6.QtCore.QCborError"
-    },
-    "QtCore.QCalendar.YearMonthDay": {
-        "year": "int",
-        "month": "int",
-        "day": "int"
-    },
-    "QtCore.QByteArray.FromBase64Result": {
-        "decodingStatus": "PySide6.QtCore.QByteArray.Base64DecodingStatus"
-    },
-    "QtCore.QCborStringResultByteArray": {
-        "status": "PySide6.QtCore.QCborStreamReader.StringResultCode"
-    },
-    "Qt3DCore.Qt3DCore.QNodeIdTypePair": {
-        "id": "PySide6.Qt3DCore.Qt3DCore.QNodeId"
-    },
-    "QtScxml.QScxmlExecutableContent.ParameterInfo": {
-        "name": "int",
-        "expr": "int",
-        "location": "int"
-    },
-    "QtScxml.QScxmlExecutableContent.InvokeInfo": {
-        "id": "int",
-        "prefix": "int",
-        "location": "int",
-        "context": "int",
-        "expr": "int",
-        "finalize": "int",
-        "autoforward": "bool"
-    },
-    "QtScxml.QScxmlExecutableContent.ForeachInfo": {
-        "array": "int",
-        "item": "int",
-        "index": "int",
-        "context": "int"
-    },
-    "QtScxml.QScxmlExecutableContent.EvaluatorInfo": {
-        "expr": "int",
-        "context": "int"
-    },
-    "QtScxml.QScxmlExecutableContent.AssignmentInfo": {
-        "dest": "int",
-        "expr": "int",
-        "context": "int"
     }
 }

@@ -125,7 +125,7 @@ def main():
     with open(JSON_INPUT_FNAME, 'r') as f:
         d = json.load(f)
 
-    for fpath in (pathlib.Path(__file__).parent.parent / 'PySide6-stubs').glob('QtWidgets.pyi'):
+    for fpath in (pathlib.Path(__file__).parent.parent / 'PySide6-stubs').glob('*.pyi'):
         apply_public_variables_for_module(fpath, d)
 
 
