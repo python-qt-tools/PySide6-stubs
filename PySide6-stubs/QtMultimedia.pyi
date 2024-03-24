@@ -32,14 +32,12 @@ class QAudio(Shiboken.Object):
         UnderrunError            : QAudio.Error = ... # 0x3
         FatalError               : QAudio.Error = ... # 0x4
 
-
     class State(enum.Enum):
 
         ActiveState              : QAudio.State = ... # 0x0
         SuspendedState           : QAudio.State = ... # 0x1
         StoppedState             : QAudio.State = ... # 0x2
         IdleState                : QAudio.State = ... # 0x3
-
 
     class VolumeScale(enum.Enum):
 
@@ -58,7 +56,7 @@ class QAudioBuffer(Shiboken.Object):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, data: Union[PySide6.QtCore.QByteArray, bytes], format: PySide6.QtMultimedia.QAudioFormat, startTime: int = ...) -> None: ...
+    def __init__(self, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], format: PySide6.QtMultimedia.QAudioFormat, startTime: int = ...) -> None: ...
     @overload
     def __init__(self, numFrames: int, format: PySide6.QtMultimedia.QAudioFormat, startTime: int = ...) -> None: ...
     @overload
@@ -67,8 +65,8 @@ class QAudioBuffer(Shiboken.Object):
     @staticmethod
     def __copy__() -> None: ...
     def byteCount(self) -> int: ...
-    def constData(self) -> bytes: ...
-    def data(self) -> bytes: ...
+    def constData(self) -> Union[bytes, bytearray, memoryview]: ...
+    def data(self) -> Union[bytes, bytearray, memoryview]: ...
     def duration(self) -> int: ...
     def format(self) -> PySide6.QtMultimedia.QAudioFormat: ...
     def frameCount(self) -> int: ...
@@ -180,7 +178,6 @@ class QAudioFormat(Shiboken.Object):
         BottomFrontLeft          : QAudioFormat.AudioChannelPosition = ... # 0x17
         BottomFrontRight         : QAudioFormat.AudioChannelPosition = ... # 0x18
 
-
     class ChannelConfig(enum.Enum):
 
         ChannelConfigUnknown     : QAudioFormat.ChannelConfig = ... # 0x0
@@ -193,7 +190,6 @@ class QAudioFormat(Shiboken.Object):
         ChannelConfigSurround5Dot1: QAudioFormat.ChannelConfig = ... # 0x7e
         ChannelConfigSurround7Dot0: QAudioFormat.ChannelConfig = ... # 0xc6e
         ChannelConfigSurround7Dot1: QAudioFormat.ChannelConfig = ... # 0xc7e
-
 
     class SampleFormat(enum.Enum):
 
@@ -226,7 +222,7 @@ class QAudioFormat(Shiboken.Object):
     def framesForBytes(self, byteCount: int) -> int: ...
     def framesForDuration(self, microseconds: int) -> int: ...
     def isValid(self) -> bool: ...
-    def normalizedSampleValue(self, sample: bytes) -> float: ...
+    def normalizedSampleValue(self, sample: Union[bytes, bytearray, memoryview]) -> float: ...
     def sampleFormat(self) -> PySide6.QtMultimedia.QAudioFormat.SampleFormat: ...
     def sampleRate(self) -> int: ...
     def setChannelConfig(self, config: PySide6.QtMultimedia.QAudioFormat.ChannelConfig) -> None: ...
@@ -369,7 +365,6 @@ class QCamera(PySide6.QtCore.QObject):
         NoError                  : QCamera.Error = ... # 0x0
         CameraError              : QCamera.Error = ... # 0x1
 
-
     class ExposureMode(enum.Enum):
 
         ExposureAuto             : QCamera.ExposureMode = ... # 0x0
@@ -390,7 +385,6 @@ class QCamera(PySide6.QtCore.QObject):
         ExposureCandlelight      : QCamera.ExposureMode = ... # 0xf
         ExposureBarcode          : QCamera.ExposureMode = ... # 0x10
 
-
     class Feature(enum.Flag):
 
         ColorTemperature         : QCamera.Feature = ... # 0x1
@@ -400,13 +394,11 @@ class QCamera(PySide6.QtCore.QObject):
         CustomFocusPoint         : QCamera.Feature = ... # 0x10
         FocusDistance            : QCamera.Feature = ... # 0x20
 
-
     class FlashMode(enum.Enum):
 
         FlashOff                 : QCamera.FlashMode = ... # 0x0
         FlashOn                  : QCamera.FlashMode = ... # 0x1
         FlashAuto                : QCamera.FlashMode = ... # 0x2
-
 
     class FocusMode(enum.Enum):
 
@@ -417,13 +409,11 @@ class QCamera(PySide6.QtCore.QObject):
         FocusModeInfinity        : QCamera.FocusMode = ... # 0x4
         FocusModeManual          : QCamera.FocusMode = ... # 0x5
 
-
     class TorchMode(enum.Enum):
 
         TorchOff                 : QCamera.TorchMode = ... # 0x0
         TorchOn                  : QCamera.TorchMode = ... # 0x1
         TorchAuto                : QCamera.TorchMode = ... # 0x2
-
 
     class WhiteBalanceMode(enum.Enum):
 
@@ -543,6 +533,20 @@ class QCameraFormat(Shiboken.Object):
     def resolution(self) -> PySide6.QtCore.QSize: ...
 
 
+class QCapturableWindow(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, other: PySide6.QtMultimedia.QCapturableWindow) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def description(self) -> str: ...
+    def isValid(self) -> bool: ...
+    def swap(self, other: PySide6.QtMultimedia.QCapturableWindow) -> None: ...
+
+
 class QImageCapture(PySide6.QtCore.QObject):
 
     errorChanged             : ClassVar[Signal] = ... # errorChanged()
@@ -567,7 +571,6 @@ class QImageCapture(PySide6.QtCore.QObject):
         NotSupportedFeatureError : QImageCapture.Error = ... # 0x4
         FormatError              : QImageCapture.Error = ... # 0x5
 
-
     class FileFormat(enum.Enum):
 
         UnspecifiedFormat        : QImageCapture.FileFormat = ... # 0x0
@@ -576,7 +579,6 @@ class QImageCapture(PySide6.QtCore.QObject):
         WebP                     : QImageCapture.FileFormat = ... # 0x3
         LastFileFormat           : QImageCapture.FileFormat = ... # 0x4
         Tiff                     : QImageCapture.FileFormat = ... # 0x4
-
 
     class Quality(enum.Enum):
 
@@ -628,6 +630,7 @@ class QMediaCaptureSession(PySide6.QtCore.QObject):
     recorderChanged          : ClassVar[Signal] = ... # recorderChanged()
     screenCaptureChanged     : ClassVar[Signal] = ... # screenCaptureChanged()
     videoOutputChanged       : ClassVar[Signal] = ... # videoOutputChanged()
+    windowCaptureChanged     : ClassVar[Signal] = ... # windowCaptureChanged()
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -645,8 +648,10 @@ class QMediaCaptureSession(PySide6.QtCore.QObject):
     def setScreenCapture(self, screenCapture: PySide6.QtMultimedia.QScreenCapture) -> None: ...
     def setVideoOutput(self, output: PySide6.QtCore.QObject) -> None: ...
     def setVideoSink(self, sink: PySide6.QtMultimedia.QVideoSink) -> None: ...
+    def setWindowCapture(self, windowCapture: PySide6.QtMultimedia.QWindowCapture) -> None: ...
     def videoOutput(self) -> PySide6.QtCore.QObject: ...
     def videoSink(self) -> PySide6.QtMultimedia.QVideoSink: ...
+    def windowCapture(self) -> PySide6.QtMultimedia.QWindowCapture: ...
 
 
 class QMediaDevices(PySide6.QtCore.QObject):
@@ -690,12 +695,10 @@ class QMediaFormat(Shiboken.Object):
         ALAC                     : QMediaFormat.AudioCodec = ... # 0xa
         LastAudioCodec           : QMediaFormat.AudioCodec = ... # 0xa
 
-
     class ConversionMode(enum.Enum):
 
         Encode                   : QMediaFormat.ConversionMode = ... # 0x0
         Decode                   : QMediaFormat.ConversionMode = ... # 0x1
-
 
     class FileFormat(enum.Enum):
 
@@ -715,12 +718,10 @@ class QMediaFormat(Shiboken.Object):
         LastFileFormat           : QMediaFormat.FileFormat = ... # 0xc
         Wave                     : QMediaFormat.FileFormat = ... # 0xc
 
-
     class ResolveFlags(enum.Enum):
 
         NoFlags                  : QMediaFormat.ResolveFlags = ... # 0x0
         RequiresVideo            : QMediaFormat.ResolveFlags = ... # 0x1
-
 
     class VideoCodec(enum.Enum):
 
@@ -857,12 +858,10 @@ class QMediaPlayer(PySide6.QtCore.QObject):
         NetworkError             : QMediaPlayer.Error = ... # 0x3
         AccessDeniedError        : QMediaPlayer.Error = ... # 0x4
 
-
     class Loops(enum.IntEnum):
 
         Infinite                 : QMediaPlayer.Loops = ... # -0x1
         Once                     : QMediaPlayer.Loops = ... # 0x1
-
 
     class MediaStatus(enum.Enum):
 
@@ -874,7 +873,6 @@ class QMediaPlayer(PySide6.QtCore.QObject):
         BufferedMedia            : QMediaPlayer.MediaStatus = ... # 0x5
         EndOfMedia               : QMediaPlayer.MediaStatus = ... # 0x6
         InvalidMedia             : QMediaPlayer.MediaStatus = ... # 0x7
-
 
     class PlaybackState(enum.Enum):
 
@@ -954,7 +952,6 @@ class QMediaRecorder(PySide6.QtCore.QObject):
         AverageBitRateEncoding   : QMediaRecorder.EncodingMode = ... # 0x2
         TwoPassEncoding          : QMediaRecorder.EncodingMode = ... # 0x3
 
-
     class Error(enum.Enum):
 
         NoError                  : QMediaRecorder.Error = ... # 0x0
@@ -963,7 +960,6 @@ class QMediaRecorder(PySide6.QtCore.QObject):
         OutOfSpaceError          : QMediaRecorder.Error = ... # 0x3
         LocationNotWritable      : QMediaRecorder.Error = ... # 0x4
 
-
     class Quality(enum.Enum):
 
         VeryLowQuality           : QMediaRecorder.Quality = ... # 0x0
@@ -971,7 +967,6 @@ class QMediaRecorder(PySide6.QtCore.QObject):
         NormalQuality            : QMediaRecorder.Quality = ... # 0x2
         HighQuality              : QMediaRecorder.Quality = ... # 0x3
         VeryHighQuality          : QMediaRecorder.Quality = ... # 0x4
-
 
     class RecorderState(enum.Enum):
 
@@ -1094,8 +1089,8 @@ class QScreenCapture(PySide6.QtCore.QObject):
         NoError                  : QScreenCapture.Error = ... # 0x0
         InternalError            : QScreenCapture.Error = ... # 0x1
         CapturingNotSupported    : QScreenCapture.Error = ... # 0x2
-        CaptureFailed            : QScreenCapture.Error = ... # 0x3
-        NotFound                 : QScreenCapture.Error = ... # 0x4
+        CaptureFailed            : QScreenCapture.Error = ... # 0x4
+        NotFound                 : QScreenCapture.Error = ... # 0x5
 
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -1126,7 +1121,6 @@ class QSoundEffect(PySide6.QtCore.QObject):
     class Loop(enum.Enum):
 
         Infinite                 : QSoundEffect.Loop = ... # -0x2
-
 
     class Status(enum.Enum):
 
@@ -1168,14 +1162,12 @@ class QVideoFrame(Shiboken.Object):
         NoHandle                 : QVideoFrame.HandleType = ... # 0x0
         RhiTextureHandle         : QVideoFrame.HandleType = ... # 0x1
 
-
     class MapMode(enum.Enum):
 
         NotMapped                : QVideoFrame.MapMode = ... # 0x0
         ReadOnly                 : QVideoFrame.MapMode = ... # 0x1
         WriteOnly                : QVideoFrame.MapMode = ... # 0x2
         ReadWrite                : QVideoFrame.MapMode = ... # 0x3
-
 
     class RotationAngle(enum.Enum):
 
@@ -1194,7 +1186,7 @@ class QVideoFrame(Shiboken.Object):
 
     @staticmethod
     def __copy__() -> None: ...
-    def bits(self, plane: int) -> bytes: ...
+    def bits(self, plane: int) -> Union[bytes, bytearray, memoryview]: ...
     def bytesPerLine(self, plane: int) -> int: ...
     def endTime(self) -> int: ...
     def handleType(self) -> PySide6.QtMultimedia.QVideoFrame.HandleType: ...
@@ -1233,7 +1225,6 @@ class QVideoFrameFormat(Shiboken.Object):
         ColorRange_Video         : QVideoFrameFormat.ColorRange = ... # 0x1
         ColorRange_Full          : QVideoFrameFormat.ColorRange = ... # 0x2
 
-
     class ColorSpace(enum.Enum):
 
         ColorSpace_Undefined     : QVideoFrameFormat.ColorSpace = ... # 0x0
@@ -1241,7 +1232,6 @@ class QVideoFrameFormat(Shiboken.Object):
         ColorSpace_BT709         : QVideoFrameFormat.ColorSpace = ... # 0x2
         ColorSpace_AdobeRgb      : QVideoFrameFormat.ColorSpace = ... # 0x5
         ColorSpace_BT2020        : QVideoFrameFormat.ColorSpace = ... # 0x6
-
 
     class ColorTransfer(enum.Enum):
 
@@ -1254,12 +1244,10 @@ class QVideoFrameFormat(Shiboken.Object):
         ColorTransfer_ST2084     : QVideoFrameFormat.ColorTransfer = ... # 0x6
         ColorTransfer_STD_B67    : QVideoFrameFormat.ColorTransfer = ... # 0x7
 
-
     class Direction(enum.Enum):
 
         TopToBottom              : QVideoFrameFormat.Direction = ... # 0x0
         BottomToTop              : QVideoFrameFormat.Direction = ... # 0x1
-
 
     class PixelFormat(enum.Enum):
 
@@ -1295,7 +1283,6 @@ class QVideoFrameFormat(Shiboken.Object):
         Format_Jpeg              : QVideoFrameFormat.PixelFormat = ... # 0x1d
         Format_SamplerRect       : QVideoFrameFormat.PixelFormat = ... # 0x1e
         Format_YUV420P10         : QVideoFrameFormat.PixelFormat = ... # 0x1f
-
 
     class YCbCrColorSpace(enum.Enum):
 
@@ -1351,7 +1338,7 @@ class QVideoFrameFormat(Shiboken.Object):
     def setViewport(self, viewport: PySide6.QtCore.QRect) -> None: ...
     def setYCbCrColorSpace(self, colorSpace: PySide6.QtMultimedia.QVideoFrameFormat.YCbCrColorSpace) -> None: ...
     def swap(self, other: PySide6.QtMultimedia.QVideoFrameFormat) -> None: ...
-    def updateUniformData(self, dst: Union[PySide6.QtCore.QByteArray, bytes], frame: Union[PySide6.QtMultimedia.QVideoFrame, PySide6.QtMultimedia.QVideoFrameFormat], transform: Union[PySide6.QtGui.QMatrix4x4, PySide6.QtGui.QTransform], opacity: float) -> None: ...
+    def updateUniformData(self, dst: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], frame: Union[PySide6.QtMultimedia.QVideoFrame, PySide6.QtMultimedia.QVideoFrameFormat], transform: Union[PySide6.QtGui.QMatrix4x4, PySide6.QtGui.QTransform], opacity: float) -> None: ...
     def vertexShaderFileName(self) -> str: ...
     def viewport(self) -> PySide6.QtCore.QRect: ...
     def yCbCrColorSpace(self) -> PySide6.QtMultimedia.QVideoFrameFormat.YCbCrColorSpace: ...
@@ -1365,11 +1352,44 @@ class QVideoSink(PySide6.QtCore.QObject):
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
+    def rhi(self) -> PySide6.QtGui.QRhi: ...
+    def setRhi(self, rhi: PySide6.QtGui.QRhi) -> None: ...
     def setSubtitleText(self, subtitle: str) -> None: ...
     def setVideoFrame(self, frame: Union[PySide6.QtMultimedia.QVideoFrame, PySide6.QtMultimedia.QVideoFrameFormat]) -> None: ...
     def subtitleText(self) -> str: ...
     def videoFrame(self) -> PySide6.QtMultimedia.QVideoFrame: ...
     def videoSize(self) -> PySide6.QtCore.QSize: ...
+
+
+class QWindowCapture(PySide6.QtCore.QObject):
+
+    activeChanged            : ClassVar[Signal] = ... # activeChanged(bool)
+    errorChanged             : ClassVar[Signal] = ... # errorChanged()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QWindowCapture::Error,QString)
+    windowChanged            : ClassVar[Signal] = ... # windowChanged(QCapturableWindow)
+
+    class Error(enum.Enum):
+
+        NoError                  : QWindowCapture.Error = ... # 0x0
+        InternalError            : QWindowCapture.Error = ... # 0x1
+        CapturingNotSupported    : QWindowCapture.Error = ... # 0x2
+        CaptureFailed            : QWindowCapture.Error = ... # 0x4
+        NotFound                 : QWindowCapture.Error = ... # 0x5
+
+
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    @staticmethod
+    def capturableWindows() -> List[PySide6.QtMultimedia.QCapturableWindow]: ...
+    def captureSession(self) -> PySide6.QtMultimedia.QMediaCaptureSession: ...
+    def error(self) -> PySide6.QtMultimedia.QWindowCapture.Error: ...
+    def errorString(self) -> str: ...
+    def isActive(self) -> bool: ...
+    def setActive(self, active: bool) -> None: ...
+    def setWindow(self, window: PySide6.QtMultimedia.QCapturableWindow) -> None: ...
+    def start(self) -> None: ...
+    def stop(self) -> None: ...
+    def window(self) -> PySide6.QtMultimedia.QCapturableWindow: ...
 
 
 # eof
