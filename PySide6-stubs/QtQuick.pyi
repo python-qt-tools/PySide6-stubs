@@ -129,8 +129,7 @@ class QQuickImageProvider(PySide6.QtQml.QQmlImageProviderBase):
 
 class QQuickImageResponse(PySide6.QtCore.QObject):
 
-    finished: PySide6.QtCore.Signal
-
+    finished                 : ClassVar[Signal] = ... # finished()
 
     def __init__(self) -> None: ...
 
@@ -141,36 +140,35 @@ class QQuickImageResponse(PySide6.QtCore.QObject):
 
 class QQuickItem(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
-    activeFocusChanged: PySide6.QtCore.Signal
-    activeFocusOnTabChanged: PySide6.QtCore.Signal
-    antialiasingChanged: PySide6.QtCore.Signal
-    baselineOffsetChanged: PySide6.QtCore.Signal
-    childrenChanged: PySide6.QtCore.Signal
-    childrenRectChanged: PySide6.QtCore.Signal
-    clipChanged: PySide6.QtCore.Signal
-    containmentMaskChanged: PySide6.QtCore.Signal
-    enabledChanged: PySide6.QtCore.Signal
-    focusChanged: PySide6.QtCore.Signal
-    heightChanged: PySide6.QtCore.Signal
-    implicitHeightChanged: PySide6.QtCore.Signal
-    implicitWidthChanged: PySide6.QtCore.Signal
-    opacityChanged: PySide6.QtCore.Signal
-    paletteChanged: PySide6.QtCore.Signal
-    paletteCreated: PySide6.QtCore.Signal
-    parentChanged: PySide6.QtCore.Signal
-    rotationChanged: PySide6.QtCore.Signal
-    scaleChanged: PySide6.QtCore.Signal
-    smoothChanged: PySide6.QtCore.Signal
-    stateChanged: PySide6.QtCore.Signal
-    transformOriginChanged: PySide6.QtCore.Signal
-    visibleChanged: PySide6.QtCore.Signal
-    visibleChildrenChanged: PySide6.QtCore.Signal
-    widthChanged: PySide6.QtCore.Signal
-    windowChanged: PySide6.QtCore.Signal
-    xChanged: PySide6.QtCore.Signal
-    yChanged: PySide6.QtCore.Signal
-    zChanged: PySide6.QtCore.Signal
-
+    activeFocusChanged       : ClassVar[Signal] = ... # activeFocusChanged(bool)
+    activeFocusOnTabChanged  : ClassVar[Signal] = ... # activeFocusOnTabChanged(bool)
+    antialiasingChanged      : ClassVar[Signal] = ... # antialiasingChanged(bool)
+    baselineOffsetChanged    : ClassVar[Signal] = ... # baselineOffsetChanged(double)
+    childrenChanged          : ClassVar[Signal] = ... # childrenChanged()
+    childrenRectChanged      : ClassVar[Signal] = ... # childrenRectChanged(QRectF)
+    clipChanged              : ClassVar[Signal] = ... # clipChanged(bool)
+    containmentMaskChanged   : ClassVar[Signal] = ... # containmentMaskChanged()
+    enabledChanged           : ClassVar[Signal] = ... # enabledChanged()
+    focusChanged             : ClassVar[Signal] = ... # focusChanged(bool)
+    heightChanged            : ClassVar[Signal] = ... # heightChanged()
+    implicitHeightChanged    : ClassVar[Signal] = ... # implicitHeightChanged()
+    implicitWidthChanged     : ClassVar[Signal] = ... # implicitWidthChanged()
+    opacityChanged           : ClassVar[Signal] = ... # opacityChanged()
+    paletteChanged           : ClassVar[Signal] = ... # paletteChanged()
+    paletteCreated           : ClassVar[Signal] = ... # paletteCreated()
+    parentChanged            : ClassVar[Signal] = ... # parentChanged(QQuickItem*)
+    rotationChanged          : ClassVar[Signal] = ... # rotationChanged()
+    scaleChanged             : ClassVar[Signal] = ... # scaleChanged()
+    smoothChanged            : ClassVar[Signal] = ... # smoothChanged(bool)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QString)
+    transformOriginChanged   : ClassVar[Signal] = ... # transformOriginChanged(TransformOrigin)
+    visibleChanged           : ClassVar[Signal] = ... # visibleChanged()
+    visibleChildrenChanged   : ClassVar[Signal] = ... # visibleChildrenChanged()
+    widthChanged             : ClassVar[Signal] = ... # widthChanged()
+    windowChanged            : ClassVar[Signal] = ... # windowChanged(QQuickWindow*)
+    xChanged                 : ClassVar[Signal] = ... # xChanged()
+    yChanged                 : ClassVar[Signal] = ... # yChanged()
+    zChanged                 : ClassVar[Signal] = ... # zChanged()
 
     class Flag(enum.Flag):
 
@@ -395,8 +393,7 @@ class QQuickItem(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
 class QQuickItemGrabResult(PySide6.QtCore.QObject):
 
-    ready: PySide6.QtCore.Signal
-
+    ready                    : ClassVar[Signal] = ... # ready()
     def event(self, arg__1: PySide6.QtCore.QEvent) -> bool: ...
     def image(self) -> PySide6.QtGui.QImage: ...
     @overload
@@ -408,12 +405,11 @@ class QQuickItemGrabResult(PySide6.QtCore.QObject):
 
 class QQuickPaintedItem(PySide6.QtQuick.QQuickItem):
 
-    contentsScaleChanged: PySide6.QtCore.Signal
-    contentsSizeChanged: PySide6.QtCore.Signal
-    fillColorChanged: PySide6.QtCore.Signal
-    renderTargetChanged: PySide6.QtCore.Signal
-    textureSizeChanged: PySide6.QtCore.Signal
-
+    contentsScaleChanged     : ClassVar[Signal] = ... # contentsScaleChanged()
+    contentsSizeChanged      : ClassVar[Signal] = ... # contentsSizeChanged()
+    fillColorChanged         : ClassVar[Signal] = ... # fillColorChanged()
+    renderTargetChanged      : ClassVar[Signal] = ... # renderTargetChanged()
+    textureSizeChanged       : ClassVar[Signal] = ... # textureSizeChanged()
 
     class PerformanceHint(enum.Flag):
 
@@ -459,9 +455,8 @@ class QQuickPaintedItem(PySide6.QtQuick.QQuickItem):
 
 class QQuickRenderControl(PySide6.QtCore.QObject):
 
-    renderRequested: PySide6.QtCore.Signal
-    sceneChanged: PySide6.QtCore.Signal
-
+    renderRequested          : ClassVar[Signal] = ... # renderRequested()
+    sceneChanged             : ClassVar[Signal] = ... # sceneChanged()
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -550,8 +545,7 @@ class QQuickTransform(PySide6.QtCore.QObject):
 
 class QQuickView(PySide6.QtQuick.QQuickWindow):
 
-    statusChanged: PySide6.QtCore.Signal
-
+    statusChanged            : ClassVar[Signal] = ... # statusChanged(QQuickView::Status)
 
     class ResizeMode(enum.Enum):
 
@@ -599,26 +593,25 @@ class QQuickView(PySide6.QtQuick.QQuickWindow):
 
 class QQuickWindow(PySide6.QtGui.QWindow):
 
-    activeFocusItemChanged: PySide6.QtCore.Signal
-    afterAnimating: PySide6.QtCore.Signal
-    afterFrameEnd: PySide6.QtCore.Signal
-    afterRenderPassRecording: PySide6.QtCore.Signal
-    afterRendering: PySide6.QtCore.Signal
-    afterSynchronizing: PySide6.QtCore.Signal
-    beforeFrameBegin: PySide6.QtCore.Signal
-    beforeRenderPassRecording: PySide6.QtCore.Signal
-    beforeRendering: PySide6.QtCore.Signal
-    beforeSynchronizing: PySide6.QtCore.Signal
-    closing: PySide6.QtCore.Signal
-    colorChanged: PySide6.QtCore.Signal
-    frameSwapped: PySide6.QtCore.Signal
-    paletteChanged: PySide6.QtCore.Signal
-    paletteCreated: PySide6.QtCore.Signal
-    sceneGraphAboutToStop: PySide6.QtCore.Signal
-    sceneGraphError: PySide6.QtCore.Signal
-    sceneGraphInitialized: PySide6.QtCore.Signal
-    sceneGraphInvalidated: PySide6.QtCore.Signal
-
+    activeFocusItemChanged   : ClassVar[Signal] = ... # activeFocusItemChanged()
+    afterAnimating           : ClassVar[Signal] = ... # afterAnimating()
+    afterFrameEnd            : ClassVar[Signal] = ... # afterFrameEnd()
+    afterRenderPassRecording : ClassVar[Signal] = ... # afterRenderPassRecording()
+    afterRendering           : ClassVar[Signal] = ... # afterRendering()
+    afterSynchronizing       : ClassVar[Signal] = ... # afterSynchronizing()
+    beforeFrameBegin         : ClassVar[Signal] = ... # beforeFrameBegin()
+    beforeRenderPassRecording: ClassVar[Signal] = ... # beforeRenderPassRecording()
+    beforeRendering          : ClassVar[Signal] = ... # beforeRendering()
+    beforeSynchronizing      : ClassVar[Signal] = ... # beforeSynchronizing()
+    closing                  : ClassVar[Signal] = ... # closing(QQuickCloseEvent*)
+    colorChanged             : ClassVar[Signal] = ... # colorChanged(QColor)
+    frameSwapped             : ClassVar[Signal] = ... # frameSwapped()
+    paletteChanged           : ClassVar[Signal] = ... # paletteChanged()
+    paletteCreated           : ClassVar[Signal] = ... # paletteCreated()
+    sceneGraphAboutToStop    : ClassVar[Signal] = ... # sceneGraphAboutToStop()
+    sceneGraphError          : ClassVar[Signal] = ... # sceneGraphError(QQuickWindow::SceneGraphError,QString)
+    sceneGraphInitialized    : ClassVar[Signal] = ... # sceneGraphInitialized()
+    sceneGraphInvalidated    : ClassVar[Signal] = ... # sceneGraphInvalidated()
 
     class CreateTextureOption(enum.Flag):
 
@@ -1378,8 +1371,7 @@ class QSGTextureMaterial(PySide6.QtQuick.QSGOpaqueTextureMaterial):
 
 class QSGTextureProvider(PySide6.QtCore.QObject):
 
-    textureChanged: PySide6.QtCore.Signal
-
+    textureChanged           : ClassVar[Signal] = ... # textureChanged()
 
     def __init__(self) -> None: ...
 

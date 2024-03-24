@@ -27,11 +27,15 @@ class QIntList(object): ...
 
 class QOpenGLWidget(PySide6.QtWidgets.QWidget):
 
-    aboutToCompose: PySide6.QtCore.Signal
-    aboutToResize: PySide6.QtCore.Signal
-    frameSwapped: PySide6.QtCore.Signal
-    resized: PySide6.QtCore.Signal
+    aboutToCompose           : ClassVar[Signal] = ... # aboutToCompose()
+    aboutToResize            : ClassVar[Signal] = ... # aboutToResize()
+    frameSwapped             : ClassVar[Signal] = ... # frameSwapped()
+    resized                  : ClassVar[Signal] = ... # resized()
 
+    class TargetBuffer(enum.Enum):
+
+        LeftBuffer               : QOpenGLWidget.TargetBuffer = ... # 0x0
+        RightBuffer              : QOpenGLWidget.TargetBuffer = ... # 0x1
 
     class UpdateBehavior(enum.Enum):
 
