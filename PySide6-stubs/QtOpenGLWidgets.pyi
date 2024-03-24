@@ -37,7 +37,6 @@ class QOpenGLWidget(PySide6.QtWidgets.QWidget):
         LeftBuffer               : QOpenGLWidget.TargetBuffer = ... # 0x0
         RightBuffer              : QOpenGLWidget.TargetBuffer = ... # 0x1
 
-
     class UpdateBehavior(enum.Enum):
 
         NoPartialUpdate          : QOpenGLWidget.UpdateBehavior = ... # 0x0

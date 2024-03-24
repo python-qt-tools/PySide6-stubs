@@ -13,7 +13,7 @@ import PySide6.QtSerialPort
 import PySide6.QtCore
 
 import enum
-from typing import ClassVar, List, Optional, overload
+from typing import ClassVar, List, Optional, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
 
@@ -47,7 +47,6 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         Baud57600                : QSerialPort.BaudRate = ... # 0xe100
         Baud115200               : QSerialPort.BaudRate = ... # 0x1c200
 
-
     class DataBits(enum.Enum):
 
         Data5                    : QSerialPort.DataBits = ... # 0x5
@@ -55,20 +54,17 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         Data7                    : QSerialPort.DataBits = ... # 0x7
         Data8                    : QSerialPort.DataBits = ... # 0x8
 
-
     class Direction(enum.Flag):
 
         Input                    : QSerialPort.Direction = ... # 0x1
         Output                   : QSerialPort.Direction = ... # 0x2
         AllDirections            : QSerialPort.Direction = ... # 0x3
 
-
     class FlowControl(enum.Enum):
 
         NoFlowControl            : QSerialPort.FlowControl = ... # 0x0
         HardwareControl          : QSerialPort.FlowControl = ... # 0x1
         SoftwareControl          : QSerialPort.FlowControl = ... # 0x2
-
 
     class Parity(enum.Enum):
 
@@ -77,7 +73,6 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         OddParity                : QSerialPort.Parity = ... # 0x3
         SpaceParity              : QSerialPort.Parity = ... # 0x4
         MarkParity               : QSerialPort.Parity = ... # 0x5
-
 
     class PinoutSignal(enum.Flag):
 
@@ -90,7 +85,6 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         ClearToSendSignal        : QSerialPort.PinoutSignal = ... # 0x80
         SecondaryTransmittedDataSignal: QSerialPort.PinoutSignal = ... # 0x100
         SecondaryReceivedDataSignal: QSerialPort.PinoutSignal = ... # 0x200
-
 
     class SerialPortError(enum.Enum):
 
@@ -105,7 +99,6 @@ class QSerialPort(PySide6.QtCore.QIODevice):
         UnknownError             : QSerialPort.SerialPortError = ... # 0x8
         TimeoutError             : QSerialPort.SerialPortError = ... # 0x9
         NotOpenError             : QSerialPort.SerialPortError = ... # 0xa
-
 
     class StopBits(enum.Enum):
 
@@ -158,7 +151,7 @@ class QSerialPort(PySide6.QtCore.QIODevice):
     def stopBits(self) -> PySide6.QtSerialPort.QSerialPort.StopBits: ...
     def waitForBytesWritten(self, msecs: int = ...) -> bool: ...
     def waitForReadyRead(self, msecs: int = ...) -> bool: ...
-    def writeData(self, data: bytes, maxSize: int) -> int: ...
+    def writeData(self, data: Union[bytes, bytearray, memoryview], maxSize: int) -> int: ...
 
 
 class QSerialPortInfo(Shiboken.Object):

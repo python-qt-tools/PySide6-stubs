@@ -44,7 +44,6 @@ class QCanBusDevice(PySide6.QtCore.QObject):
         ConnectedState           : QCanBusDevice.CanBusDeviceState = ... # 0x2
         ClosingState             : QCanBusDevice.CanBusDeviceState = ... # 0x3
 
-
     class CanBusError(enum.Enum):
 
         NoError                  : QCanBusDevice.CanBusError = ... # 0x0
@@ -56,7 +55,6 @@ class QCanBusDevice(PySide6.QtCore.QObject):
         OperationError           : QCanBusDevice.CanBusError = ... # 0x6
         TimeoutError             : QCanBusDevice.CanBusError = ... # 0x7
 
-
     class CanBusStatus(enum.Enum):
 
         Unknown                  : QCanBusDevice.CanBusStatus = ... # 0x0
@@ -64,7 +62,6 @@ class QCanBusDevice(PySide6.QtCore.QObject):
         Warning                  : QCanBusDevice.CanBusStatus = ... # 0x2
         Error                    : QCanBusDevice.CanBusStatus = ... # 0x3
         BusOff                   : QCanBusDevice.CanBusStatus = ... # 0x4
-
 
     class ConfigurationKey(enum.Enum):
 
@@ -78,13 +75,11 @@ class QCanBusDevice(PySide6.QtCore.QObject):
         ProtocolKey              : QCanBusDevice.ConfigurationKey = ... # 0x7
         UserKey                  : QCanBusDevice.ConfigurationKey = ... # 0x1e
 
-
     class Direction(enum.Flag):
 
         Input                    : QCanBusDevice.Direction = ... # 0x1
         Output                   : QCanBusDevice.Direction = ... # 0x2
         AllDirections            : QCanBusDevice.Direction = ... # 0x3
-
 
     class Filter(Shiboken.Object):
 
@@ -185,7 +180,6 @@ class QCanBusFrame(Shiboken.Object):
         UnknownError             : QCanBusFrame.FrameError = ... # 0x200
         AnyError                 : QCanBusFrame.FrameError = ... # 0x1fffffff
 
-
     class FrameType(enum.Enum):
 
         UnknownFrame             : QCanBusFrame.FrameType = ... # 0x0
@@ -193,7 +187,6 @@ class QCanBusFrame(Shiboken.Object):
         ErrorFrame               : QCanBusFrame.FrameType = ... # 0x2
         RemoteRequestFrame       : QCanBusFrame.FrameType = ... # 0x3
         InvalidFrame             : QCanBusFrame.FrameType = ... # 0x4
-
 
     class TimeStamp(Shiboken.Object):
 
@@ -213,7 +206,7 @@ class QCanBusFrame(Shiboken.Object):
     @overload
     def __init__(self, QCanBusFrame: Union[PySide6.QtSerialBus.QCanBusFrame, PySide6.QtSerialBus.QCanBusFrame.FrameType]) -> None: ...
     @overload
-    def __init__(self, identifier: int, data: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def __init__(self, identifier: int, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     @overload
     def __init__(self, type: PySide6.QtSerialBus.QCanBusFrame.FrameType = ...) -> None: ...
 
@@ -239,7 +232,7 @@ class QCanBusFrame(Shiboken.Object):
     def setFrameId(self, newFrameId: int) -> None: ...
     def setFrameType(self, newFormat: PySide6.QtSerialBus.QCanBusFrame.FrameType) -> None: ...
     def setLocalEcho(self, localEcho: bool) -> None: ...
-    def setPayload(self, data: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setPayload(self, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def setTimeStamp(self, ts: PySide6.QtSerialBus.QCanBusFrame.TimeStamp) -> None: ...
     def timeStamp(self) -> PySide6.QtSerialBus.QCanBusFrame.TimeStamp: ...
     def toString(self) -> str: ...
@@ -316,7 +309,6 @@ class QModbusDevice(PySide6.QtCore.QObject):
         NetworkPortParameter     : QModbusDevice.ConnectionParameter = ... # 0x5
         NetworkAddressParameter  : QModbusDevice.ConnectionParameter = ... # 0x6
 
-
     class Error(enum.Enum):
 
         NoError                  : QModbusDevice.Error = ... # 0x0
@@ -330,12 +322,10 @@ class QModbusDevice(PySide6.QtCore.QObject):
         UnknownError             : QModbusDevice.Error = ... # 0x8
         InvalidResponseError     : QModbusDevice.Error = ... # 0x9
 
-
     class IntermediateError(enum.Enum):
 
         ResponseCrcError         : QModbusDevice.IntermediateError = ... # 0x0
         ResponseRequestMismatch  : QModbusDevice.IntermediateError = ... # 0x1
-
 
     class State(enum.Enum):
 
@@ -372,7 +362,6 @@ class QModbusDeviceIdentification(Shiboken.Object):
         RegularIndividualConformityLevel: QModbusDeviceIdentification.ConformityLevel = ... # 0x82
         ExtendedIndividualConformityLevel: QModbusDeviceIdentification.ConformityLevel = ... # 0x83
 
-
     class ObjectId(enum.Enum):
 
         VendorNameObjectId       : QModbusDeviceIdentification.ObjectId = ... # 0x0
@@ -385,7 +374,6 @@ class QModbusDeviceIdentification(Shiboken.Object):
         ReservedObjectId         : QModbusDeviceIdentification.ObjectId = ... # 0x7
         ProductDependentObjectId : QModbusDeviceIdentification.ObjectId = ... # 0x80
         UndefinedObjectId        : QModbusDeviceIdentification.ObjectId = ... # 0x100
-
 
     class ReadDeviceIdCode(enum.Enum):
 
@@ -405,8 +393,8 @@ class QModbusDeviceIdentification(Shiboken.Object):
     def conformityLevel(self) -> PySide6.QtSerialBus.QModbusDeviceIdentification.ConformityLevel: ...
     def contains(self, objectId: int) -> bool: ...
     @staticmethod
-    def fromByteArray(ba: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtSerialBus.QModbusDeviceIdentification: ...
-    def insert(self, objectId: int, data: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
+    def fromByteArray(ba: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> PySide6.QtSerialBus.QModbusDeviceIdentification: ...
+    def insert(self, objectId: int, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> bool: ...
     def isValid(self) -> bool: ...
     def objectIds(self) -> List[int]: ...
     def remove(self, objectId: int) -> None: ...
@@ -429,7 +417,6 @@ class QModbusPdu(Shiboken.Object):
         GatewayPathUnavailable   : QModbusPdu.ExceptionCode = ... # 0xa
         GatewayTargetDeviceFailedToRespond: QModbusPdu.ExceptionCode = ... # 0xb
         ExtendedException        : QModbusPdu.ExceptionCode = ... # 0xff
-
 
     class FunctionCode(enum.Enum):
 
@@ -461,7 +448,7 @@ class QModbusPdu(Shiboken.Object):
     @overload
     def __init__(self, arg__1: PySide6.QtSerialBus.QModbusPdu) -> None: ...
     @overload
-    def __init__(self, code: PySide6.QtSerialBus.QModbusPdu.FunctionCode, newData: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def __init__(self, code: PySide6.QtSerialBus.QModbusPdu.FunctionCode, newData: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
 
     def __lshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def data(self) -> PySide6.QtCore.QByteArray: ...
@@ -470,7 +457,7 @@ class QModbusPdu(Shiboken.Object):
     def functionCode(self) -> PySide6.QtSerialBus.QModbusPdu.FunctionCode: ...
     def isException(self) -> bool: ...
     def isValid(self) -> bool: ...
-    def setData(self, newData: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setData(self, newData: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def setFunctionCode(self, code: PySide6.QtSerialBus.QModbusPdu.FunctionCode) -> None: ...
     def size(self) -> int: ...
 
@@ -508,7 +495,7 @@ class QModbusRequest(PySide6.QtSerialBus.QModbusPdu):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, code: PySide6.QtSerialBus.QModbusPdu.FunctionCode, newData: Union[PySide6.QtCore.QByteArray, bytes] = ...) -> None: ...
+    def __init__(self, code: PySide6.QtSerialBus.QModbusPdu.FunctionCode, newData: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview] = ...) -> None: ...
     @overload
     def __init__(self, pdu: PySide6.QtSerialBus.QModbusPdu) -> None: ...
 

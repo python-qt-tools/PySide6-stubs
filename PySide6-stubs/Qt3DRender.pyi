@@ -37,7 +37,6 @@ class Qt3DRender(Shiboken.Object):
         RHI                      : Qt3DRender.API = ... # 0x4
         Null                     : Qt3DRender.API = ... # 0x5
 
-
     class PropertyReaderInterface(Shiboken.Object):
 
         def __init__(self) -> None: ...
@@ -53,6 +52,8 @@ class Qt3DRender(Shiboken.Object):
 
         @staticmethod
         def __copy__() -> None: ...
+        @staticmethod
+        def __dir__() -> None: ...
         def data(self) -> PySide6.Qt3DRender.Qt3DRender.PropertyReaderInterface: ...
         @overload
         def reset(self) -> None: ...
@@ -89,7 +90,6 @@ class Qt3DRender(Shiboken.Object):
             AcceptAllMatchingLayers  : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x1
             DiscardAnyMatchingLayers : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x2
             DiscardAllMatchingLayers : Qt3DRender.QAbstractRayCaster.FilterMode = ... # 0x3
-
 
         class RunMode(enum.Enum):
 
@@ -138,12 +138,10 @@ class Qt3DRender(Shiboken.Object):
             CompareGreaterEqual      : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x206
             CompareAlways            : Qt3DRender.QAbstractTexture.ComparisonFunction = ... # 0x207
 
-
         class ComparisonMode(enum.Enum):
 
             CompareNone              : Qt3DRender.QAbstractTexture.ComparisonMode = ... # 0x0
             CompareRefToTexture      : Qt3DRender.QAbstractTexture.ComparisonMode = ... # 0x884e
-
 
         class CubeMapFace(enum.Enum):
 
@@ -155,7 +153,6 @@ class Qt3DRender(Shiboken.Object):
             CubeMapNegativeZ         : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x851a
             AllFaces                 : Qt3DRender.QAbstractTexture.CubeMapFace = ... # 0x851b
 
-
         class Filter(enum.Enum):
 
             Nearest                  : Qt3DRender.QAbstractTexture.Filter = ... # 0x2600
@@ -165,13 +162,11 @@ class Qt3DRender(Shiboken.Object):
             NearestMipMapLinear      : Qt3DRender.QAbstractTexture.Filter = ... # 0x2702
             LinearMipMapLinear       : Qt3DRender.QAbstractTexture.Filter = ... # 0x2703
 
-
         class HandleType(enum.Enum):
 
             NoHandle                 : Qt3DRender.QAbstractTexture.HandleType = ... # 0x0
             OpenGLTextureId          : Qt3DRender.QAbstractTexture.HandleType = ... # 0x1
             RHITextureId             : Qt3DRender.QAbstractTexture.HandleType = ... # 0x2
-
 
         class Status(enum.Enum):
 
@@ -179,7 +174,6 @@ class Qt3DRender(Shiboken.Object):
             Loading                  : Qt3DRender.QAbstractTexture.Status = ... # 0x1
             Ready                    : Qt3DRender.QAbstractTexture.Status = ... # 0x2
             Error                    : Qt3DRender.QAbstractTexture.Status = ... # 0x3
-
 
         class Target(enum.Enum):
 
@@ -195,7 +189,6 @@ class Qt3DRender(Shiboken.Object):
             TargetCubeMapArray       : Qt3DRender.QAbstractTexture.Target = ... # 0x9009
             Target2DMultisample      : Qt3DRender.QAbstractTexture.Target = ... # 0x9100
             Target2DMultisampleArray : Qt3DRender.QAbstractTexture.Target = ... # 0x9102
-
 
         class TextureFormat(enum.Enum):
 
@@ -949,7 +942,6 @@ class Qt3DRender(Shiboken.Object):
             DirectX                  : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x4
             RHI                      : Qt3DRender.QGraphicsApiFilter.Api = ... # 0x5
 
-
         class OpenGLProfile(enum.Enum):
 
             NoProfile                : Qt3DRender.QGraphicsApiFilter.OpenGLProfile = ... # 0x0
@@ -1212,7 +1204,6 @@ class Qt3DRender(Shiboken.Object):
             MiddleButton             : Qt3DRender.QPickEvent.Buttons = ... # 0x4
             BackButton               : Qt3DRender.QPickEvent.Buttons = ... # 0x8
 
-
         class Modifiers(enum.Enum):
 
             NoModifier               : Qt3DRender.QPickEvent.Modifiers = ... # 0x0
@@ -1295,7 +1286,6 @@ class Qt3DRender(Shiboken.Object):
             BackFace                 : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x2
             FrontAndBackFace         : Qt3DRender.QPickingSettings.FaceOrientationPickingMode = ... # 0x3
 
-
         class PickMethod(enum.Enum):
 
             BoundingVolumePicking    : Qt3DRender.QPickingSettings.PickMethod = ... # 0x0
@@ -1303,7 +1293,6 @@ class Qt3DRender(Shiboken.Object):
             LinePicking              : Qt3DRender.QPickingSettings.PickMethod = ... # 0x2
             PointPicking             : Qt3DRender.QPickingSettings.PickMethod = ... # 0x4
             PrimitivePicking         : Qt3DRender.QPickingSettings.PickMethod = ... # 0x7
-
 
         class PickResultMode(enum.Enum):
 
@@ -1390,7 +1379,6 @@ class Qt3DRender(Shiboken.Object):
             Front                    : Qt3DRender.QRasterMode.FaceMode = ... # 0x404
             Back                     : Qt3DRender.QRasterMode.FaceMode = ... # 0x405
             FrontAndBack             : Qt3DRender.QRasterMode.FaceMode = ... # 0x408
-
 
         class RasterMode(enum.Enum):
 
@@ -1481,7 +1469,6 @@ class Qt3DRender(Shiboken.Object):
             Vulkan                   : Qt3DRender.QRenderCapabilities.API = ... # 0x3
             DirectX                  : Qt3DRender.QRenderCapabilities.API = ... # 0x4
             RHI                      : Qt3DRender.QRenderCapabilities.API = ... # 0x5
-
 
         class Profile(enum.Enum):
 
@@ -1692,7 +1679,6 @@ class Qt3DRender(Shiboken.Object):
             LightComponent           : Qt3DRender.QSceneLoader.ComponentType = ... # 0x4
             CameraLensComponent      : Qt3DRender.QSceneLoader.ComponentType = ... # 0x5
 
-
         class Status(enum.Enum):
 
             None_                    : Qt3DRender.QSceneLoader.Status = ... # 0x0
@@ -1785,7 +1771,6 @@ class Qt3DRender(Shiboken.Object):
             WriteOnly                : Qt3DRender.QShaderImage.Access = ... # 0x1
             ReadWrite                : Qt3DRender.QShaderImage.Access = ... # 0x2
 
-
         class ImageFormat(enum.Enum):
 
             NoFormat                 : Qt3DRender.QShaderImage.ImageFormat = ... # 0x0
@@ -1863,7 +1848,6 @@ class Qt3DRender(Shiboken.Object):
             GLSL                     : Qt3DRender.QShaderProgram.Format = ... # 0x0
             SPIRV                    : Qt3DRender.QShaderProgram.Format = ... # 0x1
 
-
         class ShaderType(enum.Enum):
 
             Vertex                   : Qt3DRender.QShaderProgram.ShaderType = ... # 0x0
@@ -1872,7 +1856,6 @@ class Qt3DRender(Shiboken.Object):
             TessellationEvaluation   : Qt3DRender.QShaderProgram.ShaderType = ... # 0x3
             Geometry                 : Qt3DRender.QShaderProgram.ShaderType = ... # 0x4
             Compute                  : Qt3DRender.QShaderProgram.ShaderType = ... # 0x5
-
 
         class Status(enum.Enum):
 
@@ -1890,14 +1873,14 @@ class Qt3DRender(Shiboken.Object):
         @staticmethod
         def loadSource(sourceUrl: Union[PySide6.QtCore.QUrl, str]) -> PySide6.QtCore.QByteArray: ...
         def log(self) -> str: ...
-        def setComputeShaderCode(self, computeShaderCode: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+        def setComputeShaderCode(self, computeShaderCode: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
         def setFormat(self, format: PySide6.Qt3DRender.Qt3DRender.QShaderProgram.Format) -> None: ...
-        def setFragmentShaderCode(self, fragmentShaderCode: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
-        def setGeometryShaderCode(self, geometryShaderCode: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
-        def setShaderCode(self, type: PySide6.Qt3DRender.Qt3DRender.QShaderProgram.ShaderType, shaderCode: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
-        def setTessellationControlShaderCode(self, tessellationControlShaderCode: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
-        def setTessellationEvaluationShaderCode(self, tessellationEvaluationShaderCode: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
-        def setVertexShaderCode(self, vertexShaderCode: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+        def setFragmentShaderCode(self, fragmentShaderCode: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
+        def setGeometryShaderCode(self, geometryShaderCode: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
+        def setShaderCode(self, type: PySide6.Qt3DRender.Qt3DRender.QShaderProgram.ShaderType, shaderCode: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
+        def setTessellationControlShaderCode(self, tessellationControlShaderCode: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
+        def setTessellationEvaluationShaderCode(self, tessellationEvaluationShaderCode: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
+        def setVertexShaderCode(self, vertexShaderCode: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
         def shaderCode(self, type: PySide6.Qt3DRender.Qt3DRender.QShaderProgram.ShaderType) -> PySide6.QtCore.QByteArray: ...
         def status(self) -> PySide6.Qt3DRender.Qt3DRender.QShaderProgram.Status: ...
         def tessellationControlShaderCode(self) -> PySide6.QtCore.QByteArray: ...
@@ -1957,7 +1940,7 @@ class Qt3DRender(Shiboken.Object):
 
     class QSortPolicy(PySide6.Qt3DRender.Qt3DRender.QFrameGraphNode):
 
-        sortTypesChanged         : ClassVar[Signal] = ... # sortTypesChanged(QList<SortType>)
+        sortTypesChanged         : ClassVar[Signal] = ... # sortTypesChanged(QList<SortType>); sortTypesChanged(QList<int>)
 
         class SortType(enum.Enum):
 
@@ -2031,7 +2014,6 @@ class Qt3DRender(Shiboken.Object):
             Back                     : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x405
             FrontAndBack             : Qt3DRender.QStencilOperationArguments.FaceMode = ... # 0x408
 
-
         class Operation(enum.Enum):
 
             Zero                     : Qt3DRender.QStencilOperationArguments.Operation = ... # 0x0
@@ -2071,7 +2053,6 @@ class Qt3DRender(Shiboken.Object):
             Front                    : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x404
             Back                     : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x405
             FrontAndBack             : Qt3DRender.QStencilTestArguments.StencilFaceMode = ... # 0x408
-
 
         class StencilFunction(enum.Enum):
 
@@ -2285,7 +2266,7 @@ class Qt3DRender(Shiboken.Object):
         def layers(self) -> int: ...
         def mipLevels(self) -> int: ...
         def setAlignment(self, alignment: int) -> None: ...
-        def setData(self, data: Union[PySide6.QtCore.QByteArray, bytes], blockSize: int, isCompressed: bool = ...) -> None: ...
+        def setData(self, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], blockSize: int, isCompressed: bool = ...) -> None: ...
         def setDepth(self, depth: int) -> None: ...
         def setFaces(self, faces: int) -> None: ...
         def setHeight(self, height: int) -> None: ...
@@ -2307,6 +2288,8 @@ class Qt3DRender(Shiboken.Object):
 
         @staticmethod
         def __copy__() -> None: ...
+        @staticmethod
+        def __dir__() -> None: ...
         def data(self) -> PySide6.Qt3DRender.Qt3DRender.QTextureImageDataGenerator: ...
         @overload
         def reset(self) -> None: ...
@@ -2322,6 +2305,8 @@ class Qt3DRender(Shiboken.Object):
 
         @staticmethod
         def __copy__() -> None: ...
+        @staticmethod
+        def __dir__() -> None: ...
         def data(self) -> PySide6.Qt3DRender.Qt3DRender.QTextureImageData: ...
         @overload
         def reset(self) -> None: ...

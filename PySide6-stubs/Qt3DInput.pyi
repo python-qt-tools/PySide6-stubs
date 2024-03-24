@@ -325,7 +325,6 @@ class Qt3DInput(Shiboken.Object):
             MiddleButton             : Qt3DInput.QMouseEvent.Buttons = ... # 0x4
             BackButton               : Qt3DInput.QMouseEvent.Buttons = ... # 0x8
 
-
         class Modifiers(enum.Enum):
 
             NoModifier               : Qt3DInput.QMouseEvent.Modifiers = ... # 0x0
@@ -378,7 +377,6 @@ class Qt3DInput(Shiboken.Object):
             RightButton              : Qt3DInput.QWheelEvent.Buttons = ... # 0x2
             MiddleButton             : Qt3DInput.QWheelEvent.Buttons = ... # 0x4
             BackButton               : Qt3DInput.QWheelEvent.Buttons = ... # 0x8
-
 
         class Modifiers(enum.Enum):
 
