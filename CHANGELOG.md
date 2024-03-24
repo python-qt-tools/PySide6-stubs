@@ -1,5 +1,13 @@
 
 
+In development
+==============
+* Allow QtWidgets layout class constructor with parent as None
+* Better description of QtCore.Slot()
+* fix QObject.inherits() type signature
+* fix QStateMachine.assignProperty() type signature
+* add description of all public variables
+
 Version 6.4.2.0 
 ===============
 * add all missing signals to the stubs (many were missing)
