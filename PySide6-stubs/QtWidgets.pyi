@@ -2375,8 +2375,6 @@ class QGraphicsItem(Shiboken.Object):
 
     class GraphicsItemChange(enum.Enum):
 
-    class GraphicsItemChange(enum.Enum):
-
         ItemPositionChange       : QGraphicsItem.GraphicsItemChange = ... # 0x0
         ItemVisibleChange        : QGraphicsItem.GraphicsItemChange = ... # 0x2
         ItemEnabledChange        : QGraphicsItem.GraphicsItemChange = ... # 0x3
