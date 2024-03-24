@@ -14,8 +14,12 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Any, Optional, Union, List, overload
+from typing import Any, ClassVar, List, Optional, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAudio(Shiboken.Object):
@@ -76,6 +80,16 @@ class QAudioBuffer(Shiboken.Object):
 
 class QAudioDecoder(PySide6.QtCore.QObject):
 
+    bufferAvailableChanged   : ClassVar[Signal] = ... # bufferAvailableChanged(bool)
+    bufferReady              : ClassVar[Signal] = ... # bufferReady()
+    durationChanged          : ClassVar[Signal] = ... # durationChanged(qlonglong)
+    error                    : ClassVar[Signal] = ... # error(QAudioDecoder::Error)
+    finished                 : ClassVar[Signal] = ... # finished()
+    formatChanged            : ClassVar[Signal] = ... # formatChanged(QAudioFormat)
+    isDecodingChanged        : ClassVar[Signal] = ... # isDecodingChanged(bool)
+    positionChanged          : ClassVar[Signal] = ... # positionChanged(qlonglong)
+    sourceChanged            : ClassVar[Signal] = ... # sourceChanged()
+
     class Error(enum.Enum):
 
         NoError                  : QAudioDecoder.Error = ... # 0x0
@@ -90,7 +104,6 @@ class QAudioDecoder(PySide6.QtCore.QObject):
     def audioFormat(self) -> PySide6.QtMultimedia.QAudioFormat: ...
     def bufferAvailable(self) -> bool: ...
     def duration(self) -> int: ...
-    def error(self) -> PySide6.QtMultimedia.QAudioDecoder.Error: ...
     def errorString(self) -> str: ...
     def isDecoding(self) -> bool: ...
     def isSupported(self) -> bool: ...
@@ -224,6 +237,10 @@ class QAudioFormat(Shiboken.Object):
 
 class QAudioInput(PySide6.QtCore.QObject):
 
+    deviceChanged            : ClassVar[Signal] = ... # deviceChanged()
+    mutedChanged             : ClassVar[Signal] = ... # mutedChanged(bool)
+    volumeChanged            : ClassVar[Signal] = ... # volumeChanged(float)
+
     @overload
     def __init__(self, deviceInfo: PySide6.QtMultimedia.QAudioDevice, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -239,6 +256,10 @@ class QAudioInput(PySide6.QtCore.QObject):
 
 class QAudioOutput(PySide6.QtCore.QObject):
 
+    deviceChanged            : ClassVar[Signal] = ... # deviceChanged()
+    mutedChanged             : ClassVar[Signal] = ... # mutedChanged(bool)
+    volumeChanged            : ClassVar[Signal] = ... # volumeChanged(float)
+
     @overload
     def __init__(self, device: PySide6.QtMultimedia.QAudioDevice, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -253,6 +274,8 @@ class QAudioOutput(PySide6.QtCore.QObject):
 
 
 class QAudioSink(PySide6.QtCore.QObject):
+
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QAudio::State)
 
     @overload
     def __init__(self, audioDeviceInfo: PySide6.QtMultimedia.QAudioDevice, format: PySide6.QtMultimedia.QAudioFormat = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -282,6 +305,8 @@ class QAudioSink(PySide6.QtCore.QObject):
 
 class QAudioSource(PySide6.QtCore.QObject):
 
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QAudio::State)
+
     @overload
     def __init__(self, audioDeviceInfo: PySide6.QtMultimedia.QAudioDevice, format: PySide6.QtMultimedia.QAudioFormat = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -309,6 +334,35 @@ class QAudioSource(PySide6.QtCore.QObject):
 
 
 class QCamera(PySide6.QtCore.QObject):
+
+    activeChanged            : ClassVar[Signal] = ... # activeChanged(bool)
+    brightnessChanged        : ClassVar[Signal] = ... # brightnessChanged()
+    cameraDeviceChanged      : ClassVar[Signal] = ... # cameraDeviceChanged()
+    cameraFormatChanged      : ClassVar[Signal] = ... # cameraFormatChanged()
+    colorTemperatureChanged  : ClassVar[Signal] = ... # colorTemperatureChanged()
+    contrastChanged          : ClassVar[Signal] = ... # contrastChanged()
+    customFocusPointChanged  : ClassVar[Signal] = ... # customFocusPointChanged()
+    errorChanged             : ClassVar[Signal] = ... # errorChanged()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QCamera::Error,QString)
+    exposureCompensationChanged: ClassVar[Signal] = ... # exposureCompensationChanged(float)
+    exposureModeChanged      : ClassVar[Signal] = ... # exposureModeChanged()
+    exposureTimeChanged      : ClassVar[Signal] = ... # exposureTimeChanged(float)
+    flashModeChanged         : ClassVar[Signal] = ... # flashModeChanged()
+    flashReady               : ClassVar[Signal] = ... # flashReady(bool)
+    focusDistanceChanged     : ClassVar[Signal] = ... # focusDistanceChanged(float)
+    focusModeChanged         : ClassVar[Signal] = ... # focusModeChanged()
+    focusPointChanged        : ClassVar[Signal] = ... # focusPointChanged()
+    hueChanged               : ClassVar[Signal] = ... # hueChanged()
+    isoSensitivityChanged    : ClassVar[Signal] = ... # isoSensitivityChanged(int)
+    manualExposureTimeChanged: ClassVar[Signal] = ... # manualExposureTimeChanged(float)
+    manualIsoSensitivityChanged: ClassVar[Signal] = ... # manualIsoSensitivityChanged(int)
+    maximumZoomFactorChanged : ClassVar[Signal] = ... # maximumZoomFactorChanged(float)
+    minimumZoomFactorChanged : ClassVar[Signal] = ... # minimumZoomFactorChanged(float)
+    saturationChanged        : ClassVar[Signal] = ... # saturationChanged()
+    supportedFeaturesChanged : ClassVar[Signal] = ... # supportedFeaturesChanged()
+    torchModeChanged         : ClassVar[Signal] = ... # torchModeChanged()
+    whiteBalanceModeChanged  : ClassVar[Signal] = ... # whiteBalanceModeChanged()
+    zoomFactorChanged        : ClassVar[Signal] = ... # zoomFactorChanged(float)
 
     class Error(enum.Enum):
 
@@ -491,6 +545,19 @@ class QCameraFormat(Shiboken.Object):
 
 class QImageCapture(PySide6.QtCore.QObject):
 
+    errorChanged             : ClassVar[Signal] = ... # errorChanged()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(int,QImageCapture::Error,QString)
+    fileFormatChanged        : ClassVar[Signal] = ... # fileFormatChanged()
+    imageAvailable           : ClassVar[Signal] = ... # imageAvailable(int,QVideoFrame)
+    imageCaptured            : ClassVar[Signal] = ... # imageCaptured(int,QImage)
+    imageExposed             : ClassVar[Signal] = ... # imageExposed(int)
+    imageMetadataAvailable   : ClassVar[Signal] = ... # imageMetadataAvailable(int,QMediaMetaData)
+    imageSaved               : ClassVar[Signal] = ... # imageSaved(int,QString)
+    metaDataChanged          : ClassVar[Signal] = ... # metaDataChanged()
+    qualityChanged           : ClassVar[Signal] = ... # qualityChanged()
+    readyForCaptureChanged   : ClassVar[Signal] = ... # readyForCaptureChanged(bool)
+    resolutionChanged        : ClassVar[Signal] = ... # resolutionChanged()
+
     class Error(enum.Enum):
 
         NoError                  : QImageCapture.Error = ... # 0x0
@@ -554,6 +621,14 @@ class QIntList(object): ...
 
 class QMediaCaptureSession(PySide6.QtCore.QObject):
 
+    audioInputChanged        : ClassVar[Signal] = ... # audioInputChanged()
+    audioOutputChanged       : ClassVar[Signal] = ... # audioOutputChanged()
+    cameraChanged            : ClassVar[Signal] = ... # cameraChanged()
+    imageCaptureChanged      : ClassVar[Signal] = ... # imageCaptureChanged()
+    recorderChanged          : ClassVar[Signal] = ... # recorderChanged()
+    screenCaptureChanged     : ClassVar[Signal] = ... # screenCaptureChanged()
+    videoOutputChanged       : ClassVar[Signal] = ... # videoOutputChanged()
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def audioInput(self) -> PySide6.QtMultimedia.QAudioInput: ...
@@ -561,11 +636,13 @@ class QMediaCaptureSession(PySide6.QtCore.QObject):
     def camera(self) -> PySide6.QtMultimedia.QCamera: ...
     def imageCapture(self) -> PySide6.QtMultimedia.QImageCapture: ...
     def recorder(self) -> PySide6.QtMultimedia.QMediaRecorder: ...
+    def screenCapture(self) -> PySide6.QtMultimedia.QScreenCapture: ...
     def setAudioInput(self, input: PySide6.QtMultimedia.QAudioInput) -> None: ...
     def setAudioOutput(self, output: PySide6.QtMultimedia.QAudioOutput) -> None: ...
     def setCamera(self, camera: PySide6.QtMultimedia.QCamera) -> None: ...
     def setImageCapture(self, imageCapture: PySide6.QtMultimedia.QImageCapture) -> None: ...
     def setRecorder(self, recorder: PySide6.QtMultimedia.QMediaRecorder) -> None: ...
+    def setScreenCapture(self, screenCapture: PySide6.QtMultimedia.QScreenCapture) -> None: ...
     def setVideoOutput(self, output: PySide6.QtCore.QObject) -> None: ...
     def setVideoSink(self, sink: PySide6.QtMultimedia.QVideoSink) -> None: ...
     def videoOutput(self) -> PySide6.QtCore.QObject: ...
@@ -574,12 +651,17 @@ class QMediaCaptureSession(PySide6.QtCore.QObject):
 
 class QMediaDevices(PySide6.QtCore.QObject):
 
+    audioInputsChanged       : ClassVar[Signal] = ... # audioInputsChanged()
+    audioOutputsChanged      : ClassVar[Signal] = ... # audioOutputsChanged()
+    videoInputsChanged       : ClassVar[Signal] = ... # videoInputsChanged()
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     @staticmethod
     def audioInputs() -> List[PySide6.QtMultimedia.QAudioDevice]: ...
     @staticmethod
     def audioOutputs() -> List[PySide6.QtMultimedia.QAudioDevice]: ...
+    def connectNotify(self, signal: PySide6.QtCore.QMetaMethod) -> None: ...
     @staticmethod
     def defaultAudioInput() -> PySide6.QtMultimedia.QAudioDevice: ...
     @staticmethod
@@ -747,6 +829,26 @@ class QMediaMetaData(Shiboken.Object):
 
 class QMediaPlayer(PySide6.QtCore.QObject):
 
+    activeTracksChanged      : ClassVar[Signal] = ... # activeTracksChanged()
+    audioOutputChanged       : ClassVar[Signal] = ... # audioOutputChanged()
+    bufferProgressChanged    : ClassVar[Signal] = ... # bufferProgressChanged(float)
+    durationChanged          : ClassVar[Signal] = ... # durationChanged(qlonglong)
+    errorChanged             : ClassVar[Signal] = ... # errorChanged()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QMediaPlayer::Error,QString)
+    hasAudioChanged          : ClassVar[Signal] = ... # hasAudioChanged(bool)
+    hasVideoChanged          : ClassVar[Signal] = ... # hasVideoChanged(bool)
+    loopsChanged             : ClassVar[Signal] = ... # loopsChanged()
+    mediaStatusChanged       : ClassVar[Signal] = ... # mediaStatusChanged(QMediaPlayer::MediaStatus)
+    metaDataChanged          : ClassVar[Signal] = ... # metaDataChanged()
+    playbackRateChanged      : ClassVar[Signal] = ... # playbackRateChanged(double)
+    playbackStateChanged     : ClassVar[Signal] = ... # playbackStateChanged(QMediaPlayer::PlaybackState)
+    playingChanged           : ClassVar[Signal] = ... # playingChanged(bool)
+    positionChanged          : ClassVar[Signal] = ... # positionChanged(qlonglong)
+    seekableChanged          : ClassVar[Signal] = ... # seekableChanged(bool)
+    sourceChanged            : ClassVar[Signal] = ... # sourceChanged(QUrl)
+    tracksChanged            : ClassVar[Signal] = ... # tracksChanged()
+    videoOutputChanged       : ClassVar[Signal] = ... # videoOutputChanged()
+
     class Error(enum.Enum):
 
         NoError                  : QMediaPlayer.Error = ... # 0x0
@@ -796,6 +898,7 @@ class QMediaPlayer(PySide6.QtCore.QObject):
     def hasAudio(self) -> bool: ...
     def hasVideo(self) -> bool: ...
     def isAvailable(self) -> bool: ...
+    def isPlaying(self) -> bool: ...
     def isSeekable(self) -> bool: ...
     def loops(self) -> int: ...
     def mediaStatus(self) -> PySide6.QtMultimedia.QMediaPlayer.MediaStatus: ...
@@ -826,6 +929,23 @@ class QMediaPlayer(PySide6.QtCore.QObject):
 
 
 class QMediaRecorder(PySide6.QtCore.QObject):
+
+    actualLocationChanged    : ClassVar[Signal] = ... # actualLocationChanged(QUrl)
+    audioBitRateChanged      : ClassVar[Signal] = ... # audioBitRateChanged()
+    audioChannelCountChanged : ClassVar[Signal] = ... # audioChannelCountChanged()
+    audioSampleRateChanged   : ClassVar[Signal] = ... # audioSampleRateChanged()
+    durationChanged          : ClassVar[Signal] = ... # durationChanged(qlonglong)
+    encoderSettingsChanged   : ClassVar[Signal] = ... # encoderSettingsChanged()
+    encodingModeChanged      : ClassVar[Signal] = ... # encodingModeChanged()
+    errorChanged             : ClassVar[Signal] = ... # errorChanged()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(Error,QString)
+    mediaFormatChanged       : ClassVar[Signal] = ... # mediaFormatChanged()
+    metaDataChanged          : ClassVar[Signal] = ... # metaDataChanged()
+    qualityChanged           : ClassVar[Signal] = ... # qualityChanged()
+    recorderStateChanged     : ClassVar[Signal] = ... # recorderStateChanged(RecorderState)
+    videoBitRateChanged      : ClassVar[Signal] = ... # videoBitRateChanged()
+    videoFrameRateChanged    : ClassVar[Signal] = ... # videoFrameRateChanged()
+    videoResolutionChanged   : ClassVar[Signal] = ... # videoResolutionChanged()
 
     class EncodingMode(enum.Enum):
 
@@ -962,7 +1082,46 @@ class QMediaTimeRange(Shiboken.Object):
     def swap(self, other: Union[PySide6.QtMultimedia.QMediaTimeRange, PySide6.QtMultimedia.QMediaTimeRange.Interval]) -> None: ...
 
 
+class QScreenCapture(PySide6.QtCore.QObject):
+
+    activeChanged            : ClassVar[Signal] = ... # activeChanged(bool)
+    errorChanged             : ClassVar[Signal] = ... # errorChanged()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QScreenCapture::Error,QString)
+    screenChanged            : ClassVar[Signal] = ... # screenChanged(QScreen*)
+
+    class Error(enum.Enum):
+
+        NoError                  : QScreenCapture.Error = ... # 0x0
+        InternalError            : QScreenCapture.Error = ... # 0x1
+        CapturingNotSupported    : QScreenCapture.Error = ... # 0x2
+        CaptureFailed            : QScreenCapture.Error = ... # 0x3
+        NotFound                 : QScreenCapture.Error = ... # 0x4
+
+
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def captureSession(self) -> PySide6.QtMultimedia.QMediaCaptureSession: ...
+    def error(self) -> PySide6.QtMultimedia.QScreenCapture.Error: ...
+    def errorString(self) -> str: ...
+    def isActive(self) -> bool: ...
+    def screen(self) -> PySide6.QtGui.QScreen: ...
+    def setActive(self, active: bool) -> None: ...
+    def setScreen(self, screen: PySide6.QtGui.QScreen) -> None: ...
+    def start(self) -> None: ...
+    def stop(self) -> None: ...
+
+
 class QSoundEffect(PySide6.QtCore.QObject):
+
+    audioDeviceChanged       : ClassVar[Signal] = ... # audioDeviceChanged()
+    loadedChanged            : ClassVar[Signal] = ... # loadedChanged()
+    loopCountChanged         : ClassVar[Signal] = ... # loopCountChanged()
+    loopsRemainingChanged    : ClassVar[Signal] = ... # loopsRemainingChanged()
+    mutedChanged             : ClassVar[Signal] = ... # mutedChanged()
+    playingChanged           : ClassVar[Signal] = ... # playingChanged()
+    sourceChanged            : ClassVar[Signal] = ... # sourceChanged()
+    statusChanged            : ClassVar[Signal] = ... # statusChanged()
+    volumeChanged            : ClassVar[Signal] = ... # volumeChanged()
 
     class Loop(enum.Enum):
 
@@ -1199,6 +1358,10 @@ class QVideoFrameFormat(Shiboken.Object):
 
 
 class QVideoSink(PySide6.QtCore.QObject):
+
+    subtitleTextChanged      : ClassVar[Signal] = ... # subtitleTextChanged(QString)
+    videoFrameChanged        : ClassVar[Signal] = ... # videoFrameChanged(QVideoFrame)
+    videoSizeChanged         : ClassVar[Signal] = ... # videoSizeChanged()
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

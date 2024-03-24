@@ -14,11 +14,27 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Any, Optional, Union, Sequence, List, overload
+from typing import Any, ClassVar, List, Optional, Sequence, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
 
 
+NoneType = type(None)
+
+
 class Q3DBars(PySide6.QtDataVisualization.QAbstract3DGraph):
+
+    barSeriesMarginChanged   : ClassVar[Signal] = ... # barSeriesMarginChanged(QSizeF)
+    barSpacingChanged        : ClassVar[Signal] = ... # barSpacingChanged(QSizeF)
+    barSpacingRelativeChanged: ClassVar[Signal] = ... # barSpacingRelativeChanged(bool)
+    barThicknessChanged      : ClassVar[Signal] = ... # barThicknessChanged(float)
+    columnAxisChanged        : ClassVar[Signal] = ... # columnAxisChanged(QCategory3DAxis*)
+    floorLevelChanged        : ClassVar[Signal] = ... # floorLevelChanged(float)
+    multiSeriesUniformChanged: ClassVar[Signal] = ... # multiSeriesUniformChanged(bool)
+    primarySeriesChanged     : ClassVar[Signal] = ... # primarySeriesChanged(QBar3DSeries*)
+    rowAxisChanged           : ClassVar[Signal] = ... # rowAxisChanged(QCategory3DAxis*)
+    selectedSeriesChanged    : ClassVar[Signal] = ... # selectedSeriesChanged(QBar3DSeries*)
+    valueAxisChanged         : ClassVar[Signal] = ... # valueAxisChanged(QValue3DAxis*)
 
     def __init__(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption, NoneType] = ..., parent: Optional[PySide6.QtGui.QWindow] = ...) -> None: ...
 
@@ -53,6 +69,16 @@ class Q3DBars(PySide6.QtDataVisualization.QAbstract3DGraph):
 
 
 class Q3DCamera(PySide6.QtDataVisualization.Q3DObject):
+
+    cameraPresetChanged      : ClassVar[Signal] = ... # cameraPresetChanged(Q3DCamera::CameraPreset)
+    maxZoomLevelChanged      : ClassVar[Signal] = ... # maxZoomLevelChanged(float)
+    minZoomLevelChanged      : ClassVar[Signal] = ... # minZoomLevelChanged(float)
+    targetChanged            : ClassVar[Signal] = ... # targetChanged(QVector3D)
+    wrapXRotationChanged     : ClassVar[Signal] = ... # wrapXRotationChanged(bool)
+    wrapYRotationChanged     : ClassVar[Signal] = ... # wrapYRotationChanged(bool)
+    xRotationChanged         : ClassVar[Signal] = ... # xRotationChanged(float)
+    yRotationChanged         : ClassVar[Signal] = ... # yRotationChanged(float)
+    zoomLevelChanged         : ClassVar[Signal] = ... # zoomLevelChanged(float)
 
     class CameraPreset(enum.Enum):
 
@@ -109,6 +135,11 @@ class Q3DCamera(PySide6.QtDataVisualization.Q3DObject):
 
 class Q3DInputHandler(PySide6.QtDataVisualization.QAbstract3DInputHandler):
 
+    rotationEnabledChanged   : ClassVar[Signal] = ... # rotationEnabledChanged(bool)
+    selectionEnabledChanged  : ClassVar[Signal] = ... # selectionEnabledChanged(bool)
+    zoomAtTargetEnabledChanged: ClassVar[Signal] = ... # zoomAtTargetEnabledChanged(bool)
+    zoomEnabledChanged       : ClassVar[Signal] = ... # zoomEnabledChanged(bool)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def isRotationEnabled(self) -> bool: ...
@@ -127,6 +158,8 @@ class Q3DInputHandler(PySide6.QtDataVisualization.QAbstract3DInputHandler):
 
 class Q3DLight(PySide6.QtDataVisualization.Q3DObject):
 
+    autoPositionChanged      : ClassVar[Signal] = ... # autoPositionChanged(bool)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def isAutoPosition(self) -> bool: ...
@@ -134,6 +167,8 @@ class Q3DLight(PySide6.QtDataVisualization.Q3DObject):
 
 
 class Q3DObject(PySide6.QtCore.QObject):
+
+    positionChanged          : ClassVar[Signal] = ... # positionChanged(QVector3D)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -146,6 +181,11 @@ class Q3DObject(PySide6.QtCore.QObject):
 
 
 class Q3DScatter(PySide6.QtDataVisualization.QAbstract3DGraph):
+
+    axisXChanged             : ClassVar[Signal] = ... # axisXChanged(QValue3DAxis*)
+    axisYChanged             : ClassVar[Signal] = ... # axisYChanged(QValue3DAxis*)
+    axisZChanged             : ClassVar[Signal] = ... # axisZChanged(QValue3DAxis*)
+    selectedSeriesChanged    : ClassVar[Signal] = ... # selectedSeriesChanged(QScatter3DSeries*)
 
     def __init__(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption, NoneType] = ..., parent: Optional[PySide6.QtGui.QWindow] = ...) -> None: ...
 
@@ -165,6 +205,17 @@ class Q3DScatter(PySide6.QtDataVisualization.QAbstract3DGraph):
 
 
 class Q3DScene(PySide6.QtCore.QObject):
+
+    activeCameraChanged      : ClassVar[Signal] = ... # activeCameraChanged(Q3DCamera*)
+    activeLightChanged       : ClassVar[Signal] = ... # activeLightChanged(Q3DLight*)
+    devicePixelRatioChanged  : ClassVar[Signal] = ... # devicePixelRatioChanged(float)
+    graphPositionQueryChanged: ClassVar[Signal] = ... # graphPositionQueryChanged(QPoint)
+    primarySubViewportChanged: ClassVar[Signal] = ... # primarySubViewportChanged(QRect)
+    secondarySubViewportChanged: ClassVar[Signal] = ... # secondarySubViewportChanged(QRect)
+    secondarySubviewOnTopChanged: ClassVar[Signal] = ... # secondarySubviewOnTopChanged(bool)
+    selectionQueryPositionChanged: ClassVar[Signal] = ... # selectionQueryPositionChanged(QPoint)
+    slicingActiveChanged     : ClassVar[Signal] = ... # slicingActiveChanged(bool)
+    viewportChanged          : ClassVar[Signal] = ... # viewportChanged(QRect)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -195,6 +246,12 @@ class Q3DScene(PySide6.QtCore.QObject):
 
 class Q3DSurface(PySide6.QtDataVisualization.QAbstract3DGraph):
 
+    axisXChanged             : ClassVar[Signal] = ... # axisXChanged(QValue3DAxis*)
+    axisYChanged             : ClassVar[Signal] = ... # axisYChanged(QValue3DAxis*)
+    axisZChanged             : ClassVar[Signal] = ... # axisZChanged(QValue3DAxis*)
+    flipHorizontalGridChanged: ClassVar[Signal] = ... # flipHorizontalGridChanged(bool)
+    selectedSeriesChanged    : ClassVar[Signal] = ... # selectedSeriesChanged(QSurface3DSeries*)
+
     def __init__(self, format: Union[PySide6.QtGui.QSurfaceFormat, PySide6.QtGui.QSurfaceFormat.FormatOption, NoneType] = ..., parent: Optional[PySide6.QtGui.QWindow] = ...) -> None: ...
 
     def addAxis(self, axis: PySide6.QtDataVisualization.QValue3DAxis) -> None: ...
@@ -215,6 +272,29 @@ class Q3DSurface(PySide6.QtDataVisualization.QAbstract3DGraph):
 
 
 class Q3DTheme(PySide6.QtCore.QObject):
+
+    ambientLightStrengthChanged: ClassVar[Signal] = ... # ambientLightStrengthChanged(float)
+    backgroundColorChanged   : ClassVar[Signal] = ... # backgroundColorChanged(QColor)
+    backgroundEnabledChanged : ClassVar[Signal] = ... # backgroundEnabledChanged(bool)
+    baseColorsChanged        : ClassVar[Signal] = ... # baseColorsChanged(QList<QColor>)
+    baseGradientsChanged     : ClassVar[Signal] = ... # baseGradientsChanged(QList<QLinearGradient>)
+    colorStyleChanged        : ClassVar[Signal] = ... # colorStyleChanged(Q3DTheme::ColorStyle)
+    fontChanged              : ClassVar[Signal] = ... # fontChanged(QFont)
+    gridEnabledChanged       : ClassVar[Signal] = ... # gridEnabledChanged(bool)
+    gridLineColorChanged     : ClassVar[Signal] = ... # gridLineColorChanged(QColor)
+    highlightLightStrengthChanged: ClassVar[Signal] = ... # highlightLightStrengthChanged(float)
+    labelBackgroundColorChanged: ClassVar[Signal] = ... # labelBackgroundColorChanged(QColor)
+    labelBackgroundEnabledChanged: ClassVar[Signal] = ... # labelBackgroundEnabledChanged(bool)
+    labelBorderEnabledChanged: ClassVar[Signal] = ... # labelBorderEnabledChanged(bool)
+    labelTextColorChanged    : ClassVar[Signal] = ... # labelTextColorChanged(QColor)
+    lightColorChanged        : ClassVar[Signal] = ... # lightColorChanged(QColor)
+    lightStrengthChanged     : ClassVar[Signal] = ... # lightStrengthChanged(float)
+    multiHighlightColorChanged: ClassVar[Signal] = ... # multiHighlightColorChanged(QColor)
+    multiHighlightGradientChanged: ClassVar[Signal] = ... # multiHighlightGradientChanged(QLinearGradient)
+    singleHighlightColorChanged: ClassVar[Signal] = ... # singleHighlightColorChanged(QColor)
+    singleHighlightGradientChanged: ClassVar[Signal] = ... # singleHighlightGradientChanged(QLinearGradient)
+    typeChanged              : ClassVar[Signal] = ... # typeChanged(Q3DTheme::Theme)
+    windowColorChanged       : ClassVar[Signal] = ... # windowColorChanged(QColor)
 
     class ColorStyle(enum.Enum):
 
@@ -289,6 +369,17 @@ class Q3DTheme(PySide6.QtCore.QObject):
 
 class QAbstract3DAxis(PySide6.QtCore.QObject):
 
+    autoAdjustRangeChanged   : ClassVar[Signal] = ... # autoAdjustRangeChanged(bool)
+    labelAutoRotationChanged : ClassVar[Signal] = ... # labelAutoRotationChanged(float)
+    labelsChanged            : ClassVar[Signal] = ... # labelsChanged()
+    maxChanged               : ClassVar[Signal] = ... # maxChanged(float)
+    minChanged               : ClassVar[Signal] = ... # minChanged(float)
+    orientationChanged       : ClassVar[Signal] = ... # orientationChanged(QAbstract3DAxis::AxisOrientation)
+    rangeChanged             : ClassVar[Signal] = ... # rangeChanged(float,float)
+    titleChanged             : ClassVar[Signal] = ... # titleChanged(QString)
+    titleFixedChanged        : ClassVar[Signal] = ... # titleFixedChanged(bool)
+    titleVisibilityChanged   : ClassVar[Signal] = ... # titleVisibilityChanged(bool)
+
     class AxisOrientation(enum.Enum):
 
         AxisOrientationNone      : QAbstract3DAxis.AxisOrientation = ... # 0x0
@@ -326,6 +417,25 @@ class QAbstract3DAxis(PySide6.QtCore.QObject):
 
 
 class QAbstract3DGraph(PySide6.QtGui.QWindow):
+
+    activeInputHandlerChanged: ClassVar[Signal] = ... # activeInputHandlerChanged(QAbstract3DInputHandler*)
+    activeThemeChanged       : ClassVar[Signal] = ... # activeThemeChanged(Q3DTheme*)
+    aspectRatioChanged       : ClassVar[Signal] = ... # aspectRatioChanged(double)
+    currentFpsChanged        : ClassVar[Signal] = ... # currentFpsChanged(double)
+    horizontalAspectRatioChanged: ClassVar[Signal] = ... # horizontalAspectRatioChanged(double)
+    localeChanged            : ClassVar[Signal] = ... # localeChanged(QLocale)
+    marginChanged            : ClassVar[Signal] = ... # marginChanged(double)
+    measureFpsChanged        : ClassVar[Signal] = ... # measureFpsChanged(bool)
+    optimizationHintsChanged : ClassVar[Signal] = ... # optimizationHintsChanged(QAbstract3DGraph::OptimizationHints)
+    orthoProjectionChanged   : ClassVar[Signal] = ... # orthoProjectionChanged(bool)
+    polarChanged             : ClassVar[Signal] = ... # polarChanged(bool)
+    queriedGraphPositionChanged: ClassVar[Signal] = ... # queriedGraphPositionChanged(QVector3D)
+    radialLabelOffsetChanged : ClassVar[Signal] = ... # radialLabelOffsetChanged(float)
+    reflectionChanged        : ClassVar[Signal] = ... # reflectionChanged(bool)
+    reflectivityChanged      : ClassVar[Signal] = ... # reflectivityChanged(double)
+    selectedElementChanged   : ClassVar[Signal] = ... # selectedElementChanged(QAbstract3DGraph::ElementType)
+    selectionModeChanged     : ClassVar[Signal] = ... # selectionModeChanged(QAbstract3DGraph::SelectionFlags)
+    shadowQualityChanged     : ClassVar[Signal] = ... # shadowQualityChanged(QAbstract3DGraph::ShadowQuality)
 
     class ElementType(enum.Enum):
 
@@ -436,6 +546,10 @@ class QAbstract3DGraph(PySide6.QtGui.QWindow):
 
 class QAbstract3DInputHandler(PySide6.QtCore.QObject):
 
+    inputViewChanged         : ClassVar[Signal] = ... # inputViewChanged(QAbstract3DInputHandler::InputView)
+    positionChanged          : ClassVar[Signal] = ... # positionChanged(QPoint)
+    sceneChanged             : ClassVar[Signal] = ... # sceneChanged(Q3DScene*)
+
     class InputView(enum.Enum):
 
         InputViewNone            : QAbstract3DInputHandler.InputView = ... # 0x0
@@ -464,6 +578,23 @@ class QAbstract3DInputHandler(PySide6.QtCore.QObject):
 
 
 class QAbstract3DSeries(PySide6.QtCore.QObject):
+
+    baseColorChanged         : ClassVar[Signal] = ... # baseColorChanged(QColor)
+    baseGradientChanged      : ClassVar[Signal] = ... # baseGradientChanged(QLinearGradient)
+    colorStyleChanged        : ClassVar[Signal] = ... # colorStyleChanged(Q3DTheme::ColorStyle)
+    itemLabelChanged         : ClassVar[Signal] = ... # itemLabelChanged(QString)
+    itemLabelFormatChanged   : ClassVar[Signal] = ... # itemLabelFormatChanged(QString)
+    itemLabelVisibilityChanged: ClassVar[Signal] = ... # itemLabelVisibilityChanged(bool)
+    meshChanged              : ClassVar[Signal] = ... # meshChanged(QAbstract3DSeries::Mesh)
+    meshRotationChanged      : ClassVar[Signal] = ... # meshRotationChanged(QQuaternion)
+    meshSmoothChanged        : ClassVar[Signal] = ... # meshSmoothChanged(bool)
+    multiHighlightColorChanged: ClassVar[Signal] = ... # multiHighlightColorChanged(QColor)
+    multiHighlightGradientChanged: ClassVar[Signal] = ... # multiHighlightGradientChanged(QLinearGradient)
+    nameChanged              : ClassVar[Signal] = ... # nameChanged(QString)
+    singleHighlightColorChanged: ClassVar[Signal] = ... # singleHighlightColorChanged(QColor)
+    singleHighlightGradientChanged: ClassVar[Signal] = ... # singleHighlightGradientChanged(QLinearGradient)
+    userDefinedMeshChanged   : ClassVar[Signal] = ... # userDefinedMeshChanged(QString)
+    visibilityChanged        : ClassVar[Signal] = ... # visibilityChanged(bool)
 
     class Mesh(enum.Enum):
 
@@ -539,6 +670,11 @@ class QAbstractDataProxy(PySide6.QtCore.QObject):
 
 class QBar3DSeries(PySide6.QtDataVisualization.QAbstract3DSeries):
 
+    dataProxyChanged         : ClassVar[Signal] = ... # dataProxyChanged(QBarDataProxy*)
+    meshAngleChanged         : ClassVar[Signal] = ... # meshAngleChanged(float)
+    rowColorsChanged         : ClassVar[Signal] = ... # rowColorsChanged(QList<QColor>)
+    selectedBarChanged       : ClassVar[Signal] = ... # selectedBarChanged(QPoint)
+
     @overload
     def __init__(self, dataProxy: PySide6.QtDataVisualization.QBarDataProxy, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -578,6 +714,17 @@ class QBarDataItem(Shiboken.Object):
 
 class QBarDataProxy(PySide6.QtDataVisualization.QAbstractDataProxy):
 
+    arrayReset               : ClassVar[Signal] = ... # arrayReset()
+    columnLabelsChanged      : ClassVar[Signal] = ... # columnLabelsChanged()
+    itemChanged              : ClassVar[Signal] = ... # itemChanged(int,int)
+    rowCountChanged          : ClassVar[Signal] = ... # rowCountChanged(int)
+    rowLabelsChanged         : ClassVar[Signal] = ... # rowLabelsChanged()
+    rowsAdded                : ClassVar[Signal] = ... # rowsAdded(int,int)
+    rowsChanged              : ClassVar[Signal] = ... # rowsChanged(int,int)
+    rowsInserted             : ClassVar[Signal] = ... # rowsInserted(int,int)
+    rowsRemoved              : ClassVar[Signal] = ... # rowsRemoved(int,int)
+    seriesChanged            : ClassVar[Signal] = ... # seriesChanged(QBar3DSeries*)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     @overload
@@ -606,9 +753,9 @@ class QBarDataProxy(PySide6.QtDataVisualization.QAbstractDataProxy):
     @overload
     def resetArray(self) -> None: ...
     @overload
-    def resetArray(self, newArray: List[List[PySide6.QtDataVisualization.QBarDataItem]]) -> None: ...
+    def resetArray(self, arg__1: List[List[PySide6.QtDataVisualization.QBarDataItem]]) -> None: ...
     @overload
-    def resetArray(self, newArray: List[List[PySide6.QtDataVisualization.QBarDataItem]], rowLabels: Sequence[str], columnLabels: Sequence[str]) -> None: ...
+    def resetArray(self, arg__1: List[List[PySide6.QtDataVisualization.QBarDataItem]], arg__2: Sequence[str], arg__3: Sequence[str]) -> None: ...
     def rowAt(self, rowIndex: int) -> List[PySide6.QtDataVisualization.QBarDataItem]: ...
     def rowCount(self) -> int: ...
     def rowLabels(self) -> List[str]: ...
@@ -631,6 +778,8 @@ class QBarDataProxy(PySide6.QtDataVisualization.QAbstractDataProxy):
 
 class QCategory3DAxis(PySide6.QtDataVisualization.QAbstract3DAxis):
 
+    labelsChanged            : ClassVar[Signal] = ... # labelsChanged()
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def labels(self) -> List[str]: ...
@@ -638,6 +787,16 @@ class QCategory3DAxis(PySide6.QtDataVisualization.QAbstract3DAxis):
 
 
 class QCustom3DItem(PySide6.QtCore.QObject):
+
+    meshFileChanged          : ClassVar[Signal] = ... # meshFileChanged(QString)
+    positionAbsoluteChanged  : ClassVar[Signal] = ... # positionAbsoluteChanged(bool)
+    positionChanged          : ClassVar[Signal] = ... # positionChanged(QVector3D)
+    rotationChanged          : ClassVar[Signal] = ... # rotationChanged(QQuaternion)
+    scalingAbsoluteChanged   : ClassVar[Signal] = ... # scalingAbsoluteChanged(bool)
+    scalingChanged           : ClassVar[Signal] = ... # scalingChanged(QVector3D)
+    shadowCastingChanged     : ClassVar[Signal] = ... # shadowCastingChanged(bool)
+    textureFileChanged       : ClassVar[Signal] = ... # textureFileChanged(QString)
+    visibleChanged           : ClassVar[Signal] = ... # visibleChanged(bool)
 
     @overload
     def __init__(self, meshFile: str, position: PySide6.QtGui.QVector3D, scaling: PySide6.QtGui.QVector3D, rotation: PySide6.QtGui.QQuaternion, texture: Union[PySide6.QtGui.QImage, str], parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -668,6 +827,14 @@ class QCustom3DItem(PySide6.QtCore.QObject):
 
 class QCustom3DLabel(PySide6.QtDataVisualization.QCustom3DItem):
 
+    backgroundColorChanged   : ClassVar[Signal] = ... # backgroundColorChanged(QColor)
+    backgroundEnabledChanged : ClassVar[Signal] = ... # backgroundEnabledChanged(bool)
+    borderEnabledChanged     : ClassVar[Signal] = ... # borderEnabledChanged(bool)
+    facingCameraChanged      : ClassVar[Signal] = ... # facingCameraChanged(bool)
+    fontChanged              : ClassVar[Signal] = ... # fontChanged(QFont)
+    textChanged              : ClassVar[Signal] = ... # textChanged(QString)
+    textColorChanged         : ClassVar[Signal] = ... # textColorChanged(QColor)
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -690,6 +857,25 @@ class QCustom3DLabel(PySide6.QtDataVisualization.QCustom3DItem):
 
 
 class QCustom3DVolume(PySide6.QtDataVisualization.QCustom3DItem):
+
+    alphaMultiplierChanged   : ClassVar[Signal] = ... # alphaMultiplierChanged(float)
+    colorTableChanged        : ClassVar[Signal] = ... # colorTableChanged()
+    drawSliceFramesChanged   : ClassVar[Signal] = ... # drawSliceFramesChanged(bool)
+    drawSlicesChanged        : ClassVar[Signal] = ... # drawSlicesChanged(bool)
+    preserveOpacityChanged   : ClassVar[Signal] = ... # preserveOpacityChanged(bool)
+    sliceFrameColorChanged   : ClassVar[Signal] = ... # sliceFrameColorChanged(QColor)
+    sliceFrameGapsChanged    : ClassVar[Signal] = ... # sliceFrameGapsChanged(QVector3D)
+    sliceFrameThicknessesChanged: ClassVar[Signal] = ... # sliceFrameThicknessesChanged(QVector3D)
+    sliceFrameWidthsChanged  : ClassVar[Signal] = ... # sliceFrameWidthsChanged(QVector3D)
+    sliceIndexXChanged       : ClassVar[Signal] = ... # sliceIndexXChanged(int)
+    sliceIndexYChanged       : ClassVar[Signal] = ... # sliceIndexYChanged(int)
+    sliceIndexZChanged       : ClassVar[Signal] = ... # sliceIndexZChanged(int)
+    textureDataChanged       : ClassVar[Signal] = ... # textureDataChanged(QList<uchar>*)
+    textureDepthChanged      : ClassVar[Signal] = ... # textureDepthChanged(int)
+    textureFormatChanged     : ClassVar[Signal] = ... # textureFormatChanged(QImage::Format)
+    textureHeightChanged     : ClassVar[Signal] = ... # textureHeightChanged(int)
+    textureWidthChanged      : ClassVar[Signal] = ... # textureWidthChanged(int)
+    useHighDefShaderChanged  : ClassVar[Signal] = ... # useHighDefShaderChanged(bool)
 
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -745,6 +931,16 @@ class QCustom3DVolume(PySide6.QtDataVisualization.QCustom3DItem):
 
 class QHeightMapSurfaceDataProxy(PySide6.QtDataVisualization.QSurfaceDataProxy):
 
+    autoScaleYChanged        : ClassVar[Signal] = ... # autoScaleYChanged(bool)
+    heightMapChanged         : ClassVar[Signal] = ... # heightMapChanged(QImage)
+    heightMapFileChanged     : ClassVar[Signal] = ... # heightMapFileChanged(QString)
+    maxXValueChanged         : ClassVar[Signal] = ... # maxXValueChanged(float)
+    maxYValueChanged         : ClassVar[Signal] = ... # maxYValueChanged(float)
+    maxZValueChanged         : ClassVar[Signal] = ... # maxZValueChanged(float)
+    minXValueChanged         : ClassVar[Signal] = ... # minXValueChanged(float)
+    minYValueChanged         : ClassVar[Signal] = ... # minYValueChanged(float)
+    minZValueChanged         : ClassVar[Signal] = ... # minZValueChanged(float)
+
     @overload
     def __init__(self, filename: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -777,6 +973,26 @@ class QIntList(object): ...
 
 
 class QItemModelBarDataProxy(PySide6.QtDataVisualization.QBarDataProxy):
+
+    autoColumnCategoriesChanged: ClassVar[Signal] = ... # autoColumnCategoriesChanged(bool)
+    autoRowCategoriesChanged : ClassVar[Signal] = ... # autoRowCategoriesChanged(bool)
+    columnCategoriesChanged  : ClassVar[Signal] = ... # columnCategoriesChanged()
+    columnRoleChanged        : ClassVar[Signal] = ... # columnRoleChanged(QString)
+    columnRolePatternChanged : ClassVar[Signal] = ... # columnRolePatternChanged(QRegularExpression)
+    columnRoleReplaceChanged : ClassVar[Signal] = ... # columnRoleReplaceChanged(QString)
+    itemModelChanged         : ClassVar[Signal] = ... # itemModelChanged(const QAbstractItemModel*)
+    multiMatchBehaviorChanged: ClassVar[Signal] = ... # multiMatchBehaviorChanged(MultiMatchBehavior)
+    rotationRoleChanged      : ClassVar[Signal] = ... # rotationRoleChanged(QString)
+    rotationRolePatternChanged: ClassVar[Signal] = ... # rotationRolePatternChanged(QRegularExpression)
+    rotationRoleReplaceChanged: ClassVar[Signal] = ... # rotationRoleReplaceChanged(QString)
+    rowCategoriesChanged     : ClassVar[Signal] = ... # rowCategoriesChanged()
+    rowRoleChanged           : ClassVar[Signal] = ... # rowRoleChanged(QString)
+    rowRolePatternChanged    : ClassVar[Signal] = ... # rowRolePatternChanged(QRegularExpression)
+    rowRoleReplaceChanged    : ClassVar[Signal] = ... # rowRoleReplaceChanged(QString)
+    useModelCategoriesChanged: ClassVar[Signal] = ... # useModelCategoriesChanged(bool)
+    valueRoleChanged         : ClassVar[Signal] = ... # valueRoleChanged(QString)
+    valueRolePatternChanged  : ClassVar[Signal] = ... # valueRolePatternChanged(QRegularExpression)
+    valueRoleReplaceChanged  : ClassVar[Signal] = ... # valueRoleReplaceChanged(QString)
 
     class MultiMatchBehavior(enum.Enum):
 
@@ -846,6 +1062,20 @@ class QItemModelBarDataProxy(PySide6.QtDataVisualization.QBarDataProxy):
 
 class QItemModelScatterDataProxy(PySide6.QtDataVisualization.QScatterDataProxy):
 
+    itemModelChanged         : ClassVar[Signal] = ... # itemModelChanged(const QAbstractItemModel*)
+    rotationRoleChanged      : ClassVar[Signal] = ... # rotationRoleChanged(QString)
+    rotationRolePatternChanged: ClassVar[Signal] = ... # rotationRolePatternChanged(QRegularExpression)
+    rotationRoleReplaceChanged: ClassVar[Signal] = ... # rotationRoleReplaceChanged(QString)
+    xPosRoleChanged          : ClassVar[Signal] = ... # xPosRoleChanged(QString)
+    xPosRolePatternChanged   : ClassVar[Signal] = ... # xPosRolePatternChanged(QRegularExpression)
+    xPosRoleReplaceChanged   : ClassVar[Signal] = ... # xPosRoleReplaceChanged(QString)
+    yPosRoleChanged          : ClassVar[Signal] = ... # yPosRoleChanged(QString)
+    yPosRolePatternChanged   : ClassVar[Signal] = ... # yPosRolePatternChanged(QRegularExpression)
+    yPosRoleReplaceChanged   : ClassVar[Signal] = ... # yPosRoleReplaceChanged(QString)
+    zPosRoleChanged          : ClassVar[Signal] = ... # zPosRoleChanged(QString)
+    zPosRolePatternChanged   : ClassVar[Signal] = ... # zPosRolePatternChanged(QRegularExpression)
+    zPosRoleReplaceChanged   : ClassVar[Signal] = ... # zPosRoleReplaceChanged(QString)
+
     @overload
     def __init__(self, itemModel: PySide6.QtCore.QAbstractItemModel, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -885,6 +1115,29 @@ class QItemModelScatterDataProxy(PySide6.QtDataVisualization.QScatterDataProxy):
 
 
 class QItemModelSurfaceDataProxy(PySide6.QtDataVisualization.QSurfaceDataProxy):
+
+    autoColumnCategoriesChanged: ClassVar[Signal] = ... # autoColumnCategoriesChanged(bool)
+    autoRowCategoriesChanged : ClassVar[Signal] = ... # autoRowCategoriesChanged(bool)
+    columnCategoriesChanged  : ClassVar[Signal] = ... # columnCategoriesChanged()
+    columnRoleChanged        : ClassVar[Signal] = ... # columnRoleChanged(QString)
+    columnRolePatternChanged : ClassVar[Signal] = ... # columnRolePatternChanged(QRegularExpression)
+    columnRoleReplaceChanged : ClassVar[Signal] = ... # columnRoleReplaceChanged(QString)
+    itemModelChanged         : ClassVar[Signal] = ... # itemModelChanged(const QAbstractItemModel*)
+    multiMatchBehaviorChanged: ClassVar[Signal] = ... # multiMatchBehaviorChanged(MultiMatchBehavior)
+    rowCategoriesChanged     : ClassVar[Signal] = ... # rowCategoriesChanged()
+    rowRoleChanged           : ClassVar[Signal] = ... # rowRoleChanged(QString)
+    rowRolePatternChanged    : ClassVar[Signal] = ... # rowRolePatternChanged(QRegularExpression)
+    rowRoleReplaceChanged    : ClassVar[Signal] = ... # rowRoleReplaceChanged(QString)
+    useModelCategoriesChanged: ClassVar[Signal] = ... # useModelCategoriesChanged(bool)
+    xPosRoleChanged          : ClassVar[Signal] = ... # xPosRoleChanged(QString)
+    xPosRolePatternChanged   : ClassVar[Signal] = ... # xPosRolePatternChanged(QRegularExpression)
+    xPosRoleReplaceChanged   : ClassVar[Signal] = ... # xPosRoleReplaceChanged(QString)
+    yPosRoleChanged          : ClassVar[Signal] = ... # yPosRoleChanged(QString)
+    yPosRolePatternChanged   : ClassVar[Signal] = ... # yPosRolePatternChanged(QRegularExpression)
+    yPosRoleReplaceChanged   : ClassVar[Signal] = ... # yPosRoleReplaceChanged(QString)
+    zPosRoleChanged          : ClassVar[Signal] = ... # zPosRoleChanged(QString)
+    zPosRolePatternChanged   : ClassVar[Signal] = ... # zPosRolePatternChanged(QRegularExpression)
+    zPosRoleReplaceChanged   : ClassVar[Signal] = ... # zPosRoleReplaceChanged(QString)
 
     class MultiMatchBehavior(enum.Enum):
 
@@ -960,6 +1213,10 @@ class QItemModelSurfaceDataProxy(PySide6.QtDataVisualization.QSurfaceDataProxy):
 
 class QLogValue3DAxisFormatter(PySide6.QtDataVisualization.QValue3DAxisFormatter):
 
+    autoSubGridChanged       : ClassVar[Signal] = ... # autoSubGridChanged(bool)
+    baseChanged              : ClassVar[Signal] = ... # baseChanged(double)
+    showEdgeLabelsChanged    : ClassVar[Signal] = ... # showEdgeLabelsChanged(bool)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def autoSubGrid(self) -> bool: ...
@@ -976,6 +1233,10 @@ class QLogValue3DAxisFormatter(PySide6.QtDataVisualization.QValue3DAxisFormatter
 
 
 class QScatter3DSeries(PySide6.QtDataVisualization.QAbstract3DSeries):
+
+    dataProxyChanged         : ClassVar[Signal] = ... # dataProxyChanged(QScatterDataProxy*)
+    itemSizeChanged          : ClassVar[Signal] = ... # itemSizeChanged(float)
+    selectedItemChanged      : ClassVar[Signal] = ... # selectedItemChanged(int)
 
     @overload
     def __init__(self, dataProxy: PySide6.QtDataVisualization.QScatterDataProxy, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -1020,6 +1281,14 @@ class QScatterDataItem(Shiboken.Object):
 
 class QScatterDataProxy(PySide6.QtDataVisualization.QAbstractDataProxy):
 
+    arrayReset               : ClassVar[Signal] = ... # arrayReset()
+    itemCountChanged         : ClassVar[Signal] = ... # itemCountChanged(int)
+    itemsAdded               : ClassVar[Signal] = ... # itemsAdded(int,int)
+    itemsChanged             : ClassVar[Signal] = ... # itemsChanged(int,int)
+    itemsInserted            : ClassVar[Signal] = ... # itemsInserted(int,int)
+    itemsRemoved             : ClassVar[Signal] = ... # itemsRemoved(int,int)
+    seriesChanged            : ClassVar[Signal] = ... # seriesChanged(QScatter3DSeries*)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addItem(self, item: Union[PySide6.QtDataVisualization.QScatterDataItem, PySide6.QtGui.QVector3D]) -> int: ...
@@ -1030,13 +1299,22 @@ class QScatterDataProxy(PySide6.QtDataVisualization.QAbstractDataProxy):
     def itemAt(self, index: int) -> PySide6.QtDataVisualization.QScatterDataItem: ...
     def itemCount(self) -> int: ...
     def removeItems(self, index: int, removeCount: int) -> None: ...
-    def resetArray(self, newArray: Sequence[PySide6.QtDataVisualization.QScatterDataItem]) -> None: ...
+    def resetArray(self, arg__1: Sequence[PySide6.QtDataVisualization.QScatterDataItem]) -> None: ...
     def series(self) -> PySide6.QtDataVisualization.QScatter3DSeries: ...
     def setItem(self, index: int, item: Union[PySide6.QtDataVisualization.QScatterDataItem, PySide6.QtGui.QVector3D]) -> None: ...
     def setItems(self, index: int, items: Sequence[PySide6.QtDataVisualization.QScatterDataItem]) -> None: ...
 
 
 class QSurface3DSeries(PySide6.QtDataVisualization.QAbstract3DSeries):
+
+    dataProxyChanged         : ClassVar[Signal] = ... # dataProxyChanged(QSurfaceDataProxy*)
+    drawModeChanged          : ClassVar[Signal] = ... # drawModeChanged(QSurface3DSeries::DrawFlags)
+    flatShadingEnabledChanged: ClassVar[Signal] = ... # flatShadingEnabledChanged(bool)
+    flatShadingSupportedChanged: ClassVar[Signal] = ... # flatShadingSupportedChanged(bool)
+    selectedPointChanged     : ClassVar[Signal] = ... # selectedPointChanged(QPoint)
+    textureChanged           : ClassVar[Signal] = ... # textureChanged(QImage)
+    textureFileChanged       : ClassVar[Signal] = ... # textureFileChanged(QString)
+    wireframeColorChanged    : ClassVar[Signal] = ... # wireframeColorChanged(QColor)
 
     class DrawFlag(enum.Flag):
 
@@ -1093,6 +1371,16 @@ class QSurfaceDataItem(Shiboken.Object):
 
 class QSurfaceDataProxy(PySide6.QtDataVisualization.QAbstractDataProxy):
 
+    arrayReset               : ClassVar[Signal] = ... # arrayReset()
+    columnCountChanged       : ClassVar[Signal] = ... # columnCountChanged(int)
+    itemChanged              : ClassVar[Signal] = ... # itemChanged(int,int)
+    rowCountChanged          : ClassVar[Signal] = ... # rowCountChanged(int)
+    rowsAdded                : ClassVar[Signal] = ... # rowsAdded(int,int)
+    rowsChanged              : ClassVar[Signal] = ... # rowsChanged(int,int)
+    rowsInserted             : ClassVar[Signal] = ... # rowsInserted(int,int)
+    rowsRemoved              : ClassVar[Signal] = ... # rowsRemoved(int,int)
+    seriesChanged            : ClassVar[Signal] = ... # seriesChanged(QSurface3DSeries*)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addRow(self, arg__1: Sequence[PySide6.QtDataVisualization.QSurfaceDataItem]) -> int: ...
@@ -1126,6 +1414,12 @@ class QTouch3DInputHandler(PySide6.QtDataVisualization.Q3DInputHandler):
 
 
 class QValue3DAxis(PySide6.QtDataVisualization.QAbstract3DAxis):
+
+    formatterChanged         : ClassVar[Signal] = ... # formatterChanged(QValue3DAxisFormatter*)
+    labelFormatChanged       : ClassVar[Signal] = ... # labelFormatChanged(QString)
+    reversedChanged          : ClassVar[Signal] = ... # reversedChanged(bool)
+    segmentCountChanged      : ClassVar[Signal] = ... # segmentCountChanged(int)
+    subSegmentCountChanged   : ClassVar[Signal] = ... # subSegmentCountChanged(int)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

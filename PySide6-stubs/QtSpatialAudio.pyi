@@ -15,10 +15,19 @@ import PySide6.QtGui
 import PySide6.QtMultimedia
 
 import enum
-from typing import Optional, Union, overload
+from typing import ClassVar, Optional, Union, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QAmbientSound(PySide6.QtCore.QObject):
+
+    autoPlayChanged          : ClassVar[Signal] = ... # autoPlayChanged()
+    loopsChanged             : ClassVar[Signal] = ... # loopsChanged()
+    sourceChanged            : ClassVar[Signal] = ... # sourceChanged()
+    volumeChanged            : ClassVar[Signal] = ... # volumeChanged()
 
     class Loops(enum.Enum):
 
@@ -43,6 +52,12 @@ class QAmbientSound(PySide6.QtCore.QObject):
 
 
 class QAudioEngine(PySide6.QtCore.QObject):
+
+    distanceScaleChanged     : ClassVar[Signal] = ... # distanceScaleChanged()
+    masterVolumeChanged      : ClassVar[Signal] = ... # masterVolumeChanged()
+    outputDeviceChanged      : ClassVar[Signal] = ... # outputDeviceChanged()
+    outputModeChanged        : ClassVar[Signal] = ... # outputModeChanged()
+    pausedChanged            : ClassVar[Signal] = ... # pausedChanged()
 
     class OutputMode(enum.Enum):
 
@@ -79,6 +94,9 @@ class QAudioEngine(PySide6.QtCore.QObject):
 
 class QAudioListener(PySide6.QtCore.QObject):
 
+    destroyed                : ClassVar[Signal] = ... # destroyed()
+    objectNameChanged        : ClassVar[Signal] = ... # objectNameChanged(QString)
+
     def __init__(self, engine: PySide6.QtSpatialAudio.QAudioEngine) -> None: ...
 
     def engine(self) -> PySide6.QtSpatialAudio.QAudioEngine: ...
@@ -89,6 +107,15 @@ class QAudioListener(PySide6.QtCore.QObject):
 
 
 class QAudioRoom(PySide6.QtCore.QObject):
+
+    dimensionsChanged        : ClassVar[Signal] = ... # dimensionsChanged()
+    positionChanged          : ClassVar[Signal] = ... # positionChanged()
+    reflectionGainChanged    : ClassVar[Signal] = ... # reflectionGainChanged()
+    reverbBrightnessChanged  : ClassVar[Signal] = ... # reverbBrightnessChanged()
+    reverbGainChanged        : ClassVar[Signal] = ... # reverbGainChanged()
+    reverbTimeChanged        : ClassVar[Signal] = ... # reverbTimeChanged()
+    rotationChanged          : ClassVar[Signal] = ... # rotationChanged()
+    wallsChanged             : ClassVar[Signal] = ... # wallsChanged()
 
     class Material(enum.Enum):
 
@@ -152,6 +179,21 @@ class QIntList(object): ...
 
 
 class QSpatialSound(PySide6.QtCore.QObject):
+
+    autoPlayChanged          : ClassVar[Signal] = ... # autoPlayChanged()
+    directivityChanged       : ClassVar[Signal] = ... # directivityChanged()
+    directivityOrderChanged  : ClassVar[Signal] = ... # directivityOrderChanged()
+    distanceCutoffChanged    : ClassVar[Signal] = ... # distanceCutoffChanged()
+    distanceModelChanged     : ClassVar[Signal] = ... # distanceModelChanged()
+    loopsChanged             : ClassVar[Signal] = ... # loopsChanged()
+    manualAttenuationChanged : ClassVar[Signal] = ... # manualAttenuationChanged()
+    nearFieldGainChanged     : ClassVar[Signal] = ... # nearFieldGainChanged()
+    occlusionIntensityChanged: ClassVar[Signal] = ... # occlusionIntensityChanged()
+    positionChanged          : ClassVar[Signal] = ... # positionChanged()
+    rotationChanged          : ClassVar[Signal] = ... # rotationChanged()
+    sizeChanged              : ClassVar[Signal] = ... # sizeChanged()
+    sourceChanged            : ClassVar[Signal] = ... # sourceChanged()
+    volumeChanged            : ClassVar[Signal] = ... # volumeChanged()
 
     class DistanceModel(enum.Enum):
 

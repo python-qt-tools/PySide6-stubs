@@ -12,13 +12,19 @@ PySide6.QtWebChannel, except for defaults which are replaced by "...".
 import PySide6.QtWebChannel
 import PySide6.QtCore
 
-from typing import Optional, Dict
+from typing import ClassVar, Dict, Optional
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
 
 
 class QWebChannel(PySide6.QtCore.QObject):
+
+    blockUpdatesChanged      : ClassVar[Signal] = ... # blockUpdatesChanged(bool)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -35,6 +41,8 @@ class QWebChannel(PySide6.QtCore.QObject):
 
 
 class QWebChannelAbstractTransport(PySide6.QtCore.QObject):
+
+    messageReceived          : ClassVar[Signal] = ... # messageReceived(QJsonObject,QWebChannelAbstractTransport*)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

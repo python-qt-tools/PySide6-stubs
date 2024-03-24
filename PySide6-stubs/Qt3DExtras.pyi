@@ -15,8 +15,12 @@ import PySide6.QtGui
 import PySide6.Qt3DCore
 import PySide6.Qt3DRender
 
-from typing import Any, Optional, Union, Sequence, List, overload
+from typing import Any, ClassVar, List, Optional, Sequence, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -25,6 +29,12 @@ class QIntList(object): ...
 class Qt3DExtras(Shiboken.Object):
 
     class QAbstractCameraController(PySide6.Qt3DCore.Qt3DCore.QEntity):
+
+        accelerationChanged      : ClassVar[Signal] = ... # accelerationChanged(float)
+        cameraChanged            : ClassVar[Signal] = ... # cameraChanged()
+        decelerationChanged      : ClassVar[Signal] = ... # decelerationChanged(float)
+        linearSpeedChanged       : ClassVar[Signal] = ... # linearSpeedChanged()
+        lookSpeedChanged         : ClassVar[Signal] = ... # lookSpeedChanged()
 
         class InputState(Shiboken.Object):
 
@@ -51,6 +61,10 @@ class Qt3DExtras(Shiboken.Object):
         def setLookSpeed(self, lookSpeed: float) -> None: ...
 
     class QAbstractSpriteSheet(PySide6.Qt3DCore.Qt3DCore.QNode):
+
+        currentIndexChanged      : ClassVar[Signal] = ... # currentIndexChanged(int)
+        textureChanged           : ClassVar[Signal] = ... # textureChanged(Qt3DRender::QAbstractTexture*)
+        textureTransformChanged  : ClassVar[Signal] = ... # textureTransformChanged(QMatrix3x3)
         def currentIndex(self) -> int: ...
         def setCurrentIndex(self, currentIndex: int) -> None: ...
         def setTexture(self, texture: PySide6.Qt3DRender.Qt3DRender.QAbstractTexture) -> None: ...
@@ -58,6 +72,14 @@ class Qt3DExtras(Shiboken.Object):
         def textureTransform(self) -> PySide6.QtGui.QMatrix3x3: ...
 
     class QConeGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        bottomRadiusChanged      : ClassVar[Signal] = ... # bottomRadiusChanged(float)
+        hasBottomEndcapChanged   : ClassVar[Signal] = ... # hasBottomEndcapChanged(bool)
+        hasTopEndcapChanged      : ClassVar[Signal] = ... # hasTopEndcapChanged(bool)
+        lengthChanged            : ClassVar[Signal] = ... # lengthChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
+        topRadiusChanged         : ClassVar[Signal] = ... # topRadiusChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -83,6 +105,14 @@ class Qt3DExtras(Shiboken.Object):
         def updateVertices(self) -> None: ...
 
     class QConeGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        bottomRadiusChanged      : ClassVar[Signal] = ... # bottomRadiusChanged(float)
+        hasBottomEndcapChanged   : ClassVar[Signal] = ... # hasBottomEndcapChanged(bool)
+        hasTopEndcapChanged      : ClassVar[Signal] = ... # hasTopEndcapChanged(bool)
+        lengthChanged            : ClassVar[Signal] = ... # lengthChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
+        topRadiusChanged         : ClassVar[Signal] = ... # topRadiusChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -111,6 +141,14 @@ class Qt3DExtras(Shiboken.Object):
 
     class QConeMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        bottomRadiusChanged      : ClassVar[Signal] = ... # bottomRadiusChanged(float)
+        hasBottomEndcapChanged   : ClassVar[Signal] = ... # hasBottomEndcapChanged(bool)
+        hasTopEndcapChanged      : ClassVar[Signal] = ... # hasTopEndcapChanged(bool)
+        lengthChanged            : ClassVar[Signal] = ... # lengthChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
+        topRadiusChanged         : ClassVar[Signal] = ... # topRadiusChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def bottomRadius(self) -> float: ...
@@ -138,6 +176,13 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCuboidGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
 
+        xExtentChanged           : ClassVar[Signal] = ... # xExtentChanged(float)
+        xyMeshResolutionChanged  : ClassVar[Signal] = ... # xyMeshResolutionChanged(QSize)
+        xzMeshResolutionChanged  : ClassVar[Signal] = ... # xzMeshResolutionChanged(QSize)
+        yExtentChanged           : ClassVar[Signal] = ... # yExtentChanged(float)
+        yzMeshResolutionChanged  : ClassVar[Signal] = ... # yzMeshResolutionChanged(QSize)
+        zExtentChanged           : ClassVar[Signal] = ... # zExtentChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def indexAttribute(self) -> PySide6.Qt3DCore.Qt3DCore.QAttribute: ...
@@ -161,6 +206,13 @@ class Qt3DExtras(Shiboken.Object):
         def zExtent(self) -> float: ...
 
     class QCuboidGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        xExtentChanged           : ClassVar[Signal] = ... # xExtentChanged(float)
+        xyMeshResolutionChanged  : ClassVar[Signal] = ... # xyMeshResolutionChanged(QSize)
+        xzMeshResolutionChanged  : ClassVar[Signal] = ... # xzMeshResolutionChanged(QSize)
+        yExtentChanged           : ClassVar[Signal] = ... # yExtentChanged(float)
+        yzMeshResolutionChanged  : ClassVar[Signal] = ... # yzMeshResolutionChanged(QSize)
+        zExtentChanged           : ClassVar[Signal] = ... # zExtentChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -187,6 +239,13 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCuboidMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        xExtentChanged           : ClassVar[Signal] = ... # xExtentChanged(float)
+        xyMeshResolutionChanged  : ClassVar[Signal] = ... # xyMeshResolutionChanged(QSize)
+        xzMeshResolutionChanged  : ClassVar[Signal] = ... # xzMeshResolutionChanged(QSize)
+        yExtentChanged           : ClassVar[Signal] = ... # yExtentChanged(float)
+        yzMeshResolutionChanged  : ClassVar[Signal] = ... # yzMeshResolutionChanged(QSize)
+        zExtentChanged           : ClassVar[Signal] = ... # zExtentChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setFirstInstance(self, firstInstance: int) -> None: ...
@@ -212,6 +271,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCylinderGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
 
+        lengthChanged            : ClassVar[Signal] = ... # lengthChanged(float)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def indexAttribute(self) -> PySide6.Qt3DCore.Qt3DCore.QAttribute: ...
@@ -230,6 +294,11 @@ class Qt3DExtras(Shiboken.Object):
         def updateVertices(self) -> None: ...
 
     class QCylinderGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        lengthChanged            : ClassVar[Signal] = ... # lengthChanged(float)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -252,6 +321,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QCylinderMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        lengthChanged            : ClassVar[Signal] = ... # lengthChanged(float)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def length(self) -> float: ...
@@ -273,6 +347,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QDiffuseMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(Qt3DRender::QAbstractTexture*)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(QColor)
+        textureScaleChanged      : ClassVar[Signal] = ... # textureScaleChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -288,6 +368,12 @@ class Qt3DExtras(Shiboken.Object):
 
     class QDiffuseSpecularMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(Qt3DRender::QAbstractTexture*)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(Qt3DRender::QAbstractTexture*)
+        textureScaleChanged      : ClassVar[Signal] = ... # textureScaleChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -302,6 +388,14 @@ class Qt3DExtras(Shiboken.Object):
         def textureScale(self) -> float: ...
 
     class QDiffuseSpecularMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        alphaBlendingEnabledChanged: ClassVar[Signal] = ... # alphaBlendingEnabledChanged(bool)
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(QVariant)
+        normalChanged            : ClassVar[Signal] = ... # normalChanged(QVariant)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(QVariant)
+        textureScaleChanged      : ClassVar[Signal] = ... # textureScaleChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -322,6 +416,10 @@ class Qt3DExtras(Shiboken.Object):
 
     class QExtrudedTextGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
 
+        depthChanged             : ClassVar[Signal] = ... # depthChanged(float)
+        fontChanged              : ClassVar[Signal] = ... # fontChanged(QFont)
+        textChanged              : ClassVar[Signal] = ... # textChanged(QString)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def extrusionLength(self) -> float: ...
@@ -335,6 +433,10 @@ class Qt3DExtras(Shiboken.Object):
         def text(self) -> str: ...
 
     class QExtrudedTextMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
+
+        depthChanged             : ClassVar[Signal] = ... # depthChanged(float)
+        fontChanged              : ClassVar[Signal] = ... # fontChanged(QFont)
+        textChanged              : ClassVar[Signal] = ... # textChanged(QString)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -351,6 +453,16 @@ class Qt3DExtras(Shiboken.Object):
 
 
     class QForwardRenderer(PySide6.Qt3DRender.Qt3DRender.QTechniqueFilter):
+
+        buffersToClearChanged    : ClassVar[Signal] = ... # buffersToClearChanged(Qt3DRender::QClearBuffers::BufferType)
+        cameraChanged            : ClassVar[Signal] = ... # cameraChanged(Qt3DCore::QEntity*)
+        clearColorChanged        : ClassVar[Signal] = ... # clearColorChanged(QColor)
+        externalRenderTargetSizeChanged: ClassVar[Signal] = ... # externalRenderTargetSizeChanged(QSize)
+        frustumCullingEnabledChanged: ClassVar[Signal] = ... # frustumCullingEnabledChanged(bool)
+        gammaChanged             : ClassVar[Signal] = ... # gammaChanged(float)
+        showDebugOverlayChanged  : ClassVar[Signal] = ... # showDebugOverlayChanged(bool)
+        surfaceChanged           : ClassVar[Signal] = ... # surfaceChanged(QObject*)
+        viewportRectChanged      : ClassVar[Signal] = ... # viewportRectChanged(QRectF)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -375,6 +487,14 @@ class Qt3DExtras(Shiboken.Object):
 
     class QGoochMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        alphaChanged             : ClassVar[Signal] = ... # alphaChanged(float)
+        betaChanged              : ClassVar[Signal] = ... # betaChanged(float)
+        coolChanged              : ClassVar[Signal] = ... # coolChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(QColor)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(QColor)
+        warmChanged              : ClassVar[Signal] = ... # warmChanged(QColor)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def alpha(self) -> float: ...
@@ -394,6 +514,13 @@ class Qt3DExtras(Shiboken.Object):
 
     class QMetalRoughMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientOcclusionChanged  : ClassVar[Signal] = ... # ambientOcclusionChanged(QVariant)
+        baseColorChanged         : ClassVar[Signal] = ... # baseColorChanged(QVariant)
+        metalnessChanged         : ClassVar[Signal] = ... # metalnessChanged(QVariant)
+        normalChanged            : ClassVar[Signal] = ... # normalChanged(QVariant)
+        roughnessChanged         : ClassVar[Signal] = ... # roughnessChanged(QVariant)
+        textureScaleChanged      : ClassVar[Signal] = ... # textureScaleChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambientOcclusion(self) -> Any: ...
@@ -410,6 +537,12 @@ class Qt3DExtras(Shiboken.Object):
         def textureScale(self) -> float: ...
 
     class QMorphPhongMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(QColor)
+        interpolatorChanged      : ClassVar[Signal] = ... # interpolatorChanged(float)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(QColor)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -431,6 +564,13 @@ class Qt3DExtras(Shiboken.Object):
 
     class QNormalDiffuseMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(Qt3DRender::QAbstractTexture*)
+        normalChanged            : ClassVar[Signal] = ... # normalChanged(Qt3DRender::QAbstractTexture*)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(QColor)
+        textureScaleChanged      : ClassVar[Signal] = ... # textureScaleChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -447,6 +587,13 @@ class Qt3DExtras(Shiboken.Object):
         def textureScale(self) -> float: ...
 
     class QNormalDiffuseSpecularMapMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(Qt3DRender::QAbstractTexture*)
+        normalChanged            : ClassVar[Signal] = ... # normalChanged(Qt3DRender::QAbstractTexture*)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(Qt3DRender::QAbstractTexture*)
+        textureScaleChanged      : ClassVar[Signal] = ... # textureScaleChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -465,6 +612,8 @@ class Qt3DExtras(Shiboken.Object):
 
     class QOrbitCameraController(PySide6.Qt3DExtras.Qt3DExtras.QAbstractCameraController):
 
+        zoomInLimitChanged       : ClassVar[Signal] = ... # zoomInLimitChanged()
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def setZoomInLimit(self, zoomInLimit: float) -> None: ...
@@ -476,6 +625,17 @@ class Qt3DExtras(Shiboken.Object):
 
 
     class QPhongAlphaMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
+
+        alphaChanged             : ClassVar[Signal] = ... # alphaChanged(float)
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        blendFunctionArgChanged  : ClassVar[Signal] = ... # blendFunctionArgChanged(Qt3DRender::QBlendEquation::BlendFunction)
+        destinationAlphaArgChanged: ClassVar[Signal] = ... # destinationAlphaArgChanged(Qt3DRender::QBlendEquationArguments::Blending)
+        destinationRgbArgChanged : ClassVar[Signal] = ... # destinationRgbArgChanged(Qt3DRender::QBlendEquationArguments::Blending)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(QColor)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        sourceAlphaArgChanged    : ClassVar[Signal] = ... # sourceAlphaArgChanged(Qt3DRender::QBlendEquationArguments::Blending)
+        sourceRgbArgChanged      : ClassVar[Signal] = ... # sourceRgbArgChanged(Qt3DRender::QBlendEquationArguments::Blending)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(QColor)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -502,6 +662,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QPhongMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        ambientChanged           : ClassVar[Signal] = ... # ambientChanged(QColor)
+        diffuseChanged           : ClassVar[Signal] = ... # diffuseChanged(QColor)
+        shininessChanged         : ClassVar[Signal] = ... # shininessChanged(float)
+        specularChanged          : ClassVar[Signal] = ... # specularChanged(QColor)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def ambient(self) -> PySide6.QtGui.QColor: ...
@@ -514,6 +679,11 @@ class Qt3DExtras(Shiboken.Object):
         def specular(self) -> PySide6.QtGui.QColor: ...
 
     class QPlaneGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        heightChanged            : ClassVar[Signal] = ... # heightChanged(float)
+        mirroredChanged          : ClassVar[Signal] = ... # mirroredChanged(bool)
+        resolutionChanged        : ClassVar[Signal] = ... # resolutionChanged(QSize)
+        widthChanged             : ClassVar[Signal] = ... # widthChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -534,6 +704,11 @@ class Qt3DExtras(Shiboken.Object):
         def width(self) -> float: ...
 
     class QPlaneGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        heightChanged            : ClassVar[Signal] = ... # heightChanged(float)
+        meshResolutionChanged    : ClassVar[Signal] = ... # meshResolutionChanged(QSize)
+        mirroredChanged          : ClassVar[Signal] = ... # mirroredChanged(bool)
+        widthChanged             : ClassVar[Signal] = ... # widthChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -556,6 +731,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QPlaneMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
 
+        heightChanged            : ClassVar[Signal] = ... # heightChanged(float)
+        meshResolutionChanged    : ClassVar[Signal] = ... # meshResolutionChanged(QSize)
+        mirroredChanged          : ClassVar[Signal] = ... # mirroredChanged(bool)
+        widthChanged             : ClassVar[Signal] = ... # widthChanged(float)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def height(self) -> float: ...
@@ -577,6 +757,10 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSkyboxEntity(PySide6.Qt3DCore.Qt3DCore.QEntity):
 
+        baseNameChanged          : ClassVar[Signal] = ... # baseNameChanged(QString)
+        extensionChanged         : ClassVar[Signal] = ... # extensionChanged(QString)
+        gammaCorrectEnabledChanged: ClassVar[Signal] = ... # gammaCorrectEnabledChanged(bool)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def baseName(self) -> str: ...
@@ -587,6 +771,11 @@ class Qt3DExtras(Shiboken.Object):
         def setGammaCorrectEnabled(self, enabled: bool) -> None: ...
 
     class QSphereGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        generateTangentsChanged  : ClassVar[Signal] = ... # generateTangentsChanged(bool)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -608,6 +797,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSphereGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
 
+        generateTangentsChanged  : ClassVar[Signal] = ... # generateTangentsChanged(bool)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def generateTangents(self) -> bool: ...
@@ -627,6 +821,11 @@ class Qt3DExtras(Shiboken.Object):
         def slices(self) -> int: ...
 
     class QSphereMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
+
+        generateTangentsChanged  : ClassVar[Signal] = ... # generateTangentsChanged(bool)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -648,6 +847,9 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSpriteGrid(PySide6.Qt3DExtras.Qt3DExtras.QAbstractSpriteSheet):
 
+        columnsChanged           : ClassVar[Signal] = ... # columnsChanged(int)
+        rowsChanged              : ClassVar[Signal] = ... # rowsChanged(int)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def columns(self) -> int: ...
@@ -656,6 +858,8 @@ class Qt3DExtras(Shiboken.Object):
         def setRows(self, rows: int) -> None: ...
 
     class QSpriteSheet(PySide6.Qt3DExtras.Qt3DExtras.QAbstractSpriteSheet):
+
+        spritesChanged           : ClassVar[Signal] = ... # spritesChanged(QList<QSpriteSheetItem*>)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -669,6 +873,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QSpriteSheetItem(PySide6.Qt3DCore.Qt3DCore.QNode):
 
+        heightChanged            : ClassVar[Signal] = ... # heightChanged(int)
+        widthChanged             : ClassVar[Signal] = ... # widthChanged(int)
+        xChanged                 : ClassVar[Signal] = ... # xChanged(int)
+        yChanged                 : ClassVar[Signal] = ... # yChanged(int)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def height(self) -> int: ...
@@ -681,6 +890,12 @@ class Qt3DExtras(Shiboken.Object):
         def y(self) -> int: ...
 
     class QText2DEntity(PySide6.Qt3DCore.Qt3DCore.QEntity):
+
+        colorChanged             : ClassVar[Signal] = ... # colorChanged(QColor)
+        fontChanged              : ClassVar[Signal] = ... # fontChanged(QFont)
+        heightChanged            : ClassVar[Signal] = ... # heightChanged(float)
+        textChanged              : ClassVar[Signal] = ... # textChanged(QString)
+        widthChanged             : ClassVar[Signal] = ... # widthChanged(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -697,6 +912,11 @@ class Qt3DExtras(Shiboken.Object):
 
     class QTextureMaterial(PySide6.Qt3DRender.Qt3DRender.QMaterial):
 
+        alphaBlendingEnabledChanged: ClassVar[Signal] = ... # alphaBlendingEnabledChanged(bool)
+        textureChanged           : ClassVar[Signal] = ... # textureChanged(Qt3DRender::QAbstractTexture*)
+        textureOffsetChanged     : ClassVar[Signal] = ... # textureOffsetChanged(QVector2D)
+        textureTransformChanged  : ClassVar[Signal] = ... # textureTransformChanged(QMatrix3x3)
+
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
         def isAlphaBlendingEnabled(self) -> bool: ...
@@ -709,6 +929,11 @@ class Qt3DExtras(Shiboken.Object):
         def textureTransform(self) -> PySide6.QtGui.QMatrix3x3: ...
 
     class QTorusGeometry(PySide6.Qt3DCore.Qt3DCore.QGeometry):
+
+        minorRadiusChanged       : ClassVar[Signal] = ... # minorRadiusChanged(float)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -728,6 +953,11 @@ class Qt3DExtras(Shiboken.Object):
         def updateVertices(self) -> None: ...
 
     class QTorusGeometryView(PySide6.Qt3DCore.Qt3DCore.QGeometryView):
+
+        minorRadiusChanged       : ClassVar[Signal] = ... # minorRadiusChanged(float)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -749,6 +979,11 @@ class Qt3DExtras(Shiboken.Object):
         def slices(self) -> int: ...
 
     class QTorusMesh(PySide6.Qt3DRender.Qt3DRender.QGeometryRenderer):
+
+        minorRadiusChanged       : ClassVar[Signal] = ... # minorRadiusChanged(float)
+        radiusChanged            : ClassVar[Signal] = ... # radiusChanged(float)
+        ringsChanged             : ClassVar[Signal] = ... # ringsChanged(int)
+        slicesChanged            : ClassVar[Signal] = ... # slicesChanged(int)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 

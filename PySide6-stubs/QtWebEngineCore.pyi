@@ -16,8 +16,12 @@ import PySide6.QtNetwork
 import PySide6.QtWebChannel
 
 import enum
-from typing import Any, Callable, Optional, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, Callable, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -118,6 +122,9 @@ class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
 
 class QWebEngineCookieStore(PySide6.QtCore.QObject):
 
+    cookieAdded              : ClassVar[Signal] = ... # cookieAdded(QNetworkCookie)
+    cookieRemoved            : ClassVar[Signal] = ... # cookieRemoved(QNetworkCookie)
+
     class FilterRequest(Shiboken.Object):
 
         @overload
@@ -138,6 +145,16 @@ class QWebEngineCookieStore(PySide6.QtCore.QObject):
 
 
 class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
+
+    downloadDirectoryChanged : ClassVar[Signal] = ... # downloadDirectoryChanged()
+    downloadFileNameChanged  : ClassVar[Signal] = ... # downloadFileNameChanged()
+    interruptReasonChanged   : ClassVar[Signal] = ... # interruptReasonChanged()
+    isFinishedChanged        : ClassVar[Signal] = ... # isFinishedChanged()
+    isPausedChanged          : ClassVar[Signal] = ... # isPausedChanged()
+    receivedBytesChanged     : ClassVar[Signal] = ... # receivedBytesChanged()
+    savePageFormatChanged    : ClassVar[Signal] = ... # savePageFormatChanged()
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QWebEngineDownloadRequest::DownloadState)
+    totalBytesChanged        : ClassVar[Signal] = ... # totalBytesChanged()
 
     class DownloadInterruptReason(enum.Enum):
 
@@ -207,6 +224,32 @@ class QWebEngineDownloadRequest(PySide6.QtCore.QObject):
     def suggestedFileName(self) -> str: ...
     def totalBytes(self) -> int: ...
     def url(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineFileSystemAccessRequest(Shiboken.Object):
+
+    class AccessFlag(enum.Flag):
+
+        Read                     : QWebEngineFileSystemAccessRequest.AccessFlag = ... # 0x1
+        Write                    : QWebEngineFileSystemAccessRequest.AccessFlag = ... # 0x2
+
+
+    class HandleType(enum.Enum):
+
+        File                     : QWebEngineFileSystemAccessRequest.HandleType = ... # 0x0
+        Directory                : QWebEngineFileSystemAccessRequest.HandleType = ... # 0x1
+
+
+    def __init__(self, other: PySide6.QtWebEngineCore.QWebEngineFileSystemAccessRequest) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def accept(self) -> None: ...
+    def accessFlags(self) -> PySide6.QtWebEngineCore.QWebEngineFileSystemAccessRequest.AccessFlag: ...
+    def filePath(self) -> PySide6.QtCore.QUrl: ...
+    def handleType(self) -> PySide6.QtWebEngineCore.QWebEngineFileSystemAccessRequest.HandleType: ...
+    def origin(self) -> PySide6.QtCore.QUrl: ...
+    def reject(self) -> None: ...
 
 
 class QWebEngineFindTextResult(Shiboken.Object):
@@ -368,6 +411,8 @@ class QWebEngineNewWindowRequest(PySide6.QtCore.QObject):
 
 
 class QWebEngineNotification(PySide6.QtCore.QObject):
+
+    closed                   : ClassVar[Signal] = ... # closed()
     def click(self) -> None: ...
     def close(self) -> None: ...
     def direction(self) -> PySide6.QtCore.Qt.LayoutDirection: ...
@@ -382,6 +427,44 @@ class QWebEngineNotification(PySide6.QtCore.QObject):
 
 
 class QWebEnginePage(PySide6.QtCore.QObject):
+
+    _q_aboutToDelete         : ClassVar[Signal] = ... # _q_aboutToDelete()
+    audioMutedChanged        : ClassVar[Signal] = ... # audioMutedChanged(bool)
+    authenticationRequired   : ClassVar[Signal] = ... # authenticationRequired(QUrl,QAuthenticator*)
+    certificateError         : ClassVar[Signal] = ... # certificateError(QWebEngineCertificateError)
+    contentsSizeChanged      : ClassVar[Signal] = ... # contentsSizeChanged(QSizeF)
+    featurePermissionRequestCanceled: ClassVar[Signal] = ... # featurePermissionRequestCanceled(QUrl,QWebEnginePage::Feature)
+    featurePermissionRequested: ClassVar[Signal] = ... # featurePermissionRequested(QUrl,QWebEnginePage::Feature)
+    fileSystemAccessRequested: ClassVar[Signal] = ... # fileSystemAccessRequested(QWebEngineFileSystemAccessRequest)
+    findTextFinished         : ClassVar[Signal] = ... # findTextFinished(QWebEngineFindTextResult)
+    fullScreenRequested      : ClassVar[Signal] = ... # fullScreenRequested(QWebEngineFullScreenRequest)
+    geometryChangeRequested  : ClassVar[Signal] = ... # geometryChangeRequested(QRect)
+    iconChanged              : ClassVar[Signal] = ... # iconChanged(QIcon)
+    iconUrlChanged           : ClassVar[Signal] = ... # iconUrlChanged(QUrl)
+    lifecycleStateChanged    : ClassVar[Signal] = ... # lifecycleStateChanged(LifecycleState)
+    linkHovered              : ClassVar[Signal] = ... # linkHovered(QString)
+    loadFinished             : ClassVar[Signal] = ... # loadFinished(bool)
+    loadProgress             : ClassVar[Signal] = ... # loadProgress(int)
+    loadStarted              : ClassVar[Signal] = ... # loadStarted()
+    loadingChanged           : ClassVar[Signal] = ... # loadingChanged(QWebEngineLoadingInfo)
+    navigationRequested      : ClassVar[Signal] = ... # navigationRequested(QWebEngineNavigationRequest&)
+    newWindowRequested       : ClassVar[Signal] = ... # newWindowRequested(QWebEngineNewWindowRequest&)
+    pdfPrintingFinished      : ClassVar[Signal] = ... # pdfPrintingFinished(QString,bool)
+    printRequested           : ClassVar[Signal] = ... # printRequested()
+    proxyAuthenticationRequired: ClassVar[Signal] = ... # proxyAuthenticationRequired(QUrl,QAuthenticator*,QString)
+    quotaRequested           : ClassVar[Signal] = ... # quotaRequested(QWebEngineQuotaRequest)
+    recentlyAudibleChanged   : ClassVar[Signal] = ... # recentlyAudibleChanged(bool)
+    recommendedStateChanged  : ClassVar[Signal] = ... # recommendedStateChanged(LifecycleState)
+    registerProtocolHandlerRequested: ClassVar[Signal] = ... # registerProtocolHandlerRequested(QWebEngineRegisterProtocolHandlerRequest)
+    renderProcessPidChanged  : ClassVar[Signal] = ... # renderProcessPidChanged(qlonglong)
+    renderProcessTerminated  : ClassVar[Signal] = ... # renderProcessTerminated(RenderProcessTerminationStatus,int)
+    scrollPositionChanged    : ClassVar[Signal] = ... # scrollPositionChanged(QPointF)
+    selectClientCertificate  : ClassVar[Signal] = ... # selectClientCertificate(QWebEngineClientCertificateSelection)
+    selectionChanged         : ClassVar[Signal] = ... # selectionChanged()
+    titleChanged             : ClassVar[Signal] = ... # titleChanged(QString)
+    urlChanged               : ClassVar[Signal] = ... # urlChanged(QUrl)
+    visibleChanged           : ClassVar[Signal] = ... # visibleChanged(bool)
+    windowCloseRequested     : ClassVar[Signal] = ... # windowCloseRequested()
 
     class Feature(enum.Enum):
 
@@ -584,6 +667,8 @@ class QWebEnginePage(PySide6.QtCore.QObject):
 
 class QWebEngineProfile(PySide6.QtCore.QObject):
 
+    downloadRequested        : ClassVar[Signal] = ... # downloadRequested(QWebEngineDownloadRequest*)
+
     class HttpCacheType(enum.Enum):
 
         MemoryHttpCache          : QWebEngineProfile.HttpCacheType = ... # 0x0
@@ -617,6 +702,7 @@ class QWebEngineProfile(PySide6.QtCore.QObject):
     def httpUserAgent(self) -> str: ...
     def installUrlSchemeHandler(self, scheme: Union[PySide6.QtCore.QByteArray, bytes], arg__2: PySide6.QtWebEngineCore.QWebEngineUrlSchemeHandler) -> None: ...
     def isOffTheRecord(self) -> bool: ...
+    def isPushServiceEnabled(self) -> bool: ...
     def isSpellCheckEnabled(self) -> bool: ...
     def persistentCookiesPolicy(self) -> PySide6.QtWebEngineCore.QWebEngineProfile.PersistentCookiesPolicy: ...
     def persistentStoragePath(self) -> str: ...
@@ -633,6 +719,7 @@ class QWebEngineProfile(PySide6.QtCore.QObject):
     def setNotificationPresenter(self, notificationPresenter: Callable) -> None: ...
     def setPersistentCookiesPolicy(self, arg__1: PySide6.QtWebEngineCore.QWebEngineProfile.PersistentCookiesPolicy) -> None: ...
     def setPersistentStoragePath(self, path: str) -> None: ...
+    def setPushServiceEnabled(self, enabled: bool) -> None: ...
     def setSpellCheckEnabled(self, enabled: bool) -> None: ...
     def setSpellCheckLanguages(self, languages: Sequence[str]) -> None: ...
     def setUrlRequestInterceptor(self, interceptor: PySide6.QtWebEngineCore.QWebEngineUrlRequestInterceptor) -> None: ...
@@ -839,6 +926,7 @@ class QWebEngineUrlRequestInfo(Shiboken.Object):
     def block(self, shouldBlock: bool) -> None: ...
     def changed(self) -> bool: ...
     def firstPartyUrl(self) -> PySide6.QtCore.QUrl: ...
+    def httpHeaders(self) -> Dict[PySide6.QtCore.QByteArray, PySide6.QtCore.QByteArray]: ...
     def initiator(self) -> PySide6.QtCore.QUrl: ...
     def navigationType(self) -> PySide6.QtWebEngineCore.QWebEngineUrlRequestInfo.NavigationType: ...
     def redirect(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
@@ -931,6 +1019,11 @@ class QWebEngineUrlSchemeHandler(PySide6.QtCore.QObject):
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def requestStarted(self, arg__1: PySide6.QtWebEngineCore.QWebEngineUrlRequestJob) -> None: ...
+
+
+def qWebEngineChromiumSecurityPatchVersion() -> bytes: ...
+def qWebEngineChromiumVersion() -> bytes: ...
+def qWebEngineVersion() -> bytes: ...
 
 
 # eof

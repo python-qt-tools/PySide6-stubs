@@ -16,13 +16,30 @@ import PySide6.QtWidgets
 import PySide6.QtPrintSupport
 import PySide6.QtWebEngineCore
 
-from typing import Optional, Union, overload
+from typing import ClassVar, Optional, Union, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
 
 
 class QWebEngineView(PySide6.QtWidgets.QWidget):
+
+    iconChanged              : ClassVar[Signal] = ... # iconChanged(QIcon)
+    iconUrlChanged           : ClassVar[Signal] = ... # iconUrlChanged(QUrl)
+    loadFinished             : ClassVar[Signal] = ... # loadFinished(bool)
+    loadProgress             : ClassVar[Signal] = ... # loadProgress(int)
+    loadStarted              : ClassVar[Signal] = ... # loadStarted()
+    pdfPrintingFinished      : ClassVar[Signal] = ... # pdfPrintingFinished(QString,bool)
+    printFinished            : ClassVar[Signal] = ... # printFinished(bool)
+    printRequested           : ClassVar[Signal] = ... # printRequested()
+    renderProcessTerminated  : ClassVar[Signal] = ... # renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus,int)
+    selectionChanged         : ClassVar[Signal] = ... # selectionChanged()
+    titleChanged             : ClassVar[Signal] = ... # titleChanged(QString)
+    urlChanged               : ClassVar[Signal] = ... # urlChanged(QUrl)
 
     @overload
     def __init__(self, page: PySide6.QtWebEngineCore.QWebEnginePage, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
