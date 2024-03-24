@@ -13,8 +13,12 @@ import PySide6.QtDBus
 import PySide6.QtCore
 
 import enum
-from typing import Any, Optional, Type, Union, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Type, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QDBus(Shiboken.Object):
@@ -89,7 +93,10 @@ class QDBusAbstractInterface(PySide6.QtDBus.QDBusAbstractInterfaceBase):
     def timeout(self) -> int: ...
 
 
-class QDBusAbstractInterfaceBase(PySide6.QtCore.QObject): ...
+class QDBusAbstractInterfaceBase(PySide6.QtCore.QObject):
+
+    destroyed                : ClassVar[Signal] = ... # destroyed()
+    objectNameChanged        : ClassVar[Signal] = ... # objectNameChanged(QString)
 
 
 class QDBusArgument(Shiboken.Object):
@@ -367,6 +374,14 @@ class QDBusConnection(Shiboken.Object):
 
 class QDBusConnectionInterface(PySide6.QtDBus.QDBusAbstractInterface):
 
+    NameAcquired             : ClassVar[Signal] = ... # NameAcquired(QString)
+    NameLost                 : ClassVar[Signal] = ... # NameLost(QString)
+    NameOwnerChanged         : ClassVar[Signal] = ... # NameOwnerChanged(QString,QString,QString)
+    callWithCallbackFailed   : ClassVar[Signal] = ... # callWithCallbackFailed(QDBusError,QDBusMessage)
+    serviceOwnerChanged      : ClassVar[Signal] = ... # serviceOwnerChanged(QString,QString,QString)
+    serviceRegistered        : ClassVar[Signal] = ... # serviceRegistered(QString)
+    serviceUnregistered      : ClassVar[Signal] = ... # serviceUnregistered(QString)
+
     class RegisterServiceReply(enum.Enum):
 
         ServiceNotRegistered     : QDBusConnectionInterface.RegisterServiceReply = ... # 0x0
@@ -579,6 +594,8 @@ class QDBusPendingCall(Shiboken.Object):
 
 class QDBusPendingCallWatcher(PySide6.QtCore.QObject, PySide6.QtDBus.QDBusPendingCall):
 
+    finished                 : ClassVar[Signal] = ... # finished()
+
     def __init__(self, call: PySide6.QtDBus.QDBusPendingCall, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def waitForFinished(self) -> None: ...
@@ -598,6 +615,8 @@ class QDBusReply(Shiboken.Object):
 
 class QDBusServer(PySide6.QtCore.QObject):
 
+    newConnection            : ClassVar[Signal] = ... # newConnection(QDBusConnection)
+
     @overload
     def __init__(self, address: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -611,6 +630,10 @@ class QDBusServer(PySide6.QtCore.QObject):
 
 
 class QDBusServiceWatcher(PySide6.QtCore.QObject):
+
+    serviceOwnerChanged      : ClassVar[Signal] = ... # serviceOwnerChanged(QString,QString,QString)
+    serviceRegistered        : ClassVar[Signal] = ... # serviceRegistered(QString)
+    serviceUnregistered      : ClassVar[Signal] = ... # serviceUnregistered(QString)
 
     class WatchModeFlag(enum.Flag):
 

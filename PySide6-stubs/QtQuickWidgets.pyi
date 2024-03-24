@@ -17,13 +17,20 @@ import PySide6.QtQml
 import PySide6.QtQuick
 
 import enum
-from typing import Any, Optional, Union, List, overload
+from typing import Any, ClassVar, List, Optional, Union, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
 
 
 class QQuickWidget(PySide6.QtWidgets.QWidget):
+
+    sceneGraphError          : ClassVar[Signal] = ... # sceneGraphError(QQuickWindow::SceneGraphError,QString)
+    statusChanged            : ClassVar[Signal] = ... # statusChanged(QQuickWidget::Status)
 
     class ResizeMode(enum.Enum):
 

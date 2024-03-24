@@ -15,8 +15,12 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, Optional, Tuple, Type, Union, Sequence, List, overload
+from typing import Any, ClassVar, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractExtensionFactory(Shiboken.Object):
@@ -199,6 +203,21 @@ class QDesignerFormWindowCursorInterface(Shiboken.Object):
 
 class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
 
+    aboutToUnmanageWidget    : ClassVar[Signal] = ... # aboutToUnmanageWidget(QWidget*)
+    activated                : ClassVar[Signal] = ... # activated(QWidget*)
+    changed                  : ClassVar[Signal] = ... # changed()
+    featureChanged           : ClassVar[Signal] = ... # featureChanged(Feature)
+    fileNameChanged          : ClassVar[Signal] = ... # fileNameChanged(QString)
+    geometryChanged          : ClassVar[Signal] = ... # geometryChanged()
+    mainContainerChanged     : ClassVar[Signal] = ... # mainContainerChanged(QWidget*)
+    objectRemoved            : ClassVar[Signal] = ... # objectRemoved(QObject*)
+    resourceFilesChanged     : ClassVar[Signal] = ... # resourceFilesChanged()
+    selectionChanged         : ClassVar[Signal] = ... # selectionChanged()
+    toolChanged              : ClassVar[Signal] = ... # toolChanged(int)
+    widgetManaged            : ClassVar[Signal] = ... # widgetManaged(QWidget*)
+    widgetRemoved            : ClassVar[Signal] = ... # widgetRemoved(QWidget*)
+    widgetUnmanaged          : ClassVar[Signal] = ... # widgetUnmanaged(QWidget*)
+
     class FeatureFlag(enum.Flag):
 
         EditFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x1
@@ -284,6 +303,11 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
 
 
 class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
+
+    activeFormWindowChanged  : ClassVar[Signal] = ... # activeFormWindowChanged(QDesignerFormWindowInterface*)
+    formWindowAdded          : ClassVar[Signal] = ... # formWindowAdded(QDesignerFormWindowInterface*)
+    formWindowRemoved        : ClassVar[Signal] = ... # formWindowRemoved(QDesignerFormWindowInterface*)
+    formWindowSettingsChanged: ClassVar[Signal] = ... # formWindowSettingsChanged(QDesignerFormWindowInterface*)
 
     class Action(enum.Enum):
 
@@ -393,6 +417,8 @@ class QDesignerObjectInspectorInterface(PySide6.QtWidgets.QWidget):
 
 
 class QDesignerPropertyEditorInterface(PySide6.QtWidgets.QWidget):
+
+    propertyChanged          : ClassVar[Signal] = ... # propertyChanged(QString,QVariant)
 
     def __init__(self, parent: PySide6.QtWidgets.QWidget, flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
 

@@ -18,6 +18,9 @@ import PySide6.QtSvg
 from typing import Optional, Union, overload
 
 
+NoneType = type(None)
+
+
 class QGraphicsSvgItem(PySide6.QtWidgets.QGraphicsObject):
 
     @overload

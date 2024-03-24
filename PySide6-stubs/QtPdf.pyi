@@ -14,14 +14,20 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Union, Dict, List, overload
+from typing import ClassVar, Dict, List, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
 
 
 class QPdfBookmarkModel(PySide6.QtCore.QAbstractItemModel):
+
+    documentChanged          : ClassVar[Signal] = ... # documentChanged(QPdfDocument*)
 
     class Role(enum.IntEnum):
 
@@ -52,6 +58,12 @@ class QPdfBookmarkModel(PySide6.QtCore.QAbstractItemModel):
 
 
 class QPdfDocument(PySide6.QtCore.QObject):
+
+    pageCountChanged         : ClassVar[Signal] = ... # pageCountChanged(int)
+    pageModelChanged         : ClassVar[Signal] = ... # pageModelChanged()
+    passwordChanged          : ClassVar[Signal] = ... # passwordChanged()
+    passwordRequired         : ClassVar[Signal] = ... # passwordRequired()
+    statusChanged            : ClassVar[Signal] = ... # statusChanged(QPdfDocument::Status)
 
     class Error(enum.Enum):
 
@@ -119,6 +131,26 @@ class QPdfDocument(PySide6.QtCore.QObject):
 
 class QPdfDocumentRenderOptions(Shiboken.Object):
 
+    class RenderFlag(enum.Flag):
+
+        None_                    : QPdfDocumentRenderOptions.RenderFlag = ... # 0x0
+        Annotations              : QPdfDocumentRenderOptions.RenderFlag = ... # 0x1
+        OptimizedForLcd          : QPdfDocumentRenderOptions.RenderFlag = ... # 0x2
+        Grayscale                : QPdfDocumentRenderOptions.RenderFlag = ... # 0x4
+        ForceHalftone            : QPdfDocumentRenderOptions.RenderFlag = ... # 0x8
+        TextAliased              : QPdfDocumentRenderOptions.RenderFlag = ... # 0x10
+        ImageAliased             : QPdfDocumentRenderOptions.RenderFlag = ... # 0x20
+        PathAliased              : QPdfDocumentRenderOptions.RenderFlag = ... # 0x40
+
+
+    class Rotation(enum.Enum):
+
+        None_                    : QPdfDocumentRenderOptions.Rotation = ... # 0x0
+        Clockwise90              : QPdfDocumentRenderOptions.Rotation = ... # 0x1
+        Clockwise180             : QPdfDocumentRenderOptions.Rotation = ... # 0x2
+        Clockwise270             : QPdfDocumentRenderOptions.Rotation = ... # 0x3
+
+
     @overload
     def __init__(self) -> None: ...
     @overload
@@ -126,8 +158,12 @@ class QPdfDocumentRenderOptions(Shiboken.Object):
 
     @staticmethod
     def __copy__() -> None: ...
+    def renderFlags(self) -> PySide6.QtPdf.QPdfDocumentRenderOptions.RenderFlag: ...
+    def rotation(self) -> PySide6.QtPdf.QPdfDocumentRenderOptions.Rotation: ...
     def scaledClipRect(self) -> PySide6.QtCore.QRect: ...
     def scaledSize(self) -> PySide6.QtCore.QSize: ...
+    def setRenderFlags(self, r: PySide6.QtPdf.QPdfDocumentRenderOptions.RenderFlag) -> None: ...
+    def setRotation(self, r: PySide6.QtPdf.QPdfDocumentRenderOptions.Rotation) -> None: ...
     def setScaledClipRect(self, r: PySide6.QtCore.QRect) -> None: ...
     def setScaledSize(self, s: PySide6.QtCore.QSize) -> None: ...
 
@@ -156,6 +192,13 @@ class QPdfLink(Shiboken.Object):
 
 class QPdfPageNavigator(PySide6.QtCore.QObject):
 
+    backAvailableChanged     : ClassVar[Signal] = ... # backAvailableChanged(bool)
+    currentLocationChanged   : ClassVar[Signal] = ... # currentLocationChanged(QPointF)
+    currentPageChanged       : ClassVar[Signal] = ... # currentPageChanged(int)
+    currentZoomChanged       : ClassVar[Signal] = ... # currentZoomChanged(double)
+    forwardAvailableChanged  : ClassVar[Signal] = ... # forwardAvailableChanged(bool)
+    jumped                   : ClassVar[Signal] = ... # jumped(QPdfLink)
+
     @overload
     def __init__(self) -> None: ...
     @overload
@@ -179,6 +222,10 @@ class QPdfPageNavigator(PySide6.QtCore.QObject):
 
 class QPdfPageRenderer(PySide6.QtCore.QObject):
 
+    documentChanged          : ClassVar[Signal] = ... # documentChanged(QPdfDocument*)
+    pageRendered             : ClassVar[Signal] = ... # pageRendered(int,QSize,QImage,QPdfDocumentRenderOptions,qulonglong)
+    renderModeChanged        : ClassVar[Signal] = ... # renderModeChanged(QPdfPageRenderer::RenderMode)
+
     class RenderMode(enum.Enum):
 
         MultiThreaded            : QPdfPageRenderer.RenderMode = ... # 0x0
@@ -198,6 +245,9 @@ class QPdfPageRenderer(PySide6.QtCore.QObject):
 
 
 class QPdfSearchModel(PySide6.QtCore.QAbstractListModel):
+
+    documentChanged          : ClassVar[Signal] = ... # documentChanged()
+    searchStringChanged      : ClassVar[Signal] = ... # searchStringChanged()
 
     class Role(enum.Enum):
 

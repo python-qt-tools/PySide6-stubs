@@ -14,14 +14,21 @@ import PySide6.QtCore
 import PySide6.QtNetwork
 
 import enum
-from typing import Optional, Union, Sequence, List, overload
+from typing import ClassVar, List, Optional, Sequence, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
 
 
 class QMaskGenerator(PySide6.QtCore.QObject):
+
+    destroyed                : ClassVar[Signal] = ... # destroyed()
+    objectNameChanged        : ClassVar[Signal] = ... # objectNameChanged(QString)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -31,6 +38,27 @@ class QMaskGenerator(PySide6.QtCore.QObject):
 
 class QWebSocket(PySide6.QtCore.QObject):
 
+    aboutToClose             : ClassVar[Signal] = ... # aboutToClose()
+    alertReceived            : ClassVar[Signal] = ... # alertReceived(QSsl::AlertLevel,QSsl::AlertType,QString)
+    alertSent                : ClassVar[Signal] = ... # alertSent(QSsl::AlertLevel,QSsl::AlertType,QString)
+    binaryFrameReceived      : ClassVar[Signal] = ... # binaryFrameReceived(QByteArray,bool)
+    binaryMessageReceived    : ClassVar[Signal] = ... # binaryMessageReceived(QByteArray)
+    bytesWritten             : ClassVar[Signal] = ... # bytesWritten(qlonglong)
+    connected                : ClassVar[Signal] = ... # connected()
+    disconnected             : ClassVar[Signal] = ... # disconnected()
+    error                    : ClassVar[Signal] = ... # error(QAbstractSocket::SocketError)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QAbstractSocket::SocketError)
+    handshakeInterruptedOnError: ClassVar[Signal] = ... # handshakeInterruptedOnError(QSslError)
+    peerVerifyError          : ClassVar[Signal] = ... # peerVerifyError(QSslError)
+    pong                     : ClassVar[Signal] = ... # pong(qulonglong,QByteArray)
+    preSharedKeyAuthenticationRequired: ClassVar[Signal] = ... # preSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthenticator*)
+    proxyAuthenticationRequired: ClassVar[Signal] = ... # proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)
+    readChannelFinished      : ClassVar[Signal] = ... # readChannelFinished()
+    sslErrors                : ClassVar[Signal] = ... # sslErrors(QList<QSslError>)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QAbstractSocket::SocketState)
+    textFrameReceived        : ClassVar[Signal] = ... # textFrameReceived(QString,bool)
+    textMessageReceived      : ClassVar[Signal] = ... # textMessageReceived(QString)
+
     def __init__(self, origin: str = ..., version: PySide6.QtWebSockets.QWebSocketProtocol.Version = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def abort(self) -> None: ...
@@ -39,7 +67,6 @@ class QWebSocket(PySide6.QtCore.QObject):
     def closeCode(self) -> PySide6.QtWebSockets.QWebSocketProtocol.CloseCode: ...
     def closeReason(self) -> str: ...
     def continueInterruptedHandshake(self) -> None: ...
-    def error(self) -> PySide6.QtNetwork.QAbstractSocket.SocketError: ...
     def errorString(self) -> str: ...
     def flush(self) -> bool: ...
     def handshakeOptions(self) -> PySide6.QtWebSockets.QWebSocketHandshakeOptions: ...
@@ -156,6 +183,18 @@ class QWebSocketProtocol(Shiboken.Object):
 
 
 class QWebSocketServer(PySide6.QtCore.QObject):
+
+    acceptError              : ClassVar[Signal] = ... # acceptError(QAbstractSocket::SocketError)
+    alertReceived            : ClassVar[Signal] = ... # alertReceived(QSsl::AlertLevel,QSsl::AlertType,QString)
+    alertSent                : ClassVar[Signal] = ... # alertSent(QSsl::AlertLevel,QSsl::AlertType,QString)
+    closed                   : ClassVar[Signal] = ... # closed()
+    handshakeInterruptedOnError: ClassVar[Signal] = ... # handshakeInterruptedOnError(QSslError)
+    newConnection            : ClassVar[Signal] = ... # newConnection()
+    originAuthenticationRequired: ClassVar[Signal] = ... # originAuthenticationRequired(QWebSocketCorsAuthenticator*)
+    peerVerifyError          : ClassVar[Signal] = ... # peerVerifyError(QSslError)
+    preSharedKeyAuthenticationRequired: ClassVar[Signal] = ... # preSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthenticator*)
+    serverError              : ClassVar[Signal] = ... # serverError(QWebSocketProtocol::CloseCode)
+    sslErrors                : ClassVar[Signal] = ... # sslErrors(QList<QSslError>)
 
     class SslMode(enum.Enum):
 

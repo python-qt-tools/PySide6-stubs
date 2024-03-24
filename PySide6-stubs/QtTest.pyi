@@ -15,8 +15,12 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, Optional, Union, List, overload
+from typing import Any, ClassVar, List, Optional, Union, overload
+from PySide6.QtCore import Signal, SignalInstance
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractItemModelTester(PySide6.QtCore.QObject):
@@ -43,6 +47,9 @@ class QIntList(object): ...
 
 class QSignalSpy(PySide6.QtCore.QObject):
 
+    destroyed                : ClassVar[Signal] = ... # destroyed()
+    objectNameChanged        : ClassVar[Signal] = ... # objectNameChanged(QString)
+
     @overload
     def __init__(self, obj: PySide6.QtCore.QObject, aSignal: bytes) -> None: ...
     @overload
@@ -59,6 +66,17 @@ class QSignalSpy(PySide6.QtCore.QObject):
 
 
 class QTest(Shiboken.Object):
+
+    class ComparisonOperation(enum.Enum):
+
+        CustomCompare            : QTest.ComparisonOperation = ... # 0x0
+        Equal                    : QTest.ComparisonOperation = ... # 0x1
+        NotEqual                 : QTest.ComparisonOperation = ... # 0x2
+        LessThan                 : QTest.ComparisonOperation = ... # 0x3
+        LessThanOrEqual          : QTest.ComparisonOperation = ... # 0x4
+        GreaterThan              : QTest.ComparisonOperation = ... # 0x5
+        GreaterThanOrEqual       : QTest.ComparisonOperation = ... # 0x6
+
 
     class KeyAction(enum.Enum):
 
@@ -156,6 +174,8 @@ class QTest(Shiboken.Object):
     def currentTestFailed() -> bool: ...
     @staticmethod
     def currentTestFunction() -> bytes: ...
+    @staticmethod
+    def currentTestResolved() -> bool: ...
     @overload
     @staticmethod
     def failOnWarning(message: bytes) -> None: ...

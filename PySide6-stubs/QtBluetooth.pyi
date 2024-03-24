@@ -13,8 +13,12 @@ import PySide6.QtBluetooth
 import PySide6.QtCore
 
 import enum
-from typing import Any, Optional, Protocol, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QBluetooth(Shiboken.Object):
@@ -55,6 +59,12 @@ class QBluetoothAddress(Shiboken.Object):
 
 
 class QBluetoothDeviceDiscoveryAgent(PySide6.QtCore.QObject):
+
+    canceled                 : ClassVar[Signal] = ... # canceled()
+    deviceDiscovered         : ClassVar[Signal] = ... # deviceDiscovered(QBluetoothDeviceInfo)
+    deviceUpdated            : ClassVar[Signal] = ... # deviceUpdated(QBluetoothDeviceInfo,QBluetoothDeviceInfo::Fields)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QBluetoothDeviceDiscoveryAgent::Error)
+    finished                 : ClassVar[Signal] = ... # finished()
 
     class DiscoveryMethod(enum.Flag):
 
@@ -317,6 +327,12 @@ class QBluetoothHostInfo(Shiboken.Object):
 
 class QBluetoothLocalDevice(PySide6.QtCore.QObject):
 
+    deviceConnected          : ClassVar[Signal] = ... # deviceConnected(QBluetoothAddress)
+    deviceDisconnected       : ClassVar[Signal] = ... # deviceDisconnected(QBluetoothAddress)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QBluetoothLocalDevice::Error)
+    hostModeStateChanged     : ClassVar[Signal] = ... # hostModeStateChanged(QBluetoothLocalDevice::HostMode)
+    pairingFinished          : ClassVar[Signal] = ... # pairingFinished(QBluetoothAddress,QBluetoothLocalDevice::Pairing)
+
     class Error(enum.Enum):
 
         NoError                  : QBluetoothLocalDevice.Error = ... # 0x0
@@ -360,6 +376,9 @@ class QBluetoothLocalDevice(PySide6.QtCore.QObject):
 
 class QBluetoothServer(PySide6.QtCore.QObject):
 
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QBluetoothServer::Error)
+    newConnection            : ClassVar[Signal] = ... # newConnection()
+
     class Error(enum.Enum):
 
         NoError                  : QBluetoothServer.Error = ... # 0x0
@@ -392,6 +411,11 @@ class QBluetoothServer(PySide6.QtCore.QObject):
 
 
 class QBluetoothServiceDiscoveryAgent(PySide6.QtCore.QObject):
+
+    canceled                 : ClassVar[Signal] = ... # canceled()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QBluetoothServiceDiscoveryAgent::Error)
+    finished                 : ClassVar[Signal] = ... # finished()
+    serviceDiscovered        : ClassVar[Signal] = ... # serviceDiscovered(QBluetoothServiceInfo)
 
     class DiscoveryMode(enum.Enum):
 
@@ -654,6 +678,11 @@ class QBluetoothServiceInfo(Shiboken.Object):
 
 
 class QBluetoothSocket(PySide6.QtCore.QIODevice):
+
+    connected                : ClassVar[Signal] = ... # connected()
+    disconnected             : ClassVar[Signal] = ... # disconnected()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QBluetoothSocket::SocketError)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QBluetoothSocket::SocketState)
 
     class SocketError(enum.Enum):
 
@@ -1208,6 +1237,16 @@ class QLowEnergyConnectionParameters(Shiboken.Object):
 
 class QLowEnergyController(PySide6.QtCore.QObject):
 
+    connected                : ClassVar[Signal] = ... # connected()
+    connectionUpdated        : ClassVar[Signal] = ... # connectionUpdated(QLowEnergyConnectionParameters)
+    disconnected             : ClassVar[Signal] = ... # disconnected()
+    discoveryFinished        : ClassVar[Signal] = ... # discoveryFinished()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QLowEnergyController::Error)
+    mtuChanged               : ClassVar[Signal] = ... # mtuChanged(int)
+    rssiRead                 : ClassVar[Signal] = ... # rssiRead(short)
+    serviceDiscovered        : ClassVar[Signal] = ... # serviceDiscovered(QBluetoothUuid)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QLowEnergyController::ControllerState)
+
     class ControllerState(enum.Enum):
 
         UnconnectedState         : QLowEnergyController.ControllerState = ... # 0x0
@@ -1231,6 +1270,7 @@ class QLowEnergyController(PySide6.QtCore.QObject):
         RemoteHostClosedError    : QLowEnergyController.Error = ... # 0x7
         AuthorizationError       : QLowEnergyController.Error = ... # 0x8
         MissingPermissionsError  : QLowEnergyController.Error = ... # 0x9
+        RssiReadError            : QLowEnergyController.Error = ... # 0xa
 
 
     class RemoteAddressType(enum.Enum):
@@ -1266,6 +1306,7 @@ class QLowEnergyController(PySide6.QtCore.QObject):
     def errorString(self) -> str: ...
     def localAddress(self) -> PySide6.QtBluetooth.QBluetoothAddress: ...
     def mtu(self) -> int: ...
+    def readRssi(self) -> None: ...
     def remoteAddress(self) -> PySide6.QtBluetooth.QBluetoothAddress: ...
     def remoteAddressType(self) -> PySide6.QtBluetooth.QLowEnergyController.RemoteAddressType: ...
     def remoteDeviceUuid(self) -> PySide6.QtBluetooth.QBluetoothUuid: ...
@@ -1321,6 +1362,14 @@ class QLowEnergyDescriptorData(Shiboken.Object):
 
 
 class QLowEnergyService(PySide6.QtCore.QObject):
+
+    characteristicChanged    : ClassVar[Signal] = ... # characteristicChanged(QLowEnergyCharacteristic,QByteArray)
+    characteristicRead       : ClassVar[Signal] = ... # characteristicRead(QLowEnergyCharacteristic,QByteArray)
+    characteristicWritten    : ClassVar[Signal] = ... # characteristicWritten(QLowEnergyCharacteristic,QByteArray)
+    descriptorRead           : ClassVar[Signal] = ... # descriptorRead(QLowEnergyDescriptor,QByteArray)
+    descriptorWritten        : ClassVar[Signal] = ... # descriptorWritten(QLowEnergyDescriptor,QByteArray)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QLowEnergyService::ServiceError)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QLowEnergyService::ServiceState)
 
     class DiscoveryMode(enum.Enum):
 
