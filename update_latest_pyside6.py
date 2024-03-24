@@ -19,7 +19,7 @@ PATH_STUBS_SHIBOKEN6 = BASE_DIR / 'shiboken6-stubs'
 
 PLATFORM_WINDOWS = "win_amd64"
 PLATFORM_LINUX   = "manylinux_2_28_x86_64"
-PLATFORM_MACOSX  = "macosx_10_9_universal2"
+PLATFORM_MACOSX  = "macosx_11_0_universal2"
 
 BRANCH_WINDOWS = 'upstream-pyside6-windows'
 BRANCH_LINUX   = 'upstream-pyside6-linux'
@@ -124,6 +124,6 @@ if __name__ == "__main__":
     incoming.mkdir(exist_ok=True)
 
     # Download required packages
-    download_stubs(incoming, PLATFORM_WINDOWS, BRANCH_WINDOWS)
-    download_stubs(incoming, PLATFORM_LINUX, BRANCH_LINUX)
+    # download_stubs(incoming, PLATFORM_WINDOWS, BRANCH_WINDOWS)
+    # download_stubs(incoming, PLATFORM_LINUX, BRANCH_LINUX)
     download_stubs(incoming, PLATFORM_MACOSX, BRANCH_MACOSX)
