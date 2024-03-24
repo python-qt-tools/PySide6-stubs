@@ -1,0 +1,2 @@
+With latest pyside6:
+- Slot is an object, convert our methods to object using callables
