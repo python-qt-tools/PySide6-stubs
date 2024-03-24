@@ -13,8 +13,12 @@ import PySide6.QtNetwork
 import PySide6.QtCore
 
 import enum
-from typing import Any, Callable, Optional, Tuple, Type, Union, Sequence, Dict, List, OrderedDict, overload
+from typing import Any, Callable, ClassVar, Dict, List, Optional, OrderedDict, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractNetworkCache(PySide6.QtCore.QObject):
@@ -32,6 +36,13 @@ class QAbstractNetworkCache(PySide6.QtCore.QObject):
 
 
 class QAbstractSocket(PySide6.QtCore.QIODevice):
+
+    connected                : ClassVar[Signal] = ... # connected()
+    disconnected             : ClassVar[Signal] = ... # disconnected()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QAbstractSocket::SocketError)
+    hostFound                : ClassVar[Signal] = ... # hostFound()
+    proxyAuthenticationRequired: ClassVar[Signal] = ... # proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QAbstractSocket::SocketState)
 
     class BindFlag(enum.Flag):
 
@@ -223,6 +234,11 @@ class QDnsHostAddressRecord(Shiboken.Object):
 
 class QDnsLookup(PySide6.QtCore.QObject):
 
+    finished                 : ClassVar[Signal] = ... # finished()
+    nameChanged              : ClassVar[Signal] = ... # nameChanged(QString)
+    nameserverChanged        : ClassVar[Signal] = ... # nameserverChanged(QHostAddress)
+    typeChanged              : ClassVar[Signal] = ... # typeChanged(Type)
+
     class Error(enum.Enum):
 
         NoError                  : QDnsLookup.Error = ... # 0x0
@@ -325,6 +341,9 @@ class QDnsTextRecord(Shiboken.Object):
 
 
 class QDtls(PySide6.QtCore.QObject):
+
+    handshakeTimeout         : ClassVar[Signal] = ... # handshakeTimeout()
+    pskRequired              : ClassVar[Signal] = ... # pskRequired(QSslPreSharedKeyAuthenticator*)
 
     class HandshakeState(enum.Enum):
 
@@ -607,6 +626,8 @@ class QIntList(object): ...
 
 class QLocalServer(PySide6.QtCore.QObject):
 
+    newConnection            : ClassVar[Signal] = ... # newConnection()
+
     class SocketOption(enum.Flag):
 
         NoOptions                : QLocalServer.SocketOption = ... # 0x0
@@ -641,10 +662,15 @@ class QLocalServer(PySide6.QtCore.QObject):
     def setSocketOptions(self, options: PySide6.QtNetwork.QLocalServer.SocketOption) -> None: ...
     def socketDescriptor(self) -> int: ...
     def socketOptions(self) -> PySide6.QtNetwork.QLocalServer.SocketOption: ...
-    def waitForNewConnection(self, msec: int) -> Tuple: ...
+    def waitForNewConnection(self, msec: int) -> Tuple[bool, bool]: ...
 
 
 class QLocalSocket(PySide6.QtCore.QIODevice):
+
+    connected                : ClassVar[Signal] = ... # connected()
+    disconnected             : ClassVar[Signal] = ... # disconnected()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QLocalSocket::LocalSocketError)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QLocalSocket::LocalSocketState)
 
     class LocalSocketError(enum.Enum):
 
@@ -713,6 +739,13 @@ class QLocalSocket(PySide6.QtCore.QIODevice):
 
 
 class QNetworkAccessManager(PySide6.QtCore.QObject):
+
+    authenticationRequired   : ClassVar[Signal] = ... # authenticationRequired(QNetworkReply*,QAuthenticator*)
+    encrypted                : ClassVar[Signal] = ... # encrypted(QNetworkReply*)
+    finished                 : ClassVar[Signal] = ... # finished(QNetworkReply*)
+    preSharedKeyAuthenticationRequired: ClassVar[Signal] = ... # preSharedKeyAuthenticationRequired(QNetworkReply*,QSslPreSharedKeyAuthenticator*)
+    proxyAuthenticationRequired: ClassVar[Signal] = ... # proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)
+    sslErrors                : ClassVar[Signal] = ... # sslErrors(QNetworkReply*,QList<QSslError>)
 
     class Operation(enum.Enum):
 
@@ -957,6 +990,11 @@ class QNetworkDiskCache(PySide6.QtNetwork.QAbstractNetworkCache):
 
 class QNetworkInformation(PySide6.QtCore.QObject):
 
+    isBehindCaptivePortalChanged: ClassVar[Signal] = ... # isBehindCaptivePortalChanged(bool)
+    isMeteredChanged         : ClassVar[Signal] = ... # isMeteredChanged(bool)
+    reachabilityChanged      : ClassVar[Signal] = ... # reachabilityChanged(Reachability)
+    transportMediumChanged   : ClassVar[Signal] = ... # transportMediumChanged(TransportMedium)
+
     class Feature(enum.Flag):
 
         Reachability             : QNetworkInformation.Feature = ... # 0x1
@@ -1188,6 +1226,19 @@ class QNetworkProxyQuery(Shiboken.Object):
 
 class QNetworkReply(PySide6.QtCore.QIODevice):
 
+    downloadProgress         : ClassVar[Signal] = ... # downloadProgress(qlonglong,qlonglong)
+    encrypted                : ClassVar[Signal] = ... # encrypted()
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QNetworkReply::NetworkError)
+    finished                 : ClassVar[Signal] = ... # finished()
+    metaDataChanged          : ClassVar[Signal] = ... # metaDataChanged()
+    preSharedKeyAuthenticationRequired: ClassVar[Signal] = ... # preSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthenticator*)
+    redirectAllowed          : ClassVar[Signal] = ... # redirectAllowed()
+    redirected               : ClassVar[Signal] = ... # redirected(QUrl)
+    requestSent              : ClassVar[Signal] = ... # requestSent()
+    socketStartedConnecting  : ClassVar[Signal] = ... # socketStartedConnecting()
+    sslErrors                : ClassVar[Signal] = ... # sslErrors(QList<QSslError>)
+    uploadProgress           : ClassVar[Signal] = ... # uploadProgress(qlonglong,qlonglong)
+
     class NetworkError(enum.Enum):
 
         NoError                  : QNetworkReply.NetworkError = ... # 0x0
@@ -1298,6 +1349,7 @@ class QNetworkRequest(Shiboken.Object):
         AutoDeleteReplyOnFinishAttribute: QNetworkRequest.Attribute = ... # 0x19
         ConnectionCacheExpiryTimeoutSecondsAttribute: QNetworkRequest.Attribute = ... # 0x1a
         Http2CleartextAllowedAttribute: QNetworkRequest.Attribute = ... # 0x1b
+        UseCredentialsAttribute  : QNetworkRequest.Attribute = ... # 0x1c
         User                     : QNetworkRequest.Attribute = ... # 0x3e8
         UserMax                  : QNetworkRequest.Attribute = ... # 0x7fff
 
@@ -1408,6 +1460,7 @@ class QOcspResponse(Shiboken.Object):
     @staticmethod
     def __copy__() -> None: ...
     def certificateStatus(self) -> PySide6.QtNetwork.QOcspCertificateStatus: ...
+    def responder(self) -> PySide6.QtNetwork.QSslCertificate: ...
     def revocationReason(self) -> PySide6.QtNetwork.QOcspRevocationReason: ...
     def subject(self) -> PySide6.QtNetwork.QSslCertificate: ...
     def swap(self, other: PySide6.QtNetwork.QOcspResponse) -> None: ...
@@ -1922,6 +1975,15 @@ class QSslPreSharedKeyAuthenticator(Shiboken.Object):
 
 class QSslServer(PySide6.QtNetwork.QTcpServer):
 
+    alertReceived            : ClassVar[Signal] = ... # alertReceived(QSslSocket*,QSsl::AlertLevel,QSsl::AlertType,QString)
+    alertSent                : ClassVar[Signal] = ... # alertSent(QSslSocket*,QSsl::AlertLevel,QSsl::AlertType,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QSslSocket*,QAbstractSocket::SocketError)
+    handshakeInterruptedOnError: ClassVar[Signal] = ... # handshakeInterruptedOnError(QSslSocket*,QSslError)
+    peerVerifyError          : ClassVar[Signal] = ... # peerVerifyError(QSslSocket*,QSslError)
+    preSharedKeyAuthenticationRequired: ClassVar[Signal] = ... # preSharedKeyAuthenticationRequired(QSslSocket*,QSslPreSharedKeyAuthenticator*)
+    sslErrors                : ClassVar[Signal] = ... # sslErrors(QSslSocket*,QList<QSslError>)
+    startedEncryptionHandshake: ClassVar[Signal] = ... # startedEncryptionHandshake(QSslSocket*)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def handshakeTimeout(self) -> int: ...
@@ -1932,6 +1994,17 @@ class QSslServer(PySide6.QtNetwork.QTcpServer):
 
 
 class QSslSocket(PySide6.QtNetwork.QTcpSocket):
+
+    alertReceived            : ClassVar[Signal] = ... # alertReceived(QSsl::AlertLevel,QSsl::AlertType,QString)
+    alertSent                : ClassVar[Signal] = ... # alertSent(QSsl::AlertLevel,QSsl::AlertType,QString)
+    encrypted                : ClassVar[Signal] = ... # encrypted()
+    encryptedBytesWritten    : ClassVar[Signal] = ... # encryptedBytesWritten(qlonglong)
+    handshakeInterruptedOnError: ClassVar[Signal] = ... # handshakeInterruptedOnError(QSslError)
+    modeChanged              : ClassVar[Signal] = ... # modeChanged(QSslSocket::SslMode)
+    newSessionTicketReceived : ClassVar[Signal] = ... # newSessionTicketReceived()
+    peerVerifyError          : ClassVar[Signal] = ... # peerVerifyError(QSslError)
+    preSharedKeyAuthenticationRequired: ClassVar[Signal] = ... # preSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthenticator*)
+    sslErrors                : ClassVar[Signal] = ... # sslErrors(QList<QSslError>)
 
     class PeerVerifyMode(enum.Enum):
 
@@ -2048,6 +2121,10 @@ class QSslSocket(PySide6.QtNetwork.QTcpSocket):
 
 class QTcpServer(PySide6.QtCore.QObject):
 
+    acceptError              : ClassVar[Signal] = ... # acceptError(QAbstractSocket::SocketError)
+    newConnection            : ClassVar[Signal] = ... # newConnection()
+    pendingConnectionAvailable: ClassVar[Signal] = ... # pendingConnectionAvailable()
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addPendingConnection(self, socket: PySide6.QtNetwork.QTcpSocket) -> None: ...
@@ -2071,7 +2148,7 @@ class QTcpServer(PySide6.QtCore.QObject):
     def setProxy(self, networkProxy: Union[PySide6.QtNetwork.QNetworkProxy, PySide6.QtNetwork.QNetworkProxy.ProxyType]) -> None: ...
     def setSocketDescriptor(self, socketDescriptor: int) -> bool: ...
     def socketDescriptor(self) -> int: ...
-    def waitForNewConnection(self, msec: int) -> Tuple: ...
+    def waitForNewConnection(self, msec: int) -> Tuple[bool, bool]: ...
 
 
 class QTcpSocket(PySide6.QtNetwork.QAbstractSocket):
@@ -2107,7 +2184,7 @@ class QUdpSocket(PySide6.QtNetwork.QAbstractSocket):
     def leaveMulticastGroup(self, groupAddress: Union[PySide6.QtNetwork.QHostAddress, PySide6.QtNetwork.QHostAddress.SpecialAddress], iface: PySide6.QtNetwork.QNetworkInterface) -> bool: ...
     def multicastInterface(self) -> PySide6.QtNetwork.QNetworkInterface: ...
     def pendingDatagramSize(self) -> int: ...
-    def readDatagram(self, maxlen: int) -> Tuple: ...
+    def readDatagram(self, maxlen: int) -> Tuple[PySide6.QtCore.QByteArray, PySide6.QtNetwork.QHostAddress, int]: ...
     def receiveDatagram(self, maxSize: int = ...) -> PySide6.QtNetwork.QNetworkDatagram: ...
     def setMulticastInterface(self, iface: PySide6.QtNetwork.QNetworkInterface) -> None: ...
     @overload

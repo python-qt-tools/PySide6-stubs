@@ -13,11 +13,17 @@ import PySide6.QtRemoteObjects
 import PySide6.QtCore
 
 import enum
-from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
 
 
+NoneType = type(None)
+
+
 class QAbstractItemModelReplica(PySide6.QtCore.QAbstractItemModel):
+
+    initialized              : ClassVar[Signal] = ... # initialized()
     def availableRoles(self) -> List[int]: ...
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
     def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
@@ -50,10 +56,16 @@ class QRemoteObjectAbstractPersistedStore(PySide6.QtCore.QObject):
     def saveProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes], values: Sequence[Any]) -> None: ...
 
 
-class QRemoteObjectDynamicReplica(PySide6.QtRemoteObjects.QRemoteObjectReplica): ...
+class QRemoteObjectDynamicReplica(PySide6.QtRemoteObjects.QRemoteObjectReplica):
+
+    initialized              : ClassVar[Signal] = ... # initialized()
+    notified                 : ClassVar[Signal] = ... # notified()
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(State,State)
 
 
 class QRemoteObjectHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
+
+    hostUrlChanged           : ClassVar[Signal] = ... # hostUrlChanged()
 
     @overload
     def __init__(self, address: Union[PySide6.QtCore.QUrl, str], parent: PySide6.QtCore.QObject) -> None: ...
@@ -88,6 +100,11 @@ class QRemoteObjectHostBase(PySide6.QtRemoteObjects.QRemoteObjectNode):
 
 
 class QRemoteObjectNode(PySide6.QtCore.QObject):
+
+    error                    : ClassVar[Signal] = ... # error(QRemoteObjectNode::ErrorCode)
+    heartbeatIntervalChanged : ClassVar[Signal] = ... # heartbeatIntervalChanged(int)
+    remoteObjectAdded        : ClassVar[Signal] = ... # remoteObjectAdded(QRemoteObjectSourceLocation)
+    remoteObjectRemoved      : ClassVar[Signal] = ... # remoteObjectRemoved(QRemoteObjectSourceLocation)
 
     class ErrorCode(enum.Enum):
 
@@ -151,6 +168,8 @@ class QRemoteObjectPendingCall(Shiboken.Object):
 
 class QRemoteObjectPendingCallWatcher(PySide6.QtCore.QObject, PySide6.QtRemoteObjects.QRemoteObjectPendingCall):
 
+    finished                 : ClassVar[Signal] = ... # finished(QRemoteObjectPendingCallWatcher*)
+
     def __init__(self, call: PySide6.QtRemoteObjects.QRemoteObjectPendingCall, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def isFinished(self) -> bool: ...
@@ -158,6 +177,9 @@ class QRemoteObjectPendingCallWatcher(PySide6.QtCore.QObject, PySide6.QtRemoteOb
 
 
 class QRemoteObjectRegistry(PySide6.QtRemoteObjects.QRemoteObjectReplica):
+
+    remoteObjectAdded        : ClassVar[Signal] = ... # remoteObjectAdded(QRemoteObjectSourceLocation)
+    remoteObjectRemoved      : ClassVar[Signal] = ... # remoteObjectRemoved(QRemoteObjectSourceLocation)
     def addSource(self, entry: Tuple[str, PySide6.QtRemoteObjects.QRemoteObjectSourceLocationInfo]) -> None: ...
     def initialize(self) -> None: ...
     def pushToRegistryIfNeeded(self) -> None: ...
@@ -175,6 +197,10 @@ class QRemoteObjectRegistryHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
 
 
 class QRemoteObjectReplica(PySide6.QtCore.QObject):
+
+    initialized              : ClassVar[Signal] = ... # initialized()
+    notified                 : ClassVar[Signal] = ... # notified()
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(State,State)
 
     class State(enum.Enum):
 

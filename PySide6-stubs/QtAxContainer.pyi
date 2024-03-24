@@ -15,8 +15,12 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, Optional, Union, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAxBase(Shiboken.Object):
@@ -59,13 +63,25 @@ class QAxBase(Shiboken.Object):
     def verbs(self) -> List[str]: ...
 
 
-class QAxBaseObject(PySide6.QtCore.QObject, PySide6.QtAxContainer.QAxObjectInterface): ...
+class QAxBaseObject(PySide6.QtCore.QObject, PySide6.QtAxContainer.QAxObjectInterface):
+
+    exception                : ClassVar[Signal] = ... # exception(int,QString,QString,QString)
+    propertyChanged          : ClassVar[Signal] = ... # propertyChanged(QString)
+    signal                   : ClassVar[Signal] = ... # signal(QString,int,void*)
 
 
-class QAxBaseWidget(PySide6.QtWidgets.QWidget, PySide6.QtAxContainer.QAxObjectInterface): ...
+class QAxBaseWidget(PySide6.QtWidgets.QWidget, PySide6.QtAxContainer.QAxObjectInterface):
+
+    exception                : ClassVar[Signal] = ... # exception(int,QString,QString,QString)
+    propertyChanged          : ClassVar[Signal] = ... # propertyChanged(QString)
+    signal                   : ClassVar[Signal] = ... # signal(QString,int,void*)
 
 
 class QAxObject(PySide6.QtAxContainer.QAxBaseObject, PySide6.QtAxContainer.QAxBase):
+
+    exception                : ClassVar[Signal] = ... # exception(int,QString,QString,QString)
+    propertyChanged          : ClassVar[Signal] = ... # propertyChanged(QString)
+    signal                   : ClassVar[Signal] = ... # signal(QString,int,void*)
 
     @overload
     def __init__(self, c: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -93,6 +109,11 @@ class QAxObjectInterface(Shiboken.Object):
 
 
 class QAxScript(PySide6.QtCore.QObject):
+
+    entered                  : ClassVar[Signal] = ... # entered()
+    error                    : ClassVar[Signal] = ... # error(int,QString,int,QString)
+    finished                 : ClassVar[Signal] = ... # finished()
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(int)
 
     class FunctionFlags(enum.Enum):
 
@@ -137,6 +158,8 @@ class QAxScriptEngine(PySide6.QtAxContainer.QAxObject):
 
 class QAxScriptManager(PySide6.QtCore.QObject):
 
+    error                    : ClassVar[Signal] = ... # error(QAxScript*,int,QString,int,QString)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addObject(self, object: PySide6.QtAxContainer.QAxBase) -> None: ...
@@ -164,6 +187,7 @@ class QAxSelect(PySide6.QtWidgets.QDialog):
         SandboxingNone           : QAxSelect.SandboxingLevel = ... # 0x0
         SandboxingProcess        : QAxSelect.SandboxingLevel = ... # 0x1
         SandboxingLowIntegrity   : QAxSelect.SandboxingLevel = ... # 0x2
+        SandboxingAppContainer   : QAxSelect.SandboxingLevel = ... # 0x3
 
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
@@ -173,6 +197,10 @@ class QAxSelect(PySide6.QtWidgets.QDialog):
 
 
 class QAxWidget(PySide6.QtAxContainer.QAxBaseWidget, PySide6.QtAxContainer.QAxBase):
+
+    exception                : ClassVar[Signal] = ... # exception(int,QString,QString,QString)
+    propertyChanged          : ClassVar[Signal] = ... # propertyChanged(QString)
+    signal                   : ClassVar[Signal] = ... # signal(QString,int,void*)
 
     @overload
     def __init__(self, c: str, parent: Optional[PySide6.QtWidgets.QWidget] = ..., f: PySide6.QtCore.Qt.WindowType = ...) -> None: ...

@@ -16,13 +16,24 @@ import PySide6.QtWidgets
 import PySide6.QtPdf
 
 import enum
-from typing import overload
+from typing import ClassVar, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
 
 
 class QPdfView(PySide6.QtWidgets.QAbstractScrollArea):
+
+    documentChanged          : ClassVar[Signal] = ... # documentChanged(QPdfDocument*)
+    documentMarginsChanged   : ClassVar[Signal] = ... # documentMarginsChanged(QMargins)
+    pageModeChanged          : ClassVar[Signal] = ... # pageModeChanged(QPdfView::PageMode)
+    pageSpacingChanged       : ClassVar[Signal] = ... # pageSpacingChanged(int)
+    zoomFactorChanged        : ClassVar[Signal] = ... # zoomFactorChanged(double)
+    zoomModeChanged          : ClassVar[Signal] = ... # zoomModeChanged(QPdfView::ZoomMode)
 
     class PageMode(enum.Enum):
 

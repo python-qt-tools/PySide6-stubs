@@ -14,11 +14,27 @@ import PySide6.QtCore
 import PySide6.QtNetwork
 
 import enum
-from typing import Any, Optional, Tuple, Union, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
 
 
+NoneType = type(None)
+
+
 class QAbstractOAuth(PySide6.QtCore.QObject):
+
+    authorizationUrlChanged  : ClassVar[Signal] = ... # authorizationUrlChanged(QUrl)
+    authorizeWithBrowser     : ClassVar[Signal] = ... # authorizeWithBrowser(QUrl)
+    clientIdentifierChanged  : ClassVar[Signal] = ... # clientIdentifierChanged(QString)
+    contentTypeChanged       : ClassVar[Signal] = ... # contentTypeChanged(ContentType)
+    extraTokensChanged       : ClassVar[Signal] = ... # extraTokensChanged(QVariantMap)
+    finished                 : ClassVar[Signal] = ... # finished(QNetworkReply*)
+    granted                  : ClassVar[Signal] = ... # granted()
+    replyDataReceived        : ClassVar[Signal] = ... # replyDataReceived(QByteArray)
+    requestFailed            : ClassVar[Signal] = ... # requestFailed(Error)
+    statusChanged            : ClassVar[Signal] = ... # statusChanged(Status)
+    tokenChanged             : ClassVar[Signal] = ... # tokenChanged(QString)
 
     class ContentType(enum.Enum):
 
@@ -83,6 +99,17 @@ class QAbstractOAuth(PySide6.QtCore.QObject):
 
 class QAbstractOAuth2(PySide6.QtNetworkAuth.QAbstractOAuth):
 
+    authorizationCallbackReceived: ClassVar[Signal] = ... # authorizationCallbackReceived(QVariantMap)
+    clientIdentifierSharedKeyChanged: ClassVar[Signal] = ... # clientIdentifierSharedKeyChanged(QString)
+    error                    : ClassVar[Signal] = ... # error(QString,QString,QUrl)
+    expirationAtChanged      : ClassVar[Signal] = ... # expirationAtChanged(QDateTime)
+    refreshTokenChanged      : ClassVar[Signal] = ... # refreshTokenChanged(QString)
+    responseTypeChanged      : ClassVar[Signal] = ... # responseTypeChanged(QString)
+    scopeChanged             : ClassVar[Signal] = ... # scopeChanged(QString)
+    sslConfigurationChanged  : ClassVar[Signal] = ... # sslConfigurationChanged(QSslConfiguration)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QString)
+    userAgentChanged         : ClassVar[Signal] = ... # userAgentChanged(QString)
+
     @overload
     def __init__(self, manager: PySide6.QtNetwork.QNetworkAccessManager, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -114,13 +141,20 @@ class QAbstractOAuth2(PySide6.QtNetworkAuth.QAbstractOAuth):
     def setRefreshToken(self, refreshToken: str) -> None: ...
     def setResponseType(self, responseType: str) -> None: ...
     def setScope(self, scope: str) -> None: ...
+    def setSslConfiguration(self, configuration: PySide6.QtNetwork.QSslConfiguration) -> None: ...
     def setState(self, state: str) -> None: ...
     def setUserAgent(self, userAgent: str) -> None: ...
+    def sslConfiguration(self) -> PySide6.QtNetwork.QSslConfiguration: ...
     def state(self) -> str: ...
     def userAgent(self) -> str: ...
 
 
 class QAbstractOAuthReplyHandler(PySide6.QtCore.QObject):
+
+    callbackDataReceived     : ClassVar[Signal] = ... # callbackDataReceived(QByteArray)
+    callbackReceived         : ClassVar[Signal] = ... # callbackReceived(QVariantMap)
+    replyDataReceived        : ClassVar[Signal] = ... # replyDataReceived(QByteArray)
+    tokensReceived           : ClassVar[Signal] = ... # tokensReceived(QVariantMap)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -132,6 +166,12 @@ class QIntList(object): ...
 
 
 class QOAuth1(PySide6.QtNetworkAuth.QAbstractOAuth):
+
+    clientSharedSecretChanged: ClassVar[Signal] = ... # clientSharedSecretChanged(QString)
+    signatureMethodChanged   : ClassVar[Signal] = ... # signatureMethodChanged(QOAuth1::SignatureMethod)
+    temporaryCredentialsUrlChanged: ClassVar[Signal] = ... # temporaryCredentialsUrlChanged(QUrl)
+    tokenCredentialsUrlChanged: ClassVar[Signal] = ... # tokenCredentialsUrlChanged(QUrl)
+    tokenSecretChanged       : ClassVar[Signal] = ... # tokenSecretChanged(QString)
 
     class SignatureMethod(enum.Enum):
 
@@ -237,6 +277,8 @@ class QOAuth1Signature(Shiboken.Object):
 
 
 class QOAuth2AuthorizationCodeFlow(PySide6.QtNetworkAuth.QAbstractOAuth2):
+
+    accessTokenUrlChanged    : ClassVar[Signal] = ... # accessTokenUrlChanged(QUrl)
 
     @overload
     def __init__(self, authorizationUrl: Union[PySide6.QtCore.QUrl, str], accessTokenUrl: Union[PySide6.QtCore.QUrl, str], manager: PySide6.QtNetwork.QNetworkAccessManager, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...

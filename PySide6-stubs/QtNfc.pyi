@@ -13,8 +13,12 @@ import PySide6.QtNfc
 import PySide6.QtCore
 
 import enum
-from typing import Optional, Union, Sequence, List, overload
+from typing import ClassVar, List, Optional, Sequence, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -291,6 +295,11 @@ class QNdefRecord(Shiboken.Object):
 
 class QNearFieldManager(PySide6.QtCore.QObject):
 
+    adapterStateChanged      : ClassVar[Signal] = ... # adapterStateChanged(QNearFieldManager::AdapterState)
+    targetDetected           : ClassVar[Signal] = ... # targetDetected(QNearFieldTarget*)
+    targetDetectionStopped   : ClassVar[Signal] = ... # targetDetectionStopped()
+    targetLost               : ClassVar[Signal] = ... # targetLost(QNearFieldTarget*)
+
     class AdapterState(enum.Enum):
 
         Offline                  : QNearFieldManager.AdapterState = ... # 0x1
@@ -309,6 +318,11 @@ class QNearFieldManager(PySide6.QtCore.QObject):
 
 
 class QNearFieldTarget(PySide6.QtCore.QObject):
+
+    disconnected             : ClassVar[Signal] = ... # disconnected()
+    error                    : ClassVar[Signal] = ... # error(QNearFieldTarget::Error,QNearFieldTarget::RequestId)
+    ndefMessageRead          : ClassVar[Signal] = ... # ndefMessageRead(QNdefMessage)
+    requestCompleted         : ClassVar[Signal] = ... # requestCompleted(QNearFieldTarget::RequestId)
 
     class AccessMethod(enum.Flag):
 

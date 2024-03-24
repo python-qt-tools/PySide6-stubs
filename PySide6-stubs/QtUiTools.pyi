@@ -15,7 +15,10 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import os
-from typing import Optional, Union, List, overload
+from typing import List, Optional, Union, overload
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...

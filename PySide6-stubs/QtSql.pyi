@@ -14,8 +14,12 @@ import PySide6.QtCore
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, Optional, Type, Union, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Type, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -129,6 +133,8 @@ class QSqlDatabase(Shiboken.Object):
 
 
 class QSqlDriver(PySide6.QtCore.QObject):
+
+    notification             : ClassVar[Signal] = ... # notification(QString,QSqlDriver::NotificationSource,QVariant)
 
     class DbmsType(enum.Enum):
 
@@ -612,6 +618,11 @@ class QSqlResult(Shiboken.Object):
 
 class QSqlTableModel(PySide6.QtSql.QSqlQueryModel):
 
+    beforeDelete             : ClassVar[Signal] = ... # beforeDelete(int)
+    beforeInsert             : ClassVar[Signal] = ... # beforeInsert(QSqlRecord&)
+    beforeUpdate             : ClassVar[Signal] = ... # beforeUpdate(int,QSqlRecord&)
+    primeInsert              : ClassVar[Signal] = ... # primeInsert(int,QSqlRecord&)
+
     class EditStrategy(enum.Enum):
 
         OnFieldChange            : QSqlTableModel.EditStrategy = ... # 0x0
@@ -659,7 +670,6 @@ class QSqlTableModel(PySide6.QtSql.QSqlQueryModel):
     def setEditStrategy(self, strategy: PySide6.QtSql.QSqlTableModel.EditStrategy) -> None: ...
     def setFilter(self, filter: str) -> None: ...
     def setPrimaryKey(self, key: PySide6.QtSql.QSqlIndex) -> None: ...
-    def setQuery(self, query: PySide6.QtSql.QSqlQuery) -> None: ...
     def setRecord(self, row: int, record: PySide6.QtSql.QSqlRecord) -> bool: ...
     def setSort(self, column: int, order: PySide6.QtCore.Qt.SortOrder) -> None: ...
     def setTable(self, tableName: str) -> None: ...

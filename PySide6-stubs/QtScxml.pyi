@@ -13,8 +13,12 @@ import PySide6.QtScxml
 import PySide6.QtCore
 
 import enum
-from typing import Any, Optional, Tuple, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Tuple, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -56,6 +60,8 @@ class QScxmlCppDataModel(PySide6.QtScxml.QScxmlDataModel):
 
 
 class QScxmlDataModel(PySide6.QtCore.QObject):
+
+    stateMachineChanged      : ClassVar[Signal] = ... # stateMachineChanged(QScxmlStateMachine*)
 
     class ForeachLoopBody(Shiboken.Object):
 
@@ -124,6 +130,8 @@ class QScxmlEvent(Shiboken.Object):
     @overload
     def __init__(self, other: PySide6.QtScxml.QScxmlEvent) -> None: ...
 
+    @staticmethod
+    def __copy__() -> None: ...
     def clear(self) -> None: ...
     def data(self) -> Any: ...
     def delay(self) -> int: ...
@@ -240,6 +248,17 @@ class QScxmlNullDataModel(PySide6.QtScxml.QScxmlDataModel):
 
 
 class QScxmlStateMachine(PySide6.QtCore.QObject):
+
+    dataModelChanged         : ClassVar[Signal] = ... # dataModelChanged(QScxmlDataModel*)
+    finished                 : ClassVar[Signal] = ... # finished()
+    initialValuesChanged     : ClassVar[Signal] = ... # initialValuesChanged(QVariantMap)
+    initializedChanged       : ClassVar[Signal] = ... # initializedChanged(bool)
+    invokedServicesChanged   : ClassVar[Signal] = ... # invokedServicesChanged(QList<QScxmlInvokableService*>)
+    loaderChanged            : ClassVar[Signal] = ... # loaderChanged(QScxmlCompiler::Loader*)
+    log                      : ClassVar[Signal] = ... # log(QString,QString)
+    reachedStableState       : ClassVar[Signal] = ... # reachedStableState()
+    runningChanged           : ClassVar[Signal] = ... # runningChanged(bool)
+    tableDataChanged         : ClassVar[Signal] = ... # tableDataChanged(QScxmlTableData*)
 
     def __init__(self, metaObject: PySide6.QtCore.QMetaObject, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
