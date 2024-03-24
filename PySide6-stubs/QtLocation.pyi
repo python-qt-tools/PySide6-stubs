@@ -25,7 +25,7 @@ NoneType = type(None)
 class QGeoCodeReply(PySide6.QtCore.QObject):
 
     aborted                  : ClassVar[Signal] = ... # aborted()
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoCodeReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoCodeReply::Error,QString); errorOccurred(QGeoCodeReply::Error)
     finished                 : ClassVar[Signal] = ... # finished()
 
     class Error(enum.Enum):
@@ -63,7 +63,7 @@ class QGeoCodeReply(PySide6.QtCore.QObject):
 
 class QGeoCodingManager(PySide6.QtCore.QObject):
 
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoCodeReply*,QGeoCodeReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoCodeReply*,QGeoCodeReply::Error,QString); errorOccurred(QGeoCodeReply*,QGeoCodeReply::Error)
     finished                 : ClassVar[Signal] = ... # finished(QGeoCodeReply*)
     @overload
     def geocode(self, address: PySide6.QtPositioning.QGeoAddress, bounds: PySide6.QtPositioning.QGeoShape = ...) -> PySide6.QtLocation.QGeoCodeReply: ...
@@ -78,7 +78,7 @@ class QGeoCodingManager(PySide6.QtCore.QObject):
 
 class QGeoCodingManagerEngine(PySide6.QtCore.QObject):
 
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoCodeReply*,QGeoCodeReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoCodeReply*,QGeoCodeReply::Error,QString); errorOccurred(QGeoCodeReply*,QGeoCodeReply::Error)
     finished                 : ClassVar[Signal] = ... # finished(QGeoCodeReply*)
 
     def __init__(self, parameters: Dict[str, Any], parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -178,7 +178,7 @@ class QGeoRoute(Shiboken.Object):
 class QGeoRouteReply(PySide6.QtCore.QObject):
 
     aborted                  : ClassVar[Signal] = ... # aborted()
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoRouteReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoRouteReply::Error,QString); errorOccurred(QGeoRouteReply::Error)
     finished                 : ClassVar[Signal] = ... # finished()
 
     class Error(enum.Enum):
@@ -223,7 +223,6 @@ class QGeoRouteRequest(Shiboken.Object):
         MotorPoolLaneFeature     : QGeoRouteRequest.FeatureType = ... # 0x80
         TrafficFeature           : QGeoRouteRequest.FeatureType = ... # 0x100
 
-
     class FeatureWeight(enum.Flag):
 
         NeutralFeatureWeight     : QGeoRouteRequest.FeatureWeight = ... # 0x0
@@ -232,12 +231,10 @@ class QGeoRouteRequest(Shiboken.Object):
         AvoidFeatureWeight       : QGeoRouteRequest.FeatureWeight = ... # 0x4
         DisallowFeatureWeight    : QGeoRouteRequest.FeatureWeight = ... # 0x8
 
-
     class ManeuverDetail(enum.Flag):
 
         NoManeuvers              : QGeoRouteRequest.ManeuverDetail = ... # 0x0
         BasicManeuvers           : QGeoRouteRequest.ManeuverDetail = ... # 0x1
-
 
     class RouteOptimization(enum.Flag):
 
@@ -246,12 +243,10 @@ class QGeoRouteRequest(Shiboken.Object):
         MostEconomicRoute        : QGeoRouteRequest.RouteOptimization = ... # 0x4
         MostScenicRoute          : QGeoRouteRequest.RouteOptimization = ... # 0x8
 
-
     class SegmentDetail(enum.Flag):
 
         NoSegmentData            : QGeoRouteRequest.SegmentDetail = ... # 0x0
         BasicSegmentData         : QGeoRouteRequest.SegmentDetail = ... # 0x1
-
 
     class TravelMode(enum.Flag):
 
@@ -317,7 +312,7 @@ class QGeoRouteSegment(Shiboken.Object):
 
 class QGeoRoutingManager(PySide6.QtCore.QObject):
 
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoRouteReply*,QGeoRouteReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoRouteReply*,QGeoRouteReply::Error,QString); errorOccurred(QGeoRouteReply*,QGeoRouteReply::Error)
     finished                 : ClassVar[Signal] = ... # finished(QGeoRouteReply*)
     def calculateRoute(self, request: PySide6.QtLocation.QGeoRouteRequest) -> PySide6.QtLocation.QGeoRouteReply: ...
     def locale(self) -> PySide6.QtCore.QLocale: ...
@@ -337,7 +332,7 @@ class QGeoRoutingManager(PySide6.QtCore.QObject):
 
 class QGeoRoutingManagerEngine(PySide6.QtCore.QObject):
 
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoRouteReply*,QGeoRouteReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoRouteReply*,QGeoRouteReply::Error,QString); errorOccurred(QGeoRouteReply*,QGeoRouteReply::Error)
     finished                 : ClassVar[Signal] = ... # finished(QGeoRouteReply*)
 
     def __init__(self, parameters: Dict[str, Any], parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -375,7 +370,6 @@ class QGeoServiceProvider(PySide6.QtCore.QObject):
         ConnectionError          : QGeoServiceProvider.Error = ... # 0x4
         LoaderError              : QGeoServiceProvider.Error = ... # 0x5
 
-
     class GeocodingFeature(enum.Flag):
 
         AnyGeocodingFeatures     : QGeoServiceProvider.GeocodingFeature = ... # -0x1
@@ -385,7 +379,6 @@ class QGeoServiceProvider(PySide6.QtCore.QObject):
         ReverseGeocodingFeature  : QGeoServiceProvider.GeocodingFeature = ... # 0x4
         LocalizedGeocodingFeature: QGeoServiceProvider.GeocodingFeature = ... # 0x8
 
-
     class MappingFeature(enum.Flag):
 
         AnyMappingFeatures       : QGeoServiceProvider.MappingFeature = ... # -0x1
@@ -394,14 +387,12 @@ class QGeoServiceProvider(PySide6.QtCore.QObject):
         OfflineMappingFeature    : QGeoServiceProvider.MappingFeature = ... # 0x2
         LocalizedMappingFeature  : QGeoServiceProvider.MappingFeature = ... # 0x4
 
-
     class NavigationFeature(enum.Flag):
 
         AnyNavigationFeatures    : QGeoServiceProvider.NavigationFeature = ... # -0x1
         NoNavigationFeatures     : QGeoServiceProvider.NavigationFeature = ... # 0x0
         OnlineNavigationFeature  : QGeoServiceProvider.NavigationFeature = ... # 0x1
         OfflineNavigationFeature : QGeoServiceProvider.NavigationFeature = ... # 0x2
-
 
     class PlacesFeature(enum.Flag):
 
@@ -418,7 +409,6 @@ class QGeoServiceProvider(PySide6.QtCore.QObject):
         LocalizedPlacesFeature   : QGeoServiceProvider.PlacesFeature = ... # 0x100
         NotificationsFeature     : QGeoServiceProvider.PlacesFeature = ... # 0x200
         PlaceMatchingFeature     : QGeoServiceProvider.PlacesFeature = ... # 0x400
-
 
     class RoutingFeature(enum.Flag):
 
@@ -597,7 +587,6 @@ class QPlaceContent(Shiboken.Object):
         ReviewRating             : QPlaceContent.DataTag = ... # 0xe
         CustomDataTag            : QPlaceContent.DataTag = ... # 0x3e8
 
-
     class Type(enum.Enum):
 
         NoType                   : QPlaceContent.Type = ... # 0x0
@@ -716,7 +705,7 @@ class QPlaceManager(PySide6.QtCore.QObject):
     categoryRemoved          : ClassVar[Signal] = ... # categoryRemoved(QString,QString)
     categoryUpdated          : ClassVar[Signal] = ... # categoryUpdated(QPlaceCategory,QString)
     dataChanged              : ClassVar[Signal] = ... # dataChanged()
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QPlaceReply*,QPlaceReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QPlaceReply*,QPlaceReply::Error,QString); errorOccurred(QPlaceReply*,QPlaceReply::Error)
     finished                 : ClassVar[Signal] = ... # finished(QPlaceReply*)
     placeAdded               : ClassVar[Signal] = ... # placeAdded(QString)
     placeRemoved             : ClassVar[Signal] = ... # placeRemoved(QString)
@@ -749,7 +738,7 @@ class QPlaceManagerEngine(PySide6.QtCore.QObject):
     categoryRemoved          : ClassVar[Signal] = ... # categoryRemoved(QString,QString)
     categoryUpdated          : ClassVar[Signal] = ... # categoryUpdated(QPlaceCategory,QString)
     dataChanged              : ClassVar[Signal] = ... # dataChanged()
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QPlaceReply*,QPlaceReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QPlaceReply*,QPlaceReply::Error,QString); errorOccurred(QPlaceReply*,QPlaceReply::Error)
     finished                 : ClassVar[Signal] = ... # finished(QPlaceReply*)
     placeAdded               : ClassVar[Signal] = ... # placeAdded(QString)
     placeRemoved             : ClassVar[Signal] = ... # placeRemoved(QString)
@@ -843,7 +832,7 @@ class QPlaceReply(PySide6.QtCore.QObject):
 
     aborted                  : ClassVar[Signal] = ... # aborted()
     contentUpdated           : ClassVar[Signal] = ... # contentUpdated()
-    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QPlaceReply::Error,QString)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QPlaceReply::Error,QString); errorOccurred(QPlaceReply::Error)
     finished                 : ClassVar[Signal] = ... # finished()
 
     class Error(enum.Enum):
@@ -858,7 +847,6 @@ class QPlaceReply(PySide6.QtCore.QObject):
         BadArgumentError         : QPlaceReply.Error = ... # 0x7
         CancelError              : QPlaceReply.Error = ... # 0x8
         UnknownError             : QPlaceReply.Error = ... # 0x9
-
 
     class Type(enum.Enum):
 

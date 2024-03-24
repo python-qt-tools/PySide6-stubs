@@ -169,7 +169,6 @@ class QDesignerFormWindowCursorInterface(Shiboken.Object):
         MoveAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x0
         KeepAnchor               : QDesignerFormWindowCursorInterface.MoveMode = ... # 0x1
 
-
     class MoveOperation(enum.Enum):
 
         NoMove                   : QDesignerFormWindowCursorInterface.MoveOperation = ... # 0x0
@@ -224,7 +223,6 @@ class QDesignerFormWindowInterface(PySide6.QtWidgets.QWidget):
         GridFeature              : QDesignerFormWindowInterface.FeatureFlag = ... # 0x2
         DefaultFeature           : QDesignerFormWindowInterface.FeatureFlag = ... # 0x3
         TabOrderFeature          : QDesignerFormWindowInterface.FeatureFlag = ... # 0x4
-
 
     class ResourceFileSaveMode(enum.Enum):
 
@@ -331,7 +329,6 @@ class QDesignerFormWindowManagerInterface(PySide6.QtCore.QObject):
         SimplifyLayoutAction     : QDesignerFormWindowManagerInterface.Action = ... # 0x198
         DefaultPreviewAction     : QDesignerFormWindowManagerInterface.Action = ... # 0x1f4
         FormWindowSettingsDialogAction: QDesignerFormWindowManagerInterface.Action = ... # 0x258
-
 
     class ActionGroup(enum.Enum):
 

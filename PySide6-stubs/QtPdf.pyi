@@ -14,7 +14,7 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import ClassVar, Dict, List, Union, overload
+from typing import ClassVar, Dict, List, Optional, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
 
@@ -75,7 +75,6 @@ class QPdfDocument(PySide6.QtCore.QObject):
         IncorrectPassword        : QPdfDocument.Error = ... # 0x5
         UnsupportedSecurityScheme: QPdfDocument.Error = ... # 0x6
 
-
     class MetaDataField(enum.Enum):
 
         Title                    : QPdfDocument.MetaDataField = ... # 0x0
@@ -87,13 +86,11 @@ class QPdfDocument(PySide6.QtCore.QObject):
         CreationDate             : QPdfDocument.MetaDataField = ... # 0x6
         ModificationDate         : QPdfDocument.MetaDataField = ... # 0x7
 
-
     class PageModelRole(enum.Enum):
 
         Label                    : QPdfDocument.PageModelRole = ... # 0x100
         PointSize                : QPdfDocument.PageModelRole = ... # 0x101
         NRoles                   : QPdfDocument.PageModelRole = ... # 0x102
-
 
     class Status(enum.Enum):
 
@@ -120,6 +117,7 @@ class QPdfDocument(PySide6.QtCore.QObject):
     def load(self, fileName: str) -> PySide6.QtPdf.QPdfDocument.Error: ...
     def metaData(self, field: PySide6.QtPdf.QPdfDocument.MetaDataField) -> Any: ...
     def pageCount(self) -> int: ...
+    def pageIndexForLabel(self, label: str) -> int: ...
     def pageLabel(self, page: int) -> str: ...
     def pageModel(self) -> PySide6.QtCore.QAbstractListModel: ...
     def pagePointSize(self, page: int) -> PySide6.QtCore.QSizeF: ...
@@ -141,7 +139,6 @@ class QPdfDocumentRenderOptions(Shiboken.Object):
         TextAliased              : QPdfDocumentRenderOptions.RenderFlag = ... # 0x10
         ImageAliased             : QPdfDocumentRenderOptions.RenderFlag = ... # 0x20
         PathAliased              : QPdfDocumentRenderOptions.RenderFlag = ... # 0x40
-
 
     class Rotation(enum.Enum):
 
@@ -188,6 +185,34 @@ class QPdfLink(Shiboken.Object):
     def toString(self) -> str: ...
     def url(self) -> PySide6.QtCore.QUrl: ...
     def zoom(self) -> float: ...
+
+
+class QPdfLinkModel(PySide6.QtCore.QAbstractListModel):
+
+    documentChanged          : ClassVar[Signal] = ... # documentChanged()
+    pageChanged              : ClassVar[Signal] = ... # pageChanged(int)
+
+    class Role(enum.Enum):
+
+        Link                     : QPdfLinkModel.Role = ... # 0x100
+        Rectangle                : QPdfLinkModel.Role = ... # 0x101
+        Url                      : QPdfLinkModel.Role = ... # 0x102
+        Page                     : QPdfLinkModel.Role = ... # 0x103
+        Location                 : QPdfLinkModel.Role = ... # 0x104
+        Zoom                     : QPdfLinkModel.Role = ... # 0x105
+        NRoles                   : QPdfLinkModel.Role = ... # 0x106
+
+
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int) -> Any: ...
+    def document(self) -> PySide6.QtPdf.QPdfDocument: ...
+    def linkAt(self, point: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element]) -> PySide6.QtPdf.QPdfLink: ...
+    def page(self) -> int: ...
+    def roleNames(self) -> Dict[int, PySide6.QtCore.QByteArray]: ...
+    def rowCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> int: ...
+    def setDocument(self, document: PySide6.QtPdf.QPdfDocument) -> None: ...
+    def setPage(self, page: int) -> None: ...
 
 
 class QPdfPageNavigator(PySide6.QtCore.QObject):

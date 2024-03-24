@@ -163,7 +163,7 @@ class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
     @overload
     def __init__(self, arg__1: object, arg__2: Optional[PySide6.QtStateMachine.QState] = ...) -> PySide6.QtStateMachine.QSignalTransition: ...
     @overload
-    def __init__(self, sender: PySide6.QtCore.QObject, signal: bytes, sourceState: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
+    def __init__(self, sender: PySide6.QtCore.QObject, signal: Union[bytes, bytearray, memoryview], sourceState: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
     @overload
     def __init__(self, sourceState: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
 
@@ -172,7 +172,7 @@ class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
     def onTransition(self, event: PySide6.QtCore.QEvent) -> None: ...
     def senderObject(self) -> PySide6.QtCore.QObject: ...
     def setSenderObject(self, sender: PySide6.QtCore.QObject) -> None: ...
-    def setSignal(self, signal: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setSignal(self, signal: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def signal(self) -> PySide6.QtCore.QByteArray: ...
 
 
@@ -188,7 +188,6 @@ class QState(PySide6.QtStateMachine.QAbstractState):
 
         ExclusiveStates          : QState.ChildMode = ... # 0x0
         ParallelStates           : QState.ChildMode = ... # 0x1
-
 
     class RestorePolicy(enum.Enum):
 
@@ -237,12 +236,10 @@ class QStateMachine(PySide6.QtStateMachine.QState):
         NoCommonAncestorForTransitionError: QStateMachine.Error = ... # 0x3
         StateMachineChildModeSetToParallelError: QStateMachine.Error = ... # 0x4
 
-
     class EventPriority(enum.Enum):
 
         NormalPriority           : QStateMachine.EventPriority = ... # 0x0
         HighPriority             : QStateMachine.EventPriority = ... # 0x1
-
 
     class SignalEvent(PySide6.QtCore.QEvent):
 

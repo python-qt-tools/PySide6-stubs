@@ -13,8 +13,7 @@ import PySide6.QtConcurrent
 import PySide6.QtCore
 
 import enum
-from typing import ClassVar, Optional, overload
-from PySide6.QtCore import Signal
+from typing import Optional, overload
 from shiboken6 import Shiboken
 
 
@@ -89,19 +88,6 @@ class QFutureVoid(Shiboken.Object):
 
 class QFutureWatcherQString(PySide6.QtCore.QObject):
 
-    canceled                 : ClassVar[Signal] = ... # canceled()
-    finished                 : ClassVar[Signal] = ... # finished()
-    paused                   : ClassVar[Signal] = ... # paused()
-    progressRangeChanged     : ClassVar[Signal] = ... # progressRangeChanged(int,int)
-    progressTextChanged      : ClassVar[Signal] = ... # progressTextChanged(QString)
-    progressValueChanged     : ClassVar[Signal] = ... # progressValueChanged(int)
-    resultReadyAt            : ClassVar[Signal] = ... # resultReadyAt(int)
-    resultsReadyAt           : ClassVar[Signal] = ... # resultsReadyAt(int,int)
-    resumed                  : ClassVar[Signal] = ... # resumed()
-    started                  : ClassVar[Signal] = ... # started()
-    suspended                : ClassVar[Signal] = ... # suspended()
-    suspending               : ClassVar[Signal] = ... # suspending()
-
     def __init__(self, _parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def future(self) -> PySide6.QtConcurrent.QFutureQString: ...
@@ -109,19 +95,6 @@ class QFutureWatcherQString(PySide6.QtCore.QObject):
 
 
 class QFutureWatcherVoid(PySide6.QtCore.QObject):
-
-    canceled                 : ClassVar[Signal] = ... # canceled()
-    finished                 : ClassVar[Signal] = ... # finished()
-    paused                   : ClassVar[Signal] = ... # paused()
-    progressRangeChanged     : ClassVar[Signal] = ... # progressRangeChanged(int,int)
-    progressTextChanged      : ClassVar[Signal] = ... # progressTextChanged(QString)
-    progressValueChanged     : ClassVar[Signal] = ... # progressValueChanged(int)
-    resultReadyAt            : ClassVar[Signal] = ... # resultReadyAt(int)
-    resultsReadyAt           : ClassVar[Signal] = ... # resultsReadyAt(int,int)
-    resumed                  : ClassVar[Signal] = ... # resumed()
-    started                  : ClassVar[Signal] = ... # started()
-    suspended                : ClassVar[Signal] = ... # suspended()
-    suspending               : ClassVar[Signal] = ... # suspending()
 
     def __init__(self, _parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -135,13 +108,11 @@ class QtConcurrent(Shiboken.Object):
 
         Ignore                   : QtConcurrent.FutureResult = ... # 0x0
 
-
     class ReduceOption(enum.Flag):
 
         UnorderedReduce          : QtConcurrent.ReduceOption = ... # 0x1
         OrderedReduce            : QtConcurrent.ReduceOption = ... # 0x2
         SequentialReduce         : QtConcurrent.ReduceOption = ... # 0x4
-
 
     class ThreadFunctionResult(enum.Enum):
 
