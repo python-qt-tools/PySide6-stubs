@@ -15,8 +15,12 @@ import PySide6.QtGui
 import PySide6.QtQml
 
 import enum
-from typing import Any, Optional, Tuple, Union, List, overload
+from typing import Any, ClassVar, List, Optional, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -31,6 +35,8 @@ class QQuick3D(Shiboken.Object):
 
 
 class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
+
+    geometryNodeDirty        : ClassVar[Signal] = ... # geometryNodeDirty()
 
     class Attribute(Shiboken.Object):
 
@@ -119,6 +125,12 @@ class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
 
 class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
+    depthSortingEnabledChanged: ClassVar[Signal] = ... # depthSortingEnabledChanged()
+    hasTransparencyChanged   : ClassVar[Signal] = ... # hasTransparencyChanged()
+    instanceCountOverrideChanged: ClassVar[Signal] = ... # instanceCountOverrideChanged()
+    instanceNodeDirty        : ClassVar[Signal] = ... # instanceNodeDirty()
+    instanceTableChanged     : ClassVar[Signal] = ... # instanceTableChanged()
+
     class InstanceTableEntry(Shiboken.Object):
 
         @overload
@@ -158,6 +170,10 @@ class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
 
 class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
+    childrenChanged          : ClassVar[Signal] = ... # childrenChanged()
+    parentChanged            : ClassVar[Signal] = ... # parentChanged()
+    stateChanged             : ClassVar[Signal] = ... # stateChanged()
+
     class ItemChange(enum.Enum):
 
         ItemChildAddedChange     : QQuick3DObject.ItemChange = ... # 0x0
@@ -187,6 +203,8 @@ class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
 
 
 class QQuick3DTextureData(PySide6.QtQuick3D.QQuick3DObject):
+
+    textureDataNodeDirty     : ClassVar[Signal] = ... # textureDataNodeDirty()
 
     class Format(enum.Enum):
 

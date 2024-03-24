@@ -14,8 +14,12 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Any, Optional, Tuple, Type, Union, Sequence, List, overload
+from typing import Any, ClassVar, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractOpenGLFunctions(Shiboken.Object):
@@ -81,7 +85,7 @@ class QOpenGLBuffer(Shiboken.Object):
     @overload
     def allocate(self, count: int) -> None: ...
     @overload
-    def allocate(self, data: int, count: int) -> None: ...
+    def allocate(self, data: bytes, count: int) -> None: ...
     def bind(self) -> bool: ...
     def bufferId(self) -> int: ...
     def create(self) -> bool: ...
@@ -97,6 +101,7 @@ class QOpenGLBuffer(Shiboken.Object):
     def release(type: PySide6.QtOpenGL.QOpenGLBuffer.Type) -> None: ...
     def setUsagePattern(self, value: PySide6.QtOpenGL.QOpenGLBuffer.UsagePattern) -> None: ...
     def size(self) -> int: ...
+    def swap(self, other: PySide6.QtOpenGL.QOpenGLBuffer) -> None: ...
     def type(self) -> PySide6.QtOpenGL.QOpenGLBuffer.Type: ...
     def unmap(self) -> bool: ...
     def usagePattern(self) -> PySide6.QtOpenGL.QOpenGLBuffer.UsagePattern: ...
@@ -104,6 +109,8 @@ class QOpenGLBuffer(Shiboken.Object):
 
 
 class QOpenGLDebugLogger(PySide6.QtCore.QObject):
+
+    messageLogged            : ClassVar[Signal] = ... # messageLogged(QOpenGLDebugMessage)
 
     class LoggingMode(enum.Enum):
 
@@ -14061,6 +14068,8 @@ class QOpenGLVertexArrayObject(PySide6.QtCore.QObject):
 
 
 class QOpenGLWindow(PySide6.QtGui.QPaintDeviceWindow):
+
+    frameSwapped             : ClassVar[Signal] = ... # frameSwapped()
 
     class UpdateBehavior(enum.Enum):
 

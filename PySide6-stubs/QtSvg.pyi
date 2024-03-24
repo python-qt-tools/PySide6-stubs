@@ -13,7 +13,12 @@ import PySide6.QtSvg
 import PySide6.QtCore
 import PySide6.QtGui
 
-from typing import Optional, Union, overload
+import enum
+from typing import ClassVar, Optional, Union, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -21,7 +26,16 @@ class QIntList(object): ...
 
 class QSvgGenerator(PySide6.QtGui.QPaintDevice):
 
+    class SvgVersion(enum.Enum):
+
+        SvgTiny12                : QSvgGenerator.SvgVersion = ... # 0x0
+        Svg11                    : QSvgGenerator.SvgVersion = ... # 0x1
+
+
+    @overload
     def __init__(self) -> None: ...
+    @overload
+    def __init__(self, version: PySide6.QtSvg.QSvgGenerator.SvgVersion) -> None: ...
 
     def description(self) -> str: ...
     def fileName(self) -> str: ...
@@ -40,12 +54,15 @@ class QSvgGenerator(PySide6.QtGui.QPaintDevice):
     @overload
     def setViewBox(self, viewBox: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> None: ...
     def size(self) -> PySide6.QtCore.QSize: ...
+    def svgVersion(self) -> PySide6.QtSvg.QSvgGenerator.SvgVersion: ...
     def title(self) -> str: ...
     def viewBox(self) -> PySide6.QtCore.QRect: ...
     def viewBoxF(self) -> PySide6.QtCore.QRectF: ...
 
 
 class QSvgRenderer(PySide6.QtCore.QObject):
+
+    repaintNeeded            : ClassVar[Signal] = ... # repaintNeeded()
 
     @overload
     def __init__(self, contents: PySide6.QtCore.QXmlStreamReader, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...

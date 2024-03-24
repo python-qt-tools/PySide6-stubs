@@ -15,8 +15,12 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, Optional, Union, Sequence, List, overload
+from typing import Any, ClassVar, List, Optional, Sequence, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractPrintDialog(PySide6.QtWidgets.QDialog):
@@ -75,6 +79,8 @@ class QPageSetupDialog(PySide6.QtWidgets.QDialog):
 
 
 class QPrintDialog(PySide6.QtPrintSupport.QAbstractPrintDialog):
+
+    accepted                 : ClassVar[Signal] = ... # accepted(QPrinter*)
 
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
@@ -142,6 +148,8 @@ class QPrintEngine(Shiboken.Object):
 
 class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
 
+    paintRequested           : ClassVar[Signal] = ... # paintRequested(QPrinter*)
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ..., flags: PySide6.QtCore.Qt.WindowType = ...) -> None: ...
     @overload
@@ -157,6 +165,9 @@ class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
 
 
 class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
+
+    paintRequested           : ClassVar[Signal] = ... # paintRequested(QPrinter*)
+    previewChanged           : ClassVar[Signal] = ... # previewChanged()
 
     class ViewMode(enum.Enum):
 

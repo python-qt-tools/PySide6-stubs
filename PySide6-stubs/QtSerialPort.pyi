@@ -13,14 +13,28 @@ import PySide6.QtSerialPort
 import PySide6.QtCore
 
 import enum
-from typing import Optional, List, overload
+from typing import ClassVar, List, Optional, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
 
 
 class QSerialPort(PySide6.QtCore.QIODevice):
+
+    baudRateChanged          : ClassVar[Signal] = ... # baudRateChanged(int,QSerialPort::Directions)
+    breakEnabledChanged      : ClassVar[Signal] = ... # breakEnabledChanged(bool)
+    dataBitsChanged          : ClassVar[Signal] = ... # dataBitsChanged(QSerialPort::DataBits)
+    dataTerminalReadyChanged : ClassVar[Signal] = ... # dataTerminalReadyChanged(bool)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QSerialPort::SerialPortError)
+    flowControlChanged       : ClassVar[Signal] = ... # flowControlChanged(QSerialPort::FlowControl)
+    parityChanged            : ClassVar[Signal] = ... # parityChanged(QSerialPort::Parity)
+    requestToSendChanged     : ClassVar[Signal] = ... # requestToSendChanged(bool)
+    stopBitsChanged          : ClassVar[Signal] = ... # stopBitsChanged(QSerialPort::StopBits)
 
     class BaudRate(enum.IntEnum):
 

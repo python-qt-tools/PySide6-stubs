@@ -13,11 +13,17 @@ import PySide6.QtSensors
 import PySide6.QtCore
 
 import enum
-from typing import Optional, Tuple, Union, List, overload
+from typing import ClassVar, List, Optional, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
 
 
+NoneType = type(None)
+
+
 class QAccelerometer(PySide6.QtSensors.QSensor):
+
+    accelerationModeChanged  : ClassVar[Signal] = ... # accelerationModeChanged(AccelerationMode)
 
     class AccelerationMode(enum.Enum):
 
@@ -221,6 +227,9 @@ class QLidFilter(PySide6.QtSensors.QSensorFilter):
 
 class QLidReading(PySide6.QtSensors.QSensorReading):
 
+    backLidChanged           : ClassVar[Signal] = ... # backLidChanged(bool)
+    frontLidChanged          : ClassVar[Signal] = ... # frontLidChanged(bool)
+
     def __init__(self, parent: PySide6.QtCore.QObject) -> None: ...
 
     def backLidClosed(self) -> bool: ...
@@ -255,6 +264,8 @@ class QLightReading(PySide6.QtSensors.QSensorReading):
 
 class QLightSensor(PySide6.QtSensors.QSensor):
 
+    fieldOfViewChanged       : ClassVar[Signal] = ... # fieldOfViewChanged(double)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def fieldOfView(self) -> float: ...
@@ -263,6 +274,8 @@ class QLightSensor(PySide6.QtSensors.QSensor):
 
 
 class QMagnetometer(PySide6.QtSensors.QSensor):
+
+    returnGeoValuesChanged   : ClassVar[Signal] = ... # returnGeoValuesChanged(bool)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -395,6 +408,8 @@ class QRotationReading(PySide6.QtSensors.QSensorReading):
 
 class QRotationSensor(PySide6.QtSensors.QSensor):
 
+    hasZChanged              : ClassVar[Signal] = ... # hasZChanged(bool)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def hasZ(self) -> bool: ...
@@ -403,6 +418,22 @@ class QRotationSensor(PySide6.QtSensors.QSensor):
 
 
 class QSensor(PySide6.QtCore.QObject):
+
+    activeChanged            : ClassVar[Signal] = ... # activeChanged()
+    alwaysOnChanged          : ClassVar[Signal] = ... # alwaysOnChanged()
+    availableSensorsChanged  : ClassVar[Signal] = ... # availableSensorsChanged()
+    axesOrientationModeChanged: ClassVar[Signal] = ... # axesOrientationModeChanged(AxesOrientationMode)
+    bufferSizeChanged        : ClassVar[Signal] = ... # bufferSizeChanged(int)
+    busyChanged              : ClassVar[Signal] = ... # busyChanged()
+    currentOrientationChanged: ClassVar[Signal] = ... # currentOrientationChanged(int)
+    dataRateChanged          : ClassVar[Signal] = ... # dataRateChanged()
+    efficientBufferSizeChanged: ClassVar[Signal] = ... # efficientBufferSizeChanged(int)
+    identifierChanged        : ClassVar[Signal] = ... # identifierChanged()
+    maxBufferSizeChanged     : ClassVar[Signal] = ... # maxBufferSizeChanged(int)
+    readingChanged           : ClassVar[Signal] = ... # readingChanged()
+    sensorError              : ClassVar[Signal] = ... # sensorError(int)
+    skipDuplicatesChanged    : ClassVar[Signal] = ... # skipDuplicatesChanged(bool)
+    userOrientationChanged   : ClassVar[Signal] = ... # userOrientationChanged(int)
 
     class AxesOrientationMode(enum.Enum):
 
@@ -582,6 +613,8 @@ class QTapReading(PySide6.QtSensors.QSensorReading):
 
 
 class QTapSensor(PySide6.QtSensors.QSensor):
+
+    returnDoubleTapEventsChanged: ClassVar[Signal] = ... # returnDoubleTapEventsChanged(bool)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

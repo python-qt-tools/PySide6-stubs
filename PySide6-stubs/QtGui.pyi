@@ -14,8 +14,12 @@ import PySide6.QtCore
 
 import os
 import enum
-from typing import Any, Callable, Optional, Tuple, Type, Union, Iterable, Sequence, Dict, List, Set, overload, Text
+from typing import Any, Callable, ClassVar, Dict, Iterable, List, Optional, Sequence, Set, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractFileIconProvider(Shiboken.Object):
@@ -48,6 +52,11 @@ class QAbstractFileIconProvider(Shiboken.Object):
 
 
 class QAbstractTextDocumentLayout(PySide6.QtCore.QObject):
+
+    documentSizeChanged      : ClassVar[Signal] = ... # documentSizeChanged(QSizeF)
+    pageCountChanged         : ClassVar[Signal] = ... # pageCountChanged(int)
+    update                   : ClassVar[Signal] = ... # update()
+    updateBlock              : ClassVar[Signal] = ... # updateBlock(QTextBlock)
 
     class PaintContext(Shiboken.Object):
 
@@ -181,6 +190,7 @@ class QAccessible(Shiboken.Object):
         TableInterface           : QAccessible.InterfaceType = ... # 0x5
         TableCellInterface       : QAccessible.InterfaceType = ... # 0x6
         HyperlinkInterface       : QAccessible.InterfaceType = ... # 0x7
+        SelectionInterface       : QAccessible.InterfaceType = ... # 0x8
 
 
     class RelationFlag(enum.Flag):
@@ -590,6 +600,14 @@ class QAccessibleValueInterface(Shiboken.Object):
 
 class QAction(PySide6.QtCore.QObject):
 
+    changed                  : ClassVar[Signal] = ... # changed()
+    checkableChanged         : ClassVar[Signal] = ... # checkableChanged(bool)
+    enabledChanged           : ClassVar[Signal] = ... # enabledChanged(bool)
+    hovered                  : ClassVar[Signal] = ... # hovered()
+    toggled                  : ClassVar[Signal] = ... # toggled(bool)
+    triggered                : ClassVar[Signal] = ... # triggered()
+    visibleChanged           : ClassVar[Signal] = ... # visibleChanged()
+
     class ActionEvent(enum.Enum):
 
         Trigger                  : QAction.ActionEvent = ... # 0x0
@@ -697,6 +715,9 @@ class QActionEvent(PySide6.QtCore.QEvent):
 
 
 class QActionGroup(PySide6.QtCore.QObject):
+
+    hovered                  : ClassVar[Signal] = ... # hovered(QAction*)
+    triggered                : ClassVar[Signal] = ... # triggered(QAction*)
 
     class ExclusionPolicy(enum.Enum):
 
@@ -819,6 +840,11 @@ class QBrush(Shiboken.Object):
 
 class QClipboard(PySide6.QtCore.QObject):
 
+    changed                  : ClassVar[Signal] = ... # changed(QClipboard::Mode)
+    dataChanged              : ClassVar[Signal] = ... # dataChanged()
+    findBufferChanged        : ClassVar[Signal] = ... # findBufferChanged()
+    selectionChanged         : ClassVar[Signal] = ... # selectionChanged()
+
     class Mode(enum.Enum):
 
         Clipboard                : QClipboard.Mode = ... # 0x0
@@ -834,16 +860,22 @@ class QClipboard(PySide6.QtCore.QObject):
     def ownsFindBuffer(self) -> bool: ...
     def ownsSelection(self) -> bool: ...
     def pixmap(self, mode: PySide6.QtGui.QClipboard.Mode = ...) -> PySide6.QtGui.QPixmap: ...
-    def setImage(self, arg__1: Union[PySide6.QtGui.QImage, str], mode: PySide6.QtGui.QClipboard.Mode = ...) -> None: ...
+    @overload
+    def setImage(self, arg__1: PySide6.QtGui.QImage, mode: PySide6.QtGui.QClipboard.Mode = ...) -> None: ...
+    @overload
+    def setImage(self, path: Union[str, bytes, os.PathLike]) -> None: ...
     def setMimeData(self, data: PySide6.QtCore.QMimeData, mode: PySide6.QtGui.QClipboard.Mode = ...) -> None: ...
-    def setPixmap(self, arg__1: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str], mode: PySide6.QtGui.QClipboard.Mode = ...) -> None: ...
+    @overload
+    def setPixmap(self, arg__1: PySide6.QtGui.QPixmap, mode: PySide6.QtGui.QClipboard.Mode = ...) -> None: ...
+    @overload
+    def setPixmap(self, path: Union[str, bytes, os.PathLike]) -> None: ...
     def setText(self, arg__1: str, mode: PySide6.QtGui.QClipboard.Mode = ...) -> None: ...
     def supportsFindBuffer(self) -> bool: ...
     def supportsSelection(self) -> bool: ...
     @overload
     def text(self, mode: PySide6.QtGui.QClipboard.Mode = ...) -> str: ...
     @overload
-    def text(self, subtype: str, mode: PySide6.QtGui.QClipboard.Mode = ...) -> Tuple: ...
+    def text(self, subtype: str, mode: PySide6.QtGui.QClipboard.Mode = ...) -> Tuple[str, PySide6.QtGui.QClipboard.Mode]: ...
 
 
 class QCloseEvent(PySide6.QtCore.QEvent):
@@ -1233,6 +1265,11 @@ class QDesktopServices(Shiboken.Object):
 
 class QDoubleValidator(PySide6.QtGui.QValidator):
 
+    bottomChanged            : ClassVar[Signal] = ... # bottomChanged(double)
+    decimalsChanged          : ClassVar[Signal] = ... # decimalsChanged(int)
+    notationChanged          : ClassVar[Signal] = ... # notationChanged(QDoubleValidator::Notation)
+    topChanged               : ClassVar[Signal] = ... # topChanged(double)
+
     class Notation(enum.Enum):
 
         StandardNotation         : QDoubleValidator.Notation = ... # 0x0
@@ -1261,6 +1298,9 @@ class QDoubleValidator(PySide6.QtGui.QValidator):
 
 
 class QDrag(PySide6.QtCore.QObject):
+
+    actionChanged            : ClassVar[Signal] = ... # actionChanged(Qt::DropAction)
+    targetChanged            : ClassVar[Signal] = ... # targetChanged(QObject*)
 
     def __init__(self, dragSource: PySide6.QtCore.QObject) -> None: ...
 
@@ -1458,6 +1498,7 @@ class QFileOpenEvent(PySide6.QtCore.QEvent):
 
     def clone(self) -> PySide6.QtGui.QFileOpenEvent: ...
     def file(self) -> str: ...
+    def openFile(self, file: PySide6.QtCore.QFile, flags: PySide6.QtCore.QIODeviceBase.OpenModeFlag) -> bool: ...
     def url(self) -> PySide6.QtCore.QUrl: ...
 
 
@@ -1948,9 +1989,13 @@ class QGlyphRun(Shiboken.Object):
     def setRawData(self, glyphIndexArray: int, glyphPositionArray: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], size: int) -> None: ...
     def setRawFont(self, rawFont: PySide6.QtGui.QRawFont) -> None: ...
     def setRightToLeft(self, on: bool) -> None: ...
+    def setSourceString(self, sourceString: str) -> None: ...
     def setStrikeOut(self, strikeOut: bool) -> None: ...
+    def setStringIndexes(self, stringIndexes: Sequence[int]) -> None: ...
     def setUnderline(self, underline: bool) -> None: ...
+    def sourceString(self) -> str: ...
     def strikeOut(self) -> bool: ...
+    def stringIndexes(self) -> List[int]: ...
     def swap(self, other: PySide6.QtGui.QGlyphRun) -> None: ...
     def underline(self) -> bool: ...
 
@@ -2182,6 +2227,21 @@ class QGradient(Shiboken.Object):
 
 class QGuiApplication(PySide6.QtCore.QCoreApplication):
 
+    applicationDisplayNameChanged: ClassVar[Signal] = ... # applicationDisplayNameChanged()
+    applicationStateChanged  : ClassVar[Signal] = ... # applicationStateChanged(Qt::ApplicationState)
+    commitDataRequest        : ClassVar[Signal] = ... # commitDataRequest(QSessionManager&)
+    focusObjectChanged       : ClassVar[Signal] = ... # focusObjectChanged(QObject*)
+    focusWindowChanged       : ClassVar[Signal] = ... # focusWindowChanged(QWindow*)
+    fontChanged              : ClassVar[Signal] = ... # fontChanged(QFont)
+    fontDatabaseChanged      : ClassVar[Signal] = ... # fontDatabaseChanged()
+    lastWindowClosed         : ClassVar[Signal] = ... # lastWindowClosed()
+    layoutDirectionChanged   : ClassVar[Signal] = ... # layoutDirectionChanged(Qt::LayoutDirection)
+    paletteChanged           : ClassVar[Signal] = ... # paletteChanged(QPalette)
+    primaryScreenChanged     : ClassVar[Signal] = ... # primaryScreenChanged(QScreen*)
+    saveStateRequest         : ClassVar[Signal] = ... # saveStateRequest(QSessionManager&)
+    screenAdded              : ClassVar[Signal] = ... # screenAdded(QScreen*)
+    screenRemoved            : ClassVar[Signal] = ... # screenRemoved(QScreen*)
+
     @overload
     def __init__(self) -> None: ...
     @overload
@@ -2236,6 +2296,8 @@ class QGuiApplication(PySide6.QtCore.QCoreApplication):
     @staticmethod
     def palette() -> PySide6.QtGui.QPalette: ...
     @staticmethod
+    def platformFunction(function: Union[PySide6.QtCore.QByteArray, bytes]) -> int: ...
+    @staticmethod
     def platformName() -> str: ...
     @staticmethod
     def primaryScreen() -> PySide6.QtGui.QScreen: ...
@@ -2254,6 +2316,7 @@ class QGuiApplication(PySide6.QtCore.QCoreApplication):
     def sessionKey(self) -> str: ...
     @staticmethod
     def setApplicationDisplayName(name: str) -> None: ...
+    def setBadgeNumber(self, number: int) -> None: ...
     @staticmethod
     def setDesktopFileName(name: str) -> None: ...
     @staticmethod
@@ -2859,6 +2922,8 @@ class QImageWriter(Shiboken.Object):
 
 class QInputDevice(PySide6.QtCore.QObject):
 
+    availableVirtualGeometryChanged: ClassVar[Signal] = ... # availableVirtualGeometryChanged(QRect)
+
     class Capability(enum.Flag):
 
         None_                    : QInputDevice.Capability = ... # 0x0
@@ -2929,6 +2994,15 @@ class QInputEvent(PySide6.QtCore.QEvent):
 
 
 class QInputMethod(PySide6.QtCore.QObject):
+
+    anchorRectangleChanged   : ClassVar[Signal] = ... # anchorRectangleChanged()
+    animatingChanged         : ClassVar[Signal] = ... # animatingChanged()
+    cursorRectangleChanged   : ClassVar[Signal] = ... # cursorRectangleChanged()
+    inputDirectionChanged    : ClassVar[Signal] = ... # inputDirectionChanged(Qt::LayoutDirection)
+    inputItemClipRectangleChanged: ClassVar[Signal] = ... # inputItemClipRectangleChanged()
+    keyboardRectangleChanged : ClassVar[Signal] = ... # keyboardRectangleChanged()
+    localeChanged            : ClassVar[Signal] = ... # localeChanged()
+    visibleChanged           : ClassVar[Signal] = ... # visibleChanged()
 
     class Action(enum.Enum):
 
@@ -3016,6 +3090,9 @@ class QIntList(object): ...
 
 
 class QIntValidator(PySide6.QtGui.QValidator):
+
+    bottomChanged            : ClassVar[Signal] = ... # bottomChanged(int)
+    topChanged               : ClassVar[Signal] = ... # topChanged(int)
 
     @overload
     def __init__(self, bottom: int, top: int, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -3451,7 +3528,7 @@ class QMatrix4x4(Shiboken.Object):
     def flags(self) -> PySide6.QtGui.QMatrix4x4.Flag: ...
     def flipCoordinates(self) -> None: ...
     def frustum(self, left: float, right: float, bottom: float, top: float, nearPlane: float, farPlane: float) -> None: ...
-    def inverted(self) -> Tuple: ...
+    def inverted(self) -> Tuple[PySide6.QtGui.QMatrix4x4, bool]: ...
     def isAffine(self) -> bool: ...
     def isIdentity(self) -> bool: ...
     def lookAt(self, eye: PySide6.QtGui.QVector3D, center: PySide6.QtGui.QVector3D, up: PySide6.QtGui.QVector3D) -> None: ...
@@ -3477,7 +3554,10 @@ class QMatrix4x4(Shiboken.Object):
     @overload
     def ortho(self, rect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> None: ...
     def perspective(self, verticalAngle: float, aspectRatio: float, nearPlane: float, farPlane: float) -> None: ...
+    @overload
     def projectedRotate(self, angle: float, x: float, y: float, z: float) -> None: ...
+    @overload
+    def projectedRotate(self, angle: float, x: float, y: float, z: float, distanceToPlane: float) -> None: ...
     @overload
     def rotate(self, angle: float, vector: PySide6.QtGui.QVector3D) -> None: ...
     @overload
@@ -3556,6 +3636,14 @@ class QMoveEvent(PySide6.QtCore.QEvent):
 
 class QMovie(PySide6.QtCore.QObject):
 
+    error                    : ClassVar[Signal] = ... # error(QImageReader::ImageReaderError)
+    finished                 : ClassVar[Signal] = ... # finished()
+    frameChanged             : ClassVar[Signal] = ... # frameChanged(int)
+    resized                  : ClassVar[Signal] = ... # resized(QSize)
+    started                  : ClassVar[Signal] = ... # started()
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QMovie::MovieState)
+    updated                  : ClassVar[Signal] = ... # updated(QRect)
+
     class CacheMode(enum.Enum):
 
         CacheNone                : QMovie.CacheMode = ... # 0x0
@@ -3633,6 +3721,8 @@ class QNativeGestureEvent(PySide6.QtGui.QSinglePointEvent):
 
 class QOffscreenSurface(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
 
+    screenChanged            : ClassVar[Signal] = ... # screenChanged(QScreen*)
+
     def __init__(self, screen: Optional[PySide6.QtGui.QScreen] = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def create(self) -> None: ...
@@ -3650,6 +3740,8 @@ class QOffscreenSurface(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
 
 
 class QOpenGLContext(PySide6.QtCore.QObject):
+
+    aboutToBeDestroyed       : ClassVar[Signal] = ... # aboutToBeDestroyed()
 
     class OpenGLModuleType(enum.Enum):
 
@@ -3670,6 +3762,10 @@ class QOpenGLContext(PySide6.QtCore.QObject):
     def extraFunctions(self) -> PySide6.QtGui.QOpenGLExtraFunctions: ...
     def format(self) -> PySide6.QtGui.QSurfaceFormat: ...
     def functions(self) -> PySide6.QtGui.QOpenGLFunctions: ...
+    @overload
+    def getProcAddress(self, procName: bytes) -> int: ...
+    @overload
+    def getProcAddress(self, procName: Union[PySide6.QtCore.QByteArray, bytes]) -> int: ...
     @staticmethod
     def globalShareContext() -> PySide6.QtGui.QOpenGLContext: ...
     def hasExtension(self, extension: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
@@ -4807,6 +4903,8 @@ class QPainter(Shiboken.Object):
     @overload
     def drawLines(self, lines: Sequence[PySide6.QtCore.QLine]) -> None: ...
     @overload
+    def drawLines(self, lines: Union[PySide6.QtCore.QLineF, PySide6.QtCore.QLine], lineCount: int) -> None: ...
+    @overload
     def drawLines(self, pointPairs: Sequence[PySide6.QtCore.QPointF]) -> None: ...
     @overload
     def drawLines(self, pointPairs: Sequence[PySide6.QtCore.QPoint]) -> None: ...
@@ -4857,6 +4955,8 @@ class QPainter(Shiboken.Object):
     @overload
     def drawPoints(self, arg__1: Sequence[PySide6.QtCore.QPoint]) -> None: ...
     @overload
+    def drawPoints(self, points: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element], pointCount: int) -> None: ...
+    @overload
     def drawPoints(self, points: Union[PySide6.QtGui.QPolygon, Sequence[PySide6.QtCore.QPoint], PySide6.QtCore.QRect]) -> None: ...
     @overload
     def drawPoints(self, points: Union[PySide6.QtGui.QPolygonF, Sequence[PySide6.QtCore.QPointF], PySide6.QtGui.QPolygon, PySide6.QtCore.QRectF]) -> None: ...
@@ -4887,6 +4987,8 @@ class QPainter(Shiboken.Object):
     def drawRects(self, rectangles: Sequence[PySide6.QtCore.QRectF]) -> None: ...
     @overload
     def drawRects(self, rectangles: Sequence[PySide6.QtCore.QRect]) -> None: ...
+    @overload
+    def drawRects(self, rects: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect], rectCount: int) -> None: ...
     @overload
     def drawRoundedRect(self, rect: PySide6.QtCore.QRect, xRadius: float, yRadius: float, mode: PySide6.QtCore.Qt.SizeMode = ...) -> None: ...
     @overload
@@ -5691,6 +5793,8 @@ class QPointerEvent(PySide6.QtGui.QInputEvent):
 
 class QPointingDevice(PySide6.QtGui.QInputDevice):
 
+    grabChanged              : ClassVar[Signal] = ... # grabChanged(QObject*,GrabTransition,const QPointerEvent*,QEventPoint)
+
     class GrabTransition(enum.Enum):
 
         GrabPassive              : QPointingDevice.GrabTransition = ... # 0x1
@@ -6232,6 +6336,8 @@ class QRegion(Shiboken.Object):
 
 class QRegularExpressionValidator(PySide6.QtGui.QValidator):
 
+    regularExpressionChanged : ClassVar[Signal] = ... # regularExpressionChanged(QRegularExpression)
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -6295,6 +6401,16 @@ class QRgba64(Shiboken.Object):
 
 
 class QScreen(PySide6.QtCore.QObject):
+
+    availableGeometryChanged : ClassVar[Signal] = ... # availableGeometryChanged(QRect)
+    geometryChanged          : ClassVar[Signal] = ... # geometryChanged(QRect)
+    logicalDotsPerInchChanged: ClassVar[Signal] = ... # logicalDotsPerInchChanged(double)
+    orientationChanged       : ClassVar[Signal] = ... # orientationChanged(Qt::ScreenOrientation)
+    physicalDotsPerInchChanged: ClassVar[Signal] = ... # physicalDotsPerInchChanged(double)
+    physicalSizeChanged      : ClassVar[Signal] = ... # physicalSizeChanged(QSizeF)
+    primaryOrientationChanged: ClassVar[Signal] = ... # primaryOrientationChanged(Qt::ScreenOrientation)
+    refreshRateChanged       : ClassVar[Signal] = ... # refreshRateChanged(double)
+    virtualGeometryChanged   : ClassVar[Signal] = ... # virtualGeometryChanged(QRect)
     def angleBetween(self, a: PySide6.QtCore.Qt.ScreenOrientation, b: PySide6.QtCore.Qt.ScreenOrientation) -> int: ...
     def availableGeometry(self) -> PySide6.QtCore.QRect: ...
     def availableSize(self) -> PySide6.QtCore.QSize: ...
@@ -6400,6 +6516,9 @@ class QSessionManager(PySide6.QtCore.QObject):
 
 class QShortcut(PySide6.QtCore.QObject):
 
+    activated                : ClassVar[Signal] = ... # activated()
+    activatedAmbiguously     : ClassVar[Signal] = ... # activatedAmbiguously()
+
     @overload
     def __init__(self, arg__1: PySide6.QtGui.QKeySequence.StandardKey, arg__2: PySide6.QtCore.QObject, arg__3: Callable, arg__4: PySide6.QtCore.Qt.ShortcutContext = ...) -> None: ...
     @overload
@@ -6436,6 +6555,8 @@ class QShortcutEvent(PySide6.QtCore.QEvent):
     def __init__(self, arg__1: PySide6.QtGui.QShortcutEvent) -> None: ...
     @overload
     def __init__(self, key: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], id: int, ambiguous: bool = ...) -> None: ...
+    @overload
+    def __init__(self, key: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], shortcut: Optional[PySide6.QtGui.QShortcut] = ..., ambiguous: bool = ...) -> None: ...
 
     def clone(self) -> PySide6.QtGui.QShortcutEvent: ...
     def isAmbiguous(self) -> bool: ...
@@ -6591,6 +6712,8 @@ class QStandardItem(Shiboken.Object):
 
 class QStandardItemModel(PySide6.QtCore.QAbstractItemModel):
 
+    itemChanged              : ClassVar[Signal] = ... # itemChanged(QStandardItem*)
+
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
     @overload
@@ -6711,9 +6834,24 @@ class QStatusTipEvent(PySide6.QtCore.QEvent):
 
 
 class QStyleHints(PySide6.QtCore.QObject):
+
+    colorSchemeChanged       : ClassVar[Signal] = ... # colorSchemeChanged(Qt::ColorScheme)
+    cursorFlashTimeChanged   : ClassVar[Signal] = ... # cursorFlashTimeChanged(int)
+    keyboardInputIntervalChanged: ClassVar[Signal] = ... # keyboardInputIntervalChanged(int)
+    mouseDoubleClickIntervalChanged: ClassVar[Signal] = ... # mouseDoubleClickIntervalChanged(int)
+    mousePressAndHoldIntervalChanged: ClassVar[Signal] = ... # mousePressAndHoldIntervalChanged(int)
+    mouseQuickSelectionThresholdChanged: ClassVar[Signal] = ... # mouseQuickSelectionThresholdChanged(int)
+    showShortcutsInContextMenusChanged: ClassVar[Signal] = ... # showShortcutsInContextMenusChanged(bool)
+    startDragDistanceChanged : ClassVar[Signal] = ... # startDragDistanceChanged(int)
+    startDragTimeChanged     : ClassVar[Signal] = ... # startDragTimeChanged(int)
+    tabFocusBehaviorChanged  : ClassVar[Signal] = ... # tabFocusBehaviorChanged(Qt::TabFocusBehavior)
+    useHoverEffectsChanged   : ClassVar[Signal] = ... # useHoverEffectsChanged(bool)
+    wheelScrollLinesChanged  : ClassVar[Signal] = ... # wheelScrollLinesChanged(int)
+    def colorScheme(self) -> PySide6.QtCore.Qt.ColorScheme: ...
     def cursorFlashTime(self) -> int: ...
     def fontSmoothingGamma(self) -> float: ...
     def keyboardAutoRepeatRate(self) -> int: ...
+    def keyboardAutoRepeatRateF(self) -> float: ...
     def keyboardInputInterval(self) -> int: ...
     def mouseDoubleClickDistance(self) -> int: ...
     def mouseDoubleClickInterval(self) -> int: ...
@@ -6889,7 +7027,7 @@ class QSyntaxHighlighter(PySide6.QtCore.QObject):
     def rehighlightBlock(self, block: PySide6.QtGui.QTextBlock) -> None: ...
     def setCurrentBlockState(self, newState: int) -> None: ...
     def setCurrentBlockUserData(self, data: PySide6.QtGui.QTextBlockUserData) -> None: ...
-    def setDocument(self, doc: PySide6.QtGui.QTextDocument) -> None: ...
+    def setDocument(self, doc: Optional[PySide6.QtGui.QTextDocument]) -> None: ...
     @overload
     def setFormat(self, start: int, count: int, color: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int]) -> None: ...
     @overload
@@ -7312,6 +7450,17 @@ class QTextCursor(Shiboken.Object):
 
 
 class QTextDocument(PySide6.QtCore.QObject):
+
+    baseUrlChanged           : ClassVar[Signal] = ... # baseUrlChanged(QUrl)
+    blockCountChanged        : ClassVar[Signal] = ... # blockCountChanged(int)
+    contentsChange           : ClassVar[Signal] = ... # contentsChange(int,int,int)
+    contentsChanged          : ClassVar[Signal] = ... # contentsChanged()
+    cursorPositionChanged    : ClassVar[Signal] = ... # cursorPositionChanged(QTextCursor)
+    documentLayoutChanged    : ClassVar[Signal] = ... # documentLayoutChanged()
+    modificationChanged      : ClassVar[Signal] = ... # modificationChanged(bool)
+    redoAvailable            : ClassVar[Signal] = ... # redoAvailable(bool)
+    undoAvailable            : ClassVar[Signal] = ... # undoAvailable(bool)
+    undoCommandAdded         : ClassVar[Signal] = ... # undoCommandAdded()
 
     class FindFlag(enum.Flag):
 
@@ -7916,6 +8065,15 @@ class QTextLayout(Shiboken.Object):
         @staticmethod
         def __copy__() -> None: ...
 
+    class GlyphRunRetrievalFlag(enum.Flag):
+
+        RetrieveGlyphIndexes     : QTextLayout.GlyphRunRetrievalFlag = ... # 0x1
+        RetrieveGlyphPositions   : QTextLayout.GlyphRunRetrievalFlag = ... # 0x2
+        DefaultRetrievalFlags    : QTextLayout.GlyphRunRetrievalFlag = ... # 0x3
+        RetrieveStringIndexes    : QTextLayout.GlyphRunRetrievalFlag = ... # 0x4
+        RetrieveString           : QTextLayout.GlyphRunRetrievalFlag = ... # 0x8
+        RetrieveAll              : QTextLayout.GlyphRunRetrievalFlag = ... # 0xffff
+
 
     @overload
     def __init__(self) -> None: ...
@@ -7941,6 +8099,9 @@ class QTextLayout(Shiboken.Object):
     def endLayout(self) -> None: ...
     def font(self) -> PySide6.QtGui.QFont: ...
     def formats(self) -> List[PySide6.QtGui.QTextLayout.FormatRange]: ...
+    @overload
+    def glyphRuns(self, from_: int, length: int, flags: PySide6.QtGui.QTextLayout.GlyphRunRetrievalFlag) -> List[PySide6.QtGui.QGlyphRun]: ...
+    @overload
     def glyphRuns(self, from_: int = ..., length: int = ...) -> List[PySide6.QtGui.QGlyphRun]: ...
     def isValidCursorPosition(self, pos: int) -> bool: ...
     def leftCursorPosition(self, oldPos: int) -> int: ...
@@ -8014,6 +8175,9 @@ class QTextLine(Shiboken.Object):
     def cursorToX(self, cursorPos: int, edge: PySide6.QtGui.QTextLine.Edge = ...) -> object: ...
     def descent(self) -> float: ...
     def draw(self, painter: PySide6.QtGui.QPainter, position: Union[PySide6.QtCore.QPointF, PySide6.QtCore.QPoint, PySide6.QtGui.QPainterPath.Element]) -> None: ...
+    @overload
+    def glyphRuns(self, from_: int, length: int, flags: PySide6.QtGui.QTextLayout.GlyphRunRetrievalFlag) -> List[PySide6.QtGui.QGlyphRun]: ...
+    @overload
     def glyphRuns(self, from_: int = ..., length: int = ...) -> List[PySide6.QtGui.QGlyphRun]: ...
     def height(self) -> float: ...
     def horizontalAdvance(self) -> float: ...
@@ -8393,7 +8557,7 @@ class QTransform(Shiboken.Object):
     def fromScale(dx: float, dy: float) -> PySide6.QtGui.QTransform: ...
     @staticmethod
     def fromTranslate(dx: float, dy: float) -> PySide6.QtGui.QTransform: ...
-    def inverted(self) -> Tuple: ...
+    def inverted(self) -> Tuple[PySide6.QtGui.QTransform, bool]: ...
     def isAffine(self) -> bool: ...
     def isIdentity(self) -> bool: ...
     def isInvertible(self) -> bool: ...
@@ -8445,7 +8609,13 @@ class QTransform(Shiboken.Object):
     @staticmethod
     def quadToSquare(quad: Union[PySide6.QtGui.QPolygonF, Sequence[PySide6.QtCore.QPointF], PySide6.QtGui.QPolygon, PySide6.QtCore.QRectF], result: PySide6.QtGui.QTransform) -> bool: ...
     def reset(self) -> None: ...
+    @overload
+    def rotate(self, a: float, axis: PySide6.QtCore.Qt.Axis, distanceToPlane: float) -> PySide6.QtGui.QTransform: ...
+    @overload
     def rotate(self, a: float, axis: PySide6.QtCore.Qt.Axis = ...) -> PySide6.QtGui.QTransform: ...
+    @overload
+    def rotateRadians(self, a: float, axis: PySide6.QtCore.Qt.Axis, distanceToPlane: float) -> PySide6.QtGui.QTransform: ...
+    @overload
     def rotateRadians(self, a: float, axis: PySide6.QtCore.Qt.Axis = ...) -> PySide6.QtGui.QTransform: ...
     def scale(self, sx: float, sy: float) -> PySide6.QtGui.QTransform: ...
     def setMatrix(self, m11: float, m12: float, m13: float, m21: float, m22: float, m23: float, m31: float, m32: float, m33: float) -> None: ...
@@ -8483,6 +8653,14 @@ class QUndoCommand(Shiboken.Object):
 
 class QUndoGroup(PySide6.QtCore.QObject):
 
+    activeStackChanged       : ClassVar[Signal] = ... # activeStackChanged(QUndoStack*)
+    canRedoChanged           : ClassVar[Signal] = ... # canRedoChanged(bool)
+    canUndoChanged           : ClassVar[Signal] = ... # canUndoChanged(bool)
+    cleanChanged             : ClassVar[Signal] = ... # cleanChanged(bool)
+    indexChanged             : ClassVar[Signal] = ... # indexChanged(int)
+    redoTextChanged          : ClassVar[Signal] = ... # redoTextChanged(QString)
+    undoTextChanged          : ClassVar[Signal] = ... # undoTextChanged(QString)
+
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def activeStack(self) -> PySide6.QtGui.QUndoStack: ...
@@ -8502,6 +8680,13 @@ class QUndoGroup(PySide6.QtCore.QObject):
 
 
 class QUndoStack(PySide6.QtCore.QObject):
+
+    canRedoChanged           : ClassVar[Signal] = ... # canRedoChanged(bool)
+    canUndoChanged           : ClassVar[Signal] = ... # canUndoChanged(bool)
+    cleanChanged             : ClassVar[Signal] = ... # cleanChanged(bool)
+    indexChanged             : ClassVar[Signal] = ... # indexChanged(int)
+    redoTextChanged          : ClassVar[Signal] = ... # redoTextChanged(QString)
+    undoTextChanged          : ClassVar[Signal] = ... # undoTextChanged(QString)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -8533,6 +8718,8 @@ class QUndoStack(PySide6.QtCore.QObject):
 
 
 class QValidator(PySide6.QtCore.QObject):
+
+    changed                  : ClassVar[Signal] = ... # changed()
 
     class State(enum.Enum):
 
@@ -8785,6 +8972,26 @@ class QWheelEvent(PySide6.QtGui.QSinglePointEvent):
 
 
 class QWindow(PySide6.QtCore.QObject, PySide6.QtGui.QSurface):
+
+    activeChanged            : ClassVar[Signal] = ... # activeChanged()
+    contentOrientationChanged: ClassVar[Signal] = ... # contentOrientationChanged(Qt::ScreenOrientation)
+    focusObjectChanged       : ClassVar[Signal] = ... # focusObjectChanged(QObject*)
+    heightChanged            : ClassVar[Signal] = ... # heightChanged(int)
+    maximumHeightChanged     : ClassVar[Signal] = ... # maximumHeightChanged(int)
+    maximumWidthChanged      : ClassVar[Signal] = ... # maximumWidthChanged(int)
+    minimumHeightChanged     : ClassVar[Signal] = ... # minimumHeightChanged(int)
+    minimumWidthChanged      : ClassVar[Signal] = ... # minimumWidthChanged(int)
+    modalityChanged          : ClassVar[Signal] = ... # modalityChanged(Qt::WindowModality)
+    opacityChanged           : ClassVar[Signal] = ... # opacityChanged(double)
+    screenChanged            : ClassVar[Signal] = ... # screenChanged(QScreen*)
+    transientParentChanged   : ClassVar[Signal] = ... # transientParentChanged(QWindow*)
+    visibilityChanged        : ClassVar[Signal] = ... # visibilityChanged(QWindow::Visibility)
+    visibleChanged           : ClassVar[Signal] = ... # visibleChanged(bool)
+    widthChanged             : ClassVar[Signal] = ... # widthChanged(int)
+    windowStateChanged       : ClassVar[Signal] = ... # windowStateChanged(Qt::WindowState)
+    windowTitleChanged       : ClassVar[Signal] = ... # windowTitleChanged(QString)
+    xChanged                 : ClassVar[Signal] = ... # xChanged(int)
+    yChanged                 : ClassVar[Signal] = ... # yChanged(int)
 
     class AncestorMode(enum.Enum):
 

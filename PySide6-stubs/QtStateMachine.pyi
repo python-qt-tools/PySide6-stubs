@@ -14,10 +14,18 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Any, Optional, Type, Union, Sequence, List, Set, overload
+from typing import Any, ClassVar, List, Optional, Sequence, Set, Type, Union, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QAbstractState(PySide6.QtCore.QObject):
+
+    activeChanged            : ClassVar[Signal] = ... # activeChanged(bool)
+    entered                  : ClassVar[Signal] = ... # entered()
+    exited                   : ClassVar[Signal] = ... # exited()
 
     def __init__(self, parent: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
 
@@ -30,6 +38,10 @@ class QAbstractState(PySide6.QtCore.QObject):
 
 
 class QAbstractTransition(PySide6.QtCore.QObject):
+
+    targetStateChanged       : ClassVar[Signal] = ... # targetStateChanged()
+    targetStatesChanged      : ClassVar[Signal] = ... # targetStatesChanged()
+    triggered                : ClassVar[Signal] = ... # triggered()
 
     class TransitionType(enum.Enum):
 
@@ -81,6 +93,10 @@ class QFinalState(PySide6.QtStateMachine.QAbstractState):
 
 
 class QHistoryState(PySide6.QtStateMachine.QAbstractState):
+
+    defaultStateChanged      : ClassVar[Signal] = ... # defaultStateChanged()
+    defaultTransitionChanged : ClassVar[Signal] = ... # defaultTransitionChanged()
+    historyTypeChanged       : ClassVar[Signal] = ... # historyTypeChanged()
 
     class HistoryType(enum.Enum):
 
@@ -141,6 +157,9 @@ class QMouseEventTransition(PySide6.QtStateMachine.QEventTransition):
 
 class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
 
+    senderObjectChanged      : ClassVar[Signal] = ... # senderObjectChanged()
+    signalChanged            : ClassVar[Signal] = ... # signalChanged()
+
     @overload
     def __init__(self, arg__1: object, arg__2: Optional[PySide6.QtStateMachine.QState] = ...) -> PySide6.QtStateMachine.QSignalTransition: ...
     @overload
@@ -158,6 +177,12 @@ class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
 
 
 class QState(PySide6.QtStateMachine.QAbstractState):
+
+    childModeChanged         : ClassVar[Signal] = ... # childModeChanged()
+    errorStateChanged        : ClassVar[Signal] = ... # errorStateChanged()
+    finished                 : ClassVar[Signal] = ... # finished()
+    initialStateChanged      : ClassVar[Signal] = ... # initialStateChanged()
+    propertiesAssigned       : ClassVar[Signal] = ... # propertiesAssigned()
 
     class ChildMode(enum.Enum):
 
@@ -179,12 +204,12 @@ class QState(PySide6.QtStateMachine.QAbstractState):
     @overload
     def addTransition(self, arg__1: object, arg__2: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QSignalTransition: ...
     @overload
-    def addTransition(self, sender: PySide6.QtCore.QObject, signal: bytes, target: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QSignalTransition: ...
+    def addTransition(self, sender: PySide6.QtCore.QObject, signal: str, target: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QSignalTransition: ...
     @overload
     def addTransition(self, target: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QAbstractTransition: ...
     @overload
     def addTransition(self, transition: PySide6.QtStateMachine.QAbstractTransition) -> None: ...
-    def assignProperty(self, object: PySide6.QtCore.QObject, name: bytes, value: Any) -> None: ...
+    def assignProperty(self, object: PySide6.QtCore.QObject, name: str, value: Any) -> None: ...
     def childMode(self) -> PySide6.QtStateMachine.QState.ChildMode: ...
     def errorState(self) -> PySide6.QtStateMachine.QAbstractState: ...
     def event(self, e: PySide6.QtCore.QEvent) -> bool: ...
@@ -199,6 +224,10 @@ class QState(PySide6.QtStateMachine.QAbstractState):
 
 
 class QStateMachine(PySide6.QtStateMachine.QState):
+
+    runningChanged           : ClassVar[Signal] = ... # runningChanged(bool)
+    started                  : ClassVar[Signal] = ... # started()
+    stopped                  : ClassVar[Signal] = ... # stopped()
 
     class Error(enum.Enum):
 
