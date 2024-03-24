@@ -14,8 +14,12 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Optional, Union, Sequence, List, overload, Any
+from typing import ClassVar, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -28,7 +32,9 @@ class Qt3DCore(Shiboken.Object):
         def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
         def dependencies(self) -> List[str]: ...
+        def registerBackendType(self, obj: PySide6.QtCore.QMetaObject, functor: Tuple[PySide6.Qt3DCore.Qt3DCore.QBackendNodeMapper]) -> None: ...
         def rootEntityId(self) -> PySide6.Qt3DCore.Qt3DCore.QNodeId: ...
+        def scheduleSingleShotJob(self, job: Tuple[PySide6.Qt3DCore.Qt3DCore.QAspectJob]) -> None: ...
         def unregisterBackendType(self, arg__1: PySide6.QtCore.QMetaObject) -> None: ...
 
     class QAbstractFunctor(Shiboken.Object):
@@ -39,14 +45,12 @@ class Qt3DCore(Shiboken.Object):
 
     class QAbstractSkeleton(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        jointCountChanged: PySide6.QtCore.Signal
-
+        jointCountChanged        : ClassVar[Signal] = ... # jointCountChanged(int)
         def jointCount(self) -> int: ...
 
     class QArmature(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        skeletonChanged: PySide6.QtCore.Signal
-
+        skeletonChanged          : ClassVar[Signal] = ... # skeletonChanged(Qt3DCore::QAbstractSkeleton*)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -73,7 +77,9 @@ class Qt3DCore(Shiboken.Object):
         def registerAspect(self, aspect: PySide6.Qt3DCore.Qt3DCore.QAbstractAspect) -> None: ...
         @overload
         def registerAspect(self, name: str) -> None: ...
+        def rootEntity(self) -> Tuple[PySide6.Qt3DCore.Qt3DCore.QEntity]: ...
         def runMode(self) -> PySide6.Qt3DCore.Qt3DCore.QAspectEngine.RunMode: ...
+        def setRootEntity(self, root: Tuple[PySide6.Qt3DCore.Qt3DCore.QEntity]) -> None: ...
         def setRunMode(self, mode: PySide6.Qt3DCore.Qt3DCore.QAspectEngine.RunMode) -> None: ...
         @overload
         def unregisterAspect(self, aspect: PySide6.Qt3DCore.Qt3DCore.QAbstractAspect) -> None: ...
@@ -88,27 +94,42 @@ class Qt3DCore(Shiboken.Object):
         def postFrame(self, aspectEngine: PySide6.Qt3DCore.Qt3DCore.QAspectEngine) -> None: ...
         def run(self) -> None: ...
 
+    class QAspectJobPtr(Shiboken.Object):
+
+        @overload
+        def __init__(self) -> None: ...
+        @overload
+        def __init__(self, pointee: PySide6.Qt3DCore.Qt3DCore.QAspectJob) -> None: ...
+
+        @staticmethod
+        def __copy__() -> None: ...
+        @staticmethod
+        def __dir__() -> None: ...
+        def data(self) -> PySide6.Qt3DCore.Qt3DCore.QAspectJob: ...
+        @overload
+        def reset(self) -> None: ...
+        @overload
+        def reset(self, t: PySide6.Qt3DCore.Qt3DCore.QAspectJob) -> None: ...
+
     class QAttribute(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        attributeTypeChanged: PySide6.QtCore.Signal
-        bufferChanged: PySide6.QtCore.Signal
-        byteOffsetChanged: PySide6.QtCore.Signal
-        byteStrideChanged: PySide6.QtCore.Signal
-        countChanged: PySide6.QtCore.Signal
-        dataSizeChanged: PySide6.QtCore.Signal
-        dataTypeChanged: PySide6.QtCore.Signal
-        divisorChanged: PySide6.QtCore.Signal
-        nameChanged: PySide6.QtCore.Signal
-        vertexBaseTypeChanged: PySide6.QtCore.Signal
-        vertexSizeChanged: PySide6.QtCore.Signal
-
+        attributeTypeChanged     : ClassVar[Signal] = ... # attributeTypeChanged(AttributeType)
+        bufferChanged            : ClassVar[Signal] = ... # bufferChanged(QBuffer*)
+        byteOffsetChanged        : ClassVar[Signal] = ... # byteOffsetChanged(uint)
+        byteStrideChanged        : ClassVar[Signal] = ... # byteStrideChanged(uint)
+        countChanged             : ClassVar[Signal] = ... # countChanged(uint)
+        dataSizeChanged          : ClassVar[Signal] = ... # dataSizeChanged(uint)
+        dataTypeChanged          : ClassVar[Signal] = ... # dataTypeChanged(VertexBaseType)
+        divisorChanged           : ClassVar[Signal] = ... # divisorChanged(uint)
+        nameChanged              : ClassVar[Signal] = ... # nameChanged(QString)
+        vertexBaseTypeChanged    : ClassVar[Signal] = ... # vertexBaseTypeChanged(VertexBaseType)
+        vertexSizeChanged        : ClassVar[Signal] = ... # vertexSizeChanged(uint)
 
         class AttributeType(enum.Enum):
 
             VertexAttribute          : Qt3DCore.QAttribute.AttributeType = ... # 0x0
             IndexAttribute           : Qt3DCore.QAttribute.AttributeType = ... # 0x1
             DrawIndirectAttribute    : Qt3DCore.QAttribute.AttributeType = ... # 0x2
-
 
         class VertexBaseType(enum.Enum):
 
@@ -191,15 +212,31 @@ class Qt3DCore(Shiboken.Object):
         def destroy(self, id: PySide6.Qt3DCore.Qt3DCore.QNodeId) -> None: ...
         def get(self, id: PySide6.Qt3DCore.Qt3DCore.QNodeId) -> PySide6.Qt3DCore.Qt3DCore.QBackendNode: ...
 
+    class QBackendNodeMapperPtr(Shiboken.Object):
+
+        @overload
+        def __init__(self) -> None: ...
+        @overload
+        def __init__(self, pointee: PySide6.Qt3DCore.Qt3DCore.QBackendNodeMapper) -> None: ...
+
+        @staticmethod
+        def __copy__() -> None: ...
+        @staticmethod
+        def __dir__() -> None: ...
+        def data(self) -> PySide6.Qt3DCore.Qt3DCore.QBackendNodeMapper: ...
+        @overload
+        def reset(self) -> None: ...
+        @overload
+        def reset(self, t: PySide6.Qt3DCore.Qt3DCore.QBackendNodeMapper) -> None: ...
+
     class QBoundingVolume(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        implicitMaxPointChanged: PySide6.QtCore.Signal
-        implicitMinPointChanged: PySide6.QtCore.Signal
-        implicitPointsValidChanged: PySide6.QtCore.Signal
-        maxPointChanged: PySide6.QtCore.Signal
-        minPointChanged: PySide6.QtCore.Signal
-        viewChanged: PySide6.QtCore.Signal
-
+        implicitMaxPointChanged  : ClassVar[Signal] = ... # implicitMaxPointChanged(QVector3D)
+        implicitMinPointChanged  : ClassVar[Signal] = ... # implicitMinPointChanged(QVector3D)
+        implicitPointsValidChanged: ClassVar[Signal] = ... # implicitPointsValidChanged(bool)
+        maxPointChanged          : ClassVar[Signal] = ... # maxPointChanged(QVector3D)
+        minPointChanged          : ClassVar[Signal] = ... # minPointChanged(QVector3D)
+        viewChanged              : ClassVar[Signal] = ... # viewChanged(QGeometryView*)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -216,18 +253,16 @@ class Qt3DCore(Shiboken.Object):
 
     class QBuffer(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        accessTypeChanged: PySide6.QtCore.Signal
-        dataAvailable: PySide6.QtCore.Signal
-        dataChanged: PySide6.QtCore.Signal
-        usageChanged: PySide6.QtCore.Signal
-
+        accessTypeChanged        : ClassVar[Signal] = ... # accessTypeChanged(AccessType)
+        dataAvailable            : ClassVar[Signal] = ... # dataAvailable()
+        dataChanged              : ClassVar[Signal] = ... # dataChanged(QByteArray)
+        usageChanged             : ClassVar[Signal] = ... # usageChanged(UsageType)
 
         class AccessType(enum.Enum):
 
             Write                    : Qt3DCore.QBuffer.AccessType = ... # 0x1
             Read                     : Qt3DCore.QBuffer.AccessType = ... # 0x2
             ReadWrite                : Qt3DCore.QBuffer.AccessType = ... # 0x3
-
 
         class UsageType(enum.Enum):
 
@@ -247,17 +282,16 @@ class Qt3DCore(Shiboken.Object):
         def accessType(self) -> PySide6.Qt3DCore.Qt3DCore.QBuffer.AccessType: ...
         def data(self) -> PySide6.QtCore.QByteArray: ...
         def setAccessType(self, access: PySide6.Qt3DCore.Qt3DCore.QBuffer.AccessType) -> None: ...
-        def setData(self, bytes: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+        def setData(self, bytes: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
         def setUsage(self, usage: PySide6.Qt3DCore.Qt3DCore.QBuffer.UsageType) -> None: ...
-        def updateData(self, offset: int, bytes: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+        def updateData(self, offset: int, bytes: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
         def usage(self) -> PySide6.Qt3DCore.Qt3DCore.QBuffer.UsageType: ...
 
     class QComponent(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        addedToEntity: PySide6.QtCore.Signal
-        removedFromEntity: PySide6.QtCore.Signal
-        shareableChanged: PySide6.QtCore.Signal
-
+        addedToEntity            : ClassVar[Signal] = ... # addedToEntity(QEntity*)
+        removedFromEntity        : ClassVar[Signal] = ... # removedFromEntity(QEntity*)
+        shareableChanged         : ClassVar[Signal] = ... # shareableChanged(bool)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -267,8 +301,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QCoreSettings(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        boundingVolumesEnabledChanged: PySide6.QtCore.Signal
-
+        boundingVolumesEnabledChanged: ClassVar[Signal] = ... # boundingVolumesEnabledChanged(bool)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -284,12 +317,28 @@ class Qt3DCore(Shiboken.Object):
         def parentEntity(self) -> PySide6.Qt3DCore.Qt3DCore.QEntity: ...
         def removeComponent(self, comp: PySide6.Qt3DCore.Qt3DCore.QComponent) -> None: ...
 
+    class QEntityPtr(Shiboken.Object):
+
+        @overload
+        def __init__(self) -> None: ...
+        @overload
+        def __init__(self, pointee: PySide6.Qt3DCore.Qt3DCore.QEntity) -> None: ...
+
+        @staticmethod
+        def __copy__() -> None: ...
+        @staticmethod
+        def __dir__() -> None: ...
+        def data(self) -> PySide6.Qt3DCore.Qt3DCore.QEntity: ...
+        @overload
+        def reset(self) -> None: ...
+        @overload
+        def reset(self, t: PySide6.Qt3DCore.Qt3DCore.QEntity) -> None: ...
+
     class QGeometry(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        boundingVolumePositionAttributeChanged: PySide6.QtCore.Signal
-        maxExtentChanged: PySide6.QtCore.Signal
-        minExtentChanged: PySide6.QtCore.Signal
-
+        boundingVolumePositionAttributeChanged: ClassVar[Signal] = ... # boundingVolumePositionAttributeChanged(QAttribute*)
+        maxExtentChanged         : ClassVar[Signal] = ... # maxExtentChanged(QVector3D)
+        minExtentChanged         : ClassVar[Signal] = ... # minExtentChanged(QVector3D)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -303,18 +352,17 @@ class Qt3DCore(Shiboken.Object):
 
     class QGeometryView(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        firstInstanceChanged: PySide6.QtCore.Signal
-        firstVertexChanged: PySide6.QtCore.Signal
-        geometryChanged: PySide6.QtCore.Signal
-        indexBufferByteOffsetChanged: PySide6.QtCore.Signal
-        indexOffsetChanged: PySide6.QtCore.Signal
-        instanceCountChanged: PySide6.QtCore.Signal
-        primitiveRestartEnabledChanged: PySide6.QtCore.Signal
-        primitiveTypeChanged: PySide6.QtCore.Signal
-        restartIndexValueChanged: PySide6.QtCore.Signal
-        vertexCountChanged: PySide6.QtCore.Signal
-        verticesPerPatchChanged: PySide6.QtCore.Signal
-
+        firstInstanceChanged     : ClassVar[Signal] = ... # firstInstanceChanged(int)
+        firstVertexChanged       : ClassVar[Signal] = ... # firstVertexChanged(int)
+        geometryChanged          : ClassVar[Signal] = ... # geometryChanged(QGeometry*)
+        indexBufferByteOffsetChanged: ClassVar[Signal] = ... # indexBufferByteOffsetChanged(int)
+        indexOffsetChanged       : ClassVar[Signal] = ... # indexOffsetChanged(int)
+        instanceCountChanged     : ClassVar[Signal] = ... # instanceCountChanged(int)
+        primitiveRestartEnabledChanged: ClassVar[Signal] = ... # primitiveRestartEnabledChanged(bool)
+        primitiveTypeChanged     : ClassVar[Signal] = ... # primitiveTypeChanged(PrimitiveType)
+        restartIndexValueChanged : ClassVar[Signal] = ... # restartIndexValueChanged(int)
+        vertexCountChanged       : ClassVar[Signal] = ... # vertexCountChanged(int)
+        verticesPerPatchChanged  : ClassVar[Signal] = ... # verticesPerPatchChanged(int)
 
         class PrimitiveType(enum.Enum):
 
@@ -359,15 +407,14 @@ class Qt3DCore(Shiboken.Object):
 
     class QJoint(PySide6.Qt3DCore.Qt3DCore.QNode):
 
-        inverseBindMatrixChanged: PySide6.QtCore.Signal
-        nameChanged: PySide6.QtCore.Signal
-        rotationChanged: PySide6.QtCore.Signal
-        rotationXChanged: PySide6.QtCore.Signal
-        rotationYChanged: PySide6.QtCore.Signal
-        rotationZChanged: PySide6.QtCore.Signal
-        scaleChanged: PySide6.QtCore.Signal
-        translationChanged: PySide6.QtCore.Signal
-
+        inverseBindMatrixChanged : ClassVar[Signal] = ... # inverseBindMatrixChanged(QMatrix4x4)
+        nameChanged              : ClassVar[Signal] = ... # nameChanged(QString)
+        rotationChanged          : ClassVar[Signal] = ... # rotationChanged(QQuaternion)
+        rotationXChanged         : ClassVar[Signal] = ... # rotationXChanged(float)
+        rotationYChanged         : ClassVar[Signal] = ... # rotationYChanged(float)
+        rotationZChanged         : ClassVar[Signal] = ... # rotationZChanged(float)
+        scaleChanged             : ClassVar[Signal] = ... # scaleChanged(QVector3D)
+        translationChanged       : ClassVar[Signal] = ... # translationChanged(QVector3D)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -394,10 +441,9 @@ class Qt3DCore(Shiboken.Object):
 
     class QNode(PySide6.QtCore.QObject):
 
-        enabledChanged: PySide6.QtCore.Signal
-        nodeDestroyed: PySide6.QtCore.Signal
-        parentChanged: PySide6.QtCore.Signal
-
+        enabledChanged           : ClassVar[Signal] = ... # enabledChanged(bool)
+        nodeDestroyed            : ClassVar[Signal] = ... # nodeDestroyed()
+        parentChanged            : ClassVar[Signal] = ... # parentChanged(QObject*)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -441,8 +487,7 @@ class Qt3DCore(Shiboken.Object):
 
     class QSkeleton(PySide6.Qt3DCore.Qt3DCore.QAbstractSkeleton):
 
-        rootJointChanged: PySide6.QtCore.Signal
-
+        rootJointChanged         : ClassVar[Signal] = ... # rootJointChanged(Qt3DCore::QJoint*)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 
@@ -451,11 +496,10 @@ class Qt3DCore(Shiboken.Object):
 
     class QSkeletonLoader(PySide6.Qt3DCore.Qt3DCore.QAbstractSkeleton):
 
-        createJointsEnabledChanged: PySide6.QtCore.Signal
-        rootJointChanged: PySide6.QtCore.Signal
-        sourceChanged: PySide6.QtCore.Signal
-        statusChanged: PySide6.QtCore.Signal
-
+        createJointsEnabledChanged: ClassVar[Signal] = ... # createJointsEnabledChanged(bool)
+        rootJointChanged         : ClassVar[Signal] = ... # rootJointChanged(Qt3DCore::QJoint*)
+        sourceChanged            : ClassVar[Signal] = ... # sourceChanged(QUrl)
+        statusChanged            : ClassVar[Signal] = ... # statusChanged(Status)
 
         class Status(enum.Enum):
 
@@ -478,16 +522,15 @@ class Qt3DCore(Shiboken.Object):
 
     class QTransform(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        matrixChanged: PySide6.QtCore.Signal
-        rotationChanged: PySide6.QtCore.Signal
-        rotationXChanged: PySide6.QtCore.Signal
-        rotationYChanged: PySide6.QtCore.Signal
-        rotationZChanged: PySide6.QtCore.Signal
-        scale3DChanged: PySide6.QtCore.Signal
-        scaleChanged: PySide6.QtCore.Signal
-        translationChanged: PySide6.QtCore.Signal
-        worldMatrixChanged: PySide6.QtCore.Signal
-
+        matrixChanged            : ClassVar[Signal] = ... # matrixChanged()
+        rotationChanged          : ClassVar[Signal] = ... # rotationChanged(QQuaternion)
+        rotationXChanged         : ClassVar[Signal] = ... # rotationXChanged(float)
+        rotationYChanged         : ClassVar[Signal] = ... # rotationYChanged(float)
+        rotationZChanged         : ClassVar[Signal] = ... # rotationZChanged(float)
+        scale3DChanged           : ClassVar[Signal] = ... # scale3DChanged(QVector3D)
+        scaleChanged             : ClassVar[Signal] = ... # scaleChanged(float)
+        translationChanged       : ClassVar[Signal] = ... # translationChanged(QVector3D)
+        worldMatrixChanged       : ClassVar[Signal] = ... # worldMatrixChanged(QMatrix4x4)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 

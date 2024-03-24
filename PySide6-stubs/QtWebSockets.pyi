@@ -14,8 +14,12 @@ import PySide6.QtCore
 import PySide6.QtNetwork
 
 import enum
-from typing import Optional, Union, Sequence, List, overload
+from typing import ClassVar, List, Optional, Sequence, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -35,26 +39,27 @@ class QMaskGenerator(PySide6.QtCore.QObject):
 
 class QWebSocket(PySide6.QtCore.QObject):
 
-    aboutToClose: PySide6.QtCore.Signal
-    alertReceived: PySide6.QtCore.Signal
-    alertSent: PySide6.QtCore.Signal
-    binaryFrameReceived: PySide6.QtCore.Signal
-    binaryMessageReceived: PySide6.QtCore.Signal
-    bytesWritten: PySide6.QtCore.Signal
-    connected: PySide6.QtCore.Signal
-    disconnected: PySide6.QtCore.Signal
-    error: PySide6.QtCore.Signal
-    handshakeInterruptedOnError: PySide6.QtCore.Signal
-    peerVerifyError: PySide6.QtCore.Signal
-    pong: PySide6.QtCore.Signal
-    preSharedKeyAuthenticationRequired: PySide6.QtCore.Signal
-    proxyAuthenticationRequired: PySide6.QtCore.Signal
-    readChannelFinished: PySide6.QtCore.Signal
-    sslErrors: PySide6.QtCore.Signal
-    stateChanged: PySide6.QtCore.Signal
-    textFrameReceived: PySide6.QtCore.Signal
-    textMessageReceived: PySide6.QtCore.Signal
-
+    aboutToClose             : ClassVar[Signal] = ... # aboutToClose()
+    alertReceived            : ClassVar[Signal] = ... # alertReceived(QSsl::AlertLevel,QSsl::AlertType,QString)
+    alertSent                : ClassVar[Signal] = ... # alertSent(QSsl::AlertLevel,QSsl::AlertType,QString)
+    authenticationRequired   : ClassVar[Signal] = ... # authenticationRequired(QAuthenticator*)
+    binaryFrameReceived      : ClassVar[Signal] = ... # binaryFrameReceived(QByteArray,bool)
+    binaryMessageReceived    : ClassVar[Signal] = ... # binaryMessageReceived(QByteArray)
+    bytesWritten             : ClassVar[Signal] = ... # bytesWritten(qlonglong)
+    connected                : ClassVar[Signal] = ... # connected()
+    disconnected             : ClassVar[Signal] = ... # disconnected()
+    error                    : ClassVar[Signal] = ... # error(QAbstractSocket::SocketError)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QAbstractSocket::SocketError)
+    handshakeInterruptedOnError: ClassVar[Signal] = ... # handshakeInterruptedOnError(QSslError)
+    peerVerifyError          : ClassVar[Signal] = ... # peerVerifyError(QSslError)
+    pong                     : ClassVar[Signal] = ... # pong(qulonglong,QByteArray)
+    preSharedKeyAuthenticationRequired: ClassVar[Signal] = ... # preSharedKeyAuthenticationRequired(QSslPreSharedKeyAuthenticator*)
+    proxyAuthenticationRequired: ClassVar[Signal] = ... # proxyAuthenticationRequired(QNetworkProxy,QAuthenticator*)
+    readChannelFinished      : ClassVar[Signal] = ... # readChannelFinished()
+    sslErrors                : ClassVar[Signal] = ... # sslErrors(QList<QSslError>)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QAbstractSocket::SocketState)
+    textFrameReceived        : ClassVar[Signal] = ... # textFrameReceived(QString,bool)
+    textMessageReceived      : ClassVar[Signal] = ... # textMessageReceived(QString)
 
     def __init__(self, origin: str = ..., version: PySide6.QtWebSockets.QWebSocketProtocol.Version = ..., parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -64,7 +69,6 @@ class QWebSocket(PySide6.QtCore.QObject):
     def closeCode(self) -> PySide6.QtWebSockets.QWebSocketProtocol.CloseCode: ...
     def closeReason(self) -> str: ...
     def continueInterruptedHandshake(self) -> None: ...
-    def error(self) -> PySide6.QtNetwork.QAbstractSocket.SocketError: ...
     def errorString(self) -> str: ...
     def flush(self) -> bool: ...
     def handshakeOptions(self) -> PySide6.QtWebSockets.QWebSocketHandshakeOptions: ...
@@ -98,14 +102,14 @@ class QWebSocket(PySide6.QtCore.QObject):
     def peerAddress(self) -> PySide6.QtNetwork.QHostAddress: ...
     def peerName(self) -> str: ...
     def peerPort(self) -> int: ...
-    def ping(self, payload: Union[PySide6.QtCore.QByteArray, bytes] = ...) -> None: ...
+    def ping(self, payload: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview] = ...) -> None: ...
     def proxy(self) -> PySide6.QtNetwork.QNetworkProxy: ...
     def readBufferSize(self) -> int: ...
     def request(self) -> PySide6.QtNetwork.QNetworkRequest: ...
     def requestUrl(self) -> PySide6.QtCore.QUrl: ...
     def resourceName(self) -> str: ...
     def resume(self) -> None: ...
-    def sendBinaryMessage(self, data: Union[PySide6.QtCore.QByteArray, bytes]) -> int: ...
+    def sendBinaryMessage(self, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> int: ...
     def sendTextMessage(self, message: str) -> int: ...
     def setMaskGenerator(self, maskGenerator: PySide6.QtWebSockets.QMaskGenerator) -> None: ...
     def setMaxAllowedIncomingFrameSize(self, maxAllowedIncomingFrameSize: int) -> None: ...
@@ -165,7 +169,6 @@ class QWebSocketProtocol(Shiboken.Object):
         CloseCodeMissingExtension: QWebSocketProtocol.CloseCode = ... # 0x3f2
         CloseCodeBadOperation    : QWebSocketProtocol.CloseCode = ... # 0x3f3
         CloseCodeTlsHandshakeFailed: QWebSocketProtocol.CloseCode = ... # 0x3f7
-
 
     class Version(enum.Enum):
 

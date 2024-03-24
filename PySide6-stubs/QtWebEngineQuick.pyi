@@ -13,8 +13,12 @@ import PySide6.QtWebEngineQuick
 import PySide6.QtCore
 
 import enum
-from typing import Optional, Union, Sequence, List
+from typing import ClassVar, List, Optional, Sequence, Union
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -22,29 +26,28 @@ class QIntList(object): ...
 
 class QQuickWebEngineProfile(PySide6.QtCore.QObject):
 
-    cachePathChanged: PySide6.QtCore.Signal
-    downloadFinished: PySide6.QtCore.Signal
-    downloadPathChanged: PySide6.QtCore.Signal
-    downloadRequested: PySide6.QtCore.Signal
-    httpAcceptLanguageChanged: PySide6.QtCore.Signal
-    httpCacheMaximumSizeChanged: PySide6.QtCore.Signal
-    httpCacheTypeChanged: PySide6.QtCore.Signal
-    httpUserAgentChanged: PySide6.QtCore.Signal
-    offTheRecordChanged: PySide6.QtCore.Signal
-    persistentCookiesPolicyChanged: PySide6.QtCore.Signal
-    persistentStoragePathChanged: PySide6.QtCore.Signal
-    presentNotification: PySide6.QtCore.Signal
-    spellCheckEnabledChanged: PySide6.QtCore.Signal
-    spellCheckLanguagesChanged: PySide6.QtCore.Signal
-    storageNameChanged: PySide6.QtCore.Signal
-
+    cachePathChanged         : ClassVar[Signal] = ... # cachePathChanged()
+    downloadFinished         : ClassVar[Signal] = ... # downloadFinished(QQuickWebEngineDownloadRequest*)
+    downloadPathChanged      : ClassVar[Signal] = ... # downloadPathChanged()
+    downloadRequested        : ClassVar[Signal] = ... # downloadRequested(QQuickWebEngineDownloadRequest*)
+    httpAcceptLanguageChanged: ClassVar[Signal] = ... # httpAcceptLanguageChanged()
+    httpCacheMaximumSizeChanged: ClassVar[Signal] = ... # httpCacheMaximumSizeChanged()
+    httpCacheTypeChanged     : ClassVar[Signal] = ... # httpCacheTypeChanged()
+    httpUserAgentChanged     : ClassVar[Signal] = ... # httpUserAgentChanged()
+    offTheRecordChanged      : ClassVar[Signal] = ... # offTheRecordChanged()
+    persistentCookiesPolicyChanged: ClassVar[Signal] = ... # persistentCookiesPolicyChanged()
+    persistentStoragePathChanged: ClassVar[Signal] = ... # persistentStoragePathChanged()
+    presentNotification      : ClassVar[Signal] = ... # presentNotification(QWebEngineNotification*)
+    pushServiceEnabledChanged: ClassVar[Signal] = ... # pushServiceEnabledChanged()
+    spellCheckEnabledChanged : ClassVar[Signal] = ... # spellCheckEnabledChanged()
+    spellCheckLanguagesChanged: ClassVar[Signal] = ... # spellCheckLanguagesChanged()
+    storageNameChanged       : ClassVar[Signal] = ... # storageNameChanged()
 
     class HttpCacheType(enum.Enum):
 
         MemoryHttpCache          : QQuickWebEngineProfile.HttpCacheType = ... # 0x0
         DiskHttpCache            : QQuickWebEngineProfile.HttpCacheType = ... # 0x1
         NoCache                  : QQuickWebEngineProfile.HttpCacheType = ... # 0x2
-
 
     class PersistentCookiesPolicy(enum.Enum):
 
@@ -65,11 +68,12 @@ class QQuickWebEngineProfile(PySide6.QtCore.QObject):
     def httpCacheType(self) -> PySide6.QtWebEngineQuick.QQuickWebEngineProfile.HttpCacheType: ...
     def httpUserAgent(self) -> str: ...
     def isOffTheRecord(self) -> bool: ...
+    def isPushServiceEnabled(self) -> bool: ...
     def isSpellCheckEnabled(self) -> bool: ...
     def persistentCookiesPolicy(self) -> PySide6.QtWebEngineQuick.QQuickWebEngineProfile.PersistentCookiesPolicy: ...
     def persistentStoragePath(self) -> str: ...
     def removeAllUrlSchemeHandlers(self) -> None: ...
-    def removeUrlScheme(self, scheme: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def removeUrlScheme(self, scheme: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def setCachePath(self, path: str) -> None: ...
     def setDownloadPath(self, path: str) -> None: ...
     def setHttpAcceptLanguage(self, httpAcceptLanguage: str) -> None: ...
@@ -79,6 +83,7 @@ class QQuickWebEngineProfile(PySide6.QtCore.QObject):
     def setOffTheRecord(self, offTheRecord: bool) -> None: ...
     def setPersistentCookiesPolicy(self, arg__1: PySide6.QtWebEngineQuick.QQuickWebEngineProfile.PersistentCookiesPolicy) -> None: ...
     def setPersistentStoragePath(self, path: str) -> None: ...
+    def setPushServiceEnabled(self, enable: bool) -> None: ...
     def setSpellCheckEnabled(self, enabled: bool) -> None: ...
     def setSpellCheckLanguages(self, languages: Sequence[str]) -> None: ...
     def setStorageName(self, name: str) -> None: ...

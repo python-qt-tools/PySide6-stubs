@@ -14,30 +14,32 @@ import PySide6.QtCore
 import PySide6.QtNetwork
 
 import enum
-from typing import Any, Optional, Tuple, Union, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractOAuth(PySide6.QtCore.QObject):
 
-    authorizationUrlChanged: PySide6.QtCore.Signal
-    authorizeWithBrowser: PySide6.QtCore.Signal
-    clientIdentifierChanged: PySide6.QtCore.Signal
-    contentTypeChanged: PySide6.QtCore.Signal
-    extraTokensChanged: PySide6.QtCore.Signal
-    finished: PySide6.QtCore.Signal
-    granted: PySide6.QtCore.Signal
-    replyDataReceived: PySide6.QtCore.Signal
-    requestFailed: PySide6.QtCore.Signal
-    statusChanged: PySide6.QtCore.Signal
-    tokenChanged: PySide6.QtCore.Signal
-
+    authorizationUrlChanged  : ClassVar[Signal] = ... # authorizationUrlChanged(QUrl)
+    authorizeWithBrowser     : ClassVar[Signal] = ... # authorizeWithBrowser(QUrl)
+    clientIdentifierChanged  : ClassVar[Signal] = ... # clientIdentifierChanged(QString)
+    contentTypeChanged       : ClassVar[Signal] = ... # contentTypeChanged(ContentType)
+    extraTokensChanged       : ClassVar[Signal] = ... # extraTokensChanged(QVariantMap)
+    finished                 : ClassVar[Signal] = ... # finished(QNetworkReply*)
+    granted                  : ClassVar[Signal] = ... # granted()
+    replyDataReceived        : ClassVar[Signal] = ... # replyDataReceived(QByteArray)
+    requestFailed            : ClassVar[Signal] = ... # requestFailed(Error)
+    statusChanged            : ClassVar[Signal] = ... # statusChanged(Status)
+    tokenChanged             : ClassVar[Signal] = ... # tokenChanged(QString)
 
     class ContentType(enum.Enum):
 
         WwwFormUrlEncoded        : QAbstractOAuth.ContentType = ... # 0x0
         Json                     : QAbstractOAuth.ContentType = ... # 0x1
-
 
     class Error(enum.Enum):
 
@@ -48,14 +50,12 @@ class QAbstractOAuth(PySide6.QtCore.QObject):
         OAuthTokenSecretNotFoundError: QAbstractOAuth.Error = ... # 0x4
         OAuthCallbackNotVerified : QAbstractOAuth.Error = ... # 0x5
 
-
     class Stage(enum.Enum):
 
         RequestingTemporaryCredentials: QAbstractOAuth.Stage = ... # 0x0
         RequestingAuthorization  : QAbstractOAuth.Stage = ... # 0x1
         RequestingAccessToken    : QAbstractOAuth.Stage = ... # 0x2
         RefreshingAccessToken    : QAbstractOAuth.Stage = ... # 0x3
-
 
     class Status(enum.Enum):
 
@@ -78,7 +78,7 @@ class QAbstractOAuth(PySide6.QtCore.QObject):
     def head(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
     def networkAccessManager(self) -> PySide6.QtNetwork.QNetworkAccessManager: ...
     def post(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
-    def prepareRequest(self, request: PySide6.QtNetwork.QNetworkRequest, verb: Union[PySide6.QtCore.QByteArray, bytes], body: Union[PySide6.QtCore.QByteArray, bytes] = ...) -> None: ...
+    def prepareRequest(self, request: PySide6.QtNetwork.QNetworkRequest, verb: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], body: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview] = ...) -> None: ...
     def put(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
     def replyHandler(self) -> PySide6.QtNetworkAuth.QAbstractOAuthReplyHandler: ...
     def resourceOwnerAuthorization(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any]) -> None: ...
@@ -96,16 +96,16 @@ class QAbstractOAuth(PySide6.QtCore.QObject):
 
 class QAbstractOAuth2(PySide6.QtNetworkAuth.QAbstractOAuth):
 
-    authorizationCallbackReceived: PySide6.QtCore.Signal
-    clientIdentifierSharedKeyChanged: PySide6.QtCore.Signal
-    error: PySide6.QtCore.Signal
-    expirationAtChanged: PySide6.QtCore.Signal
-    refreshTokenChanged: PySide6.QtCore.Signal
-    responseTypeChanged: PySide6.QtCore.Signal
-    scopeChanged: PySide6.QtCore.Signal
-    stateChanged: PySide6.QtCore.Signal
-    userAgentChanged: PySide6.QtCore.Signal
-
+    authorizationCallbackReceived: ClassVar[Signal] = ... # authorizationCallbackReceived(QVariantMap)
+    clientIdentifierSharedKeyChanged: ClassVar[Signal] = ... # clientIdentifierSharedKeyChanged(QString)
+    error                    : ClassVar[Signal] = ... # error(QString,QString,QUrl)
+    expirationAtChanged      : ClassVar[Signal] = ... # expirationAtChanged(QDateTime)
+    refreshTokenChanged      : ClassVar[Signal] = ... # refreshTokenChanged(QString)
+    responseTypeChanged      : ClassVar[Signal] = ... # responseTypeChanged(QString)
+    scopeChanged             : ClassVar[Signal] = ... # scopeChanged(QString)
+    sslConfigurationChanged  : ClassVar[Signal] = ... # sslConfigurationChanged(QSslConfiguration)
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QString)
+    userAgentChanged         : ClassVar[Signal] = ... # userAgentChanged(QString)
 
     @overload
     def __init__(self, manager: PySide6.QtNetwork.QNetworkAccessManager, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
@@ -119,14 +119,14 @@ class QAbstractOAuth2(PySide6.QtNetworkAuth.QAbstractOAuth):
     def get(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
     def head(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
     @overload
-    def post(self, url: Union[PySide6.QtCore.QUrl, str], data: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtNetwork.QNetworkReply: ...
+    def post(self, url: Union[PySide6.QtCore.QUrl, str], data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> PySide6.QtNetwork.QNetworkReply: ...
     @overload
     def post(self, url: Union[PySide6.QtCore.QUrl, str], multiPart: PySide6.QtNetwork.QHttpMultiPart) -> PySide6.QtNetwork.QNetworkReply: ...
     @overload
     def post(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
-    def prepareRequest(self, request: PySide6.QtNetwork.QNetworkRequest, verb: Union[PySide6.QtCore.QByteArray, bytes], body: Union[PySide6.QtCore.QByteArray, bytes] = ...) -> None: ...
+    def prepareRequest(self, request: PySide6.QtNetwork.QNetworkRequest, verb: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], body: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview] = ...) -> None: ...
     @overload
-    def put(self, url: Union[PySide6.QtCore.QUrl, str], data: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtNetwork.QNetworkReply: ...
+    def put(self, url: Union[PySide6.QtCore.QUrl, str], data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> PySide6.QtNetwork.QNetworkReply: ...
     @overload
     def put(self, url: Union[PySide6.QtCore.QUrl, str], multiPart: PySide6.QtNetwork.QHttpMultiPart) -> PySide6.QtNetwork.QNetworkReply: ...
     @overload
@@ -138,19 +138,21 @@ class QAbstractOAuth2(PySide6.QtNetworkAuth.QAbstractOAuth):
     def setRefreshToken(self, refreshToken: str) -> None: ...
     def setResponseType(self, responseType: str) -> None: ...
     def setScope(self, scope: str) -> None: ...
+    def setSslConfiguration(self, configuration: PySide6.QtNetwork.QSslConfiguration) -> None: ...
     def setState(self, state: str) -> None: ...
     def setUserAgent(self, userAgent: str) -> None: ...
+    def sslConfiguration(self) -> PySide6.QtNetwork.QSslConfiguration: ...
     def state(self) -> str: ...
     def userAgent(self) -> str: ...
 
 
 class QAbstractOAuthReplyHandler(PySide6.QtCore.QObject):
 
-    callbackDataReceived: PySide6.QtCore.Signal
-    callbackReceived: PySide6.QtCore.Signal
-    replyDataReceived: PySide6.QtCore.Signal
-    tokensReceived: PySide6.QtCore.Signal
-
+    callbackDataReceived     : ClassVar[Signal] = ... # callbackDataReceived(QByteArray)
+    callbackReceived         : ClassVar[Signal] = ... # callbackReceived(QVariantMap)
+    replyDataReceived        : ClassVar[Signal] = ... # replyDataReceived(QByteArray)
+    tokenRequestErrorOccurred: ClassVar[Signal] = ... # tokenRequestErrorOccurred(QAbstractOAuth::Error,QString)
+    tokensReceived           : ClassVar[Signal] = ... # tokensReceived(QVariantMap)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -163,12 +165,11 @@ class QIntList(object): ...
 
 class QOAuth1(PySide6.QtNetworkAuth.QAbstractOAuth):
 
-    clientSharedSecretChanged: PySide6.QtCore.Signal
-    signatureMethodChanged: PySide6.QtCore.Signal
-    temporaryCredentialsUrlChanged: PySide6.QtCore.Signal
-    tokenCredentialsUrlChanged: PySide6.QtCore.Signal
-    tokenSecretChanged: PySide6.QtCore.Signal
-
+    clientSharedSecretChanged: ClassVar[Signal] = ... # clientSharedSecretChanged(QString)
+    signatureMethodChanged   : ClassVar[Signal] = ... # signatureMethodChanged(QOAuth1::SignatureMethod)
+    temporaryCredentialsUrlChanged: ClassVar[Signal] = ... # temporaryCredentialsUrlChanged(QUrl)
+    tokenCredentialsUrlChanged: ClassVar[Signal] = ... # tokenCredentialsUrlChanged(QUrl)
+    tokenSecretChanged       : ClassVar[Signal] = ... # tokenSecretChanged(QString)
 
     class SignatureMethod(enum.Enum):
 
@@ -196,7 +197,7 @@ class QOAuth1(PySide6.QtNetworkAuth.QAbstractOAuth):
     @staticmethod
     def nonce() -> PySide6.QtCore.QByteArray: ...
     def post(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
-    def prepareRequest(self, request: PySide6.QtNetwork.QNetworkRequest, verb: Union[PySide6.QtCore.QByteArray, bytes], body: Union[PySide6.QtCore.QByteArray, bytes] = ...) -> None: ...
+    def prepareRequest(self, request: PySide6.QtNetwork.QNetworkRequest, verb: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], body: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview] = ...) -> None: ...
     def put(self, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
     def requestTemporaryCredentials(self, operation: PySide6.QtNetwork.QNetworkAccessManager.Operation, url: Union[PySide6.QtCore.QUrl, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
     def requestTokenCredentials(self, operation: PySide6.QtNetwork.QNetworkAccessManager.Operation, url: Union[PySide6.QtCore.QUrl, str], temporaryToken: Tuple[str, str], parameters: Dict[str, Any] = ...) -> PySide6.QtNetwork.QNetworkReply: ...
@@ -216,7 +217,7 @@ class QOAuth1(PySide6.QtNetworkAuth.QAbstractOAuth):
     @overload
     def setup(self, request: PySide6.QtNetwork.QNetworkRequest, signingParameters: Dict[str, Any], operation: PySide6.QtNetwork.QNetworkAccessManager.Operation) -> None: ...
     @overload
-    def setup(self, request: PySide6.QtNetwork.QNetworkRequest, signingParameters: Dict[str, Any], operationVerb: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setup(self, request: PySide6.QtNetwork.QNetworkRequest, signingParameters: Dict[str, Any], operationVerb: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def signatureMethod(self) -> PySide6.QtNetworkAuth.QOAuth1.SignatureMethod: ...
     def temporaryCredentialsUrl(self) -> PySide6.QtCore.QUrl: ...
     def tokenCredentials(self) -> Tuple[str, str]: ...
@@ -261,7 +262,7 @@ class QOAuth1Signature(Shiboken.Object):
     def plainText(self) -> PySide6.QtCore.QByteArray: ...
     def rsaSha1(self) -> PySide6.QtCore.QByteArray: ...
     def setClientSharedKey(self, secret: str) -> None: ...
-    def setCustomMethodString(self, verb: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setCustomMethodString(self, verb: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def setHttpRequestMethod(self, method: PySide6.QtNetworkAuth.QOAuth1Signature.HttpRequestMethod) -> None: ...
     def setParameters(self, parameters: Dict[str, Any]) -> None: ...
     def setTokenSecret(self, secret: str) -> None: ...
@@ -275,8 +276,7 @@ class QOAuth1Signature(Shiboken.Object):
 
 class QOAuth2AuthorizationCodeFlow(PySide6.QtNetworkAuth.QAbstractOAuth2):
 
-    accessTokenUrlChanged: PySide6.QtCore.Signal
-
+    accessTokenUrlChanged    : ClassVar[Signal] = ... # accessTokenUrlChanged(QUrl)
 
     @overload
     def __init__(self, authorizationUrl: Union[PySide6.QtCore.QUrl, str], accessTokenUrl: Union[PySide6.QtCore.QUrl, str], manager: PySide6.QtNetwork.QNetworkAccessManager, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...

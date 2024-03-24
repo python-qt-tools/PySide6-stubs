@@ -13,8 +13,12 @@ import PySide6.QtPositioning
 import PySide6.QtCore
 
 import enum
-from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QGeoAddress(Shiboken.Object):
@@ -80,17 +84,15 @@ class QGeoAreaMonitorInfo(Shiboken.Object):
 
 class QGeoAreaMonitorSource(PySide6.QtCore.QObject):
 
-    areaEntered: PySide6.QtCore.Signal
-    areaExited: PySide6.QtCore.Signal
-    errorOccurred: PySide6.QtCore.Signal
-    monitorExpired: PySide6.QtCore.Signal
-
+    areaEntered              : ClassVar[Signal] = ... # areaEntered(QGeoAreaMonitorInfo,QGeoPositionInfo)
+    areaExited               : ClassVar[Signal] = ... # areaExited(QGeoAreaMonitorInfo,QGeoPositionInfo)
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoAreaMonitorSource::Error)
+    monitorExpired           : ClassVar[Signal] = ... # monitorExpired(QGeoAreaMonitorInfo)
 
     class AreaMonitorFeature(enum.Flag):
 
         PersistentAreaMonitorFeature: QGeoAreaMonitorSource.AreaMonitorFeature = ... # 0x1
         AnyAreaMonitorFeature    : QGeoAreaMonitorSource.AreaMonitorFeature = ... # 0xffffffff
-
 
     class Error(enum.Enum):
 
@@ -115,7 +117,7 @@ class QGeoAreaMonitorSource(PySide6.QtCore.QObject):
     def createSource(sourceName: str, parent: PySide6.QtCore.QObject) -> PySide6.QtPositioning.QGeoAreaMonitorSource: ...
     def error(self) -> PySide6.QtPositioning.QGeoAreaMonitorSource.Error: ...
     def positionInfoSource(self) -> PySide6.QtPositioning.QGeoPositionInfoSource: ...
-    def requestUpdate(self, monitor: Union[PySide6.QtPositioning.QGeoAreaMonitorInfo, str], signal: bytes) -> bool: ...
+    def requestUpdate(self, monitor: Union[PySide6.QtPositioning.QGeoAreaMonitorInfo, str], signal: Union[bytes, bytearray, memoryview]) -> bool: ...
     def setBackendProperty(self, name: str, value: Any) -> bool: ...
     def setPositionInfoSource(self, source: PySide6.QtPositioning.QGeoPositionInfoSource) -> None: ...
     def sourceName(self) -> str: ...
@@ -137,6 +139,8 @@ class QGeoCircle(PySide6.QtPositioning.QGeoShape):
 
     @staticmethod
     def __copy__() -> None: ...
+    def __lshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
+    def __rshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def center(self) -> PySide6.QtPositioning.QGeoCoordinate: ...
     def extendCircle(self, coordinate: PySide6.QtPositioning.QGeoCoordinate) -> None: ...
     def radius(self) -> float: ...
@@ -157,7 +161,6 @@ class QGeoCoordinate(Shiboken.Object):
         DegreesMinutesWithHemisphere: QGeoCoordinate.CoordinateFormat = ... # 0x3
         DegreesMinutesSeconds    : QGeoCoordinate.CoordinateFormat = ... # 0x4
         DegreesMinutesSecondsWithHemisphere: QGeoCoordinate.CoordinateFormat = ... # 0x5
-
 
     class CoordinateType(enum.Enum):
 
@@ -228,6 +231,8 @@ class QGeoPath(PySide6.QtPositioning.QGeoShape):
 
     @staticmethod
     def __copy__() -> None: ...
+    def __lshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
+    def __rshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def addCoordinate(self, coordinate: PySide6.QtPositioning.QGeoCoordinate) -> None: ...
     def clearPath(self) -> None: ...
     def containsCoordinate(self, coordinate: PySide6.QtPositioning.QGeoCoordinate) -> bool: ...
@@ -264,6 +269,8 @@ class QGeoPolygon(PySide6.QtPositioning.QGeoShape):
 
     @staticmethod
     def __copy__() -> None: ...
+    def __lshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
+    def __rshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def addCoordinate(self, coordinate: PySide6.QtPositioning.QGeoCoordinate) -> None: ...
     @overload
     def addHole(self, holePath: Sequence[PySide6.QtPositioning.QGeoCoordinate]) -> None: ...
@@ -328,10 +335,9 @@ class QGeoPositionInfo(Shiboken.Object):
 
 class QGeoPositionInfoSource(PySide6.QtCore.QObject):
 
-    errorOccurred: PySide6.QtCore.Signal
-    positionUpdated: PySide6.QtCore.Signal
-    supportedPositioningMethodsChanged: PySide6.QtCore.Signal
-
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoPositionInfoSource::Error)
+    positionUpdated          : ClassVar[Signal] = ... # positionUpdated(QGeoPositionInfo)
+    supportedPositioningMethodsChanged: ClassVar[Signal] = ... # supportedPositioningMethodsChanged()
 
     class Error(enum.Enum):
 
@@ -340,7 +346,6 @@ class QGeoPositionInfoSource(PySide6.QtCore.QObject):
         UnknownSourceError       : QGeoPositionInfoSource.Error = ... # 0x2
         NoError                  : QGeoPositionInfoSource.Error = ... # 0x3
         UpdateTimeoutError       : QGeoPositionInfoSource.Error = ... # 0x4
-
 
     class PositioningMethod(enum.Flag):
 
@@ -409,7 +414,9 @@ class QGeoRectangle(PySide6.QtPositioning.QGeoShape):
     @staticmethod
     def __copy__() -> None: ...
     def __ior__(self, rectangle: Union[PySide6.QtPositioning.QGeoRectangle, PySide6.QtPositioning.QGeoShape, Sequence[PySide6.QtPositioning.QGeoCoordinate]]) -> PySide6.QtPositioning.QGeoRectangle: ...
+    def __lshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def __or__(self, rectangle: Union[PySide6.QtPositioning.QGeoRectangle, PySide6.QtPositioning.QGeoShape, Sequence[PySide6.QtPositioning.QGeoCoordinate]]) -> PySide6.QtPositioning.QGeoRectangle: ...
+    def __rshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def bottomLeft(self) -> PySide6.QtPositioning.QGeoCoordinate: ...
     def bottomRight(self) -> PySide6.QtPositioning.QGeoCoordinate: ...
     def center(self) -> PySide6.QtPositioning.QGeoCoordinate: ...
@@ -442,7 +449,6 @@ class QGeoSatelliteInfo(Shiboken.Object):
 
         Elevation                : QGeoSatelliteInfo.Attribute = ... # 0x0
         Azimuth                  : QGeoSatelliteInfo.Attribute = ... # 0x1
-
 
     class SatelliteSystem(enum.Enum):
 
@@ -480,10 +486,9 @@ class QGeoSatelliteInfo(Shiboken.Object):
 
 class QGeoSatelliteInfoSource(PySide6.QtCore.QObject):
 
-    errorOccurred: PySide6.QtCore.Signal
-    satellitesInUseUpdated: PySide6.QtCore.Signal
-    satellitesInViewUpdated: PySide6.QtCore.Signal
-
+    errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QGeoSatelliteInfoSource::Error)
+    satellitesInUseUpdated   : ClassVar[Signal] = ... # satellitesInUseUpdated(QList<QGeoSatelliteInfo>)
+    satellitesInViewUpdated  : ClassVar[Signal] = ... # satellitesInViewUpdated(QList<QGeoSatelliteInfo>)
 
     class Error(enum.Enum):
 
@@ -568,7 +573,10 @@ class QNmeaPositionInfoSource(PySide6.QtPositioning.QGeoPositionInfoSource):
     def error(self) -> PySide6.QtPositioning.QGeoPositionInfoSource.Error: ...
     def lastKnownPosition(self, fromSatellitePositioningMethodsOnly: bool = ...) -> PySide6.QtPositioning.QGeoPositionInfo: ...
     def minimumUpdateInterval(self) -> int: ...
-    def parsePosInfoFromNmeaData(self, data: bytes, size: int, posInfo: PySide6.QtPositioning.QGeoPositionInfo) -> Tuple[bool, bool]: ...
+    @overload
+    def parsePosInfoFromNmeaData(self, data: Union[bytes, bytearray, memoryview], size: int, posInfo: PySide6.QtPositioning.QGeoPositionInfo) -> Tuple[bool, bool]: ...
+    @overload
+    def parsePosInfoFromNmeaData(self, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], posInfo: PySide6.QtPositioning.QGeoPositionInfo) -> Tuple[bool, bool]: ...
     def requestUpdate(self, timeout: int = ...) -> None: ...
     def setDevice(self, source: PySide6.QtCore.QIODevice) -> None: ...
     def setError(self, positionError: PySide6.QtPositioning.QGeoPositionInfoSource.Error) -> None: ...

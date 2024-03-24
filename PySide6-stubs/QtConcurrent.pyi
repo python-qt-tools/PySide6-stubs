@@ -17,6 +17,9 @@ from typing import Optional, overload
 from shiboken6 import Shiboken
 
 
+NoneType = type(None)
+
+
 class QFutureQString(Shiboken.Object):
 
     @overload
@@ -129,12 +132,15 @@ class QIntList(object): ...
 
 class QtConcurrent(Shiboken.Object):
 
+    class FutureResult(enum.Enum):
+
+        Ignore                   : QtConcurrent.FutureResult = ... # 0x0
+
     class ReduceOption(enum.Flag):
 
         UnorderedReduce          : QtConcurrent.ReduceOption = ... # 0x1
         OrderedReduce            : QtConcurrent.ReduceOption = ... # 0x2
         SequentialReduce         : QtConcurrent.ReduceOption = ... # 0x4
-
 
     class ThreadFunctionResult(enum.Enum):
 

@@ -15,8 +15,12 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QCompressedHelpInfo(Shiboken.Object):
@@ -54,9 +58,8 @@ class QHelpContentItem(Shiboken.Object):
 
 class QHelpContentModel(PySide6.QtCore.QAbstractItemModel):
 
-    contentsCreated: PySide6.QtCore.Signal
-    contentsCreationStarted: PySide6.QtCore.Signal
-
+    contentsCreated          : ClassVar[Signal] = ... # contentsCreated()
+    contentsCreationStarted  : ClassVar[Signal] = ... # contentsCreationStarted()
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
     def contentItemAt(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtHelp.QHelpContentItem: ...
     def createContents(self, customFilterName: str) -> None: ...
@@ -72,8 +75,7 @@ class QHelpContentModel(PySide6.QtCore.QAbstractItemModel):
 
 class QHelpContentWidget(PySide6.QtWidgets.QTreeView):
 
-    linkActivated: PySide6.QtCore.Signal
-
+    linkActivated            : ClassVar[Signal] = ... # linkActivated(QUrl)
     def indexOf(self, link: Union[PySide6.QtCore.QUrl, str]) -> PySide6.QtCore.QModelIndex: ...
 
 
@@ -90,12 +92,11 @@ class QHelpEngine(PySide6.QtHelp.QHelpEngineCore):
 
 class QHelpEngineCore(PySide6.QtCore.QObject):
 
-    currentFilterChanged: PySide6.QtCore.Signal
-    readersAboutToBeInvalidated: PySide6.QtCore.Signal
-    setupFinished: PySide6.QtCore.Signal
-    setupStarted: PySide6.QtCore.Signal
-    warning: PySide6.QtCore.Signal
-
+    currentFilterChanged     : ClassVar[Signal] = ... # currentFilterChanged(QString)
+    readersAboutToBeInvalidated: ClassVar[Signal] = ... # readersAboutToBeInvalidated()
+    setupFinished            : ClassVar[Signal] = ... # setupFinished()
+    setupStarted             : ClassVar[Signal] = ... # setupStarted()
+    warning                  : ClassVar[Signal] = ... # warning(QString)
 
     def __init__(self, collectionFile: str, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -166,8 +167,7 @@ class QHelpFilterData(Shiboken.Object):
 
 class QHelpFilterEngine(PySide6.QtCore.QObject):
 
-    filterActivated: PySide6.QtCore.Signal
-
+    filterActivated          : ClassVar[Signal] = ... # filterActivated(QString)
 
     def __init__(self, helpEngine: PySide6.QtHelp.QHelpEngineCore) -> None: ...
 
@@ -200,9 +200,8 @@ class QHelpFilterSettingsWidget(PySide6.QtWidgets.QWidget):
 
 class QHelpIndexModel(PySide6.QtCore.QStringListModel):
 
-    indexCreated: PySide6.QtCore.Signal
-    indexCreationStarted: PySide6.QtCore.Signal
-
+    indexCreated             : ClassVar[Signal] = ... # indexCreated()
+    indexCreationStarted     : ClassVar[Signal] = ... # indexCreationStarted()
     def createIndex(self, customFilterName: str) -> None: ...
     def filter(self, filter: str, wildcard: str = ...) -> PySide6.QtCore.QModelIndex: ...
     def helpEngine(self) -> PySide6.QtHelp.QHelpEngineCore: ...
@@ -211,11 +210,10 @@ class QHelpIndexModel(PySide6.QtCore.QStringListModel):
 
 class QHelpIndexWidget(PySide6.QtWidgets.QListView):
 
-    documentActivated: PySide6.QtCore.Signal
-    documentsActivated: PySide6.QtCore.Signal
-    linkActivated: PySide6.QtCore.Signal
-    linksActivated: PySide6.QtCore.Signal
-
+    documentActivated        : ClassVar[Signal] = ... # documentActivated(QHelpLink,QString)
+    documentsActivated       : ClassVar[Signal] = ... # documentsActivated(QList<QHelpLink>,QString)
+    linkActivated            : ClassVar[Signal] = ... # linkActivated(QUrl,QString)
+    linksActivated           : ClassVar[Signal] = ... # linksActivated(QMultiMap<QString,QUrl>,QString)
     def activateCurrentItem(self) -> None: ...
     def filterIndices(self, filter: str, wildcard: str = ...) -> None: ...
 
@@ -237,11 +235,10 @@ class QHelpLink(Shiboken.Object):
 
 class QHelpSearchEngine(PySide6.QtCore.QObject):
 
-    indexingFinished: PySide6.QtCore.Signal
-    indexingStarted: PySide6.QtCore.Signal
-    searchingFinished: PySide6.QtCore.Signal
-    searchingStarted: PySide6.QtCore.Signal
-
+    indexingFinished         : ClassVar[Signal] = ... # indexingFinished()
+    indexingStarted          : ClassVar[Signal] = ... # indexingStarted()
+    searchingFinished        : ClassVar[Signal] = ... # searchingFinished(int)
+    searchingStarted         : ClassVar[Signal] = ... # searchingStarted()
 
     def __init__(self, helpEngine: PySide6.QtHelp.QHelpEngineCore, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -293,8 +290,7 @@ class QHelpSearchQuery(Shiboken.Object):
 
 class QHelpSearchQueryWidget(PySide6.QtWidgets.QWidget):
 
-    search: PySide6.QtCore.Signal
-
+    search                   : ClassVar[Signal] = ... # search()
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
@@ -326,8 +322,7 @@ class QHelpSearchResult(Shiboken.Object):
 
 class QHelpSearchResultWidget(PySide6.QtWidgets.QWidget):
 
-    requestShowLink: PySide6.QtCore.Signal
-
+    requestShowLink          : ClassVar[Signal] = ... # requestShowLink(QUrl)
     def changeEvent(self, event: PySide6.QtCore.QEvent) -> None: ...
     def linkAt(self, point: PySide6.QtCore.QPoint) -> PySide6.QtCore.QUrl: ...
 

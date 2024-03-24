@@ -13,14 +13,17 @@ import PySide6.QtSensors
 import PySide6.QtCore
 
 import enum
-from typing import Optional, Tuple, Union, List, overload
+from typing import ClassVar, List, Optional, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAccelerometer(PySide6.QtSensors.QSensor):
 
-    accelerationModeChanged: PySide6.QtCore.Signal
-
+    accelerationModeChanged  : ClassVar[Signal] = ... # accelerationModeChanged(AccelerationMode)
 
     class AccelerationMode(enum.Enum):
 
@@ -224,9 +227,8 @@ class QLidFilter(PySide6.QtSensors.QSensorFilter):
 
 class QLidReading(PySide6.QtSensors.QSensorReading):
 
-    backLidChanged: PySide6.QtCore.Signal
-    frontLidChanged: PySide6.QtCore.Signal
-
+    backLidChanged           : ClassVar[Signal] = ... # backLidChanged(bool)
+    frontLidChanged          : ClassVar[Signal] = ... # frontLidChanged(bool)
 
     def __init__(self, parent: PySide6.QtCore.QObject) -> None: ...
 
@@ -262,8 +264,7 @@ class QLightReading(PySide6.QtSensors.QSensorReading):
 
 class QLightSensor(PySide6.QtSensors.QSensor):
 
-    fieldOfViewChanged: PySide6.QtCore.Signal
-
+    fieldOfViewChanged       : ClassVar[Signal] = ... # fieldOfViewChanged(double)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -274,8 +275,7 @@ class QLightSensor(PySide6.QtSensors.QSensor):
 
 class QMagnetometer(PySide6.QtSensors.QSensor):
 
-    returnGeoValuesChanged: PySide6.QtCore.Signal
-
+    returnGeoValuesChanged   : ClassVar[Signal] = ... # returnGeoValuesChanged(bool)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -408,8 +408,7 @@ class QRotationReading(PySide6.QtSensors.QSensorReading):
 
 class QRotationSensor(PySide6.QtSensors.QSensor):
 
-    hasZChanged: PySide6.QtCore.Signal
-
+    hasZChanged              : ClassVar[Signal] = ... # hasZChanged(bool)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -420,29 +419,27 @@ class QRotationSensor(PySide6.QtSensors.QSensor):
 
 class QSensor(PySide6.QtCore.QObject):
 
-    activeChanged: PySide6.QtCore.Signal
-    alwaysOnChanged: PySide6.QtCore.Signal
-    availableSensorsChanged: PySide6.QtCore.Signal
-    axesOrientationModeChanged: PySide6.QtCore.Signal
-    bufferSizeChanged: PySide6.QtCore.Signal
-    busyChanged: PySide6.QtCore.Signal
-    currentOrientationChanged: PySide6.QtCore.Signal
-    dataRateChanged: PySide6.QtCore.Signal
-    efficientBufferSizeChanged: PySide6.QtCore.Signal
-    identifierChanged: PySide6.QtCore.Signal
-    maxBufferSizeChanged: PySide6.QtCore.Signal
-    readingChanged: PySide6.QtCore.Signal
-    sensorError: PySide6.QtCore.Signal
-    skipDuplicatesChanged: PySide6.QtCore.Signal
-    userOrientationChanged: PySide6.QtCore.Signal
-
+    activeChanged            : ClassVar[Signal] = ... # activeChanged()
+    alwaysOnChanged          : ClassVar[Signal] = ... # alwaysOnChanged()
+    availableSensorsChanged  : ClassVar[Signal] = ... # availableSensorsChanged()
+    axesOrientationModeChanged: ClassVar[Signal] = ... # axesOrientationModeChanged(AxesOrientationMode)
+    bufferSizeChanged        : ClassVar[Signal] = ... # bufferSizeChanged(int)
+    busyChanged              : ClassVar[Signal] = ... # busyChanged()
+    currentOrientationChanged: ClassVar[Signal] = ... # currentOrientationChanged(int)
+    dataRateChanged          : ClassVar[Signal] = ... # dataRateChanged()
+    efficientBufferSizeChanged: ClassVar[Signal] = ... # efficientBufferSizeChanged(int)
+    identifierChanged        : ClassVar[Signal] = ... # identifierChanged()
+    maxBufferSizeChanged     : ClassVar[Signal] = ... # maxBufferSizeChanged(int)
+    readingChanged           : ClassVar[Signal] = ... # readingChanged()
+    sensorError              : ClassVar[Signal] = ... # sensorError(int)
+    skipDuplicatesChanged    : ClassVar[Signal] = ... # skipDuplicatesChanged(bool)
+    userOrientationChanged   : ClassVar[Signal] = ... # userOrientationChanged(int)
 
     class AxesOrientationMode(enum.Enum):
 
         FixedOrientation         : QSensor.AxesOrientationMode = ... # 0x0
         AutomaticOrientation     : QSensor.AxesOrientationMode = ... # 0x1
         UserOrientation          : QSensor.AxesOrientationMode = ... # 0x2
-
 
     class Feature(enum.Enum):
 
@@ -457,7 +454,7 @@ class QSensor(PySide6.QtCore.QObject):
         Reserved                 : QSensor.Feature = ... # 0x101
 
 
-    def __init__(self, type: Union[PySide6.QtCore.QByteArray, bytes], parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+    def __init__(self, type: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def addFilter(self, filter: PySide6.QtSensors.QSensorFilter) -> None: ...
     def availableDataRates(self) -> List[Tuple[int, int]]: ...
@@ -468,7 +465,7 @@ class QSensor(PySide6.QtCore.QObject):
     def currentOrientation(self) -> int: ...
     def dataRate(self) -> int: ...
     @staticmethod
-    def defaultSensorForType(type: Union[PySide6.QtCore.QByteArray, bytes]) -> PySide6.QtCore.QByteArray: ...
+    def defaultSensorForType(type: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> PySide6.QtCore.QByteArray: ...
     def description(self) -> str: ...
     def efficientBufferSize(self) -> int: ...
     def error(self) -> int: ...
@@ -487,7 +484,7 @@ class QSensor(PySide6.QtCore.QObject):
     @staticmethod
     def sensorTypes() -> List[PySide6.QtCore.QByteArray]: ...
     @staticmethod
-    def sensorsForType(type: Union[PySide6.QtCore.QByteArray, bytes]) -> List[PySide6.QtCore.QByteArray]: ...
+    def sensorsForType(type: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> List[PySide6.QtCore.QByteArray]: ...
     def setActive(self, active: bool) -> None: ...
     def setAlwaysOn(self, alwaysOn: bool) -> None: ...
     def setAxesOrientationMode(self, axesOrientationMode: PySide6.QtSensors.QSensor.AxesOrientationMode) -> None: ...
@@ -495,7 +492,7 @@ class QSensor(PySide6.QtCore.QObject):
     def setCurrentOrientation(self, currentOrientation: int) -> None: ...
     def setDataRate(self, rate: int) -> None: ...
     def setEfficientBufferSize(self, efficientBufferSize: int) -> None: ...
-    def setIdentifier(self, identifier: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setIdentifier(self, identifier: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def setMaxBufferSize(self, maxBufferSize: int) -> None: ...
     def setOutputRange(self, index: int) -> None: ...
     def setSkipDuplicates(self, skipDuplicates: bool) -> None: ...
@@ -555,13 +552,13 @@ class QSensorManager(Shiboken.Object):
     @staticmethod
     def createBackend(sensor: PySide6.QtSensors.QSensor) -> PySide6.QtSensors.QSensorBackend: ...
     @staticmethod
-    def isBackendRegistered(type: Union[PySide6.QtCore.QByteArray, bytes], identifier: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
+    def isBackendRegistered(type: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], identifier: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> bool: ...
     @staticmethod
-    def registerBackend(type: Union[PySide6.QtCore.QByteArray, bytes], identifier: Union[PySide6.QtCore.QByteArray, bytes], factory: PySide6.QtSensors.QSensorBackendFactory) -> None: ...
+    def registerBackend(type: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], identifier: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], factory: PySide6.QtSensors.QSensorBackendFactory) -> None: ...
     @staticmethod
-    def setDefaultBackend(type: Union[PySide6.QtCore.QByteArray, bytes], identifier: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setDefaultBackend(type: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], identifier: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     @staticmethod
-    def unregisterBackend(type: Union[PySide6.QtCore.QByteArray, bytes], identifier: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def unregisterBackend(type: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], identifier: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
 
 
 class QSensorPluginInterface(Shiboken.Object):
@@ -616,8 +613,7 @@ class QTapReading(PySide6.QtSensors.QSensorReading):
 
 class QTapSensor(PySide6.QtSensors.QSensor):
 
-    returnDoubleTapEventsChanged: PySide6.QtCore.Signal
-
+    returnDoubleTapEventsChanged: ClassVar[Signal] = ... # returnDoubleTapEventsChanged(bool)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 

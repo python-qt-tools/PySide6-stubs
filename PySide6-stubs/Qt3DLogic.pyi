@@ -13,8 +13,12 @@ import PySide6.Qt3DLogic
 import PySide6.QtCore
 import PySide6.Qt3DCore
 
-from typing import Optional
+from typing import ClassVar, Optional
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -24,8 +28,7 @@ class Qt3DLogic(Shiboken.Object):
 
     class QFrameAction(PySide6.Qt3DCore.Qt3DCore.QComponent):
 
-        triggered: PySide6.QtCore.Signal
-
+        triggered                : ClassVar[Signal] = ... # triggered(float)
 
         def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
 

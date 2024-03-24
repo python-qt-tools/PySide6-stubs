@@ -16,7 +16,11 @@ import PySide6.QtWidgets
 import PySide6.QtPrintSupport
 import PySide6.QtWebEngineCore
 
-from typing import Optional, Union, overload
+from typing import ClassVar, Optional, Union, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QIntList(object): ...
@@ -24,19 +28,18 @@ class QIntList(object): ...
 
 class QWebEngineView(PySide6.QtWidgets.QWidget):
 
-    iconChanged: PySide6.QtCore.Signal
-    iconUrlChanged: PySide6.QtCore.Signal
-    loadFinished: PySide6.QtCore.Signal
-    loadProgress: PySide6.QtCore.Signal
-    loadStarted: PySide6.QtCore.Signal
-    pdfPrintingFinished: PySide6.QtCore.Signal
-    printFinished: PySide6.QtCore.Signal
-    printRequested: PySide6.QtCore.Signal
-    renderProcessTerminated: PySide6.QtCore.Signal
-    selectionChanged: PySide6.QtCore.Signal
-    titleChanged: PySide6.QtCore.Signal
-    urlChanged: PySide6.QtCore.Signal
-
+    iconChanged              : ClassVar[Signal] = ... # iconChanged(QIcon)
+    iconUrlChanged           : ClassVar[Signal] = ... # iconUrlChanged(QUrl)
+    loadFinished             : ClassVar[Signal] = ... # loadFinished(bool)
+    loadProgress             : ClassVar[Signal] = ... # loadProgress(int)
+    loadStarted              : ClassVar[Signal] = ... # loadStarted()
+    pdfPrintingFinished      : ClassVar[Signal] = ... # pdfPrintingFinished(QString,bool)
+    printFinished            : ClassVar[Signal] = ... # printFinished(bool)
+    printRequested           : ClassVar[Signal] = ... # printRequested()
+    renderProcessTerminated  : ClassVar[Signal] = ... # renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus,int)
+    selectionChanged         : ClassVar[Signal] = ... # selectionChanged()
+    titleChanged             : ClassVar[Signal] = ... # titleChanged(QString)
+    urlChanged               : ClassVar[Signal] = ... # urlChanged(QUrl)
 
     @overload
     def __init__(self, page: PySide6.QtWebEngineCore.QWebEnginePage, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
@@ -78,7 +81,7 @@ class QWebEngineView(PySide6.QtWidgets.QWidget):
     def printToPdf(self, filePath: str, layout: PySide6.QtGui.QPageLayout = ..., ranges: PySide6.QtGui.QPageRanges = ...) -> None: ...
     def reload(self) -> None: ...
     def selectedText(self) -> str: ...
-    def setContent(self, data: Union[PySide6.QtCore.QByteArray, bytes], mimeType: str = ..., baseUrl: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
+    def setContent(self, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], mimeType: str = ..., baseUrl: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
     def setHtml(self, html: str, baseUrl: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
     def setPage(self, page: PySide6.QtWebEngineCore.QWebEnginePage) -> None: ...
     def setUrl(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...

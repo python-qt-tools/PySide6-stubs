@@ -15,13 +15,16 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 import PySide6.QtMultimedia
 
-from typing import Any, Optional, Union
+from typing import Any, ClassVar, Optional, Union
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QGraphicsVideoItem(PySide6.QtWidgets.QGraphicsObject):
 
-    nativeSizeChanged: PySide6.QtCore.Signal
-
+    nativeSizeChanged        : ClassVar[Signal] = ... # nativeSizeChanged(QSizeF)
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QGraphicsItem] = ...) -> None: ...
 
@@ -45,9 +48,8 @@ class QIntList(object): ...
 
 class QVideoWidget(PySide6.QtWidgets.QWidget):
 
-    aspectRatioModeChanged: PySide6.QtCore.Signal
-    fullScreenChanged: PySide6.QtCore.Signal
-
+    aspectRatioModeChanged   : ClassVar[Signal] = ... # aspectRatioModeChanged(Qt::AspectRatioMode)
+    fullScreenChanged        : ClassVar[Signal] = ... # fullScreenChanged(bool)
 
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 

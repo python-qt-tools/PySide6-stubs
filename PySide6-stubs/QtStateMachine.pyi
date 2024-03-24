@@ -14,15 +14,18 @@ import PySide6.QtCore
 import PySide6.QtGui
 
 import enum
-from typing import Any, Optional, Type, Union, Sequence, List, Set, overload
+from typing import Any, ClassVar, List, Optional, Sequence, Set, Type, Union, overload
+from PySide6.QtCore import Signal
+
+
+NoneType = type(None)
 
 
 class QAbstractState(PySide6.QtCore.QObject):
 
-    activeChanged: PySide6.QtCore.Signal
-    entered: PySide6.QtCore.Signal
-    exited: PySide6.QtCore.Signal
-
+    activeChanged            : ClassVar[Signal] = ... # activeChanged(bool)
+    entered                  : ClassVar[Signal] = ... # entered()
+    exited                   : ClassVar[Signal] = ... # exited()
 
     def __init__(self, parent: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
 
@@ -36,10 +39,9 @@ class QAbstractState(PySide6.QtCore.QObject):
 
 class QAbstractTransition(PySide6.QtCore.QObject):
 
-    targetStateChanged: PySide6.QtCore.Signal
-    targetStatesChanged: PySide6.QtCore.Signal
-    triggered: PySide6.QtCore.Signal
-
+    targetStateChanged       : ClassVar[Signal] = ... # targetStateChanged()
+    targetStatesChanged      : ClassVar[Signal] = ... # targetStatesChanged()
+    triggered                : ClassVar[Signal] = ... # triggered()
 
     class TransitionType(enum.Enum):
 
@@ -92,10 +94,9 @@ class QFinalState(PySide6.QtStateMachine.QAbstractState):
 
 class QHistoryState(PySide6.QtStateMachine.QAbstractState):
 
-    defaultStateChanged: PySide6.QtCore.Signal
-    defaultTransitionChanged: PySide6.QtCore.Signal
-    historyTypeChanged: PySide6.QtCore.Signal
-
+    defaultStateChanged      : ClassVar[Signal] = ... # defaultStateChanged()
+    defaultTransitionChanged : ClassVar[Signal] = ... # defaultTransitionChanged()
+    historyTypeChanged       : ClassVar[Signal] = ... # historyTypeChanged()
 
     class HistoryType(enum.Enum):
 
@@ -156,10 +157,13 @@ class QMouseEventTransition(PySide6.QtStateMachine.QEventTransition):
 
 class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
 
+    senderObjectChanged      : ClassVar[Signal] = ... # senderObjectChanged()
+    signalChanged            : ClassVar[Signal] = ... # signalChanged()
+
     @overload
     def __init__(self, arg__1: object, arg__2: Optional[PySide6.QtStateMachine.QState] = ...) -> PySide6.QtStateMachine.QSignalTransition: ...
     @overload
-    def __init__(self, sender: PySide6.QtCore.QObject, signal: bytes, sourceState: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
+    def __init__(self, sender: PySide6.QtCore.QObject, signal: Union[bytes, bytearray, memoryview], sourceState: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
     @overload
     def __init__(self, sourceState: Optional[PySide6.QtStateMachine.QState] = ...) -> None: ...
 
@@ -168,24 +172,22 @@ class QSignalTransition(PySide6.QtStateMachine.QAbstractTransition):
     def onTransition(self, event: PySide6.QtCore.QEvent) -> None: ...
     def senderObject(self) -> PySide6.QtCore.QObject: ...
     def setSenderObject(self, sender: PySide6.QtCore.QObject) -> None: ...
-    def setSignal(self, signal: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def setSignal(self, signal: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def signal(self) -> PySide6.QtCore.QByteArray: ...
 
 
 class QState(PySide6.QtStateMachine.QAbstractState):
 
-    childModeChanged: PySide6.QtCore.Signal
-    errorStateChanged: PySide6.QtCore.Signal
-    finished: PySide6.QtCore.Signal
-    initialStateChanged: PySide6.QtCore.Signal
-    propertiesAssigned: PySide6.QtCore.Signal
-
+    childModeChanged         : ClassVar[Signal] = ... # childModeChanged()
+    errorStateChanged        : ClassVar[Signal] = ... # errorStateChanged()
+    finished                 : ClassVar[Signal] = ... # finished()
+    initialStateChanged      : ClassVar[Signal] = ... # initialStateChanged()
+    propertiesAssigned       : ClassVar[Signal] = ... # propertiesAssigned()
 
     class ChildMode(enum.Enum):
 
         ExclusiveStates          : QState.ChildMode = ... # 0x0
         ParallelStates           : QState.ChildMode = ... # 0x1
-
 
     class RestorePolicy(enum.Enum):
 
@@ -201,7 +203,7 @@ class QState(PySide6.QtStateMachine.QAbstractState):
     @overload
     def addTransition(self, arg__1: object, arg__2: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QSignalTransition: ...
     @overload
-    def addTransition(self, sender: PySide6.QtCore.QObject, signal: bytes, target: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QSignalTransition: ...
+    def addTransition(self, sender: PySide6.QtCore.QObject, signal: str, target: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QSignalTransition: ...
     @overload
     def addTransition(self, target: PySide6.QtStateMachine.QAbstractState) -> PySide6.QtStateMachine.QAbstractTransition: ...
     @overload
@@ -222,10 +224,9 @@ class QState(PySide6.QtStateMachine.QAbstractState):
 
 class QStateMachine(PySide6.QtStateMachine.QState):
 
-    runningChanged: PySide6.QtCore.Signal
-    started: PySide6.QtCore.Signal
-    stopped: PySide6.QtCore.Signal
-
+    runningChanged           : ClassVar[Signal] = ... # runningChanged(bool)
+    started                  : ClassVar[Signal] = ... # started()
+    stopped                  : ClassVar[Signal] = ... # stopped()
 
     class Error(enum.Enum):
 
@@ -235,12 +236,10 @@ class QStateMachine(PySide6.QtStateMachine.QState):
         NoCommonAncestorForTransitionError: QStateMachine.Error = ... # 0x3
         StateMachineChildModeSetToParallelError: QStateMachine.Error = ... # 0x4
 
-
     class EventPriority(enum.Enum):
 
         NormalPriority           : QStateMachine.EventPriority = ... # 0x0
         HighPriority             : QStateMachine.EventPriority = ... # 0x1
-
 
     class SignalEvent(PySide6.QtCore.QEvent):
 

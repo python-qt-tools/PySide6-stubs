@@ -13,14 +13,17 @@ import PySide6.QtRemoteObjects
 import PySide6.QtCore
 
 import enum
-from typing import Any, Optional, Tuple, Union, Sequence, Dict, List, overload
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+
+
+NoneType = type(None)
 
 
 class QAbstractItemModelReplica(PySide6.QtCore.QAbstractItemModel):
 
-    initialized: PySide6.QtCore.Signal
-
+    initialized              : ClassVar[Signal] = ... # initialized()
     def availableRoles(self) -> List[int]: ...
     def columnCount(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> int: ...
     def data(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], role: int = ...) -> Any: ...
@@ -49,8 +52,8 @@ class QRemoteObjectAbstractPersistedStore(PySide6.QtCore.QObject):
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
-    def restoreProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes]) -> List[Any]: ...
-    def saveProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes], values: Sequence[Any]) -> None: ...
+    def restoreProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> List[Any]: ...
+    def saveProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], values: Sequence[Any]) -> None: ...
 
 
 class QRemoteObjectDynamicReplica(PySide6.QtRemoteObjects.QRemoteObjectReplica):
@@ -63,8 +66,7 @@ class QRemoteObjectDynamicReplica(PySide6.QtRemoteObjects.QRemoteObjectReplica):
 
 class QRemoteObjectHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
 
-    hostUrlChanged: PySide6.QtCore.Signal
-
+    hostUrlChanged           : ClassVar[Signal] = ... # hostUrlChanged()
 
     @overload
     def __init__(self, address: Union[PySide6.QtCore.QUrl, str], parent: PySide6.QtCore.QObject) -> None: ...
@@ -100,11 +102,10 @@ class QRemoteObjectHostBase(PySide6.QtRemoteObjects.QRemoteObjectNode):
 
 class QRemoteObjectNode(PySide6.QtCore.QObject):
 
-    error: PySide6.QtCore.Signal
-    heartbeatIntervalChanged: PySide6.QtCore.Signal
-    remoteObjectAdded: PySide6.QtCore.Signal
-    remoteObjectRemoved: PySide6.QtCore.Signal
-
+    error                    : ClassVar[Signal] = ... # error(QRemoteObjectNode::ErrorCode)
+    heartbeatIntervalChanged : ClassVar[Signal] = ... # heartbeatIntervalChanged(int)
+    remoteObjectAdded        : ClassVar[Signal] = ... # remoteObjectAdded(QRemoteObjectSourceLocation)
+    remoteObjectRemoved      : ClassVar[Signal] = ... # remoteObjectRemoved(QRemoteObjectSourceLocation)
 
     class ErrorCode(enum.Enum):
 
@@ -168,8 +169,7 @@ class QRemoteObjectPendingCall(Shiboken.Object):
 
 class QRemoteObjectPendingCallWatcher(PySide6.QtCore.QObject, PySide6.QtRemoteObjects.QRemoteObjectPendingCall):
 
-    finished: PySide6.QtCore.Signal
-
+    finished                 : ClassVar[Signal] = ... # finished(QRemoteObjectPendingCallWatcher*)
 
     def __init__(self, call: PySide6.QtRemoteObjects.QRemoteObjectPendingCall, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
@@ -179,9 +179,8 @@ class QRemoteObjectPendingCallWatcher(PySide6.QtCore.QObject, PySide6.QtRemoteOb
 
 class QRemoteObjectRegistry(PySide6.QtRemoteObjects.QRemoteObjectReplica):
 
-    remoteObjectAdded: PySide6.QtCore.Signal
-    remoteObjectRemoved: PySide6.QtCore.Signal
-
+    remoteObjectAdded        : ClassVar[Signal] = ... # remoteObjectAdded(QRemoteObjectSourceLocation)
+    remoteObjectRemoved      : ClassVar[Signal] = ... # remoteObjectRemoved(QRemoteObjectSourceLocation)
     def addSource(self, entry: Tuple[str, PySide6.QtRemoteObjects.QRemoteObjectSourceLocationInfo]) -> None: ...
     def initialize(self) -> None: ...
     def pushToRegistryIfNeeded(self) -> None: ...
@@ -200,10 +199,9 @@ class QRemoteObjectRegistryHost(PySide6.QtRemoteObjects.QRemoteObjectHostBase):
 
 class QRemoteObjectReplica(PySide6.QtCore.QObject):
 
-    initialized: PySide6.QtCore.Signal
-    notified: PySide6.QtCore.Signal
-    stateChanged: PySide6.QtCore.Signal
-
+    initialized              : ClassVar[Signal] = ... # initialized()
+    notified                 : ClassVar[Signal] = ... # notified()
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(State,State)
 
     class State(enum.Enum):
 
@@ -221,9 +219,9 @@ class QRemoteObjectReplica(PySide6.QtCore.QObject):
     def isInitialized(self) -> bool: ...
     def isReplicaValid(self) -> bool: ...
     def node(self) -> PySide6.QtRemoteObjects.QRemoteObjectNode: ...
-    def persistProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes], props: Sequence[Any]) -> None: ...
+    def persistProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], props: Sequence[Any]) -> None: ...
     def propAsVariant(self, i: int) -> Any: ...
-    def retrieveProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes]) -> List[Any]: ...
+    def retrieveProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> List[Any]: ...
     def send(self, call: PySide6.QtCore.QMetaObject.Call, index: int, args: Sequence[Any]) -> None: ...
     def sendWithReply(self, call: PySide6.QtCore.QMetaObject.Call, index: int, args: Sequence[Any]) -> PySide6.QtRemoteObjects.QRemoteObjectPendingCall: ...
     def setChild(self, i: int, arg__2: Any) -> None: ...
@@ -236,8 +234,8 @@ class QRemoteObjectSettingsStore(PySide6.QtRemoteObjects.QRemoteObjectAbstractPe
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
-    def restoreProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes]) -> List[Any]: ...
-    def saveProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes], values: Sequence[Any]) -> None: ...
+    def restoreProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> List[Any]: ...
+    def saveProperties(self, repName: str, repSig: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], values: Sequence[Any]) -> None: ...
 
 
 class QRemoteObjectSourceLocationInfo(Shiboken.Object):
