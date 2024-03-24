@@ -34,7 +34,6 @@ class QAbstractPrintDialog(PySide6.QtWidgets.QDialog):
         PrintCollateCopies       : QAbstractPrintDialog.PrintDialogOption = ... # 0x10
         PrintCurrentPage         : QAbstractPrintDialog.PrintDialogOption = ... # 0x40
 
-
     class PrintRange(enum.Enum):
 
         AllPages                 : QAbstractPrintDialog.PrintRange = ... # 0x0
@@ -73,7 +72,7 @@ class QPageSetupDialog(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def printer(self) -> PySide6.QtPrintSupport.QPrinter: ...
     def setVisible(self, visible: bool) -> None: ...
 
@@ -90,7 +89,7 @@ class QPrintDialog(PySide6.QtPrintSupport.QAbstractPrintDialog):
     def done(self, result: int) -> None: ...
     def exec(self) -> int: ...
     def exec_(self) -> int: ...
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def options(self) -> PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption: ...
     def setOption(self, option: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption, on: bool = ...) -> None: ...
     def setOptions(self, options: PySide6.QtPrintSupport.QAbstractPrintDialog.PrintDialogOption) -> None: ...
@@ -159,7 +158,7 @@ class QPrintPreviewDialog(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def printer(self) -> PySide6.QtPrintSupport.QPrinter: ...
     def setVisible(self, visible: bool) -> None: ...
 
@@ -174,7 +173,6 @@ class QPrintPreviewWidget(PySide6.QtWidgets.QWidget):
         SinglePageView           : QPrintPreviewWidget.ViewMode = ... # 0x0
         FacingPagesView          : QPrintPreviewWidget.ViewMode = ... # 0x1
         AllPagesView             : QPrintPreviewWidget.ViewMode = ... # 0x2
-
 
     class ZoomMode(enum.Enum):
 
@@ -220,7 +218,6 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
         GrayScale                : QPrinter.ColorMode = ... # 0x0
         Color                    : QPrinter.ColorMode = ... # 0x1
 
-
     class DuplexMode(enum.Enum):
 
         DuplexNone               : QPrinter.DuplexMode = ... # 0x0
@@ -228,18 +225,15 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
         DuplexLongSide           : QPrinter.DuplexMode = ... # 0x2
         DuplexShortSide          : QPrinter.DuplexMode = ... # 0x3
 
-
     class OutputFormat(enum.Enum):
 
         NativeFormat             : QPrinter.OutputFormat = ... # 0x0
         PdfFormat                : QPrinter.OutputFormat = ... # 0x1
 
-
     class PageOrder(enum.Enum):
 
         FirstPageFirst           : QPrinter.PageOrder = ... # 0x0
         LastPageFirst            : QPrinter.PageOrder = ... # 0x1
-
 
     class PaperSource(enum.Enum):
 
@@ -261,7 +255,6 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
         CustomSource             : QPrinter.PaperSource = ... # 0xe
         LastPaperSource          : QPrinter.PaperSource = ... # 0xe
 
-
     class PrintRange(enum.Enum):
 
         AllPages                 : QPrinter.PrintRange = ... # 0x0
@@ -269,13 +262,11 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
         PageRange                : QPrinter.PrintRange = ... # 0x2
         CurrentPage              : QPrinter.PrintRange = ... # 0x3
 
-
     class PrinterMode(enum.Enum):
 
         ScreenResolution         : QPrinter.PrinterMode = ... # 0x0
         PrinterResolution        : QPrinter.PrinterMode = ... # 0x1
         HighResolution           : QPrinter.PrinterMode = ... # 0x2
-
 
     class PrinterState(enum.Enum):
 
@@ -283,7 +274,6 @@ class QPrinter(PySide6.QtGui.QPagedPaintDevice):
         Active                   : QPrinter.PrinterState = ... # 0x1
         Aborted                  : QPrinter.PrinterState = ... # 0x2
         Error                    : QPrinter.PrinterState = ... # 0x3
-
 
     class Unit(enum.Enum):
 

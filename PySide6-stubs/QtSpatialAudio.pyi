@@ -94,9 +94,6 @@ class QAudioEngine(PySide6.QtCore.QObject):
 
 class QAudioListener(PySide6.QtCore.QObject):
 
-    destroyed                : ClassVar[Signal] = ... # destroyed()
-    objectNameChanged        : ClassVar[Signal] = ... # objectNameChanged(QString)
-
     def __init__(self, engine: PySide6.QtSpatialAudio.QAudioEngine) -> None: ...
 
     def engine(self) -> PySide6.QtSpatialAudio.QAudioEngine: ...
@@ -143,7 +140,6 @@ class QAudioRoom(PySide6.QtCore.QObject):
         WoodCeiling              : QAudioRoom.Material = ... # 0x15
         WoodPanel                : QAudioRoom.Material = ... # 0x16
         UniformMaterial          : QAudioRoom.Material = ... # 0x17
-
 
     class Wall(enum.Enum):
 
@@ -200,7 +196,6 @@ class QSpatialSound(PySide6.QtCore.QObject):
         Logarithmic              : QSpatialSound.DistanceModel = ... # 0x0
         Linear                   : QSpatialSound.DistanceModel = ... # 0x1
         ManualAttenuation        : QSpatialSound.DistanceModel = ... # 0x2
-
 
     class Loops(enum.Enum):
 

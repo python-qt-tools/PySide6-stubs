@@ -26,11 +26,13 @@ class QIntList(object): ...
 
 class QTextToSpeech(PySide6.QtCore.QObject):
 
+    aboutToSynthesize        : ClassVar[Signal] = ... # aboutToSynthesize(qsizetype)
     engineChanged            : ClassVar[Signal] = ... # engineChanged(QString)
     errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QTextToSpeech::ErrorReason,QString)
     localeChanged            : ClassVar[Signal] = ... # localeChanged(QLocale)
     pitchChanged             : ClassVar[Signal] = ... # pitchChanged(double)
     rateChanged              : ClassVar[Signal] = ... # rateChanged(double)
+    sayingWord               : ClassVar[Signal] = ... # sayingWord(QString,qsizetype,qsizetype,qsizetype)
     stateChanged             : ClassVar[Signal] = ... # stateChanged(QTextToSpeech::State)
     voiceChanged             : ClassVar[Signal] = ... # voiceChanged(QVoice)
     volumeChanged            : ClassVar[Signal] = ... # volumeChanged(double)
@@ -41,7 +43,15 @@ class QTextToSpeech(PySide6.QtCore.QObject):
         Immediate                : QTextToSpeech.BoundaryHint = ... # 0x1
         Word                     : QTextToSpeech.BoundaryHint = ... # 0x2
         Sentence                 : QTextToSpeech.BoundaryHint = ... # 0x3
+        Utterance                : QTextToSpeech.BoundaryHint = ... # 0x4
 
+    class Capability(enum.Flag):
+
+        None_                    : QTextToSpeech.Capability = ... # 0x0
+        Speak                    : QTextToSpeech.Capability = ... # 0x1
+        PauseResume              : QTextToSpeech.Capability = ... # 0x2
+        WordByWordProgress       : QTextToSpeech.Capability = ... # 0x4
+        Synthesize               : QTextToSpeech.Capability = ... # 0x8
 
     class ErrorReason(enum.Enum):
 
@@ -51,13 +61,13 @@ class QTextToSpeech(PySide6.QtCore.QObject):
         Input                    : QTextToSpeech.ErrorReason = ... # 0x3
         Playback                 : QTextToSpeech.ErrorReason = ... # 0x4
 
-
     class State(enum.Enum):
 
         Ready                    : QTextToSpeech.State = ... # 0x0
         Speaking                 : QTextToSpeech.State = ... # 0x1
         Paused                   : QTextToSpeech.State = ... # 0x2
         Error                    : QTextToSpeech.State = ... # 0x3
+        Synthesizing             : QTextToSpeech.State = ... # 0x4
 
 
     @overload
@@ -67,11 +77,14 @@ class QTextToSpeech(PySide6.QtCore.QObject):
     @overload
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
+    def allVoices(self, locale: Union[PySide6.QtCore.QLocale, PySide6.QtCore.QLocale.Language]) -> List[PySide6.QtTextToSpeech.QVoice]: ...
     @staticmethod
     def availableEngines() -> List[str]: ...
     def availableLocales(self) -> List[PySide6.QtCore.QLocale]: ...
     def availableVoices(self) -> List[PySide6.QtTextToSpeech.QVoice]: ...
     def engine(self) -> str: ...
+    def engineCapabilities(self) -> PySide6.QtTextToSpeech.QTextToSpeech.Capability: ...
+    def enqueue(self, text: str) -> int: ...
     def errorReason(self) -> PySide6.QtTextToSpeech.QTextToSpeech.ErrorReason: ...
     def errorString(self) -> str: ...
     def locale(self) -> PySide6.QtCore.QLocale: ...
@@ -95,12 +108,15 @@ class QTextToSpeech(PySide6.QtCore.QObject):
 class QTextToSpeechEngine(PySide6.QtCore.QObject):
 
     errorOccurred            : ClassVar[Signal] = ... # errorOccurred(QTextToSpeech::ErrorReason,QString)
+    sayingWord               : ClassVar[Signal] = ... # sayingWord(QString,qsizetype,qsizetype)
     stateChanged             : ClassVar[Signal] = ... # stateChanged(QTextToSpeech::State)
+    synthesized              : ClassVar[Signal] = ... # synthesized(QAudioFormat,QByteArray)
 
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def availableLocales(self) -> List[PySide6.QtCore.QLocale]: ...
     def availableVoices(self) -> List[PySide6.QtTextToSpeech.QVoice]: ...
+    def capabilities(self) -> PySide6.QtTextToSpeech.QTextToSpeech.Capability: ...
     @staticmethod
     def createVoice(name: str, locale: Union[PySide6.QtCore.QLocale, PySide6.QtCore.QLocale.Language], gender: PySide6.QtTextToSpeech.QVoice.Gender, age: PySide6.QtTextToSpeech.QVoice.Age, data: Any) -> PySide6.QtTextToSpeech.QVoice: ...
     def errorReason(self) -> PySide6.QtTextToSpeech.QTextToSpeech.ErrorReason: ...
@@ -118,6 +134,7 @@ class QTextToSpeechEngine(PySide6.QtCore.QObject):
     def setVolume(self, volume: float) -> bool: ...
     def state(self) -> PySide6.QtTextToSpeech.QTextToSpeech.State: ...
     def stop(self, boundaryHint: PySide6.QtTextToSpeech.QTextToSpeech.BoundaryHint) -> None: ...
+    def synthesize(self, text: str) -> None: ...
     def voice(self) -> PySide6.QtTextToSpeech.QVoice: ...
     @staticmethod
     def voiceData(voice: PySide6.QtTextToSpeech.QVoice) -> Any: ...
@@ -133,7 +150,6 @@ class QVoice(Shiboken.Object):
         Adult                    : QVoice.Age = ... # 0x2
         Senior                   : QVoice.Age = ... # 0x3
         Other                    : QVoice.Age = ... # 0x4
-
 
     class Gender(enum.Enum):
 
@@ -157,6 +173,7 @@ class QVoice(Shiboken.Object):
     def gender(self) -> PySide6.QtTextToSpeech.QVoice.Gender: ...
     @staticmethod
     def genderName(gender: PySide6.QtTextToSpeech.QVoice.Gender) -> str: ...
+    def language(self) -> PySide6.QtCore.QLocale.Language: ...
     def locale(self) -> PySide6.QtCore.QLocale: ...
     def name(self) -> str: ...
     def swap(self, other: PySide6.QtTextToSpeech.QVoice) -> None: ...

@@ -15,7 +15,7 @@ import PySide6.QtGui
 
 import enum
 from typing import Any, ClassVar, Dict, Iterable, List, Optional, Sequence, Text, Tuple, Type, Union, overload
-from PySide6.QtCore import Signal
+from PySide6.QtCore import Signal, SignalInstance
 from shiboken6 import Shiboken
 
 
@@ -24,7 +24,7 @@ NoneType = type(None)
 
 class QAbstractButton(PySide6.QtWidgets.QWidget):
 
-    clicked                  : ClassVar[Signal] = ... # clicked()
+    clicked                  : ClassVar[Signal] = ... # clicked(); clicked(bool)
     pressed                  : ClassVar[Signal] = ... # pressed()
     released                 : ClassVar[Signal] = ... # released()
     toggled                  : ClassVar[Signal] = ... # toggled(bool)
@@ -90,7 +90,7 @@ class QAbstractGraphicsShapeItem(PySide6.QtWidgets.QGraphicsItem):
 
 class QAbstractItemDelegate(PySide6.QtCore.QObject):
 
-    closeEditor              : ClassVar[Signal] = ... # closeEditor(QWidget*,QAbstractItemDelegate::EndEditHint)
+    closeEditor              : ClassVar[Signal] = ... # closeEditor(QWidget*,QAbstractItemDelegate::EndEditHint); closeEditor(QWidget*)
     commitData               : ClassVar[Signal] = ... # commitData(QWidget*)
     sizeHintChanged          : ClassVar[Signal] = ... # sizeHintChanged(QModelIndex)
 
@@ -140,7 +140,6 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         MoveNext                 : QAbstractItemView.CursorAction = ... # 0x8
         MovePrevious             : QAbstractItemView.CursorAction = ... # 0x9
 
-
     class DragDropMode(enum.Enum):
 
         NoDragDrop               : QAbstractItemView.DragDropMode = ... # 0x0
@@ -149,14 +148,12 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         DragDrop                 : QAbstractItemView.DragDropMode = ... # 0x3
         InternalMove             : QAbstractItemView.DragDropMode = ... # 0x4
 
-
     class DropIndicatorPosition(enum.Enum):
 
         OnItem                   : QAbstractItemView.DropIndicatorPosition = ... # 0x0
         AboveItem                : QAbstractItemView.DropIndicatorPosition = ... # 0x1
         BelowItem                : QAbstractItemView.DropIndicatorPosition = ... # 0x2
         OnViewport               : QAbstractItemView.DropIndicatorPosition = ... # 0x3
-
 
     class EditTrigger(enum.Flag):
 
@@ -168,7 +165,6 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         AnyKeyPressed            : QAbstractItemView.EditTrigger = ... # 0x10
         AllEditTriggers          : QAbstractItemView.EditTrigger = ... # 0x1f
 
-
     class ScrollHint(enum.Enum):
 
         EnsureVisible            : QAbstractItemView.ScrollHint = ... # 0x0
@@ -176,19 +172,16 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         PositionAtBottom         : QAbstractItemView.ScrollHint = ... # 0x2
         PositionAtCenter         : QAbstractItemView.ScrollHint = ... # 0x3
 
-
     class ScrollMode(enum.Enum):
 
         ScrollPerItem            : QAbstractItemView.ScrollMode = ... # 0x0
         ScrollPerPixel           : QAbstractItemView.ScrollMode = ... # 0x1
-
 
     class SelectionBehavior(enum.Enum):
 
         SelectItems              : QAbstractItemView.SelectionBehavior = ... # 0x0
         SelectRows               : QAbstractItemView.SelectionBehavior = ... # 0x1
         SelectColumns            : QAbstractItemView.SelectionBehavior = ... # 0x2
-
 
     class SelectionMode(enum.Enum):
 
@@ -197,7 +190,6 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
         MultiSelection           : QAbstractItemView.SelectionMode = ... # 0x2
         ExtendedSelection        : QAbstractItemView.SelectionMode = ... # 0x3
         ContiguousSelection      : QAbstractItemView.SelectionMode = ... # 0x4
-
 
     class State(enum.Enum):
 
@@ -310,7 +302,7 @@ class QAbstractItemView(PySide6.QtWidgets.QAbstractScrollArea):
     def setItemDelegate(self, delegate: PySide6.QtWidgets.QAbstractItemDelegate) -> None: ...
     def setItemDelegateForColumn(self, column: int, delegate: PySide6.QtWidgets.QAbstractItemDelegate) -> None: ...
     def setItemDelegateForRow(self, row: int, delegate: PySide6.QtWidgets.QAbstractItemDelegate) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setRootIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> None: ...
     def setSelection(self, rect: PySide6.QtCore.QRect, command: PySide6.QtCore.QItemSelectionModel.SelectionFlag) -> None: ...
     def setSelectionBehavior(self, behavior: PySide6.QtWidgets.QAbstractItemView.SelectionBehavior) -> None: ...
@@ -421,7 +413,6 @@ class QAbstractSlider(PySide6.QtWidgets.QWidget):
         SliderToMaximum          : QAbstractSlider.SliderAction = ... # 0x6
         SliderMove               : QAbstractSlider.SliderAction = ... # 0x7
 
-
     class SliderChange(enum.Enum):
 
         SliderRangeChange        : QAbstractSlider.SliderChange = ... # 0x0
@@ -476,19 +467,16 @@ class QAbstractSpinBox(PySide6.QtWidgets.QWidget):
         PlusMinus                : QAbstractSpinBox.ButtonSymbols = ... # 0x1
         NoButtons                : QAbstractSpinBox.ButtonSymbols = ... # 0x2
 
-
     class CorrectionMode(enum.Enum):
 
         CorrectToPreviousValue   : QAbstractSpinBox.CorrectionMode = ... # 0x0
         CorrectToNearestValue    : QAbstractSpinBox.CorrectionMode = ... # 0x1
-
 
     class StepEnabledFlag(enum.Flag):
 
         StepNone                 : QAbstractSpinBox.StepEnabledFlag = ... # 0x0
         StepUpEnabled            : QAbstractSpinBox.StepEnabledFlag = ... # 0x1
         StepDownEnabled          : QAbstractSpinBox.StepEnabledFlag = ... # 0x2
-
 
     class StepType(enum.Enum):
 
@@ -625,7 +613,7 @@ class QApplication(PySide6.QtGui.QGuiApplication):
     def font(arg__1: PySide6.QtWidgets.QWidget) -> PySide6.QtGui.QFont: ...
     @overload
     @staticmethod
-    def font(className: bytes) -> PySide6.QtGui.QFont: ...
+    def font(className: Union[bytes, bytearray, memoryview]) -> PySide6.QtGui.QFont: ...
     @staticmethod
     def fontMetrics() -> PySide6.QtGui.QFontMetrics: ...
     @staticmethod
@@ -641,8 +629,8 @@ class QApplication(PySide6.QtGui.QGuiApplication):
     def palette(arg__1: PySide6.QtWidgets.QWidget) -> PySide6.QtGui.QPalette: ...
     @overload
     @staticmethod
-    def palette(className: bytes) -> PySide6.QtGui.QPalette: ...
-    def resolveInterface(self, name: bytes, revision: int) -> int: ...
+    def palette(className: Union[bytes, bytearray, memoryview]) -> PySide6.QtGui.QPalette: ...
+    def resolveInterface(self, name: Union[bytes, bytearray, memoryview], revision: int) -> int: ...
     @staticmethod
     def setActiveWindow(act: PySide6.QtWidgets.QWidget) -> None: ...
     def setAutoSipEnabled(self, enabled: bool) -> None: ...
@@ -653,11 +641,11 @@ class QApplication(PySide6.QtGui.QGuiApplication):
     @staticmethod
     def setEffectEnabled(arg__1: PySide6.QtCore.Qt.UIEffect, enable: bool = ...) -> None: ...
     @staticmethod
-    def setFont(arg__1: Union[PySide6.QtGui.QFont, str, Sequence[str]], className: Optional[bytes] = ...) -> None: ...
+    def setFont(arg__1: Union[PySide6.QtGui.QFont, str, Sequence[str]], className: Union[bytes, bytearray, memoryview, NoneType] = ...) -> None: ...
     @staticmethod
     def setKeyboardInputInterval(arg__1: int) -> None: ...
     @staticmethod
-    def setPalette(arg__1: Union[PySide6.QtGui.QPalette, PySide6.QtCore.Qt.GlobalColor, PySide6.QtGui.QColor], className: Optional[bytes] = ...) -> None: ...
+    def setPalette(arg__1: Union[PySide6.QtGui.QPalette, PySide6.QtCore.Qt.GlobalColor, PySide6.QtGui.QColor], className: Union[bytes, bytearray, memoryview, NoneType] = ...) -> None: ...
     @staticmethod
     def setStartDragDistance(l: int) -> None: ...
     @staticmethod
@@ -786,12 +774,10 @@ class QCalendarWidget(PySide6.QtWidgets.QWidget):
         ShortDayNames            : QCalendarWidget.HorizontalHeaderFormat = ... # 0x2
         LongDayNames             : QCalendarWidget.HorizontalHeaderFormat = ... # 0x3
 
-
     class SelectionMode(enum.Enum):
 
         NoSelection              : QCalendarWidget.SelectionMode = ... # 0x0
         SingleSelection          : QCalendarWidget.SelectionMode = ... # 0x1
-
 
     class VerticalHeaderFormat(enum.Enum):
 
@@ -802,6 +788,8 @@ class QCalendarWidget(PySide6.QtWidgets.QWidget):
     def __init__(self, parent: Optional[PySide6.QtWidgets.QWidget] = ...) -> None: ...
 
     def calendar(self) -> PySide6.QtCore.QCalendar: ...
+    def clearMaximumDate(self) -> None: ...
+    def clearMinimumDate(self) -> None: ...
     def dateEditAcceptDelay(self) -> int: ...
     @overload
     def dateTextFormat(self) -> Dict[PySide6.QtCore.QDate, PySide6.QtGui.QTextCharFormat]: ...
@@ -909,7 +897,7 @@ class QColorDialog(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def options(self) -> PySide6.QtWidgets.QColorDialog.ColorDialogOption: ...
     def selectedColor(self) -> PySide6.QtGui.QColor: ...
     def setCurrentColor(self, color: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int]) -> None: ...
@@ -974,7 +962,7 @@ class QColumnView(PySide6.QtWidgets.QAbstractItemView):
     def scrollTo(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], hint: PySide6.QtWidgets.QAbstractItemView.ScrollHint = ...) -> None: ...
     def selectAll(self) -> None: ...
     def setColumnWidths(self, list: Sequence[int]) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setPreviewWidget(self, widget: PySide6.QtWidgets.QWidget) -> None: ...
     def setResizeGripsVisible(self, visible: bool) -> None: ...
     def setRootIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> None: ...
@@ -1005,7 +993,6 @@ class QComboBox(PySide6.QtWidgets.QWidget):
         InsertAfterCurrent       : QComboBox.InsertPolicy = ... # 0x4
         InsertBeforeCurrent      : QComboBox.InsertPolicy = ... # 0x5
         InsertAlphabetically     : QComboBox.InsertPolicy = ... # 0x6
-
 
     class SizeAdjustPolicy(enum.Enum):
 
@@ -1159,15 +1146,14 @@ class QCommonStyle(PySide6.QtWidgets.QStyle):
 
 class QCompleter(PySide6.QtCore.QObject):
 
-    activated                : ClassVar[Signal] = ... # activated(QString)
-    highlighted              : ClassVar[Signal] = ... # highlighted(QString)
+    activated                : ClassVar[Signal] = ... # activated(QString); activated(QModelIndex)
+    highlighted              : ClassVar[Signal] = ... # highlighted(QString); highlighted(QModelIndex)
 
     class CompletionMode(enum.Enum):
 
         PopupCompletion          : QCompleter.CompletionMode = ... # 0x0
         UnfilteredPopupCompletion: QCompleter.CompletionMode = ... # 0x1
         InlineCompletion         : QCompleter.CompletionMode = ... # 0x2
-
 
     class ModelSorting(enum.Enum):
 
@@ -1235,7 +1221,7 @@ class QDataWidgetMapper(PySide6.QtCore.QObject):
     @overload
     def addMapping(self, widget: PySide6.QtWidgets.QWidget, section: int) -> None: ...
     @overload
-    def addMapping(self, widget: PySide6.QtWidgets.QWidget, section: int, propertyName: Union[PySide6.QtCore.QByteArray, bytes]) -> None: ...
+    def addMapping(self, widget: PySide6.QtWidgets.QWidget, section: int, propertyName: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     def clearMapping(self) -> None: ...
     def currentIndex(self) -> int: ...
     def itemDelegate(self) -> PySide6.QtWidgets.QAbstractItemDelegate: ...
@@ -1443,7 +1429,6 @@ class QDialogButtonBox(PySide6.QtWidgets.QWidget):
         GnomeLayout              : QDialogButtonBox.ButtonLayout = ... # 0x3
         AndroidLayout            : QDialogButtonBox.ButtonLayout = ... # 0x4
 
-
     class ButtonRole(enum.Enum):
 
         InvalidRole              : QDialogButtonBox.ButtonRole = ... # -0x1
@@ -1457,7 +1442,6 @@ class QDialogButtonBox(PySide6.QtWidgets.QWidget):
         ResetRole                : QDialogButtonBox.ButtonRole = ... # 0x7
         ApplyRole                : QDialogButtonBox.ButtonRole = ... # 0x8
         NRoles                   : QDialogButtonBox.ButtonRole = ... # 0x9
-
 
     class StandardButton(enum.Flag):
 
@@ -1620,7 +1604,6 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
         AcceptOpen               : QFileDialog.AcceptMode = ... # 0x0
         AcceptSave               : QFileDialog.AcceptMode = ... # 0x1
 
-
     class DialogLabel(enum.Enum):
 
         LookIn                   : QFileDialog.DialogLabel = ... # 0x0
@@ -1629,14 +1612,12 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
         Accept                   : QFileDialog.DialogLabel = ... # 0x3
         Reject                   : QFileDialog.DialogLabel = ... # 0x4
 
-
     class FileMode(enum.Enum):
 
         AnyFile                  : QFileDialog.FileMode = ... # 0x0
         ExistingFile             : QFileDialog.FileMode = ... # 0x1
         Directory                : QFileDialog.FileMode = ... # 0x2
         ExistingFiles            : QFileDialog.FileMode = ... # 0x3
-
 
     class Option(enum.Flag):
 
@@ -1647,7 +1628,6 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
         ReadOnly                 : QFileDialog.Option = ... # 0x10
         HideNameFilterDetails    : QFileDialog.Option = ... # 0x20
         DontUseCustomDirectoryIcons: QFileDialog.Option = ... # 0x40
-
 
     class ViewMode(enum.Enum):
 
@@ -1674,17 +1654,17 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
     @staticmethod
     def getExistingDirectoryUrl(parent: Optional[PySide6.QtWidgets.QWidget] = ..., caption: str = ..., dir: Union[PySide6.QtCore.QUrl, str] = ..., options: PySide6.QtWidgets.QFileDialog.Option = ..., supportedSchemes: Sequence[str] = ...) -> PySide6.QtCore.QUrl: ...
     @staticmethod
-    def getOpenFileName(parent: PySide6.QtWidgets.QWidget, caption: Optional[str] = ..., dir: str = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ...) -> Tuple[str, str]: ...
+    def getOpenFileName(parent: Optional[PySide6.QtWidgets.QWidget] = ..., caption: str = ..., dir: str = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ...) -> Tuple[str, str]: ...
     @staticmethod
-    def getOpenFileNames(parent: PySide6.QtWidgets.QWidget, caption: Optional[str] = ..., dir: str = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ...) -> Tuple[List[str], str]: ...
+    def getOpenFileNames(parent: Optional[PySide6.QtWidgets.QWidget] = ..., caption: str = ..., dir: str = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ...) -> Tuple[List[str], str]: ...
     @staticmethod
-    def getOpenFileUrl(parent: PySide6.QtWidgets.QWidget, caption: Optional[str] = ..., dir: Union[PySide6.QtCore.QUrl, str] = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ..., supportedSchemes: Sequence[str] = ...) -> Tuple[PySide6.QtCore.QUrl, str]: ...
+    def getOpenFileUrl(parent: Optional[PySide6.QtWidgets.QWidget] = ..., caption: str = ..., dir: Union[PySide6.QtCore.QUrl, str] = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ..., supportedSchemes: Sequence[str] = ...) -> Tuple[PySide6.QtCore.QUrl, str]: ...
     @staticmethod
-    def getOpenFileUrls(parent: PySide6.QtWidgets.QWidget, caption: Optional[str] = ..., dir: Union[PySide6.QtCore.QUrl, str] = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ..., supportedSchemes: Sequence[str] = ...) -> Tuple[List[PySide6.QtCore.QUrl], str]: ...
+    def getOpenFileUrls(parent: Optional[PySide6.QtWidgets.QWidget] = ..., caption: str = ..., dir: Union[PySide6.QtCore.QUrl, str] = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ..., supportedSchemes: Sequence[str] = ...) -> Tuple[List[PySide6.QtCore.QUrl], str]: ...
     @staticmethod
-    def getSaveFileName(parent: PySide6.QtWidgets.QWidget, caption: Optional[str] = ..., dir: str = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ...) -> Tuple[str, str]: ...
+    def getSaveFileName(parent: Optional[PySide6.QtWidgets.QWidget] = ..., caption: str = ..., dir: str = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ...) -> Tuple[str, str]: ...
     @staticmethod
-    def getSaveFileUrl(parent: PySide6.QtWidgets.QWidget, caption: Optional[str] = ..., dir: Union[PySide6.QtCore.QUrl, str] = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ..., supportedSchemes: Sequence[str] = ...) -> Tuple[PySide6.QtCore.QUrl, str]: ...
+    def getSaveFileUrl(parent: Optional[PySide6.QtWidgets.QWidget] = ..., caption: str = ..., dir: Union[PySide6.QtCore.QUrl, str] = ..., filter: str = ..., selectedFilter: str = ..., options: PySide6.QtWidgets.QFileDialog.Option = ..., supportedSchemes: Sequence[str] = ...) -> Tuple[PySide6.QtCore.QUrl, str]: ...
     def history(self) -> List[str]: ...
     def iconProvider(self) -> PySide6.QtGui.QAbstractFileIconProvider: ...
     def itemDelegate(self) -> PySide6.QtWidgets.QAbstractItemDelegate: ...
@@ -1694,12 +1674,12 @@ class QFileDialog(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def options(self) -> PySide6.QtWidgets.QFileDialog.Option: ...
     def proxyModel(self) -> PySide6.QtCore.QAbstractProxyModel: ...
-    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
+    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> bool: ...
     @staticmethod
-    def saveFileContent(fileContent: Union[PySide6.QtCore.QByteArray, bytes], fileNameHint: str = ...) -> None: ...
+    def saveFileContent(fileContent: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], fileNameHint: str = ...) -> None: ...
     def saveState(self) -> PySide6.QtCore.QByteArray: ...
     def selectFile(self, filename: str) -> None: ...
     def selectMimeTypeFilter(self, filter: str) -> None: ...
@@ -1762,7 +1742,6 @@ class QFileSystemModel(PySide6.QtCore.QAbstractItemModel):
         DontResolveSymlinks      : QFileSystemModel.Option = ... # 0x2
         DontUseCustomDirectoryIcons: QFileSystemModel.Option = ... # 0x4
 
-
     class Roles(enum.IntEnum):
 
         FileIconRole             : QFileSystemModel.Roles = ... # 0x1
@@ -1794,7 +1773,10 @@ class QFileSystemModel(PySide6.QtCore.QAbstractItemModel):
     def index(self, row: int, column: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex] = ...) -> PySide6.QtCore.QModelIndex: ...
     def isDir(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> bool: ...
     def isReadOnly(self) -> bool: ...
+    @overload
     def lastModified(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> PySide6.QtCore.QDateTime: ...
+    @overload
+    def lastModified(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], tz: Union[PySide6.QtCore.QTimeZone, PySide6.QtCore.QTimeZone.Initialization]) -> PySide6.QtCore.QDateTime: ...
     def mimeData(self, indexes: Sequence[PySide6.QtCore.QModelIndex]) -> PySide6.QtCore.QMimeData: ...
     def mimeTypes(self) -> List[str]: ...
     def mkdir(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], name: str) -> PySide6.QtCore.QModelIndex: ...
@@ -1908,7 +1890,7 @@ class QFontDialog(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def options(self) -> PySide6.QtWidgets.QFontDialog.FontDialogOption: ...
     def selectedFont(self) -> PySide6.QtGui.QFont: ...
     def setCurrentFont(self, font: Union[PySide6.QtGui.QFont, str, Sequence[str]]) -> None: ...
@@ -1926,20 +1908,17 @@ class QFormLayout(PySide6.QtWidgets.QLayout):
         ExpandingFieldsGrow      : QFormLayout.FieldGrowthPolicy = ... # 0x1
         AllNonFixedFieldsGrow    : QFormLayout.FieldGrowthPolicy = ... # 0x2
 
-
     class ItemRole(enum.Enum):
 
         LabelRole                : QFormLayout.ItemRole = ... # 0x0
         FieldRole                : QFormLayout.ItemRole = ... # 0x1
         SpanningRole             : QFormLayout.ItemRole = ... # 0x2
 
-
     class RowWrapPolicy(enum.Enum):
 
         DontWrapRows             : QFormLayout.RowWrapPolicy = ... # 0x0
         WrapLongRows             : QFormLayout.RowWrapPolicy = ... # 0x1
         WrapAllRows              : QFormLayout.RowWrapPolicy = ... # 0x2
-
 
     class TakeRowResult(Shiboken.Object):
 
@@ -2051,7 +2030,6 @@ class QFrame(PySide6.QtWidgets.QWidget):
         Raised                   : QFrame.Shadow = ... # 0x20
         Sunken                   : QFrame.Shadow = ... # 0x30
 
-
     class Shape(enum.IntEnum):
 
         NoFrame                  : QFrame.Shape = ... # 0x0
@@ -2061,7 +2039,6 @@ class QFrame(PySide6.QtWidgets.QWidget):
         HLine                    : QFrame.Shape = ... # 0x4
         VLine                    : QFrame.Shape = ... # 0x5
         StyledPanel              : QFrame.Shape = ... # 0x6
-
 
     class StyleMask(enum.Enum):
 
@@ -2277,7 +2254,6 @@ class QGraphicsEffect(PySide6.QtCore.QObject):
         SourceBoundingRectChanged: QGraphicsEffect.ChangeFlag = ... # 0x4
         SourceInvalidated        : QGraphicsEffect.ChangeFlag = ... # 0x8
 
-
     class PixmapPadMode(enum.Enum):
 
         NoPad                    : QGraphicsEffect.PixmapPadMode = ... # 0x0
@@ -2392,11 +2368,9 @@ class QGraphicsItem(Shiboken.Object):
         ItemCoordinateCache      : QGraphicsItem.CacheMode = ... # 0x1
         DeviceCoordinateCache    : QGraphicsItem.CacheMode = ... # 0x2
 
-
     class Extension(enum.Enum):
 
         UserExtension            : QGraphicsItem.Extension = ... # -0x80000000
-
 
     class GraphicsItemChange(enum.Enum):
 
@@ -2434,7 +2408,6 @@ class QGraphicsItem(Shiboken.Object):
         ItemTransformOriginPointChange: QGraphicsItem.GraphicsItemChange = ... # 0x20
         ItemTransformOriginPointHasChanged: QGraphicsItem.GraphicsItemChange = ... # 0x21
 
-
     class GraphicsItemFlag(enum.Flag):
 
         ItemIsMovable            : QGraphicsItem.GraphicsItemFlag = ... # 0x1
@@ -2457,7 +2430,6 @@ class QGraphicsItem(Shiboken.Object):
         ItemStopsClickFocusPropagation: QGraphicsItem.GraphicsItemFlag = ... # 0x20000
         ItemStopsFocusHandling   : QGraphicsItem.GraphicsItemFlag = ... # 0x40000
         ItemContainsChildrenInShape: QGraphicsItem.GraphicsItemFlag = ... # 0x80000
-
 
     class PanelModality(enum.Enum):
 
@@ -3145,7 +3117,6 @@ class QGraphicsScene(PySide6.QtCore.QObject):
         NoIndex                  : QGraphicsScene.ItemIndexMethod = ... # -0x1
         BspTreeIndex             : QGraphicsScene.ItemIndexMethod = ... # 0x0
 
-
     class SceneLayer(enum.Flag):
 
         ItemLayer                : QGraphicsScene.SceneLayer = ... # 0x1
@@ -3550,13 +3521,11 @@ class QGraphicsView(PySide6.QtWidgets.QAbstractScrollArea):
         CacheNone                : QGraphicsView.CacheModeFlag = ... # 0x0
         CacheBackground          : QGraphicsView.CacheModeFlag = ... # 0x1
 
-
     class DragMode(enum.Enum):
 
         NoDrag                   : QGraphicsView.DragMode = ... # 0x0
         ScrollHandDrag           : QGraphicsView.DragMode = ... # 0x1
         RubberBandDrag           : QGraphicsView.DragMode = ... # 0x2
-
 
     class OptimizationFlag(enum.Flag):
 
@@ -3564,13 +3533,11 @@ class QGraphicsView(PySide6.QtWidgets.QAbstractScrollArea):
         DontAdjustForAntialiasing: QGraphicsView.OptimizationFlag = ... # 0x2
         IndirectPainting         : QGraphicsView.OptimizationFlag = ... # 0x4
 
-
     class ViewportAnchor(enum.Enum):
 
         NoAnchor                 : QGraphicsView.ViewportAnchor = ... # 0x0
         AnchorViewCenter         : QGraphicsView.ViewportAnchor = ... # 0x1
         AnchorUnderMouse         : QGraphicsView.ViewportAnchor = ... # 0x2
-
 
     class ViewportUpdateMode(enum.Enum):
 
@@ -3701,7 +3668,7 @@ class QGraphicsView(PySide6.QtWidgets.QAbstractScrollArea):
     def setRenderHints(self, hints: PySide6.QtGui.QPainter.RenderHint) -> None: ...
     def setResizeAnchor(self, anchor: PySide6.QtWidgets.QGraphicsView.ViewportAnchor) -> None: ...
     def setRubberBandSelectionMode(self, mode: PySide6.QtCore.Qt.ItemSelectionMode) -> None: ...
-    def setScene(self, scene: PySide6.QtWidgets.QGraphicsScene) -> None: ...
+    def setScene(self, scene: Optional[PySide6.QtWidgets.QGraphicsScene]) -> None: ...
     @overload
     def setSceneRect(self, rect: Union[PySide6.QtCore.QRectF, PySide6.QtCore.QRect]) -> None: ...
     @overload
@@ -3880,7 +3847,7 @@ class QGridLayout(PySide6.QtWidgets.QLayout):
 
 class QGroupBox(PySide6.QtWidgets.QWidget):
 
-    clicked                  : ClassVar[Signal] = ... # clicked()
+    clicked                  : ClassVar[Signal] = ... # clicked(); clicked(bool)
     toggled                  : ClassVar[Signal] = ... # toggled(bool)
 
     @overload
@@ -4001,7 +3968,7 @@ class QHeaderView(PySide6.QtWidgets.QAbstractItemView):
     def resizeSections(self) -> None: ...
     @overload
     def resizeSections(self, mode: PySide6.QtWidgets.QHeaderView.ResizeMode) -> None: ...
-    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
+    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> bool: ...
     def rowsInserted(self, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], start: int, end: int) -> None: ...
     def saveState(self) -> PySide6.QtCore.QByteArray: ...
     def scrollContentsBy(self, dx: int, dy: int) -> None: ...
@@ -4025,7 +3992,7 @@ class QHeaderView(PySide6.QtWidgets.QAbstractItemView):
     def setHighlightSections(self, highlight: bool) -> None: ...
     def setMaximumSectionSize(self, size: int) -> None: ...
     def setMinimumSectionSize(self, size: int) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setOffset(self, offset: int) -> None: ...
     def setOffsetToLastSection(self) -> None: ...
     def setOffsetToSectionPosition(self, visualIndex: int) -> None: ...
@@ -4075,7 +4042,6 @@ class QInputDialog(PySide6.QtWidgets.QDialog):
         UseListViewForComboBoxItems: QInputDialog.InputDialogOption = ... # 0x2
         UsePlainTextEditForTextInput: QInputDialog.InputDialogOption = ... # 0x4
 
-
     class InputMode(enum.Enum):
 
         TextInput                : QInputDialog.InputMode = ... # 0x0
@@ -4115,7 +4081,7 @@ class QInputDialog(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def setCancelButtonText(self, text: str) -> None: ...
     def setComboBoxEditable(self, editable: bool) -> None: ...
     def setComboBoxItems(self, items: Sequence[str]) -> None: ...
@@ -4233,7 +4199,6 @@ class QLCDNumber(PySide6.QtWidgets.QFrame):
         Dec                      : QLCDNumber.Mode = ... # 0x1
         Oct                      : QLCDNumber.Mode = ... # 0x2
         Bin                      : QLCDNumber.Mode = ... # 0x3
-
 
     class SegmentStyle(enum.Enum):
 
@@ -4450,7 +4415,6 @@ class QLineEdit(PySide6.QtWidgets.QWidget):
         LeadingPosition          : QLineEdit.ActionPosition = ... # 0x0
         TrailingPosition         : QLineEdit.ActionPosition = ... # 0x1
 
-
     class EchoMode(enum.Enum):
 
         Normal                   : QLineEdit.EchoMode = ... # 0x0
@@ -4477,25 +4441,25 @@ class QLineEdit(PySide6.QtWidgets.QWidget):
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     def alignment(self) -> PySide6.QtCore.Qt.AlignmentFlag: ...
     def backspace(self) -> None: ...
     def changeEvent(self, arg__1: PySide6.QtCore.QEvent) -> None: ...
@@ -4597,12 +4561,10 @@ class QListView(PySide6.QtWidgets.QAbstractItemView):
         LeftToRight              : QListView.Flow = ... # 0x0
         TopToBottom              : QListView.Flow = ... # 0x1
 
-
     class LayoutMode(enum.Enum):
 
         SinglePass               : QListView.LayoutMode = ... # 0x0
         Batched                  : QListView.LayoutMode = ... # 0x1
-
 
     class Movement(enum.Enum):
 
@@ -4610,12 +4572,10 @@ class QListView(PySide6.QtWidgets.QAbstractItemView):
         Free                     : QListView.Movement = ... # 0x1
         Snap                     : QListView.Movement = ... # 0x2
 
-
     class ResizeMode(enum.Enum):
 
         Fixed                    : QListView.ResizeMode = ... # 0x0
         Adjust                   : QListView.ResizeMode = ... # 0x1
-
 
     class ViewMode(enum.Enum):
 
@@ -4757,7 +4717,7 @@ class QListWidget(PySide6.QtWidgets.QListView):
     @overload
     def setCurrentRow(self, row: int, command: PySide6.QtCore.QItemSelectionModel.SelectionFlag) -> None: ...
     def setItemWidget(self, item: PySide6.QtWidgets.QListWidgetItem, widget: PySide6.QtWidgets.QWidget) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setSelectionModel(self, selectionModel: PySide6.QtCore.QItemSelectionModel) -> None: ...
     def setSortingEnabled(self, enable: bool) -> None: ...
     def sortItems(self, order: PySide6.QtCore.Qt.SortOrder = ...) -> None: ...
@@ -4809,8 +4769,6 @@ class QListWidgetItem(Shiboken.Object):
     def setSizeHint(self, size: PySide6.QtCore.QSize) -> None: ...
     def setStatusTip(self, statusTip: str) -> None: ...
     def setText(self, text: str) -> None: ...
-    @overload
-    def setTextAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     @overload
     def setTextAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     @overload
@@ -4877,7 +4835,7 @@ class QMainWindow(PySide6.QtWidgets.QWidget):
     def removeToolBarBreak(self, before: PySide6.QtWidgets.QToolBar) -> None: ...
     def resizeDocks(self, docks: Sequence[PySide6.QtWidgets.QDockWidget], sizes: Sequence[int], orientation: PySide6.QtCore.Qt.Orientation) -> None: ...
     def restoreDockWidget(self, dockwidget: PySide6.QtWidgets.QDockWidget) -> bool: ...
-    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes], version: int = ...) -> bool: ...
+    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], version: int = ...) -> bool: ...
     def saveState(self, version: int = ...) -> PySide6.QtCore.QByteArray: ...
     def setAnimated(self, enabled: bool) -> None: ...
     def setCentralWidget(self, widget: PySide6.QtWidgets.QWidget) -> None: ...
@@ -4914,12 +4872,10 @@ class QMdiArea(PySide6.QtWidgets.QAbstractScrollArea):
 
         DontMaximizeSubWindowOnActivation: QMdiArea.AreaOption = ... # 0x1
 
-
     class ViewMode(enum.Enum):
 
         SubWindowView            : QMdiArea.ViewMode = ... # 0x0
         TabbedView               : QMdiArea.ViewMode = ... # 0x1
-
 
     class WindowOrder(enum.Enum):
 
@@ -5054,15 +5010,15 @@ class QMenu(PySide6.QtWidgets.QWidget):
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: bytes, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
+    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str) -> PySide6.QtGui.QAction: ...
     @overload
@@ -5070,15 +5026,15 @@ class QMenu(PySide6.QtWidgets.QWidget):
     @overload
     def addAction(self, text: str, callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: bytes, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
+    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addMenu(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], title: str) -> PySide6.QtWidgets.QMenu: ...
     @overload
@@ -5218,7 +5174,6 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
         ApplyRole                : QMessageBox.ButtonRole = ... # 0x8
         NRoles                   : QMessageBox.ButtonRole = ... # 0x9
 
-
     class Icon(enum.Enum):
 
         NoIcon                   : QMessageBox.Icon = ... # 0x0
@@ -5227,6 +5182,9 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
         Critical                 : QMessageBox.Icon = ... # 0x3
         Question                 : QMessageBox.Icon = ... # 0x4
 
+    class Option(enum.Flag):
+
+        DontUseNativeDialog      : QMessageBox.Option = ... # 0x1
 
     class StandardButton(enum.IntFlag):
 
@@ -5305,7 +5263,8 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
+    def options(self) -> PySide6.QtWidgets.QMessageBox.Option: ...
     @overload
     @staticmethod
     def question(parent: PySide6.QtWidgets.QWidget, title: str, text: str, button0: PySide6.QtWidgets.QMessageBox.StandardButton, button1: PySide6.QtWidgets.QMessageBox.StandardButton) -> int: ...
@@ -5328,6 +5287,8 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
     def setIcon(self, arg__1: PySide6.QtWidgets.QMessageBox.Icon) -> None: ...
     def setIconPixmap(self, pixmap: Union[PySide6.QtGui.QPixmap, PySide6.QtGui.QImage, str]) -> None: ...
     def setInformativeText(self, text: str) -> None: ...
+    def setOption(self, option: PySide6.QtWidgets.QMessageBox.Option, on: bool = ...) -> None: ...
+    def setOptions(self, options: PySide6.QtWidgets.QMessageBox.Option) -> None: ...
     def setStandardButtons(self, buttons: PySide6.QtWidgets.QMessageBox.StandardButton) -> None: ...
     def setText(self, text: str) -> None: ...
     def setTextFormat(self, format: PySide6.QtCore.Qt.TextFormat) -> None: ...
@@ -5339,6 +5300,7 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
     def standardButtons(self) -> PySide6.QtWidgets.QMessageBox.StandardButton: ...
     @staticmethod
     def standardIcon(icon: PySide6.QtWidgets.QMessageBox.Icon) -> PySide6.QtGui.QPixmap: ...
+    def testOption(self, option: PySide6.QtWidgets.QMessageBox.Option) -> bool: ...
     def text(self) -> str: ...
     def textFormat(self) -> PySide6.QtCore.Qt.TextFormat: ...
     def textInteractionFlags(self) -> PySide6.QtCore.Qt.TextInteractionFlag: ...
@@ -5618,7 +5580,7 @@ class QProgressDialog(PySide6.QtWidgets.QDialog):
     @overload
     def open(self) -> None: ...
     @overload
-    def open(self, receiver: PySide6.QtCore.QObject, member: bytes) -> None: ...
+    def open(self, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview]) -> None: ...
     def reset(self) -> None: ...
     def resizeEvent(self, event: PySide6.QtGui.QResizeEvent) -> None: ...
     def setAutoClose(self, close: bool) -> None: ...
@@ -5812,14 +5774,12 @@ class QScroller(PySide6.QtCore.QObject):
         InputMove                : QScroller.Input = ... # 0x2
         InputRelease             : QScroller.Input = ... # 0x3
 
-
     class ScrollerGestureType(enum.Enum):
 
         TouchGesture             : QScroller.ScrollerGestureType = ... # 0x0
         LeftMouseButtonGesture   : QScroller.ScrollerGestureType = ... # 0x1
         RightMouseButtonGesture  : QScroller.ScrollerGestureType = ... # 0x2
         MiddleMouseButtonGesture : QScroller.ScrollerGestureType = ... # 0x3
-
 
     class State(enum.Enum):
 
@@ -5878,13 +5838,11 @@ class QScrollerProperties(Shiboken.Object):
         Fps30                    : QScrollerProperties.FrameRates = ... # 0x2
         Fps20                    : QScrollerProperties.FrameRates = ... # 0x3
 
-
     class OvershootPolicy(enum.Enum):
 
         OvershootWhenScrollable  : QScrollerProperties.OvershootPolicy = ... # 0x0
         OvershootAlwaysOff       : QScrollerProperties.OvershootPolicy = ... # 0x1
         OvershootAlwaysOn        : QScrollerProperties.OvershootPolicy = ... # 0x2
-
 
     class ScrollMetric(enum.Enum):
 
@@ -5963,7 +5921,6 @@ class QSizePolicy(Shiboken.Object):
         TabWidget                : QSizePolicy.ControlType = ... # 0x2000
         ToolButton               : QSizePolicy.ControlType = ... # 0x4000
 
-
     class Policy(enum.Enum):
 
         Fixed                    : QSizePolicy.Policy = ... # 0x0
@@ -5973,7 +5930,6 @@ class QSizePolicy(Shiboken.Object):
         Preferred                : QSizePolicy.Policy = ... # 0x5
         Expanding                : QSizePolicy.Policy = ... # 0x7
         Ignored                  : QSizePolicy.Policy = ... # 0xd
-
 
     class PolicyFlag(enum.IntFlag):
 
@@ -6142,7 +6098,7 @@ class QSplitter(PySide6.QtWidgets.QFrame):
     def refresh(self) -> None: ...
     def replaceWidget(self, index: int, widget: PySide6.QtWidgets.QWidget) -> PySide6.QtWidgets.QWidget: ...
     def resizeEvent(self, arg__1: PySide6.QtGui.QResizeEvent) -> None: ...
-    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
+    def restoreState(self, state: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> bool: ...
     def saveState(self) -> PySide6.QtCore.QByteArray: ...
     def setChildrenCollapsible(self, arg__1: bool) -> None: ...
     def setCollapsible(self, index: int, arg__2: bool) -> None: ...
@@ -6276,7 +6232,6 @@ class QStyle(PySide6.QtCore.QObject):
         CC_GroupBox              : QStyle.ComplexControl = ... # 0x7
         CC_MdiControls           : QStyle.ComplexControl = ... # 0x8
 
-
     class ContentsType(enum.IntEnum):
 
         CT_CustomBase            : QStyle.ContentsType = ... # -0x10000000
@@ -6303,7 +6258,6 @@ class QStyle(PySide6.QtCore.QObject):
         CT_GroupBox              : QStyle.ContentsType = ... # 0x14
         CT_MdiControls           : QStyle.ContentsType = ... # 0x15
         CT_ItemViewItem          : QStyle.ContentsType = ... # 0x16
-
 
     class ControlElement(enum.IntEnum):
 
@@ -6355,7 +6309,6 @@ class QStyle(PySide6.QtCore.QObject):
         CE_ColumnViewGrip        : QStyle.ControlElement = ... # 0x2c
         CE_ItemViewItem          : QStyle.ControlElement = ... # 0x2d
         CE_ShapedFrame           : QStyle.ControlElement = ... # 0x2e
-
 
     class PixelMetric(enum.IntEnum):
 
@@ -6456,7 +6409,6 @@ class QStyle(PySide6.QtCore.QObject):
         PM_LineEditIconSize      : QStyle.PixelMetric = ... # 0x5d
         PM_LineEditIconMargin    : QStyle.PixelMetric = ... # 0x5e
 
-
     class PrimitiveElement(enum.IntEnum):
 
         PE_Frame                 : QStyle.PrimitiveElement = ... # 0x0
@@ -6512,12 +6464,10 @@ class QStyle(PySide6.QtCore.QObject):
         PE_IndicatorTabTearRight : QStyle.PrimitiveElement = ... # 0x31
         PE_CustomBase            : QStyle.PrimitiveElement = ... # 0xf000000
 
-
     class RequestSoftwareInputPanel(enum.Enum):
 
         RSIP_OnMouseClickAndAlreadyFocused: QStyle.RequestSoftwareInputPanel = ... # 0x0
         RSIP_OnMouseClick        : QStyle.RequestSoftwareInputPanel = ... # 0x1
-
 
     class StandardPixmap(enum.IntEnum):
 
@@ -6603,7 +6553,6 @@ class QStyle(PySide6.QtCore.QObject):
         SP_TabCloseButton        : QStyle.StandardPixmap = ... # 0x4e
         NStandardPixmap          : QStyle.StandardPixmap = ... # 0x4f
 
-
     class StateFlag(enum.Flag):
 
         State_None               : QStyle.StateFlag = ... # 0x0
@@ -6634,7 +6583,6 @@ class QStyle(PySide6.QtCore.QObject):
         State_ReadOnly           : QStyle.StateFlag = ... # 0x2000000
         State_Small              : QStyle.StateFlag = ... # 0x4000000
         State_Mini               : QStyle.StateFlag = ... # 0x8000000
-
 
     class StyleHint(enum.IntEnum):
 
@@ -6760,7 +6708,6 @@ class QStyle(PySide6.QtCore.QObject):
         SH_Table_AlwaysDrawLeftTopGridLines: QStyle.StyleHint = ... # 0x76
         SH_SpinBox_SelectOnStep  : QStyle.StyleHint = ... # 0x77
 
-
     class SubControl(enum.Flag):
 
         SC_CustomBase            : QStyle.SubControl = ... # -0x10000000
@@ -6806,7 +6753,6 @@ class QStyle(PySide6.QtCore.QObject):
         SC_ScrollBarGroove       : QStyle.SubControl = ... # 0x80
         SC_TitleBarContextHelpButton: QStyle.SubControl = ... # 0x80
         SC_TitleBarLabel         : QStyle.SubControl = ... # 0x100
-
 
     class SubElement(enum.IntEnum):
 
@@ -6936,11 +6882,9 @@ class QStyleHintReturn(Shiboken.Object):
         SH_Mask                  : QStyleHintReturn.HintReturnType = ... # 0xf001
         SH_Variant               : QStyleHintReturn.HintReturnType = ... # 0xf002
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleHintReturn.StyleOptionType = ... # 0xf000
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -6956,7 +6900,6 @@ class QStyleHintReturnMask(PySide6.QtWidgets.QStyleHintReturn):
 
         Type                     : QStyleHintReturnMask.StyleOptionType = ... # 0xf001
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleHintReturnMask.StyleOptionVersion = ... # 0x1
@@ -6970,7 +6913,6 @@ class QStyleHintReturnVariant(PySide6.QtWidgets.QStyleHintReturn):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleHintReturnVariant.StyleOptionType = ... # 0xf002
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7011,11 +6953,9 @@ class QStyleOption(Shiboken.Object):
         SO_SizeGrip              : QStyleOption.OptionType = ... # 0xf0007
         SO_ComplexCustomBase     : QStyleOption.OptionType = ... # 0xf000000
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOption.StyleOptionType = ... # 0x0
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7041,11 +6981,9 @@ class QStyleOptionButton(PySide6.QtWidgets.QStyleOption):
         AutoDefaultButton        : QStyleOptionButton.ButtonFeature = ... # 0x8
         CommandLinkButton        : QStyleOptionButton.ButtonFeature = ... # 0x10
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionButton.StyleOptionType = ... # 0x2
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7066,7 +7004,6 @@ class QStyleOptionComboBox(PySide6.QtWidgets.QStyleOptionComplex):
 
         Type                     : QStyleOptionComboBox.StyleOptionType = ... # 0xf0004
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionComboBox.StyleOptionVersion = ... # 0x1
@@ -7086,7 +7023,6 @@ class QStyleOptionComplex(PySide6.QtWidgets.QStyleOption):
 
         Type                     : QStyleOptionComplex.StyleOptionType = ... # 0xf0000
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionComplex.StyleOptionVersion = ... # 0x1
@@ -7103,7 +7039,6 @@ class QStyleOptionDockWidget(PySide6.QtWidgets.QStyleOption):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionDockWidget.StyleOptionType = ... # 0x9
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7123,7 +7058,6 @@ class QStyleOptionFocusRect(PySide6.QtWidgets.QStyleOption):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionFocusRect.StyleOptionType = ... # 0x1
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7146,11 +7080,9 @@ class QStyleOptionFrame(PySide6.QtWidgets.QStyleOption):
         Flat                     : QStyleOptionFrame.FrameFeature = ... # 0x1
         Rounded                  : QStyleOptionFrame.FrameFeature = ... # 0x2
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionFrame.StyleOptionType = ... # 0x5
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7170,7 +7102,6 @@ class QStyleOptionGraphicsItem(PySide6.QtWidgets.QStyleOption):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionGraphicsItem.StyleOptionType = ... # 0xf
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7194,7 +7125,6 @@ class QStyleOptionGroupBox(PySide6.QtWidgets.QStyleOptionComplex):
 
         Type                     : QStyleOptionGroupBox.StyleOptionType = ... # 0xf0006
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionGroupBox.StyleOptionVersion = ... # 0x1
@@ -7217,7 +7147,6 @@ class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
         End                      : QStyleOptionHeader.SectionPosition = ... # 0x2
         OnlyOneSection           : QStyleOptionHeader.SectionPosition = ... # 0x3
 
-
     class SelectedPosition(enum.Enum):
 
         NotAdjacent              : QStyleOptionHeader.SelectedPosition = ... # 0x0
@@ -7225,18 +7154,15 @@ class QStyleOptionHeader(PySide6.QtWidgets.QStyleOption):
         PreviousIsSelected       : QStyleOptionHeader.SelectedPosition = ... # 0x2
         NextAndPreviousAreSelected: QStyleOptionHeader.SelectedPosition = ... # 0x3
 
-
     class SortIndicator(enum.Enum):
 
         None_                    : QStyleOptionHeader.SortIndicator = ... # 0x0
         SortUp                   : QStyleOptionHeader.SortIndicator = ... # 0x1
         SortDown                 : QStyleOptionHeader.SortIndicator = ... # 0x2
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionHeader.StyleOptionType = ... # 0x8
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7256,7 +7182,6 @@ class QStyleOptionHeaderV2(PySide6.QtWidgets.QStyleOptionHeader):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionHeaderV2.StyleOptionType = ... # 0x8
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7279,7 +7204,6 @@ class QStyleOptionMenuItem(PySide6.QtWidgets.QStyleOption):
         Exclusive                : QStyleOptionMenuItem.CheckType = ... # 0x1
         NonExclusive             : QStyleOptionMenuItem.CheckType = ... # 0x2
 
-
     class MenuItemType(enum.Enum):
 
         Normal                   : QStyleOptionMenuItem.MenuItemType = ... # 0x0
@@ -7291,11 +7215,9 @@ class QStyleOptionMenuItem(PySide6.QtWidgets.QStyleOption):
         Margin                   : QStyleOptionMenuItem.MenuItemType = ... # 0x6
         EmptyArea                : QStyleOptionMenuItem.MenuItemType = ... # 0x7
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionMenuItem.StyleOptionType = ... # 0x4
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7316,7 +7238,6 @@ class QStyleOptionProgressBar(PySide6.QtWidgets.QStyleOption):
 
         Type                     : QStyleOptionProgressBar.StyleOptionType = ... # 0x6
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionProgressBar.StyleOptionVersion = ... # 0x1
@@ -7335,7 +7256,6 @@ class QStyleOptionRubberBand(PySide6.QtWidgets.QStyleOption):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionRubberBand.StyleOptionType = ... # 0xd
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7356,7 +7276,6 @@ class QStyleOptionSizeGrip(PySide6.QtWidgets.QStyleOptionComplex):
 
         Type                     : QStyleOptionSizeGrip.StyleOptionType = ... # 0xf0007
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionSizeGrip.StyleOptionVersion = ... # 0x1
@@ -7376,7 +7295,6 @@ class QStyleOptionSlider(PySide6.QtWidgets.QStyleOptionComplex):
 
         Type                     : QStyleOptionSlider.StyleOptionType = ... # 0xf0001
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionSlider.StyleOptionVersion = ... # 0x1
@@ -7395,7 +7313,6 @@ class QStyleOptionSpinBox(PySide6.QtWidgets.QStyleOptionComplex):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionSpinBox.StyleOptionType = ... # 0xf0002
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7418,29 +7335,24 @@ class QStyleOptionTab(PySide6.QtWidgets.QStyleOption):
         LeftCornerWidget         : QStyleOptionTab.CornerWidget = ... # 0x1
         RightCornerWidget        : QStyleOptionTab.CornerWidget = ... # 0x2
 
-
     class SelectedPosition(enum.Enum):
 
         NotAdjacent              : QStyleOptionTab.SelectedPosition = ... # 0x0
         NextIsSelected           : QStyleOptionTab.SelectedPosition = ... # 0x1
         PreviousIsSelected       : QStyleOptionTab.SelectedPosition = ... # 0x2
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionTab.StyleOptionType = ... # 0x3
-
 
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionTab.StyleOptionVersion = ... # 0x1
 
-
     class TabFeature(enum.Flag):
 
         None_                    : QStyleOptionTab.TabFeature = ... # 0x0
         HasFrame                 : QStyleOptionTab.TabFeature = ... # 0x1
-
 
     class TabPosition(enum.Enum):
 
@@ -7448,6 +7360,7 @@ class QStyleOptionTab(PySide6.QtWidgets.QStyleOption):
         Middle                   : QStyleOptionTab.TabPosition = ... # 0x1
         End                      : QStyleOptionTab.TabPosition = ... # 0x2
         OnlyOneTab               : QStyleOptionTab.TabPosition = ... # 0x3
+        Moving                   : QStyleOptionTab.TabPosition = ... # 0x4
 
 
     @overload
@@ -7463,7 +7376,6 @@ class QStyleOptionTabBarBase(PySide6.QtWidgets.QStyleOption):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionTabBarBase.StyleOptionType = ... # 0xc
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7484,7 +7396,6 @@ class QStyleOptionTabWidgetFrame(PySide6.QtWidgets.QStyleOption):
 
         Type                     : QStyleOptionTabWidgetFrame.StyleOptionType = ... # 0xb
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionTabWidgetFrame.StyleOptionVersion = ... # 0x1
@@ -7503,7 +7414,6 @@ class QStyleOptionTitleBar(PySide6.QtWidgets.QStyleOptionComplex):
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionTitleBar.StyleOptionType = ... # 0xf0005
-
 
     class StyleOptionVersion(enum.Enum):
 
@@ -7524,17 +7434,14 @@ class QStyleOptionToolBar(PySide6.QtWidgets.QStyleOption):
 
         Type                     : QStyleOptionToolBar.StyleOptionType = ... # 0xe
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionToolBar.StyleOptionVersion = ... # 0x1
-
 
     class ToolBarFeature(enum.Flag):
 
         None_                    : QStyleOptionToolBar.ToolBarFeature = ... # 0x0
         Movable                  : QStyleOptionToolBar.ToolBarFeature = ... # 0x1
-
 
     class ToolBarPosition(enum.Enum):
 
@@ -7560,16 +7467,13 @@ class QStyleOptionToolBox(PySide6.QtWidgets.QStyleOption):
         NextIsSelected           : QStyleOptionToolBox.SelectedPosition = ... # 0x1
         PreviousIsSelected       : QStyleOptionToolBox.SelectedPosition = ... # 0x2
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionToolBox.StyleOptionType = ... # 0x7
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionToolBox.StyleOptionVersion = ... # 0x1
-
 
     class TabPosition(enum.Enum):
 
@@ -7593,11 +7497,9 @@ class QStyleOptionToolButton(PySide6.QtWidgets.QStyleOptionComplex):
 
         Type                     : QStyleOptionToolButton.StyleOptionType = ... # 0xf0003
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionToolButton.StyleOptionVersion = ... # 0x1
-
 
     class ToolButtonFeature(enum.Flag):
 
@@ -7626,16 +7528,13 @@ class QStyleOptionViewItem(PySide6.QtWidgets.QStyleOption):
         Top                      : QStyleOptionViewItem.Position = ... # 0x2
         Bottom                   : QStyleOptionViewItem.Position = ... # 0x3
 
-
     class StyleOptionType(enum.Enum):
 
         Type                     : QStyleOptionViewItem.StyleOptionType = ... # 0xa
 
-
     class StyleOptionVersion(enum.Enum):
 
         Version                  : QStyleOptionViewItem.StyleOptionVersion = ... # 0x1
-
 
     class ViewItemFeature(enum.Flag):
 
@@ -7645,7 +7544,6 @@ class QStyleOptionViewItem(PySide6.QtWidgets.QStyleOption):
         HasCheckIndicator        : QStyleOptionViewItem.ViewItemFeature = ... # 0x4
         HasDisplay               : QStyleOptionViewItem.ViewItemFeature = ... # 0x8
         HasDecoration            : QStyleOptionViewItem.ViewItemFeature = ... # 0x10
-
 
     class ViewItemPosition(enum.Enum):
 
@@ -7738,7 +7636,6 @@ class QSystemTrayIcon(PySide6.QtCore.QObject):
         Trigger                  : QSystemTrayIcon.ActivationReason = ... # 0x3
         MiddleClick              : QSystemTrayIcon.ActivationReason = ... # 0x4
 
-
     class MessageIcon(enum.Enum):
 
         NoIcon                   : QSystemTrayIcon.MessageIcon = ... # 0x0
@@ -7787,13 +7684,11 @@ class QTabBar(PySide6.QtWidgets.QWidget):
         LeftSide                 : QTabBar.ButtonPosition = ... # 0x0
         RightSide                : QTabBar.ButtonPosition = ... # 0x1
 
-
     class SelectionBehavior(enum.Enum):
 
         SelectLeftTab            : QTabBar.SelectionBehavior = ... # 0x0
         SelectRightTab           : QTabBar.SelectionBehavior = ... # 0x1
         SelectPreviousTab        : QTabBar.SelectionBehavior = ... # 0x2
-
 
     class Shape(enum.Enum):
 
@@ -7904,7 +7799,6 @@ class QTabWidget(PySide6.QtWidgets.QWidget):
         South                    : QTabWidget.TabPosition = ... # 0x1
         West                     : QTabWidget.TabPosition = ... # 0x2
         East                     : QTabWidget.TabPosition = ... # 0x3
-
 
     class TabShape(enum.Enum):
 
@@ -8031,7 +7925,7 @@ class QTableView(PySide6.QtWidgets.QAbstractItemView):
     def setCornerButtonEnabled(self, enable: bool) -> None: ...
     def setGridStyle(self, style: PySide6.QtCore.Qt.PenStyle) -> None: ...
     def setHorizontalHeader(self, header: PySide6.QtWidgets.QHeaderView) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setRootIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> None: ...
     def setRowHeight(self, row: int, height: int) -> None: ...
     def setRowHidden(self, row: int, hide: bool) -> None: ...
@@ -8135,7 +8029,7 @@ class QTableWidget(PySide6.QtWidgets.QTableView):
     def setHorizontalHeaderLabels(self, labels: Sequence[str]) -> None: ...
     def setItem(self, row: int, column: int, item: PySide6.QtWidgets.QTableWidgetItem) -> None: ...
     def setItemPrototype(self, item: PySide6.QtWidgets.QTableWidgetItem) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setRangeSelected(self, range: PySide6.QtWidgets.QTableWidgetSelectionRange, select: bool) -> None: ...
     def setRowCount(self, rows: int) -> None: ...
     def setSortingEnabled(self, enable: bool) -> None: ...
@@ -8194,8 +8088,6 @@ class QTableWidgetItem(Shiboken.Object):
     def setSizeHint(self, size: PySide6.QtCore.QSize) -> None: ...
     def setStatusTip(self, statusTip: str) -> None: ...
     def setText(self, text: str) -> None: ...
-    @overload
-    def setTextAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     @overload
     def setTextAlignment(self, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     @overload
@@ -8310,7 +8202,6 @@ class QTextEdit(PySide6.QtWidgets.QAbstractScrollArea):
         AutoAll                  : QTextEdit.AutoFormattingFlag = ... # -0x1
         AutoNone                 : QTextEdit.AutoFormattingFlag = ... # 0x0
         AutoBulletList           : QTextEdit.AutoFormattingFlag = ... # 0x1
-
 
     class ExtraSelection(Shiboken.Object):
 
@@ -8716,7 +8607,7 @@ class QTreeView(PySide6.QtWidgets.QAbstractItemView):
     def setHeaderHidden(self, hide: bool) -> None: ...
     def setIndentation(self, i: int) -> None: ...
     def setItemsExpandable(self, enable: bool) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setRootIndex(self, index: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex]) -> None: ...
     def setRootIsDecorated(self, show: bool) -> None: ...
     def setRowHidden(self, row: int, parent: Union[PySide6.QtCore.QModelIndex, PySide6.QtCore.QPersistentModelIndex], hide: bool) -> None: ...
@@ -8803,7 +8694,7 @@ class QTreeWidget(PySide6.QtWidgets.QTreeView):
     def setHeaderLabel(self, label: str) -> None: ...
     def setHeaderLabels(self, labels: Sequence[str]) -> None: ...
     def setItemWidget(self, item: PySide6.QtWidgets.QTreeWidgetItem, column: int, widget: PySide6.QtWidgets.QWidget) -> None: ...
-    def setModel(self, model: PySide6.QtCore.QAbstractItemModel) -> None: ...
+    def setModel(self, model: Optional[PySide6.QtCore.QAbstractItemModel]) -> None: ...
     def setSelectionModel(self, selectionModel: PySide6.QtCore.QItemSelectionModel) -> None: ...
     def sortColumn(self) -> int: ...
     def sortItems(self, column: int, order: PySide6.QtCore.Qt.SortOrder) -> None: ...
@@ -8821,7 +8712,6 @@ class QTreeWidgetItem(Shiboken.Object):
         ShowIndicator            : QTreeWidgetItem.ChildIndicatorPolicy = ... # 0x0
         DontShowIndicator        : QTreeWidgetItem.ChildIndicatorPolicy = ... # 0x1
         DontShowIndicatorWhenChildless: QTreeWidgetItem.ChildIndicatorPolicy = ... # 0x2
-
 
     class ItemType(enum.IntEnum):
 
@@ -8892,8 +8782,6 @@ class QTreeWidgetItem(Shiboken.Object):
     def setSizeHint(self, column: int, size: PySide6.QtCore.QSize) -> None: ...
     def setStatusTip(self, column: int, statusTip: str) -> None: ...
     def setText(self, column: int, text: str) -> None: ...
-    @overload
-    def setTextAlignment(self, column: int, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     @overload
     def setTextAlignment(self, column: int, alignment: PySide6.QtCore.Qt.AlignmentFlag) -> None: ...
     @overload
@@ -9027,25 +8915,25 @@ class QWidget(PySide6.QtCore.QObject, PySide6.QtGui.QPaintDevice):
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, icon: Union[PySide6.QtGui.QIcon, PySide6.QtGui.QPixmap], text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, text: str, receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int]) -> PySide6.QtGui.QAction: ...
     @overload
     def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], callable: object) -> PySide6.QtGui.QAction: ...
     @overload
-    def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: bytes, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
+    def addAction(self, text: str, shortcut: Union[PySide6.QtGui.QKeySequence, PySide6.QtCore.QKeyCombination, PySide6.QtGui.QKeySequence.StandardKey, str, int], receiver: PySide6.QtCore.QObject, member: Union[bytes, bytearray, memoryview], type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtGui.QAction: ...
     def addActions(self, actions: Sequence[PySide6.QtGui.QAction]) -> None: ...
     def adjustSize(self) -> None: ...
     def autoFillBackground(self) -> bool: ...
@@ -9193,7 +9081,7 @@ class QWidget(PySide6.QtCore.QObject, PySide6.QtGui.QPaintDevice):
     @overload
     def move(self, x: int, y: int) -> None: ...
     def moveEvent(self, event: PySide6.QtGui.QMoveEvent) -> None: ...
-    def nativeEvent(self, eventType: Union[PySide6.QtCore.QByteArray, bytes], message: int) -> object: ...
+    def nativeEvent(self, eventType: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], message: int) -> object: ...
     def nativeParentWidget(self) -> PySide6.QtWidgets.QWidget: ...
     def nextInFocusChain(self) -> PySide6.QtWidgets.QWidget: ...
     def normalGeometry(self) -> PySide6.QtCore.QRect: ...
@@ -9229,7 +9117,7 @@ class QWidget(PySide6.QtCore.QObject, PySide6.QtGui.QPaintDevice):
     @overload
     def resize(self, w: int, h: int) -> None: ...
     def resizeEvent(self, event: PySide6.QtGui.QResizeEvent) -> None: ...
-    def restoreGeometry(self, geometry: Union[PySide6.QtCore.QByteArray, bytes]) -> bool: ...
+    def restoreGeometry(self, geometry: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> bool: ...
     def saveGeometry(self) -> PySide6.QtCore.QByteArray: ...
     def screen(self) -> PySide6.QtGui.QScreen: ...
     @overload
@@ -9447,7 +9335,6 @@ class QWizard(PySide6.QtWidgets.QDialog):
         NButtons                 : QWizard.WizardButton = ... # 0x9
         Stretch                  : QWizard.WizardButton = ... # 0x9
 
-
     class WizardOption(enum.Flag):
 
         IndependentPages         : QWizard.WizardOption = ... # 0x1
@@ -9468,7 +9355,6 @@ class QWizard(PySide6.QtWidgets.QDialog):
         HaveCustomButton3        : QWizard.WizardOption = ... # 0x8000
         NoCancelButtonOnLastPage : QWizard.WizardOption = ... # 0x10000
 
-
     class WizardPixmap(enum.Enum):
 
         WatermarkPixmap          : QWizard.WizardPixmap = ... # 0x0
@@ -9476,7 +9362,6 @@ class QWizard(PySide6.QtWidgets.QDialog):
         BannerPixmap             : QWizard.WizardPixmap = ... # 0x2
         BackgroundPixmap         : QWizard.WizardPixmap = ... # 0x3
         NPixmaps                 : QWizard.WizardPixmap = ... # 0x4
-
 
     class WizardStyle(enum.Enum):
 
@@ -9501,7 +9386,7 @@ class QWizard(PySide6.QtWidgets.QDialog):
     def field(self, name: str) -> Any: ...
     def hasVisitedPage(self, id: int) -> bool: ...
     def initializePage(self, id: int) -> None: ...
-    def nativeEvent(self, eventType: Union[PySide6.QtCore.QByteArray, bytes], message: int) -> object: ...
+    def nativeEvent(self, eventType: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], message: int) -> object: ...
     def next(self) -> None: ...
     def nextId(self) -> int: ...
     def options(self) -> PySide6.QtWidgets.QWizard.WizardOption: ...
@@ -9516,7 +9401,7 @@ class QWizard(PySide6.QtWidgets.QDialog):
     def setButtonLayout(self, layout: Sequence[PySide6.QtWidgets.QWizard.WizardButton]) -> None: ...
     def setButtonText(self, which: PySide6.QtWidgets.QWizard.WizardButton, text: str) -> None: ...
     def setCurrentId(self, id: int) -> None: ...
-    def setDefaultProperty(self, className: bytes, property: bytes, changedSignal: bytes) -> None: ...
+    def setDefaultProperty(self, className: Union[bytes, bytearray, memoryview], property: Union[bytes, bytearray, memoryview], changedSignal: Union[bytes, bytearray, memoryview]) -> None: ...
     def setField(self, name: str, value: Any) -> None: ...
     def setOption(self, option: PySide6.QtWidgets.QWizard.WizardOption, on: bool = ...) -> None: ...
     def setOptions(self, options: PySide6.QtWidgets.QWizard.WizardOption) -> None: ...
@@ -9554,7 +9439,10 @@ class QWizardPage(PySide6.QtWidgets.QWidget):
     def isFinalPage(self) -> bool: ...
     def nextId(self) -> int: ...
     def pixmap(self, which: PySide6.QtWidgets.QWizard.WizardPixmap) -> PySide6.QtGui.QPixmap: ...
-    def registerField(self, name: str, widget: PySide6.QtWidgets.QWidget, property: str, changed_signal: str) -> None: ...
+    @overload
+    def registerField(self, name: str, widget: PySide6.QtWidgets.QWidget, property: str, changedSignal: PySide6.QtCore.SignalInstance) -> None: ...
+    @overload
+    def registerField(self, name: str, widget: PySide6.QtWidgets.QWidget, property: Optional[str] = ..., changed_signal: Optional[str] = ...) -> None: ...
     def setButtonText(self, which: PySide6.QtWidgets.QWizard.WizardButton, text: str) -> None: ...
     def setCommitPage(self, commitPage: bool) -> None: ...
     def setField(self, name: str, value: Any) -> None: ...

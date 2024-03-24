@@ -37,7 +37,6 @@ class QQuickWidget(PySide6.QtWidgets.QWidget):
         SizeViewToRootObject     : QQuickWidget.ResizeMode = ... # 0x0
         SizeRootObjectToView     : QQuickWidget.ResizeMode = ... # 0x1
 
-
     class Status(enum.Enum):
 
         Null                     : QQuickWidget.Status = ... # 0x0
