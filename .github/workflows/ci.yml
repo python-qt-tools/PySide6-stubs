@@ -21,7 +21,7 @@ jobs:
             pyside6-version: "6.6.2"
 
           # latest version of everything
-          - python-version: "3.13"
+          - python-version: "3.12"
             mypy-version: "1.15"
             pyside6-version: "6.8.2.1"
 
