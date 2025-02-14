@@ -6,7 +6,7 @@
 *Author :* Philippe Fremy
 
 This package provides improved typing stubs for [Qt6 for Python/PySide6](https://pypi.org/project/PySide6/). The 
-official stubs delivered along with PySide6 are insufficent 
+official stubs delivered along with PySide6 are reasonably good but may be incomplete in a few areas
 for proper typing verification with `mypy`.
 
 ### Notable improvements:
