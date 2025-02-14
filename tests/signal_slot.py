@@ -1,4 +1,4 @@
-from typing import List, ClassVar
+from typing import List, ClassVar, TYPE_CHECKING
 
 from PySide6.QtCore import Signal, QObject, QMetaObject, SIGNAL, SLOT, Qt
 from PySide6.QtWidgets import QScrollBar
@@ -59,6 +59,11 @@ assert instance.emitted == []
 
 # Connect through QObject static method, using SIGNAL()/SLOT() functions
 connection = QObject.connect(instance, SIGNAL('valueChanged(int)'), instance, SLOT('my_slot_int(int)'), Qt.ConnectionType.DirectConnection)
+try:
+    connection = QObject.connect(instance, b'valueChanged(int)', instance, b'my_slot_int(int)', Qt.ConnectionType.DirectConnection) # type: ignore[call-overload]
+    assert False, 'We thought that bytes were not supported'
+except ValueError:
+    pass
 assert type(connection) == QMetaObject.Connection
 instance.valueChanged.emit(33)
 assert instance.emitted == ['my_slot_int']
