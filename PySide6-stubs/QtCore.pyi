@@ -6145,7 +6145,7 @@ class QProcess(PySide6.QtCore.QIODevice):
     started                  : ClassVar[Signal] = ... # started()
     stateChanged             : ClassVar[Signal] = ... # stateChanged(QProcess::ProcessState)
 
-    class ExitStatus(enum.Enum):
+    class ExitStatus(enum.IntEnum):
 
         NormalExit               : QProcess.ExitStatus = ... # 0x0
         CrashExit                : QProcess.ExitStatus = ... # 0x1
