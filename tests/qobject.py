@@ -29,6 +29,11 @@ d: List[QObject]
 d = o1.findChildren(QWidget, '')
 
 o1.inherits('toto')
+try:
+    o1.inherits(b'toto')    # type: ignore[arg-type]
+    assert False, 'We expect bytes not to be supported...'
+except ValueError:
+    pass
 o1.property('toto')
 o1.setProperty('toto', True)
 o1.tr('abc', 'def')
