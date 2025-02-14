@@ -24,7 +24,7 @@ jobs:
 
           # latest version of everything
           - python-version: "3.13"
-            mypy-version: "1.1.1"
+            mypy-version: "1.4.1"
 
     steps:
     - uses: actions/checkout@v3
@@ -36,7 +36,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m pip install pip==21.2.4 # last version that works for editable install + mypy
+        python -m pip install --upgrade pip
+        python -m pip install setuptools==75.8.0
         python -m pip install pyside6==${{ env.PYSIDE6_VERSION }} pytest mypy==${{ matrix.mypy-version }}
         pip install -e . --config-settings editable_mode=compat
         pip list
