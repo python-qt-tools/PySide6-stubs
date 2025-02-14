@@ -30,7 +30,7 @@ def resolve_cst_attr(node: Union[cst.Name, cst.Attribute, cst.Subscript, cst.Sub
     if isinstance(node, cst.Arg):
         return resolve_cst_attr(node.value)
 
-    raise ValueError('Unknown type: ', type(node))
+    raise ValueError('Unknown type: ', type(node), node)
 
 
 def self_test():

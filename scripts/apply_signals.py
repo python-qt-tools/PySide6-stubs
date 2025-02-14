@@ -6,7 +6,14 @@ import libcst
 import libcst as cst
 import libcst.matchers as matchers
 
+from utils import resolve_cst_attr
+
 JSON_INPUT_FNAME = pathlib.Path(__file__).parent / 'class-signals.json'
+
+SIGNAL_ANNOTATION = 'ClassVar[Signal]'
+SIGNAL_ANNOTATION_ASSIGN = '= ...'
+CST_SIGNAL_ANNOTATION = libcst.parse_statement(SIGNAL_ANNOTATION).body[0]
+
 
 class TypingTransformer(cst.CSTTransformer):
     """TypingTransformer that visits classes and methods."""
@@ -29,6 +36,8 @@ class TypingTransformer(cst.CSTTransformer):
             -> Union[cst.BaseStatement, cst.FlattenSentinel[cst.BaseStatement], cst.RemovalSentinel, ]:
         fqn_class = '.'.join(self.full_name_stack)
         self.full_name_stack.pop()
+        if not 'QAbstractAnimation' in fqn_class:
+            return original_node
 
         # no signals to adjust
         if not fqn_class in self.fqn_class_signals:
@@ -39,38 +48,59 @@ class TypingTransformer(cst.CSTTransformer):
         nonAnnotatedAttributes = set()
         annotatedAttributes = set()
 
-        for class_content in updated_node.body.body:
+        updated_node_body_body = []
+        changes = False
+        for i, class_content in enumerate(updated_node.body.body):
+            new_class_content = class_content
             if matchers.matches(class_content, matchers.SimpleStatementLine(body=[matchers.Assign()])):
                 nonAnnotatedAttributes.add(class_content.body[0].targets[0].target.value)
 
             if matchers.matches(class_content, matchers.SimpleStatementLine(body=[matchers.AnnAssign()])):
-                annotatedAttributes.add(class_content.body[0].target.value)
+                body_0 = new_class_content.body[0]
+                annotatedAttributes.add(body_0.target.value)
+                annotation = body_0.annotation.annotation
+                if resolve_cst_attr(annotation) != SIGNAL_ANNOTATION:
+                    print('Fixing Annotation: ', f'{fqn_class}.{body_0.target.value} to {SIGNAL_ANNOTATION}' )
+                    body_0 = body_0.with_changes(
+                        annotation=body_0.annotation.with_changes( annotation=CST_SIGNAL_ANNOTATION )
+                    )
+                    new_class_content = new_class_content.with_changes(body=(body_0,) + class_content.body[1:])
+                    changes = True
+
+            updated_node_body_body.append( new_class_content )
+
+        if changes:
+            updated_node = updated_node.with_changes(
+                body=updated_node.body.with_changes(
+                    body=tuple(updated_node_body_body)
+                )
+            )
 
         missingSignals = sorted(collected_signals - nonAnnotatedAttributes - annotatedAttributes)
 
-        if not missingSignals:
-            # all signals are already there
-            return updated_node
+        if missingSignals:
+            pre_body = []
+            for signal in missingSignals:
+                print(f'Class {fqn_class}: adding signal {signal}')
+                pre_body.append(libcst.parse_statement(f'{signal}: {SIGNAL_ANNOTATION} {SIGNAL_ANNOTATION_ASSIGN}'))
+            pre_body.insert(0, libcst.EmptyLine(indent=False, newline=libcst.Newline()))
+            pre_body.append(libcst.EmptyLine(indent=False, newline=libcst.Newline()))
 
-        pre_body = []
-        for signal in missingSignals:
-            print(f'Class {fqn_class}: adding signal {signal}')
-            pre_body.append(libcst.parse_statement(f'{signal}: PySide6.QtCore.Signal'))
-        pre_body.insert(0, libcst.EmptyLine(indent=False, newline=libcst.Newline()))
-        pre_body.append(libcst.EmptyLine(indent=False, newline=libcst.Newline()))
+            if isinstance(updated_node.body, libcst.SimpleStatementSuite):
+                # the class is a single ellipsis, we need to create a full indented body
+                return updated_node.with_changes(
+                    body=libcst.IndentedBlock(body=pre_body)
+                )
 
-        if isinstance(updated_node.body, libcst.SimpleStatementSuite):
-            # the class is a single ellipsis, we need to create a full indented body
-            return updated_node.with_changes(
-                body=libcst.IndentedBlock(body=pre_body)
+            # regular class
+            updated_node = updated_node.with_changes(
+                body=updated_node.body.with_changes(
+                    body=tuple(pre_body) + updated_node.body.body
+                )
             )
 
-        # regular class
-        return updated_node.with_changes(
-            body=updated_node.body.with_changes(
-                body=tuple(pre_body) + updated_node.body.body
-            )
-        )
+        # all signals are already there
+        return updated_node
 
 
 def apply_signals_for_module(module_path: str, d: Dict[str, str]) -> None:
@@ -79,7 +109,7 @@ def apply_signals_for_module(module_path: str, d: Dict[str, str]) -> None:
 
     module_name = module_path.stem
 
-    print('Fixing ', module_name)
+    print('Fixing module ', module_name)
     with open(module_path, "r", encoding="utf-8") as fhandle:
         stub_tree = cst.parse_module(fhandle.read())
 
@@ -94,7 +124,7 @@ def main():
     with open(JSON_INPUT_FNAME, 'r') as f:
         d = json.load(f)
 
-    for fpath in (pathlib.Path(__file__).parent.parent / 'PySide6-stubs').glob('*.pyi'):
+    for fpath in (pathlib.Path(__file__).parent.parent / 'PySide6-stubs').glob('QtCore.pyi'):
         apply_signals_for_module(fpath, d)
 
 
