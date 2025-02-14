@@ -156,3 +156,7 @@ connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = SomeClassWithSignal.disconnect(instance, SIGNAL('signal_no_arg()'), instance, SLOT('my_slot_no_arg()'))
 assert type(b) is bool
 
+connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
+r = 33
+r = instance.receivers(SIGNAL('signal_no_arg()'))
+assert type(r) is int
