@@ -11,7 +11,7 @@ def check_func_accepts_str_not_bytes(f: Union[Callable[[str], None], Callable[[s
     try:
         f(b'toto')  # type: ignore[arg-type]
         raise AssertionError()
-    except ValueError:
+    except (ValueError, TypeError):
         pass
 
 
