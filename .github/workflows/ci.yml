@@ -23,7 +23,7 @@ jobs:
             mypy-version: "1.1.1"
 
           # latest version of everything
-          - python-version: "3.13"
+          - python-version: "3.12"  # switch to 3.13 when we switch pyside6 version
             mypy-version: "1.4.1"
 
     steps:
