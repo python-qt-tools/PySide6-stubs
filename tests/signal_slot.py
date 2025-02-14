@@ -71,6 +71,7 @@ assert instance.emitted == ['my_slot_int']
 # disconnect
 b = instance.valueChanged.disconnect(instance.my_slot_int)
 assert type(b) is bool
+assert b
 instance.valueChanged.emit(33)
 assert instance.emitted == []
 
@@ -84,6 +85,7 @@ assert instance.emitted == ['my_slot_int']
 # disconnect
 b = instance.valueChanged.disconnect(instance.my_slot_int)
 assert type(b) is bool
+assert b
 instance.valueChanged.emit(33)
 assert instance.emitted == []
 
@@ -96,6 +98,7 @@ assert instance.emitted == ['my_slot_int']
 # disconnect
 b = instance.valueChanged.disconnect(instance.my_slot_int)
 assert type(b) is bool
+assert b
 instance.valueChanged.emit(33)
 assert instance.emitted == []
 
@@ -110,8 +113,10 @@ assert instance.emitted == ['my_slot_int']
 # disconnect
 b = instance.valueChanged.disconnect(instance.my_slot_int)
 assert type(b) is bool
+assert b
 b = instance.signal_int.disconnect(instance.valueChanged)
 assert type(b) is bool
+assert b
 instance.signal_int.emit(33)
 assert instance.emitted == []
 
@@ -120,41 +125,49 @@ assert instance.emitted == []
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = instance.signal_no_arg.disconnect(instance.my_slot_no_arg)
 assert type(b) is bool
+assert b
 
 # disconnect by signal + QMetaObject.Connection
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = instance.signal_no_arg.disconnect(connection)
 assert type(b) is bool
+assert b
 
 # disconnect by instance + SIGNAL() + function
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = instance.disconnect(SIGNAL('signal_no_arg()'), instance.my_slot_no_arg)
 assert type(b) is bool
+assert b
 
 # disconnect by instance + receiver + SLOT()
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = instance.disconnect(instance, SLOT('my_slot_no_arg()'))
 assert type(b) is bool
+assert b
 
 # disconnect by instance + SIGNAL() + receiver + SLOT()
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = instance.disconnect(SIGNAL('signal_no_arg()'), instance, SLOT('my_slot_no_arg()'))
 assert type(b) is bool
+assert b
 
 # disconnect by class + QMetaObject.Connection
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = SomeClassWithSignal.disconnect(connection)
 assert type(b) is bool
+assert b
 
 # disconnect by class + instance + SIGNAL() + function
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = SomeClassWithSignal.disconnect(instance, SIGNAL('signal_no_arg()'), instance.my_slot_no_arg)
 assert type(b) is bool
+assert b
 
 # disconnect by class + instance + SIGNAL() + receiver + SLOT
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 b = SomeClassWithSignal.disconnect(instance, SIGNAL('signal_no_arg()'), instance, SLOT('my_slot_no_arg()'))
 assert type(b) is bool
+assert b
 
 connection = instance.signal_no_arg.connect(instance.my_slot_no_arg)
 r = 33
