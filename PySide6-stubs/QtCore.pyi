@@ -13,7 +13,7 @@ import PySide6.QtCore
 
 import os
 import enum
-from typing import Any, Callable, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from typing import Any, Callable, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload, Type, TypeVar
 from shiboken6 import Shiboken
 import datetime
 
@@ -10329,7 +10329,7 @@ class Signal(object):
 
 class SignalInstance(object):
     def connect(self, slot: object, type: PySide6.QtCore.Qt.ConnectionType = ...) -> PySide6.QtCore.QMetaObject.Connection: ...
-    def disconnect(self, slot: Optional[object] = ...) -> None: ...
+    def disconnect(self, slot: Optional[object] = ...) -> bool: ...
     def emit(self, *args: Any) -> None: ...
 
 

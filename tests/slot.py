@@ -1,4 +1,5 @@
-from typing import Callable, TypeVar, Type, overload, Any
+
+from typing import Callable, TypeVar, Type, overload, Any, TYPE_CHECKING
 
 from PySide6.QtCore import Slot, QObject
 
