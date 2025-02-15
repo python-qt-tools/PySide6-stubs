@@ -15,12 +15,14 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, ClassVar, List, Optional, Sequence, Tuple, Union, overload
+from typing import Any, ClassVar, Collection, List, Optional, Sequence, Tuple, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QAbstractExtensionFactory(Shiboken.Object):
@@ -54,7 +56,7 @@ class QAbstractFormBuilder(Shiboken.Object):
     def load(self, dev: PySide6.QtCore.QIODevice, parentWidget: Optional[PySide6.QtWidgets.QWidget] = ...) -> PySide6.QtWidgets.QWidget: ...
     def reset(self) -> None: ...
     def save(self, dev: PySide6.QtCore.QIODevice, widget: PySide6.QtWidgets.QWidget) -> None: ...
-    def setWorkingDirectory(self, directory: Union[PySide6.QtCore.QDir, str]) -> None: ...
+    def setWorkingDirectory(self, directory: PySide6.QtCore.QDir) -> None: ...
     @staticmethod
     def toolBarAreaMetaEnum() -> PySide6.QtCore.QMetaEnum: ...
     def workingDirectory(self) -> PySide6.QtCore.QDir: ...

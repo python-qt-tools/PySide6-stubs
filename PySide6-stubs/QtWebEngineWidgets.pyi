@@ -16,11 +16,13 @@ import PySide6.QtWidgets
 import PySide6.QtPrintSupport
 import PySide6.QtWebEngineCore
 
-from typing import ClassVar, Optional, Union, overload
+from typing import ClassVar, Optional, Set, Union, overload
 from PySide6.QtCore import Signal
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QIntList(object): ...
