@@ -13,12 +13,12 @@ Shiboken, except for defaults which are replaced by "...".
 from shiboken6 import Shiboken
 
 
-class Object(object):
+class Object:
 
     def __init__(self) -> None: ...
 
 
-class VoidPtr(object):
+class VoidPtr:
     def __init__(self, value: int) -> None: ...
 
 
