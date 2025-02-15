@@ -13,13 +13,16 @@ import PySide6.QtLocation
 import PySide6.QtCore
 import PySide6.QtPositioning
 
+import os
 import enum
-from typing import Any, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from typing import Any, ClassVar, Dict, List, Mapping, Match, Optional, Sequence, Tuple, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QGeoCodeReply(PySide6.QtCore.QObject):

@@ -15,12 +15,14 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, List, Optional, Union, overload
+from typing import Any, List, Optional, Sequence, Union, overload
 from PySide6.QtCore import SignalInstance
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QAbstractItemModelTester(PySide6.QtCore.QObject):
@@ -277,6 +279,10 @@ class QTest(Shiboken.Object):
     @overload
     @staticmethod
     def mouseRelease(window: PySide6.QtGui.QWindow, button: PySide6.QtCore.Qt.MouseButton, stateKey: PySide6.QtCore.Qt.KeyboardModifier = ..., pos: PySide6.QtCore.QPoint = ..., delay: int = ...) -> None: ...
+    @overload
+    @staticmethod
+    def qCaught(expected: Union[bytes, bytearray, memoryview], file: Union[bytes, bytearray, memoryview], line: int) -> None: ...
+    @overload
     @staticmethod
     def qCaught(expected: Union[bytes, bytearray, memoryview], what: Union[bytes, bytearray, memoryview], file: Union[bytes, bytearray, memoryview], line: int) -> None: ...
     @staticmethod
@@ -313,6 +319,12 @@ class QTest(Shiboken.Object):
     @overload
     @staticmethod
     def qWaitForWindowExposed(window: PySide6.QtGui.QWindow, timeout: int = ...) -> bool: ...
+    @overload
+    @staticmethod
+    def qWaitForWindowFocused(widget: PySide6.QtGui.QWindow, timeout: Union[PySide6.QtCore.QDeadlineTimer, PySide6.QtCore.QDeadlineTimer.ForeverConstant, int] = ...) -> bool: ...
+    @overload
+    @staticmethod
+    def qWaitForWindowFocused(widget: PySide6.QtWidgets.QWidget, timeout: Union[PySide6.QtCore.QDeadlineTimer, PySide6.QtCore.QDeadlineTimer.ForeverConstant, int] = ...) -> bool: ...
     @staticmethod
     def runningTest() -> bool: ...
     @overload

@@ -18,9 +18,11 @@ import enum
 from typing import Any, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QCompressedHelpInfo(Shiboken.Object):
@@ -196,6 +198,21 @@ class QHelpFilterSettingsWidget(PySide6.QtWidgets.QWidget):
     def readSettings(self, filterEngine: PySide6.QtHelp.QHelpFilterEngine) -> None: ...
     def setAvailableComponents(self, components: Sequence[str]) -> None: ...
     def setAvailableVersions(self, versions: Sequence[PySide6.QtCore.QVersionNumber]) -> None: ...
+
+
+class QHelpGlobal(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, QHelpGlobal: PySide6.QtHelp.QHelpGlobal) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    @staticmethod
+    def documentTitle(content: str) -> str: ...
+    @staticmethod
+    def uniquifyConnectionName(name: str, pointer: int) -> str: ...
 
 
 class QHelpIndexModel(PySide6.QtCore.QStringListModel):

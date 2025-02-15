@@ -13,11 +13,13 @@ import PySide6.QtXml
 import PySide6.QtCore
 
 import enum
-from typing import Tuple, Union, overload
+from typing import List, Text, Tuple, Type, Union, overload
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QDomAttr(PySide6.QtXml.QDomNode):
@@ -89,6 +91,16 @@ class QDomDocument(PySide6.QtXml.QDomNode):
         UseNamespaceProcessing   : QDomDocument.ParseOption = ... # 0x1
         PreserveSpacingOnlyNodes : QDomDocument.ParseOption = ... # 0x2
 
+    class ParseResult(Shiboken.Object):
+
+        @overload
+        def __init__(self) -> None: ...
+        @overload
+        def __init__(self, ParseResult: PySide6.QtXml.QDomDocument.ParseResult) -> None: ...
+
+        @staticmethod
+        def __copy__() -> None: ...
+
 
     @overload
     def __init__(self) -> None: ...
@@ -120,11 +132,17 @@ class QDomDocument(PySide6.QtXml.QDomNode):
     def importNode(self, importedNode: PySide6.QtXml.QDomNode, deep: bool) -> PySide6.QtXml.QDomNode: ...
     def nodeType(self) -> PySide6.QtXml.QDomNode.NodeType: ...
     @overload
+    def setContent(self, data: str, options: PySide6.QtXml.QDomDocument.ParseOption = ...) -> PySide6.QtXml.QDomDocument.ParseResult: ...
+    @overload
     def setContent(self, dev: PySide6.QtCore.QIODevice) -> Tuple[bool, str, int, int]: ...
     @overload
     def setContent(self, dev: PySide6.QtCore.QIODevice, namespaceProcessing: bool) -> Tuple[bool, str, int, int]: ...
     @overload
+    def setContent(self, device: PySide6.QtCore.QIODevice, options: PySide6.QtXml.QDomDocument.ParseOption = ...) -> PySide6.QtXml.QDomDocument.ParseResult: ...
+    @overload
     def setContent(self, reader: PySide6.QtCore.QXmlStreamReader, namespaceProcessing: bool) -> Tuple[bool, str, int, int]: ...
+    @overload
+    def setContent(self, reader: PySide6.QtCore.QXmlStreamReader, options: PySide6.QtXml.QDomDocument.ParseOption = ...) -> PySide6.QtXml.QDomDocument.ParseResult: ...
     @overload
     def setContent(self, text: str) -> Tuple[bool, str, int, int]: ...
     @overload
