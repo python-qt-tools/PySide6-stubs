@@ -12,13 +12,16 @@ PySide6.QtBluetooth, except for defaults which are replaced by "...".
 import PySide6.QtBluetooth
 import PySide6.QtCore
 
+import os
 import enum
-from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union, overload
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Type, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QBluetooth(Shiboken.Object):
@@ -1129,6 +1132,10 @@ class QLowEnergyAdvertisingParameters(Shiboken.Object):
 
 
 class QLowEnergyCharacteristic(Shiboken.Object):
+
+    CCCDDisable               = ...  # type: QByteArray
+    CCCDEnableIndication      = ...  # type: QByteArray
+    CCCDEnableNotification    = ...  # type: QByteArray
 
     class PropertyType(enum.Flag):
 

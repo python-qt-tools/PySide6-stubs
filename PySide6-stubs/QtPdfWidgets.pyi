@@ -18,9 +18,11 @@ import PySide6.QtPdf
 import enum
 from typing import ClassVar, overload
 from PySide6.QtCore import Signal
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QIntList(object): ...

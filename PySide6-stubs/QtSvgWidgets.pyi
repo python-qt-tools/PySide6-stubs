@@ -16,9 +16,11 @@ import PySide6.QtWidgets
 import PySide6.QtSvg
 
 from typing import Optional, Union, overload
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QGraphicsSvgItem(PySide6.QtWidgets.QGraphicsObject):
@@ -55,8 +57,10 @@ class QSvgWidget(PySide6.QtWidgets.QWidget):
     def load(self, contents: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview]) -> None: ...
     @overload
     def load(self, file: str) -> None: ...
+    def options(self) -> PySide6.QtSvg.QtSvg.Option: ...
     def paintEvent(self, event: PySide6.QtGui.QPaintEvent) -> None: ...
     def renderer(self) -> PySide6.QtSvg.QSvgRenderer: ...
+    def setOptions(self, options: PySide6.QtSvg.QtSvg.Option) -> None: ...
     def sizeHint(self) -> PySide6.QtCore.QSize: ...
 
 
