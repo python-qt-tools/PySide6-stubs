@@ -10,14 +10,28 @@ PySide6.QtQuickControls2, except for defaults which are replaced by "...".
 # Module `PySide6.QtQuickControls2`
 
 import PySide6.QtQuickControls2
+import PySide6.QtCore
 
+from typing import List, Optional
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QIntList(object): ...
+
+
+class QQuickAttachedPropertyPropagator(PySide6.QtCore.QObject):
+
+    def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
+
+    def attachedChildren(self) -> List[PySide6.QtQuickControls2.QQuickAttachedPropertyPropagator]: ...
+    def attachedParent(self) -> PySide6.QtQuickControls2.QQuickAttachedPropertyPropagator: ...
+    def attachedParentChange(self, newParent: PySide6.QtQuickControls2.QQuickAttachedPropertyPropagator, oldParent: PySide6.QtQuickControls2.QQuickAttachedPropertyPropagator) -> None: ...
+    def initialize(self) -> None: ...
 
 
 class QQuickStyle(Shiboken.Object):

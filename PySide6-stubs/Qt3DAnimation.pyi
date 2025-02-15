@@ -16,12 +16,14 @@ import PySide6.Qt3DCore
 import PySide6.Qt3DRender
 
 import enum
-from typing import Any, ClassVar, List, Optional, Sequence, Type, Union, overload
+from typing import Any, ClassVar, List, Mapping, Optional, Sequence, Type, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QIntList(object): ...
@@ -230,6 +232,17 @@ class Qt3DAnimation(Shiboken.Object):
 
         def blendTree(self) -> PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipBlendNode: ...
         def setBlendTree(self, blendTree: PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractClipBlendNode) -> None: ...
+
+    class QCallbackMapping(PySide6.Qt3DAnimation.Qt3DAnimation.QAbstractChannelMapping):
+
+        channelNameChanged       : ClassVar[Signal] = ... # channelNameChanged(QString)
+
+        def __init__(self, parent: Optional[PySide6.Qt3DCore.Qt3DCore.QNode] = ...) -> None: ...
+
+        def callback(self) -> PySide6.Qt3DAnimation.Qt3DAnimation.QAnimationCallback: ...
+        def channelName(self) -> str: ...
+        def setCallback(self, type: int, callback: PySide6.Qt3DAnimation.Qt3DAnimation.QAnimationCallback) -> None: ...
+        def setChannelName(self, channelName: str) -> None: ...
 
     class QChannel(Shiboken.Object):
 

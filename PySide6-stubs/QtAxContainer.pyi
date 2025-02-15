@@ -15,12 +15,14 @@ import PySide6.QtGui
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, ClassVar, Dict, List, Optional, Sequence, Union, overload
+from typing import Any, ClassVar, Container, Dict, List, Optional, Sequence, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QAxBase(Shiboken.Object):

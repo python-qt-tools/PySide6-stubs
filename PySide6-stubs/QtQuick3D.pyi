@@ -15,12 +15,14 @@ import PySide6.QtGui
 import PySide6.QtQml
 
 import enum
-from typing import Any, ClassVar, List, Optional, Tuple, Union, overload
+from typing import Any, ClassVar, List, Optional, Text, Tuple, Type, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QIntList(object): ...
@@ -36,6 +38,7 @@ class QQuick3D(Shiboken.Object):
 
 class QQuick3DGeometry(PySide6.QtQuick3D.QQuick3DObject):
 
+    geometryChanged          : ClassVar[Signal] = ... # geometryChanged()
     geometryNodeDirty        : ClassVar[Signal] = ... # geometryNodeDirty()
 
     class Attribute(Shiboken.Object):
@@ -181,9 +184,9 @@ class QQuick3DInstancing(PySide6.QtQuick3D.QQuick3DObject):
     def __init__(self, parent: Optional[PySide6.QtQuick3D.QQuick3DObject] = ...) -> None: ...
 
     @staticmethod
-    def calculateTableEntry(position: PySide6.QtGui.QVector3D, scale: PySide6.QtGui.QVector3D, eulerRotation: PySide6.QtGui.QVector3D, color: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int], customData: PySide6.QtGui.QVector4D = ...) -> PySide6.QtQuick3D.QQuick3DInstancing.InstanceTableEntry: ...
+    def calculateTableEntry(position: PySide6.QtGui.QVector3D, scale: PySide6.QtGui.QVector3D, eulerRotation: PySide6.QtGui.QVector3D, color: Union[PySide6.QtGui.QColor, str, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, int], customData: PySide6.QtGui.QVector4D = ...) -> PySide6.QtQuick3D.QQuick3DInstancing.InstanceTableEntry: ...
     @staticmethod
-    def calculateTableEntryFromQuaternion(position: PySide6.QtGui.QVector3D, scale: PySide6.QtGui.QVector3D, rotation: PySide6.QtGui.QQuaternion, color: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int], customData: PySide6.QtGui.QVector4D = ...) -> PySide6.QtQuick3D.QQuick3DInstancing.InstanceTableEntry: ...
+    def calculateTableEntryFromQuaternion(position: PySide6.QtGui.QVector3D, scale: PySide6.QtGui.QVector3D, rotation: PySide6.QtGui.QQuaternion, color: Union[PySide6.QtGui.QColor, str, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, int], customData: PySide6.QtGui.QVector4D = ...) -> PySide6.QtQuick3D.QQuick3DInstancing.InstanceTableEntry: ...
     def depthSortingEnabled(self) -> bool: ...
     def getInstanceBuffer(self) -> Tuple[PySide6.QtCore.QByteArray, int]: ...
     def hasTransparency(self) -> bool: ...
@@ -232,6 +235,11 @@ class QQuick3DObject(PySide6.QtCore.QObject, PySide6.QtQml.QQmlParserStatus):
     def setState(self, state: str) -> None: ...
     def state(self) -> str: ...
     def update(self) -> None: ...
+
+
+class QQuick3DRenderExtension(PySide6.QtQuick3D.QQuick3DObject):
+
+    def __init__(self, parent: Optional[PySide6.QtQuick3D.QQuick3DObject] = ...) -> None: ...
 
 
 class QQuick3DTextureData(PySide6.QtQuick3D.QQuick3DObject):

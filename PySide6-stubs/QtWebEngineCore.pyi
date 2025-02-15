@@ -16,12 +16,14 @@ import PySide6.QtNetwork
 import PySide6.QtWebChannel
 
 import enum
-from typing import Any, Callable, ClassVar, Dict, List, Optional, Sequence, Tuple, Union, overload
+from typing import Any, Callable, ClassVar, Collection, Dict, IO, List, Optional, Sequence, Set, Tuple, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QIntList(object): ...
@@ -63,6 +65,25 @@ class QWebEngineCertificateError(Shiboken.Object):
     def rejectCertificate(self) -> None: ...
     def type(self) -> PySide6.QtWebEngineCore.QWebEngineCertificateError.Type: ...
     def url(self) -> PySide6.QtCore.QUrl: ...
+
+
+class QWebEngineClientCertificateSelection(Shiboken.Object):
+
+    def __init__(self, arg__1: PySide6.QtWebEngineCore.QWebEngineClientCertificateSelection) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+    def certificates(self) -> List[PySide6.QtNetwork.QSslCertificate]: ...
+    def host(self) -> PySide6.QtCore.QUrl: ...
+    def select(self, certificate: Union[PySide6.QtNetwork.QSslCertificate, PySide6.QtCore.QIODevice]) -> None: ...
+    def selectNone(self) -> None: ...
+
+
+class QWebEngineClientCertificateStore(Shiboken.Object):
+    def add(self, certificate: Union[PySide6.QtNetwork.QSslCertificate, PySide6.QtCore.QIODevice], privateKey: Union[PySide6.QtNetwork.QSslKey, int]) -> None: ...
+    def certificates(self) -> List[PySide6.QtNetwork.QSslCertificate]: ...
+    def clear(self) -> None: ...
+    def remove(self, certificate: Union[PySide6.QtNetwork.QSslCertificate, PySide6.QtCore.QIODevice]) -> None: ...
 
 
 class QWebEngineContextMenuRequest(PySide6.QtCore.QObject):
@@ -277,6 +298,29 @@ class QWebEngineFullScreenRequest(Shiboken.Object):
     def toggleOn(self) -> bool: ...
 
 
+class QWebEngineGlobalSettings(Shiboken.Object):
+
+    class DnsMode(Shiboken.Object):
+
+        @overload
+        def __init__(self) -> None: ...
+        @overload
+        def __init__(self, DnsMode: PySide6.QtWebEngineCore.QWebEngineGlobalSettings.DnsMode) -> None: ...
+
+        @staticmethod
+        def __copy__() -> None: ...
+
+    class SecureDnsMode(enum.Enum):
+
+        SystemOnly               : QWebEngineGlobalSettings.SecureDnsMode = ... # 0x0
+        SecureWithFallback       : QWebEngineGlobalSettings.SecureDnsMode = ... # 0x1
+        SecureOnly               : QWebEngineGlobalSettings.SecureDnsMode = ... # 0x2
+
+
+    @staticmethod
+    def setDnsMode(dnsMode: PySide6.QtWebEngineCore.QWebEngineGlobalSettings.DnsMode) -> bool: ...
+
+
 class QWebEngineHistory(PySide6.QtCore.QObject):
     def __lshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
     def __rshift__(self, stream: PySide6.QtCore.QDataStream) -> PySide6.QtCore.QDataStream: ...
@@ -393,6 +437,33 @@ class QWebEngineLoadingInfo(Shiboken.Object):
     def url(self) -> PySide6.QtCore.QUrl: ...
 
 
+class QWebEngineNavigationRequest(PySide6.QtCore.QObject):
+
+    actionChanged            : ClassVar[Signal] = ... # actionChanged()
+
+    class NavigationRequestAction(enum.Enum):
+
+        AcceptRequest            : QWebEngineNavigationRequest.NavigationRequestAction = ... # 0x0
+        IgnoreRequest            : QWebEngineNavigationRequest.NavigationRequestAction = ... # 0xff
+
+    class NavigationType(enum.Enum):
+
+        LinkClickedNavigation    : QWebEngineNavigationRequest.NavigationType = ... # 0x0
+        TypedNavigation          : QWebEngineNavigationRequest.NavigationType = ... # 0x1
+        FormSubmittedNavigation  : QWebEngineNavigationRequest.NavigationType = ... # 0x2
+        BackForwardNavigation    : QWebEngineNavigationRequest.NavigationType = ... # 0x3
+        ReloadNavigation         : QWebEngineNavigationRequest.NavigationType = ... # 0x4
+        OtherNavigation          : QWebEngineNavigationRequest.NavigationType = ... # 0x5
+        RedirectNavigation       : QWebEngineNavigationRequest.NavigationType = ... # 0x6
+
+
+    def accept(self) -> None: ...
+    def isMainFrame(self) -> bool: ...
+    def navigationType(self) -> PySide6.QtWebEngineCore.QWebEngineNavigationRequest.NavigationType: ...
+    def reject(self) -> None: ...
+    def url(self) -> PySide6.QtCore.QUrl: ...
+
+
 class QWebEngineNewWindowRequest(PySide6.QtCore.QObject):
 
     class DestinationType(enum.Enum):
@@ -433,6 +504,7 @@ class QWebEnginePage(PySide6.QtCore.QObject):
     authenticationRequired   : ClassVar[Signal] = ... # authenticationRequired(QUrl,QAuthenticator*)
     certificateError         : ClassVar[Signal] = ... # certificateError(QWebEngineCertificateError)
     contentsSizeChanged      : ClassVar[Signal] = ... # contentsSizeChanged(QSizeF)
+    desktopMediaRequested    : ClassVar[Signal] = ... # desktopMediaRequested(QWebEngineDesktopMediaRequest)
     featurePermissionRequestCanceled: ClassVar[Signal] = ... # featurePermissionRequestCanceled(QUrl,QWebEnginePage::Feature)
     featurePermissionRequested: ClassVar[Signal] = ... # featurePermissionRequested(QUrl,QWebEnginePage::Feature)
     fileSystemAccessRequested: ClassVar[Signal] = ... # fileSystemAccessRequested(QWebEngineFileSystemAccessRequest)
@@ -464,6 +536,7 @@ class QWebEnginePage(PySide6.QtCore.QObject):
     titleChanged             : ClassVar[Signal] = ... # titleChanged(QString)
     urlChanged               : ClassVar[Signal] = ... # urlChanged(QUrl)
     visibleChanged           : ClassVar[Signal] = ... # visibleChanged(bool)
+    webAuthUxRequested       : ClassVar[Signal] = ... # webAuthUxRequested(QWebEngineWebAuthUxRequest*)
     windowCloseRequested     : ClassVar[Signal] = ... # windowCloseRequested()
 
     class Feature(enum.Enum):
@@ -637,7 +710,7 @@ class QWebEnginePage(PySide6.QtCore.QObject):
     def scrollPosition(self) -> PySide6.QtCore.QPointF: ...
     def selectedText(self) -> str: ...
     def setAudioMuted(self, muted: bool) -> None: ...
-    def setBackgroundColor(self, color: Union[PySide6.QtGui.QColor, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, str, int]) -> None: ...
+    def setBackgroundColor(self, color: Union[PySide6.QtGui.QColor, str, PySide6.QtGui.QRgba64, Any, PySide6.QtCore.Qt.GlobalColor, int]) -> None: ...
     def setContent(self, data: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], mimeType: str = ..., baseUrl: Union[PySide6.QtCore.QUrl, str] = ...) -> None: ...
     def setDevToolsPage(self, page: PySide6.QtWebEngineCore.QWebEnginePage) -> None: ...
     def setFeaturePermission(self, securityOrigin: Union[PySide6.QtCore.QUrl, str], feature: PySide6.QtWebEngineCore.QWebEnginePage.Feature, policy: PySide6.QtWebEngineCore.QWebEnginePage.PermissionPolicy) -> None: ...
@@ -661,6 +734,7 @@ class QWebEnginePage(PySide6.QtCore.QObject):
 
 class QWebEngineProfile(PySide6.QtCore.QObject):
 
+    clearHttpCacheCompleted  : ClassVar[Signal] = ... # clearHttpCacheCompleted()
     downloadRequested        : ClassVar[Signal] = ... # downloadRequested(QWebEngineDownloadRequest*)
 
     class HttpCacheType(enum.Enum):
@@ -685,6 +759,7 @@ class QWebEngineProfile(PySide6.QtCore.QObject):
     def clearAllVisitedLinks(self) -> None: ...
     def clearHttpCache(self) -> None: ...
     def clearVisitedLinks(self, urls: Sequence[PySide6.QtCore.QUrl]) -> None: ...
+    def clientCertificateStore(self) -> PySide6.QtWebEngineCore.QWebEngineClientCertificateStore: ...
     def cookieStore(self) -> PySide6.QtWebEngineCore.QWebEngineCookieStore: ...
     @staticmethod
     def defaultProfile() -> PySide6.QtWebEngineCore.QWebEngineProfile: ...
@@ -737,6 +812,8 @@ class QWebEngineRegisterProtocolHandlerRequest(Shiboken.Object):
 
     def __init__(self) -> None: ...
 
+    @staticmethod
+    def __copy__() -> None: ...
     def accept(self) -> None: ...
     def origin(self) -> PySide6.QtCore.QUrl: ...
     def reject(self) -> None: ...
@@ -855,6 +932,7 @@ class QWebEngineSettings(Shiboken.Object):
         PdfViewerEnabled         : QWebEngineSettings.WebAttribute = ... # 0x1e
         NavigateOnDropEnabled    : QWebEngineSettings.WebAttribute = ... # 0x1f
         ReadingFromCanvasEnabled : QWebEngineSettings.WebAttribute = ... # 0x20
+        ForceDarkMode            : QWebEngineSettings.WebAttribute = ... # 0x21
 
 
     def defaultTextEncoding(self) -> str: ...
@@ -919,6 +997,7 @@ class QWebEngineUrlRequestInfo(Shiboken.Object):
     def initiator(self) -> PySide6.QtCore.QUrl: ...
     def navigationType(self) -> PySide6.QtWebEngineCore.QWebEngineUrlRequestInfo.NavigationType: ...
     def redirect(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
+    def requestBody(self) -> PySide6.QtCore.QIODevice: ...
     def requestMethod(self) -> PySide6.QtCore.QByteArray: ...
     def requestUrl(self) -> PySide6.QtCore.QUrl: ...
     def resourceType(self) -> PySide6.QtWebEngineCore.QWebEngineUrlRequestInfo.ResourceType: ...
@@ -948,6 +1027,7 @@ class QWebEngineUrlRequestJob(PySide6.QtCore.QObject):
     def initiator(self) -> PySide6.QtCore.QUrl: ...
     def redirect(self, url: Union[PySide6.QtCore.QUrl, str]) -> None: ...
     def reply(self, contentType: Union[PySide6.QtCore.QByteArray, bytes, bytearray, memoryview], device: PySide6.QtCore.QIODevice) -> None: ...
+    def requestBody(self) -> PySide6.QtCore.QIODevice: ...
     def requestHeaders(self) -> Dict[PySide6.QtCore.QByteArray, PySide6.QtCore.QByteArray]: ...
     def requestMethod(self) -> PySide6.QtCore.QByteArray: ...
     def requestUrl(self) -> PySide6.QtCore.QUrl: ...
@@ -1008,6 +1088,74 @@ class QWebEngineUrlSchemeHandler(PySide6.QtCore.QObject):
     def __init__(self, parent: Optional[PySide6.QtCore.QObject] = ...) -> None: ...
 
     def requestStarted(self, arg__1: PySide6.QtWebEngineCore.QWebEngineUrlRequestJob) -> None: ...
+
+
+class QWebEngineWebAuthPinRequest(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, QWebEngineWebAuthPinRequest: PySide6.QtWebEngineCore.QWebEngineWebAuthPinRequest) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+
+
+class QWebEngineWebAuthUxRequest(PySide6.QtCore.QObject):
+
+    stateChanged             : ClassVar[Signal] = ... # stateChanged(QWebEngineWebAuthUxRequest::WebAuthUxState)
+
+    class PinEntryError(enum.Enum):
+
+        NoError                  : QWebEngineWebAuthUxRequest.PinEntryError = ... # 0x0
+        InternalUvLocked         : QWebEngineWebAuthUxRequest.PinEntryError = ... # 0x1
+        WrongPin                 : QWebEngineWebAuthUxRequest.PinEntryError = ... # 0x2
+        TooShort                 : QWebEngineWebAuthUxRequest.PinEntryError = ... # 0x3
+        InvalidCharacters        : QWebEngineWebAuthUxRequest.PinEntryError = ... # 0x4
+        SameAsCurrentPin         : QWebEngineWebAuthUxRequest.PinEntryError = ... # 0x5
+
+    class PinEntryReason(enum.Enum):
+
+        Set                      : QWebEngineWebAuthUxRequest.PinEntryReason = ... # 0x0
+        Change                   : QWebEngineWebAuthUxRequest.PinEntryReason = ... # 0x1
+        Challenge                : QWebEngineWebAuthUxRequest.PinEntryReason = ... # 0x2
+
+    class RequestFailureReason(enum.Enum):
+
+        Timeout                  : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x0
+        KeyNotRegistered         : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x1
+        KeyAlreadyRegistered     : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x2
+        SoftPinBlock             : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x3
+        HardPinBlock             : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x4
+        AuthenticatorRemovedDuringPinEntry: QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x5
+        AuthenticatorMissingResidentKeys: QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x6
+        AuthenticatorMissingUserVerification: QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x7
+        AuthenticatorMissingLargeBlob: QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x8
+        NoCommonAlgorithms       : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0x9
+        StorageFull              : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0xa
+        UserConsentDenied        : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0xb
+        WinUserCancelled         : QWebEngineWebAuthUxRequest.RequestFailureReason = ... # 0xc
+
+    class WebAuthUxState(enum.Enum):
+
+        NotStarted               : QWebEngineWebAuthUxRequest.WebAuthUxState = ... # 0x0
+        SelectAccount            : QWebEngineWebAuthUxRequest.WebAuthUxState = ... # 0x1
+        CollectPin               : QWebEngineWebAuthUxRequest.WebAuthUxState = ... # 0x2
+        FinishTokenCollection    : QWebEngineWebAuthUxRequest.WebAuthUxState = ... # 0x3
+        RequestFailed            : QWebEngineWebAuthUxRequest.WebAuthUxState = ... # 0x4
+        Cancelled                : QWebEngineWebAuthUxRequest.WebAuthUxState = ... # 0x5
+        Completed                : QWebEngineWebAuthUxRequest.WebAuthUxState = ... # 0x6
+
+
+    def cancel(self) -> None: ...
+    def pinRequest(self) -> PySide6.QtWebEngineCore.QWebEngineWebAuthPinRequest: ...
+    def relyingPartyId(self) -> str: ...
+    def requestFailureReason(self) -> PySide6.QtWebEngineCore.QWebEngineWebAuthUxRequest.RequestFailureReason: ...
+    def retry(self) -> None: ...
+    def setPin(self, pin: str) -> None: ...
+    def setSelectedAccount(self, selectedAccount: str) -> None: ...
+    def state(self) -> PySide6.QtWebEngineCore.QWebEngineWebAuthUxRequest.WebAuthUxState: ...
+    def userNames(self) -> List[str]: ...
 
 
 def qWebEngineChromiumSecurityPatchVersion() -> Union[bytes, bytearray, memoryview]: ...

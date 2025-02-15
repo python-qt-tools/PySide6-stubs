@@ -17,9 +17,11 @@ import PySide6.QtMultimedia
 
 from typing import Any, ClassVar, Optional, Union
 from PySide6.QtCore import Signal
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QGraphicsVideoItem(PySide6.QtWidgets.QGraphicsObject):

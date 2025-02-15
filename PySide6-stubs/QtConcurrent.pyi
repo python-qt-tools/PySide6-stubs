@@ -15,9 +15,11 @@ import PySide6.QtCore
 import enum
 from typing import Optional, overload
 from shiboken6 import Shiboken
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QFutureQString(Shiboken.Object):

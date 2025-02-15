@@ -14,9 +14,11 @@ import PySide6.QtCore
 
 from typing import ClassVar, Dict, Optional
 from PySide6.QtCore import Signal
+from typing import TypeAlias, TypeVar
 
 
-NoneType = type(None)
+NoneType: TypeAlias = type[None]
+PlaceHolderType = TypeVar("PlaceHolderType", bound=QObject)
 
 
 class QIntList(object): ...
