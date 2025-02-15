@@ -6418,23 +6418,22 @@ class QProcess(PySide6.QtCore.QIODevice):
 
     class UnixProcessFlag(enum.Flag):
 
-        ResetSignalHandlers      : QProcess.UnixProcessFlag = ... # 0x1
-        IgnoreSigPipe            : QProcess.UnixProcessFlag = ... # 0x2
-        CloseFileDescriptors     : QProcess.UnixProcessFlag = ... # 0x10
-        UseVFork                 : QProcess.UnixProcessFlag = ... # 0x20
-        CreateNewSession         : QProcess.UnixProcessFlag = ... # 0x40
-        DisconnectControllingTerminal: QProcess.UnixProcessFlag = ... # 0x80
-        ResetIds                 : QProcess.UnixProcessFlag = ... # 0x100
+        ResetSignalHandlers       = ...  # 0x1
+        IgnoreSigPipe             = ...  # 0x2
+        CloseFileDescriptors      = ...  # 0x10
+        UseVFork                  = ...  # 0x20
+        CreateNewSession          = ...  # 0x40
+        DisconnectControllingTerminal = ...  # 0x80
+        ResetIds                  = ...  # 0x100
 
     class UnixProcessParameters(Shiboken.Object):
 
-        @overload
-        def __init__(self) -> None: ...
-        @overload
-        def __init__(self, UnixProcessParameters: PySide6.QtCore.QProcess.UnixProcessParameters) -> None: ...
+        @typing.overload
+        def __init__(self, /) -> None: ...
+        @typing.overload
+        def __init__(self, UnixProcessParameters: PySide6.QtCore.QProcess.UnixProcessParameters, /) -> None: ...
 
-        @staticmethod
-        def __copy__() -> None: ...
+        def __copy__(self, /) -> typing.Self: ...
 
 
     def __init__(self, /, parent: PySide6.QtCore.QObject | None= ...) -> None: ...
@@ -6450,11 +6449,11 @@ class QProcess(PySide6.QtCore.QIODevice):
     def execute(program: str, /, arguments: typing.Sequence[str] = ...) -> int: ...
     def exitCode(self, /) -> int: ...
     def exitStatus(self, /) -> PySide6.QtCore.QProcess.ExitStatus: ...
-    def failChildProcessModifier(self, description: Union[bytes, bytearray, memoryview], error: int = ...) -> None: ...    
+    def failChildProcessModifier(self, description: bytes | bytearray | memoryview, /, error: int | None= ...) -> None: ...
     def inputChannelMode(self, /) -> PySide6.QtCore.QProcess.InputChannelMode: ...
     def isSequential(self, /) -> bool: ...
     def kill(self, /) -> None: ...
-    def nativeArguments(self, /) -> str: ...
+    def nativeArguments(self, /) -> str: ...    
     @staticmethod
     def nullDevice() -> str: ...
     def open(self, /, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> bool: ...
@@ -6479,10 +6478,10 @@ class QProcess(PySide6.QtCore.QIODevice):
     def setStandardInputFile(self, fileName: str, /) -> None: ...
     def setStandardOutputFile(self, fileName: str, /, mode: PySide6.QtCore.QIODeviceBase.OpenModeFlag = ...) -> None: ...
     def setStandardOutputProcess(self, destination: PySide6.QtCore.QProcess, /) -> None: ...
-    @overload
-    def setUnixProcessParameters(self, flagsOnly: PySide6.QtCore.QProcess.UnixProcessFlag) -> None: ...
-    @overload
-    def setUnixProcessParameters(self, params: PySide6.QtCore.QProcess.UnixProcessParameters) -> None: ...    
+    @typing.overload
+    def setUnixProcessParameters(self, flagsOnly: PySide6.QtCore.QProcess.UnixProcessFlag, /) -> None: ...
+    @typing.overload
+    def setUnixProcessParameters(self, params: PySide6.QtCore.QProcess.UnixProcessParameters, /) -> None: ...
     def setWorkingDirectory(self, dir: str, /) -> None: ...
     @staticmethod
     def splitCommand(command: str, /) -> typing.List[str]: ...
@@ -6496,7 +6495,7 @@ class QProcess(PySide6.QtCore.QIODevice):
     @staticmethod
     def systemEnvironment() -> typing.List[str]: ...
     def terminate(self, /) -> None: ...
-    def unixProcessParameters(self) -> PySide6.QtCore.QProcess.UnixProcessParameters: ...    
+    def unixProcessParameters(self, /) -> PySide6.QtCore.QProcess.UnixProcessParameters: ...
     def waitForBytesWritten(self, /, msecs: int = ...) -> bool: ...
     def waitForFinished(self, /, msecs: int = ...) -> bool: ...
     def waitForReadyRead(self, /, msecs: int = ...) -> bool: ...
@@ -9425,52 +9424,52 @@ class Qt(Shiboken.Object):
 
     class InputMethodHint(enum.Flag):
 
-        ImhNone                  : Qt.InputMethodHint = ... # 0x0
-        ImhHiddenText            : Qt.InputMethodHint = ... # 0x1
-        ImhSensitiveData         : Qt.InputMethodHint = ... # 0x2
-        ImhNoAutoUppercase       : Qt.InputMethodHint = ... # 0x4
-        ImhPreferNumbers         : Qt.InputMethodHint = ... # 0x8
-        ImhPreferUppercase       : Qt.InputMethodHint = ... # 0x10
-        ImhPreferLowercase       : Qt.InputMethodHint = ... # 0x20
-        ImhNoPredictiveText      : Qt.InputMethodHint = ... # 0x40
-        ImhDate                  : Qt.InputMethodHint = ... # 0x80
-        ImhTime                  : Qt.InputMethodHint = ... # 0x100
-        ImhPreferLatin           : Qt.InputMethodHint = ... # 0x200
-        ImhMultiLine             : Qt.InputMethodHint = ... # 0x400
-        ImhNoEditMenu            : Qt.InputMethodHint = ... # 0x800
-        ImhNoTextHandles         : Qt.InputMethodHint = ... # 0x1000
-        ImhDigitsOnly            : Qt.InputMethodHint = ... # 0x10000
-        ImhFormattedNumbersOnly  : Qt.InputMethodHint = ... # 0x20000
-        ImhUppercaseOnly         : Qt.InputMethodHint = ... # 0x40000
-        ImhLowercaseOnly         : Qt.InputMethodHint = ... # 0x80000
-        ImhDialableCharactersOnly: Qt.InputMethodHint = ... # 0x100000
-        ImhEmailCharactersOnly   : Qt.InputMethodHint = ... # 0x200000
-        ImhUrlCharactersOnly     : Qt.InputMethodHint = ... # 0x400000
-        ImhLatinOnly             : Qt.InputMethodHint = ... # 0x800000
-        ImhExclusiveInputMask    : Qt.InputMethodHint = ... # 0xffff0000
+        ImhNone                   = ...  # 0x0
+        ImhHiddenText             = ...  # 0x1
+        ImhSensitiveData          = ...  # 0x2
+        ImhNoAutoUppercase        = ...  # 0x4
+        ImhPreferNumbers          = ...  # 0x8
+        ImhPreferUppercase        = ...  # 0x10
+        ImhPreferLowercase        = ...  # 0x20
+        ImhNoPredictiveText       = ...  # 0x40
+        ImhDate                   = ...  # 0x80
+        ImhTime                   = ...  # 0x100
+        ImhPreferLatin            = ...  # 0x200
+        ImhMultiLine              = ...  # 0x400
+        ImhNoEditMenu             = ...  # 0x800
+        ImhNoTextHandles          = ...  # 0x1000
+        ImhDigitsOnly             = ...  # 0x10000
+        ImhFormattedNumbersOnly   = ...  # 0x20000
+        ImhUppercaseOnly          = ...  # 0x40000
+        ImhLowercaseOnly          = ...  # 0x80000
+        ImhDialableCharactersOnly = ...  # 0x100000
+        ImhEmailCharactersOnly    = ...  # 0x200000
+        ImhUrlCharactersOnly      = ...  # 0x400000
+        ImhLatinOnly              = ...  # 0x800000
+        ImhExclusiveInputMask     = ...  # 0xffff0000
 
     class InputMethodQuery(enum.Flag):
 
-        ImEnabled                : Qt.InputMethodQuery = ... # 0x1
-        ImCursorRectangle        : Qt.InputMethodQuery = ... # 0x2
-        ImFont                   : Qt.InputMethodQuery = ... # 0x4
-        ImCursorPosition         : Qt.InputMethodQuery = ... # 0x8
-        ImSurroundingText        : Qt.InputMethodQuery = ... # 0x10
-        ImCurrentSelection       : Qt.InputMethodQuery = ... # 0x20
-        ImMaximumTextLength      : Qt.InputMethodQuery = ... # 0x40
-        ImAnchorPosition         : Qt.InputMethodQuery = ... # 0x80
-        ImHints                  : Qt.InputMethodQuery = ... # 0x100
-        ImPreferredLanguage      : Qt.InputMethodQuery = ... # 0x200
-        ImAbsolutePosition       : Qt.InputMethodQuery = ... # 0x400
-        ImTextBeforeCursor       : Qt.InputMethodQuery = ... # 0x800
-        ImTextAfterCursor        : Qt.InputMethodQuery = ... # 0x1000
-        ImEnterKeyType           : Qt.InputMethodQuery = ... # 0x2000
-        ImAnchorRectangle        : Qt.InputMethodQuery = ... # 0x4000
-        ImQueryInput             : Qt.InputMethodQuery = ... # 0x40ba
-        ImInputItemClipRectangle : Qt.InputMethodQuery = ... # 0x8000
-        ImReadOnly               : Qt.InputMethodQuery = ... # 0x10000
-        ImPlatformData           : Qt.InputMethodQuery = ... # 0x80000000
-        ImQueryAll               : Qt.InputMethodQuery = ... # 0xffffffff
+        ImEnabled                 = ...  # 0x1
+        ImCursorRectangle         = ...  # 0x2
+        ImFont                    = ...  # 0x4
+        ImCursorPosition          = ...  # 0x8
+        ImSurroundingText         = ...  # 0x10
+        ImCurrentSelection        = ...  # 0x20
+        ImMaximumTextLength       = ...  # 0x40
+        ImAnchorPosition          = ...  # 0x80
+        ImHints                   = ...  # 0x100
+        ImPreferredLanguage       = ...  # 0x200
+        ImAbsolutePosition        = ...  # 0x400
+        ImTextBeforeCursor        = ...  # 0x800
+        ImTextAfterCursor         = ...  # 0x1000
+        ImEnterKeyType            = ...  # 0x2000
+        ImAnchorRectangle         = ...  # 0x4000
+        ImQueryInput              = ...  # 0x40ba
+        ImInputItemClipRectangle  = ...  # 0x8000
+        ImReadOnly                = ...  # 0x10000
+        ImPlatformData            = ...  # 0x80000000
+        ImQueryAll                = ...  # 0xffffffff
 
     class ItemDataRole(enum.IntEnum):
 
@@ -9996,14 +9995,14 @@ class Qt(Shiboken.Object):
 
     class KeyboardModifier(enum.Flag):
 
-        NoModifier               : Qt.KeyboardModifier = ... # 0x0
-        ShiftModifier            : Qt.KeyboardModifier = ... # 0x2000000
-        ControlModifier          : Qt.KeyboardModifier = ... # 0x4000000
-        AltModifier              : Qt.KeyboardModifier = ... # 0x8000000
-        MetaModifier             : Qt.KeyboardModifier = ... # 0x10000000
-        KeypadModifier           : Qt.KeyboardModifier = ... # 0x20000000
-        GroupSwitchModifier      : Qt.KeyboardModifier = ... # 0x40000000
-        KeyboardModifierMask     : Qt.KeyboardModifier = ... # 0xfe000000
+        NoModifier                = ...  # 0x0
+        ShiftModifier             = ...  # 0x2000000
+        ControlModifier           = ...  # 0x4000000
+        AltModifier               = ...  # 0x8000000
+        MetaModifier              = ...  # 0x10000000
+        KeypadModifier            = ...  # 0x20000000
+        GroupSwitchModifier       = ...  # 0x40000000
+        KeyboardModifierMask      = ...  # 0xfe000000
 
     class LayoutDirection(enum.Enum):
 
@@ -10032,50 +10031,50 @@ class Qt(Shiboken.Object):
 
     class Modifier(enum.Flag):
 
-        SHIFT                    : Qt.Modifier = ... # 0x2000000
-        CTRL                     : Qt.Modifier = ... # 0x4000000
-        ALT                      : Qt.Modifier = ... # 0x8000000
-        META                     : Qt.Modifier = ... # 0x10000000
-        MODIFIER_MASK            : Qt.Modifier = ... # 0xfe000000
+        SHIFT                     = ...  # 0x2000000
+        CTRL                      = ...  # 0x4000000
+        ALT                       = ...  # 0x8000000
+        META                      = ...  # 0x10000000
+        MODIFIER_MASK             = ...  # 0xfe000000
 
     class MouseButton(enum.Flag):
 
-        NoButton                 : Qt.MouseButton = ... # 0x0
-        LeftButton               : Qt.MouseButton = ... # 0x1
-        RightButton              : Qt.MouseButton = ... # 0x2
-        MiddleButton             : Qt.MouseButton = ... # 0x4
-        BackButton               : Qt.MouseButton = ... # 0x8
-        ExtraButton1             : Qt.MouseButton = ... # 0x8
-        XButton1                 : Qt.MouseButton = ... # 0x8
-        ExtraButton2             : Qt.MouseButton = ... # 0x10
-        ForwardButton            : Qt.MouseButton = ... # 0x10
-        XButton2                 : Qt.MouseButton = ... # 0x10
-        ExtraButton3             : Qt.MouseButton = ... # 0x20
-        TaskButton               : Qt.MouseButton = ... # 0x20
-        ExtraButton4             : Qt.MouseButton = ... # 0x40
-        ExtraButton5             : Qt.MouseButton = ... # 0x80
-        ExtraButton6             : Qt.MouseButton = ... # 0x100
-        ExtraButton7             : Qt.MouseButton = ... # 0x200
-        ExtraButton8             : Qt.MouseButton = ... # 0x400
-        ExtraButton9             : Qt.MouseButton = ... # 0x800
-        ExtraButton10            : Qt.MouseButton = ... # 0x1000
-        ExtraButton11            : Qt.MouseButton = ... # 0x2000
-        ExtraButton12            : Qt.MouseButton = ... # 0x4000
-        ExtraButton13            : Qt.MouseButton = ... # 0x8000
-        ExtraButton14            : Qt.MouseButton = ... # 0x10000
-        ExtraButton15            : Qt.MouseButton = ... # 0x20000
-        ExtraButton16            : Qt.MouseButton = ... # 0x40000
-        ExtraButton17            : Qt.MouseButton = ... # 0x80000
-        ExtraButton18            : Qt.MouseButton = ... # 0x100000
-        ExtraButton19            : Qt.MouseButton = ... # 0x200000
-        ExtraButton20            : Qt.MouseButton = ... # 0x400000
-        ExtraButton21            : Qt.MouseButton = ... # 0x800000
-        ExtraButton22            : Qt.MouseButton = ... # 0x1000000
-        ExtraButton23            : Qt.MouseButton = ... # 0x2000000
-        ExtraButton24            : Qt.MouseButton = ... # 0x4000000
-        MaxMouseButton           : Qt.MouseButton = ... # 0x4000000
-        AllButtons               : Qt.MouseButton = ... # 0x7ffffff
-        MouseButtonMask          : Qt.MouseButton = ... # 0xffffffff
+        NoButton                  = ...  # 0x0
+        LeftButton                = ...  # 0x1
+        RightButton               = ...  # 0x2
+        MiddleButton              = ...  # 0x4
+        BackButton                = ...  # 0x8
+        ExtraButton1              = ...  # 0x8
+        XButton1                  = ...  # 0x8
+        ExtraButton2              = ...  # 0x10
+        ForwardButton             = ...  # 0x10
+        XButton2                  = ...  # 0x10
+        ExtraButton3              = ...  # 0x20
+        TaskButton                = ...  # 0x20
+        ExtraButton4              = ...  # 0x40
+        ExtraButton5              = ...  # 0x80
+        ExtraButton6              = ...  # 0x100
+        ExtraButton7              = ...  # 0x200
+        ExtraButton8              = ...  # 0x400
+        ExtraButton9              = ...  # 0x800
+        ExtraButton10             = ...  # 0x1000
+        ExtraButton11             = ...  # 0x2000
+        ExtraButton12             = ...  # 0x4000
+        ExtraButton13             = ...  # 0x8000
+        ExtraButton14             = ...  # 0x10000
+        ExtraButton15             = ...  # 0x20000
+        ExtraButton16             = ...  # 0x40000
+        ExtraButton17             = ...  # 0x80000
+        ExtraButton18             = ...  # 0x100000
+        ExtraButton19             = ...  # 0x200000
+        ExtraButton20             = ...  # 0x400000
+        ExtraButton21             = ...  # 0x800000
+        ExtraButton22             = ...  # 0x1000000
+        ExtraButton23             = ...  # 0x2000000
+        ExtraButton24             = ...  # 0x4000000
+        MaxMouseButton            = ...  # 0x4000000
+        AllButtons                = ...  # 0x7ffffff
+        MouseButtonMask           = ...  # 0xffffffff
 
     class MouseEventFlag(enum.Flag):
 
@@ -10459,44 +10458,44 @@ class Qt(Shiboken.Object):
 
     class WindowType(enum.IntFlag):
 
-        Widget                   : Qt.WindowType = ... # 0x0
-        Window                   : Qt.WindowType = ... # 0x1
-        Dialog                   : Qt.WindowType = ... # 0x3
-        Sheet                    : Qt.WindowType = ... # 0x5
-        Drawer                   : Qt.WindowType = ... # 0x7
-        Popup                    : Qt.WindowType = ... # 0x9
-        Tool                     : Qt.WindowType = ... # 0xb
-        ToolTip                  : Qt.WindowType = ... # 0xd
-        SplashScreen             : Qt.WindowType = ... # 0xf
-        Desktop                  : Qt.WindowType = ... # 0x11
-        SubWindow                : Qt.WindowType = ... # 0x12
-        ForeignWindow            : Qt.WindowType = ... # 0x21
-        CoverWindow              : Qt.WindowType = ... # 0x41
-        WindowType_Mask          : Qt.WindowType = ... # 0xff
-        MSWindowsFixedSizeDialogHint: Qt.WindowType = ... # 0x100
-        MSWindowsOwnDC           : Qt.WindowType = ... # 0x200
-        BypassWindowManagerHint  : Qt.WindowType = ... # 0x400
-        X11BypassWindowManagerHint: Qt.WindowType = ... # 0x400
-        FramelessWindowHint      : Qt.WindowType = ... # 0x800
-        WindowTitleHint          : Qt.WindowType = ... # 0x1000
-        WindowSystemMenuHint     : Qt.WindowType = ... # 0x2000
-        WindowMinimizeButtonHint : Qt.WindowType = ... # 0x4000
-        WindowMaximizeButtonHint : Qt.WindowType = ... # 0x8000
-        WindowMinMaxButtonsHint  : Qt.WindowType = ... # 0xc000
-        WindowContextHelpButtonHint: Qt.WindowType = ... # 0x10000
-        WindowShadeButtonHint    : Qt.WindowType = ... # 0x20000
-        WindowStaysOnTopHint     : Qt.WindowType = ... # 0x40000
-        WindowTransparentForInput: Qt.WindowType = ... # 0x80000
-        WindowOverridesSystemGestures: Qt.WindowType = ... # 0x100000
-        WindowDoesNotAcceptFocus : Qt.WindowType = ... # 0x200000
-        MaximizeUsingFullscreenGeometryHint: Qt.WindowType = ... # 0x400000
-        CustomizeWindowHint      : Qt.WindowType = ... # 0x2000000
-        WindowStaysOnBottomHint  : Qt.WindowType = ... # 0x4000000
-        WindowCloseButtonHint    : Qt.WindowType = ... # 0x8000000
-        MacWindowToolBarButtonHint: Qt.WindowType = ... # 0x10000000
-        BypassGraphicsProxyWidget: Qt.WindowType = ... # 0x20000000
-        NoDropShadowWindowHint   : Qt.WindowType = ... # 0x40000000
-        WindowFullscreenButtonHint: Qt.WindowType = ... # 0x80000000
+        Widget                    = ...  # 0x0
+        Window                    = ...  # 0x1
+        Dialog                    = ...  # 0x3
+        Sheet                     = ...  # 0x5
+        Drawer                    = ...  # 0x7
+        Popup                     = ...  # 0x9
+        Tool                      = ...  # 0xb
+        ToolTip                   = ...  # 0xd
+        SplashScreen              = ...  # 0xf
+        Desktop                   = ...  # 0x11
+        SubWindow                 = ...  # 0x12
+        ForeignWindow             = ...  # 0x21
+        CoverWindow               = ...  # 0x41
+        WindowType_Mask           = ...  # 0xff
+        MSWindowsFixedSizeDialogHint = ...  # 0x100
+        MSWindowsOwnDC            = ...  # 0x200
+        BypassWindowManagerHint   = ...  # 0x400
+        X11BypassWindowManagerHint = ...  # 0x400
+        FramelessWindowHint       = ...  # 0x800
+        WindowTitleHint           = ...  # 0x1000
+        WindowSystemMenuHint      = ...  # 0x2000
+        WindowMinimizeButtonHint  = ...  # 0x4000
+        WindowMaximizeButtonHint  = ...  # 0x8000
+        WindowMinMaxButtonsHint   = ...  # 0xc000
+        WindowContextHelpButtonHint = ...  # 0x10000
+        WindowShadeButtonHint     = ...  # 0x20000
+        WindowStaysOnTopHint      = ...  # 0x40000
+        WindowTransparentForInput = ...  # 0x80000
+        WindowOverridesSystemGestures = ...  # 0x100000
+        WindowDoesNotAcceptFocus  = ...  # 0x200000
+        MaximizeUsingFullscreenGeometryHint = ...  # 0x400000
+        CustomizeWindowHint       = ...  # 0x2000000
+        WindowStaysOnBottomHint   = ...  # 0x4000000
+        WindowCloseButtonHint     = ...  # 0x8000000
+        MacWindowToolBarButtonHint = ...  # 0x10000000
+        BypassGraphicsProxyWidget = ...  # 0x20000000
+        NoDropShadowWindowHint    = ...  # 0x40000000
+        WindowFullscreenButtonHint = ...  # 0x80000000
 
 
     @staticmethod

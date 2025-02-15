@@ -5230,9 +5230,9 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
     @staticmethod
     def aboutQt(parent: PySide6.QtWidgets.QWidget, /, title: str = ...) -> None: ...
     @typing.overload
-    def addButton(self, button: PySide6.QtWidgets.QAbstractButton, role: PySide6.QtWidgets.QMessageBox.ButtonRole, /) -> None: ...
-    @typing.overload
     def addButton(self, button: PySide6.QtWidgets.QMessageBox.StandardButton, /) -> PySide6.QtWidgets.QPushButton: ...
+    @typing.overload
+    def addButton(self, button: PySide6.QtWidgets.QAbstractButton, role: PySide6.QtWidgets.QMessageBox.ButtonRole, /) -> None: ...
     @typing.overload
     def addButton(self, text: str, role: PySide6.QtWidgets.QMessageBox.ButtonRole, /) -> PySide6.QtWidgets.QPushButton: ...
     def button(self, which: PySide6.QtWidgets.QMessageBox.StandardButton, /) -> PySide6.QtWidgets.QAbstractButton: ...
@@ -5274,9 +5274,9 @@ class QMessageBox(PySide6.QtWidgets.QDialog):
     def setDefaultButton(self, button: PySide6.QtWidgets.QMessageBox.StandardButton, /) -> None: ...
     def setDetailedText(self, text: str, /) -> None: ...
     @typing.overload
-    def setEscapeButton(self, button: PySide6.QtWidgets.QAbstractButton, /) -> None: ...
-    @typing.overload
     def setEscapeButton(self, button: PySide6.QtWidgets.QMessageBox.StandardButton, /) -> None: ...
+    @typing.overload
+    def setEscapeButton(self, button: PySide6.QtWidgets.QAbstractButton, /) -> None: ...
     def setIcon(self, arg__1: PySide6.QtWidgets.QMessageBox.Icon, /) -> None: ...
     def setIconPixmap(self, pixmap: PySide6.QtGui.QPixmap | PySide6.QtGui.QImage, /) -> None: ...
     def setInformativeText(self, text: str, /) -> None: ...
@@ -6272,7 +6272,6 @@ class QStyle(PySide6.QtCore.QObject):
 
     class ComplexControl(enum.IntEnum):
 
-        CC_CustomBase             = ...  # -268435456
         CC_SpinBox                = ...  # 0x0
         CC_ComboBox               = ...  # 0x1
         CC_ScrollBar              = ...  # 0x2
@@ -6282,10 +6281,10 @@ class QStyle(PySide6.QtCore.QObject):
         CC_Dial                   = ...  # 0x6
         CC_GroupBox               = ...  # 0x7
         CC_MdiControls            = ...  # 0x8
+        CC_CustomBase             = ...  # 0xf0000000
 
     class ContentsType(enum.IntEnum):
 
-        CT_CustomBase             = ...  # -268435456
         CT_PushButton             = ...  # 0x0
         CT_CheckBox               = ...  # 0x1
         CT_RadioButton            = ...  # 0x2
@@ -6309,10 +6308,10 @@ class QStyle(PySide6.QtCore.QObject):
         CT_GroupBox               = ...  # 0x14
         CT_MdiControls            = ...  # 0x15
         CT_ItemViewItem           = ...  # 0x16
+        CT_CustomBase             = ...  # 0xf0000000
 
     class ControlElement(enum.IntEnum):
 
-        CE_CustomBase             = ...  # -268435456
         CE_PushButton             = ...  # 0x0
         CE_PushButtonBevel        = ...  # 0x1
         CE_PushButtonLabel        = ...  # 0x2
@@ -6360,10 +6359,10 @@ class QStyle(PySide6.QtCore.QObject):
         CE_ColumnViewGrip         = ...  # 0x2c
         CE_ItemViewItem           = ...  # 0x2d
         CE_ShapedFrame            = ...  # 0x2e
+        CE_CustomBase             = ...  # 0xf0000000
 
     class PixelMetric(enum.IntEnum):
 
-        PM_CustomBase             = ...  # -268435456
         PM_ButtonMargin           = ...  # 0x0
         PM_ButtonDefaultIndicator = ...  # 0x1
         PM_MenuButtonIndicator    = ...  # 0x2
@@ -6459,6 +6458,7 @@ class QStyle(PySide6.QtCore.QObject):
         PM_TitleBarButtonSize     = ...  # 0x5c
         PM_LineEditIconSize       = ...  # 0x5d
         PM_LineEditIconMargin     = ...  # 0x5e
+        PM_CustomBase             = ...  # 0xf0000000
 
     class PrimitiveElement(enum.IntEnum):
 

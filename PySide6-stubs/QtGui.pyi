@@ -202,15 +202,15 @@ class QAccessible(Shiboken.Object):
 
     class RelationFlag(enum.Flag):
 
-        Label                    : QAccessible.RelationFlag = ... # 0x1
-        Labelled                 : QAccessible.RelationFlag = ... # 0x2
-        Controller               : QAccessible.RelationFlag = ... # 0x4
-        Controlled               : QAccessible.RelationFlag = ... # 0x8
-        DescriptionFor           : QAccessible.RelationFlag = ... # 0x10
-        Described                : QAccessible.RelationFlag = ... # 0x20
-        FlowsFrom                : QAccessible.RelationFlag = ... # 0x40
-        FlowsTo                  : QAccessible.RelationFlag = ... # 0x80
-        AllRelations             : QAccessible.RelationFlag = ... # 0xffffffff
+        Label                     = ...  # 0x1
+        Labelled                  = ...  # 0x2
+        Controller                = ...  # 0x4
+        Controlled                = ...  # 0x8
+        DescriptionFor            = ...  # 0x10
+        Described                 = ...  # 0x20
+        FlowsFrom                 = ...  # 0x40
+        FlowsTo                   = ...  # 0x80
+        AllRelations              = ...  # 0xffffffff
 
     class Role(enum.Enum):
 
@@ -3564,11 +3564,11 @@ class QIntValidator(PySide6.QtGui.QValidator):
 class QKeyEvent(PySide6.QtGui.QInputEvent):
 
     @typing.overload
-    def __init__(self, arg__1: PySide6.QtGui.QKeyEvent, /) -> None: ...
-    @typing.overload
     def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifier, /, text: str = ..., autorep: bool = ..., count: int = ...) -> None: ...
     @typing.overload
     def __init__(self, type: PySide6.QtCore.QEvent.Type, key: int, modifiers: PySide6.QtCore.Qt.KeyboardModifier, nativeScanCode: int, nativeVirtualKey: int, nativeModifiers: int, /, text: str = ..., autorep: bool = ..., count: int = ..., device: PySide6.QtGui.QInputDevice = ...) -> None: ...
+    @typing.overload
+    def __init__(self, arg__1: PySide6.QtGui.QKeyEvent, /) -> None: ...
 
     def __eq__(self, key: PySide6.QtGui.QKeySequence.StandardKey, /) -> bool: ...
     def __ne__(self, standard_key: PySide6.QtGui.QKeySequence.StandardKey, /) -> None: ...
@@ -4189,7 +4189,7 @@ class QNativeInterface(Shiboken.Object):
 
     class QX11Application(Shiboken.Object):
 
-        def __init__(self) -> None: ...
+        def __init__(self, /) -> None: ...
 
         def connection(self) -> int: ...
         def display(self) -> int: ...
@@ -5054,26 +5054,26 @@ class QPaintEngine(Shiboken.Object):
 
     class PaintEngineFeature(enum.Flag):
 
-        PrimitiveTransform       : QPaintEngine.PaintEngineFeature = ... # 0x1
-        PatternTransform         : QPaintEngine.PaintEngineFeature = ... # 0x2
-        PixmapTransform          : QPaintEngine.PaintEngineFeature = ... # 0x4
-        PatternBrush             : QPaintEngine.PaintEngineFeature = ... # 0x8
-        LinearGradientFill       : QPaintEngine.PaintEngineFeature = ... # 0x10
-        RadialGradientFill       : QPaintEngine.PaintEngineFeature = ... # 0x20
-        ConicalGradientFill      : QPaintEngine.PaintEngineFeature = ... # 0x40
-        AlphaBlend               : QPaintEngine.PaintEngineFeature = ... # 0x80
-        PorterDuff               : QPaintEngine.PaintEngineFeature = ... # 0x100
-        PainterPaths             : QPaintEngine.PaintEngineFeature = ... # 0x200
-        Antialiasing             : QPaintEngine.PaintEngineFeature = ... # 0x400
-        BrushStroke              : QPaintEngine.PaintEngineFeature = ... # 0x800
-        ConstantOpacity          : QPaintEngine.PaintEngineFeature = ... # 0x1000
-        MaskedBrush              : QPaintEngine.PaintEngineFeature = ... # 0x2000
-        PerspectiveTransform     : QPaintEngine.PaintEngineFeature = ... # 0x4000
-        BlendModes               : QPaintEngine.PaintEngineFeature = ... # 0x8000
-        ObjectBoundingModeGradients: QPaintEngine.PaintEngineFeature = ... # 0x10000
-        RasterOpModes            : QPaintEngine.PaintEngineFeature = ... # 0x20000
-        PaintOutsidePaintEvent   : QPaintEngine.PaintEngineFeature = ... # 0x20000000
-        AllFeatures              : QPaintEngine.PaintEngineFeature = ... # 0xffffffff
+        PrimitiveTransform        = ...  # 0x1
+        PatternTransform          = ...  # 0x2
+        PixmapTransform           = ...  # 0x4
+        PatternBrush              = ...  # 0x8
+        LinearGradientFill        = ...  # 0x10
+        RadialGradientFill        = ...  # 0x20
+        ConicalGradientFill       = ...  # 0x40
+        AlphaBlend                = ...  # 0x80
+        PorterDuff                = ...  # 0x100
+        PainterPaths              = ...  # 0x200
+        Antialiasing              = ...  # 0x400
+        BrushStroke               = ...  # 0x800
+        ConstantOpacity           = ...  # 0x1000
+        MaskedBrush               = ...  # 0x2000
+        PerspectiveTransform      = ...  # 0x4000
+        BlendModes                = ...  # 0x8000
+        ObjectBoundingModeGradients = ...  # 0x10000
+        RasterOpModes             = ...  # 0x20000
+        PaintOutsidePaintEvent    = ...  # 0x20000000
+        AllFeatures               = ...  # 0xffffffff
 
     class PolygonDrawMode(enum.Enum):
 
@@ -6246,9 +6246,9 @@ class QPointList(object): ...
 class QPointerEvent(PySide6.QtGui.QInputEvent):
 
     @typing.overload
-    def __init__(self, arg__1: PySide6.QtGui.QPointerEvent, /) -> None: ...
-    @typing.overload
     def __init__(self, type: PySide6.QtCore.QEvent.Type, dev: PySide6.QtGui.QPointingDevice, /, modifiers: PySide6.QtCore.Qt.KeyboardModifier = ..., points: typing.Sequence[PySide6.QtGui.QEventPoint] = ...) -> None: ...
+    @typing.overload
+    def __init__(self, arg__1: PySide6.QtGui.QPointerEvent, /) -> None: ...
 
     def __repr__(self, /) -> str: ...
     def addPassiveGrabber(self, point: PySide6.QtGui.QEventPoint, grabber: PySide6.QtCore.QObject, /) -> bool: ...
@@ -7358,7 +7358,6 @@ class QRhiGraphicsPipeline(PySide6.QtGui.QRhiResource):
         def __init__(self, StencilOpState: PySide6.QtGui.QRhiGraphicsPipeline.StencilOpState, /) -> None: ...
 
         def __copy__(self, /) -> typing.Self: ...
-
 
     class TargetBlend(Shiboken.Object):
 
@@ -10004,11 +10003,11 @@ class QTextItem(Shiboken.Object):
 
     class RenderFlag(enum.Flag):
 
-        RightToLeft              : QTextItem.RenderFlag = ... # 0x1
-        Overline                 : QTextItem.RenderFlag = ... # 0x10
-        Underline                : QTextItem.RenderFlag = ... # 0x20
-        StrikeOut                : QTextItem.RenderFlag = ... # 0x40
-        Dummy                    : QTextItem.RenderFlag = ... # 0xffffffff
+        RightToLeft               = ...  # 0x1
+        Overline                  = ...  # 0x10
+        Underline                 = ...  # 0x20
+        StrikeOut                 = ...  # 0x40
+        Dummy                     = ...  # 0xffffffff
 
 
     def __init__(self, /) -> None: ...
