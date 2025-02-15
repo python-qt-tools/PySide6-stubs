@@ -19,7 +19,7 @@ PATH_STUBS_SHIBOKEN6 = BASE_DIR / 'shiboken6-stubs'
 
 PLATFORM_WINDOWS = "win_amd64"
 PLATFORM_LINUX   = "manylinux_2_28_x86_64"
-PLATFORM_MACOSX  = "macosx_11_0_universal2"
+PLATFORM_MACOSX  = "macosx_12_0_universal2"
 
 BRANCH_WINDOWS = 'upstream-pyside6-windows'
 BRANCH_LINUX   = 'upstream-pyside6-linux'
