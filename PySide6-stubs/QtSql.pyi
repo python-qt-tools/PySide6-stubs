@@ -14,7 +14,7 @@ import PySide6.QtCore
 import PySide6.QtWidgets
 
 import enum
-from typing import Any, ClassVar, Dict, List, Optional, Type, Union, overload
+from typing import Any, ClassVar, Dict, List, Optional, Required, Type, Union, overload
 from PySide6.QtCore import Signal
 from shiboken6 import Shiboken
 from typing import TypeAlias, TypeVar
