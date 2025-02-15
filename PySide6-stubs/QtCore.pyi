@@ -20,6 +20,7 @@ import datetime
 
 NoneType = type(None)
 
+__version__: str
 
 class ClassInfo(object):
 

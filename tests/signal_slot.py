@@ -1,6 +1,6 @@
 from typing import List, ClassVar, TYPE_CHECKING
 
-from PySide6.QtCore import Signal, QObject, QMetaObject, SIGNAL, SLOT, Qt
+from PySide6.QtCore import Signal, QObject, QMetaObject, SIGNAL, SLOT, Qt, __version__
 from PySide6.QtWidgets import QScrollBar
 
 
@@ -68,13 +68,16 @@ assert type(connection) == QMetaObject.Connection
 instance.valueChanged.emit(33)
 assert instance.emitted == ['my_slot_int']
 
-# disconnect
-b = instance.valueChanged.disconnect(instance.my_slot_int)
-assert type(b) is bool
-assert b
-instance.valueChanged.emit(33)
-assert instance.emitted == []
+if __version__ < '6.8':
+    # disconnect
+    b = instance.valueChanged.disconnect(instance.my_slot_int)
+    assert type(b) is bool
+    # pyside 6.8.* has a bug preventing this to work properly
+    assert b
+    instance.valueChanged.emit(33)
+    assert instance.emitted == []
 
+instance = SomeClassWithSignal()
 
 # Connect through QObject static method, using SIGNAL + python functions
 connection = QObject.connect(instance, SIGNAL('valueChanged(int)'), instance.my_slot_int, Qt.ConnectionType.DirectConnection)
@@ -83,11 +86,14 @@ instance.valueChanged.emit(33)
 assert instance.emitted == ['my_slot_int']
 
 # disconnect
-b = instance.valueChanged.disconnect(instance.my_slot_int)
-assert type(b) is bool
-assert b
-instance.valueChanged.emit(33)
-assert instance.emitted == []
+if __version__ < '6.8':
+    b = instance.valueChanged.disconnect(instance.my_slot_int)
+    assert type(b) is bool
+    assert b
+    instance.valueChanged.emit(33)
+    assert instance.emitted == []
+
+instance = SomeClassWithSignal()
 
 # Connect through QObject instance method, using SIGNAL + python functions
 connection = instance.connect(SIGNAL('valueChanged(int)'), instance.my_slot_int, Qt.ConnectionType.DirectConnection)

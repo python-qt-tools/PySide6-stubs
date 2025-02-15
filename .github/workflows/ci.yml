@@ -23,7 +23,7 @@ jobs:
           # latest version of everything
           - python-version: "3.12"
             mypy-version: "1.15"
-            pyside6-version: "6.7.3"
+            pyside6-version: "6.8.2.1"
 
     steps:
     - uses: actions/checkout@v3
