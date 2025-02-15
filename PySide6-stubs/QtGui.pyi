@@ -7124,6 +7124,50 @@ class QRhiD3D11InitParams(PySide6.QtGui.QRhiInitParams):
     @overload
     def __init__(self) -> None: ...
     @overload
+    def __init__(self, QRhiD3D11InitParams: PySide6.QtGui.QRhiD3D11InitParams) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+
+
+class QRhiD3D11NativeHandles(PySide6.QtGui.QRhiNativeHandles):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, QRhiD3D11NativeHandles: PySide6.QtGui.QRhiD3D11NativeHandles) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+
+
+class QRhiD3D12InitParams(PySide6.QtGui.QRhiInitParams):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, QRhiD3D12InitParams: PySide6.QtGui.QRhiD3D12InitParams) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+
+
+class QRhiD3D12NativeHandles(PySide6.QtGui.QRhiNativeHandles):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, QRhiD3D12NativeHandles: PySide6.QtGui.QRhiD3D12NativeHandles) -> None: ...
+
+    @staticmethod
+    def __copy__() -> None: ...
+
+
+class QRhiDepthStencilClearValue(Shiboken.Object):
+
+    @overload
+    def __init__(self) -> None: ...
+    @overload
     def __init__(self, QRhiDepthStencilClearValue: PySide6.QtGui.QRhiDepthStencilClearValue) -> None: ...
     @overload
     def __init__(self, d: float, s: int) -> None: ...

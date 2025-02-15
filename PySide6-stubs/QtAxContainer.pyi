@@ -71,17 +71,6 @@ class QAxBaseObject(PySide6.QtCore.QObject, PySide6.QtAxContainer.QAxObjectInter
     propertyChanged          : ClassVar[Signal] = ... # propertyChanged(QString)
     signal                   : ClassVar[Signal] = ... # signal(QString,int,void*)
 
-    exception: PySide6.QtCore.Signal
-    propertyChanged: PySide6.QtCore.Signal
-    signal: PySide6.QtCore.Signal
-
-
-
-class QAxBaseWidget(PySide6.QtWidgets.QWidget, PySide6.QtAxContainer.QAxObjectInterface):
-
-    exception: PySide6.QtCore.Signal
-    propertyChanged: PySide6.QtCore.Signal
-    signal: PySide6.QtCore.Signal
 
 class QAxBaseWidget(PySide6.QtWidgets.QWidget, PySide6.QtAxContainer.QAxObjectInterface):
 
