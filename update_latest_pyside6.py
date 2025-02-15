@@ -124,6 +124,6 @@ if __name__ == "__main__":
     incoming.mkdir(exist_ok=True)
 
     # Download required packages
-    download_stubs(incoming, PLATFORM_WINDOWS, BRANCH_WINDOWS)
-    download_stubs(incoming, PLATFORM_LINUX, BRANCH_LINUX)
+    #download_stubs(incoming, PLATFORM_WINDOWS, BRANCH_WINDOWS)
+    #download_stubs(incoming, PLATFORM_LINUX, BRANCH_LINUX)
     download_stubs(incoming, PLATFORM_MACOSX, BRANCH_MACOSX)
