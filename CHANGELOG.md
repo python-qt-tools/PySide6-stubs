@@ -1,12 +1,17 @@
 
 
-In development
+Version 6.7.3.0 
 ==============
-* Allow QtWidgets layout class constructor with parent as None
-* Better description of QtCore.Slot()
-* fix QObject.inherits() type signature
-* fix QStateMachine.assignProperty() type signature
-* add description of all public variables
+* Synchronize stubs with upstream PySide6 6.7.3
+* add typing information for all properties
+* Allow `QGridLayout`, `QHBoxLayout` and `QVBoxLayout` to accept parent as None
+* Make `QtCore.Slot()` verify its arguments and return value
+* fix `QObject.inherits()` type signature to accept string
+* fix `QStateMachine.assignProperty()` type signature
+* fix `QObject.findChildren()` and `QObject.findChild()` to detect that type being returned is the one being searched
+* fix many methods in QtCore incorrectly declared to accept bytes instead of string, like `QTimer.singleShot()`
+* fix `QColumnView`, `QHeaderView`, `QTreeView` and more to accept None as model argument in `setModel()`
+* allow `QProcess.ExitStatus.NormalExit.value` to be seen as `int`
 
 Version 6.4.2.0 
 ===============

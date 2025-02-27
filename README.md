@@ -10,7 +10,7 @@ official stubs delivered along with PySide6 are reasonably good but may be incom
 for proper typing verification with `mypy`.
 
 ### Notable improvements:
-* add all missing signals to the stubs (many were missing)
+* add typing information for all properties
 * add conversion from `QByteArray` to `bytes`
 * add construction of `QByteArray` from length and string
 * fix `QFileDialog.getOpen*()` methods to accept `None` as parent argument
@@ -28,6 +28,7 @@ for proper typing verification with `mypy`.
   of `bool`, and to return `bool` on disconnect.
 * fix incorrect signature of `QCoreApplication.translate()`
 * improve signature of operations on `QPolygon`
+* fix `QObject.findChildren()` and `QObject.findChild()` to detect that type being returned is the one being searched
 
 
 See [CHANGELOG.md](CHANGELOG.md) for full details.
