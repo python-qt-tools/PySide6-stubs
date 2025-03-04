@@ -1,4 +1,9 @@
 
+(in development)
+================
+* `QModelIndex.constInternalPointer()` should be `Any`
+* `QDBusConnection.internalPointer()` and `QDBusConnection.constInternalPointer()` should be `Any`
+
 
 Version 6.7.3.0 
 ==============
