@@ -60,6 +60,12 @@ If you notice incorrect or missing typing information (mypy reports errors event
 here with the following steps:
 
 * create an issue showing your problem
-* even better, create a PR to fix the problem. See CONTRIBUTING.md for details.
+* even better, create a PR to fix the problem. See [CONTRIBUTING.md] for details.
+
+You can also report typing issues directly to PySide here: https://bugreports.qt.io/secure/CreateIssue!default.jspa
+
+We track the list of issues reported to Qt here: [PYSIDE6_ISSUES.md]
+
+
 
 

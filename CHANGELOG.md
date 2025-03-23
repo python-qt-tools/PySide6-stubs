@@ -1,4 +1,5 @@
 
+
 (in development)
 ================
 * `QModelIndex.constInternalPointer()` should be `Any`
