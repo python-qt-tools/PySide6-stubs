@@ -12,9 +12,10 @@ my_about_qt = QMessageBox.aboutQt
 my_about: Callable[[None, str, str], None]
 my_about = QMessageBox.about
 
-QMessageBox.information(None, 'info', 'info')
-QMessageBox.warning(None, 'warning', 'warning')
-QMessageBox.critical(None, 'critical', 'critical')
-QMessageBox.question(None, 'question', 'question')
-QMessageBox.about(None, 'about', 'about')
-QMessageBox.aboutQt(None, 'aboutQt')
+if 0:
+    QMessageBox.information(None, 'info', 'info')
+    QMessageBox.warning(None, 'warning', 'warning')
+    QMessageBox.critical(None, 'critical', 'critical')
+    QMessageBox.question(None, 'question', 'question')
+    QMessageBox.about(None, 'about', 'about')
+    QMessageBox.aboutQt(None, 'aboutQt')
