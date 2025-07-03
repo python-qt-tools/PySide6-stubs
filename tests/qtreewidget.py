@@ -13,3 +13,6 @@ t.setItemWidget(item, 0, None)
 # default type returned by topLevelItem() should allow None value
 topItem = None
 
+t.setCurrentItem(None)
+current_item = t.currentItem()
+current_item = None
