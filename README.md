@@ -44,9 +44,17 @@ As a derived work from PySide6, the stubs are delivered under the LGPL v2.1 . Se
 
 # Installation
 
-Install from pypi:
+Install the stubs with pip:
 
     $ pip install PySide6-stubs
+
+To have the dependency resolver enforce the declared PySide6 version
+compatibility constraints, select the `pyside6` extra:
+
+    $ pip install "PySide6-stubs[pyside6]"
+
+Selecting this extra may also cause pip to install or change PySide6 as a side
+effect of satisfying those constraints.
 
 
 If you want to install the stable development version from the Git repository:

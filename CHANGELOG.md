@@ -2,6 +2,7 @@
 
 (in development)
 ================
+* Make the PySide6 version compatibility constraint optional through the `pyside6` extra.
 * `QModelIndex.constInternalPointer()` should be `Any`
 * `QDBusConnection.internalPointer()` and `QDBusConnection.constInternalPointer()` should be `Any`
 * `QInputDialog.getText()`, `getInt()`, `getFloat()`, `getMultiLineText()`, `getItem()` accept `None`as parent argument
